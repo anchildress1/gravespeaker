@@ -1,0 +1,15 @@
+- that post is old. I tried to deploy gemma to cloud run already and you could not get it to work without increasing quota. that request was denied.
+- for now, we'll accept the inaccuracy and leave corrections to v2. update @docs/PRD.md 
+- delete obsolete artifacts that are not testing or benchmarks
+- let's test on E4B and E2B with same prompt
+- make sure you're grounded in search results for gemma 4 prompt techniques and we're aligned on what that is. i will review prompts once outputs are stable.
+
+---
+
+<task-notification>
+<task-id>b5yjg8svu</task-id>
+<tool-use-id>toolu_01RbgD6429aVxetL6FYHs7t8</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b5yjg8svu.output</output-file>
+<status>completed</status>
+<summary>Background command "Download Gemma 4 E4B for a local test" completed (exit code 0)</summary>
+</task-notification>
