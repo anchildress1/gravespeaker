@@ -66,6 +66,37 @@
         "label": "Skill: generate-commit-message",
         "default_collapsed": true
       }
+    },
+    {
+      "id": "claude-skill-toolu_01U4trWTBuYWz4aE7aFNMzPt",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "artifact-capabilities"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "0dbde0fa5a6d",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1024,
+        "end": 1025,
+        "entry_ids": [
+          "5b6f45cf-edf5-4270-aabb-0d9116c5335f"
+        ],
+        "tool_use_id": "toolu_01U4trWTBuYWz4aE7aFNMzPt"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01U4trWTBuYWz4aE7aFNMzPt"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: artifact-capabilities",
+        "default_collapsed": true
+      }
     }
   ],
   "session_metrics": {
