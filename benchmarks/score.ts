@@ -87,13 +87,13 @@ function nameTokens(name: string | null | undefined): string {
  * Counts correct name/born/died fields. A wrong name zeroes that person's dates.
  * @param expected Ground-truth people.
  * @param got People the model returned.
- * @returns Correct and total field counts.
+ * @returns Correct and total field counts, plus returned people that match no one on the stone.
  */
 function peopleScore(
 	expected: Person[],
 	got: Partial<Person>[]
-): { correct: number; total: number } {
-	if (!expected.length) return { correct: got.length ? 0 : 1, total: 1 };
+): { correct: number; total: number; extra: number } {
+	if (!expected.length) return { correct: got.length ? 0 : 1, total: 1, extra: got.length };
 	const pool = [...got];
 	let correct = 0;
 	for (const p of expected) {
@@ -102,7 +102,7 @@ function peopleScore(
 		if (!q) continue;
 		correct += 1 + Number((q.born ?? null) === p.born) + Number((q.died ?? null) === p.died);
 	}
-	return { correct, total: expected.length * 3 };
+	return { correct, total: expected.length * 3, extra: pool.length };
 }
 
 const manifest: Fixture[] = JSON.parse(
@@ -114,13 +114,29 @@ for (const path of process.argv.slice(2)) rows.push(...JSON.parse(await readFile
 
 const agg = new Map<
 	string,
-	{ calls: number; ms: number; errors: number; text: number; correct: number; total: number }
+	{
+		calls: number;
+		ms: number;
+		errors: number;
+		text: number;
+		correct: number;
+		total: number;
+		extra: number;
+	}
 >();
 const cells = new Map<string, string>();
 for (const r of rows) {
 	const f = byFile.get(r.file);
 	if (!f) continue;
-	const a = agg.get(r.model) ?? { calls: 0, ms: 0, errors: 0, text: 0, correct: 0, total: 0 };
+	const a = agg.get(r.model) ?? {
+		calls: 0,
+		ms: 0,
+		errors: 0,
+		text: 0,
+		correct: 0,
+		total: 0,
+		extra: 0
+	};
 	agg.set(r.model, a);
 	a.calls++;
 	a.ms += r.ms;
@@ -133,7 +149,11 @@ for (const r of rows) {
 	const s = peopleScore(f.people, Array.isArray(r.got.people) ? r.got.people : []);
 	a.correct += s.correct;
 	a.total += s.total;
-	cells.set(`${r.file}|${r.model}`, `${s.correct}/${s.total}`);
+	a.extra += s.extra;
+	cells.set(
+		`${r.file}|${r.model}`,
+		`${s.correct}/${s.total}${s.extra ? ` +${s.extra} extra` : ''}`
+	);
 }
 
 const models = [...agg.keys()];
@@ -157,5 +177,6 @@ line([
 	'Text similarity',
 	...stats.map((a) => `${((100 * a.text) / (a.calls - a.errors)).toFixed(1)}%`)
 ]);
+line(['Extra people (not on the stone)', ...stats.map((a) => String(a.extra))]);
 line(['Errors', ...stats.map((a) => String(a.errors))]);
 line(['Avg time per photo', ...stats.map((a) => `${(a.ms / a.calls / 1000).toFixed(1)} s`)]);

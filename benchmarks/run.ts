@@ -7,6 +7,8 @@ interface Prompt {
 	user: string;
 	sampling: { temperature: number; topP?: number; topK?: number };
 	schema?: object;
+	// Gemini API only; Ollama ignores it.
+	mediaResolution?: string;
 }
 
 interface Row {
@@ -48,6 +50,7 @@ async function hosted(model: string, img: string): Promise<string> {
 				],
 				generationConfig: {
 					...P.sampling,
+					...(P.mediaResolution && { mediaResolution: P.mediaResolution }),
 					...(P.schema && { responseMimeType: 'application/json', responseJsonSchema: P.schema })
 				}
 			}),
