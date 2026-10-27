@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_01KmbbC4g6bGi7zeC8t8v7KP",
+  "agent_id": "aedbddd8f5dc39f08",
+  "subagent_type": "general-purpose",
+  "task_description": "Find more headstone fixture images",
+  "token_usage": {
+    "input_tokens": 42,
+    "cache_creation_tokens": 183688,
+    "cache_read_tokens": 2354577,
+    "output_tokens": 19721,
+    "api_call_count": 20
+  },
+  "started_at": "2026-10-27T12:55:42.38516-07:00",
+  "completed_at": "2026-10-27T13:03:22.989003-07:00"
+}

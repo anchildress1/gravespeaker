@@ -1,0 +1,62 @@
+<task-notification>
+<task-id>aedbddd8f5dc39f08</task-id>
+<tool-use-id>toolu_01KmbbC4g6bGi7zeC8t8v7KP</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/aedbddd8f5dc39f08.output</output-file>
+<status>completed</status>
+<summary>Agent "Find more headstone fixture images" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>I found and staged all 12. Every image was transcribed from the stone itself, and on two stones the carving disagrees with the Commons file title. All 12 are `reviewed: false`.
+
+All files and `draft-manifest.json` are in `/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/a78fbb29-c412-483a-b679-0722adb27f13/scratchpad/new-fixtures/`. Each image is the original, resized to 1920 px on the long edge as JPEG. I only read from the repo.
+
+## Fixtures
+
+| File | Era | Diff | Person + dates | What it tests | Doubt |
+|---|---|---|---|---|---|
+| luxford-2015 | recent | clean | Robert E. Luxford, 1934 – 2015 | Navy granite flat with carved phone and fireworks | none |
+| morgan-2019 | recent | clean | Daisy M. Morgan, 1929-04-28 – 2019-01-18 | plain granite flat | none |
+| waechter-2012 | recent | weathered | Martin Waechter, 1943-03-07 – 2012-01-31 | sepia photo, moss, low contrast | zoomed to confirm "WAECHTER", none left |
+| mills-2015 | recent | edge | Joshua John Mills, 1979-07-21 – 2015-01-07 | upright with two photos, relatives line, quoted epitaph | tulips cover the epitaph: written as `"You will [?] [?] missed."` (only "…ver" is visible); "Brother" is partly behind a stem |
+| hall-2014 | recent | clean | James Kenneth Hall, 1940-07-23 – 1940/2014 numeric dates `7/23/1940 – 3/18/2014` | granite upright, sepia | none |
+| juntunen-2012 | recent | clean | Troy Leonard Juntunen, 1967-01-28 – 2012-08-03 | relatives epitaph and an OSU logo | the logo is left out of `text` |
+| dixon-2018 | recent | clean | Lloyd Dee Dixon, 1943-07-11 – 2018-05-26 | VA bronze marker (SSG, Vietnam) | none; the plaque is small in the frame |
+| schreiber-2012 | recent | edge | Tyson Lee Schreiber, 1992-08-21 – 2012-02-12 | angled shot, cluttered grave, faint etched dates, "Our Beloved Son &amp; Brother" | the digits "1992" and "2012" are low contrast but readable when zoomed; a painted sign reading "Tyson Schreiber" is not stone and is left out of `text` |
+| hawks-2017 | recent | clean | Gaynor Claire Hawks, 1932-03-10 – 2017-12-27 | brass plaque with maiden name and places of birth and death | **trap:** the file title says "Clire" but the plaque says "Claire"; "née Staples" is in `text` but not in `name` |
+| hayden-1993 | historic | clean | Jasper "Bub" Hayden, 1907 – 1993 | quoted nickname; "Father" sits between the years | none |
+| bell-1994 | historic | weathered | Russell O Bell, 1924-09-24 – 1994-02-08 | VA bronze, WWII, Purple Heart | **trap:** the file title says 1914 but the stone says **1924** (confirmed on a crop); calling it "weathered" is generous, it is tarnished bronze |
+| doran-2008 | historic | clean | Bruce Doran, 1934-05-31 – 2008-03-28 | flat stone with veteran sticker, relatives line | grass debris over "Beloved"; still readable |
+
+- **Mix:** 9 recent and 3 historic; 8 clean, 2 weathered, 2 edge.
+- **Multi-person stones:** none. All 12 are single-person.
+- **Variety covered:** VA markers (Dixon, Bell), bronze and brass (Dixon, Bell, Hawks), uprights (Hall, Mills), photo and epitaph (Mills), quoted nickname (Hayden), relatives named (Mills, Juntunen, Schreiber, Doran).
+- **License weakness:** all 12 are by Rick Obst under CC BY 2.0, so the set has no variety of photographer or source. License and author were taken from Commons `extmetadata`. I stripped "from Eugene, United States" from the author field and normalised "RickObst" to "Rick Obst".
+
+## Notability check
+
+I ran the English Wikipedia search API twice per person: once on the full name plus both years, and once on the exact quoted full name. I also checked short-name page titles, and scanned each Commons file's categories.
+
+- **Quoted full name:** 0 hits for 11 of the 12.
+  - "Jasper Hayden" got 1 hit, a Helpmann Award list. That is a modern Australian actor and a namesake.
+  - "Bruce Doran" got 4 hits on unrelated pages, with no article.
+- **Name plus years:** only unrelated pages came back.
+- **Short-name titles:** no page exists for Robert Luxford, Daisy Morgan, Martin Waechter, Troy Juntunen, Lloyd Dixon, Tyson Schreiber, Gaynor Hawks, Jasper Hayden, Russell O. Bell or Bruce Doran.
+- **Namesakes (allowed, worth noting as identity traps):**
+  - "James Hall" is a disambiguation page with no 1940–2014 entry.
+  - "Joshua Mills" is a disambiguation page with no 1979–2015 entry.
+  - "Russell Bell" redirects to Stringer Bell, a fictional character.
+- **Commons categories:** none link to Wikipedia. They are only the cemetery, license and Flickr-review categories.
+
+## Rejected candidates
+
+- **Holmquist (2024):** two people (Marsha Fox and Charles Ray).
+- **Charles R. Smith (2011):** shared VA marker with Helene L. Smith.
+- **Sedell (2011):** shared stone with Lola M.
+- **Tucci (1994):** shared stone, and moss hides James's dates.
+- **Louis R. Mann (2004):** Hebrew lines on the stone.
+- **Ernest Schwerin (2010):** the author is listed as "Darryl Rowles at Findagrave", so the license claim is dubious.
+- **Hoyle, Saul, Connon, Gray, Husted, Sweeney:** all usable. I left them out only to balance the mix; they are good spares.
+- **Unviewed spares:** Hudson, Dreiling, Stone, Jennings, Trujillo, Powell, Goldenberg, Harnsongkram, McAuley, Klinghammer, Jensen, Mark Johnson and Neff were downloaded but never viewed or checked.
+
+Downloads and crops are kept in `scratchpad/raw/`, `scratchpad/cand/` and `scratchpad/crops/` in case you want to swap any fixture.</result>
+<usage><subagent_tokens>186147</subagent_tokens><tool_uses>40</tool_uses><duration_ms>460701</duration_ms></usage>
+</task-notification>
