@@ -1,0 +1,250 @@
+This will be a tightly scoped project that I do not have time to build and am already a day behind. Your first goal is to scaffold the repo, while asking me clarifying questions that are not already determined by the following PRD. First, generate a CLAUDE.md file written for AI audience only, no human readers, that defines rules we need for this repo:
+
+1. Do not overbuild. This is a MVP POC and should function as one
+2. Do not overtest or build useless tests designed to improve coverage. All tests should test functional logic in the codebase. Nothing more.
+3. You are expected to follow SOLID, KISS, YAGNI at all times
+4. Do NOT overdocument with inline comments. Only when explaining why a decision was made should comments live inside the repo. Else omit.
+5. JSdocs are required for all functions and classes
+
+
+
+This is a typescript project and will use node 26 latest version. ground yourself in a search for that, there's a vulnerability in previous ones.
+
+PRD that you can improve on, but it should be stored in the repo docs/PRD.md file
+# Gravespeaker
+**Every stone has a story. Let it speak.**
+
+*Photograph a headstone. Discover a life. Hear the story the records left behind.*
+
+**Project:** Hacktoberfest 2026, Week 4: Ghost in the Machine  
+**Deadline:** October 31, 2026, 11:59 PM PDT  
+**Status:** Pre-development / MVP planning
+
+## 1. Vision
+
+Gravespeaker is a mobile-friendly web application that brings historical lives back into focus.
+
+Users photograph a gravestone or upload an existing image. AI extracts identifying details, searches publicly accessible historical records, and reconstructs the deceased person's story in first person, as though they're speaking from beyond the grave.
+
+The experience should feel mysterious and personal while remaining historically responsible.
+
+**Core principle:** Resurrect the story, not invent the person.
+
+## 2. MVP User Journey
+
+1. **Capture or upload:** Photograph a gravestone or select an existing image.
+2. **Identify:** AI extracts names, dates, inscriptions and other useful information. User can review and correct the results.
+3. **Research:** Search obituaries, cemetery records, historical archives and indexed public information.
+4. **Verify:** Cross-reference names, dates and geographic details. Allow the user to confirm an uncertain identity.
+5. **Resurrect:** Generate a short, first-person historical narrative grounded in verified records.
+6. **Explore:** Display source links and distinguish documented facts from AI reconstruction.
+
+If credible information cannot be found, acknowledge the limitation. Never fill historical gaps with fabricated claims.
+
+## 3. Technical Direction
+
+| Component | Preliminary choice |
+|---|---|
+| Frontend | Svelte + Vite, responsive web |
+| Backend | Node.js / TypeScript |
+| AI orchestration | Mastra |
+| Vision and OCR | Gemma 4 via Google Gemini API |
+| Historical search | SerpApi |
+| Narrative generation | Gemma 4 |
+| Hosting | Google Cloud Run |
+| Optional narration | ElevenLabs |
+| Builder | Claude Code |
+| Development tracking | Entire |
+
+Keep components replaceable, particularly model inference and search providers.
+
+No self-hosted models unless benchmarks demonstrate a compelling advantage.
+
+## 4. Key Engineering Challenges
+
+**Headstone recognition**
+- Weathered stone, damaged inscriptions, shadows, unusual typography and partial dates.
+- Evaluate actual recognition accuracy rather than assuming a vision model performs well.
+
+**Historical identity resolution**
+- Common names, incomplete records, contradictory dates and similarly named individuals.
+- Use multiple identity signals and explicit uncertainty. Never silently combine different people's histories.
+
+**Source discovery and reliability**
+- Public availability does not guarantee unrestricted reuse.
+- Respect access restrictions, provenance, licensing and unavailable records.
+- Every substantive historical claim must be traceable to supporting evidence.
+
+**First-person storytelling**
+- Atmospheric and engaging without inventing relationships, events, memories, thoughts or emotions.
+- Clearly label narratives as AI-generated historical reconstructions.
+- Exclude unnecessary sensitive details about living individuals.
+
+**Model selection**
+- Benchmark Gemma 4 against a closed Gemini model on identical test inputs.
+- Evaluate OCR accuracy, factual grounding, unsupported claims, latency and cost.
+- Consider specialized open OCR only if testing supports the additional integration.
+
+## 5. Open Innovation and Challenge Alignment
+
+The open-weight model must meaningfully contribute to the finished application, not exist merely for challenge eligibility.
+
+**Thesis for the DEV post:**
+
+> The value of open innovation isn't that we refused to use closed AI. It's that we could independently test, choose, and improve the technology instead of accepting one provider's answer as the only option.
+
+Document where the open approach performs better, matches a closed alternative, or exposes tradeoffs. Support conclusions with actual benchmarks and reproducible examples.
+
+Focus the post on the problem, engineering decisions, real discoveries, failure cases and the value of making forgotten histories more accessible.
+
+## 6. Scope Boundaries
+
+**Required**
+- Functional mobile-friendly website
+
+---
+
+1. 80% coverage is goal, but not requirement. We want functional unit tests for all pos/neg/err/edge scenarios that are likely to happen or have already happened. Modify rule 2 to meet coverage goal. tests aren't written SOLELY for coverage.
+2. PRD is pasted again below
+3. yes. create remote.
+4. PR is fine
+5. noted
+
+
+# Gravespeaker
+**Every stone has a story. Let it speak.**
+
+*Photograph a headstone. Discover a life. Hear the story the records left behind.*
+
+**Project:** Hacktoberfest 2026, Week 4: Ghost in the Machine  
+**Deadline:** October 31, 2026, 11:59 PM PDT  
+**Status:** Pre-development / MVP planning
+
+## 1. Vision
+
+Gravespeaker is a mobile-friendly web application that brings historical lives back into focus.
+
+Users photograph a gravestone or upload an existing image. AI extracts identifying details, searches publicly accessible historical records, and reconstructs the deceased person's story in first person, as though they're speaking from beyond the grave.
+
+The experience should feel mysterious and personal while remaining historically responsible.
+
+**Core principle:** Resurrect the story, not invent the person.
+
+## 2. MVP User Journey
+
+1. **Capture or upload:** Photograph a gravestone or select an existing image.
+2. **Identify:** AI extracts names, dates, inscriptions and other useful information. User can review and correct the results.
+3. **Research:** Search obituaries, cemetery records, historical archives and indexed public information.
+4. **Verify:** Cross-reference names, dates and geographic details. Allow the user to confirm an uncertain identity.
+5. **Resurrect:** Generate a short, first-person historical narrative grounded in verified records.
+6. **Explore:** Display source links and distinguish documented facts from AI reconstruction.
+
+If credible information cannot be found, acknowledge the limitation. Never fill historical gaps with fabricated claims.
+
+## 3. Technical Direction
+
+| Component | Preliminary choice |
+|---|---|
+| Frontend | Svelte + Vite, responsive web |
+| Backend | Node.js / TypeScript |
+| AI orchestration | Mastra |
+| Vision and OCR | Gemma 4 via Google Gemini API |
+| Historical search | SerpApi |
+| Narrative generation | Gemma 4 |
+| Hosting | Google Cloud Run |
+| Optional narration | ElevenLabs |
+| Builder | Claude Code |
+| Development tracking | Entire |
+
+Keep components replaceable, particularly model inference and search providers.
+
+No self-hosted models unless benchmarks demonstrate a compelling advantage.
+
+## 4. Key Engineering Challenges
+
+**Headstone recognition**
+- Weathered stone, damaged inscriptions, shadows, unusual typography and partial dates.
+- Evaluate actual recognition accuracy rather than assuming a vision model performs well.
+
+**Historical identity resolution**
+- Common names, incomplete records, contradictory dates and similarly named individuals.
+- Use multiple identity signals and explicit uncertainty. Never silently combine different people's histories.
+
+**Source discovery and reliability**
+- Public availability does not guarantee unrestricted reuse.
+- Respect access restrictions, provenance, licensing and unavailable records.
+- Every substantive historical claim must be traceable to supporting evidence.
+
+**First-person storytelling**
+- Atmospheric and engaging without inventing relationships, events, memories, thoughts or emotions.
+- Clearly label narratives as AI-generated historical reconstructions.
+- Exclude unnecessary sensitive details about living individuals.
+
+**Model selection**
+- Benchmark Gemma 4 against a closed Gemini model on identical test inputs.
+- Evaluate OCR accuracy, factual grounding, unsupported claims, latency and cost.
+- Consider specialized open OCR only if testing supports the additional integration.
+
+## 5. Open Innovation and Challenge Alignment
+
+The open-weight model must meaningfully contribute to the finished application, not exist merely for challenge eligibility.
+
+**Thesis for the DEV post:**
+
+> The value of open innovation isn't that we refused to use closed AI. It's that we could independently test, choose, and improve the technology instead of accepting one provider's answer as the only option.
+
+Document where the open approach performs better, matches a closed alternative, or exposes tradeoffs. Support conclusions with actual benchmarks and reproducible examples.
+
+Focus the post on the problem, engineering decisions, real discoveries, failure cases and the value of making forgotten histories more accessible.
+
+## 6. Scope Boundaries
+
+**Required**
+- Functional mobile-friendly website
+- Camera and image upload
+- AI inscription extraction with user correction
+- Public-record search and identity verification
+- Source-grounded first-person biography
+- Clickable citations
+- Small reproducible model evaluation
+- Deployed public demo
+
+**Stretch**
+- ElevenLabs voice narration
+- Additional historical record providers
+- Specialized OCR model fallback
+- Enhanced atmospheric animations
+
+**Explicitly excluded**
+- User accounts or authentication
+- Family trees and genealogical graph exploration
+- Cemetery navigation and maps
+- Native Android or iOS applications
+- Custom model hosting
+- Persistent user profiles and photo libraries
+
+## 7. Preliminary Schedule
+
+| Date | Focus | Milestone |
+|---|---|---|
+| **Tue, Oct 27** | Repo, strict `AGENTS.md`, Entire setup, scaffold | Development foundation |
+| **Wed, Oct 28** | Upload/camera, Gemma vision, extracted fields | Working headstone identification |
+| **Thu, Oct 29** | SerpApi, Mastra workflow, identity matching | Working historical research |
+| **Fri, Oct 30** | Narrative, citations, model comparison, Cloud Run | Public end-to-end demo |
+| **Sat, Oct 31** | DEV post, screenshots, final verification | Challenge submitted |
+
+Schedule accommodates GitHub Universe attendance. Prefer vertical slices and a deployable application at each milestone. Saturday is reserved primarily for documentation and submission, not essential development.
+
+## 8. Definition of Done
+
+A user can visit Gravespeaker on a phone, photograph or upload a real gravestone, confirm the extracted identity, and receive a readable first-person historical reconstruction with accessible source evidence.
+
+If the history cannot be reliably established, the application communicates that clearly.
+
+The project includes a working public demo, documented technical decisions, a meaningful open-versus-closed model comparison, and an engaging DEV submission.
+
+**Priority:** Complete one historically defensible end-to-end experience before adding features.
+
+---
+
+commit and push. then use /pr-comment-review and fix necessary parts. then merge to main.
