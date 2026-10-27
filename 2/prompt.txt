@@ -1,0 +1,30 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+review gate tightened
+delivery deadline reserve landed
+upload retry verified
+codex threads resolved
+release refs replace titles
+haikuera phrase fresh and
+sentry spans redacted
+analytics scope revoked
+stale tab conflict handled
+channel name copy fixed
+channel name flag fixed
+copilot claim disproved
+artist voice guide landed
+stat guard test verified
+squash merge landed
+brand guide merged
+scaffold toolchain pinned
+repo scaffold landed
+codeql read access added
+gitleaks version pinned
+entire hooks chained
+security hardening landed
+prd stretch scope updated
+serpapi secret provisioned
+readme claims backed prd
+
+Closing message:
+Dry run is clean: it only writes `.claude/skills/speckit-*` and `.specify/`, and leaves `CLAUDE.md` alone. Running it in the repo now.
