@@ -130,6 +130,7 @@ const agg = new Map<
 		ms: number;
 		errors: number;
 		text: number;
+		textN: number;
 		correct: number;
 		total: number;
 		extra: number;
@@ -145,6 +146,7 @@ for (const r of rows) {
 		ms: 0,
 		errors: 0,
 		text: 0,
+		textN: 0,
 		correct: 0,
 		total: 0,
 		extra: 0,
@@ -159,7 +161,11 @@ for (const r of rows) {
 		cells.set(`${r.file}|${r.model}`, r.error?.includes('Timeout') ? 'timeout' : 'bad JSON');
 		continue;
 	}
-	a.text += textScore(f.text, r.got.text);
+	// Prompts without a text field skip transcription scoring.
+	if ('text' in r.got) {
+		a.text += textScore(f.text, r.got.text);
+		a.textN++;
+	}
 	const s = peopleScore(f.people, Array.isArray(r.got.people) ? r.got.people : []);
 	a.correct += s.correct;
 	a.total += s.total;
@@ -189,7 +195,7 @@ line([
 ]);
 line([
 	'Text similarity',
-	...stats.map((a) => `${((100 * a.text) / (a.calls - a.errors)).toFixed(1)}%`)
+	...stats.map((a) => (a.textN ? `${((100 * a.text) / a.textN).toFixed(1)}%` : 'n/a'))
 ]);
 line(['Extra people (not on the stone)', ...stats.map((a) => String(a.extra))]);
 line(['Errors', ...stats.map((a) => String(a.errors))]);

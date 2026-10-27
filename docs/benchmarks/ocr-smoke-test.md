@@ -121,6 +121,18 @@ From run 4 on, every run is hosted `gemma-4-26b-a4b-it` at temperature 0 with a 
 - **Run 7 is a dead end.** A one-off probe at low resolution read 1818, but across all 8 stones it broke more than it fixed: Betsey Ellis came back named "\*years.\*", Hildebrand III returned broken JSON, and Cunningham picked up an extra person.
 - **Best prompt so far: run 6.** Every recent (2010+) stone scores 3/3 with no extra people. The one miss is a worn digit on an 1818 stone.
 
+### Run 8: speed
+
+Run 6's slowdown was the free-tier queue, not the prompt. The same request re-sent right after run 6 took 2.8–4.8 s, the model spent no tokens thinking, and image size didn't change the model's input token count. The only lever the prompt controls is output length, so run 8 drops the full-inscription `text` field ([`run8.json`](../../benchmarks/prompts/run8.json), [`run8-hosted-26b.json`](../../benchmarks/results/run8-hosted-26b.json)). The scorer now reports median time, which a single queue spike can't drag.
+
+| Run | Fields correct | Extra people | Median time | Avg time |
+| --- | -------------- | ------------ | ----------- | -------- |
+| 6   | 21/22 (95%)    | 0            | 5.5 s       | 6.5 s    |
+| 8   | 20/22 (91%)    | 1            | 3.4 s       | 3.3 s    |
+
+- Every named person read the same as in run 6.
+- Regression: the illegible stone came back as a person literally named `"[]"`. A name with no letters is easy to reject in the deterministic parsing layer, so this is a code fix, not a prompt one.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.
