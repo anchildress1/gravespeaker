@@ -1,0 +1,2 @@
+@fixtures/holmquist-2024.jpg this is an edge case. we'll run a test if the model can handle dual plots like this, but it is a non-goal if it cannot. we're not going to waste time on that.
+otherwise all are reviewed by me and marked true in manifest
