@@ -21,8 +21,7 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"test": "vitest run --coverage --passWithNoTests",
-		"test:e2e": "playwright test --pass-with-no-tests",
-		"perf": "pnpm dlx @lhci/cli@0.15.1 autorun"
+		"test:e2e": "playwright test --pass-with-no-tests"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "21.2.4",

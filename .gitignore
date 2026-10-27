@@ -26,5 +26,4 @@ test-results
 
 # Tooling output
 /coverage
-/.lighthouseci
 /playwright-report

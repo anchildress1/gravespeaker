@@ -3,7 +3,6 @@ node_modules
 .svelte-kit
 build
 coverage
-.lighthouseci
 playwright-report
 test-results
 .env
