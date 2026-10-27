@@ -1,6 +1,6 @@
 # 🔬 OCR smoke test: Gemma 4 vs Gemini Flash
 
-Two quick passes at the PRD question "can Gemma read a headstone?", both run on 2026-10-27 before any app code existed. These are throwaway scripts, not `scripts/benchmark.ts`. They measure transcription and field extraction only. Grounding, unsupported claims and cost per run come later with the real benchmark.
+Quick passes at the PRD question "can Gemma read a headstone?", all run on 2026-10-27 before any app code existed. These are throwaway scripts, not `scripts/benchmark.ts`. They measure transcription and field extraction only. Grounding, unsupported claims and cost per run come later with the real benchmark.
 
 ## Setup
 
@@ -14,6 +14,7 @@ Two quick passes at the PRD question "can Gemma read a headstone?", both run on 
 | --- | ------------------------------------------------------------ | ------------------------------------------------------ | ---------------------------------------------------------- |
 | 1   | One user message: instructions plus a format description     | JSON described in prose, parsed from the reply         | temperature 0                                              |
 | 2   | System prompt with role and rules; user turn is image + task | JSON schema enforced by the API (`responseJsonSchema`) | temperature 1.0, top_p 0.95, top_k 64 (Gemma 4 model card) |
+| 3   | Same as run 2                                                | Same as run 2                                          | temperature 0, top_p 0.95, top_k 64; 12B only              |
 
 Run 2's full prompt and schema: [`run2-prompt.json`](run2-prompt.json). Run 1's prompt:
 
@@ -78,6 +79,30 @@ Raw output: [`run1-hosted.json`](run1-hosted.json), [`run1-local-12b.json`](run1
 Raw output: [`run2-hosted.json`](run2-hosted.json), [`run2-local-12b.json`](run2-local-12b.json), [`run2-local-e2b.json`](run2-local-e2b.json).
 
 LiteRT-LM has no JSON-schema decoding, so E2B got the schema as text appended to its system prompt.
+
+## Run 3: tuning on local 12B, temperature 0
+
+Model choice is settled; from here the runs tune the prompt. Run 3 keeps run 2's prompt and schema ([`run3-prompt.json`](run3-prompt.json)) and only drops the temperature to 0.
+
+| Fixture             | gemma4:12b (local) |
+| ------------------- | ------------------ |
+| chambers-2011       | 3/3                |
+| gonzalez-2021       | 3/3                |
+| guo-2025            | 3/3                |
+| hildebrand-iii-2018 | 3/3                |
+| hildebrand-jr-2015  | 0/3                |
+| cunningham-1752     | 0/3                |
+| ellis-1818          | 0/3                |
+| illegible-marble    | 0/1                |
+| **Fields correct**  | **12/22 (55%)**    |
+| Text similarity     | 97.7%              |
+| Errors              | 0                  |
+| Avg time per photo  | 1.5 s              |
+
+Raw output: [`run3-local-12b.json`](run3-local-12b.json).
+
+- Same score as run 2. The same three stones fail the same way: "LE ROY", "M. ANDREW", and an invented Ellis ("BETSEY B. [?]", died 1810).
+- The illegible stone still comes back as a person named "[?]" instead of an empty list.
 
 ## What went wrong
 
