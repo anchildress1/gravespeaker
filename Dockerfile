@@ -1,16 +1,16 @@
 FROM node:26.12.1-bookworm-slim AS base
 # Corepack is no longer bundled with Node 25+.
-RUN npm install -g pnpm@11.28.9
+RUN npm install -g --ignore-scripts pnpm@11.28.9
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 FROM base AS build
-RUN LEFTHOOK=0 pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
 COPY . .
 RUN pnpm build
 
 FROM base AS prod-deps
-RUN LEFTHOOK=0 pnpm install --frozen-lockfile --prod --ignore-scripts
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 
 FROM node:26.12.1-bookworm-slim AS runner
 # Cloud Run terminates TLS, so the origin must come from forwarded headers or form POSTs 403.
