@@ -1,7 +1,7 @@
 # Without this, Volta runs pnpm on the Node it was installed with instead of the pinned one.
 export VOLTA_FEATURE_PNPM := 1
 
-.PHONY: install dev format format-files format-check lint typecheck test build e2e perf secret-scan clean ai-checks deploy
+.PHONY: install dev format format-check lint typecheck test build e2e perf secret-scan clean ai-checks deploy
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -14,9 +14,6 @@ dev:
 format:
 	@echo "✨ Formatting code..."
 	pnpm format
-
-format-files:
-	@if [ -n "$(FILES)" ]; then pnpm exec prettier --write --ignore-unknown $(FILES); fi
 
 format-check:
 	@echo "✨ Checking formatting..."

@@ -3,7 +3,7 @@ pre-commit:
   commands:
     format:
       glob: '*.{ts,js,svelte,md,json,yaml,yml,css,html}'
-      run: make format-files FILES="{staged_files}"
+      run: VOLTA_FEATURE_PNPM=1 pnpm exec prettier --write --ignore-unknown {staged_files}
       stage_fixed: true
     lint:
       run: make lint
