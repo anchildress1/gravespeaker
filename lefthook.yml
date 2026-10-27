@@ -19,7 +19,7 @@ commit-msg:
       run: pnpm exec commitlint --edit {1}
 
 pre-push:
-  parallel: true
+  parallel: false
   commands:
     typecheck:
       run: make typecheck
