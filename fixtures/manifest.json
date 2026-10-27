@@ -153,7 +153,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "morgan-2019.jpg",
@@ -171,7 +171,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "waechter-2012.jpg",
@@ -189,13 +189,13 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "mills-2015.jpg",
 		"era": "recent",
 		"difficulty": "edge",
-		"text": "Joshua John\nMills\nJuly 21, 1979 - Jan. 7, 2015\nBeloved Son, Brother & Devoted Father\n\"You will [?] [?] missed.\"\nDorian",
+		"text": "Joshua John\nMills\nJuly 21, 1979 - Jan. 7, 2015\nBeloved Son, Brother & Devoted Father\n\"You will be forever missed.\"\nDorian",
 		"people": [
 			{
 				"name": "Joshua John Mills",
@@ -207,7 +207,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "hall-2014.jpg",
@@ -225,7 +225,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "juntunen-2012.jpg",
@@ -243,7 +243,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "dixon-2018.jpg",
@@ -261,7 +261,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "schreiber-2012.jpg",
@@ -279,7 +279,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "hawks-2017.jpg",
@@ -297,7 +297,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "hayden-1993.jpg",
@@ -315,7 +315,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "bell-1994.jpg",
@@ -333,7 +333,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "doran-2008.jpg",
@@ -351,6 +351,6 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	}
 ]
