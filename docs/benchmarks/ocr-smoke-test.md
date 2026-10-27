@@ -133,6 +133,23 @@ Run 6's slowdown was the free-tier queue, not the prompt. The same request re-se
 - Every named person read the same as in run 6.
 - Regression: the illegible stone came back as a person literally named `"[]"`. A name with no letters is easy to reject in the deterministic parsing layer, so this is a code fix, not a prompt one.
 
+## Run 9: the full 20-stone pool
+
+The run 8 prompt, unchanged ([`run9.json`](../../benchmarks/prompts/run9.json)), on all 20 reviewed fixtures, now including 12 new single-person stones (9 deaths from 2010 on, 3 from 1993–2008). Raw output: [`run9-hosted-26b.json`](../../benchmarks/results/run9-hosted-26b.json).
+
+| Metric                | gemma-4-26b-a4b-it |
+| --------------------- | ------------------ |
+| Fields correct        | 53/58 (91%)        |
+| Extra people          | 2                  |
+| Errors                | 0                  |
+| Median time per photo | 4.1 s              |
+
+- **Every date on every stone from 1950 on is right**, 14 stones in all, including VA bronze markers, a tarnished WWII plaque and a faint angled stone.
+- **Hawks (0/3):** the dates were right, but the name came back as "Gaynor Claire Hawks née Staples". Stripping "née …" is a parsing-layer job, and the maiden name is worth keeping as a search signal.
+- **Illegible marble:** the `"[]"` person from run 8 again. Also a parsing-layer fix.
+- **Ellis 1818 → 1848:** the same worn-digit misread as every run.
+- None of the three misses is a prompt problem. Run 10 stays in reserve.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.

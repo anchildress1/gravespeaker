@@ -1,0 +1,282 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 5152,
+		"got": {
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		}
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2206,
+		"got": {
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		}
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 6258,
+		"got": {
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 1889,
+		"got": {
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2355,
+		"got": {
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2494,
+		"got": {
+			"people": [
+				{
+					"name": "MR ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752-04-27"
+				}
+			]
+		}
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 1703,
+		"got": {
+			"people": [
+				{
+					"name": "Betsey Ellis",
+					"born": null,
+					"died": "1848-07-28"
+				}
+			]
+		}
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2017,
+		"got": {
+			"people": [
+				{
+					"name": "[]",
+					"born": null,
+					"died": null
+				}
+			]
+		}
+	},
+	{
+		"file": "luxford-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3752,
+		"got": {
+			"people": [
+				{
+					"name": "Robert E. Luxford",
+					"born": "1934",
+					"died": "2015"
+				}
+			]
+		}
+	},
+	{
+		"file": "morgan-2019.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3794,
+		"got": {
+			"people": [
+				{
+					"name": "DAISY M. MORGAN",
+					"born": "1929-04-28",
+					"died": "2019-01-18"
+				}
+			]
+		}
+	},
+	{
+		"file": "waechter-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4189,
+		"got": {
+			"people": [
+				{
+					"name": "MARTIN WAECHTER",
+					"born": "1943-03-07",
+					"died": "2012-01-31"
+				}
+			]
+		}
+	},
+	{
+		"file": "mills-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 5150,
+		"got": {
+			"people": [
+				{
+					"name": "Joshua John Mills",
+					"born": "1979-07-21",
+					"died": "2015-01-07"
+				}
+			]
+		}
+	},
+	{
+		"file": "hall-2014.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4786,
+		"got": {
+			"people": [
+				{
+					"name": "JAMES KENNETH HALL",
+					"born": "1940-07-23",
+					"died": "2014-03-18"
+				}
+			]
+		}
+	},
+	{
+		"file": "juntunen-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 5489,
+		"got": {
+			"people": [
+				{
+					"name": "TROY LEONARD JUNTUNEN",
+					"born": "1967-01-28",
+					"died": "2012-08-03"
+				}
+			]
+		}
+	},
+	{
+		"file": "dixon-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 5664,
+		"got": {
+			"people": [
+				{
+					"name": "LLOYD DEE DIXON",
+					"born": "1943-07-11",
+					"died": "2018-05-26"
+				}
+			]
+		}
+	},
+	{
+		"file": "schreiber-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4057,
+		"got": {
+			"people": [
+				{
+					"name": "Tyson Lee Schreiber",
+					"born": "1992-08-21",
+					"died": "2012-02-12"
+				}
+			]
+		}
+	},
+	{
+		"file": "hawks-2017.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 5547,
+		"got": {
+			"people": [
+				{
+					"name": "Gaynor Claire Hawks née Staples",
+					"born": "1932-03-10",
+					"died": "2017-12-27"
+				}
+			]
+		}
+	},
+	{
+		"file": "hayden-1993.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4625,
+		"got": {
+			"people": [
+				{
+					"name": "Jasper \"Bub\" Hayden",
+					"born": "1907",
+					"died": "1993"
+				}
+			]
+		}
+	},
+	{
+		"file": "bell-1994.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4788,
+		"got": {
+			"people": [
+				{
+					"name": "RUSSELL O BELL",
+					"born": "1924-09-24",
+					"died": "1994-02-08"
+				}
+			]
+		}
+	},
+	{
+		"file": "doran-2008.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3928,
+		"got": {
+			"people": [
+				{
+					"name": "Bruce Doran",
+					"born": "1934-05-31",
+					"died": "2008-03-28"
+				}
+			]
+		}
+	}
+]
