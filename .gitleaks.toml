@@ -1,0 +1,15 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Gitignored local env file is the designated home for secrets."
+paths = ['''^\.env$''']
+
+[[allowlists]]
+description = "SonarCloud project key is public, not a credential."
+regexTarget = "line"
+regexes = ['''^sonar\.projectKey=anchildress1_gravespeaker$''']
+
+[[allowlists]]
+description = "Gitignored Entire session transcripts; Entire applies its own redactors."
+paths = ['''^\.entire/metadata/''']
