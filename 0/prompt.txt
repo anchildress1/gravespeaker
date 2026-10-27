@@ -1,0 +1,47 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+sentry spans redacted
+analytics scope revoked
+stale tab conflict handled
+channel name copy fixed
+channel name flag fixed
+copilot claim disproved
+artist voice guide landed
+stat guard test verified
+squash merge landed
+brand guide merged
+scaffold toolchain pinned
+repo scaffold landed
+codeql read access added
+gitleaks version pinned
+entire hooks chained
+security hardening landed
+prd stretch scope updated
+serpapi secret provisioned
+readme claims backed prd
+speckit setup landed
+fixtures manifest added
+fixtures swapped unknown people
+fixture photos curated
+benchmark fixtures landed
+post 2010 fixtures trimmed
+
+Closing message:
+YY` or `YYYY-MM-DD`, with `?` for a digit you can't read. Leave a field blank if it isn't on the stone or can't be read.
+- Saves go to the page's own store; nothing touches the repo until I apply them.
+- **Tested:** the store reads back empty, as it should before any saves. I haven't run a test save, so your first one is the real check.
+- **Next step:** tell me when you're done. I'll pull your saves into `fixtures/manifest.json`, set `reviewed: true`, and commit.
+
+## Decision for you
+- **Repo bloat:** this unpushed branch's history still holds the earlier 24-photo set. Those images would ship to GitHub forever if pushed as-is.
+- **Fix:** before any push, squash the three fixture commits into one so only the final 9 photos are stored.
+- **Why I'm asking:** that rewrites history, which the commit skill forbids without your go-ahead. Say "squash" and I'll do it.
+The `.semgrepignore` I added doesn't fix this. Guardian ignores that file entirely.
+
+- **How Guardian works:** it scans whatever files my tool calls touch. Its state log shows it trying to send the fixture photos (`brockelbank-1996.jpg`, `coney-17xx.jpg`) that my shell commands copied and deleted, and they're over its size limit.
+- **What was actually skipped:** only photos, which can't hold code findings. The text files in this turn (`.prettierignore`, `.semgrepignore`) were scanned.
+- **Not scanned at all:** the review page's `index.html`, because it sits outside the repo.
+- **The file is dead config:** nothing else in the repo runs Semgrep — no CI job, no Lefthook hook, no Makefile target. So `.semgrepignore` does nothing.
+- **What to expect:** the warning will come back whenever I touch fixture photos. It goes quiet once the image work is done.
+
+**Proposed fix:** drop commit `ec79bd1` (the `.semgrepignore` commit) as part of the fixture squash I asked about last turn. That's one history rewrite on an unpushed branch, and it removes the dead file along with the 24-photo set. Say "squash" and I'll do both.
