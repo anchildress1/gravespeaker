@@ -1,0 +1,34 @@
+I did not say to skip it in scoring. what i said was test it and if it doesn't work then we'll adjust the requirements
+
+---
+
+run the benchmark now
+
+---
+
+<task-notification>
+<task-id>brezln2bv</task-id>
+<tool-use-id>toolu_018DNhncVAxzBzXPywb7ukpx</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/brezln2bv.output</output-file>
+<status>completed</status>
+<summary>Background command "Run OCR smoke benchmark across Gemma 4 and Gemini on fixtures" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b6gg59mks</task-id>
+<tool-use-id>toolu_016ZEG8FUKjJD5ALpmqkYzMe</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b6gg59mks.output</output-file>
+<status>completed</status>
+<summary>Background command "Rerun OCR smoke benchmark with timeouts and incremental saves" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+- make sure these results are stored in a file somewhere for reference during the post.
+- note: the code must use mastra properly to retry as needed and handle errors. this is a given anyway
+- holmquist which was a dual tombstone is now a non-goal. add TTD for v2 to the PRD that says we can tune the prompts then for that scenario
+- take that one out and gemma 4 26b works and is hosted. is there a smaller hosted gemma? Cloud Run doesn't give me GPUs. Could we use render or digital ocean? if yes, test smaller gemma locally. this kills our open model requirement if flash is honestly that much better. only diff is that open ones are free with gemini key?? ground in a search.
+- we need a deterministic layer in the code that parses names, strips/normalizes dates.
+- languages other than english are also a non-goal for now, do not code against but we will not optimize for them

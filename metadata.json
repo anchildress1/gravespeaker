@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5Z9J1C4CBXA8HD95QA2N3XC",
+  "strategy": "manual-commit",
+  "branch": "test/benchmark-fixtures",
+  "checkpoints_count": 5,
+  "files_touched": [
+    "fixtures/holmquist-2024.jpg",
+    "fixtures/manifest.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 54,
+    "cache_creation_tokens": 113027,
+    "cache_read_tokens": 7289259,
+    "output_tokens": 20515,
+    "api_call_count": 25
+  },
+  "redaction": {
+    "replacements": 18,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 18,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
