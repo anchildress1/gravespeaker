@@ -34,9 +34,9 @@ Built for Hacktoberfest 2026, Week 4: Ghost in the Machine. The [PRD](docs/PRD.m
 | ------------------ | ----------------------------------------------- |
 | App                | SvelteKit (Svelte 5, Vite 8), `adapter-node`    |
 | Runtime            | Node.js 26.12.1, TypeScript 6 (strict), pnpm 11 |
-| AI orchestration   | Mastra                                          |
-| Vision and stories | Gemma 4 via the Gemini API                      |
-| Record search      | SerpApi                                         |
+| AI orchestration   | Mastra _(planned)_                              |
+| Vision and stories | Gemma 4 via the Gemini API _(planned)_          |
+| Record search      | SerpApi _(planned)_                             |
 | Hosting            | Google Cloud Run, Secret Manager                |
 | Quality            | Vitest, Playwright, ESLint, SonarCloud, CodeQL  |
 
@@ -66,7 +66,6 @@ make dev
 | `make ai-checks`   | Format check, lint, typecheck, unit tests and build in one go |
 | `make test`        | Unit tests with coverage                                      |
 | `make e2e`         | Playwright tests on a mobile viewport                         |
-| `make perf`        | Lighthouse, on demand only (fetched with `pnpm dlx`)          |
 | `make secret-scan` | gitleaks over the working tree                                |
 | `make deploy`      | Ship to Cloud Run                                             |
 | `make clean`       | Remove build output                                           |
@@ -100,15 +99,33 @@ Production runs as one Cloud Run service in the `anchildress1` GCP project:
 
 Both secrets and the service account already exist, and the account can read both secrets. `make deploy` builds the image with Cloud Build and deploys it.
 
-A new secret goes through the same pattern: name it `GRAVESPEAKER_<KEY>`, pipe the value from `.env` into `gcloud secrets create --data-file=-`, and grant `gravespeaker-run` the `roles/secretmanager.secretAccessor` role on it. Secret Manager bills per secret, so add one only when production can't run without it.
+To rebuild the setup from scratch, or to add a new secret, run the matching commands from the repo root:
+
+```bash
+SA=gravespeaker-run@anchildress1.iam.gserviceaccount.com
+gcloud iam service-accounts create gravespeaker-run --project anchildress1
+
+# Repeat per key; the value comes from .env and never touches the terminal.
+grep '^GEMINI_API_KEY=' .env | cut -d= -f2- | tr -d '\n' \
+  | gcloud secrets create GRAVESPEAKER_GEMINI_API_KEY --data-file=- --project anchildress1
+gcloud secrets add-iam-policy-binding GRAVESPEAKER_GEMINI_API_KEY \
+  --member "serviceAccount:$SA" --role roles/secretmanager.secretAccessor --project anchildress1
+```
+
+Secret Manager bills per secret, so add one only when production can't run without it.
 
 ---
 
 ## Security
 
+Design requirements from the [PRD](docs/PRD.md) that every feature must keep:
+
 - API keys stay on the server. The browser never talks to Gemini or SerpApi directly.
 - Uploaded photos are processed in memory and never stored.
-- Secrets are never shared between apps in the GCP project. Secret Manager bills per secret, so add one only when production can't run without it.
+
+Already in place:
+
+- Secrets are never shared between apps in the GCP project.
 - Every GitHub Action is pinned to a commit SHA, and Dependabot proposes updates after a 7-day cooldown.
 - gitleaks runs locally before every commit and again in CI.
 
