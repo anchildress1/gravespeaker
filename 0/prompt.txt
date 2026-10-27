@@ -1,0 +1,16 @@
+this seems like a fuck ton of images for a "small benchmark" to see if gemma can read them cleanly like the PRD says. Especially when our focus is on modern aka post-2010 grave markers.
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · Every expected answer for the headstone test photos was written by the main agent reading the photos, so the benchmark scores models against an AI's reading.
+>
+> **The test answer key was written by AI**
+> * The benchmark checks how well Gemma and Gemini read each headstone photo. It compares their answers to the expected names and dates in `fixtures/manifest.json`.
+> * No human wrote those expected answers. The main agent read each photo and typed in what it saw.
+> * The main agent asked you to check only the few it was unsure of. Every other entry is also its guess, including the dates on mossy and faded stones.
+> * If the main agent misread a stone, a model that reads it correctly gets marked wrong. The Gemma-vs-Gemini numbers in your DEV post would be off.
+> * **Before you publish benchmark numbers, check each photo against its expected answer.** That's about 20 photos and maybe 15 minutes.
+
+we're going to fix this once I'm happy with the pics. you need to set this up so i can easily review. make corrections as needed or simply state illegible.
