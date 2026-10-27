@@ -1,0 +1,3 @@
+<task-notification>
+<summary>Commit security review found 3 issues: command-injection in Makefile; secret-exposure-ci in .github/workflows/ci.yml; sensitive-data-exposure in deploy.sh</summary>
+</task-notification>
