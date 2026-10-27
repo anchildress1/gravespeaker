@@ -1,0 +1,5 @@
+- SERPAPI key is in .env
+- merge after using /pr-comment-review 
+- drop image thing. I do not have time to build it. Add as v2 in docs
+- update @CLAUDE.md never bypass lefthook on push. Fix the issue or alert user.
+- merge #2 into #1? or use /gh-stack
