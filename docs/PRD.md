@@ -67,7 +67,6 @@ No self-hosted models unless benchmarks show a compelling advantage.
 
 - Public availability doesn't guarantee unrestricted reuse.
 - Respect access restrictions, provenance, licensing and unavailable records. Link to sources; don't republish their content.
-- One exception: obituary photos (stretch) are shown from their original URL with a visible credit and link. They are never downloaded, cached or re-hosted, and an image whose source restricts embedding is skipped.
 - Every substantive historical claim must trace back to supporting evidence.
 
 **First-person storytelling**
@@ -113,7 +112,6 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
   - The AI picks the voice from obituary evidence first (pronouns, relationship words such as "wife" or "son"), then the name.
   - The guess is shown with the extracted fields, and the user can switch it like any other correction.
   - The guess only selects a voice; it is never stated as a historical fact in the story.
-- Obituary photos: when the matched obituary has a photo, show it while the speaker is talking (see §4 for display rules)
 - Additional historical record providers
 - Specialized OCR model fallback
 - Enhanced atmospheric animations
@@ -131,7 +129,6 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 ## 7. Privacy
 
 - Uploaded images are processed in memory and never stored.
-- Obituary photos are loaded from their source URL by the browser, never proxied or stored by Gravespeaker.
 - API keys stay server-side. The browser never calls a model or search provider directly.
 
 ## 8. Schedule
@@ -155,3 +152,13 @@ If the history can't be reliably established, the app says so clearly.
 The project includes a working public demo, documented technical decisions, a meaningful open-versus-closed model comparison, and an engaging DEV submission.
 
 **Priority:** Complete one historically defensible end-to-end experience before adding features.
+
+## 10. v2 (after the challenge)
+
+Not part of the October 31 build. Captured so the ideas aren't lost.
+
+**Obituary photos during narration**
+
+- When the matched obituary has a photo, show it while the speaker is talking.
+- Display it from its original URL with a visible credit and link. Never download, cache or re-host it, and skip any image whose source restricts embedding.
+- This is the one deliberate exception to the "link, don't republish" rule in §4, so it needs a licensing check before it ships.
