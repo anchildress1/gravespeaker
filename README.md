@@ -14,6 +14,14 @@ Photograph a headstone. Discover a life. Hear the story the records left behind.
 
 You need [Volta](https://volta.sh) with its pnpm support switched on (`VOLTA_FEATURE_PNPM=1`). Volta reads the pinned Node and pnpm versions from `package.json`.
 
+The git hooks also call `actionlint` and `gitleaks`, which aren't npm packages:
+
+```bash
+brew install actionlint gitleaks
+```
+
+`make install` installs dependencies and the Lefthook git hooks.
+
 ```bash
 make install
 cp .env.example .env   # then fill in the keys
