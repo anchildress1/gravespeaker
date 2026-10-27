@@ -104,6 +104,23 @@ Raw output: [`run3-local-12b.json`](../../benchmarks/results/run3-local-12b.json
 - Same score as run 2. The same three stones fail the same way: "LE ROY", "M. ANDREW", and an invented Ellis ("BETSEY B. [?]", died 1810).
 - The illegible stone still comes back as a person named "[?]" instead of an empty list.
 
+## Runs 4–7: tuning hosted Gemma 4 26B
+
+From run 4 on, every run is hosted `gemma-4-26b-a4b-it` at temperature 0 with a system prompt and schema. Each run changes one thing from the run before it. The scorer now also counts **extra people**: entries for anyone the stone isn't for.
+
+| Run | Change                                                                           | Fields correct | Extra people | Avg time | Prompt                                            | Raw output                                                              |
+| --- | -------------------------------------------------------------------------------- | -------------- | ------------ | -------- | ------------------------------------------------- | ----------------------------------------------------------------------- |
+| 4   | Baseline: run 3's prompt on 26B                                                  | 21/22 (95%)    | 2            | 3.3 s    | [`run4.json`](../../benchmarks/prompts/run4.json) | [`run4-hosted-26b.json`](../../benchmarks/results/run4-hosted-26b.json) |
+| 5   | Only the person the stone is for goes in `people`; relatives and nicknames don't | 21/22 (95%)    | **0**        | 5.4 s    | [`run5.json`](../../benchmarks/prompts/run5.json) | [`run5-hosted-26b.json`](../../benchmarks/results/run5-hosted-26b.json) |
+| 6   | Write `?` for a worn digit that could be read two ways                           | 21/22 (95%)    | 0            | 6.5 s    | [`run6.json`](../../benchmarks/prompts/run6.json) | [`run6-hosted-26b.json`](../../benchmarks/results/run6-hosted-26b.json) |
+| 7   | `mediaResolution: MEDIA_RESOLUTION_LOW`                                          | 13/19 (68%)    | 2            | 11.5 s   | [`run7.json`](../../benchmarks/prompts/run7.json) | [`run7-hosted-26b.json`](../../benchmarks/results/run7-hosted-26b.json) |
+
+- **Run 4:** the only field miss is Ellis's 1818 read as 1848. The extras were the nickname "Eddie Boy" listed as its own person, and Ellis's parents ("Thos. & Betsey Ellis").
+- **Run 5 fixed both extras** with no field loss. This is the most relevant change for modern stones, which routinely name relatives ("beloved son of").
+- **Run 6 changed nothing.** 26B still reads 1848 with no `?`. Separate probes with thinking on (`thinkingLevel: HIGH`) and with `MEDIA_RESOLUTION_HIGH` also answered 1848.
+- **Run 7 is a dead end.** A one-off probe at low resolution read 1818, but across all 8 stones it broke more than it fixed: Betsey Ellis came back named "\*years.\*", Hildebrand III returned broken JSON, and Cunningham picked up an extra person.
+- **Best prompt so far: run 6.** Every recent (2010+) stone scores 3/3 with no extra people. The one miss is a worn digit on an 1818 stone.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.
