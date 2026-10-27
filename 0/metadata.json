@@ -1,0 +1,88 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5Z5E0Y6WEDY7DPJ806BJR7B",
+  "session_id": "a78fbb29-c412-483a-b679-0722adb27f13",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-27T17:09:56.213866Z",
+  "branch": "test/benchmark-fixtures",
+  "checkpoints_count": 4,
+  "save_step_count": 1,
+  "files_touched": [
+    "fixtures/banfield-1958.jpg",
+    "fixtures/bennett-1909.jpg",
+    "fixtures/biggane-1995.jpg",
+    "fixtures/blair-1941.jpg",
+    "fixtures/bogdanov-1994.jpg",
+    "fixtures/botkin-1928.jpg",
+    "fixtures/bybee-pioneer.jpg",
+    "fixtures/cunningham-1752.jpg",
+    "fixtures/ellis-1818.jpg",
+    "fixtures/jenks-1882.jpg",
+    "fixtures/manifest.json",
+    "fixtures/mary-cunningham-1774.jpg",
+    "fixtures/our-eddy.jpg",
+    "fixtures/white-1924.jpg"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "9793489ea76c",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 694,
+    "cache_read_tokens": 238487,
+    "output_tokens": 408,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 11,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 11,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01XKhqJdhkcHrmtf8nkA2i6Q",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "generate-commit-message"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "9793489ea76c",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 610,
+        "end": 611,
+        "entry_ids": [
+          "1e223c38-cabe-445f-af54-80587ed4d5c3"
+        ],
+        "tool_use_id": "toolu_01XKhqJdhkcHrmtf8nkA2i6Q"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01XKhqJdhkcHrmtf8nkA2i6Q"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: generate-commit-message",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 4
+  }
+}

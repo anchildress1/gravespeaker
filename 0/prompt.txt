@@ -1,0 +1,32 @@
+Start a new branch. install speckit in this repo, we will use that going forward. read @docs/PRD.md and @CLAUDE.md. we need a plan of attack to actually accomplish this build in what little time we have to do it. Add to v2 PRD that we want to search socials for any person who died after XX year, which we will pick in addition to the gh search. This should be key feature and doable with SERPAPI. confirm with a grounded search. this branch will be speckit setup and init. feature builds will be on a new branch
+
+---
+
+- yes to config for prettier. fix it.
+- help me pick a year that makes sense for the cutoff.
+- go get fixture headstones. we need to start there. i don't have time to find a cemetary rn. we can use good headstone pics, too. it should be a mix.
+- also update @CLAUDE.md to minimize output verbosity scoped only to what user needs to act on or needs to know about changes in the repo. the user designs. you code/implement.
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · Most of the fixture headstones belong to famous people, so the AI may already know them and score better than it would on an unknown grave.
+>
+> **Famous fixture graves may inflate benchmark scores**
+> * The main agent chose many of the test photos because the people are easy to find online, such as George Gipp, Aldo Leopold, Anne Royall and Asa Lovejoy.
+> * Gemma and Gemini probably learned about these people during training.
+> * So a model might "read" a worn name correctly because it **recognizes** it, not because it actually read the stone. The stories could also pull in facts the model remembers instead of facts from the search results.
+> * That would make the Gemma-vs-Gemini comparison in your DEV post look better than real use, where most graves belong to unknown people.
+> * **Consider making most fixtures unknown people** (for example the Leavitt, Coney or Christianson stones), or reporting famous and unknown results separately.
+
+fix this by disallowing famous people in the fixture for testing
+
+---
+
+- search for early 19th century tombstone pics for can't read one
+- 2010 died after is fine
+- make atomic commits as you go
+- add semgrep ignore as suggested
+- archbald-tomb needs to go. too complex.
+- you also have all old and really old tombs. those are going to be hard to find and are the exception we need to test for reading markers, not the baseline for how the app functions. we're shooting for modern graves that must be present in the fixture test. keep the best old ones, some legible some not, but focus on modern
