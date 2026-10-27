@@ -1,0 +1,5 @@
+26B hosted is what we want to tune. 12B just proved it can't do it anyway. every result is saved as a separate results file in the repo, right?
+
+---
+
+just store results for now. we don't have time to build out benchmarks unless you just want to copy your scripts over and we'll create a benchmarks dir here now instead of under docs
