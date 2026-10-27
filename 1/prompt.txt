@@ -1,0 +1,4 @@
+now we're testing the ability of the llm to read the image, right? doesn't it make sense that you'd put in the manifest the full text from the gravestone? the llm also needs to pick the persons full name, birthdate, and deceased date. you've got these already. don't change it. notes should become full text though.
+
+- fix the history, fine if not pushed yet. you only have to ask after pushing to gh
+- delete dead code/config
