@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+**/CHANGELOG.md
+.release-please-manifest.json
+/static/
+/build/
+/coverage/
+/.lighthouseci/
+/playwright-report/
+/.claude/
+/.entire/
