@@ -1,0 +1,3 @@
+I just thought of another nice to have feature to add to the PRD. Display images from obit if one exists while the speaker is talking. Also on that note, we need basic male and female voice, so the AI will have to make best guess from obit and name info as to gender.
+
+Update that then push.
