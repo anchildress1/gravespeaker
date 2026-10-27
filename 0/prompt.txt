@@ -1,0 +1,17 @@
+<task-notification>
+<task-id>bfvdt8o6t</task-id>
+<tool-use-id>toolu_01SzJzXHoHcUCfFpFnFHqr3S</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/0c36baa7-c686-5616-bacd-643b7197a77c/tasks/bfvdt8o6t.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for ci check on new head" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+* make the repo public
+* I see 7 gh vulnerabilities reported that must be fixed. and 2 sonar vulnerabilities.
+* SONAR_TOKEN is added to repo
+* You should use /readme-generator when updating the readme.
+* secrets cost me money. be sparing and only store the ones we absolutely need for prod in anchildress1
+* You can pin shas in gha to get rid of the copilot comments
+* do NOT merge rp without me explicitly. just leave it there. update CLAUDE.md
