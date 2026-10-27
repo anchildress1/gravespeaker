@@ -48,6 +48,8 @@ If credible information can't be found, the app says so. It never fills historic
 
 Model inference and historical search sit behind replaceable interfaces. Everything else stays concrete.
 
+Model and search calls use Mastra's built-in retries and error handling. No hand-rolled retry loops.
+
 No self-hosted models unless benchmarks show a compelling advantage.
 
 ## 4. Key Engineering Challenges
@@ -56,6 +58,7 @@ No self-hosted models unless benchmarks show a compelling advantage.
 
 - Weathered stone, damaged inscriptions, shadows, unusual typography and partial dates.
 - Measure actual recognition accuracy instead of assuming a vision model performs well.
+- A deterministic layer in code parses names and strips and normalizes dates from the model output. The model reads the stone; code owns the format.
 
 **Historical identity resolution**
 

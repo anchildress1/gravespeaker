@@ -10,6 +10,9 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 
 - Build only what the MVP journey in `docs/PRD.md` requires. Anything outside it: stop and ask.
 - No feature flags, plugin systems, config layers, caching, retries, queues, or i18n unless a broken user path demands it.
+- Exception: model and search calls use Mastra's built-in retry and error handling. Never hand-roll retries.
+- Model output passes through a deterministic layer that parses names and normalizes dates. Never trust the model's formatting.
+- Non-English inscriptions are not optimized for. Never add code that rejects them either.
 - Prefer a framework/library capability over hand-rolled code.
 - Delete dead code. Never keep a path "just in case". No backward-compat shims.
 - Exactly two abstraction seams exist: **model inference** and **historical search**. One interface each, one implementation each until a second is actually needed. Concrete classes everywhere else.
