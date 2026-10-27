@@ -73,4 +73,4 @@ Raw model output: [`2026-10-27-hosted.json`](2026-10-27-hosted.json) and [`2026-
 - Gemma 4 26B matches or beats Gemini Flash on single-person stones. The open model stays.
 - Latency is Gemma's real cost: about 2× Flash on the hosted API.
 - Exact name strings are fragile across models (`LE ROY`, trailing periods, honorifics). Normalization belongs in deterministic code, not the prompt.
-- Worn digits get misread confidently. The user-correction step in the MVP journey is load-bearing, not a nicety.
+- Worn digits get misread confidently. A user-correction step is the fix; it is deferred to v2.
