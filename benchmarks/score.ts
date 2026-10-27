@@ -22,6 +22,17 @@ interface Row {
 	error?: string;
 }
 
+/**
+ * Middle value of a list; mean of the two middle values for an even count.
+ * @param xs Numbers to summarize.
+ * @returns The median.
+ */
+function median(xs: number[]): number {
+	const s = [...xs].sort((a, b) => a - b);
+	const m = Math.floor(s.length / 2);
+	return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
 const HONORIFICS = new Set(['mr', 'mrs', 'miss', 'dr']);
 
 /**
@@ -122,6 +133,7 @@ const agg = new Map<
 		correct: number;
 		total: number;
 		extra: number;
+		times: number[];
 	}
 >();
 const cells = new Map<string, string>();
@@ -135,11 +147,13 @@ for (const r of rows) {
 		text: 0,
 		correct: 0,
 		total: 0,
-		extra: 0
+		extra: 0,
+		times: []
 	};
 	agg.set(r.model, a);
 	a.calls++;
 	a.ms += r.ms;
+	a.times.push(r.ms);
 	if (r.error || !r.got) {
 		a.errors++;
 		cells.set(`${r.file}|${r.model}`, r.error?.includes('Timeout') ? 'timeout' : 'bad JSON');
@@ -179,4 +193,5 @@ line([
 ]);
 line(['Extra people (not on the stone)', ...stats.map((a) => String(a.extra))]);
 line(['Errors', ...stats.map((a) => String(a.errors))]);
+line(['Median time per photo', ...stats.map((a) => `${(median(a.times) / 1000).toFixed(1)} s`)]);
 line(['Avg time per photo', ...stats.map((a) => `${(a.ms / a.calls / 1000).toFixed(1)} s`)]);
