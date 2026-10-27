@@ -1,0 +1,163 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 — SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+		"people": [
+			{
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Corwin_Garner_Chambers_(1959-2011),_Eugene_Masonic_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+		"people": [
+			{
+				"name": "Alfonso Gonzalez",
+				"born": "1951-11-18",
+				"died": "2021-01-17"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Gonzalez,_Alfonso_(1951-2021).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "guo-2025.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "郭俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+		"people": [
+			{
+				"name": "Jiunn-Shih Guo",
+				"born": "1937-01-18",
+				"died": "2025-12-10"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Jim_Jiunn-Shih_Guo_(1937-2025)_brick_at_Davis_Cemetery_in_Davis,_California.jpg",
+		"author": "Richard Arthur Norton (1958- )",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": false
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+		"people": [
+			{
+				"name": "Edward Hildebrand III",
+				"born": "1966",
+				"died": "2018"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1966-2018)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": false
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "EDWARD\nLEROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+		"people": [
+			{
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1942-2015)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": false
+	},
+	{
+		"file": "holmquist-2024.jpg",
+		"era": "recent",
+		"difficulty": "edge",
+		"text": "HOLMQUIST\nMARSHA FOX\n11-5-1940\nCHARLES RAY\n3-12-1948\n5-6-2024\n46 YEARS",
+		"people": [
+			{
+				"name": "Marsha Fox Holmquist",
+				"born": "1940-11-05",
+				"died": null
+			},
+			{
+				"name": "Charles Ray Holmquist",
+				"born": "1948-03-12",
+				"died": "2024-05-06"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Holmquist,_Charles_Ray_(1948-2024).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": false
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"era": "historic",
+		"difficulty": "weathered",
+		"text": "HERE LYES BURIED\nTHE BODY OF\nMr ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27th 1752 IN THE\n60th YEAR OF HIS AGE",
+		"people": [
+			{
+				"name": "Andrew Cunningham",
+				"born": null,
+				"died": "1752-04-27"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Andrew_Cunningham_headstone_(36114).jpg",
+		"author": "Rhododendrites",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": false
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"era": "historic",
+		"difficulty": "weathered",
+		"text": "In\nMemory of\nBETSEY ELLIS,\nDaughter of\nThos. & Betsey Ellis,\nwho died\nJuly 28, 1818,\nag'd 11 years.",
+		"people": [
+			{
+				"name": "Betsey Ellis",
+				"born": null,
+				"died": "1818-07-28"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Betsey_Ellis_tombstone,_Savery_Cemetery,_Ellisville_MA.jpg",
+		"author": "John Phelan",
+		"license": "CC BY-SA 3.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+		"reviewed": false
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"era": "historic",
+		"difficulty": "illegible",
+		"text": null,
+		"people": [],
+		"source": "https://commons.wikimedia.org/wiki/File:Illegible_20-10-15_050.jpg",
+		"author": "Chris Light",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": false
+	}
+]
