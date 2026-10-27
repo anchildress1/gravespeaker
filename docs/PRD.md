@@ -23,7 +23,7 @@ The experience should feel mysterious and personal while remaining historically 
 | #   | Step                  | What happens                                                                             | Done when                                                                                      |
 | --- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | 1   | **Capture or upload** | Photograph a gravestone or select an existing image.                                     | Works from a phone camera and from a desktop file picker.                                      |
-| 2   | **Identify**          | AI extracts names, dates, inscriptions and other useful details.                         | Extracted fields are shown before searching. The user can't edit them in the MVP.              |
+| 2   | **Identify**          | AI extracts the name and birth and death dates of the person the stone is for.           | Extracted fields are shown before searching. The user can't edit them in the MVP.              |
 | 3   | **Research**          | Search obituaries, cemetery records, historical archives and indexed public information. | Results come back with source URLs attached.                                                   |
 | 4   | **Verify**            | Cross-reference names, dates and places.                                                 | When more than one plausible person matches, the user picks one (or none).                     |
 | 5   | **Resurrect**         | Generate a short first-person narrative grounded in the confirmed records.               | Every factual sentence links to at least one source.                                           |
@@ -104,7 +104,7 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 
 - Functional mobile-friendly website
 - Camera and image upload
-- AI inscription extraction
+- AI extraction of the name and life dates from the stone
 - Public-record search and identity verification
 - Source-grounded first-person biography
 - Clickable citations
