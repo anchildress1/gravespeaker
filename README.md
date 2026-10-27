@@ -98,17 +98,9 @@ Production runs as one Cloud Run service in the `anchildress1` GCP project:
 | `GRAVESPEAKER_GEMINI_API_KEY`  | `GEMINI_API_KEY`  |
 | `GRAVESPEAKER_SERPAPI_API_KEY` | `SERPAPI_API_KEY` |
 
-The service account and the Gemini secret already exist. Add the SerpApi secret once, piping it from `.env` so the value never hits your terminal history:
+Both secrets and the service account already exist, and the account can read both secrets. `make deploy` builds the image with Cloud Build and deploys it.
 
-```bash
-grep '^SERPAPI_API_KEY=' .env | cut -d= -f2- | tr -d '\n' \
-  | gcloud secrets create GRAVESPEAKER_SERPAPI_API_KEY --project anchildress1 --data-file=-
-gcloud secrets add-iam-policy-binding GRAVESPEAKER_SERPAPI_API_KEY --project anchildress1 \
-  --member serviceAccount:gravespeaker-run@anchildress1.iam.gserviceaccount.com \
-  --role roles/secretmanager.secretAccessor
-```
-
-After that, `make deploy` builds the image with Cloud Build and deploys it.
+A new secret goes through the same pattern: name it `GRAVESPEAKER_<KEY>`, pipe the value from `.env` into `gcloud secrets create --data-file=-`, and grant `gravespeaker-run` the `roles/secretmanager.secretAccessor` role on it. Secret Manager bills per secret, so add one only when production can't run without it.
 
 ---
 
