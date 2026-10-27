@@ -1,5 +1,11 @@
 MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thing that satisfies `docs/PRD.md`.
 
+## Output
+
+- The user designs; you implement. Report only what the user must act on or must know changed in the repo.
+- Per change: file and one-line effect. No narration of steps, tools, or reasoning.
+- Surface blockers, decisions needed, and failures in full. Omit everything else.
+
 ## Scope
 
 - Build only what the MVP journey in `docs/PRD.md` requires. Anything outside it: stop and ask.
