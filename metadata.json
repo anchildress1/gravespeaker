@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5Z1HRRNFE9AMDC6NDE0YA6B",
+  "strategy": "manual-commit",
+  "branch": "fix/security-hardening",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "lefthook.yml",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 4,
+    "cache_creation_tokens": 1826,
+    "cache_read_tokens": 567038,
+    "output_tokens": 1234,
+    "api_call_count": 2
+  },
+  "redaction": {
+    "replacements": 38,
+    "layers": {
+      "betterleaks": 5,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 32,
+      "credentialed_uri": 0,
+      "entropy": 1,
+      "key_context": 2,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
