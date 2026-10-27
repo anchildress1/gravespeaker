@@ -1,50 +1,53 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Gravespeaker Constitution
+
+`CLAUDE.md` holds the full engineering rules and `docs/PRD.md` holds scope. This file lists only the gates `/speckit-plan` must pass. On conflict, `CLAUDE.md` wins.
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Deadline-Bound MVP Scope
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+- Build only what the MVP journey in `docs/PRD.md` §2 requires. Hard deadline: 2026-10-31 23:59 PDT.
+- PRD §10 (v2) and §6 Stretch items are out of scope for every MVP spec.
+- Every feature ships as a vertical slice that leaves `main` deployable.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Never Fabricate History (NON-NEGOTIABLE)
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+- Every narrative claim maps to a source record with a URL.
+- Unsupported fields render as unknown.
+- No credible record → the app says so; it never fills the gap.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Never Merge Identities Silently (NON-NEGOTIABLE)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- More than one plausible match → return candidates; the user picks one or none.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Two Seams Only
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Abstractions exist only for **model inference** (`src/lib/server/inference/`) and **historical search** (`src/lib/server/search/`).
+- One interface and one implementation each. Everything else is concrete.
+- A plan that adds another interface, config layer, cache, retry, queue, or feature flag fails this gate.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Behavior-Driven Tests
+
+- Cover positive, negative, error, and edge scenarios for functional logic listed in `CLAUDE.md` § Tests.
+- Mock only at the network boundary (Gemini API, SerpApi).
+- Coverage target 80%, never a build gate.
+
+## Privacy and Source Constraints
+
+- Uploaded images are processed in memory and never stored.
+- API keys stay server-side; the browser never calls a provider.
+- Link to sources; never republish their content.
+- Omit unnecessary details about living people.
+
+## Development Workflow
+
+- One feature per branch; spec-kit setup changes never ride on a feature branch.
+- `make ai-checks` passes before a task is marked complete.
+- Lefthook is never bypassed.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- Amend this file only when `CLAUDE.md` or `docs/PRD.md` changes a gate.
+- Bump MAJOR for a removed or redefined principle, MINOR for an added one, PATCH for wording.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-10-27 | **Last Amended**: 2026-10-27
