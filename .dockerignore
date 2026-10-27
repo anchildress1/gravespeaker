@@ -1,0 +1,14 @@
+node_modules
+.git
+.svelte-kit
+build
+coverage
+.lighthouseci
+playwright-report
+test-results
+.env
+.env.*
+*.env
+.DS_Store
+.entire
+.claude
