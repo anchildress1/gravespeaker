@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5ZBHRME1XD6Q0ND5DBBC3EK",
+  "strategy": "manual-commit",
+  "branch": "test/benchmark-fixtures",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "docs/benchmarks/ocr-smoke-test.md",
+    "docs/benchmarks/run3-local-12b.json",
+    "docs/benchmarks/run3-prompt.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6,
+    "cache_creation_tokens": 4062,
+    "cache_read_tokens": 559878,
+    "output_tokens": 2663,
+    "api_call_count": 3
+  },
+  "redaction": {
+    "replacements": 18,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 18,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
