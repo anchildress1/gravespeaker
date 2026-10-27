@@ -66,6 +66,8 @@ jobs:
         uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Action default (8.24.3) ignores [[allowlists]] in .gitleaks.toml; match the local version.
+          GITLEAKS_VERSION: 8.30.1
 
       # Token is scoped to these steps so dependency install scripts never see it.
       - name: Check SonarCloud token
