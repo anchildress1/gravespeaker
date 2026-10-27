@@ -1,0 +1,56 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+delivery deadline reserve landed
+upload retry verified
+codex threads resolved
+release refs replace titles
+haikuera phrase fresh and
+sentry spans redacted
+analytics scope revoked
+stale tab conflict handled
+channel name copy fixed
+channel name flag fixed
+copilot claim disproved
+artist voice guide landed
+stat guard test verified
+squash merge landed
+brand guide merged
+scaffold toolchain pinned
+repo scaffold landed
+codeql read access added
+gitleaks version pinned
+entire hooks chained
+security hardening landed
+prd stretch scope updated
+serpapi secret provisioned
+readme claims backed prd
+speckit setup landed
+
+Closing message:
+ (Leavitt, Cunningham, Coney), moss (Lovejoy), lichen (Ellis), eroded (Jenks) |
+| edge | 4 | Illegible obelisk (no person expected), "OUR EDDY" nickname only, a 333px low-res photo, a plaque naming many relatives |
+
+## Needs your eyes
+- **I transcribed the expected answers myself.** The benchmark scores against them, so spot-check the uncertain ones:
+  - `jenks-1882`: the name spelling and the birth year are guesses.
+  - `coney-17xx`: only "17" is legible in the year.
+  - `jenkins-1934`: Grace's death year shows only as "194?".
+- **Licenses:** most photos are CC BY / BY-SA. Attribution lives in `manifest.json`, which covers them in the repo. If any image appears in the DEV post, it needs a visible credit line.
+- **Gap:** there's no fixture of anyone who died after the cutoff. That's fine, since social search is v2.
+
+## Cutoff year: I recommend **2010**
+- **Facebook opened to the public on Sept 26, 2006.** Nobody who died before then had a profile.
+- **Older adults joined late:** Pew found social networking use among online adults 50+ went from 22% (Apr 2009) to 42% (May 2010). ([Pew, 2010](https://www.pewresearch.org/2010/08/27/older-adults-and-social-media/))
+- **Most headstones are for older people.** A 2006–2009 cutoff would mostly burn SerpApi credits on empty searches.
+- **Tradeoff:** 2010 misses young people who died in 2006–2009. That's acceptable for a v2 feature, but it's your call.
+
+Say "2010" or pick another year and I'll put it in PRD §10.
+
+## Branching
+Everything sits uncommitted on `chore/speckit-setup`. When you say commit, the split I'll use:
+- **This branch:** spec-kit, constitution, prettier, `CLAUDE.md`, and the PRD entry.
+- **New branch `001-capture-identify`:** the fixtures, since slice 1 starts from them.
+
+Sources:
+- [Wikimedia Commons](https://commons.wikimedia.org/) (per-image source links are in `fixtures/manifest.json`)
+- [Pew: Older Adults and Social Media (2010)](https://www.pewresearch.org/2010/08/27/older-adults-and-social-media/)
