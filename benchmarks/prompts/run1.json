@@ -1,0 +1,6 @@
+{
+	"user": "You are reading a photo of a gravestone for a historical research tool.\n\nTranscribe ONLY what is carved or cast on the stone. Do NOT add, guess, or complete anything you cannot see.\n\nReturn ONLY a JSON object, no prose, no code fences:\n{\"text\": string|null, \"people\": [{\"name\": string, \"born\": string|null, \"died\": string|null}]}\n\n- text: every line of the inscription in order, joined with \"\\n\". Write \"[?]\" for a word you cannot read. null if nothing is legible.\n- people: one entry per person commemorated. name exactly as carved. born/died as \"YYYY\" or \"YYYY-MM-DD\"; use \"?\" for an unreadable digit; null when the date is not on the stone. [] if no name is legible.\n- A year that is not a birth or death (marriage length, erection date) is NOT a life date.",
+	"sampling": {
+		"temperature": 0
+	}
+}

@@ -1,0 +1,107 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"got": {
+			"type": "object",
+			"properties": {
+				"text": "CORWIN CORY GARNER CHAMBERS\nNOV 7 1959 - SEP 12 2011\nIMPOSSIBLE IS NOTHING",
+				"people": [
+					{
+						"name": "CORWIN CORY GARNER CHAMBERS",
+						"born": "1959",
+						"died": "2011"
+					}
+				]
+			}
+		},
+		"ms": 3597
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"got": {
+			"type": "object",
+			"properties": {
+				"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18. 1951 - Jan. 17. 2021\nSalmos 73:26"
+			},
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951",
+					"died": "2021"
+				}
+			]
+		},
+		"ms": 1104
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"got": {
+			"type": "object",
+			"properties": {
+				"text": "\u90ed\u4fca\u58eb\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather"
+			},
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025"
+				}
+			]
+		},
+		"ms": 1233
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"error": "unparseable JSON",
+		"raw": "{\"type\": \"object\", \"properties\": {\"text\": \"Edward Hildebrand III\\n\"Eddie Boy\\n1966 - 2018\\nOur Beloved Son and Brother\"}, \"people\": [{\"name\": \"Edward Hildebrand III\", \"died\": \"2018\"}]}",
+		"ms": 862
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"error": "unparseable JSON",
+		"raw": "{\"type\": \"object\", \"properties\": {\"text\": \"EDWARD\\nLEYROY\\nHILDEBRAND JR\\nADR3\\nUS NAVY\\nVIETNAM\\nAPR 28 1942\\nOCT 10 2015\", \"people\": [{\"name\": \"EDWARD LEROY\", \"born\": null, \"died\": \"1942\"}, {\"name\": \"HILDEBRAND JR\", \"born\": null, \"died\": \"2015\"}]}",
+		"ms": 1260
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"got": {
+			"type": "object",
+			"properties": {
+				"text": "HERE LYETH RESTED\nTHE BODY OF\nM. ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\n1872-01-15\nOF HIS AGE\n"
+			},
+			"people": [
+				{
+					"name": "M. ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1872-01-15"
+				}
+			]
+		},
+		"ms": 1193
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"error": "unparseable JSON",
+		"raw": "{\"type\": \"object\", \"properties\": {\"text\": \"Memory of\\nSTIXIN\\nGeorge\\nDavison\\nDied\\nIn\\n1878\\nJuly\\n28\\nTill\\nIn\\nJuly\\n1935\\nAgeless\", \"people\": [{\"name\": \"STIXIN George Davison\", \"died\": \"1878-07-28\"}, {\"name\": \"Ageless\", \"died\": \"1935\"}]}",
+		"ms": 1218
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "litert:gemma-4-E2B-it",
+		"got": {
+			"type": "object",
+			"properties": {
+				"text": ".\n\n...\n.\n\n... ",
+				"people": []
+			}
+		},
+		"ms": 626
+	}
+]

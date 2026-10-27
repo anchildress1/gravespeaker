@@ -1,0 +1,338 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 - SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		},
+		"ms": 3339
+	},
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 — SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		},
+		"ms": 4298
+	},
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 → SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		},
+		"ms": 19108
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		},
+		"ms": 3107
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		},
+		"ms": 4986
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		},
+		"ms": 5981
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "郭 俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		},
+		"ms": 4452
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": "郭俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		},
+		"ms": 5491
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "郭俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+			"people": [
+				{
+					"name": "郭俊士 Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		},
+		"ms": 12525
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				},
+				{
+					"name": "\"Eddie Boy\"",
+					"born": null,
+					"died": null
+				}
+			]
+		},
+		"ms": 2693
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		},
+		"ms": 4240
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+			"people": [
+				{
+					"name": "Edward Hildebrand III \"Eddie Boy\"",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		},
+		"ms": 11654
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "+ \nEDWARD\nLERØY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+			"people": [
+				{
+					"name": "EDWARD LERØY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		},
+		"ms": 4460
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": "EDWARD\nLEROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		},
+		"ms": 5106
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "EDWARD\nLE ROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+			"people": [
+				{
+					"name": "EDWARD LE ROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		},
+		"ms": 5203
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "HERE LYES BURIED\nTHE BODY OF\nM. ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27th 1752 IN THE\n60th YEAR OF HIS AGE",
+			"people": [
+				{
+					"name": "M. ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752-04-27"
+				}
+			]
+		},
+		"ms": 4998
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-31b-it",
+		"raw": " {\n  \"text\": \"HERE LYES BURIED\\nTHE BODY OF\\nMr ANDREW CUNNINGHAM\\nWHO DEPARTED THIS LIFE\\nApril 27th 1752 IN THE\\n60 YEAR OF HIS AGE\",\n  \"people\": [\n    {\n      \"name\": \"Mr ANDREW CUNNINGHAM\",\n      \"born\": null,\n      \"died\": \"1752-04-27\"\n    }\n  ]\n}\n```",
+		"error": "unparseable JSON",
+		"ms": 4634
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "HERE LYES BURIED\nTHE BODY OF\nM.r ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27.th 1752. IN THE\n60.th YEAR OF HIS AGE.",
+			"people": [
+				{
+					"name": "ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752-04-27"
+				}
+			]
+		},
+		"ms": 49132
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": "In\nMemory of\nBETSEY ELLIS.\nDaughter of\nThos. & Betsey Ellis.\nwho died\nJuly 28, 1848.\nage 11 years.",
+			"people": [
+				{
+					"name": "BETSEY ELLIS",
+					"born": null,
+					"died": "1848-07-28"
+				},
+				{
+					"name": "Thos. & Betsey Ellis",
+					"born": null,
+					"died": null
+				}
+			]
+		},
+		"ms": 3890
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-31b-it",
+		"raw": " {\n  \"text\": \"In\\nMemory of\\nBETSEY ELLIS,\\nDaughter of\\nThos & Betsey Ellis\\nwho Died\\nJuly 28, 1818,\\naged 11 years.\",\n  \"people\": [\n    {\n      \"name\": \"BETSEY ELLIS\",\n      \"born\": null,\n      \"died\": \"1818-07-28\"\n    }\n  ]\n}\n```",
+		"error": "unparseable JSON",
+		"ms": 5783
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": "In\nmemory of\nBETSEY ELLIS,\nDaughter of\nTho.s & Betsey Ellis,\nwho died\nJuly 28, 1818,\naged 14 years.",
+			"people": [
+				{
+					"name": "BETSEY ELLIS",
+					"born": null,
+					"died": "1818-07-28"
+				}
+			]
+		},
+		"ms": 11692
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"got": {
+			"text": null,
+			"people": []
+		},
+		"ms": 2796
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-31b-it",
+		"got": {
+			"text": null,
+			"people": []
+		},
+		"ms": 2754
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemini-3.8-flash",
+		"got": {
+			"text": null,
+			"people": []
+		},
+		"ms": 7352
+	}
+]

@@ -1,0 +1,114 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2191,
+		"got": {
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		}
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4751,
+		"got": {
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		}
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3534,
+		"got": {
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4871,
+		"got": {
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2097,
+		"got": {
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3926,
+		"got": {
+			"people": [
+				{
+					"name": "MR ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752-04-27"
+				}
+			]
+		}
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3312,
+		"got": {
+			"people": [
+				{
+					"name": "Betsey Ellis",
+					"born": null,
+					"died": "1848-07-28"
+				}
+			]
+		}
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 2051,
+		"got": {
+			"people": [
+				{
+					"name": "[]",
+					"born": null,
+					"died": null
+				}
+			]
+		}
+	}
+]

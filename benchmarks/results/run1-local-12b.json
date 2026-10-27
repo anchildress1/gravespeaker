@@ -1,0 +1,173 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"era": "recent",
+		"model": "gemma4:12b",
+		"ms": 10819,
+		"inTok": 1313,
+		"outTok": 104,
+		"got": {
+			"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 — SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		},
+		"text": 1,
+		"correct": 2,
+		"total": 3,
+		"extra": 0
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"era": "recent",
+		"model": "gemma4:12b",
+		"ms": 4354,
+		"inTok": 1315,
+		"outTok": 99,
+		"got": {
+			"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		},
+		"text": 1,
+		"correct": 3,
+		"total": 3,
+		"extra": 0
+	},
+	{
+		"file": "guo-2025.jpg",
+		"era": "recent",
+		"model": "gemma4:12b",
+		"ms": 4444,
+		"inTok": 1277,
+		"outTok": 105,
+		"got": {
+			"text": "郭俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		},
+		"text": 1,
+		"correct": 3,
+		"total": 3,
+		"extra": 0
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"era": "recent",
+		"model": "gemma4:12b",
+		"ms": 3998,
+		"inTok": 1315,
+		"outTok": 69,
+		"got": {
+			"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		},
+		"text": 1,
+		"correct": 3,
+		"total": 3,
+		"extra": 0
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"era": "recent",
+		"model": "gemma4:12b",
+		"ms": 4565,
+		"inTok": 1302,
+		"outTok": 108,
+		"got": {
+			"text": "EDWARD\nLEROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		},
+		"text": 1,
+		"correct": 2,
+		"total": 3,
+		"extra": 0
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"era": "historic",
+		"model": "gemma4:12b",
+		"ms": 4415,
+		"inTok": 1293,
+		"outTok": 93,
+		"got": {
+			"text": "HERE LYES BURIED\nTHE BODY OF\nM. ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27th 1752 IN THE\n60TH YEAR OF HIS AGE",
+			"people": [
+				{
+					"name": "M. ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752"
+				}
+			]
+		},
+		"text": 0.9913793103448276,
+		"correct": 0,
+		"total": 3,
+		"extra": 1
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"era": "historic",
+		"model": "gemma4:12b",
+		"ms": 4223,
+		"inTok": 1277,
+		"outTok": 84,
+		"got": {
+			"text": "In\nMemory of\nBETSEY BUCKS\nDarling Wife\nof Thomas Betsey\nwho died\nJuly 25, 1810\naged 41 Years.",
+			"people": [
+				{
+					"name": "BETSEY BUCKS",
+					"born": null,
+					"died": "1810"
+				}
+			]
+		},
+		"text": 0.7391304347826086,
+		"correct": 0,
+		"total": 3,
+		"extra": 1
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"era": "historic",
+		"model": "gemma4:12b",
+		"ms": 3485,
+		"inTok": 1293,
+		"outTok": 15,
+		"got": {
+			"text": null,
+			"people": []
+		},
+		"text": 1,
+		"fields": 1,
+		"total": 1,
+		"correct": 1,
+		"extra": 0
+	}
+]

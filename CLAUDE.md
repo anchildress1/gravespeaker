@@ -10,6 +10,9 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 
 - Build only what the MVP journey in `docs/PRD.md` requires. Anything outside it: stop and ask.
 - No feature flags, plugin systems, config layers, caching, retries, queues, or i18n unless a broken user path demands it.
+- Exception: model and search calls use Mastra's built-in retry and error handling. Never hand-roll retries.
+- Model output passes through a deterministic layer that parses names and normalizes dates. Never trust the model's formatting.
+- Non-English inscriptions are not optimized for. Never add code that rejects them either.
 - Prefer a framework/library capability over hand-rolled code.
 - Delete dead code. Never keep a path "just in case". No backward-compat shims.
 - Exactly two abstraction seams exist: **model inference** and **historical search**. One interface each, one implementation each until a second is actually needed. Concrete classes everywhere else.
@@ -61,7 +64,11 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 
 - One SvelteKit app. Server-only code lives in `src/lib/server/` and never reaches the client bundle.
 - Provider seams: `src/lib/server/inference/` and `src/lib/server/search/`.
-- Benchmark script: `scripts/benchmark.ts`. Fixture images: `fixtures/`.
+- Benchmark: `benchmarks/run.ts` runs a prompt file from `benchmarks/prompts/`; `benchmarks/score.ts` scores it. Fixture images: `fixtures/`, ground truth in `fixtures/manifest.json`.
+- Save every benchmark run as new files: `benchmarks/prompts/runN.json` and `benchmarks/results/runN-<model>.json`. Never overwrite an earlier run.
+- Fixtures never depict notable people (anyone with a Wikipedia article). Models already know them, which inflates OCR and grounding scores. Same-name namesakes are allowed and noted as identity traps.
+- Keep the fixture set small. Recent graves (death 2010+) are the baseline. Historic stones are a minority that stress-test reading, never the norm.
+- Ground truth is unverified until the user reviews it (`reviewed: true`). Never publish benchmark numbers from unreviewed fixtures.
 - Deploy: `deploy.sh` → one Cloud Run service in GCP project `anchildress1`. API keys come from Secret Manager, never env files in the image.
 - Lint, type, and test warnings are errors.
 - Secrets live in `.env` only (gitignored). `.env.example` lists keys with empty values.

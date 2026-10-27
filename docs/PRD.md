@@ -23,11 +23,13 @@ The experience should feel mysterious and personal while remaining historically 
 | #   | Step                  | What happens                                                                             | Done when                                                                                      |
 | --- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | 1   | **Capture or upload** | Photograph a gravestone or select an existing image.                                     | Works from a phone camera and from a desktop file picker.                                      |
-| 2   | **Identify**          | AI extracts names, dates, inscriptions and other useful details.                         | User can review and correct every extracted field before searching.                            |
+| 2   | **Identify**          | AI extracts the name and birth and death dates of the person the stone is for.           | Extracted fields are shown before searching. The user can't edit them in the MVP.              |
 | 3   | **Research**          | Search obituaries, cemetery records, historical archives and indexed public information. | Results come back with source URLs attached.                                                   |
 | 4   | **Verify**            | Cross-reference names, dates and places.                                                 | When more than one plausible person matches, the user picks one (or none).                     |
 | 5   | **Resurrect**         | Generate a short first-person narrative grounded in the confirmed records.               | Every factual sentence links to at least one source.                                           |
 | 6   | **Explore**           | Show source links and separate documented facts from AI reconstruction.                  | Facts and reconstruction are visually distinct, and the narrative is labelled as AI-generated. |
+
+Misread fields are accepted in the MVP. A wrong name or date fails at the Verify step (no match, or the user picks none) instead of reaching the story.
 
 If credible information can't be found, the app says so. It never fills historical gaps with fabricated claims.
 
@@ -48,6 +50,8 @@ If credible information can't be found, the app says so. It never fills historic
 
 Model inference and historical search sit behind replaceable interfaces. Everything else stays concrete.
 
+Model and search calls use Mastra's built-in retries and error handling. No hand-rolled retry loops.
+
 No self-hosted models unless benchmarks show a compelling advantage.
 
 ## 4. Key Engineering Challenges
@@ -56,6 +60,7 @@ No self-hosted models unless benchmarks show a compelling advantage.
 
 - Weathered stone, damaged inscriptions, shadows, unusual typography and partial dates.
 - Measure actual recognition accuracy instead of assuming a vision model performs well.
+- A deterministic layer in code parses names and strips and normalizes dates from the model output. The model reads the stone; code owns the format.
 
 **Historical identity resolution**
 
@@ -99,18 +104,18 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 
 - Functional mobile-friendly website
 - Camera and image upload
-- AI inscription extraction with user correction
+- AI extraction of the name and life dates from the stone
 - Public-record search and identity verification
 - Source-grounded first-person biography
 - Clickable citations
-- Small reproducible model evaluation: `scripts/benchmark.ts` runs Gemma 4 and a closed Gemini model on the same fixture images and records OCR accuracy, grounding, unsupported claims, latency and cost
+- Small reproducible model evaluation: `benchmarks/run.ts` runs Gemma 4 and a closed Gemini model on the same fixture images and records OCR accuracy, grounding, unsupported claims, latency and cost
 - Deployed public demo
 
 **Stretch**
 
 - ElevenLabs voice narration, with a basic male and female voice
   - The AI picks the voice from obituary evidence first (pronouns, relationship words such as "wife" or "son"), then the name.
-  - The guess is shown with the extracted fields, and the user can switch it like any other correction.
+  - The guess is shown with the extracted fields, and the user can switch it.
   - The guess only selects a voice; it is never stated as a historical fact in the story.
 - Additional historical record providers
 - Specialized OCR model fallback
@@ -125,6 +130,8 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 - Custom model hosting
 - Persistent user profiles and photo libraries
 - Paywalled or login-gated record sources
+- Multi-person (companion) stones: the app reads one person per stone
+- Optimizing for non-English inscriptions: nothing blocks them, but prompts and parsing target English
 
 ## 7. Privacy
 
@@ -174,3 +181,13 @@ Not part of the October 31 build. Captured so the ideas aren't lost.
 - Profile hits are candidates like any other search result. They go through the same identity verification in §2, and the user confirms the match.
 - Recent deaths mean living relatives and friends are all over these profiles. Only facts about the deceased can reach the story; comments, tags and other people's posts never do.
 - Link to the profile; don't republish posts or photos.
+
+**Correcting extracted fields**
+
+- Let the user edit every extracted field before searching.
+- The MVP benchmark showed every hosted model confidently misreading a worn 1818 as 1848.
+
+**Multi-person stones**
+
+- Tune the extraction prompts for companion stones, where two people share one surname line.
+- The MVP benchmark showed hosted Gemma reading every date on one but dropping the shared surname.

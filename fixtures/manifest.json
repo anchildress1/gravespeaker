@@ -1,0 +1,356 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 — SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+		"people": [
+			{
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Corwin_Garner_Chambers_(1959-2011),_Eugene_Masonic_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+		"people": [
+			{
+				"name": "Alfonso Gonzalez",
+				"born": "1951-11-18",
+				"died": "2021-01-17"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Gonzalez,_Alfonso_(1951-2021).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "guo-2025.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "郭俊士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+		"people": [
+			{
+				"name": "Jiunn-Shih Guo",
+				"born": "1937-01-18",
+				"died": "2025-12-10"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Jim_Jiunn-Shih_Guo_(1937-2025)_brick_at_Davis_Cemetery_in_Davis,_California.jpg",
+		"author": "Richard Arthur Norton (1958- )",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": true
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+		"people": [
+			{
+				"name": "Edward Hildebrand III",
+				"born": "1966",
+				"died": "2018"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1966-2018)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "EDWARD\nLEROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+		"people": [
+			{
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1942-2015)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"era": "historic",
+		"difficulty": "weathered",
+		"text": "HERE LYES BURIED\nTHE BODY OF\nMr ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27th 1752 IN THE\n60th YEAR OF HIS AGE",
+		"people": [
+			{
+				"name": "Andrew Cunningham",
+				"born": null,
+				"died": "1752-04-27"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Andrew_Cunningham_headstone_(36114).jpg",
+		"author": "Rhododendrites",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": true
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"era": "historic",
+		"difficulty": "weathered",
+		"text": "In\nMemory of\nBETSEY ELLIS,\nDaughter of\nTho,s & Betsey Ellis,\nwho died\nJuly 28, 1818,\naged 11 years.",
+		"people": [
+			{
+				"name": "Betsey Ellis",
+				"born": null,
+				"died": "1818-07-28"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Betsey_Ellis_tombstone,_Savery_Cemetery,_Ellisville_MA.jpg",
+		"author": "John Phelan",
+		"license": "CC BY-SA 3.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+		"reviewed": true
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"era": "historic",
+		"difficulty": "illegible",
+		"text": null,
+		"people": [],
+		"source": "https://commons.wikimedia.org/wiki/File:Illegible_20-10-15_050.jpg",
+		"author": "Chris Light",
+		"license": "CC BY-SA 4.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+		"reviewed": true
+	},
+	{
+		"file": "luxford-2015.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Robert E. Luxford\n1934 - 2015\nU.S. NAVY",
+		"people": [
+			{
+				"name": "Robert E. Luxford",
+				"born": "1934",
+				"died": "2015"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Luxford,_Robert_E._(1934-2015).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "morgan-2019.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "DAISY M. MORGAN\nAPR. 28, 1929\nJAN. 18, 2019",
+		"people": [
+			{
+				"name": "Daisy M. Morgan",
+				"born": "1929-04-28",
+				"died": "2019-01-18"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Morgan,_Daisy_M._(1929-2019).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "waechter-2012.jpg",
+		"era": "recent",
+		"difficulty": "weathered",
+		"text": "WITH LOVE WE REMEMBER\nMARTIN WAECHTER\nMAR. 7, 1943\nJAN. 31, 2012",
+		"people": [
+			{
+				"name": "Martin Waechter",
+				"born": "1943-03-07",
+				"died": "2012-01-31"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Martin_Waechter_(1943-2012),_Eugene_Masonic_Cemetery_(25854725748).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "mills-2015.jpg",
+		"era": "recent",
+		"difficulty": "edge",
+		"text": "Joshua John\nMills\nJuly 21, 1979 - Jan. 7, 2015\nBeloved Son, Brother & Devoted Father\n\"You will be forever missed.\"\nDorian",
+		"people": [
+			{
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Joshua_John_Mills_(1979-2015),_Eugene_Masonic_Cemetery_(38961982154).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "hall-2014.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "JAMES KENNETH\nHALL\nin loving memory\n7/23/1940 - 3/18/2014",
+		"people": [
+			{
+				"name": "James Kenneth Hall",
+				"born": "1940-07-23",
+				"died": "2014-03-18"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:James_Kenneth_Hall_(1940-2014),_Eugene_Masonic_Cemetery_(27935355179).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "juntunen-2012.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "TROY LEONARD JUNTUNEN\nJANUARY 28, 1967\nAUGUST 3, 2012\nPassionate, Faithful, Loyal Son,\nFather, Brother & Friend",
+		"people": [
+			{
+				"name": "Troy Leonard Juntunen",
+				"born": "1967-01-28",
+				"died": "2012-08-03"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Troy_Leonard_Juntunen_(1967-2012)_in_Crystal_Lake_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "dixon-2018.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "LLOYD DEE DIXON\nSSG US ARMY\nVIETNAM\nJUL 11 1943 MAY 26 2018\nLOVING HUSBAND",
+		"people": [
+			{
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Lloyd_Dee_Dixon_(1943-2018)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "schreiber-2012.jpg",
+		"era": "recent",
+		"difficulty": "edge",
+		"text": "Our Beloved Son & Brother\nTyson Lee Schreiber\nAugust 21, 1992\nFebruary 12, 2012\nForever in our Hearts",
+		"people": [
+			{
+				"name": "Tyson Lee Schreiber",
+				"born": "1992-08-21",
+				"died": "2012-02-12"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Tyson_Lee_Schreiber_(1992-2012)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "hawks-2017.jpg",
+		"era": "recent",
+		"difficulty": "clean",
+		"text": "Gaynor Claire Hawks\nnée Staples\nMarch 10, 1932\nCheyenne, Wyoming\nDecember 27, 2017\nWaldport, Oregon\nA Gentle Soul, Dearly Loved",
+		"people": [
+			{
+				"name": "Gaynor Claire Hawks",
+				"born": "1932-03-10",
+				"died": "2017-12-27"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Gaynor_Clire_Hawks_(1932-2017)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "hayden-1993.jpg",
+		"era": "historic",
+		"difficulty": "clean",
+		"text": "Jasper \"Bub\" Hayden\n1907 Father 1993",
+		"people": [
+			{
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Jasper_Hayden_(1907-1993)_in_Alsea_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "bell-1994.jpg",
+		"era": "historic",
+		"difficulty": "weathered",
+		"text": "RUSSELL O BELL\nPFC US ARMY\nWORLD WAR II\nSEP 24 1924 FEB 8 1994\nPURPLE HEART",
+		"people": [
+			{
+				"name": "Russell O Bell",
+				"born": "1924-09-24",
+				"died": "1994-02-08"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Russell_O._Bell_(1914-1994)_in_Crystal_Lake_Cemetery.jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	},
+	{
+		"file": "doran-2008.jpg",
+		"era": "historic",
+		"difficulty": "clean",
+		"text": "Bruce Doran\nMay 31, 1934 - March 28, 2008\nBeloved Father, Son and Brother",
+		"people": [
+			{
+				"name": "Bruce Doran",
+				"born": "1934-05-31",
+				"died": "2008-03-28"
+			}
+		],
+		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Doran,_Bruce_(1934-2008).jpg",
+		"author": "Rick Obst",
+		"license": "CC BY 2.0",
+		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+		"reviewed": true
+	}
+]

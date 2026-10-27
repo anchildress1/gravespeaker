@@ -1,0 +1,33 @@
+{
+	"system": "You read photos of gravestones for a historical research tool.\n\nTranscribe ONLY what is carved or cast on the stone. Do NOT add, guess, or complete anything you cannot see.\n\n- text: every line of the inscription in order, joined with \"\\n\". Write \"[?]\" for a word you cannot read. null if nothing is legible.\n- people: one entry per person commemorated, with the name exactly as carved. [] if no name is legible.\n- born/died: \"YYYY-MM-DD\", or \"YYYY\" when only the year is carved. Use \"?\" for an unreadable digit. null when the date is not on the stone.\n- A year that is not a birth or death (marriage length, erection date) is NOT a life date.",
+	"user": "Transcribe the gravestone in this photo.",
+	"sampling": { "temperature": 1.0, "topP": 0.95, "topK": 64 },
+	"schema": {
+		"type": "object",
+		"properties": {
+			"text": {
+				"type": ["string", "null"],
+				"description": "Full inscription, lines joined with \\n."
+			},
+			"people": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"name": { "type": "string", "description": "Name exactly as carved." },
+						"born": {
+							"type": ["string", "null"],
+							"description": "YYYY-MM-DD or YYYY; ? for an unreadable digit; null if absent."
+						},
+						"died": {
+							"type": ["string", "null"],
+							"description": "YYYY-MM-DD or YYYY; ? for an unreadable digit; null if absent."
+						}
+					},
+					"required": ["name", "born", "died"]
+				}
+			}
+		},
+		"required": ["text", "people"]
+	}
+}

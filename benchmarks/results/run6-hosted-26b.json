@@ -1,0 +1,116 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 3340,
+		"got": {
+			"text": "CORWIN \"CORY\" GARNER\nCHAMBERS\nNOV. 7, 1959 - SEP. 12, 2011\n\"IMPOSSIBLE IS NOTHING\"",
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12"
+				}
+			]
+		}
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 7782,
+		"got": {
+			"text": "Amado esposo, hermano y padre\nAlfonso Gonzalez\nNov. 18, 1951 - Jan. 17, 2021\nSalmos 73:26",
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17"
+				}
+			]
+		}
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 11968,
+		"got": {
+			"text": "郭 俊 士\nJiunn-Shih Guo\nJan. 18, 1937\nDec. 10, 2025\nBeloved Husband,\nFather and\nGrandfather",
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4792,
+		"got": {
+			"text": "Edward Hildebrand III\n\"Eddie Boy\"\n1966 - 2018\nOur Beloved Son and Brother",
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018"
+				}
+			]
+		}
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4847,
+		"got": {
+			"text": "EDWARD\nLEROY\nHILDEBRAND JR\nADR3\nUS NAVY\nVIETNAM\nAPR 28 1942\nOCT 10 2015",
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10"
+				}
+			]
+		}
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 8639,
+		"got": {
+			"text": "HERE LYES BURIED\nTHE BODY OF\nMR ANDREW CUNNINGHAM\nWHO DEPARTED THIS LIFE\nAPRIL 27th 1752 IN THE\n60th YEAR OF HIS AGE",
+			"people": [
+				{
+					"name": "ANDREW CUNNINGHAM",
+					"born": null,
+					"died": "1752-04-27"
+				}
+			]
+		}
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 4376,
+		"got": {
+			"text": "In\nMemory of\nBETSEY ELLIS,\nDaughter of\nThos. & Betsey Ellis,\nwho died\nJuly 28, 1848,\nage 11 years.",
+			"people": [
+				{
+					"name": "BETSEY ELLIS",
+					"born": null,
+					"died": "1848-07-28"
+				}
+			]
+		}
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 6201,
+		"got": {
+			"text": null,
+			"people": []
+		}
+	}
+]
