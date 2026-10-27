@@ -67,6 +67,7 @@ No self-hosted models unless benchmarks show a compelling advantage.
 
 - Public availability doesn't guarantee unrestricted reuse.
 - Respect access restrictions, provenance, licensing and unavailable records. Link to sources; don't republish their content.
+- One exception: obituary photos (stretch) are shown from their original URL with a visible credit and link. They are never downloaded, cached or re-hosted, and an image whose source restricts embedding is skipped.
 - Every substantive historical claim must trace back to supporting evidence.
 
 **First-person storytelling**
@@ -108,7 +109,11 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 
 **Stretch**
 
-- ElevenLabs voice narration
+- ElevenLabs voice narration, with a basic male and female voice
+  - The AI picks the voice from obituary evidence first (pronouns, relationship words such as "wife" or "son"), then the name.
+  - The guess is shown with the extracted fields, and the user can switch it like any other correction.
+  - The guess only selects a voice; it is never stated as a historical fact in the story.
+- Obituary photos: when the matched obituary has a photo, show it while the speaker is talking (see §4 for display rules)
 - Additional historical record providers
 - Specialized OCR model fallback
 - Enhanced atmospheric animations
@@ -126,6 +131,7 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 ## 7. Privacy
 
 - Uploaded images are processed in memory and never stored.
+- Obituary photos are loaded from their source URL by the browser, never proxied or stored by Gravespeaker.
 - API keys stay server-side. The browser never calls a model or search provider directly.
 
 ## 8. Schedule
