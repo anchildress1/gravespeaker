@@ -3,66 +3,133 @@
 <!-- Banner image: add one at static/banner.png and uncomment below -->
 <!-- ![Banner](./static/banner.png) -->
 
-[![CI](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml/badge.svg)](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml)
-[![License: Polyform Shield](https://img.shields.io/badge/license-Polyform%20Shield-blue)](LICENSE)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=anchildress1_gravespeaker&metric=alert_status)](https://sonarcloud.io/project/overview?id=anchildress1_gravespeaker)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=anchildress1_gravespeaker&metric=coverage)](https://sonarcloud.io/project/overview?id=anchildress1_gravespeaker)
+[![CI](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml/badge.svg)](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=anchildress1_gravespeaker&metric=alert_status)](https://sonarcloud.io/project/overview?id=anchildress1_gravespeaker) [![License: Polyform Shield](https://img.shields.io/badge/license-Polyform%20Shield-blue)](LICENSE)
 
-Photograph a headstone. Discover a life. Hear the story the records left behind. See [the PRD](docs/PRD.md) for the full picture.
+Photograph a headstone. Discover a life. Hear the story the records left behind.
 
-## Setup
+- [About](#about)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Deploying](#deploying)
+- [Security](#security)
+- [License](#license)
+- [Author](#author)
 
-You need [Volta](https://volta.sh) with its pnpm support switched on (`VOLTA_FEATURE_PNPM=1`). Volta reads the pinned Node and pnpm versions from `package.json`.
+---
 
-The git hooks also call `actionlint` and `gitleaks`, which aren't npm packages:
+## About
+
+Gravespeaker is a mobile-friendly web app. Upload or snap a photo of a gravestone, confirm what the AI read from the stone, and get a short first-person story built only from public records you can click through and check.
+
+If the records can't establish who the person was, the app says so instead of making something up. Every claim is either cited or clearly marked as AI reconstruction.
+
+Built for Hacktoberfest 2026, Week 4: Ghost in the Machine. The [PRD](docs/PRD.md) has the full scope, schedule and definition of done.
+
+---
+
+## Tech Stack
+
+| Layer              | Choice                                          |
+| ------------------ | ----------------------------------------------- |
+| App                | SvelteKit (Svelte 5, Vite 8), `adapter-node`    |
+| Runtime            | Node.js 26.12.1, TypeScript 6 (strict), pnpm 11 |
+| AI orchestration   | Mastra _(planned)_                              |
+| Vision and stories | Gemma 4 via the Gemini API _(planned)_          |
+| Record search      | SerpApi _(planned)_                             |
+| Hosting            | Google Cloud Run, Secret Manager                |
+| Quality            | Vitest, Playwright, ESLint, SonarCloud, CodeQL  |
+
+---
+
+## Getting Started
+
+You need:
+
+- [Volta](https://volta.sh) with pnpm support switched on. Volta reads the pinned Node and pnpm versions from `package.json`.
+- `actionlint` and `gitleaks`, which the git hooks call.
 
 ```bash
+export VOLTA_FEATURE_PNPM=1          # add to your shell profile
 brew install actionlint gitleaks
-```
 
-`make install` installs dependencies and the Lefthook git hooks.
-
-```bash
-make install
-cp .env.example .env   # then fill in the keys
+make install                          # dependencies + Lefthook git hooks
+cp .env.example .env                  # then fill in the keys
 make dev
 ```
 
-## Available Commands
+### Commands
 
-| Command             | Description                                                 |
-| ------------------- | ----------------------------------------------------------- |
-| `make install`      | Install dependencies                                        |
-| `make dev`          | Start the dev server                                        |
-| `make format`       | Format code                                                 |
-| `make format-check` | Check formatting                                            |
-| `make lint`         | Run the linter                                              |
-| `make typecheck`    | Svelte and TypeScript type check                            |
-| `make test`         | Unit tests with coverage                                    |
-| `make build`        | Production build                                            |
-| `make e2e`          | Playwright E2E tests (mobile viewport)                      |
-| `make perf`         | Lighthouse, run locally only                                |
-| `make secret-scan`  | Scan for secrets with gitleaks                              |
-| `make ai-checks`    | Run format-check, lint, typecheck, test and build in one go |
-| `make deploy`       | Deploy to Cloud Run                                         |
-| `make clean`        | Remove build artifacts                                      |
+| Command            | What it does                                                  |
+| ------------------ | ------------------------------------------------------------- |
+| `make dev`         | Start the dev server                                          |
+| `make ai-checks`   | Format check, lint, typecheck, unit tests and build in one go |
+| `make test`        | Unit tests with coverage                                      |
+| `make e2e`         | Playwright tests on a mobile viewport                         |
+| `make secret-scan` | gitleaks over the working tree                                |
+| `make deploy`      | Ship to Cloud Run                                             |
+| `make clean`       | Remove build output                                           |
+
+The Lefthook hooks run format, lint, actionlint and gitleaks on every commit; commitlint on every commit message; and typecheck, unit and e2e tests before every push.
+
+---
+
+## Configuration
+
+| Variable          | Used for                           |
+| ----------------- | ---------------------------------- |
+| `GEMINI_API_KEY`  | Gemma 4 vision and narrative calls |
+| `SERPAPI_API_KEY` | Public-record search               |
+
+Locally, these go in `.env`, which is gitignored. In production, Cloud Run injects them from Secret Manager (see [Deploying](#deploying)).
+
+---
 
 ## Deploying
 
-Before the first deploy, run this once in the target GCP project:
+Production runs as one Cloud Run service in the `anchildress1` GCP project:
+
+- **Runtime identity:** the `gravespeaker-run` service account.
+- **Secrets:** namespaced per app and mapped to the variables above.
+
+| Secret Manager name            | Env var           |
+| ------------------------------ | ----------------- |
+| `GRAVESPEAKER_GEMINI_API_KEY`  | `GEMINI_API_KEY`  |
+| `GRAVESPEAKER_SERPAPI_API_KEY` | `SERPAPI_API_KEY` |
+
+Both secrets and the service account already exist, and the account can read both secrets. `make deploy` builds the image with Cloud Build and deploys it.
+
+To rebuild the setup from scratch, or to add a new secret, run the matching commands from the repo root:
 
 ```bash
-PROJECT_ID=$(gcloud config get-value project)
-gcloud iam service-accounts create gravespeaker --project "$PROJECT_ID"
-for s in gemini-api-key serpapi-api-key; do
-  gcloud secrets create "$s" --project "$PROJECT_ID" --data-file=-   # paste the key, then Ctrl-D
-  gcloud secrets add-iam-policy-binding "$s" --project "$PROJECT_ID" \
-    --member "serviceAccount:gravespeaker@$PROJECT_ID.iam.gserviceaccount.com" \
-    --role roles/secretmanager.secretAccessor
-done
+SA=gravespeaker-run@anchildress1.iam.gserviceaccount.com
+gcloud iam service-accounts create gravespeaker-run --project anchildress1
+
+# Repeat per key; the value comes from .env and never touches the terminal.
+grep '^GEMINI_API_KEY=' .env | cut -d= -f2- | tr -d '\n' \
+  | gcloud secrets create GRAVESPEAKER_GEMINI_API_KEY --data-file=- --project anchildress1
+gcloud secrets add-iam-policy-binding GRAVESPEAKER_GEMINI_API_KEY \
+  --member "serviceAccount:$SA" --role roles/secretmanager.secretAccessor --project anchildress1
 ```
 
-After that, `make deploy` builds the container with Cloud Build and ships it to Cloud Run.
+Secret Manager bills per secret, so add one only when production can't run without it.
+
+---
+
+## Security
+
+Design requirements from the [PRD](docs/PRD.md) that every feature must keep:
+
+- API keys stay on the server. The browser never talks to Gemini or SerpApi directly.
+- Uploaded photos are processed in memory and never stored.
+
+Already in place:
+
+- Secrets are never shared between apps in the GCP project.
+- Every GitHub Action is pinned to a commit SHA, and Dependabot proposes updates after a 7-day cooldown.
+- gitleaks runs locally before every commit and again in CI.
+
+---
 
 ## License
 
@@ -71,3 +138,9 @@ Released under the [Polyform Shield License 1.0.0](LICENSE). It's source-availab
 - **You can:** use it, fork it, learn from it, run it at your day job, hand it to a client.
 - **You can't:** sell it, rebrand it, host it as a paid SaaS, or otherwise make money from it without explicit written permission.
 - **Public forks:** include the LICENSE file and credit the original work.
+
+---
+
+## Author
+
+Ashley Childress · [@anchildress1](https://github.com/anchildress1)

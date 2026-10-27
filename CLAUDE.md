@@ -56,6 +56,22 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 - One SvelteKit app. Server-only code lives in `src/lib/server/` and never reaches the client bundle.
 - Provider seams: `src/lib/server/inference/` and `src/lib/server/search/`.
 - Benchmark script: `scripts/benchmark.ts`. Fixture images: `fixtures/`.
-- Deploy: `deploy.sh` → one Cloud Run service. API keys come from Secret Manager, never env files in the image.
+- Deploy: `deploy.sh` → one Cloud Run service in GCP project `anchildress1`. API keys come from Secret Manager, never env files in the image.
 - Lint, type, and test warnings are errors.
 - Secrets live in `.env` only (gitignored). `.env.example` lists keys with empty values.
+
+## Secrets
+
+- Secret Manager bills per secret. Create one only when prod cannot run without it. Ask before adding any.
+- Name every secret `GRAVESPEAKER_<KEY>` in project `anchildress1`. Never reuse another app's secret, including the bare shared ones (`GEMINI_API_KEY`).
+- Map secret to env var in `deploy.sh`: `GEMINI_API_KEY=GRAVESPEAKER_GEMINI_API_KEY:latest`. App code reads the generic name.
+- Prod secrets: `GRAVESPEAKER_GEMINI_API_KEY`, `GRAVESPEAKER_SERPAPI_API_KEY`. Runtime identity: `gravespeaker-run@anchildress1.iam.gserviceaccount.com`.
+- Never print secret values. Pipe from `.env` into `gcloud secrets create --data-file=-`.
+
+## Repo workflow
+
+- Never bypass Lefthook on commit or push: no `--no-verify`, no `LEFTHOOK=0`, no skipped commands. A failing hook means fix the cause, or stop and report the exact failure to the user.
+- Never merge a release-please PR. Leave it open until the user explicitly says to merge it.
+- Pin every GitHub Action, `actions/*` included, to a full commit SHA with the version in a trailing comment. Resolve with `gh api` at write time.
+- Lighthouse runs only through the chrome-devtools MCP `lighthouse_audit` tool against `pnpm preview`. Never add `@lhci/cli` or `lighthouse` to the repo in any form (`devDependencies`, `pnpm dlx`, CI, hooks): their dependency tree carries unpatched advisories.
+- Edit `README.md` only through the `readme-generator` skill.

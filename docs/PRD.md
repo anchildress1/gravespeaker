@@ -108,7 +108,10 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 
 **Stretch**
 
-- ElevenLabs voice narration
+- ElevenLabs voice narration, with a basic male and female voice
+  - The AI picks the voice from obituary evidence first (pronouns, relationship words such as "wife" or "son"), then the name.
+  - The guess is shown with the extracted fields, and the user can switch it like any other correction.
+  - The guess only selects a voice; it is never stated as a historical fact in the story.
 - Additional historical record providers
 - Specialized OCR model fallback
 - Enhanced atmospheric animations
@@ -149,3 +152,13 @@ If the history can't be reliably established, the app says so clearly.
 The project includes a working public demo, documented technical decisions, a meaningful open-versus-closed model comparison, and an engaging DEV submission.
 
 **Priority:** Complete one historically defensible end-to-end experience before adding features.
+
+## 10. v2 (after the challenge)
+
+Not part of the October 31 build. Captured so the ideas aren't lost.
+
+**Obituary photos during narration**
+
+- When the matched obituary has a photo, show it while the speaker is talking.
+- Display it from its original URL with a visible credit and link. Never download, cache or re-host it, and skip any image whose source restricts embedding.
+- This is the one deliberate exception to the "link, don't republish" rule in §4, so it needs a licensing check before it ships.

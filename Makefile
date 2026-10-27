@@ -1,7 +1,7 @@
 # Without this, Volta runs pnpm on the Node it was installed with instead of the pinned one.
 export VOLTA_FEATURE_PNPM := 1
 
-.PHONY: install dev format format-check lint typecheck test build e2e perf secret-scan clean ai-checks deploy
+.PHONY: install dev format format-check lint typecheck test build e2e secret-scan clean ai-checks deploy
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -39,11 +39,6 @@ e2e:
 	@echo "🎭 Running E2E tests..."
 	pnpm test:e2e
 
-perf:
-	@echo "🚀 Running Lighthouse..."
-	pnpm build
-	pnpm perf
-
 secret-scan:
 	@if command -v gitleaks > /dev/null; then \
 		gitleaks dir .; \
@@ -54,7 +49,7 @@ secret-scan:
 
 clean:
 	@echo "🧹 Cleaning up..."
-	rm -rf node_modules build .svelte-kit coverage .lighthouseci playwright-report test-results
+	rm -rf node_modules build .svelte-kit coverage playwright-report test-results
 
 ai-checks: format-check lint typecheck test build
 
