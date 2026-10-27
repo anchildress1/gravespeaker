@@ -3,7 +3,7 @@
   "checkpoint_id": "01M5Z587NT75GKFMJKMH3E5SYM",
   "strategy": "manual-commit",
   "branch": "chore/speckit-setup",
-  "checkpoints_count": 6,
+  "checkpoints_count": 7,
   "files_touched": [
     "CLAUDE.md"
   ],
@@ -28,6 +28,13 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
@@ -38,12 +45,12 @@
     "api_call_count": 1
   },
   "redaction": {
-    "replacements": 17,
+    "replacements": 20,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 17,
+      "credential_value": 20,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
