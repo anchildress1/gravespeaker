@@ -1,0 +1,1 @@
+No. Do not reuse the gemini key, I need them sorted by project. I put one in .env for prod. it should be GRAVESPEAKER_GEMINI_API_KEY
