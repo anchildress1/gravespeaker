@@ -1,6 +1,6 @@
 # 🔬 OCR smoke test: Gemma 4 vs Gemini Flash
 
-Quick passes at the PRD question "can Gemma read a headstone?", all run on 2026-10-27 before any app code existed. These are throwaway scripts, not `scripts/benchmark.ts`. They measure transcription and field extraction only. Grounding, unsupported claims and cost per run come later with the real benchmark.
+Quick passes at the PRD question "can Gemma read a headstone?", all run on 2026-10-27 before any app code existed. Runner and scorer: `benchmarks/run.ts` and `benchmarks/score.ts`. Run 2's E2B rows came from a one-off LiteRT-LM script that wasn't kept. They measure transcription and field extraction only. Grounding, unsupported claims and cost per run come later with the real benchmark.
 
 ## Setup
 
@@ -16,7 +16,7 @@ Quick passes at the PRD question "can Gemma read a headstone?", all run on 2026-
 | 2   | System prompt with role and rules; user turn is image + task | JSON schema enforced by the API (`responseJsonSchema`) | temperature 1.0, top_p 0.95, top_k 64 (Gemma 4 model card) |
 | 3   | Same as run 2                                                | Same as run 2                                          | temperature 0, top_p 0.95, top_k 64; 12B only              |
 
-Run 2's full prompt and schema: [`run2-prompt.json`](run2-prompt.json). Run 1's prompt:
+Run 2's full prompt and schema: [`benchmarks/prompts/run2.json`](../../benchmarks/prompts/run2.json). Run 1's prompt ([`benchmarks/prompts/run1.json`](../../benchmarks/prompts/run1.json)):
 
 ```text
 You are reading a photo of a gravestone for a historical research tool.
@@ -57,7 +57,7 @@ Return ONLY a JSON object, no prose, no code fences:
 | Errors              | 0                  | 1               | 0                | 0                  |
 | Avg time per photo  | 24.5 s             | 50.1 s          | 11.9 s           | 5.0 s              |
 
-Raw output: [`run1-hosted.json`](run1-hosted.json), [`run1-local-12b.json`](run1-local-12b.json).
+Raw output: [`run1-hosted.json`](../../benchmarks/results/run1-hosted.json), [`run1-local-12b.json`](../../benchmarks/results/run1-local-12b.json).
 
 ## Run 2: system prompt, JSON schema, recommended sampling
 
@@ -76,13 +76,13 @@ Raw output: [`run1-hosted.json`](run1-hosted.json), [`run1-local-12b.json`](run1
 | Errors              | 0                  | 2                | 0                | 0                  | 3                      |
 | Avg time per photo  | 3.7 s              | 4.7 s            | 15.3 s           | 4.6 s              | 1.4 s                  |
 
-Raw output: [`run2-hosted.json`](run2-hosted.json), [`run2-local-12b.json`](run2-local-12b.json), [`run2-local-e2b.json`](run2-local-e2b.json).
+Raw output: [`run2-hosted.json`](../../benchmarks/results/run2-hosted.json), [`run2-local-12b.json`](../../benchmarks/results/run2-local-12b.json), [`run2-local-e2b.json`](../../benchmarks/results/run2-local-e2b.json).
 
 LiteRT-LM has no JSON-schema decoding, so E2B got the schema as text appended to its system prompt.
 
 ## Run 3: tuning on local 12B, temperature 0
 
-Model choice is settled; from here the runs tune the prompt. Run 3 keeps run 2's prompt and schema ([`run3-prompt.json`](run3-prompt.json)) and only drops the temperature to 0.
+Model choice is settled; from here the runs tune the prompt. Run 3 keeps run 2's prompt and schema ([`benchmarks/prompts/run3.json`](../../benchmarks/prompts/run3.json)) and only drops the temperature to 0.
 
 | Fixture             | gemma4:12b (local) |
 | ------------------- | ------------------ |
@@ -99,7 +99,7 @@ Model choice is settled; from here the runs tune the prompt. Run 3 keeps run 2's
 | Errors              | 0                  |
 | Avg time per photo  | 1.5 s              |
 
-Raw output: [`run3-local-12b.json`](run3-local-12b.json).
+Raw output: [`run3-local-12b.json`](../../benchmarks/results/run3-local-12b.json).
 
 - Same score as run 2. The same three stones fail the same way: "LE ROY", "M. ANDREW", and an invented Ellis ("BETSEY B. [?]", died 1810).
 - The illegible stone still comes back as a person named "[?]" instead of an empty list.

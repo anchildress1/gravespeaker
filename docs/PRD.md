@@ -108,7 +108,7 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 - Public-record search and identity verification
 - Source-grounded first-person biography
 - Clickable citations
-- Small reproducible model evaluation: `scripts/benchmark.ts` runs Gemma 4 and a closed Gemini model on the same fixture images and records OCR accuracy, grounding, unsupported claims, latency and cost
+- Small reproducible model evaluation: `benchmarks/run.ts` runs Gemma 4 and a closed Gemini model on the same fixture images and records OCR accuracy, grounding, unsupported claims, latency and cost
 - Deployed public demo
 
 **Stretch**

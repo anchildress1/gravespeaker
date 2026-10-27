@@ -64,7 +64,8 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 
 - One SvelteKit app. Server-only code lives in `src/lib/server/` and never reaches the client bundle.
 - Provider seams: `src/lib/server/inference/` and `src/lib/server/search/`.
-- Benchmark script: `scripts/benchmark.ts`. Fixture images: `fixtures/`, ground truth in `fixtures/manifest.json`.
+- Benchmark: `benchmarks/run.ts` runs a prompt file from `benchmarks/prompts/`; `benchmarks/score.ts` scores it. Fixture images: `fixtures/`, ground truth in `fixtures/manifest.json`.
+- Save every benchmark run as new files: `benchmarks/prompts/runN.json` and `benchmarks/results/runN-<model>.json`. Never overwrite an earlier run.
 - Fixtures never depict notable people (anyone with a Wikipedia article). Models already know them, which inflates OCR and grounding scores. Same-name namesakes are allowed and noted as identity traps.
 - Keep the fixture set small. Recent graves (death 2010+) are the baseline. Historic stones are a minority that stress-test reading, never the norm.
 - Ground truth is unverified until the user reviews it (`reviewed: true`). Never publish benchmark numbers from unreviewed fixtures.
