@@ -51,7 +51,7 @@
 		"author": "Richard Arthur Norton (1958- )",
 		"license": "CC BY-SA 4.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "hildebrand-iii-2018.jpg",
@@ -69,7 +69,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "hildebrand-jr-2015.jpg",
@@ -87,7 +87,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "holmquist-2024.jpg",
@@ -110,7 +110,7 @@
 		"author": "Rick Obst",
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "cunningham-1752.jpg",
@@ -128,13 +128,13 @@
 		"author": "Rhododendrites",
 		"license": "CC BY-SA 4.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "ellis-1818.jpg",
 		"era": "historic",
 		"difficulty": "weathered",
-		"text": "In\nMemory of\nBETSEY ELLIS,\nDaughter of\nThos. & Betsey Ellis,\nwho died\nJuly 28, 1818,\nag'd 11 years.",
+		"text": "In\nMemory of\nBETSEY ELLIS,\nDaughter of\nTho,s & Betsey Ellis,\nwho died\nJuly 28, 1818,\naged 11 years.",
 		"people": [
 			{
 				"name": "Betsey Ellis",
@@ -146,7 +146,7 @@
 		"author": "John Phelan",
 		"license": "CC BY-SA 3.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-		"reviewed": false
+		"reviewed": true
 	},
 	{
 		"file": "illegible-marble.jpg",
@@ -158,6 +158,6 @@
 		"author": "Chris Light",
 		"license": "CC BY-SA 4.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-		"reviewed": false
+		"reviewed": true
 	}
 ]
