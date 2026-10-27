@@ -3,9 +3,29 @@
   "checkpoint_id": "01M5Z57G25ZRR2S9ZPRA1PP3JC",
   "strategy": "manual-commit",
   "branch": "chore/speckit-setup",
-  "checkpoints_count": 2,
+  "checkpoints_count": 6,
   "files_touched": [
-    ".prettierignore"
+    ".prettierignore",
+    ".specify/.gitignore",
+    ".specify/init-options.json",
+    ".specify/integration.json",
+    ".specify/integrations/claude.manifest.json",
+    ".specify/integrations/speckit.manifest.json",
+    ".specify/memory/.constitution-template.json",
+    ".specify/memory/constitution.md",
+    ".specify/scripts/bash/check-prerequisites.sh",
+    ".specify/scripts/bash/common.sh",
+    ".specify/scripts/bash/create-new-feature.sh",
+    ".specify/scripts/bash/resolve-template.sh",
+    ".specify/scripts/bash/setup-plan.sh",
+    ".specify/scripts/bash/setup-tasks.sh",
+    ".specify/templates/checklist-template.md",
+    ".specify/templates/constitution-template.md",
+    ".specify/templates/plan-template.md",
+    ".specify/templates/spec-template.md",
+    ".specify/templates/tasks-template.md",
+    ".specify/workflows/speckit/workflow.yml",
+    ".specify/workflows/workflow-registry.json"
   ],
   "sessions": [
     {
@@ -21,22 +41,29 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 4,
-    "cache_creation_tokens": 78573,
-    "cache_read_tokens": 28388,
-    "output_tokens": 462,
-    "api_call_count": 2
+    "input_tokens": 82,
+    "cache_creation_tokens": 254401,
+    "cache_read_tokens": 5323854,
+    "output_tokens": 33287,
+    "api_call_count": 40
   },
   "redaction": {
-    "replacements": 6,
+    "replacements": 17,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 6,
+      "credential_value": 17,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,

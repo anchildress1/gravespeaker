@@ -1,0 +1,95 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5Z57G25ZRR2S9ZPRA1PP3JC",
+  "session_id": "a78fbb29-c412-483a-b679-0722adb27f13",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-27T17:06:23.274768Z",
+  "branch": "chore/speckit-setup",
+  "checkpoints_count": 4,
+  "save_step_count": 4,
+  "files_touched": [
+    ".prettierignore",
+    ".specify/.gitignore",
+    ".specify/init-options.json",
+    ".specify/integration.json",
+    ".specify/integrations/claude.manifest.json",
+    ".specify/integrations/speckit.manifest.json",
+    ".specify/memory/.constitution-template.json",
+    ".specify/memory/constitution.md",
+    ".specify/scripts/bash/check-prerequisites.sh",
+    ".specify/scripts/bash/common.sh",
+    ".specify/scripts/bash/create-new-feature.sh",
+    ".specify/scripts/bash/resolve-template.sh",
+    ".specify/scripts/bash/setup-plan.sh",
+    ".specify/scripts/bash/setup-tasks.sh",
+    ".specify/templates/checklist-template.md",
+    ".specify/templates/constitution-template.md",
+    ".specify/templates/plan-template.md",
+    ".specify/templates/spec-template.md",
+    ".specify/templates/tasks-template.md",
+    ".specify/workflows/speckit/workflow.yml",
+    ".specify/workflows/workflow-registry.json"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "9793489ea76c",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 78,
+    "cache_creation_tokens": 175828,
+    "cache_read_tokens": 5295466,
+    "output_tokens": 32825,
+    "api_call_count": 38
+  },
+  "redaction": {
+    "replacements": 11,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 11,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01XKhqJdhkcHrmtf8nkA2i6Q",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "generate-commit-message"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "9793489ea76c",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 610,
+        "end": 611,
+        "entry_ids": [
+          "1e223c38-cabe-445f-af54-80587ed4d5c3"
+        ],
+        "tool_use_id": "toolu_01XKhqJdhkcHrmtf8nkA2i6Q"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01XKhqJdhkcHrmtf8nkA2i6Q"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: generate-commit-message",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 4
+  }
+}
