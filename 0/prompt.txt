@@ -1,0 +1,12 @@
+<task-notification>
+<summary>Commit security review did not complete: the API rejected the plugin's credentials (HTTP 401). Log: /Users/anchildress1/.claude/security/log.txt</summary>
+</task-notification>
+
+---
+
+go find a bigger benchmark pool for images now. aim for newer ones post 2010 and a couple 1950-2010 range. we want a bigger sample in the repo. 
+also, 6.5 sec is not going to work. it has to be faster while keeping accuracy. we have a max of 10 benchmark runs. we've used 7 of them. then we have to start building
+
+---
+
+no. use the free one.
