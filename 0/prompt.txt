@@ -1,0 +1,55 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+upload retry verified
+codex threads resolved
+release refs replace titles
+haikuera phrase fresh and
+sentry spans redacted
+analytics scope revoked
+stale tab conflict handled
+channel name copy fixed
+channel name flag fixed
+copilot claim disproved
+artist voice guide landed
+stat guard test verified
+squash merge landed
+brand guide merged
+scaffold toolchain pinned
+repo scaffold landed
+codeql read access added
+gitleaks version pinned
+entire hooks chained
+security hardening landed
+prd stretch scope updated
+serpapi secret provisioned
+readme claims backed prd
+speckit setup landed
+fixtures manifest added
+
+Closing message:
+xtures: checking replacement photos of non-notable people (4 of 12 reviewed).
+Now the durable rule, then validate.
+The fixtures now contain no famous people, and `make ai-checks` passes. "Famous" means anyone with a Wikipedia article, which I checked through the Wikipedia API.
+
+## Changes
+- **Removed 8 photos:**
+  - Seven were famous: Gipp, Royall, Leopold, Glass, Jenkins, Conrads, Lovejoy.
+  - McNaughton's buried man isn't famous, but the plaque prints the life story of his famous ancestor of the same name, so the photo went too.
+- **Added 12 photos of unknown people:**
+  - Ten from Portland's Lone Fir Cemetery: Banfield, Bennett, Biggane, Bogdanov, Bowen, Blair, Botkin, Bybee, Cora.
+  - Three from colonial Massachusetts: Blanchard, Mary Cunningham, Archbald.
+- **`fixtures/`:** now 20 photos (23 MB): 6 clean, 9 weathered, 5 edge cases.
+- **`CLAUDE.md`:** new rule that fixtures never show notable people. Unknown people who share a famous person's name are allowed and marked as traps.
+
+## New traps worth knowing
+- **`bennett-1909`:** shares a name with a 20th-century US congressman.
+- **`bogdanov-1994`:** close to a famous Bogdanoff twin.
+- **`mary-cunningham-1774`:** the widow of `cunningham-1752`. The two are related records and must stay separate people.
+- **`bybee-pioneer`:** the "1845" on the stone is a pioneer arrival year, not a birth or death date.
+- **`archbald-tomb`:** about 20 names on one stone, so the app has to ask which person.
+
+## Needs your eyes
+- **Lost case:** the "stone can't be read at all" test is gone, because the only one I had was Carter Glass's obelisk. `jenks-1882` is the closest remaining stone. Tell me if you want a proper unreadable stone found.
+- **Spot-check:** I transcribed the expected answers myself. The uncertain ones are `jenks-1882`, `coney-17xx`, and `blanchard-1723` (the year on the stone is hard to read).
+
+Still open from last turn: confirm 2010 as the social-search cutoff. All of this is uncommitted on `chore/speckit-setup`.
