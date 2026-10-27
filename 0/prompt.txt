@@ -1,0 +1,34 @@
+<task-notification>
+<task-id>batyydg9d</task-id>
+<summary>Monitor event: "PR #1 checks and bot reviews"</summary>
+<event>review copilot-pull-request-reviewer[bot]: COMMENTED</event>
+If this event is something the user would act on now, send a PushNotification. Routine or benign output doesn't need one.
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>batyydg9d</task-id>
+<summary>Monitor event: "PR #1 checks and bot reviews"</summary>
+<event>check .github/dependabot.yml: pass</event>
+If this event is something the user would act on now, send a PushNotification. Routine or benign output doesn't need one.
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>batyydg9d</task-id>
+<summary>Monitor event: "PR #1 checks and bot reviews"</summary>
+<event>review anchildress1: COMMENTED</event>
+If this event is something the user would act on now, send a PushNotification. Routine or benign output doesn't need one.
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bhsglkaqw</task-id>
+<tool-use-id>toolu_01Wo1NGhbeaHwz2pGKbHyK9K</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/0c36baa7-c686-5616-bacd-643b7197a77c/tasks/bhsglkaqw.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for all PR checks to finish" completed (exit code 0)</summary>
+</task-notification>
