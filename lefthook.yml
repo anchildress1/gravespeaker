@@ -16,7 +16,12 @@ pre-commit:
 commit-msg:
   commands:
     commitlint:
-      run: pnpm exec commitlint --edit {1}
+      priority: 1
+      run: VOLTA_FEATURE_PNPM=1 pnpm exec commitlint --edit {1}
+    # lefthook install replaces Entire's hook wrappers, so Entire is chained here instead.
+    entire:
+      priority: 2
+      run: if command -v entire >/dev/null 2>&1; then entire hooks git commit-msg {1} || true; fi
 
 pre-push:
   parallel: false
@@ -29,3 +34,5 @@ pre-push:
       run: make e2e
     perf:
       run: make perf
+    entire:
+      run: if command -v entire >/dev/null 2>&1; then entire hooks git pre-push {1} || true; fi
