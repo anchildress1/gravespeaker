@@ -70,6 +70,7 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 
 ## Repo workflow
 
+- Never bypass Lefthook on commit or push: no `--no-verify`, no `LEFTHOOK=0`, no skipped commands. A failing hook means fix the cause, or stop and report the exact failure to the user.
 - Never merge a release-please PR. Leave it open until the user explicitly says to merge it.
 - Pin every GitHub Action, `actions/*` included, to a full commit SHA with the version in a trailing comment. Resolve with `gh api` at write time.
 - Lighthouse (`make perf`) is on-demand only via `pnpm dlx`. Never add it to CI, hooks, or `devDependencies`: its tree carries unpatched advisories.
