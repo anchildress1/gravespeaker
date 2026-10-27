@@ -125,6 +125,8 @@ The post focuses on the problem, engineering decisions, real discoveries, failur
 - Custom model hosting
 - Persistent user profiles and photo libraries
 - Paywalled or login-gated record sources
+- Multi-person (companion) stones: the app reads one person per stone
+- Optimizing for non-English inscriptions: nothing blocks them, but prompts and parsing target English
 
 ## 7. Privacy
 
@@ -174,3 +176,8 @@ Not part of the October 31 build. Captured so the ideas aren't lost.
 - Profile hits are candidates like any other search result. They go through the same identity verification in §2, and the user confirms the match.
 - Recent deaths mean living relatives and friends are all over these profiles. Only facts about the deceased can reach the story; comments, tags and other people's posts never do.
 - Link to the profile; don't republish posts or photos.
+
+**Multi-person stones**
+
+- Tune the extraction prompts for companion stones, where two people share one surname line.
+- The MVP benchmark showed hosted Gemma reading every date on one but dropping the shared surname.
