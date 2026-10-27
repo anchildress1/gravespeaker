@@ -162,3 +162,15 @@ Not part of the October 31 build. Captured so the ideas aren't lost.
 - When the matched obituary has a photo, show it while the speaker is talking.
 - Display it from its original URL with a visible credit and link. Never download, cache or re-host it, and skip any image whose source restricts embedding.
 - This is the one deliberate exception to the "link, don't republish" rule in §4, so it needs a licensing check before it ships.
+
+**Social media search for recent deaths (key v2 feature)**
+
+- When the confirmed death year is 2010 or later, search public social media profiles in addition to the standard historical search.
+- Earlier deaths skip social media. Facebook opened to the public in late 2006, and social networking use among online adults 50+ only reached 42% in 2010 (Pew), so earlier searches mostly come back empty.
+- Runs through SerpApi in two steps:
+  - Google Search engine with `site:` operators (for example `site:facebook.com`, `site:instagram.com`) plus name, dates and place, to find candidate profile URLs.
+  - SerpApi's Facebook Profile and Instagram Profile engines to read public profile fields. Both take a profile ID or username, not a name, so the Google step has to come first.
+- SerpApi has no LinkedIn engine. LinkedIn results come only from the Google `site:` step.
+- Profile hits are candidates like any other search result. They go through the same identity verification in §2, and the user confirms the match.
+- Recent deaths mean living relatives and friends are all over these profiles. Only facts about the deceased can reach the story; comments, tags and other people's posts never do.
+- Link to the profile; don't republish posts or photos.
