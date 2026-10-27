@@ -23,12 +23,12 @@
     "api_call_count": 11
   },
   "redaction": {
-    "replacements": 77,
+    "replacements": 91,
     "layers": {
       "betterleaks": 5,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 71,
+      "credential_value": 85,
       "credentialed_uri": 0,
       "entropy": 1,
       "key_context": 2,
@@ -128,6 +128,37 @@
       "collapse": {
         "target": "tool_pair",
         "label": "Skill: code-review",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_019hqAXHQjkMPi9tMnrsWnzS",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "readme-generator"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "b436829cf102",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1532,
+        "end": 1533,
+        "entry_ids": [
+          "5d86b408-721c-400f-be50-3f70ae2b840c"
+        ],
+        "tool_use_id": "toolu_019hqAXHQjkMPi9tMnrsWnzS"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_019hqAXHQjkMPi9tMnrsWnzS"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: readme-generator",
         "default_collapsed": true
       }
     }
