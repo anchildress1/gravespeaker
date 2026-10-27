@@ -1,0 +1,31 @@
+- check $HOME/Downloads. I might have a copy of both E2B and E4B already downloaded.
+- cancel in progress downloads. we do not have 4 hours to wait on them right now.
+- rerun benchmarks with proper sampling configured. save test results as a second run, so we have both together.
+- why aren't we using a system prompt to give it a goal? then the image is user text only. that seems better, right?
+- why are we spelling out the output format instead of requiring structured json?
+- gemma should absolutely be able to handle structured output. if gemini api doesn't cover it (it absolutely should) then we need a different inference api
+- ground yourself in a 2026 release search for gemma. then update before running benchmark again
+
+---
+
+<task-notification>
+<task-id>bbc0drvkz</task-id>
+<tool-use-id>toolu_018mFht5DzsHjFsMey6FXhYu</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bbc0drvkz.output</output-file>
+<status>failed</status>
+<summary>Background command "Download Gemma 4 E4B and E2B" failed with exit code 144</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bgdlev7xc</task-id>
+<tool-use-id>toolu_01HgazdSZ8RxYu1Nwh7rJQYk</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bgdlev7xc.output</output-file>
+<status>completed</status>
+<summary>Background command "Run benchmark 2 on hosted models" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+drop temp. drop E2B. Run on 12B only. save benchmark 3. now we're fine tuning not testing which model.
