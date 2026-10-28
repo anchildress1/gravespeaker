@@ -1,0 +1,645 @@
+{
+	"summary": {
+		"stones": 21,
+		"wallMs": 767791,
+		"errors": 1,
+		"read": {
+			"fieldsCorrect": 63,
+			"fieldsTotal": 64,
+			"medianMs": 5505
+		},
+		"research": {
+			"attempted": 20,
+			"candidateFound": 17,
+			"byConfidence": {
+				"high": 2,
+				"medium": 0,
+				"low": 15
+			},
+			"medianMs": 6396
+		},
+		"story": {
+			"attempted": 16,
+			"told": 12,
+			"insufficient": 4,
+			"medianMs": 11604.5
+		},
+		"medianTotalMs": 24310
+	},
+	"rows": [
+		{
+			"file": "chambers-2011.jpg",
+			"totalMs": 11262,
+			"read": {
+				"ms": 5194,
+				"got": [
+					{
+						"carvedName": "CORWIN \"CORY\" GARNER CHAMBERS",
+						"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+						"maidenName": null,
+						"born": "1959-11-07",
+						"died": "2011-09-12"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 6061,
+				"confidence": null,
+				"sources": 0,
+				"born": null,
+				"died": null
+			}
+		},
+		{
+			"file": "gonzalez-2021.jpg",
+			"totalMs": 20634,
+			"read": {
+				"ms": 7300,
+				"got": [
+					{
+						"carvedName": "Alfonso Gonzalez",
+						"name": "Alfonso Gonzalez",
+						"maidenName": null,
+						"born": "1951-11-18",
+						"died": "2021-01-17"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 6731,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 6602,
+				"status": "insufficient",
+				"words": 0,
+				"sources": 0
+			}
+		},
+		{
+			"file": "guo-2025.jpg",
+			"totalMs": 22970,
+			"read": {
+				"ms": 7507,
+				"got": [
+					{
+						"carvedName": "Jiunn-Shih Guo",
+						"name": "Jiunn-Shih Guo",
+						"maidenName": null,
+						"born": "1937-01-18",
+						"died": "2025-12-10"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 6938,
+				"confidence": "high",
+				"sources": 1,
+				"born": "1937",
+				"died": "2025"
+			},
+			"story": {
+				"ms": 8525,
+				"status": "told",
+				"words": 131,
+				"sources": 1
+			}
+		},
+		{
+			"file": "hildebrand-iii-2018.jpg",
+			"totalMs": 39842,
+			"read": {
+				"ms": 4994,
+				"got": [
+					{
+						"carvedName": "Edward Hildebrand III",
+						"name": "Edward Hildebrand III",
+						"maidenName": null,
+						"born": "1966",
+						"died": "2018"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 16555,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 18293,
+				"status": "told",
+				"words": 140,
+				"sources": 1
+			}
+		},
+		{
+			"file": "hildebrand-jr-2015.jpg",
+			"totalMs": 30088,
+			"read": {
+				"ms": 5347,
+				"got": [
+					{
+						"carvedName": "EDWARD LEROY HILDEBRAND JR",
+						"name": "EDWARD LEROY HILDEBRAND JR",
+						"maidenName": null,
+						"born": "1942-04-28",
+						"died": "2015-10-10"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 3981,
+				"confidence": "low",
+				"sources": 4,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 20760,
+				"status": "told",
+				"words": 154,
+				"sources": 2
+			}
+		},
+		{
+			"file": "cunningham-1752.jpg",
+			"totalMs": 24310,
+			"read": {
+				"ms": 5505,
+				"got": [
+					{
+						"carvedName": "MR. ANDREW CUNNINGHAM",
+						"name": "ANDREW CUNNINGHAM",
+						"maidenName": null,
+						"born": null,
+						"died": "1752-04-27"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 2780,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 16025,
+				"status": "told",
+				"words": 145,
+				"sources": 3
+			}
+		},
+		{
+			"file": "ellis-1818.jpg",
+			"totalMs": 24802,
+			"read": {
+				"ms": 8438,
+				"got": [
+					{
+						"carvedName": "BETSEY ELLIS",
+						"name": "BETSEY ELLIS",
+						"maidenName": null,
+						"born": null,
+						"died": "1848-07-28"
+					}
+				],
+				"correct": 2,
+				"total": 3
+			},
+			"research": {
+				"ms": 12796,
+				"confidence": "low",
+				"sources": 3,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 3567,
+				"status": "insufficient",
+				"words": 0,
+				"sources": 0
+			}
+		},
+		{
+			"file": "illegible-marble.jpg",
+			"totalMs": 5779,
+			"read": {
+				"ms": 5778,
+				"got": [],
+				"correct": 1,
+				"total": 1
+			}
+		},
+		{
+			"file": "luxford-2015.jpg",
+			"totalMs": 21171,
+			"read": {
+				"ms": 5487,
+				"got": [
+					{
+						"carvedName": "Robert E. Luxford",
+						"name": "Robert E. Luxford",
+						"maidenName": null,
+						"born": "1934",
+						"died": "2015"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 3868,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 11816,
+				"status": "told",
+				"words": 126,
+				"sources": 3
+			}
+		},
+		{
+			"file": "morgan-2019.jpg",
+			"totalMs": 26448,
+			"read": {
+				"ms": 5139,
+				"got": [
+					{
+						"carvedName": "DAISY M. MORGAN",
+						"name": "DAISY M. MORGAN",
+						"maidenName": null,
+						"born": "1929-04-28",
+						"died": "2019-01-18"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 9916,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 11393,
+				"status": "told",
+				"words": 131,
+				"sources": 2
+			}
+		},
+		{
+			"file": "waechter-2012.jpg",
+			"totalMs": 30077,
+			"read": {
+				"ms": 4213,
+				"got": [
+					{
+						"carvedName": "MARTIN WAECHTER",
+						"name": "MARTIN WAECHTER",
+						"maidenName": null,
+						"born": "1943-03-07",
+						"died": "2012-01-31"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 12321,
+				"confidence": "low",
+				"sources": 1,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 13543,
+				"status": "told",
+				"words": 141,
+				"sources": 1
+			}
+		},
+		{
+			"file": "mills-2015.jpg",
+			"totalMs": 24463,
+			"read": {
+				"ms": 8235,
+				"got": [
+					{
+						"carvedName": "Joshua John Mills",
+						"name": "Joshua John Mills",
+						"maidenName": null,
+						"born": "1979-07-21",
+						"died": "2015-01-07"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 2626,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 13601,
+				"status": "told",
+				"words": 134,
+				"sources": 4
+			}
+		},
+		{
+			"file": "hall-2014.jpg",
+			"totalMs": 18046,
+			"read": {
+				"ms": 6663,
+				"got": [
+					{
+						"carvedName": "James Kenneth Hall",
+						"name": "James Kenneth Hall",
+						"maidenName": null,
+						"born": "1940-07-23",
+						"died": "2014-03-18"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 4662,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 6720,
+				"status": "told",
+				"words": 151,
+				"sources": 1
+			}
+		},
+		{
+			"file": "juntunen-2012.jpg",
+			"totalMs": 38535,
+			"read": {
+				"ms": 6077,
+				"got": [
+					{
+						"carvedName": "TROY LEONARD JUNTUNEN",
+						"name": "TROY LEONARD JUNTUNEN",
+						"maidenName": null,
+						"born": "1967-01-28",
+						"died": "2012-08-03"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 20019,
+				"confidence": "high",
+				"sources": 4,
+				"born": "1967",
+				"died": "2012"
+			},
+			"story": {
+				"ms": 12439,
+				"status": "told",
+				"words": 143,
+				"sources": 1
+			}
+		},
+		{
+			"file": "dixon-2018.jpg",
+			"totalMs": 319828,
+			"read": {
+				"ms": 5491,
+				"got": [
+					{
+						"carvedName": "LLOYD DEE DIXON",
+						"name": "LLOYD DEE DIXON",
+						"maidenName": null,
+						"born": "1943-07-11",
+						"died": "2018-05-26"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 14328,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"error": "The operation was aborted due to timeout"
+		},
+		{
+			"file": "schreiber-2012.jpg",
+			"totalMs": 25110,
+			"read": {
+				"ms": 7595,
+				"got": [
+					{
+						"carvedName": "Tyson Lee Schreiber",
+						"name": "Tyson Lee Schreiber",
+						"maidenName": null,
+						"born": "1992-08-21",
+						"died": "2012-02-12"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 5661,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 11854,
+				"status": "told",
+				"words": 141,
+				"sources": 1
+			}
+		},
+		{
+			"file": "hawks-2017.jpg",
+			"totalMs": 10119,
+			"read": {
+				"ms": 4830,
+				"got": [
+					{
+						"carvedName": "Gaynor Claire Hawks née Staples",
+						"name": "Gaynor Claire Hawks",
+						"maidenName": "Staples",
+						"born": "1932-03-10",
+						"died": "2017-12-27"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 5289,
+				"confidence": null,
+				"sources": 0,
+				"born": null,
+				"died": null
+			}
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"totalMs": 14436,
+			"read": {
+				"ms": 8063,
+				"got": [
+					{
+						"carvedName": "Jasper \"Bub\" Hayden",
+						"name": "Jasper \"Bub\" Hayden",
+						"maidenName": null,
+						"born": "1907",
+						"died": "1993"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 4877,
+				"confidence": "low",
+				"sources": 1,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 1496,
+				"status": "insufficient",
+				"words": 0,
+				"sources": 0
+			}
+		},
+		{
+			"file": "bell-1994.jpg",
+			"totalMs": 27345,
+			"read": {
+				"ms": 4796,
+				"got": [
+					{
+						"carvedName": "RUSSELL O BELL",
+						"name": "RUSSELL O BELL",
+						"maidenName": null,
+						"born": "1924-09-24",
+						"died": "1994-02-08"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 19744,
+				"confidence": "low",
+				"sources": 1,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 2804,
+				"status": "insufficient",
+				"words": 0,
+				"sources": 0
+			}
+		},
+		{
+			"file": "doran-2008.jpg",
+			"totalMs": 18244,
+			"read": {
+				"ms": 4900,
+				"got": [
+					{
+						"carvedName": "Bruce Doran",
+						"name": "Bruce Doran",
+						"maidenName": null,
+						"born": "1934-05-31",
+						"died": "2008-03-28"
+					}
+				],
+				"correct": 3,
+				"total": 3
+			},
+			"research": {
+				"ms": 2192,
+				"confidence": "low",
+				"sources": 5,
+				"born": null,
+				"died": null
+			},
+			"story": {
+				"ms": 11151,
+				"status": "told",
+				"words": 140,
+				"sources": 2
+			}
+		},
+		{
+			"file": "holmquist-2024.jpg",
+			"totalMs": 14217,
+			"read": {
+				"ms": 5836,
+				"got": [
+					{
+						"carvedName": "Marsha Fox Holmquist",
+						"name": "Marsha Fox Holmquist",
+						"maidenName": null,
+						"born": "1940-11-05",
+						"died": null
+					},
+					{
+						"carvedName": "Charles Ray Holmquist",
+						"name": "Charles Ray Holmquist",
+						"maidenName": null,
+						"born": "1948-03-12",
+						"died": "2024-05-06"
+					}
+				],
+				"correct": 6,
+				"total": 6
+			},
+			"research": {
+				"ms": 8378,
+				"confidence": null,
+				"sources": 0,
+				"born": null,
+				"died": null
+			}
+		}
+	]
+}
