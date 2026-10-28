@@ -1,0 +1,51 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+prompt runs documented
+tuning runs four seven
+extra people counted
+median latency scoring added
+stone extraction narrowed
+twelve headstones added
+twelve fixtures committed
+stone pool widened
+spec kit merged
+benchmark branch rebased
+mvp spec drafted
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+
+Closing message:
+stays untracked.
+- **Push and PR:** not done, and I won't push without your say-so.
+- **Deploy:** `make deploy` hasn't been run. The Dockerfile `BODY_SIZE_LIMIT` change and `undici` need a Cloud Run build to confirm. The deployed service account already has both secrets.
+- **Rerun the demo path live after deploy:** read, research, story, especially latency on the free tier, which hit 429s during my testing.
+
+## Known limits (no action unless you want them)
+- A real `told` story with live citations hasn't been seen; the live runs I did all ended on the epitaph.
+- Story grounding quality (Gemma vs Flash) is the next spec, per research R12.
+The dev server is running on your LAN at **http://172.20.1.18:5199/**. I can't see or drive your phone, so you run the checks and tell me what happened.
+
+## Steps (same Wi-Fi as this Mac)
+1. Open the URL on the phone and tap **Photograph a headstone**. The camera should open.
+2. Photograph `fixtures/chambers-2011.jpg` from a screen. The name and dates should show read-only, then candidates appear. Confirm one and **start a stopwatch at the shutter**. You're timing photo to story.
+3. Stop the clock when the story appears. SC-006 needs under 2 minutes, excluding reading time. Check the "AI-generated historical reconstruction" label, that facts look different from the imagined lines, and that every fact has a working link.
+4. Repeat with `fixtures/illegible-marble.jpg`. It should say "No legible name found" and offer another photo.
+5. Repeat with `fixtures/ellis-1818.jpg` and tap **None of these**. You should get the epitaph with "No public record was confirmed" and no AI label.
+
+## Expect
+- Slow steps are likely on the free tier. If research or story takes more than about 30 s, note which step.
+- Chambers (2011) may end on the epitaph if the records only repeat his dates. Tell me what you see.
+
+I'll run Lighthouse against `pnpm preview` once you report back. Tell me the timing and anything odd, and I'll mark T040 and stop the server.
