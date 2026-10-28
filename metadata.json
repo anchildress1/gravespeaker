@@ -3,7 +3,7 @@
   "checkpoint_id": "01M61P3QK84S8APTTGQ1MYGR15",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 10,
+  "checkpoints_count": 11,
   "files_touched": [
     "src/lib/server/http.ts",
     "src/lib/server/inference/gemma.ts"
@@ -36,6 +36,13 @@
       "compact_transcript": "/3/transcript.jsonl",
       "content_hash": "/3/content_hash.txt",
       "prompt": "/3/prompt.txt"
+    },
+    {
+      "metadata": "/4/metadata.json",
+      "transcript": "/4/full.jsonl",
+      "compact_transcript": "/4/transcript.jsonl",
+      "content_hash": "/4/content_hash.txt",
+      "prompt": "/4/prompt.txt"
     }
   ],
   "token_usage": {
@@ -46,12 +53,12 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 250,
+    "replacements": 253,
     "layers": {
       "betterleaks": 87,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 46,
+      "credential_value": 49,
       "credentialed_uri": 0,
       "entropy": 335,
       "key_context": 35,
