@@ -34,12 +34,16 @@ export interface SourceRecord {
 	snippet: string;
 }
 
+/** How sure the match is that the records are about the stone's person. */
+export type Confidence = 'high' | 'medium' | 'low';
+
 /** One hypothesized person with the records that support it. */
 export interface Candidate {
 	name: string;
 	born: string | null;
 	died: string | null;
 	place: string | null;
+	confidence: Confidence;
 	sources: SourceRecord[];
 }
 

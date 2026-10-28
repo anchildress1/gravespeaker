@@ -21,6 +21,7 @@ const candidate = {
 	born: '1932-03-10',
 	died: '2017-12-27',
 	place: null,
+	confidence: 'high',
 	sources: [source]
 };
 const told = {
@@ -64,6 +65,7 @@ test('a read shows read-only fields and waits for confirmation', async ({ page }
 	await expect(page.getByRole('heading', { name: 'Is this them?' })).toBeVisible();
 	await expect(page.getByLabel('Read from the stone')).toContainText('Gaynor Claire Hawks');
 	await expect(page.getByLabel('Read from the stone')).not.toContainText('Staples');
+	await expect(page.getByText('High confidence match')).toBeVisible();
 	await expect(page.getByRole('textbox')).toHaveCount(0);
 });
 
@@ -209,4 +211,13 @@ test('a focused button stays visible so keyboard users can see it', async ({ pag
 	// The visually-hidden rule must not leak onto focused buttons.
 	const clip = await confirm.evaluate((el) => getComputedStyle(el).clipPath);
 	expect(clip).toBe('none');
+});
+
+test('a low-confidence match tells the visitor to check the sources', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', {
+		body: { candidates: [{ ...candidate, confidence: 'low' }] }
+	});
+	await upload(page);
+	await expect(page.getByText(/Low confidence match/)).toContainText('Check the sources');
 });

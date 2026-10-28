@@ -79,26 +79,19 @@ describe('POST /api/research', () => {
 		expect(await res.json()).toEqual({ candidates: [] });
 	});
 
-	it('returns grounded candidates with gated sites removed', async () => {
+	it('returns the matching candidate with gated sites removed', async () => {
 		stub(
 			() => Response.json(hits),
 			() =>
 				gemini({
-					candidates: [
-						{
-							name: 'Gaynor Claire Hawks',
-							born: '1932',
-							died: '2017',
-							place: null,
-							resultIds: ['s1']
-						}
-					]
+					matches: [{ id: 's1', born: '1932', died: '2017', place: null, confidence: 'high' }]
 				})
 		);
 		const res = await call(stone);
 		expect(res.status).toBe(200);
 		const { candidates } = await res.json();
 		expect(candidates).toHaveLength(1);
+		expect(candidates[0].confidence).toBe('high');
 		expect(candidates[0].sources.map((s: { url: string }) => s.url)).toEqual([
 			'https://legacy.com/hawks'
 		]);
@@ -107,7 +100,7 @@ describe('POST /api/research', () => {
 	it('returns 502 when search fails on every attempt', async () => {
 		stub(
 			() => Response.json({ error: 'down' }, { status: 500 }),
-			() => gemini({ candidates: [] })
+			() => gemini({ matches: [] })
 		);
 		const res = await call(stone);
 		expect(res.status).toBe(502);
@@ -124,7 +117,7 @@ describe('POST /api/research', () => {
 		expect((await res.json()).error.code).toBe('provider_failed');
 	}, 60_000);
 
-	it('drops candidates whose sources never mention the surname', async () => {
+	it('drops a picked result that never mentions the surname', async () => {
 		stub(
 			() =>
 				Response.json({
@@ -134,15 +127,7 @@ describe('POST /api/research', () => {
 				}),
 			() =>
 				gemini({
-					candidates: [
-						{
-							name: 'Gaynor Claire Hawks',
-							born: '1932',
-							died: '2017',
-							place: null,
-							resultIds: ['s1']
-						}
-					]
+					matches: [{ id: 's1', born: '1932', died: '2017', place: null, confidence: 'high' }]
 				})
 		);
 		expect(await (await call(stone)).json()).toEqual({ candidates: [] });

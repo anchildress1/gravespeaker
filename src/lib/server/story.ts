@@ -5,7 +5,7 @@ import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
 import { groundParagraph, hasEvidence, verifyFacts } from './narrative.ts';
 import { fetchPage } from './pages.ts';
-import { inscriptionSchema, sourceSchema } from './research.ts';
+import { confidenceSchema, inscriptionSchema, sourceSchema } from './research.ts';
 
 const MAX_PAGES = 5;
 const MAX_CHARS = 12_000;
@@ -15,6 +15,7 @@ export const candidateInputSchema = z.object({
 	born: inscriptionSchema.shape.born,
 	died: inscriptionSchema.shape.died,
 	place: z.string().nullable(),
+	confidence: confidenceSchema,
 	sources: z.array(sourceSchema).min(1)
 });
 

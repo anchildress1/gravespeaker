@@ -3,9 +3,11 @@ import { z } from 'zod';
 import { PARTIAL_DATE } from '#lib/types.ts';
 import type { Candidate, Inscription } from '#lib/types.ts';
 import { runFailure } from './http.ts';
-import { buildQuery, dropGated, resolveCandidates } from './identity.ts';
+import { buildQuery, dropGated, resolveMatches } from './identity.ts';
 import { inference } from './inference/gemma.ts';
 import { search } from './search/serpapi.ts';
+
+export const confidenceSchema = z.enum(['high', 'medium', 'low']);
 
 export const partialDate = z.string().regex(PARTIAL_DATE);
 
@@ -30,16 +32,17 @@ const candidateSchema = z.object({
 	born: partialDate.nullable(),
 	died: partialDate.nullable(),
 	place: z.string().nullable(),
+	confidence: confidenceSchema,
 	sources: z.array(sourceSchema)
 });
 
-const rawSchema = z.array(
+const matchesSchema = z.array(
 	z.object({
-		name: z.string(),
+		id: z.string(),
 		born: z.string().nullable(),
 		died: z.string().nullable(),
 		place: z.string().nullable(),
-		resultIds: z.array(z.string())
+		confidence: confidenceSchema
 	})
 );
 
@@ -56,25 +59,25 @@ const searchStep = createStep({
 	})
 });
 
-const groupStep = createStep({
-	id: 'group',
+const matchStep = createStep({
+	id: 'match',
 	inputSchema: withRecords,
-	outputSchema: withRecords.extend({ raw: rawSchema }),
+	outputSchema: withRecords.extend({ matches: matchesSchema }),
 	execute: async ({ inputData }) => ({
 		...inputData,
-		raw: inputData.records.length
-			? await inference.groupCandidates(inputData.inscription, inputData.records)
+		matches: inputData.records.length
+			? await inference.pickMatches(inputData.inscription, inputData.records)
 			: []
 	})
 });
 
 const resolveStep = createStep({
 	id: 'resolve',
-	inputSchema: withRecords.extend({ raw: rawSchema }),
+	inputSchema: withRecords.extend({ matches: matchesSchema }),
 	outputSchema: z.object({ candidates: z.array(candidateSchema) }),
 	execute: ({ inputData }) =>
 		Promise.resolve({
-			candidates: resolveCandidates(inputData.inscription, inputData.records, inputData.raw)
+			candidates: resolveMatches(inputData.inscription, inputData.records, inputData.matches)
 		})
 });
 
@@ -84,12 +87,12 @@ const researchWorkflow = createWorkflow({
 	outputSchema: z.object({ candidates: z.array(candidateSchema) })
 })
 	.then(searchStep)
-	.then(groupStep)
+	.then(matchStep)
 	.then(resolveStep) // NOSONAR: Mastra builder .then(), not a Promise
 	.commit();
 
 /**
- * Searches for records about a stone's person and groups them into candidates.
+ * Searches for records about a stone's person and picks the ones that match.
  * @param inscription The stone's person.
  * @returns Candidates, possibly empty.
  * @throws {ProviderError} When search or the model fails after retries.

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { buildQuery, dropGated, resolveCandidates } from './identity';
+import { buildQuery, dropGated, resolveMatches } from './identity';
 import type { Inscription, SourceRecord } from '#lib/types.ts';
-import type { RawCandidate } from './inference/index';
+import type { RawMatch } from './inference/index';
 
 /**
  * Test helper.
@@ -30,16 +30,16 @@ const rec = (id: string, site = 'legacy.com'): SourceRecord => ({
 	snippet: 'Gaynor Hawks 1932 2017'
 });
 /**
- * Test helper.
- * @param over Test input.
- * @returns The fixture.
+ * Builds a picked match, defaulting to one that agrees with the stone.
+ * @param over Fields to override.
+ * @returns The match.
  */
-const cand = (over: Partial<RawCandidate>): RawCandidate => ({
-	name: 'Gaynor Claire Hawks',
+const pick = (over: Partial<RawMatch> = {}): RawMatch => ({
+	id: 's1',
 	born: '1932',
 	died: '2017',
 	place: null,
-	resultIds: ['s1'],
+	confidence: 'high',
 	...over
 });
 
@@ -76,69 +76,101 @@ describe('dropGated', () => {
 	});
 });
 
-describe('resolveCandidates', () => {
+describe('resolveMatches', () => {
 	const records = [rec('s1'), rec('s2'), rec('s3')];
 
-	it('drops unknown result ids and candidates left empty', () => {
-		const out = resolveCandidates(stone(), records, [cand({ resultIds: ['zz'] })]);
-		expect(out).toEqual([]);
+	it('returns no candidate when nothing was picked', () => {
+		expect(resolveMatches(stone(), records, [])).toEqual([]);
 	});
 
-	it('removes a result claimed by two candidates from both', () => {
-		const out = resolveCandidates(stone(), records, [
-			cand({ resultIds: ['s1', 's2'] }),
-			cand({ name: 'G Hawks', resultIds: ['s2', 's3'] })
-		]);
-		expect(out.map((c) => c.sources.map((s) => s.id))).toEqual([['s1'], ['s3']]);
+	it("returns one candidate for the stone's person, built from the picked results", () => {
+		const out = resolveMatches(stone(), records, [pick({ id: 's1' }), pick({ id: 's3' })]);
+		expect(out).toHaveLength(1);
+		expect(out[0].name).toBe('Gaynor Claire Hawks');
+		expect(out[0].sources.map((s) => s.id)).toEqual(['s1', 's3']);
 	});
 
-	it('drops hits that never mention the surname, even if the model attached them', () => {
+	it('ignores picks of results that do not exist and repeated picks', () => {
+		const out = resolveMatches(stone(), records, [pick({ id: 'zz' }), pick(), pick()]);
+		expect(out[0].sources.map((s) => s.id)).toEqual(['s1']);
+		expect(resolveMatches(stone(), records, [pick({ id: 'zz' })])).toEqual([]);
+	});
+
+	it('drops hits that never mention the surname, even if the model picked them', () => {
 		const unrelated = { ...rec('s9'), title: 'Cemetery index', snippet: 'Smith, Jones' };
-		const out = resolveCandidates(stone(), [...records, unrelated], [cand({ resultIds: ['s9'] })]);
-		expect(out).toEqual([]);
+		expect(resolveMatches(stone(), [...records, unrelated], [pick({ id: 's9' })])).toEqual([]);
 	});
 
 	it('uses the surname before a generational suffix when matching hits', () => {
 		const junior = stone({ name: 'Edward Hildebrand III', carvedName: 'Edward Hildebrand III' });
 		const hit = { ...rec('s1'), snippet: 'Edward Hildebrand obituary 1932 2017' };
-		const out = resolveCandidates(junior, [hit], [cand({ name: 'Edward Hildebrand' })]);
-		expect(out).toHaveLength(1);
+		expect(resolveMatches(junior, [hit], [pick()])).toHaveLength(1);
 	});
 
-	it('drops a candidate whose death year conflicts', () => {
-		expect(resolveCandidates(stone(), records, [cand({ died: '2016' })])).toEqual([]);
+	it('drops a pick whose stated years conflict with the stone', () => {
+		expect(resolveMatches(stone(), records, [pick({ died: '2016' })])).toEqual([]);
+		expect(resolveMatches(stone(), records, [pick({ born: '1950' })])).toEqual([]);
+	});
+
+	it('keeps the agreeing pick when another pick conflicts', () => {
+		const out = resolveMatches(stone(), records, [
+			pick({ id: 's1' }),
+			pick({ id: 's2', died: '1990' })
+		]);
+		expect(out[0].sources.map((s) => s.id)).toEqual(['s1']);
 	});
 
 	it('treats ? in the inscription as a wildcard', () => {
-		const s = stone({ born: '18?8', died: null });
+		const worn = stone({ born: '18?8', died: null });
 		for (const born of ['1818', '1848']) {
-			expect(resolveCandidates(s, records, [cand({ born, died: null })])).toHaveLength(1);
+			expect(resolveMatches(worn, records, [pick({ born, died: null })])).toHaveLength(1);
 		}
-		expect(resolveCandidates(s, records, [cand({ born: '1749', died: null })])).toEqual([]);
+		expect(resolveMatches(worn, records, [pick({ born: '1749', died: null })])).toEqual([]);
 	});
 
 	it('never conflicts on null years', () => {
-		expect(resolveCandidates(stone(), records, [cand({ born: null, died: null })])).toHaveLength(1);
+		expect(resolveMatches(stone(), records, [pick({ born: null, died: null })])).toHaveLength(1);
 	});
 
-	it('nulls a date no source states, even when it matches the stone', () => {
+	it('keeps a date only when the picked result states it', () => {
 		const bare = { ...rec('s1'), snippet: 'Gaynor Hawks, Alsea Cemetery' };
-		const [c] = resolveCandidates(stone(), [bare], [cand({})]);
-		expect(c).toMatchObject({ born: null, died: null });
+		const [c] = resolveMatches(stone(), [bare], [pick()]);
+		expect(c.born).toBeNull();
+		expect(c.died).toBeNull();
+		const [stated] = resolveMatches(stone(), records, [pick()]);
+		expect(stated.born).toBe('1932');
+		expect(stated.died).toBe('2017');
 	});
 
 	it('nulls malformed dates instead of trusting them', () => {
-		const [c] = resolveCandidates(stone(), records, [cand({ born: 'March 1932', died: null })]);
+		const [c] = resolveMatches(stone(), records, [pick({ born: 'March 1932', died: null })]);
 		expect(c.born).toBeNull();
 	});
 
-	it('caps at 5, best match first', () => {
-		const many = Array.from({ length: 7 }, (_, i) => rec(`s${i + 1}`));
-		const raw = many.map((r, i) =>
-			cand({ name: `Person ${i}`, born: i === 6 ? '1932' : null, died: null, resultIds: [r.id] })
-		);
-		const out = resolveCandidates(stone(), many, raw);
-		expect(out).toHaveLength(5);
-		expect(out[0].name).toBe('Person 6');
+	it('takes the place from the first pick that gives one', () => {
+		const out = resolveMatches(stone(), records, [
+			pick({ id: 's1' }),
+			pick({ id: 's2', place: ' Alsea, Oregon ' })
+		]);
+		expect(out[0].place).toBe('Alsea, Oregon');
+	});
+
+	it('gives the best confidence among the picks', () => {
+		const out = resolveMatches(stone(), records, [
+			pick({ id: 's1', confidence: 'low' }),
+			pick({ id: 's2', confidence: 'medium' })
+		]);
+		expect(out[0].confidence).toBe('medium');
+	});
+
+	it('caps high confidence at medium when no picked result states a year', () => {
+		const bare = { ...rec('s1'), snippet: 'Gaynor Hawks, Alsea Cemetery' };
+		const [c] = resolveMatches(stone(), [bare], [pick({ confidence: 'high' })]);
+		expect(c.confidence).toBe('medium');
+	});
+
+	it('keeps high confidence when a picked result states a matching year', () => {
+		const [c] = resolveMatches(stone(), records, [pick({ confidence: 'high' })]);
+		expect(c.confidence).toBe('high');
 	});
 });

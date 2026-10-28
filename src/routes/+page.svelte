@@ -7,6 +7,11 @@
 
 	const MAX_BYTES = 10 * 1024 * 1024;
 	const TOO_LARGE = 'That photo is over 10 MB. Try a smaller one.';
+	const CONFIDENCE = {
+		high: 'High confidence match',
+		medium: 'Medium confidence match',
+		low: 'Low confidence match. Check the sources before confirming.'
+	} as const;
 	const NOTES = {
 		none: 'No public record was confirmed',
 		empty: 'No public records were found',
@@ -237,6 +242,7 @@
 				<li>
 					<strong>{c.name}</strong>
 					<span>{show(c.born)} – {show(c.died)}{c.place ? ` · ${c.place}` : ''}</span>
+					<span class="confidence" data-confidence={c.confidence}>{CONFIDENCE[c.confidence]}</span>
 					<ul class="links">
 						{#each c.sources as s (s.id)}
 							<li>
@@ -363,6 +369,9 @@
 	}
 	.links a {
 		overflow-wrap: anywhere;
+	}
+	.confidence {
+		font-weight: 600;
 	}
 	.error {
 		margin-bottom: 1rem;

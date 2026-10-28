@@ -1,8 +1,7 @@
 import { partialDateOrNull } from '#lib/types.ts';
-import type { Candidate, Inscription, SourceRecord } from '#lib/types.ts';
-import type { RawCandidate } from './inference/index.ts';
+import type { Candidate, Confidence, Inscription, SourceRecord } from '#lib/types.ts';
+import type { RawMatch } from './inference/index.ts';
 
-const MAX_CANDIDATES = 5;
 const GATED =
 	/(^|\.)(ancestry|myheritage|findmypast)\.[a-z.]+$|(^|\.)(newspapers|genealogybank|newspaperarchive|fold3)\.com$/;
 
@@ -56,51 +55,19 @@ export function dropGated(records: SourceRecord[]): SourceRecord[] {
 	return records.filter((r) => !GATED.test(r.site.toLowerCase()));
 }
 
-/**
- * Counts how many candidate groups claim each record.
- * @param groups Record ids per candidate.
- * @returns Claim count by record id.
- */
-function countClaims(groups: { ids: string[] }[]): Map<string, number> {
-	const claims = new Map<string, number>();
-	for (const { ids } of groups) for (const id of ids) claims.set(id, (claims.get(id) ?? 0) + 1);
-	return claims;
-}
-
-/**
- * Accepts a candidate group that has exclusive sources, a legible name, and agreeing years.
- * @param inscription The stone's person.
- * @param c Candidate group the model returned.
- * @param sources Records only this group claims.
- * @returns The scored candidate, or null when rejected.
- */
-function accept(
-	inscription: Inscription,
-	c: RawCandidate,
-	sources: SourceRecord[]
-): { candidate: Candidate; score: number } | null {
-	const born = partialDateOrNull(c.born);
-	const died = partialDateOrNull(c.died);
-	if (!sources.length || !/\p{L}/u.test(c.name)) return null;
-	if (!yearsAgree(year(born), year(inscription.born))) return null;
-	if (!yearsAgree(year(died), year(inscription.died))) return null;
-	const text = sources.map((r) => `${r.title} ${r.snippet}`).join(' ');
-	return {
-		candidate: {
-			name: c.name.trim(),
-			born: stated(born, text),
-			died: stated(died, text),
-			place: c.place?.trim() || null,
-			sources
-		},
-		score:
-			Number(c.name.trim().toLowerCase() === inscription.name.toLowerCase()) +
-			Number(!!year(born) && !!year(inscription.born)) +
-			Number(!!year(died) && !!year(inscription.died))
-	};
-}
-
 const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
+
+const CONFIDENCE_RANK: Record<Confidence, number> = { low: 0, medium: 1, high: 2 };
+
+/**
+ * Caps the model's confidence by what the result itself states: "high" needs a stated year.
+ * @param claimed Confidence the model gave.
+ * @param statesYear Whether the result states a birth or death year.
+ * @returns The confidence to trust.
+ */
+function capConfidence(claimed: Confidence, statesYear: boolean): Confidence {
+	return !statesYear && claimed === 'high' ? 'medium' : claimed;
+}
 
 /**
  * Finds the surname of a name, ignoring generational suffixes such as Jr. or III.
@@ -114,16 +81,16 @@ function surnameOf(name: string): string {
 }
 
 /**
- * Applies the deterministic identity rules to the model's candidate groups.
+ * Applies the deterministic identity rules to the results the model picked as matching the stone.
  * @param inscription The stone's person.
  * @param records Search hits the model saw.
- * @param raw Candidate groups the model returned.
- * @returns At most 5 candidates, ordered by matched inscription fields.
+ * @param picks Results the model picked, with the details each one states.
+ * @returns No candidate, or the one candidate the stone's person resolves to.
  */
-export function resolveCandidates(
+export function resolveMatches(
 	inscription: Inscription,
 	records: SourceRecord[],
-	raw: RawCandidate[]
+	picks: RawMatch[]
 ): Candidate[] {
 	// The model sees the stone's details and can echo them onto unrelated hits, so a hit must name the surname.
 	const surname = surnameOf(inscription.name);
@@ -132,19 +99,38 @@ export function resolveCandidates(
 			.filter((r) => `${r.title} ${r.snippet}`.toLowerCase().includes(surname))
 			.map((r) => [r.id, r])
 	);
-	const grouped = raw.map((c) => ({
-		c,
-		ids: [...new Set(c.resultIds)].filter((id) => byId.has(id))
-	}));
-	const claims = countClaims(grouped);
-
-	const scored = grouped.flatMap(({ c, ids }) => {
-		const sources = ids.filter((id) => claims.get(id) === 1).map((id) => byId.get(id)!);
-		const result = accept(inscription, c, sources);
-		return result ? [result] : [];
+	const matches = [...new Map(picks.map((p) => [p.id, p])).values()].flatMap((p) => {
+		const source = byId.get(p.id);
+		const born = partialDateOrNull(p.born);
+		const died = partialDateOrNull(p.died);
+		const agrees =
+			yearsAgree(year(born), year(inscription.born)) &&
+			yearsAgree(year(died), year(inscription.died));
+		if (!source || !agrees) return [];
+		// A date counts only when the picked result itself states it.
+		const text = `${source.title} ${source.snippet}`;
+		return [
+			{
+				source,
+				born: stated(born, text),
+				died: stated(died, text),
+				place: p.place?.trim() || null,
+				confidence: capConfidence(p.confidence, Boolean(stated(born, text) ?? stated(died, text)))
+			}
+		];
 	});
-	return scored
-		.toSorted((a, b) => b.score - a.score)
-		.slice(0, MAX_CANDIDATES)
-		.map((s) => s.candidate);
+	if (!matches.length) return [];
+	return [
+		{
+			name: inscription.name,
+			born: matches.find((m) => m.born)?.born ?? null,
+			died: matches.find((m) => m.died)?.died ?? null,
+			place: matches.find((m) => m.place)?.place ?? null,
+			confidence: matches.reduce<Confidence>(
+				(best, m) => (CONFIDENCE_RANK[m.confidence] > CONFIDENCE_RANK[best] ? m.confidence : best),
+				'low'
+			),
+			sources: matches.map((m) => m.source)
+		}
+	];
 }

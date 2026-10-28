@@ -3,7 +3,7 @@ import { z } from 'zod';
 import type { Candidate, Inscription, SourceRecord } from '#lib/types.ts';
 import { geminiApiKey } from '../env';
 import { ProviderError } from '../http';
-import type { InferenceProvider, PageText, RawCandidate, RawPerson, RawFact } from './index';
+import type { InferenceProvider, PageText, RawMatch, RawPerson, RawFact } from './index';
 
 const MODEL_ID = 'google/gemma-4-26b-a4b-it';
 const MAX_RETRIES = 2;
@@ -38,14 +38,16 @@ Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or compl
 export const READ_USER_TEXT = 'Transcribe the gravestone in this photo.';
 export const READ_SAMPLING = { temperature: 0, topP: 0.95, topK: 64 };
 
-const groupSchema = z.object({
-	candidates: z.array(
+const matchSchema = z.object({
+	matches: z.array(
 		z.object({
-			name: z.string(),
+			id: z.string().describe('Id of a search result about this person.'),
 			born: z.string().nullable().describe(dateHint),
 			died: z.string().nullable().describe(dateHint),
 			place: z.string().nullable(),
-			resultIds: z.array(z.string()).describe('Ids of the search results about this person.')
+			confidence: z
+				.enum(['high', 'medium', 'low'])
+				.describe('How sure you are this result is about the headstone person.')
 		})
 	)
 });
@@ -60,16 +62,18 @@ const factsSchema = z.object({
 	)
 });
 
-const GROUP_INSTRUCTIONS = `Task: sort web search results by the person each one is about.
+const MATCH_INSTRUCTIONS = `Task: pick the search results that are about the person on a headstone.
 
-Context: the results come from searching for one name copied from a headstone. Different results can be about different people who share that name. Your groups decide which results are shown together as one possible match, so merging two people puts the wrong records under one name.
+Context: every result came from searching for this one person. Some may be about a different person who shares the name.
 
 Rules:
-- Make one group per distinct person. Name, birth year and death year decide who someone is.
-- Put each result in exactly one group. If you cannot tell which person a result is about, leave it out.
-- Leave out results that are not about one specific person, such as lists, indexes and general pages.
-- Fill name, born, died and place only from the result's title and snippet. Use null when it does not say. Never copy details from the headstone.
-- resultIds lists the ids of the results in the group.`;
+- Return a result only if it is about this person. Name, birth year, death year and place should agree with the headstone.
+- Leave out results about someone else: a namesake with different dates, or an older or younger relative.
+- A result that gives no dates may still be returned when nothing in it points to a different person.
+- Leave out lists, indexes and general pages.
+- For each result returned, fill born, died and place only from what its title or snippet says about this person. Use null when it does not say. Never copy them from the headstone.
+- confidence is "high" when the name and both years agree with the headstone, "medium" when the name agrees and the result gives one matching year or nothing that contradicts, and "low" when only the name matches or the details are unclear.
+- If no result is about this person, return an empty list.`;
 
 const EXTRACT_INSTRUCTIONS = `Task: pull checkable facts about one deceased person out of source texts.
 
@@ -142,23 +146,20 @@ export class GemmaProvider implements InferenceProvider {
 	}
 
 	/** @inheritdoc */
-	async groupCandidates(
-		inscription: Inscription,
-		records: SourceRecord[]
-	): Promise<RawCandidate[]> {
+	async pickMatches(inscription: Inscription, records: SourceRecord[]): Promise<RawMatch[]> {
 		const results = records.map(({ id, title, snippet }) => ({ id, title, snippet }));
 		try {
-			const res = await agent('group-candidates', GROUP_INSTRUCTIONS).generate(
+			const res = await agent('pick-matches', MATCH_INSTRUCTIONS).generate(
 				`Headstone: ${inscription.carvedName}, born ${inscription.born ?? 'unknown'}, died ${inscription.died ?? 'unknown'}.\n\nSearch results:\n${JSON.stringify(results)}`,
 				{
-					structuredOutput: { schema: groupSchema },
+					structuredOutput: { schema: matchSchema },
 					modelSettings: { temperature: 0 },
 					providerOptions: NO_THINKING
 				}
 			);
-			return res.object.candidates;
+			return res.object.matches;
 		} catch (e) {
-			throw failed('Grouping candidates', e);
+			throw failed('Picking matches', e);
 		}
 	}
 

@@ -15,6 +15,7 @@ const candidate: Candidate = {
 	born: '1932-03-10',
 	died: '2017-12-27',
 	place: null,
+	confidence: 'high',
 	sources: [
 		{ id: 's1', url: 'https://a.test/1', title: 'A', site: 'a.test', snippet: '' },
 		{ id: 's2', url: 'https://b.test/2', title: 'B', site: 'b.test', snippet: '' }
