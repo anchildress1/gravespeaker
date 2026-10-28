@@ -1,0 +1,49 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+self review triaged
+robots fail closed
+fact sentence check tightened
+pr threads resolved
+quote order enforced
+line length trimmed
+suffix match fixed
+search url extracted
+review feedback addressed
+engines ordered by rank
+search cut to three
+pipeline run saved
+pipeline run committed
+pipeline run recorded
+twenty one stones searched
+benchmark run logged
+two engines searched
+engines cut to two
+search engines trimmed
+depot runners configured
+actionlint depot label added
+ci moved to depot
+schema tied to seam
+stale findings cleared
+schema derived pushed
+
+Closing message:
+commit. The working tree is clean apart from your `docs/dev-post-draft.md`.
+
+The push re-runs CI on the Depot runners. If those checks never start, the Depot app isn't connected to the repo.
+
+The four Codex findings are still unfixed. Do you want me to take them next?
+The runner change is reverted locally as `d6533d4`. The three workflows are back on `ubuntu-latest`, and the actionlint config is gone. It isn't pushed yet, and the remote still has the Depot runner label until I push.
+
+Depot CI is a separate engine, not a runner label. From [Depot's docs](https://depot.dev/docs/cli/reference/depot-ci) and [migration post](https://depot.dev/blog/migrate-to-depot-ci):
+- **Copy, not edit:** `depot ci migrate` copies selected workflows from `.github/workflows/` into `.depot/workflows/`, mapping `ubuntu-latest` to `depot-ubuntu-latest`. Your `.github/` files stay and keep running.
+- **Both run in parallel:** until you remove the GitHub copies, each workflow runs twice. A duplicated `release-please` run could open or update release PRs twice.
+- **Secrets move separately:** `depot ci migrate secrets-and-vars` handles them.
+- **Compatibility is unchecked:** I haven't verified that CodeQL and SonarCloud work on it. Depot's compatibility matrix would tell us.
+
+I need these decisions from you:
+1. **Is the Depot account connected?** That means a Depot org with the GitHub app installed for this repo, and the `depot` CLI signed in. The migration command is interactive, so you'd run `! depot ci migrate` yourself.
+2. **Which workflows move?** My suggestion is `ci.yml` only. `release-please.yml` would duplicate release PRs, and CodeQL may not be supported.
+3. **Should the GitHub copy of `ci.yml` be removed after the move?** If you keep both, every push runs the CI job twice.
+4. **Same PR or a separate one?** I'd use a separate PR, since this is CI infrastructure.
+
+Say "push" and I'll publish the revert. That puts the remote workflows back on GitHub runners while we sort out Depot CI.
