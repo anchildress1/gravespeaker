@@ -124,7 +124,7 @@ description: 'Task list for the Gravespeaker MVP journey'
 ## Phase 6: Polish
 
 - [x] T039 Run Semgrep and Sonar scans on the branch; fix findings (SSRF guard and upload handling are the hot spots).
-- [ ] T040 Run quickstart manual phone + desktop walkthroughs, timing photo → story on the phone (SC-006: < 2 min excluding read time); Lighthouse only via chrome-devtools MCP `lighthouse_audit` against `pnpm preview`.
+- [x] T040 Run quickstart manual phone + desktop walkthroughs, timing photo → story on the phone (SC-006: < 2 min excluding read time); Lighthouse only via chrome-devtools MCP `lighthouse_audit` against `pnpm preview`.
 - [x] T041 Update `README.md` via the `readme-generator` skill (journey, setup, `.env` keys).
 
 ---
