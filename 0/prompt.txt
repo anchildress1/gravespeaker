@@ -1,0 +1,18 @@
+I can't approve my own PRs. what flaky robots.txt sites?
+fix the fact sentence match problem
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · The new check that fact sentences match their quotes counts shared words, so a sentence that flips the meaning can still pass.
+>
+> **Fact check compares words, not meaning**
+> The reviewer found that a model could attach a real quote to an invented sentence. The fix now compares each fact sentence with its quote, in code, with no model involved.
+> * **What it catches:** numbers, names and place words that aren't in the quote, and sentences that share fewer than half their key words with it. "I flew combat missions" is dropped.
+> * **What it can't catch:** wording that reuses the quote's words but changes the meaning. "I never taught piano for forty years" shares 4 of 5 key words with "taught piano for forty years", so it would pass.
+> * **Why it matters:** the app promises that every displayed fact is backed by a source, and this check backs that promise only partly.
+> * **Worth knowing:** the quote-in-source check and the number and name rule still apply, so the gap is mostly negation and reordering.
+> If that's too loose, a stricter option is to show the quote itself next to each fact instead of the model's wording.
+
+leave it for now unless you have a quick fix
