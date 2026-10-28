@@ -1,5 +1,5 @@
 Query-shape experiment, run 2026-10-28 before any save-as-you-go tooling existed.
-Captured verbatim from the console. Script: benchmarks/query-experiment.ts (Google only, SerpApi, 4 stones x 3 query shapes = 12 credits).
+Captured verbatim from the console. Script: benchmarks/query-experiment.ts (removed after the run; recover it from git history at commit fdc1734) (Google only, SerpApi, 4 stones x 3 query shapes = 12 credits).
 Candidates are the output of resolveMatches (src/lib/server/identity.ts) at commit fdc1734. Format: confidence/number of sources.
 Stones (answer key, fixtures/manifest.json):
   chambers-2011  Corwin "Cory" Garner Chambers  1959-11-07 to 2011-09-12  (query uses the name without the quoted nickname)
