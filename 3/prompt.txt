@@ -1,0 +1,48 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+suffix match fixed
+search url extracted
+review feedback addressed
+engines ordered by rank
+search cut to three
+pipeline run saved
+pipeline run committed
+pipeline run recorded
+twenty one stones searched
+benchmark run logged
+two engines searched
+engines cut to two
+search engines trimmed
+depot runners configured
+actionlint depot label added
+ci moved to depot
+schema tied to seam
+stale findings cleared
+schema derived pushed
+depot runners reverted
+depot copies migrated
+eslint ignores worktrees
+github workflows disabled
+parallel fixes dispatched
+narrative fact match fixed
+
+Closing message:
+ or pass. The four Codex findings, including the `canonicalUrl` bug, and Copilot's re-review are still open.
+The three GitHub workflows (CI, CodeQL, release-please) are now disabled with `gh`, and the workflow files are untouched. I restored the deletions I had staged, so the working tree is clean apart from your `docs/dev-post-draft.md`. There's nothing to commit or push.
+
+Two things to watch:
+- **Required checks:** GitHub will stop reporting `ci` and `Analyze` on PRs. If branch protection requires those names, PR #5 will wait on them forever unless Depot CI reports checks under the same names.
+- **Not disabled:** Copilot and Dependabot Updates are still active. Those aren't workflows of yours.
+
+To turn one back on, run `gh workflow enable "<name>"`.
+
+The four Codex findings and Copilot's re-review are still open.
+Three agents are fixing the code in parallel: one for identity.ts, one for narrative.ts, and one for pages, gemma, http and url. I'm waiting on them before running the gate and committing.
+The narrative.ts agent is done: `I was a chef.` now counts as using the fact `was a chef`, and 21 tests pass in that file. I'm still waiting on the other two agents (identity.ts, and pages/gemma/http/url), and I haven't run the full gate yet.
+The pages/gemma/http/url agent is done too. Two of three are in. Only the identity.ts agent is outstanding, and I'm not running the gate until it finishes.
+
+- **`pages.ts`:** the complexity fix (S3776) and the eight IP-literal markers (S1313) are in.
+- **`gemma.ts` and `http.ts`:** the nested templates (S4624) are rewritten.
+- **`url.ts`:** the Codex query-parameter bug and the backtracking regex (S8786) are fixed, with a regression test that fails on the old code.
+- **Extra bug found in `url.ts`:** the Find a Grave key was always `memorial/undefined`. It only worked because both sides collapsed to the same string. It's fixed now.
+- **Not verified:** Sonar hasn't re-analyzed any of these fixes, so I'll confirm them after the push.
