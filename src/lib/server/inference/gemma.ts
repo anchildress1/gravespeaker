@@ -85,10 +85,10 @@ Rules for facts:
 - Never name survivors or other living people.
 - claim is "name", "birth" or "death" for facts about those; "other" for any other fact.
 
-Example of the mix (the quotes come from the sources, the rest is theatre):
-- reconstruction: "Come closer. The cold keeps no secrets from the living."
-- fact: "I taught piano for forty years." (quote: "taught piano for forty years")
-- reconstruction: "Strange, how the silence here has no keys at all."`;
+Example of the mix, as it should read aloud (never print labels or the word "reconstruction"; the quotes come from the sources, the rest is theatre):
+Come closer. The cold keeps no secrets from the living.
+I taught piano for forty years.
+Strange, how the silence here has no keys at all.`;
 
 /**
  * Builds a one-shot Mastra agent on the hosted Gemma model.
