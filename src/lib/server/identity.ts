@@ -20,7 +20,7 @@ const PREFIX_WORDS = new Set(
 	)
 );
 // A sentence that opens with a life cue has no subject of its own: it continues the previous one.
-const CONTINUES = /^\s*(?:born|died|passed away|deceased|b\.|d\.)(?![\p{L}])/u;
+const CONTINUES = /^\s*(?:born|died|passed away|deceased|b\.|d\.)(?!\p{L})/u;
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
