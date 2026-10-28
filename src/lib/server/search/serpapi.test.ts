@@ -73,17 +73,12 @@ describe('SerpApiProvider', () => {
 	it('searches several engines in parallel and merges their results', async () => {
 		const fn = stub({
 			google: ok(hit('https://a.com/1')),
-			yandex: ok(hit('https://b.com/2')),
-			yahoo: ok(hit('https://c.com/3'))
+			yandex: ok(hit('https://b.com/2'))
 		});
 		const hits = await new SerpApiProvider().search('q');
-		expect(hits.map((h) => h.url)).toEqual([
-			'https://a.com/1',
-			'https://b.com/2',
-			'https://c.com/3'
-		]);
+		expect(hits.map((h) => h.url)).toEqual(['https://a.com/1', 'https://b.com/2']);
 		const engines = fn.mock.calls.map(([u]) => new URL(String(u)).searchParams.get('engine'));
-		expect(new Set(engines)).toEqual(new Set(['google', 'yandex', 'yahoo']));
+		expect(new Set(engines)).toEqual(new Set(['google', 'yandex']));
 	});
 
 	it('removes a page that several engines return, keeping the first', async () => {
@@ -109,7 +104,7 @@ describe('SerpApiProvider', () => {
 	});
 
 	it('throws ProviderError only when every engine fails', async () => {
-		stub({ google: down, yahoo: down, yandex: down });
+		stub({ google: down, yandex: down });
 		await expect(new SerpApiProvider().search('q')).rejects.toBeInstanceOf(ProviderError);
 	});
 
