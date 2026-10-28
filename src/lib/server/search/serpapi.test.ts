@@ -73,7 +73,7 @@ describe('SerpApiProvider', () => {
 	it('searches several engines in parallel and merges their results', async () => {
 		const fn = stub({
 			google: ok(hit('https://a.com/1')),
-			bing: ok(hit('https://b.com/2')),
+			yandex: ok(hit('https://b.com/2')),
 			yahoo: ok(hit('https://c.com/3'))
 		});
 		const hits = await new SerpApiProvider().search('q');
@@ -83,13 +83,13 @@ describe('SerpApiProvider', () => {
 			'https://c.com/3'
 		]);
 		const engines = fn.mock.calls.map(([u]) => new URL(String(u)).searchParams.get('engine'));
-		expect(new Set(engines).size).toBeGreaterThan(3);
+		expect(new Set(engines)).toEqual(new Set(['google', 'yandex', 'yahoo']));
 	});
 
 	it('removes a page that several engines return, keeping the first', async () => {
 		stub({
 			google: ok(hit('https://www.a.com/1/', 'First')),
-			bing: ok(hit('https://a.com/1', 'Second'), hit('https://b.com/2'))
+			yandex: ok(hit('https://a.com/1', 'Second'), hit('https://b.com/2'))
 		});
 		const hits = await new SerpApiProvider().search('q');
 		expect(hits.map((h) => h.title)).toEqual(['First', 'T']);
@@ -97,7 +97,7 @@ describe('SerpApiProvider', () => {
 	});
 
 	it('uses the engines that answered when another one fails', async () => {
-		stub({ google: down, bing: ok(hit('https://b.com/2')) });
+		stub({ google: down, yandex: ok(hit('https://b.com/2')) });
 		expect(await new SerpApiProvider().search('q')).toHaveLength(1);
 	});
 
@@ -109,7 +109,7 @@ describe('SerpApiProvider', () => {
 	});
 
 	it('throws ProviderError only when every engine fails', async () => {
-		stub({ google: down, bing: down, yahoo: down, duckduckgo: down, yandex: down });
+		stub({ google: down, yahoo: down, yandex: down });
 		await expect(new SerpApiProvider().search('q')).rejects.toBeInstanceOf(ProviderError);
 	});
 

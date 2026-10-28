@@ -9,7 +9,7 @@
 One SvelteKit page drives the journey photo → read → research → confirm → story. The page talks to three stateless JSON endpoints.
 
 - Hosted Gemma 4 26B, called through Mastra Agents, reads the stone with run 9's rules, rewritten as app-owned instructions and re-measured as run 10.
-- SerpApi finds records, querying several engines (Google, Bing, Yahoo, DuckDuckGo, Yandex) in parallel.
+- SerpApi finds records, querying several engines (Google, Yandex, Yahoo) in parallel.
 - A deterministic engine matches results to the stone by name and dates and builds a candidate per person it finds, usually one. No model call.
 - After the visitor confirms the candidate, the server fetches its source pages in memory. Gemma extracts quoted facts, code verifies them, and Gemma writes one first-person paragraph from the verified facts.
 - Deterministic code owns the format and the grounding at every step:
