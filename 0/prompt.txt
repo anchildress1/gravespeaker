@@ -1,0 +1,67 @@
+<task-notification>
+<task-id>a8b0bf041a9a7070e</task-id>
+<tool-use-id>toolu_01GKu9eYsetw4WkrfmSWHVrG</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a8b0bf041a9a7070e.output</output-file>
+<status>completed</status>
+<summary>Agent "/code-review medium" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>```json
+[
+  {
+    "file": "src/lib/server/narrative.ts",
+    "line": 90,
+    "summary": "supportsSentence rejects number words and digits unless the exact token is in the quote, so \"forty\" and \"40\" never match each other.",
+    "failure_scenario": "The page says \"taught piano for 40 years\" and the model writes \"I taught piano for forty years.\" The sentence is dropped. The same happens the other way round, and for ordinals such as \"1st\" versus \"first\". Valid facts are silently lost, and the evidence bar can then fail for people who do have sources."
+  },
+  {
+    "file": "src/lib/server/narrative.ts",
+    "line": 89,
+    "summary": "The proper-noun check only tests capitalised words after position 0, and only against the quote, name tokens and months. A sentence that starts with a new proper noun passes unchecked. Contractions and possessives also split into stray tokens.",
+    "failure_scenario": "\"Chicago was my home.\" with a quote that never mentions Chicago passes, because i === 0 is exempt. A fabricated place or person at sentence start is rendered as a sourced fact. Hallucination at sentence start is not blocked, which breaks the rule against fabricating history."
+  },
+  {
+    "file": "src/lib/server/narrative.ts",
+    "line": 122,
+    "summary": "Reconstruction sentences under 3 words are dropped. This is a blunt label-debris filter, and it also removes legitimate short theatrical lines.",
+    "failure_scenario": "The model returns \"Come closer.\" or \"Listen well.\", both 2 words. They are silently discarded and the ghost's voice loses its short beats. Labels such as \"reconstruction:\" are only caught because they happen to be short; a longer label like \"Reconstruction line one:\" passes."
+  },
+  {
+    "file": "src/lib/server/pages.ts",
+    "line": 138,
+    "summary": "An unreadable robots.txt body (stream failure) and a 5xx robots response both fail open, so the page is fetched. This is inconsistent with this PR's change that treats unreadable page bodies as unavailable.",
+    "failure_scenario": "robots.txt aborts mid-stream, so readCapped returns null and load returns null. The gate then returns true and the page is fetched even though the site may disallow it. Per RFC 9309, an unreachable robots.txt (5xx) should be treated as disallow-all."
+  },
+  {
+    "file": "src/lib/server/pages.ts",
+    "line": 69,
+    "summary": "The robots gate runs before resolvePublic, so a robots fetch is made for an origin that has not yet passed the SSRF check on the main path. The only protection is that the nested guardedFetch repeats the check.",
+    "failure_scenario": "On every redirect hop to a new origin, an extra request goes out to that origin's /robots.txt. This adds up to 2x network round-trips per hop and an extra outbound request to an attacker-chosen host before the page request is made. The cost is latency and request volume rather than a bypass."
+  },
+  {
+    "file": "src/lib/server/inference/gemma.ts",
+    "line": 88,
+    "summary": "The prompt example no longer shows the `(quote: ...)` structure for the fact sentence. It now reads as plain prose with no kind or quote markers.",
+    "failure_scenario": "The model has no example of how a fact pairs with its quote, so it emits more facts with a missing or paraphrased quote. groundStory then drops them, and stories fall below the evidence bar and render as unknown."
+  },
+  {
+    "file": "src/lib/server/research.ts",
+    "line": 75,
+    "summary": "`async` was replaced by `Promise.resolve(syncCall())` only to satisfy Sonar. A synchronous throw from resolveCandidates or groundStory now escapes `execute` synchronously instead of becoming a rejected promise.",
+    "failure_scenario": "groundStory throws (for example on malformed model output). The error is thrown synchronously inside Mastra's step runner instead of surfacing as a step failure. If the runner does not wrap the call in try/catch, the error path differs. The `// NOSONAR` comments on `.then(...)` also suppress a tool warning rather than fix anything."
+  },
+  {
+    "file": "src/lib/server/inscription.ts",
+    "line": 6,
+    "summary": "MAIDEN lost its leading `\\s*`. This is harmless only because whitespace is collapsed afterwards, and it is an unrelated drive-by change.",
+    "failure_scenario": "Without a regression test, a later edit that drops the whitespace collapse leaves a trailing or double space in `name`. `\\b` also matches \"nee\" inside tokens such as \"-nee\" or \"(nee\" differently than before."
+  },
+  {
+    "file": "src/lib/server/identity.ts",
+    "line": 105,
+    "summary": "Candidate scoring and acceptance are unchanged, but `validDate` duplicates the private `date()` in inscription.ts, which has the identical body.",
+    "failure_scenario": "Two copies of the PARTIAL_DATE guard (identity.ts `validDate` and inscription.ts `date`) can drift apart. Export one helper from a shared module, for example next to PARTIAL_DATE in types.ts."
+  }
+]
+```</result>
+<usage><subagent_tokens>77043</subagent_tokens><tool_uses>3</tool_uses><duration_ms>35017</duration_ms></usage>
+</task-notification>
