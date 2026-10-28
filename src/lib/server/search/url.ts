@@ -12,6 +12,17 @@ function isTracking(name: string): boolean {
 }
 
 /**
+ * Removes trailing slashes in one pass; a regex like /\/+$/ backtracks quadratically on long runs.
+ * @param path URL pathname.
+ * @returns The path without trailing slashes.
+ */
+function trimTrailingSlashes(path: string): string {
+	let end = path.length;
+	while (end > 0 && path[end - 1] === '/') end--;
+	return path.slice(0, end);
+}
+
+/**
  * Reduces a URL to a key shared by duplicates: no scheme, "www.", locale subdomain, hash or tracking parameters.
  * @param link A result link.
  * @returns The dedupe key, or null when the link is not a web URL.
@@ -30,5 +41,5 @@ export function canonicalUrl(link: string): string | null {
 		.map(([name, value]) => `${name}=${value}`)
 		.sort((a, b) => a.localeCompare(b));
 	const query = params.length ? `?${params.join('&')}` : '';
-	return `${host}${url.pathname.replace(/\/+$/, '')}${query}`;
+	return `${host}${trimTrailingSlashes(url.pathname)}${query}`;
 }
