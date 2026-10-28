@@ -74,6 +74,12 @@ describe('fetchPage', () => {
 		'http://10.0.0.5/',
 		'http://[::1]/',
 		'http://[::ffff:127.0.0.1]/',
+		'http://224.0.0.1/',
+		'http://240.0.0.1/',
+		'http://198.18.0.1/',
+		'http://[64:ff9b::7f00:1]/',
+		'http://[2002::1]/',
+		'http://[ff02::1]/',
 		'ftp://public.test/x',
 		'http://rebind.test/'
 	])('rejects %s without fetching', async (url) => {
@@ -115,6 +121,15 @@ describe('fetchPage', () => {
 			expect.objectContaining({ hostname: '127.0.0.1' }),
 			expect.anything()
 		);
+	});
+
+	it('treats a malformed redirect destination as an unavailable page', async () => {
+		stub((url) =>
+			url.endsWith('/robots.txt')
+				? notFound()
+				: new Response(null, { status: 302, headers: { location: 'http://[' } })
+		);
+		expect(await fetchPage('https://public.test/bad')).toBeNull();
 	});
 
 	it('gives up after more than 3 redirects', async () => {
