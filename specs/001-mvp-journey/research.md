@@ -95,6 +95,8 @@ Each entry: decision, rationale, alternatives rejected.
 - **Rationale**: On Cloud Run, an open fetch can reach the metadata server and leak the service account token. Signing candidates server-side would need a new secret, and CLAUDE.md requires asking before adding one.
 - **Rejected**: HMAC-signed candidate payloads, which need a new Secret Manager secret; re-running search in the story request, which doubles SerpApi spend.
 
+- **Accepted for the MVP** (user decision 2026-10-28): `/api/story` trusts the candidate, sources and snippets the browser sends, so a direct caller can request a story for sources research never returned. The story reaches only that caller, and the SSRF guard still covers every URL it fetches. The later fix is to sign the research result server-side (a new secret, which needs approval first) or to re-run research inside the story request.
+
 ## R10. Upload limits and formats
 
 - **Decision**: Accept `image/jpeg`, `image/png`, `image/webp`, `image/heic`, `image/heif`, up to 10 MB. The client uses `<input type="file" accept="image/*" capture="environment">`.
