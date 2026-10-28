@@ -32,6 +32,7 @@ Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or compl
 - people: one entry per person commemorated, with the name exactly as carved. [] if no name is legible.
 - Only the person or people the stone is for go in people. Relatives named in relation to them ("son of", "wife of", "daughter of") and nicknames are NOT separate people.
 - born/died: "YYYY-MM-DD", or "YYYY" when only the year is carved. Use "?" for an unreadable digit, and for any worn digit that could be read two ways (1 or 4, 3 or 8). A "?" is better than a guess. null when the date is not on the stone.
+- A surname carved once, at the top or the bottom of a stone shared by two people, belongs to every person on the stone. Put it on each name, e.g. "ANN MARIE" and "JOHN PAUL" under "BRANDT" are "Ann Marie Brandt" and "John Paul Brandt". Give each person only the dates carved for them, and null for a date that is not carved for them.
 - A year that is not a birth or death (marriage length, erection date) is NOT a life date.`;
 
 export const READ_USER_TEXT = 'Transcribe the gravestone in this photo.';
