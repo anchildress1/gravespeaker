@@ -12,6 +12,6 @@ export interface Engine {
  */
 export const ENGINES: Engine[] = [
 	{ engine: 'google', queryParam: 'q', extra: { num: '10', gl: 'us', hl: 'en' } },
-	{ engine: 'yahoo', queryParam: 'p' },
-	{ engine: 'yandex', queryParam: 'text' }
+	{ engine: 'yandex', queryParam: 'text' },
+	{ engine: 'yahoo', queryParam: 'p' }
 ];
