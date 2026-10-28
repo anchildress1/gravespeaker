@@ -110,6 +110,13 @@ describe('fetchPage', () => {
 		expect(await fetchPage('https://public.test/old')).toContain('taught piano');
 	});
 
+	it('treats a robots.txt that answers 3xx with nowhere to go as disallow-all', async () => {
+		stub((url) =>
+			url.endsWith('/robots.txt') ? new Response(null, { status: 300 }) : html(article)
+		);
+		expect(await fetchPage('https://public.test/a')).toBeNull();
+	});
+
 	it('rejects a redirect to a private address', async () => {
 		stub((url) =>
 			url.endsWith('/robots.txt')

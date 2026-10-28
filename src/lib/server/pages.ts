@@ -149,12 +149,13 @@ function robotsGate(): (url: URL) => Promise<boolean> {
 	 * Loads one origin's robots.txt and returns its verdict function.
 	 * @param origin Origin to load robots.txt from.
 	 * @returns A permission check. A 4xx robots.txt means no rules (allow all). Per RFC 9309 an
-	 * unreachable, 5xx or unreadable one means disallow all.
+	 * unreachable, 5xx, unfollowed 3xx or unreadable one means disallow all.
 	 */
 	const load = async (origin: string): Promise<(href: string) => boolean> => {
 		const res = await guardedFetch(`${origin}/robots.txt`);
-		if (!res || res.status >= 500) return () => false;
-		if (!res.ok) return () => true;
+		if (!res) return () => false;
+		if (res.status >= 400 && res.status < 500) return () => true;
+		if (!res.ok) return () => false;
 		const body = await readCapped(res);
 		if (body === null) return () => false;
 		const robots = robotsParser(`${origin}/robots.txt`, body);
