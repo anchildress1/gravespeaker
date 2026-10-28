@@ -1,0 +1,42 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+journey wired up
+journey docs updated
+run ten recorded
+dev server stopped cleanly
+atomic commits redone
+commit series ready
+docs amendment committed
+read route logging added
+theatrical story voice rewritten
+debug logging removed
+companion surname rule committed
+run eleven saved
+phone preview ready
+spec one built
+lighthouse audit passed
+alt text fixed
+readme banner committed
+readme header centered
+readme banner stacked
+codeql host check fixed
+
+Closing message:
+The CodeQL alert is fixed in a local commit (`59b4a49`) that is not pushed, so CodeQL hasn't re-run yet.
+
+- **Cause:** the research test's network stub in `src/routes/api/research/server.test.ts` picked SerpApi by checking whether the request URL contained the text `serpapi.com`. CodeQL flags that as "incomplete URL substring sanitization," because a URL like `https://evil.com/serpapi.com` would also match.
+- **Fix:** the stub now parses the URL and compares the hostname exactly to `serpapi.com`. I found no other substring URL checks in `src`.
+- **Checks:** the research tests pass (6), lint and typecheck are clean, and Semgrep is clean.
+
+Three commits are waiting locally: this fix and the two README commits (`37d6244`, `e65b151`). Say "push" and I'll push all three to PR #5, which will also re-run CodeQL.
+Fanning out five agents on disjoint files: three Sonar groups and two for the Codex findings that are real bugs. I'll run the full gate and commits myself afterward.
+Five agents are working: Sonar fixes in three groups, and the `pages.ts` and `narrative.ts` bugs Codex found. I'll run the full gate and commit once they report.
+
+Two things I already know:
+- **Sonar:** 17 open issues on PR #5 and no security hotspots.
+- **Entire Gates:** this check fails on "no approvals" and "CI checks have not passed" (CodeQL). It isn't a code problem and clears once CodeQL passes and someone approves.
