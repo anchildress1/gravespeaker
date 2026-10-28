@@ -12,7 +12,7 @@ const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2}
 // A cue-to-year gap must not run across another life-event cue: "born in London, died in 2017".
 const LIFE_CUE = String.raw`\bborn\b|\bb\.|\bdied\b|\bd\.|passed away|\bdeceased\b`;
 // An initial ("b.", "d.", "C.") ends no sentence.
-const SENTENCE_END = /(?<!\b[a-z])\.\s/;
+const SENTENCE_END = /(?<!\b[a-z])\.\s/g;
 // Descriptive words that can precede a name in a title: "Obituary for Hawks, Gaynor".
 const PREFIX_WORDS = new Set(
 	'obituary obituaries memorial grave cemetery funeral tribute notice remembering for of the in at and by a an'.split(
@@ -28,8 +28,6 @@ const MAX_CANDIDATES = 3;
 const RECORD_CUES =
 	/obituar|cemeter|grave|memorial|funeral|\bdied\b|passed away|\bborn\b|interment/;
 // How far around the name to look for its dates, so another person's dates on the page are ignored.
-const WINDOW_BEFORE = 60;
-const WINDOW_AFTER = 220;
 
 type KeyState = 'match' | 'conflict' | 'none';
 
@@ -270,6 +268,26 @@ function reportedYear(stone: string | null, found: number | null, slack: number)
 }
 
 /**
+ * Finds the sentence that holds a position, so dates that belong to another person in a later
+ * sentence ("Her husband John Smith died 2010.") are not read as the matched name's.
+ * @param text Folded text.
+ * @param at Index of the matched name.
+ * @returns The whole sentence, and the part of it from the name onward.
+ */
+function sentenceAt(text: string, at: number): { whole: string; fromName: string } {
+	let start = 0;
+	let end = text.length;
+	for (const m of text.matchAll(SENTENCE_END)) {
+		if (m.index + m[0].length <= at) start = m.index + m[0].length;
+		else {
+			end = m.index;
+			break;
+		}
+	}
+	return { whole: text.slice(start, end), fromName: text.slice(at, end) };
+}
+
+/**
  * Weighs one search result against the stone, key by key. A key the result does not state is
  * neutral; only a stated year that disagrees counts against it.
  * @param inscription The stone's person.
@@ -277,7 +295,7 @@ function reportedYear(stone: string | null, found: number | null, slack: number)
  * @returns The result's evidence for name, birth year and death year.
  */
 function weigh(inscription: Inscription, record: SourceRecord): Evidence {
-	const text = fold(`${record.title}. ${record.snippet}`);
+	const text = fold(`${record.title}\n${record.snippet}`);
 	const { given, surname } = nameParts(inscription.name);
 	const maiden = inscription.maidenName ? fold(inscription.maidenName) : null;
 	const none: Evidence = {
@@ -297,12 +315,12 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		.filter((i) => i >= 0);
 	if (!starts.length) return none;
 
-	const center = Math.min(...starts);
-	const around = text.slice(Math.max(0, center - WINDOW_BEFORE), center + WINDOW_AFTER);
-	// A range belongs to the matched name only up to the end of its sentence: "... married John Smith
-	// (1930-2010)" gives the stone no dates. The title and the snippet may each name the person.
-	const own = starts.map((i) => text.slice(i).split(SENTENCE_END)[0]).join(' ');
-	const stated = statedYears(around, own);
+	const sentences = starts.map((i) => sentenceAt(text, i));
+	// A range is read from the name onward; a labelled year or an age from the whole sentence.
+	const stated = statedYears(
+		sentences.map((x) => x.whole).join('\n'),
+		sentences.map((x) => x.fromName).join('\n')
+	);
 
 	const born = compareYear(inscription.born, stated.born, stated.bornSlack);
 	const died = compareYear(inscription.died, stated.died, 0);

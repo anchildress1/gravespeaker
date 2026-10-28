@@ -145,6 +145,12 @@ describe('resolveMatches', () => {
 		expect(c.confidence).toBe('high');
 	});
 
+	it("does not read another person's labelled year from a later sentence", () => {
+		const [c] = resolve([rec('Gaynor Hawks, born 1932. Her husband John Smith died 2010.')]);
+		expect(c.confidence).toBe('medium');
+		expect([c.born, c.died]).toEqual(['1932', null]);
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
