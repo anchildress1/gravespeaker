@@ -48,6 +48,19 @@ const stub = (handler: (url: string) => Response) => {
  */
 const notFound = () => new Response('', { status: 404 });
 
+/**
+ * Builds a body stream that yields one chunk and then fails.
+ * @param first Text delivered before the failure.
+ * @returns The failing stream.
+ */
+const erroringBody = (first: string) =>
+	new ReadableStream<Uint8Array>({
+		start(controller) {
+			controller.enqueue(new TextEncoder().encode(first));
+			controller.error(new Error('ECONNRESET'));
+		}
+	});
+
 beforeEach(() => {
 	lookups.length = 0;
 	stub(() => notFound());
@@ -141,5 +154,65 @@ describe('fetchPage', () => {
 		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(huge)));
 		const text = await fetchPage('https://public.test/big');
 		expect(text === null || text.length <= 2 * 1024 * 1024).toBe(true);
+	});
+
+	it('returns null instead of throwing when the page body stream errors mid-read', async () => {
+		stub((url) =>
+			url.endsWith('/robots.txt')
+				? notFound()
+				: new Response(erroringBody('<html><body><p>partial'), {
+						headers: { 'content-type': 'text/html' }
+					})
+		);
+		expect(await fetchPage('https://public.test/stall')).toBeNull();
+	});
+
+	it('treats a robots.txt whose body errors mid-read as absent', async () => {
+		stub((url) =>
+			url.endsWith('/robots.txt')
+				? new Response(erroringBody('User-agent: *\nDisallow: /'), { status: 200 })
+				: html(article)
+		);
+		expect(await fetchPage('https://public.test/obit')).toContain('taught piano');
+	});
+
+	it('rejects an allowed URL that redirects to a path robots.txt disallows', async () => {
+		stub((url) => {
+			if (url.endsWith('/robots.txt')) {
+				return new Response('User-agent: *\nDisallow: /private', { status: 200 });
+			}
+			return url.includes('/old')
+				? new Response(null, {
+						status: 301,
+						headers: { location: 'https://public.test/private/x' }
+					})
+				: html(article);
+		});
+		expect(await fetchPage('https://public.test/old')).toBeNull();
+	});
+
+	it('rejects a redirect to another host whose robots.txt disallows', async () => {
+		stub((url) => {
+			if (url.startsWith('https://blocked.test/robots.txt')) {
+				return new Response('User-agent: *\nDisallow: /', { status: 200 });
+			}
+			if (url.endsWith('/robots.txt')) return notFound();
+			return url.startsWith('https://public.test/')
+				? new Response(null, { status: 301, headers: { location: 'https://blocked.test/obit' } })
+				: html(article);
+		});
+		expect(await fetchPage('https://public.test/old')).toBeNull();
+	});
+
+	it('returns text after a redirect to a destination robots.txt allows', async () => {
+		stub((url) => {
+			if (url.endsWith('/robots.txt')) {
+				return new Response('User-agent: *\nDisallow: /private', { status: 200 });
+			}
+			return url.includes('/old')
+				? new Response(null, { status: 301, headers: { location: 'https://redirector.test/new' } })
+				: html(article);
+		});
+		expect(await fetchPage('https://public.test/old')).toContain('taught piano');
 	});
 });

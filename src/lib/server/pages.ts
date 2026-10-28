@@ -50,9 +50,13 @@ async function resolvePublic(
 /**
  * Fetches one URL, following up to 3 redirects and re-checking every hop against the SSRF guard.
  * @param start First URL.
+ * @param allowed Optional per-hop gate; a false answer for any hop, the first included, yields null.
  * @returns The final response, or null when blocked, failed or redirected too often.
  */
-async function guardedFetch(start: string): Promise<Response | null> {
+async function guardedFetch(
+	start: string,
+	allowed?: (url: URL) => Promise<boolean>
+): Promise<Response | null> {
 	let url = start;
 	for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
 		let parsed: URL;
@@ -62,6 +66,7 @@ async function guardedFetch(start: string): Promise<Response | null> {
 			return null;
 		}
 		if (!/^https?:$/.test(parsed.protocol)) return null;
+		if (allowed && !(await allowed(parsed))) return null;
 		const target = await resolvePublic(parsed.hostname);
 		if (!target) return null;
 		// Connecting to the checked address closes the gap where DNS answers differently on a second lookup.
@@ -97,43 +102,66 @@ async function guardedFetch(start: string): Promise<Response | null> {
 /**
  * Reads a response body up to the byte cap.
  * @param res Response to read.
- * @returns Decoded text, truncated at the cap.
+ * @returns Decoded text truncated at the cap, or null when the stream fails mid-read.
  */
-async function readCapped(res: Response): Promise<string> {
+async function readCapped(res: Response): Promise<string | null> {
 	const reader = res.body?.getReader();
 	if (!reader) return '';
 	const chunks: Uint8Array[] = [];
 	let size = 0;
-	while (size < MAX_BYTES) {
-		const { done, value } = await reader.read();
-		if (done) break;
-		chunks.push(value);
-		size += value.length;
+	try {
+		while (size < MAX_BYTES) {
+			const { done, value } = await reader.read();
+			if (done) break;
+			chunks.push(value);
+			size += value.length;
+		}
+	} catch {
+		return null;
+	} finally {
+		await reader.cancel().catch(() => undefined);
 	}
-	await reader.cancel().catch(() => undefined);
 	return Buffer.concat(chunks).subarray(0, MAX_BYTES).toString('utf8');
+}
+
+/**
+ * Builds a per-call robots gate that fetches each origin's robots.txt at most once.
+ * @returns A hop check: false only when that origin's robots.txt disallows the URL for Gravespeaker.
+ */
+function robotsGate(): (url: URL) => Promise<boolean> {
+	const cache = new Map<string, Promise<ReturnType<typeof robotsParser> | null>>();
+	/**
+	 * Loads and parses one origin's robots.txt.
+	 * @param origin Origin to load robots.txt from.
+	 * @returns The parser, or null when robots.txt is missing, non-OK or unreadable.
+	 */
+	const load = async (origin: string) => {
+		const res = await guardedFetch(`${origin}/robots.txt`);
+		if (!res?.ok) return null;
+		const body = await readCapped(res);
+		return body === null ? null : robotsParser(`${origin}/robots.txt`, body);
+	};
+	return async (url) => {
+		let robots = cache.get(url.origin);
+		if (!robots) {
+			robots = load(url.origin);
+			cache.set(url.origin, robots);
+		}
+		return (await robots)?.isAllowed(url.href, USER_AGENT) !== false;
+	};
 }
 
 /**
  * Fetches a page and extracts its main text. Nothing is persisted.
  * @param url Source URL from a search record.
- * @returns Readable text, or null when blocked, disallowed, gated, non-HTML or empty.
+ * @returns Readable text, or null when blocked, disallowed, gated, non-HTML, unreadable or empty.
  */
 export async function fetchPage(url: string): Promise<string | null> {
-	let origin: string;
-	try {
-		origin = new URL(url).origin;
-	} catch {
-		return null;
-	}
-	const robotsRes = await guardedFetch(`${origin}/robots.txt`);
-	if (robotsRes?.ok) {
-		const robots = robotsParser(`${origin}/robots.txt`, await readCapped(robotsRes));
-		if (robots.isAllowed(url, USER_AGENT) === false) return null;
-	}
-	const res = await guardedFetch(url);
+	const res = await guardedFetch(url, robotsGate());
 	if (!res?.ok || !res.headers.get('content-type')?.includes('html')) return null;
-	const { document } = parseHTML(await readCapped(res));
+	const body = await readCapped(res);
+	if (body === null) return null;
+	const { document } = parseHTML(body);
 	const text = new Readability(document as unknown as Document).parse()?.textContent;
 	return text?.replace(/\s+/g, ' ').trim() || null;
 }
