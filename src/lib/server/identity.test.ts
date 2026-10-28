@@ -202,4 +202,45 @@ describe('resolveMatches', () => {
 		]);
 		expect(out[0].sources[0].id).toBe('obit');
 	});
+
+	it('keeps two people with different dates as separate candidates instead of merging them', () => {
+		const worn = { name: 'John Smith', carvedName: 'John Smith', born: '19?8', died: null };
+		const out = resolve(
+			[
+				rec('John Smith (1938-2011) obituary', 'A', 'a'),
+				rec('John Smith (1948-2015) obituary', 'B', 'b')
+			],
+			worn
+		);
+		expect(out).toHaveLength(2);
+		const ids = out.map((c) => c.sources.map((s) => s.id));
+		expect(ids.flat().sort()).toEqual(['a', 'b']);
+		expect(ids.every((i) => i.length === 1)).toBe(true);
+	});
+
+	it('merges results that agree with each other into one candidate', () => {
+		const out = resolve([
+			rec('Gaynor Hawks (1932-2017) memorial', 'A', 'a'),
+			rec('Gaynor Hawks, born 1932, died December 2017', 'B', 'b')
+		]);
+		expect(out).toHaveLength(1);
+		expect(out[0].sources).toHaveLength(2);
+	});
+
+	it('splits name-only results that state conflicting years for a stone with no dates', () => {
+		const bare = { born: null, died: null };
+		const out = resolve(
+			[rec('Gaynor Hawks, died 1980', 'A', 'a'), rec('Gaynor Hawks, died 2005', 'B', 'b')],
+			bare
+		);
+		expect(out).toHaveLength(2);
+	});
+
+	it('returns at most three candidates', () => {
+		const worn = { name: 'John Smith', carvedName: 'John Smith', born: '19??', died: null };
+		const many = ['1931', '1942', '1953', '1964', '1975'].map((y, i) =>
+			rec(`John Smith (${y}-2020)`, 'R', `s${i}`)
+		);
+		expect(resolve(many, worn)).toHaveLength(3);
+	});
 });

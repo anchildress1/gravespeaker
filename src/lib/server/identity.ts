@@ -6,6 +6,7 @@ const GATED =
 const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
 const YEAR = '(1[5-9]\\d\\d|20\\d\\d)';
 const MAX_SOURCES = 5;
+const MAX_CANDIDATES = 3;
 // Words that make a page likely to be a record of a death, used to rank name-only results.
 const RECORD_CUES =
 	/obituar|cemeter|grave|memorial|funeral|\bdied\b|passed away|\bborn\b|interment/;
@@ -22,6 +23,8 @@ interface Evidence {
 	died: KeyState;
 	bornYear: string | null;
 	diedYear: string | null;
+	/** Years the result states for the person, whether or not the stone carries that date. */
+	stated: { born: number | null; died: number | null; slack: number };
 }
 
 /**
@@ -168,7 +171,8 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		born: 'none',
 		died: 'none',
 		bornYear: null,
-		diedYear: null
+		diedYear: null,
+		stated: { born: null, died: null, slack: 0 }
 	};
 
 	// The surname, or the maiden name, must stand beside one of the given names.
@@ -187,7 +191,8 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		born,
 		died,
 		bornYear: born === 'match' ? String(stated.born) : null,
-		diedYear: died === 'match' ? String(stated.died) : null
+		diedYear: died === 'match' ? String(stated.died) : null,
+		stated: { born: stated.born, died: stated.died, slack: stated.bornSlack }
 	};
 }
 
@@ -203,17 +208,69 @@ function rate(matched: number, available: number): Confidence {
 }
 
 /**
+ * Whether two stated years contradict each other.
+ * @param x First year, or null when not stated.
+ * @param y Second year, or null when not stated.
+ * @param slack Years of tolerance.
+ * @returns True only when both are stated and further apart than the slack.
+ */
+function yearsDiffer(x: number | null, y: number | null, slack: number): boolean {
+	return x !== null && y !== null && Math.abs(x - y) > slack;
+}
+
+/**
+ * Whether two results can describe one person: no stated year of one contradicts the other.
+ * @param a Evidence of one result.
+ * @param b Evidence of another result.
+ * @returns False when both state a birth or death year and the years differ.
+ */
+function sameDates(a: Evidence, b: Evidence): boolean {
+	return (
+		!yearsDiffer(a.stated.born, b.stated.born, a.stated.slack + b.stated.slack) &&
+		!yearsDiffer(a.stated.died, b.stated.died, 0)
+	);
+}
+
+/** A result with its evidence and how many of the stone's keys it confirms. */
+interface Scored {
+	record: SourceRecord;
+	e: Evidence;
+	score: number;
+	recordLike: boolean;
+}
+
+/**
+ * Builds a candidate from results that agree with each other.
+ * @param inscription The stone's person.
+ * @param group Results about one person, best first.
+ * @returns The candidate.
+ */
+function candidateOf(inscription: Inscription, group: Scored[]): Candidate {
+	const kept = group.slice(0, MAX_SOURCES);
+	const available = 1 + Number(!!inscription.born) + Number(!!inscription.died);
+	return {
+		name: inscription.name,
+		born: kept.find((s) => s.e.bornYear)?.e.bornYear ?? null,
+		died: kept.find((s) => s.e.diedYear)?.e.diedYear ?? null,
+		confidence: rate(Math.max(...kept.map((s) => s.score)), available),
+		sources: kept.map((s) => s.record)
+	};
+}
+
+/**
  * Finds the search results that are about the stone's person.
  *
  * Name, birth year and death year are the keys. A result with the name and at least one matching
- * date is returned even when its other date is missing. A stated year that disagrees excludes the
- * result. When nothing confirms a date, name-only results are returned with low confidence.
+ * date is returned even when its other date is missing. A stated year that disagrees with the
+ * stone excludes the result. When nothing confirms a date, name-only results are returned as
+ * unverified. Results whose stated dates contradict each other are different people, so they
+ * become separate candidates rather than being merged.
  * @param inscription The stone's person.
  * @param records Deduplicated search results.
- * @returns No candidate, or the one candidate the stone's person resolves to.
+ * @returns Up to three candidates, best first; none when nothing matches.
  */
 export function resolveMatches(inscription: Inscription, records: SourceRecord[]): Candidate[] {
-	const scored = records
+	const scored: Scored[] = records
 		.map((record) => ({ record, e: weigh(inscription, record) }))
 		.filter(({ e }) => e.name && e.born !== 'conflict' && e.died !== 'conflict')
 		.map(({ record, e }) => ({
@@ -224,18 +281,14 @@ export function resolveMatches(inscription: Inscription, records: SourceRecord[]
 		}));
 	const best = Math.max(0, ...scored.map((s) => s.score));
 	if (!best) return [];
-	const kept = scored
+	const ranked = scored
 		.filter((s) => (best >= 2 ? s.score >= 2 : s.score === 1))
-		.sort((a, b) => b.score - a.score || Number(b.recordLike) - Number(a.recordLike))
-		.slice(0, MAX_SOURCES);
-	const available = 1 + Number(!!inscription.born) + Number(!!inscription.died);
-	return [
-		{
-			name: inscription.name,
-			born: kept.find((s) => s.e.bornYear)?.e.bornYear ?? null,
-			died: kept.find((s) => s.e.diedYear)?.e.diedYear ?? null,
-			confidence: rate(best, available),
-			sources: kept.map((s) => s.record)
-		}
-	];
+		.sort((a, b) => b.score - a.score || Number(b.recordLike) - Number(a.recordLike));
+	const groups: Scored[][] = [];
+	for (const s of ranked) {
+		const home = groups.find((g) => g.every((m) => sameDates(m.e, s.e)));
+		if (home) home.push(s);
+		else groups.push([s]);
+	}
+	return groups.slice(0, MAX_CANDIDATES).map((g) => candidateOf(inscription, g));
 }
