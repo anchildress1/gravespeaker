@@ -1,0 +1,740 @@
+{
+	"meta": {
+		"startedAt": "2026-10-28T06:29:10.689Z",
+		"commit": "2ecdb2b",
+		"dirty": false,
+		"node": "v26.12.1",
+		"engines": ["google", "bing", "yahoo", "duckduckgo", "yandex"],
+		"creditsBefore": {
+			"used": 49,
+			"left": 201
+		},
+		"finishedAt": "2026-10-28T06:30:37.539Z",
+		"creditsAfter": {
+			"used": 80,
+			"left": 170
+		}
+	},
+	"summary": {
+		"stones": 10,
+		"wallMs": 86776,
+		"medianSearchMs": 9967.5,
+		"creditsUsed": 31,
+		"creditsLeft": 170,
+		"withCandidate": 9,
+		"byConfidence": {
+			"high": 2,
+			"medium": 0,
+			"low": 7
+		},
+		"perEngine": [
+			{
+				"engine": "google",
+				"failures": 0,
+				"medianMs": 59.5,
+				"results": 91,
+				"sourcesKept": 22
+			},
+			{
+				"engine": "bing",
+				"failures": 0,
+				"medianMs": 9877,
+				"results": 94,
+				"sourcesKept": 0
+			},
+			{
+				"engine": "yahoo",
+				"failures": 0,
+				"medianMs": 4001,
+				"results": 17,
+				"sourcesKept": 3
+			},
+			{
+				"engine": "duckduckgo",
+				"failures": 0,
+				"medianMs": 1980.5,
+				"results": 1,
+				"sourcesKept": 1
+			},
+			{
+				"engine": "yandex",
+				"failures": 0,
+				"medianMs": 2060.5,
+				"results": 58,
+				"sourcesKept": 9
+			}
+		]
+	},
+	"rows": [
+		{
+			"file": "chambers-2011.jpg",
+			"person": {
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			},
+			"query": "\"Corwin Garner Chambers\" 1959 2011 (obituary OR grave OR cemetery)",
+			"searchMs": 79,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 71,
+					"results": 6
+				},
+				{
+					"engine": "bing",
+					"ms": 69,
+					"results": 7
+				},
+				{
+					"engine": "yahoo",
+					"ms": 78,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 68,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 69,
+					"results": 2
+				}
+			],
+			"mergedResults": 14,
+			"afterGatedFilter": 11,
+			"candidates": [
+				{
+					"confidence": "high",
+					"born": "1959",
+					"died": "2011",
+					"sources": [
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Eugene_Masonic_Cemetery",
+							"title": "Category:Eugene Masonic Cemetery",
+							"snippet": "Corwin Garner Chambers (1959-2011), Eugene Masonic Cemetery.jpg 4,976 × 2,800; 5.92 MB. Covered Headstone (30162837661).jpg 3,264 × 2,448 ...",
+							"engines": ["google", "yandex"]
+						},
+						{
+							"url": "https://www.familysearch.org/pt/cemeteries/sites/29153/eugene-masonic-cemetery?showMap=false&page=3&pageSize=50&relativesOnly=false&relativeId=&showOriginal=false&sortOrder=asc",
+							"title": "Eugene Masonic Cemetery em Eugene, Oregon",
+							"snippet": "1893–1995. •. 2WDD-8RG. Pessoa. Adicionar local de sepultamento. Corwin Garner Chambers. Masculino. 1959–2011. •. G9N7-696. Pessoa. Adicionar local de ...",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hawks-2017.jpg",
+			"person": {
+				"name": "Gaynor Claire Hawks",
+				"born": "1932-03-10",
+				"died": "2017-12-27"
+			},
+			"query": "\"Gaynor Claire Hawks\" 1932 2017 (obituary OR grave OR cemetery)",
+			"searchMs": 98,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 30,
+					"results": 9
+				},
+				{
+					"engine": "bing",
+					"ms": 30,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 97,
+					"results": 7
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 32,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 29,
+					"results": 14
+				}
+			],
+			"mergedResults": 36,
+			"afterGatedFilter": 32,
+			"candidates": []
+		},
+		{
+			"file": "mills-2015.jpg",
+			"person": {
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07"
+			},
+			"query": "\"Joshua John Mills\" 1979 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 12313,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 34,
+					"results": 9
+				},
+				{
+					"engine": "bing",
+					"ms": 12313,
+					"results": 7
+				},
+				{
+					"engine": "yahoo",
+					"ms": 4246,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 1986,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2040,
+					"results": 4
+				}
+			],
+			"mergedResults": 18,
+			"afterGatedFilter": 18,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.paulfuneralhome.com/obituaries/print?o_id=5589051",
+							"title": "Joshua Mills, Sr.",
+							"snippet": "Mr. Joshua \"Josh\" Wright Mills, Sr., age 85, a resident of 61 NC Hwy. 33 East, Chocowinity died Thursday afternoon, January 17, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/legacyremembers/joshua-mills-obituary?id=5318653%26utm_source%3Dfacebook%26utm_medium%3Dfeed%26utm_campaign%3Dobitshare",
+							"title": "Joshua Mills Obituary (2012)",
+							"snippet": "Mills, Joshua A. Jun 8, 1981 - Jul 18, 2012. Age 31 years of Omaha. Survived by his mom, Jana Herbert; dad, Tom Mills; brother Derrick (Meagan); ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.facebook.com/memorialvalorfoundation/posts/today-we-remember-staff-sgt-joshua-m-mills-of-el-paso-texasjoshua-was-a-man-of-f/1689374256084953/",
+							"title": "Remembering Staff Sgt. Joshua M. Mills of El Paso, Texas",
+							"snippet": "Today we remember Staff Sgt. Joshua M. Mills of El Paso, Texas. Joshua was a man of faith, a devoted husband and father, and someone who could ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw/videos",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.youtube.com/user/TheMRDrums/videos",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "dixon-2018.jpg",
+			"person": {
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26"
+			},
+			"query": "\"Lloyd Dee Dixon\" 1943 2018 (obituary OR grave OR cemetery)",
+			"searchMs": 15630,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 31,
+					"results": 10
+				},
+				{
+					"engine": "bing",
+					"ms": 15629,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 7071,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 1530,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2081,
+					"results": 1
+				}
+			],
+			"mergedResults": 18,
+			"afterGatedFilter": 18,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.arbormemorial.ca/en/sands-duncan/obituaries/lloyd-dixon/129296.html",
+							"title": "Lloyd Dixon | Obituary | Sharing Memories",
+							"snippet": "Obituary Overview. Lovingly Remembered. Funeral arrangements entrusted to Sands Funeral Chapel - Duncan. 250-746-5212. Condolences from family ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/legacyremembers/lloyd-dixon-obituary?id=20132198",
+							"title": "Lloyd Dixon Obituary (2013) - Legacy Remembers",
+							"snippet": "Lloyd Dixon,88 of Shepherd, TX, passed away Wed. June 19, 2013. Visitation, Fri. 1:30-5 Collins & Johnson. Services, Sat.11 AM @ Lake Poole Baptist Church, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/name/lloyd-dixon-memorial?pid=188301818",
+							"title": "Lloyd Dixon Obituary and Online Memorial (2018)",
+							"snippet": "Lloyd Dixon Obituary and Online Memorial (2018). Share your favorite memories Lloyd and celebrate their life with the Dixon family on their online obituary.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/courier/name/lloyd-dixon-obituary?id=20132198",
+							"title": "Lloyd Dixon Obituary (2013) - Conroe, TX - The Courier of ...",
+							"snippet": "Lloyd Dixon,88 of Shepherd, TX, passed away Wed. June 19, 2013. Visitation, Fri. 1:30-5 Collins & Johnson. Services, Sat.11 AM @ Lake Poole Baptist Church, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.aasum-dufour.com/obituaries?page=182",
+							"title": "Obituary Listing | AAsum-Dufour Funeral Home | Albany, OR",
+							"snippet": "Lloyd Dee Dixon. Jul 11, 1943. ... Jerry Irvin StoneMarch 5, 1939 - September 19, 2008Jerry Irvin Stone was born in Albany to Virgil Clarence & Louise Henriette (Dixon) Stone. In 1979 he married Barbara Hembree in Scio.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "luxford-2015.jpg",
+			"person": {
+				"name": "Robert E. Luxford",
+				"born": "1934",
+				"died": "2015"
+			},
+			"query": "\"Robert E. Luxford\" 1934 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 15121,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 29,
+					"results": 10
+				},
+				{
+					"engine": "bing",
+					"ms": 15121,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 9517,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 3176,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2110,
+					"results": 1
+				}
+			],
+			"mergedResults": 21,
+			"afterGatedFilter": 19,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/obituaries/name/luxford/robert",
+							"title": "Search Robert Luxford Obituaries and Funeral Services",
+							"snippet": "Legacy's online obit database has obituaries, death notices, and funeral services for 5 people named Robert Luxford. Click or call (800) 729-8809",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.facebook.com/murphyfamilyfunerals/photos/funeral-service-details-for-the-late-robert-david-luxfordhttpsmurphyfamilyfunera/1530156735785175/",
+							"title": "Funeral service details for the late Robert David Luxford",
+							"snippet": "Funeral service details for the late Robert David Luxford https://murphyfamilyfunerals.com. au/tribute/details/2248/Robert-Luxford/obituary.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.wikitree.com/genealogy/LUXFORD",
+							"title": "Luxford Genealogy | WikiTree FREE Family Tree",
+							"snippet": "View Death, Burial Cemetery & Obituaries. Robert Luxford aft 1929. View Death, Burial Cemetery & Obituaries",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.beenverified.com/people/robert-luxford/",
+							"title": "Robert Luxford Phone Number, Address... | BeenVerified",
+							"snippet": "Robert Luxford may live in Paradise Valley, AZ with a 970 area phone number and may have connections to B G Luxford and Betty J Luxford. ... Robert E Luxford in Eugene, Oregon | Age: 92. Phone Number: 503-484-6235, 541-484-6235.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "gonzalez-2021.jpg",
+			"person": {
+				"name": "Alfonso Gonzalez",
+				"born": "1951-11-18",
+				"died": "2021-01-17"
+			},
+			"query": "\"Alfonso Gonzalez\" 1951 2021 (obituary OR grave OR cemetery)",
+			"searchMs": 48,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 48,
+					"results": 9
+				},
+				{
+					"engine": "bing",
+					"ms": 47,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 42,
+					"results": 7
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 42,
+					"results": 1
+				},
+				{
+					"engine": "yandex",
+					"ms": 47,
+					"results": 14
+				}
+			],
+			"mergedResults": 39,
+			"afterGatedFilter": 38,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/obituaries/name/gonzalez/alfonso",
+							"title": "Search Alfonso Gonzalez Obituaries and Funeral Services",
+							"snippet": "Search all Alfonso Gonzalez Obituaries and Death Notices to find upcoming funeral home services, leave condolences for the family, and research genealogy.",
+							"engines": ["yahoo", "duckduckgo"]
+						},
+						{
+							"url": "https://www.waxahachiefuneralhome.com/obituaries/alfonso-gonzalez",
+							"title": "Alfonso Gonzalez Obituary... - Waxahachie Funeral Home",
+							"snippet": "View Alfonso Gonzalez's obituary, send flowers, find service dates, and sign the guestbook. ... Share Alfonso Gonzalez's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.puenteandsons.com/obituaries/Alfonso-Gonzalez?obId=1373614",
+							"title": "Alfonso Gonzalez Obituary Feb 16, 2017 - Puente & Sons...",
+							"snippet": "Cover for Alfonso Gonzalez's Obituary. ... Alfonso Gonzalez went to be with the Lord on February 16, 2017 at the age of 85. He is preceded in death by his parents, Jose and Guadalupe Gonzalez, and his daughter, Gila Trevino.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.espn.com/soccer/player/_/id/12425/alfonso-gonzalez",
+							"title": "Alfonso González - Atlas Forward - ESPN",
+							"snippet": "View the profile of Atlas Forward Alfonso González on ESPN. Get the latest news, live stats and game highlights.",
+							"engines": ["yahoo"]
+						},
+						{
+							"url": "https://www.stevegtennis.com/stats-ranking-titles-profile/Alfonso%20Gonzalez",
+							"title": "Alfonso Gonzalez Profile - Current Ranking, Results and Titles",
+							"snippet": "Stevegtennis.comhttps://www.stevegtennis.com › stats-ranking-titles-profile",
+							"engines": ["yahoo"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "guo-2025.jpg",
+			"person": {
+				"name": "Jiunn-Shih Guo",
+				"born": "1937-01-18",
+				"died": "2025-12-10"
+			},
+			"query": "\"Jiunn-Shih Guo\" 1937 2025 (obituary OR grave OR cemetery)",
+			"searchMs": 16159,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 921,
+					"results": 9
+				},
+				{
+					"engine": "bing",
+					"ms": 12132,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 3842,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 16158,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2136,
+					"results": 4
+				}
+			],
+			"mergedResults": 23,
+			"afterGatedFilter": 23,
+			"candidates": [
+				{
+					"confidence": "high",
+					"born": "1937",
+					"died": "2025",
+					"sources": [
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Jim_Jiunn-Shih_Guo",
+							"title": "Category:Jim Jiunn-Shih Guo - Wikimedia Commons",
+							"snippet": "Jim Jiunn-Shih Guo (1937-2025) or 郭俊士 was born on 18 January 1937, in Madou, Tainan, Taiwan, his father, Han-Yun Guo, was 33 and his mother, Sho-Hua Lee, was 30. He married Alice Jau-Hwa Chang about 1965, in Tainan, Taiwan.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "bell-1994.jpg",
+			"person": {
+				"name": "Russell O Bell",
+				"born": "1924-09-24",
+				"died": "1994-02-08"
+			},
+			"query": "\"Russell O Bell\" 1924 1994 (obituary OR grave OR cemetery)",
+			"searchMs": 7622,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 613,
+					"results": 9
+				},
+				{
+					"engine": "bing",
+					"ms": 7622,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 4160,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 1975,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 1936,
+					"results": 1
+				}
+			],
+			"mergedResults": 20,
+			"afterGatedFilter": 20,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/obituaries/name/bell/russell",
+							"title": "Search Russell Bell Obituaries and Funeral Services",
+							"snippet": "Russell O. Bell. Friday, September 19, 2003. Russell E. Bell. Thursday, April 10, 2003. Russell Bell. Sunday, December 8, 2002. Russell Gordon Bell. Thursday, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://obits.syracuse.com/us/obituaries/syracuse/name/imelda-bell-obituary?id=51316468",
+							"title": "Imelda Bell Obituary (2003) - Syracuse, NY",
+							"snippet": "Predeceased by son, Lisle Simpson, husband, Russell O. Bell. Funeral Services will be held at 11 a.m. in the Adems Rural Cemetery, Adems ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.dignitymemorial.com/obituaries/montgomery-al/john-bell-jb-6684813",
+							"title": "John Bell \"JB\" Obituary - Montgomery, AL",
+							"snippet": "Born in Louisville, KY and raised in South Bend Indiana, John was preceded in death by his father, Russell O. Bell and is survived by his mother ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/gazettetimes/name/joyce-bell-obituary?id=19058310",
+							"title": "Joyce Bell Obituary (2014) - Corvallis, OR",
+							"snippet": "She is survived by daughters Juanita Linn of Corvallis, LaJuana Berdanier (Jim) of Central Point, and Juanona Warrick; sons Russell O. Bell Jr.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.whitepages.com/name/Russell-Bell/OR",
+							"title": "Russell Bell in OR - Oregon Address & Phone Number",
+							"snippet": "Russell O Bell Jr is over 65 years old. Russell's current address is 2121 S Pantano Rd Unit 100 Tucson AZ 85710 in the Central Tucson neighborhood. Russell O ...",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"person": {
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993"
+			},
+			"query": "\"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+			"searchMs": 13586,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 4168,
+					"results": 10
+				},
+				{
+					"engine": "bing",
+					"ms": 13585,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 4219,
+					"results": 0
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 7949,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2944,
+					"results": 3
+				}
+			],
+			"mergedResults": 21,
+			"afterGatedFilter": 19,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.youtube.com/watch?v=L4XO818WIns",
+							"title": "Hayden Powell - Jasper - YouTube",
+							"snippet": "Hayden Powell performs with Eyolf Dale on piano and Peedu Kass on bass at Lantaren Venster in Rotterdam. This concert was part of the tour \"MINT Jazz 2012\", and the band also played in Oslo and Cologne.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "doran-2008.jpg",
+			"person": {
+				"name": "Bruce Doran",
+				"born": "1934-05-31",
+				"died": "2008-03-28"
+			},
+			"query": "\"Bruce Doran\" 1934 2008 (obituary OR grave OR cemetery)",
+			"searchMs": 5945,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 525,
+					"results": 10
+				},
+				{
+					"engine": "bing",
+					"ms": 5945,
+					"results": 10
+				},
+				{
+					"engine": "yahoo",
+					"ms": 1951,
+					"results": 3
+				},
+				{
+					"engine": "duckduckgo",
+					"ms": 3020,
+					"results": 0
+				},
+				{
+					"engine": "yandex",
+					"ms": 2121,
+					"results": 14
+				}
+			],
+			"mergedResults": 37,
+			"afterGatedFilter": 33,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.whitepages.com/name/Bruce-R-Doran/Burnsville-MN/P4y0kBd0G9b",
+							"title": "Bruce R Doran 12825 16th Ave S, Burnsville, MN 55337",
+							"snippet": "... Bruce Doran MN Burnsville. Last updated September 2026. Bruce R Doran. Bruce Doran. View Background Report. Bruce R Doran 12825 16th Ave S, Burnsville, MN 55337.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.truepeoplesearch.com/find/person/p4894nu669unrnrrl698",
+							"title": "Bruce Doran, Age 77 in Westford, MA, (978) 692-3003",
+							"snippet": "Profile for Bruce Doran, 77 years old, living in Westford, MA with the phone number (978) 692-3003. More details available.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.truepeoplesearch.com/find/person/pl9r466n2ur66n0u6rl8",
+							"title": "Bruce Doran, Age 49 in Rohnert Park, CA, (925) 383-3320",
+							"snippet": "Profile for Bruce Doran, 49 years old, living in Rohnert Park, CA with the phone number (925) 383-3320. More details available.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://veripages.com/name/Bruce/Doran/",
+							"title": "Bruce Doran: Address, Phone Numbers, Age, Public Records",
+							"snippet": "We found 56 records with the name Bruce Doran in 196 cities. View Bruce Doran phone numbers, addresses, ages, public records and more.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://unmask.com/Bruce-Doran/",
+							"title": "Bruce Doran (29 public records) - Address, Email, Phone ...",
+							"snippet": "29 Bruce Doran records available. Bruce Doran found with addresses in California, New York, Florida and 22 other states. Find cell phone number, ...",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		}
+	]
+}
