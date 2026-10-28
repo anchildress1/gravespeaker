@@ -3,7 +3,7 @@
   "checkpoint_id": "01M60C32X0MFDM9H9XEXQ207BV",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 9,
+  "checkpoints_count": 10,
   "files_touched": [
     "src/lib/server/pages.test.ts",
     "src/lib/server/pages.ts"
@@ -36,6 +36,13 @@
       "compact_transcript": "/3/transcript.jsonl",
       "content_hash": "/3/content_hash.txt",
       "prompt": "/3/prompt.txt"
+    },
+    {
+      "metadata": "/4/metadata.json",
+      "transcript": "/4/full.jsonl",
+      "compact_transcript": "/4/transcript.jsonl",
+      "content_hash": "/4/content_hash.txt",
+      "prompt": "/4/prompt.txt"
     }
   ],
   "token_usage": {
@@ -46,12 +53,12 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 149,
+    "replacements": 152,
     "layers": {
       "betterleaks": 51,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 37,
+      "credential_value": 40,
       "credentialed_uri": 0,
       "entropy": 283,
       "key_context": 17,
