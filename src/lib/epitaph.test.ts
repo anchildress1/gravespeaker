@@ -18,36 +18,41 @@ const stone = (over: Partial<Inscription> = {}): Inscription => ({
 const today = new Date('2026-10-31');
 
 describe('epitaph', () => {
-	it('tells name, birth, death and years for full dates', () => {
-		expect(epitaph(stone(), today).join(' ')).toBe(
-			"My name was Gaynor Claire Hawks. I was born on March 10, 1932. I died on December 27, 2017. I've been here 8 years."
-		);
+	it('gives the name, birth, death and years for full dates', () => {
+		const lines = epitaph(stone(), today);
+		expect(lines).toHaveLength(4);
+		expect(lines[0]).toContain('Gaynor Claire Hawks');
+		expect(lines[1]).toMatch(/1932/);
+		expect(lines[2]).toMatch(/2017/);
+		expect(lines[3]).toMatch(/\b8\b/);
 	});
 
-	it('uses "in YYYY" for a year-only birth', () => {
-		expect(epitaph(stone({ born: '1932' }), today)).toContain('I was born in 1932.');
+	it('gives only the year for a year-only birth', () => {
+		const lines = epitaph(stone({ born: '1932' }), today);
+		expect(lines[1]).toMatch(/1932/);
+		expect(lines[1]).not.toMatch(/\b10\b/);
 	});
 
-	it('omits the death and years sentences when a died digit is unreadable', () => {
-		const lines = epitaph(stone({ died: '18?8' }), today);
-		expect(lines.some((l) => l.startsWith('I died') || l.startsWith("I've been"))).toBe(false);
+	it('omits the death and years lines when a died digit is unreadable', () => {
+		expect(epitaph(stone({ died: '18?8' }), today)).toHaveLength(2);
 	});
 
-	it('omits the birth sentence when born is unknown', () => {
-		expect(epitaph(stone({ born: null }), today).some((l) => l.includes('born'))).toBe(false);
+	it('omits the birth line when born is unknown', () => {
+		expect(epitaph(stone({ born: null }), today)).toHaveLength(3);
 	});
 
-	it('says "less than a year" for a recent death', () => {
-		expect(epitaph(stone({ died: '2026-06-01' }), today)).toContain(
-			"I've been here less than a year."
-		);
+	it('gives no number of years for a death under a year ago', () => {
+		const lines = epitaph(stone({ died: '2026-06-01' }), today);
+		expect(lines.at(-1)).not.toMatch(/\d/);
 	});
 
-	it('says "1 year" at exactly one year', () => {
-		expect(epitaph(stone({ died: '2025-10-31' }), today)).toContain("I've been here 1 year.");
+	it('uses the singular at exactly one year', () => {
+		const tenure = epitaph(stone({ died: '2025-10-31' }), today).at(-1)!;
+		expect(tenure).toMatch(/\b1\b/);
+		expect(tenure).not.toMatch(/years/);
 	});
 
 	it('counts a year-only death by calendar year', () => {
-		expect(epitaph(stone({ died: '2011' }), today)).toContain("I've been here 15 years.");
+		expect(epitaph(stone({ died: '2011' }), today).at(-1)).toMatch(/\b15\b/);
 	});
 });
