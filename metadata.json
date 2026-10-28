@@ -3,7 +3,7 @@
   "checkpoint_id": "01M61KZ9JQNV20GNX1DJEB0TMG",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 4,
+  "checkpoints_count": 5,
   "files_touched": [
     ".github/workflows/ci.yml",
     ".github/workflows/codeql.yml",
@@ -23,6 +23,13 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
@@ -33,15 +40,15 @@
     "api_call_count": 1
   },
   "redaction": {
-    "replacements": 178,
+    "replacements": 330,
     "layers": {
-      "betterleaks": 51,
+      "betterleaks": 56,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 40,
+      "credential_value": 186,
       "credentialed_uri": 0,
-      "entropy": 323,
-      "key_context": 17,
+      "entropy": 324,
+      "key_context": 19,
       "provider_token": 0,
       "shell_stdin": 0
     }
