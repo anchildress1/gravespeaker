@@ -33,3 +33,18 @@ export function providerFailed(e: unknown) {
 	if (!(e instanceof ProviderError)) throw e;
 	return apiError('provider_failed', 'The lookup service failed. Please try again.', 502);
 }
+
+/**
+ * Turns a failed Mastra workflow run into an error: only a provider failure stays a ProviderError,
+ * so a bug in our own code is not reported to the visitor as a lookup-service outage.
+ * @param what Operation name for the message.
+ * @param error The run's error as Mastra serialized it.
+ * @returns A ProviderError for a provider failure, otherwise a plain Error.
+ */
+export function runFailure(what: string, error: unknown): Error {
+	const { name, message } = (error ?? {}) as { name?: string; message?: string };
+	const text = `${what} failed${message ? `: ${message}` : ''}`;
+	return name === 'ProviderError'
+		? new ProviderError(text, { cause: error })
+		: new Error(text, { cause: error });
+}

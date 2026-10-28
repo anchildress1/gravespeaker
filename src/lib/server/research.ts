@@ -2,7 +2,7 @@ import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 import { PARTIAL_DATE } from '#lib/types.ts';
 import type { Candidate, Inscription } from '#lib/types.ts';
-import { ProviderError } from './http.ts';
+import { runFailure } from './http.ts';
 import { buildQuery, dropGated, resolveCandidates } from './identity.ts';
 import { inference } from './inference/gemma.ts';
 import { search } from './search/serpapi.ts';
@@ -98,9 +98,7 @@ export async function runResearch(inscription: Inscription): Promise<Candidate[]
 	const run = await researchWorkflow.createRun();
 	const result = await run.start({ inputData: inscription });
 	if (result.status !== 'success') {
-		throw new ProviderError('Research failed', {
-			cause: result.status === 'failed' ? result.error : undefined
-		});
+		throw runFailure('Research', result.status === 'failed' ? result.error : undefined);
 	}
 	return result.result.candidates;
 }

@@ -1,7 +1,7 @@
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 import type { Candidate, Inscription, Story } from '#lib/types.ts';
-import { ProviderError } from './http.ts';
+import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
 import { groundStory } from './narrative.ts';
 import { fetchPage } from './pages.ts';
@@ -51,7 +51,6 @@ const fetchStep = createStep({
 	id: 'fetch',
 	inputSchema,
 	outputSchema: withPages,
-	retries: 1,
 	execute: async ({ inputData }) => ({
 		...inputData,
 		pages: await Promise.all(
@@ -100,9 +99,7 @@ export async function runStory(inscription: Inscription, candidate: Candidate): 
 	const run = await storyWorkflow.createRun();
 	const result = await run.start({ inputData: { inscription, candidate } });
 	if (result.status !== 'success') {
-		throw new ProviderError('Story failed', {
-			cause: result.status === 'failed' ? result.error : undefined
-		});
+		throw runFailure('Story', result.status === 'failed' ? result.error : undefined);
 	}
 	return result.result;
 }
