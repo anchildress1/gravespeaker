@@ -43,7 +43,8 @@ export function providerFailed(e: unknown) {
  */
 export function runFailure(what: string, error: unknown): Error {
 	const { name, message } = (error ?? {}) as { name?: string; message?: string };
-	const text = `${what} failed${message ? `: ${message}` : ''}`;
+	const detail = message ? `: ${message}` : '';
+	const text = `${what} failed${detail}`;
 	return name === 'ProviderError'
 		? new ProviderError(text, { cause: error })
 		: new Error(text, { cause: error });

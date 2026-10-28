@@ -147,8 +147,9 @@ export class GemmaProvider implements InferenceProvider {
 	/** @inheritdoc */
 	async tellStory(name: string, facts: string[]): Promise<string> {
 		try {
+			const factList = facts.map((f) => `- ${f}`).join('\n');
 			const res = await agent('tell-story', STORY_INSTRUCTIONS).generate(
-				`Deceased: ${name}\n\nVerified facts:\n${facts.map((f) => `- ${f}`).join('\n')}`,
+				`Deceased: ${name}\n\nVerified facts:\n${factList}`,
 				{
 					// Gemma's documented sampling for every use case; the creative call needs the variety.
 					modelSettings: { temperature: 1, topP: 0.95, topK: 64 },
