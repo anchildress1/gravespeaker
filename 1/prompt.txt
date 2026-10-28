@@ -1,0 +1,41 @@
+Read @docs/PRD.md and use /speckit-specify to ask me clarifying questions as you build this challenge submission. Start a new branch for this work. This is the first spec. You should use @benchmarks/ when making decisions
+
+---
+
+/speckit-plan
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · Fetching full obituary pages also feeds the model their lists of living relatives, and only the story prompt keeps those names out.
+>
+> **Full obituaries bring living relatives' names**
+> - You chose to have the server **read the full text** of source pages (obituaries, cemetery records), not just the short search previews.
+> - Obituaries almost always list survivors by name, such as "survived by his wife Jane and son Mark."
+> - The spec requires that the story **never names living relatives**.
+> - Right now the only thing enforcing that is the instruction to the model. No code checks the finished story for those names.
+> - **Consider asking for a code check, or a benchmark test on real obituaries,** that catches a relative's name before the story is shown.
+
+I think that spec is overly harsh. It would be cool for the generated text to say something like "I left behind my wife of xx years. her name was y"
+
+---
+
+/speckit-tasks
+
+---
+
+/speckit-analyze
+
+---
+
+do not import directly. it should be rewritten with SOLID/DRY/YAGNI/KISS
+
+---
+
+g1 - approved
+yes. apply ALL fixes
+
+---
+
+what if we never display none and instead go with default text of some kind. my name was xyz and I've been here for y years

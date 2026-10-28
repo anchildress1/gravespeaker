@@ -1,0 +1,148 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5ZY56TY2EP0EDAVWA7DM71V",
+  "session_id": "b30cfbff-d283-42b2-80ca-676a020f590f",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-28T00:22:02.516984Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 8,
+  "save_step_count": 7,
+  "files_touched": [
+    "specs/001-mvp-journey/checklists/requirements.md",
+    "specs/001-mvp-journey/contracts/api.md",
+    "specs/001-mvp-journey/data-model.md",
+    "specs/001-mvp-journey/plan.md",
+    "specs/001-mvp-journey/quickstart.md",
+    "specs/001-mvp-journey/research.md",
+    "specs/001-mvp-journey/spec.md",
+    "specs/001-mvp-journey/tasks.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "c388b0690038",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 126,
+    "cache_creation_tokens": 187083,
+    "cache_read_tokens": 9715162,
+    "output_tokens": 67223,
+    "api_call_count": 63
+  },
+  "redaction": {
+    "replacements": 42,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 7,
+      "credentialed_uri": 0,
+      "entropy": 513,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-speckit-plan-2026-10-27T22:40:15.329987Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "speckit-plan"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "230306742555",
+      "timestamp": "2026-10-27T22:40:15.329987Z",
+      "native": {
+        "command": "/speckit-plan"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/speckit-plan",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-speckit-tasks-2026-10-27T22:53:41.861617Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "speckit-tasks"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "23b5fec4e7e7",
+      "timestamp": "2026-10-27T22:53:41.861617Z",
+      "native": {
+        "command": "/speckit-tasks"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/speckit-tasks",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "prompt-skill-claude-code-speckit-analyze-2026-10-27T22:57:12.239892Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "speckit-analyze"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "23ed0d12cfee",
+      "timestamp": "2026-10-27T22:57:12.239892Z",
+      "native": {
+        "command": "/speckit-analyze"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/speckit-analyze",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01JDjTJu5KvTLkXsq3vU9612",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "speckit-specify"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "c388b0690038",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 43,
+        "end": 44,
+        "entry_ids": [
+          "3ee41a15-b691-4441-8900-0ec0fd3be5af"
+        ],
+        "tool_use_id": "toolu_01JDjTJu5KvTLkXsq3vU9612"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01JDjTJu5KvTLkXsq3vU9612"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: speckit-specify",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 8
+  }
+}

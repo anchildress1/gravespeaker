@@ -3,9 +3,15 @@
   "checkpoint_id": "01M5ZY56TY2EP0EDAVWA7DM71V",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 11,
+  "checkpoints_count": 19,
   "files_touched": [
+    "specs/001-mvp-journey/checklists/requirements.md",
+    "specs/001-mvp-journey/contracts/api.md",
+    "specs/001-mvp-journey/data-model.md",
+    "specs/001-mvp-journey/plan.md",
+    "specs/001-mvp-journey/quickstart.md",
     "specs/001-mvp-journey/research.md",
+    "specs/001-mvp-journey/spec.md",
     "specs/001-mvp-journey/tasks.md"
   ],
   "sessions": [
@@ -15,24 +21,31 @@
       "compact_transcript": "/0/transcript.jsonl",
       "content_hash": "/0/content_hash.txt",
       "prompt": "/0/prompt.txt"
+    },
+    {
+      "metadata": "/1/metadata.json",
+      "transcript": "/1/full.jsonl",
+      "compact_transcript": "/1/transcript.jsonl",
+      "content_hash": "/1/content_hash.txt",
+      "prompt": "/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 288,
-    "cache_creation_tokens": 299975,
-    "cache_read_tokens": 30463028,
-    "output_tokens": 105699,
-    "api_call_count": 144
+    "input_tokens": 414,
+    "cache_creation_tokens": 487058,
+    "cache_read_tokens": 40178190,
+    "output_tokens": 172922,
+    "api_call_count": 207
   },
   "redaction": {
-    "replacements": 53,
+    "replacements": 95,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 28,
+      "credential_value": 35,
       "credentialed_uri": 0,
-      "entropy": 264,
+      "entropy": 777,
       "key_context": 0,
       "provider_token": 0,
       "shell_stdin": 0
