@@ -1,0 +1,54 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+twelve fixtures committed
+stone pool widened
+spec kit merged
+benchmark branch rebased
+mvp spec drafted
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+journey wired up
+journey docs updated
+run ten recorded
+dev server stopped cleanly
+atomic commits redone
+commit series ready
+
+Closing message:
+` FR-006 (amended as you asked) went in with the first docs commit.
+
+## Automated security review (`pages.ts`)
+It flagged the SSRF deny-list as incomplete. It's right that multicast, reserved, benchmarking, NAT64 and 6to4 ranges are not blocked, and that an allow-list of only public unicast addresses would be stricter.
+
+I haven't changed it, because you said basic checks only. The current list covers the practical Cloud Run risk: loopback, private ranges, link-local (including the metadata server) and CGNAT, with DNS pinned and redirects re-checked. The review's other suggestion, signing candidate URLs server-side, needs a new secret, which I'd have to ask you about first.
+
+Adding the missing ranges to the deny-list is about eight lines plus a test. Say so if you want it.
+
+## Still open
+- **T040, the phone run:** unchecked in `tasks.md`.
+Bluetooth works for this, but you may not need it. This Mac's address changed to **10.10.0.171** (it's now on Wi-Fi), so try the Wi-Fi route first.
+
+## Try this first
+The server is running at **http://10.10.0.171:5199/**. Open it on the S24 while it's on the same Wi-Fi. (I also cleared several stale dev-server processes left over from earlier.)
+
+## If that times out, use Bluetooth tethering
+Android supports it, and it puts the Mac and phone on the same network:
+1. On the S24: **Settings → Connections → Mobile Hotspot and Tethering → Bluetooth tethering** on.
+2. Pair the S24 with the Mac (it shows as "Not Connected" right now).
+3. On the Mac: **System Settings → Bluetooth → your S24 → Connect**, then add it as a network device and use the phone's connection for internet.
+4. Tell me when it's up and I'll restart the server and give you the new address (likely 192.168.x.x or similar).
+
+Tethering uses the phone's mobile data for the Gemini and SerpApi calls, which is small. Tell me which route you use and what the phone shows.
+The phone reaches the server, but `/api/read` answered 400. I'm adding a temporary log to see why.
