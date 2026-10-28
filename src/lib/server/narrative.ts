@@ -195,7 +195,11 @@ function sentenceHolds(
 ): boolean {
 	const words = sentence.match(/[\p{L}\p{N}]+/gu) ?? [];
 	const lower = words.map((w) => w.toLowerCase());
-	const topics = new Set(topicStems(lower.join(' ')));
+	// Short content words count too, so a fact made of short words is still found by a negation check.
+	const topics = new Set([
+		...topicStems(lower.join(' ')),
+		...lower.filter((w) => !FUNCTION_WORDS.has(w))
+	]);
 	const about = quoteStems.filter((q) => [...topics].some((t) => q.stems.has(t)));
 	for (const [i, word] of words.entries()) {
 		const w = lower[i];
@@ -239,7 +243,7 @@ export function groundParagraph(
 	const normed = facts.map((f) => norm(f.quote));
 	const quoteWords = new Set(normed.flatMap((q) => q.split(' ').map(canon)));
 	const quoteStems = normed.map((q) => ({
-		stems: new Set(topicStems(q)),
+		stems: new Set(factTerms(q)),
 		terms: factTerms(q),
 		words: new Set(q.split(' '))
 	}));

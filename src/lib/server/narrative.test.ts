@@ -52,6 +52,12 @@ const told = (paragraph: string, facts = [fact()]): string | null => {
 };
 
 describe('groundParagraph', () => {
+	it('drops a negation of a fact made only of short words', () => {
+		const facts = [fact({ quote: 'was a chef' })];
+		expect(told('I was never a chef.', facts)).toBeNull();
+		expect(told('I was a chef.', facts)).toContain('chef');
+	});
+
 	it('handles prose words that are also Object property names', () => {
 		const facts = [fact({ quote: 'worked as a constructor' })];
 		expect(() => told('I worked as a constructor.', facts)).not.toThrow();
