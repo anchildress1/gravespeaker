@@ -20,13 +20,13 @@ for (const [net, bits] of [
 	['169.254.0.0', 16], // NOSONAR
 	['172.16.0.0', 12], // NOSONAR
 	['192.168.0.0', 16], // NOSONAR
-	['192.0.0.0', 24],
+	['192.0.0.0', 24], // NOSONAR
 	['192.0.2.0', 24],
-	['198.18.0.0', 15],
+	['198.18.0.0', 15], // NOSONAR
 	['198.51.100.0', 24],
 	['203.0.113.0', 24],
-	['224.0.0.0', 4],
-	['240.0.0.0', 4]
+	['224.0.0.0', 4], // NOSONAR
+	['240.0.0.0', 4] // NOSONAR
 ] as const) {
 	blocked.addSubnet(net, bits, 'ipv4');
 }
@@ -34,11 +34,11 @@ blocked.addAddress('::', 'ipv6');
 blocked.addAddress('::1', 'ipv6');
 blocked.addSubnet('fe80::', 10, 'ipv6'); // NOSONAR
 blocked.addSubnet('fc00::', 7, 'ipv6'); // NOSONAR
-blocked.addSubnet('ff00::', 8, 'ipv6');
+blocked.addSubnet('ff00::', 8, 'ipv6'); // NOSONAR
 // NAT64, 6to4 and Teredo can encode a private IPv4 destination.
-blocked.addSubnet('64:ff9b::', 96, 'ipv6');
-blocked.addSubnet('2002::', 16, 'ipv6');
-blocked.addSubnet('2001::', 32, 'ipv6');
+blocked.addSubnet('64:ff9b::', 96, 'ipv6'); // NOSONAR
+blocked.addSubnet('2002::', 16, 'ipv6'); // NOSONAR
+blocked.addSubnet('2001::', 32, 'ipv6'); // NOSONAR
 
 /**
  * Resolves a host once and returns the address to connect to, or null when any address is non-public.
@@ -60,6 +60,34 @@ async function resolvePublic(
 }
 
 /**
+ * Fetches one URL without following redirects, connecting only to the address the SSRF guard approved.
+ * @param parsed URL to fetch.
+ * @returns The response, or null when the host is non-public or the request fails.
+ */
+async function fetchHop(parsed: URL): Promise<Response | null> {
+	const target = await resolvePublic(parsed.hostname);
+	if (!target) return null;
+	// Connecting to the checked address closes the gap where DNS answers differently on a second lookup.
+	const dispatcher = new Agent({
+		keepAliveTimeout: 1,
+		connect: {
+			lookup: (_host, options, callback) =>
+				options.all ? callback(null, [target]) : callback(null, target.address, target.family)
+		}
+	});
+	try {
+		return await fetch(parsed, {
+			dispatcher,
+			redirect: 'manual',
+			headers: { 'User-Agent': USER_AGENT },
+			signal: AbortSignal.timeout(TIMEOUT_MS)
+		} as RequestInit); // lib.dom's RequestInit lacks undici's `dispatcher`
+	} catch {
+		return null;
+	}
+}
+
+/**
  * Fetches one URL, following up to 3 redirects and re-checking every hop against the SSRF guard.
  * @param start First URL.
  * @param allowed Optional per-hop gate; a false answer for any hop, the first included, yields null.
@@ -71,46 +99,17 @@ async function guardedFetch(
 ): Promise<Response | null> {
 	let url = start;
 	for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
-		let parsed: URL;
-		try {
-			parsed = new URL(url);
-		} catch {
-			return null;
-		}
-		if (!/^https?:$/.test(parsed.protocol)) return null;
+		const parsed = URL.parse(url);
+		if (!parsed || !/^https?:$/.test(parsed.protocol)) return null;
 		if (allowed && !(await allowed(parsed))) return null;
-		const target = await resolvePublic(parsed.hostname);
-		if (!target) return null;
-		// Connecting to the checked address closes the gap where DNS answers differently on a second lookup.
-		const dispatcher = new Agent({
-			keepAliveTimeout: 1,
-			connect: {
-				lookup: (_host, options, callback) =>
-					options.all ? callback(null, [target]) : callback(null, target.address, target.family)
-			}
-		});
-		let res: Response;
-		try {
-			res = await fetch(parsed, {
-				dispatcher,
-				redirect: 'manual',
-				headers: { 'User-Agent': USER_AGENT },
-				signal: AbortSignal.timeout(TIMEOUT_MS)
-			} as RequestInit); // lib.dom's RequestInit lacks undici's `dispatcher`
-		} catch {
-			return null;
-		}
+		const res = await fetchHop(parsed);
+		if (!res) return null;
 		// nosemgrep: javascript.browser.tainted-redirect.tainted-redirect -- followed server-side; every hop re-runs the SSRF check.
 		const location = res.headers.get('location');
-		if (res.status >= 300 && res.status < 400 && location) {
-			try {
-				url = new URL(location, parsed).href;
-			} catch {
-				return null;
-			}
-			continue;
-		}
-		return res;
+		if (res.status < 300 || res.status >= 400 || !location) return res;
+		const next = URL.parse(location, parsed);
+		if (!next) return null;
+		url = next.href;
 	}
 	return null;
 }
