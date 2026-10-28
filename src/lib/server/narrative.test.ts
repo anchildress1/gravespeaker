@@ -52,6 +52,18 @@ const told = (paragraph: string, facts = [fact()]): string | null => {
 };
 
 describe('hasEvidence', () => {
+	it('counts a birthplace in a birth quote but not the dates alone', () => {
+		/**
+		 * Checks a birth quote for evidence.
+		 * @param quote Quote text.
+		 * @returns Whether it counts as evidence.
+		 */
+		const birth = (quote: string) =>
+			hasEvidence(stone, candidate, [fact({ claim: 'birth', quote })]);
+		expect(birth('born March 10, 1932 in Alsea')).toBe(true);
+		expect(birth('born March 10, 1932')).toBe(false);
+	});
+
 	it.each(['Gaynor Hawks was born in 1932', 'died on December 27, 2017', 'passed away at age 85'])(
 		'does not count a quote that only restates the stone: %s',
 		(quote) => {
@@ -100,6 +112,12 @@ describe('verifyFacts', () => {
 			expect(verifyFacts(candidate, text, [fact({ quote })])).toEqual([]);
 		}
 	);
+
+	it('keeps a quote about an unnamed relative', () => {
+		const quote = 'She married her husband in 1956';
+		const text = [{ sourceId: 's1', text: `Gaynor taught piano. ${quote}.` }];
+		expect(verifyFacts(candidate, text, [fact({ quote })])).toHaveLength(1);
+	});
 
 	it('keeps a relative named in a quote that says they died first', () => {
 		const quote = 'her husband John predeceased her';

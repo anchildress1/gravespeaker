@@ -52,11 +52,15 @@ const SURVIVORS =
 
 // A relative named in a quote is usually a survivor, so the quote is dropped unless it says the
 // relative died first. Matched on the original text: a name is a capitalized word.
-const RELATIVE =
-	'husband|wife|spouse|partner|son|sons|daughter|daughters|brother|brothers|sister|sisters|mother|father|grandson|granddaughter|grandchildren|nephew|niece|stepson|stepdaughter';
+const RELATIVE_WORDS =
+	'husband wife spouse partner son sons daughter daughters brother brothers sister sisters mother father grandson granddaughter grandchildren nephew niece stepson stepdaughter'.split(
+		' '
+	);
+// Each letter-case spelling is listed, because a case-insensitive flag would also let \p{Lu} match lowercase.
+const RELATIVE = RELATIVE_WORDS.map((w) => `[${w[0].toUpperCase()}${w[0]}]${w.slice(1)}`).join('|');
 const NAMED_RELATIVE = new RegExp(
-	String.raw`\b(?:${RELATIVE})\b[^.,;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:her|his|their)\s+(?:${RELATIVE})\b`,
-	'iu'
+	String.raw`\b(?:${RELATIVE})\b[^.,;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:[Hh]er|[Hh]is|[Tt]heir)\s+(?:${RELATIVE})\b`,
+	'u'
 );
 const NAMED_RELATIVE_CASE = /\p{Lu}\p{Ll}/u;
 const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
@@ -164,7 +168,7 @@ function nameTokens(inscription: Inscription, candidate: Candidate): Set<string>
  * @param inscription The stone's person.
  * @param candidate The confirmed candidate.
  * @param facts Verified facts.
- * @returns True when at least one "other" fact carries real content.
+ * @returns True when at least one fact carries real content.
  */
 export function hasEvidence(
 	inscription: Inscription,
@@ -172,19 +176,17 @@ export function hasEvidence(
 	facts: VerifiedFact[]
 ): boolean {
 	const names = nameTokens(inscription, candidate);
-	return facts.some(
-		(f) =>
-			f.claim === 'other' &&
-			norm(f.quote)
-				.split(' ')
-				.some(
-					(t) =>
-						!names.has(t) &&
-						!MONTHS.has(t) &&
-						!/^\d+$/.test(t) &&
-						!FUNCTION_WORDS.has(t) &&
-						!LIFE_MARKERS.has(t)
-				)
+	return facts.some((f) =>
+		norm(f.quote)
+			.split(' ')
+			.some(
+				(t) =>
+					!names.has(t) &&
+					!MONTHS.has(t) &&
+					!/^\d+$/.test(t) &&
+					!FUNCTION_WORDS.has(t) &&
+					!LIFE_MARKERS.has(t)
+			)
 	);
 }
 

@@ -105,9 +105,7 @@ describe('POST /api/story', () => {
 	});
 
 	it('skips the story call when the facts are only the name and dates', async () => {
-		const stub = stubModel(() =>
-			factsReply([{ claim: 'birth', sourceId: 's1', quote: 'Gaynor taught' }])
-		);
+		const stub = stubModel(() => factsReply([{ claim: 'name', sourceId: 's1', quote: 'Gaynor' }]));
 		const res = await call({ inscription, candidate });
 		expect(await res.json()).toEqual({ status: 'insufficient' });
 		expect(stub).toHaveBeenCalledTimes(1);
