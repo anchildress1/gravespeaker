@@ -164,6 +164,12 @@ describe('groundParagraph', () => {
 		expect(both).not.toContain('never');
 	});
 
+	it('counts a fact made only of short words as used when the story repeats it', () => {
+		const short = [fact({ quote: 'was a chef' })];
+		expect(told('I was a chef.', short)).toBe('I was a chef.');
+		expect(told('The garden was quiet in spring.', short)).toBeNull();
+	});
+
 	it('drops a sentence the model repeats', () => {
 		const out = told(
 			'The fog keeps its counsel. I taught piano for forty years. The fog keeps its counsel.'

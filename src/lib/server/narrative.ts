@@ -35,6 +35,13 @@ const STEM_LENGTH = 5;
 // A fact counts as used when at least this share of its topic words appear in the story.
 const MIN_FACT_USE = 0.5;
 
+// Short function words say nothing about a fact, so a fact with no long words is matched on the rest.
+const FUNCTION_WORDS = new Set(
+	'a an and are as at be but by for from had has have he her his in is it its of on or she that the their they this to was were who with'.split(
+		' '
+	)
+);
+
 // A quote that names survivors would put living people's names into the story (FR-017).
 const SURVIVORS =
 	/\b(survived by|survivors?|leaves behind|leaving behind|left to mourn|she leaves|he leaves)\b/i;
@@ -73,6 +80,20 @@ function topicStems(text: string): string[] {
 		.split(' ')
 		.filter((w) => w.length >= MIN_TOPIC_LENGTH)
 		.map((w) => canon(w).slice(0, STEM_LENGTH));
+}
+
+/**
+ * Lists the words a fact is matched on: its topic stems, or its content words when it has no long ones.
+ * @param text Normalized fact quote.
+ * @returns Stems to look for in the story.
+ */
+function factTerms(text: string): string[] {
+	const stems = topicStems(text);
+	if (stems.length > 0) return stems;
+	return text
+		.split(' ')
+		.filter((w) => w && !FUNCTION_WORDS.has(w))
+		.map(canon);
 }
 
 /**
@@ -198,6 +219,7 @@ export function groundParagraph(
 	const quoteWords = new Set(normed.flatMap((q) => q.split(' ').map(canon)));
 	const quoteStems = normed.map((q) => ({
 		stems: new Set(topicStems(q)),
+		terms: factTerms(q),
 		words: new Set(q.split(' '))
 	}));
 	const allowed = new Set([...nameTokens(inscription, candidate), ...MONTHS]);
@@ -211,11 +233,15 @@ export function groundParagraph(
 	});
 	const body = kept.join(' ');
 
-	const present = new Set(topicStems(norm(body)));
+	const present = new Set(
+		norm(body)
+			.split(' ')
+			.map((w) => canon(w).slice(0, STEM_LENGTH))
+	);
 	const used = facts.filter((f, i) => {
-		const stems = [...quoteStems[i].stems];
+		const { terms } = quoteStems[i];
 		return (
-			stems.length > 0 && stems.filter((s) => present.has(s)).length / stems.length >= MIN_FACT_USE
+			terms.length > 0 && terms.filter((t) => present.has(t)).length / terms.length >= MIN_FACT_USE
 		);
 	});
 	if (!hasEvidence(inscription, candidate, used)) return { status: 'insufficient' };
