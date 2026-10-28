@@ -109,13 +109,13 @@ function wordIndexes(text: string, word: string): number[] {
 }
 
 /**
- * Splits text into words at whitespace and quotes.
+ * Splits text into words at whitespace, quotes and parentheses, so "Gaynor (Staples) Hawks" reads as one name.
  * @param chunk Text to split.
  * @param offset Index of the chunk within the full text.
  * @returns Words with their index in the full text.
  */
 function wordsOf(chunk: string, offset: number): { word: string; index: number }[] {
-	return [...chunk.matchAll(/[^\s"“”]+/gu)].map((m) => ({ word: m[0], index: offset + m.index }));
+	return [...chunk.matchAll(/[^\s"“”()]+/gu)].map((m) => ({ word: m[0], index: offset + m.index }));
 }
 
 /**

@@ -124,6 +124,11 @@ describe('resolveMatches', () => {
 		expect(c.died).toBe('2017');
 	});
 
+	it('matches a maiden name written in parentheses between the given and family name', () => {
+		const [c] = resolve([rec('Gaynor (Staples) Hawks (1932–2017)')], { maidenName: 'Staples' });
+		expect(c.confidence).toBe('high');
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
