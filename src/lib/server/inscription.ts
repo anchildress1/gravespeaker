@@ -4,7 +4,7 @@ import type { RawPerson } from './inference/index.ts';
 
 const HONORIFIC = /^(?:mr|mrs|miss|dr)\.?(?=\s)/i;
 // The clause with any enclosing parenthesis, so "(née Staples)" leaves no stray bracket behind.
-const MAIDEN = /\(?\s*\b(?:née|nee)\s+([\p{L}'’-]+)\s*\)?/iu;
+const MAIDEN = /\(?\b(?:née|nee)\s+([\p{L}'’-]+)\)?/iu;
 
 /**
  * Turns model output into inscriptions: drops letterless names, strips honorifics, splits `née`, validates dates.
