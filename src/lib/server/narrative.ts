@@ -26,6 +26,14 @@ const NUMBER_VALUES = new Map<string, string>([
 	['thousand', '1000']
 ]);
 
+// "twenty-four" is one number, so it must equal "24" as a whole; token by token it would not.
+const TENS = 'twenty thirty forty fifty sixty seventy eighty ninety'.split(' ');
+const ONES = 'one two three four five six seven eight nine'.split(' ');
+const COMPOUND_NUMBER = new RegExp(
+	String.raw`\b(${TENS.join('|')})[\s-](${ONES.join('|')})\b`,
+	'giu'
+);
+
 // Negations flip a claim, so one that touches a fact must come from that fact.
 const NEGATIONS = new Set('not never no none nobody neither nor without cannot'.split(' '));
 
@@ -44,7 +52,10 @@ const FUNCTION_WORDS = new Set(
 );
 
 // Life-date words restate the stone's dates, so a quote made of them adds nothing (FR-013).
-const LIFE_MARKERS = new Set('born birth died death passed away deceased aged age'.split(' '));
+const LIFE_MARKERS = new Set(
+	'born birth died death passed away deceased aged age year years old'.split(' ')
+);
+const ORDINAL = /^\d+(?:st|nd|rd|th)$/;
 
 // A quote that names survivors would put living people's names into the story (FR-017).
 const SURVIVORS =
@@ -74,7 +85,7 @@ export type VerifiedFact = RawFact;
  * @returns Normalized text.
  */
 function norm(s: string): string {
-	return s
+	return joinCompounds(s)
 		.toLowerCase()
 		.replace(/[^\p{L}\p{N}]+/gu, ' ')
 		.trim();
@@ -87,6 +98,17 @@ function norm(s: string): string {
  */
 function namesSurvivor(quote: string): boolean {
 	return NAMED_RELATIVE_CASE.test(quote) && NAMED_RELATIVE.test(quote) && !PREDECEASED.test(quote);
+}
+
+/**
+ * Rewrites spelled-out compound numbers as digits: "twenty-four" becomes "24".
+ * @param text Any text.
+ * @returns The text with each tens-and-ones number written as one numeral.
+ */
+function joinCompounds(text: string): string {
+	return text.replace(COMPOUND_NUMBER, (_, tens: string, ones: string) =>
+		String((TENS.indexOf(tens.toLowerCase()) + 2) * 10 + ONES.indexOf(ones.toLowerCase()) + 1)
+	);
 }
 
 /**
@@ -185,7 +207,8 @@ export function hasEvidence(
 					!MONTHS.has(t) &&
 					!/^\d+$/.test(t) &&
 					!FUNCTION_WORDS.has(t) &&
-					!LIFE_MARKERS.has(t)
+					!LIFE_MARKERS.has(t) &&
+					!ORDINAL.test(t)
 			)
 	);
 }
@@ -205,7 +228,7 @@ function sentenceHolds(
 	quoteStems: { stems: Set<string>; words: Set<string> }[],
 	allowed: Set<string>
 ): boolean {
-	const words = sentence.match(/[\p{L}\p{N}]+/gu) ?? [];
+	const words = joinCompounds(sentence).match(/[\p{L}\p{N}]+/gu) ?? [];
 	const lower = words.map((w) => w.toLowerCase());
 	// Short content words count too, so a fact made of short words is still found by a negation check.
 	const topics = new Set([

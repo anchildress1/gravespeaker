@@ -52,6 +52,13 @@ const told = (paragraph: string, facts = [fact()]): string | null => {
 };
 
 describe('hasEvidence', () => {
+	it.each(['died December 27, 2017 at the age of 85 years', 'was born on March 10th, 1932'])(
+		'does not count age or ordinal wording as extra biography: %s',
+		(quote) => {
+			expect(hasEvidence(stone, candidate, [fact({ quote })])).toBe(false);
+		}
+	);
+
 	it('counts a birthplace in a birth quote but not the dates alone', () => {
 		/**
 		 * Checks a birth quote for evidence.
@@ -80,6 +87,13 @@ describe('hasEvidence', () => {
 });
 
 describe('groundParagraph', () => {
+	it.each([
+		['taught piano for 24 years', 'I taught piano for twenty-four years.'],
+		['taught piano for twenty-four years', 'I taught piano for 24 years.']
+	])('treats a spelled-out compound number and its digits as one number: %s', (quote, prose) => {
+		expect(told(prose, [fact({ quote })])).toContain('piano');
+	});
+
 	it('drops a negation of a fact made only of short words', () => {
 		const facts = [fact({ quote: 'was a chef' })];
 		expect(told('I was never a chef.', facts)).toBeNull();
