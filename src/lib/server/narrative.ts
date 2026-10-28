@@ -14,7 +14,7 @@ const MONTHS = new Set(
 const NUMBER_VALUES = new Map<string, string>([
 	...'two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'
 		.split(' ')
-		.map((w, i) => [w, String(i + 2)]),
+		.map((w, i): [string, string] => [w, String(i + 2)]),
 	['thirty', '30'],
 	['forty', '40'],
 	['fifty', '50'],
