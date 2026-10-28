@@ -45,7 +45,7 @@ const down = () => Response.json({ error: 'down' }, { status: 500 });
 afterEach(() => vi.unstubAllGlobals());
 
 describe('canonicalUrl', () => {
-	it('treats scheme, www, trailing slash, query and hash as the same page', () => {
+	it('treats scheme, www, trailing slash, tracking parameters and hash as the same page', () => {
 		const keys = [
 			'https://www.legacy.com/obit/1/',
 			'http://legacy.com/obit/1',
@@ -60,6 +60,14 @@ describe('canonicalUrl', () => {
 			'https://da.findagrave.com/memorial/30695151/gaynor-claire-hawks'
 		].map(canonicalUrl);
 		expect(new Set(keys).size).toBe(1);
+	});
+
+	it('keeps pages that differ only in a content-identifying query parameter apart', () => {
+		const a = canonicalUrl('https://x.com/obituaries/print?o_id=5589051&utm_source=a');
+		const b = canonicalUrl('https://x.com/obituaries/print?utm_source=b&o_id=5589052');
+		const a2 = canonicalUrl('https://x.com/obituaries/print?utm_medium=z&o_id=5589051');
+		expect(a).not.toBe(b);
+		expect(a).toBe(a2);
 	});
 
 	it('keeps different pages apart and rejects non-web links', () => {
