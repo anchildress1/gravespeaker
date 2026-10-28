@@ -126,28 +126,32 @@ async function readCapped(res: Response): Promise<string | null> {
 
 /**
  * Builds a per-call robots gate that fetches each origin's robots.txt at most once.
- * @returns A hop check: false only when that origin's robots.txt disallows the URL for Gravespeaker.
+ * @returns A hop check: true when that origin's robots.txt permits Gravespeaker to fetch the URL.
  */
 function robotsGate(): (url: URL) => Promise<boolean> {
-	const cache = new Map<string, Promise<ReturnType<typeof robotsParser> | null>>();
+	const cache = new Map<string, Promise<(href: string) => boolean>>();
 	/**
-	 * Loads and parses one origin's robots.txt.
+	 * Loads one origin's robots.txt and returns its verdict function.
 	 * @param origin Origin to load robots.txt from.
-	 * @returns The parser, or null when robots.txt is missing, non-OK or unreadable.
+	 * @returns A permission check. A 4xx robots.txt means no rules (allow all). Per RFC 9309 an
+	 * unreachable, 5xx or unreadable one means disallow all.
 	 */
-	const load = async (origin: string) => {
+	const load = async (origin: string): Promise<(href: string) => boolean> => {
 		const res = await guardedFetch(`${origin}/robots.txt`);
-		if (!res?.ok) return null;
+		if (!res || res.status >= 500) return () => false;
+		if (!res.ok) return () => true;
 		const body = await readCapped(res);
-		return body === null ? null : robotsParser(`${origin}/robots.txt`, body);
+		if (body === null) return () => false;
+		const robots = robotsParser(`${origin}/robots.txt`, body);
+		return (href) => robots.isAllowed(href, USER_AGENT) !== false;
 	};
 	return async (url) => {
-		let robots = cache.get(url.origin);
-		if (!robots) {
-			robots = load(url.origin);
-			cache.set(url.origin, robots);
+		let verdict = cache.get(url.origin);
+		if (!verdict) {
+			verdict = load(url.origin);
+			cache.set(url.origin, verdict);
 		}
-		return (await robots)?.isAllowed(url.href, USER_AGENT) !== false;
+		return (await verdict)(url.href);
 	};
 }
 

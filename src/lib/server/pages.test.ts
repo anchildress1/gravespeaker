@@ -167,12 +167,24 @@ describe('fetchPage', () => {
 		expect(await fetchPage('https://public.test/stall')).toBeNull();
 	});
 
-	it('treats a robots.txt whose body errors mid-read as absent', async () => {
+	it('skips the page when robots.txt breaks mid-read', async () => {
 		stub((url) =>
 			url.endsWith('/robots.txt')
 				? new Response(erroringBody('User-agent: *\nDisallow: /'), { status: 200 })
 				: html(article)
 		);
+		expect(await fetchPage('https://public.test/obit')).toBeNull();
+	});
+
+	it('skips the page when robots.txt answers 5xx', async () => {
+		stub((url) =>
+			url.endsWith('/robots.txt') ? new Response('', { status: 503 }) : html(article)
+		);
+		expect(await fetchPage('https://public.test/obit')).toBeNull();
+	});
+
+	it('fetches the page when robots.txt is a 404', async () => {
+		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(article)));
 		expect(await fetchPage('https://public.test/obit')).toContain('taught piano');
 	});
 
