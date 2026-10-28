@@ -52,6 +52,8 @@ async function mock(page: Page, path: string, ...replies: { status?: number; bod
  */
 async function upload(page: Page) {
 	await page.goto('/');
+	// A file chosen before hydration is ignored; a slow runner shows it.
+	await page.waitForLoadState('networkidle');
 	await page
 		.locator('input[type=file]')
 		.setInputFiles({ name: 's.jpg', mimeType: 'image/jpeg', buffer: Buffer.from([1, 2, 3]) });
