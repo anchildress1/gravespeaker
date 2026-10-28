@@ -1,0 +1,40 @@
+push
+
+---
+
+you must fix the 3 entire findings
+
+---
+
+<task-notification>
+<task-id>bsj3xx1jy</task-id>
+<tool-use-id>ab5c0044-7fb4-4089-a071-211ac104fc0f:inner</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bsj3xx1jy.output</output-file>
+<status>failed</status>
+<summary>Background command "entire login" failed with exit code 1</summary>
+</task-notification>
+
+---
+
+push
+
+---
+
+this "imagined" thing is more than we ned. as long as it says Story Generated with AI, then that's plenty. we don't need to separate it out and have the whole thing be in half sentences. it shoould be a single cohesive theatrical paragraph that will be read aloud by elevenlabs
+
+---
+
+there's also two blocking issues.
+do not test exact text in unit tests. that just means you have to change it twice. test the functionality. not the prose
+
+---
+
+I do not understand this "group instructions" part. what is it grouping? and why? that is unclear in the model's instructions. you should be grounded in a gemma specific prompting style based on a web search.
+
+we need to check elevenlabs about the stage directions piece of this.
+
+the facts/ordering is too much. it should be smart enough to take facts and mix prose around it. but the facts we extract are coming from a different run, right? one model temp 0 to extract facts and another model call with high temp to generate prose
+
+---
+
+we're still grouping with multiple people even though every single search is of a single person. it's goal should be to pick the matches. not group everything together. that's too much work.
