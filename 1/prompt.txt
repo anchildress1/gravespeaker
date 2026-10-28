@@ -1,0 +1,43 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+journey wired up
+journey docs updated
+run ten recorded
+dev server stopped cleanly
+atomic commits redone
+commit series ready
+docs amendment committed
+read route logging added
+theatrical story voice rewritten
+debug logging removed
+companion surname rule committed
+run eleven saved
+
+Closing message:
+nd I haven't tested that flow with this stone. The phone run (T040) is still open.
+Run 11 is added to `docs/benchmarks/ocr-smoke-test.md`, and the Holmquist key is marked reviewed. Committed as `e7b67b2`.
+
+- **Run 11 entry:** 63/64 fields, Holmquist 6/6, the other 20 stones unchanged, 0 extra people, 0 errors, 3.8 s median. It ends by saying this was the last tuning run.
+- **Rule noted:** I read "no tests past 10" as no more benchmark runs after the companion-stone one, with further prompt changes tested in the app. I saved that as a project memory. If you meant a stricter cutoff, or want it in `CLAUDE.md`, say so — I didn't edit `CLAUDE.md`.
+
+`make format-check` currently fails, and not because of my files. Prettier flags `CLAUDE.md` and `AGENTS.md`, which the Entire tool changed or created outside my commits. They are uncommitted, along with `.claude/settings.json` and `.entire/agent-guide.md`. I haven't touched them. Say if you want them formatted or committed.
+The reload was the cause, and I've switched the phone to a production preview with no hot reload. **Open http://10.10.0.171:5199/** on the phone again and retake the photo.
+
+- **Why nothing happened:** the dev server log shows `POST /api/read` returning 200 each time, followed straight away by `GET /`. The page was being reloaded by Vite right after the upload, because my gate and coverage runs wrote to `coverage/` and triggered full reloads. That also explains the earlier 400, which was most likely a reload landing mid-upload.
+- **Preview check:** I built and started `pnpm preview` (live keys load fine). A real read of the Hawks stone returned 200 in 2.4 s locally and 2.9 s over the LAN address.
+- **Quirk:** a bare `curl` POST gets a 403 from SvelteKit's origin check. That's expected, and browsers send the Origin header.
+
+I won't run builds or tests while you're on the phone, since a rebuild would replace what the preview is serving. Tell me when you're done, or what the screen shows if it still fails.
