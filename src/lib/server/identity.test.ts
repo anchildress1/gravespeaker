@@ -98,6 +98,13 @@ describe('resolveCandidates', () => {
 		expect(out).toEqual([]);
 	});
 
+	it('uses the surname before a generational suffix when matching hits', () => {
+		const junior = stone({ name: 'Edward Hildebrand III', carvedName: 'Edward Hildebrand III' });
+		const hit = { ...rec('s1'), snippet: 'Edward Hildebrand obituary 1932 2017' };
+		const out = resolveCandidates(junior, [hit], [cand({ name: 'Edward Hildebrand' })]);
+		expect(out).toHaveLength(1);
+	});
+
 	it('drops a candidate whose death year conflicts', () => {
 		expect(resolveCandidates(stone(), records, [cand({ died: '2016' })])).toEqual([]);
 	});

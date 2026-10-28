@@ -100,6 +100,19 @@ function accept(
 	};
 }
 
+const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
+
+/**
+ * Finds the surname of a name, ignoring generational suffixes such as Jr. or III.
+ * @param name Normalized full name.
+ * @returns The lowercase surname.
+ */
+function surnameOf(name: string): string {
+	const parts = name.toLowerCase().replace(/[.,]/g, ' ').split(/\s+/).filter(Boolean);
+	while (parts.length > 1 && NAME_SUFFIXES.has(parts.at(-1)!)) parts.pop();
+	return parts.at(-1) ?? '';
+}
+
 /**
  * Applies the deterministic identity rules to the model's candidate groups.
  * @param inscription The stone's person.
@@ -113,7 +126,7 @@ export function resolveCandidates(
 	raw: RawCandidate[]
 ): Candidate[] {
 	// The model sees the stone's details and can echo them onto unrelated hits, so a hit must name the surname.
-	const surname = inscription.name.split(' ').at(-1)!.toLowerCase();
+	const surname = surnameOf(inscription.name);
 	const byId = new Map(
 		records
 			.filter((r) => `${r.title} ${r.snippet}`.toLowerCase().includes(surname))
