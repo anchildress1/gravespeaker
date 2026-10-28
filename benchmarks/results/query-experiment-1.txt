@@ -1,0 +1,27 @@
+Query-shape experiment, run 2026-10-28 before any save-as-you-go tooling existed.
+Captured verbatim from the console. Script: benchmarks/query-experiment.ts (Google only, SerpApi, 4 stones x 3 query shapes = 12 credits).
+Candidates are the output of resolveMatches (src/lib/server/identity.ts) at commit fdc1734. Format: confidence/number of sources.
+Stones (answer key, fixtures/manifest.json):
+  chambers-2011  Corwin "Cory" Garner Chambers  1959-11-07 to 2011-09-12  (query uses the name without the quoted nickname)
+  luxford-2015   Robert E. Luxford              1934 to 2015
+  mills-2015     Joshua John Mills              1979-07-21 to 2015-01-07
+  dixon-2018     Lloyd Dee Dixon                1943-07-11 to 2018-05-26
+Query shapes:
+  current    "Name" <birth year> <death year> (obituary OR grave OR cemetery)
+  deathYear  "Name" <death year> obituary
+  nameOnly   "Name" obituary
+
+chambers-2011.jpg      current    results= 6 candidates=1 high/2  439ms
+chambers-2011.jpg      deathYear  results=10 candidates=0 -  524ms
+chambers-2011.jpg      nameOnly   results= 0 candidates=0 - ERR We couldn't get valid results for this s 90427ms
+luxford-2015.jpg       current    results=10 candidates=1 low/4  7632ms
+luxford-2015.jpg       deathYear  results= 2 candidates=1 low/1  441ms
+luxford-2015.jpg       nameOnly   results= 9 candidates=1 low/3  1074ms
+mills-2015.jpg         current    results= 9 candidates=1 low/3  696ms
+mills-2015.jpg         deathYear  results= 2 candidates=1 low/2  1535ms
+mills-2015.jpg         nameOnly   results= 9 candidates=1 low/4  544ms
+dixon-2018.jpg         current    results=10 candidates=1 low/5  787ms
+dixon-2018.jpg         deathYear  results=10 candidates=1 low/5  11703ms
+dixon-2018.jpg         nameOnly   results= 9 candidates=1 high/2  13989ms
+
+Reading: no query shape dominates (n=4). Both years found Chambers at high; name-only found Dixon at high; name-only on Chambers returned a SerpApi error after 90 s.
