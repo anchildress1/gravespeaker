@@ -26,7 +26,7 @@ export const sourceSchema = z.object({
 	snippet: z.string()
 });
 
-const candidateSchema = z.object({
+export const candidateSchema = z.object({
 	name: z.string(),
 	born: partialDate.nullable(),
 	died: partialDate.nullable(),

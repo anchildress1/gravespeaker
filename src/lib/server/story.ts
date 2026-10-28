@@ -5,16 +5,12 @@ import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
 import { groundParagraph, hasEvidence, verifyFacts } from './narrative.ts';
 import { fetchPage } from './pages.ts';
-import { confidenceSchema, inscriptionSchema, sourceSchema } from './research.ts';
+import { candidateSchema, inscriptionSchema, sourceSchema } from './research.ts';
 
 const MAX_PAGES = 5;
 const MAX_CHARS = 12_000;
 
-export const candidateInputSchema = z.object({
-	name: z.string(),
-	born: inscriptionSchema.shape.born,
-	died: inscriptionSchema.shape.died,
-	confidence: confidenceSchema,
+export const candidateInputSchema = candidateSchema.extend({
 	sources: z.array(sourceSchema).min(1)
 });
 

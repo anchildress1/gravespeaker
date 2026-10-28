@@ -13,7 +13,7 @@ const NO_THINKING = { google: { thinkingConfig: { thinkingLevel: 'minimal' } } }
 
 const dateHint = 'YYYY-MM-DD or YYYY; ? for an unreadable digit; null if absent.';
 
-/** The only definition of the read output shape. */
+/** Read output shape. The `satisfies` clause fails the type check if it drifts from {@link RawPerson}. */
 export const readSchema = z.object({
 	people: z.array(
 		z.object({
@@ -22,7 +22,7 @@ export const readSchema = z.object({
 			died: z.string().nullable().describe(dateHint)
 		})
 	)
-});
+}) satisfies z.ZodType<{ people: RawPerson[] }>;
 
 /** Rules measured in benchmark run 10. */
 export const READ_INSTRUCTIONS = `You read photos of gravestones for a historical research tool.
@@ -46,7 +46,7 @@ const factsSchema = z.object({
 			quote: z.string().describe('Copied exactly from the source text, under 25 words.')
 		})
 	)
-});
+}) satisfies z.ZodType<{ facts: RawFact[] }>;
 
 const EXTRACT_INSTRUCTIONS = `Task: pull checkable facts about one deceased person out of source texts.
 
