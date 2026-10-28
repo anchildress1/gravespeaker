@@ -337,7 +337,6 @@
 		background: transparent;
 		color: inherit;
 	}
-	button:focus-visible,
 	/* Visually hidden but still focusable, so keyboard users can reach the upload. */
 	.visually-hidden {
 		position: absolute;
@@ -347,6 +346,7 @@
 		clip-path: inset(50%);
 		white-space: nowrap;
 	}
+	button:focus-visible,
 	.primary:focus-within,
 	a:focus-visible {
 		outline: 3px solid #0a5cd6;

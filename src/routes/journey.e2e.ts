@@ -198,3 +198,18 @@ test('the upload control can be reached and focused from the keyboard', async ({
 	await page.keyboard.press('Tab');
 	await expect(page.locator('input[type=file]')).toBeFocused();
 });
+
+test('a focused button stays visible so keyboard users can see it', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await upload(page);
+	const confirm = page.getByRole('button', { name: 'This is them' });
+	// Tab, not focus(): only keyboard focus triggers :focus-visible.
+	for (let i = 0; i < 6 && !(await confirm.evaluate((el) => el === document.activeElement)); i++) {
+		await page.keyboard.press('Tab');
+	}
+	await expect(confirm).toBeFocused();
+	// The visually-hidden rule must not leak onto focused buttons.
+	const clip = await confirm.evaluate((el) => getComputedStyle(el).clipPath);
+	expect(clip).toBe('none');
+});
