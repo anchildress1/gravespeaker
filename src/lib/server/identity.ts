@@ -9,6 +9,8 @@ const YEAR = String.raw`(1[5-9]\d\d|20\d\d)`;
 const DATE_LEAD = String.raw`(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.?[,\s]+)?)?`;
 // Same, for both ends of a range, where no cue word bridges the gap: "Jun 8, 1981 - Jul 18, 2012".
 const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s]+)?(?:[a-z]{3,9}\.?[,\s]+)?`;
+// A cue-to-year gap must not run across another life-event cue: "born in London, died in 2017".
+const LIFE_CUE = String.raw`\bborn\b|\bb\.|\bdied\b|\bd\.|passed away|\bdeceased\b`;
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
@@ -182,7 +184,9 @@ function agreeingYears(stone: string, found: number, slack = 0): number[] {
  * @returns The year, or null.
  */
 function labelledYear(text: string, cue: string): number | null {
-	const found = new RegExp(String.raw`(?:${cue})[^.\d]{0,40}?${DATE_LEAD}\b${YEAR}\b`).exec(text);
+	const found = new RegExp(
+		String.raw`(?:${cue})(?:(?!${LIFE_CUE})[^.\d]){0,40}?${DATE_LEAD}\b${YEAR}\b`
+	).exec(text);
 	return found ? +found[1] : null;
 }
 

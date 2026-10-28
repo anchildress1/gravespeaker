@@ -118,6 +118,12 @@ describe('resolveMatches', () => {
 		expect([c.born, c.died]).toEqual(['1932', '2017']);
 	});
 
+	it('keeps a record neutral when the birth place is named but not the birth year', () => {
+		const [c] = resolve([rec('Gaynor Hawks, born in London, died in 2017.')]);
+		expect(c.confidence).toBe('medium');
+		expect(c.died).toBe('2017');
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
