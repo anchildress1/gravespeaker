@@ -3,7 +3,7 @@
   "checkpoint_id": "01M61P2YFD9KJ7D4XME7ZTW3C3",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 8,
+  "checkpoints_count": 9,
   "files_touched": [
     "src/lib/server/search/serpapi.test.ts",
     "src/lib/server/search/url.ts"
@@ -22,14 +22,21 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 2,
-    "cache_creation_tokens": 42130,
-    "cache_read_tokens": 14194,
-    "output_tokens": 288,
-    "api_call_count": 1,
+    "input_tokens": 4,
+    "cache_creation_tokens": 84116,
+    "cache_read_tokens": 28388,
+    "output_tokens": 698,
+    "api_call_count": 2,
     "subagent_tokens": {
       "input_tokens": 4,
       "cache_creation_tokens": 1653,
@@ -39,12 +46,12 @@
     }
   },
   "redaction": {
-    "replacements": 244,
+    "replacements": 247,
     "layers": {
       "betterleaks": 87,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 40,
+      "credential_value": 43,
       "credentialed_uri": 0,
       "entropy": 335,
       "key_context": 35,
