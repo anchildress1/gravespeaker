@@ -7,6 +7,8 @@ const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
 const YEAR = String.raw`(1[5-9]\d\d|20\d\d)`;
 // Optional day or numeric date lead before a year: "10 March ", "March 10, ", "03/10/".
 const DATE_LEAD = String.raw`(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.?[,\s]+)?)?`;
+// Same, for both ends of a range, where no cue word bridges the gap: "Jun 8, 1981 - Jul 18, 2012".
+const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s]+)?(?:[a-z]{3,9}\.?[,\s]+)?`;
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
@@ -210,7 +212,9 @@ function statedYears(text: string): {
 	let born: number | null = null;
 	let died: number | null = null;
 	let bornSlack = 0;
-	const range = new RegExp(String.raw`\b${YEAR}\s*(?:-|–|—|to)\s*${YEAR}\b`).exec(text);
+	const range = new RegExp(
+		String.raw`${FULL_DATE_LEAD}\b${YEAR}\s*(?:-|–|—|to)\s*${FULL_DATE_LEAD}\b${YEAR}\b`
+	).exec(text);
 	if (range && +range[2] >= +range[1]) {
 		born = +range[1];
 		died = +range[2];

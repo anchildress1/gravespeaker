@@ -103,6 +103,21 @@ describe('resolveMatches', () => {
 		expect([c.born, c.died]).toEqual(['1932', '2017']);
 	});
 
+	it.each([
+		'Gaynor Hawks, Jun 8, 1940 - Jul 18, 2012, obituary',
+		'Gaynor Hawks June 8, 1940 – July 18, 2012',
+		'Gaynor Hawks 8 Jun 1940 - 18 Jul 2012',
+		'Gaynor Hawks 06/08/1940 - 07/18/2012'
+	])('excludes a namesake whose full-date range contradicts the stone: %s', (snippet) => {
+		expect(resolve([rec(snippet)])).toEqual([]);
+	});
+
+	it('rates a full-date range that agrees with the stone high', () => {
+		const [c] = resolve([rec('Gaynor Hawks, Mar 10, 1932 - Dec 27, 2017, obituary')]);
+		expect(c.confidence).toBe('high');
+		expect([c.born, c.died]).toEqual(['1932', '2017']);
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
