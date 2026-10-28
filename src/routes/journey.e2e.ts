@@ -20,7 +20,6 @@ const candidate = {
 	name: 'Gaynor Claire Hawks',
 	born: '1932-03-10',
 	died: '2017-12-27',
-	place: null,
 	confidence: 'high',
 	sources: [source]
 };
@@ -213,11 +212,11 @@ test('a focused button stays visible so keyboard users can see it', async ({ pag
 	expect(clip).toBe('none');
 });
 
-test('a low-confidence match tells the visitor to check the sources', async ({ page }) => {
+test('an unverified match tells the visitor to check the sources', async ({ page }) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', {
 		body: { candidates: [{ ...candidate, confidence: 'low' }] }
 	});
 	await upload(page);
-	await expect(page.getByText(/Low confidence match/)).toContainText('Check the sources');
+	await expect(page.getByText(/Unverified/)).toContainText('Check the sources');
 });

@@ -1,9 +1,9 @@
 import { Agent } from '@mastra/core/agent';
 import { z } from 'zod';
-import type { Candidate, Inscription, SourceRecord } from '#lib/types.ts';
+import type { Candidate, Inscription } from '#lib/types.ts';
 import { geminiApiKey } from '../env';
 import { ProviderError } from '../http';
-import type { InferenceProvider, PageText, RawMatch, RawPerson, RawFact } from './index';
+import type { InferenceProvider, PageText, RawPerson, RawFact } from './index';
 
 const MODEL_ID = 'google/gemma-4-26b-a4b-it';
 const MAX_RETRIES = 2;
@@ -38,20 +38,6 @@ Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or compl
 export const READ_USER_TEXT = 'Transcribe the gravestone in this photo.';
 export const READ_SAMPLING = { temperature: 0, topP: 0.95, topK: 64 };
 
-const matchSchema = z.object({
-	matches: z.array(
-		z.object({
-			id: z.string().describe('Id of a search result about this person.'),
-			born: z.string().nullable().describe(dateHint),
-			died: z.string().nullable().describe(dateHint),
-			place: z.string().nullable(),
-			confidence: z
-				.enum(['high', 'medium', 'low'])
-				.describe('How sure you are this result is about the headstone person.')
-		})
-	)
-});
-
 const factsSchema = z.object({
 	facts: z.array(
 		z.object({
@@ -61,19 +47,6 @@ const factsSchema = z.object({
 		})
 	)
 });
-
-const MATCH_INSTRUCTIONS = `Task: pick the search results that are about the person on a headstone.
-
-Context: every result came from searching for this one person. Some may be about a different person who shares the name.
-
-Rules:
-- Return a result only if it is about this person. Name, birth year, death year and place should agree with the headstone.
-- Leave out results about someone else: a namesake with different dates, or an older or younger relative.
-- A result that gives no dates may still be returned when nothing in it points to a different person.
-- Leave out lists, indexes and general pages.
-- For each result returned, fill born, died and place only from what its title or snippet says about this person. Use null when it does not say. Never copy them from the headstone.
-- confidence is "high" when the name and both years agree with the headstone, "medium" when the name agrees and the result gives one matching year or nothing that contradicts, and "low" when only the name matches or the details are unclear.
-- If no result is about this person, return an empty list.`;
 
 const EXTRACT_INSTRUCTIONS = `Task: pull checkable facts about one deceased person out of source texts.
 
@@ -142,24 +115,6 @@ export class GemmaProvider implements InferenceProvider {
 			return res.object.people;
 		} catch (e) {
 			throw failed('Reading the stone', e);
-		}
-	}
-
-	/** @inheritdoc */
-	async pickMatches(inscription: Inscription, records: SourceRecord[]): Promise<RawMatch[]> {
-		const results = records.map(({ id, title, snippet }) => ({ id, title, snippet }));
-		try {
-			const res = await agent('pick-matches', MATCH_INSTRUCTIONS).generate(
-				`Headstone: ${inscription.carvedName}, born ${inscription.born ?? 'unknown'}, died ${inscription.died ?? 'unknown'}.\n\nSearch results:\n${JSON.stringify(results)}`,
-				{
-					structuredOutput: { schema: matchSchema },
-					modelSettings: { temperature: 0 },
-					providerOptions: NO_THINKING
-				}
-			);
-			return res.object.matches;
-		} catch (e) {
-			throw failed('Picking matches', e);
 		}
 	}
 

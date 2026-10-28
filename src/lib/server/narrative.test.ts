@@ -14,7 +14,6 @@ const candidate: Candidate = {
 	name: 'Gaynor Claire Hawks',
 	born: '1932-03-10',
 	died: '2017-12-27',
-	place: null,
 	confidence: 'high',
 	sources: [
 		{ id: 's1', url: 'https://a.test/1', title: 'A', site: 'a.test', snippet: '' },
@@ -73,6 +72,12 @@ describe('verifyFacts', () => {
 
 	it('drops a repeated quote', () => {
 		expect(verifyFacts(candidate, pages, [fact(), fact()])).toHaveLength(1);
+	});
+
+	it('drops a fact that names survivors, even when it is in the source', () => {
+		const obit = [{ sourceId: 's1', text: 'She is survived by her wife Jane and son Mark.' }];
+		const survivors = fact({ quote: 'survived by her wife Jane and son Mark' });
+		expect(verifyFacts(candidate, obit, [survivors])).toEqual([]);
 	});
 
 	it('drops an empty quote', () => {

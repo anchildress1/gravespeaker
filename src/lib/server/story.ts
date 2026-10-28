@@ -14,7 +14,6 @@ export const candidateInputSchema = z.object({
 	name: z.string(),
 	born: inscriptionSchema.shape.born,
 	died: inscriptionSchema.shape.died,
-	place: z.string().nullable(),
 	confidence: confidenceSchema,
 	sources: z.array(sourceSchema).min(1)
 });

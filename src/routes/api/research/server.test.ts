@@ -13,38 +13,24 @@ const stone = {
 };
 
 /**
- * Test helper.
- * @param obj Test input.
- * @returns The fixture.
- */
-const gemini = (obj: unknown) =>
-	Response.json({
-		candidates: [
-			{ content: { role: 'model', parts: [{ text: JSON.stringify(obj) }] }, finishReason: 'STOP' }
-		],
-		usageMetadata: { promptTokenCount: 1, candidatesTokenCount: 1, totalTokenCount: 2 }
-	});
-
-/**
- * Routes stubbed network calls by host.
+ * Stubs the SerpApi boundary. Every engine answers with the same handler.
  * @param serp Handler for SerpApi.
- * @param model Handler for Gemini.
- * @returns The fixture.
  */
-const stub = (serp: () => Response, model: () => Response) =>
+const stub = (serp: () => Response): void => {
 	vi.stubGlobal(
 		'fetch',
-		vi.fn(async (input: string | URL | Request) =>
-			new URL(input instanceof Request ? input.url : input).hostname === 'serpapi.com'
-				? serp()
-				: model()
-		)
+		vi.fn(async () => serp())
 	);
+};
 
 const hits = {
 	organic_results: [
-		{ link: 'https://legacy.com/hawks', title: 'Gaynor Hawks obituary', snippet: '1932-2017' },
-		{ link: 'https://ancestry.com/x', title: 'Gated', snippet: '' }
+		{
+			link: 'https://legacy.com/hawks',
+			title: 'Gaynor Hawks obituary',
+			snippet: 'Gaynor Claire Hawks (1932-2017)'
+		},
+		{ link: 'https://ancestry.com/x', title: 'Gated', snippet: 'Gaynor Hawks 1932' }
 	]
 };
 
@@ -67,26 +53,15 @@ describe('POST /api/research', () => {
 		expect((await res.json()).error.code).toBe('invalid_input');
 	});
 
-	it('skips the model and returns no candidates when search finds nothing', async () => {
-		stub(
-			() => Response.json({}),
-			() => {
-				throw new Error('model must not be called');
-			}
-		);
+	it('returns no candidates when search finds nothing', async () => {
+		stub(() => Response.json({}));
 		const res = await call(stone);
 		expect(res.status).toBe(200);
 		expect(await res.json()).toEqual({ candidates: [] });
 	});
 
-	it('returns the matching candidate with gated sites removed', async () => {
-		stub(
-			() => Response.json(hits),
-			() =>
-				gemini({
-					matches: [{ id: 's1', born: '1932', died: '2017', place: null, confidence: 'high' }]
-				})
-		);
+	it('returns the matching candidate with gated sites removed and duplicates merged', async () => {
+		stub(() => Response.json(hits));
 		const res = await call(stone);
 		expect(res.status).toBe(200);
 		const { candidates } = await res.json();
@@ -97,39 +72,38 @@ describe('POST /api/research', () => {
 		]);
 	});
 
-	it('returns 502 when search fails on every attempt', async () => {
-		stub(
-			() => Response.json({ error: 'down' }, { status: 500 }),
-			() => gemini({ matches: [] })
+	it('returns the right person even when the death date is not mentioned', async () => {
+		stub(() =>
+			Response.json({
+				organic_results: [
+					{
+						link: 'https://a.com/1',
+						title: 'Obit',
+						snippet: 'Gaynor Hawks, born 1932, taught piano.'
+					}
+				]
+			})
 		);
-		const res = await call(stone);
-		expect(res.status).toBe(502);
-		expect((await res.json()).error.code).toBe('provider_failed');
-	}, 60_000);
+		const { candidates } = await (await call(stone)).json();
+		expect(candidates).toHaveLength(1);
+		expect(candidates[0].confidence).toBe('medium');
+	});
 
-	it('returns 502 when grouping fails on every attempt', async () => {
-		stub(
-			() => Response.json(hits),
-			() => Response.json({ error: { code: 503, message: 'down' } }, { status: 503 })
-		);
-		const res = await call(stone);
-		expect(res.status).toBe(502);
-		expect((await res.json()).error.code).toBe('provider_failed');
-	}, 60_000);
-
-	it('drops a picked result that never mentions the surname', async () => {
-		stub(
-			() =>
-				Response.json({
-					organic_results: [
-						{ link: 'https://x.com/a', title: 'Unrelated', snippet: 'Smith 1932 2017' }
-					]
-				}),
-			() =>
-				gemini({
-					matches: [{ id: 's1', born: '1932', died: '2017', place: null, confidence: 'high' }]
-				})
+	it('leaves out a result that names someone else', async () => {
+		stub(() =>
+			Response.json({
+				organic_results: [
+					{ link: 'https://x.com/a', title: 'Unrelated', snippet: 'Smith 1932 2017' }
+				]
+			})
 		);
 		expect(await (await call(stone)).json()).toEqual({ candidates: [] });
 	});
+
+	it('returns 502 when search fails on every attempt', async () => {
+		stub(() => Response.json({ error: 'down' }, { status: 500 }));
+		const res = await call(stone);
+		expect(res.status).toBe(502);
+		expect((await res.json()).error.code).toBe('provider_failed');
+	}, 60_000);
 });

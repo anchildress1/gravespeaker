@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildQuery, dropGated, resolveMatches } from './identity';
 import type { Inscription, SourceRecord } from '#lib/types.ts';
-import type { RawMatch } from './inference/index';
 
 /**
  * Test helper.
@@ -17,30 +16,18 @@ const stone = (over: Partial<Inscription> = {}): Inscription => ({
 	...over
 });
 /**
- * Test helper.
- * @param id Test input.
- * @param site Test input.
- * @returns The fixture.
+ * Builds a search result.
+ * @param snippet Result snippet text.
+ * @param title Result title.
+ * @param id Result id.
+ * @returns The record.
  */
-const rec = (id: string, site = 'legacy.com'): SourceRecord => ({
+const rec = (snippet: string, title = 'Obituary', id = 'x'): SourceRecord => ({
 	id,
-	url: `https://${site}/${id}`,
-	title: id,
-	site,
-	snippet: 'Gaynor Hawks 1932 2017'
-});
-/**
- * Builds a picked match, defaulting to one that agrees with the stone.
- * @param over Fields to override.
- * @returns The match.
- */
-const pick = (over: Partial<RawMatch> = {}): RawMatch => ({
-	id: 's1',
-	born: '1932',
-	died: '2017',
-	place: null,
-	confidence: 'high',
-	...over
+	url: `https://legacy.com/${id}`,
+	title,
+	site: 'legacy.com',
+	snippet
 });
 
 describe('buildQuery', () => {
@@ -70,107 +57,149 @@ describe('dropGated', () => {
 				'search.findmypast.co.uk',
 				'legacy.com',
 				'findagrave.com'
-			].map((s, i) => rec(`s${i}`, s))
+			].map((s) => ({ ...rec('', 'x', s), site: s }))
 		);
 		expect(kept.map((r) => r.site)).toEqual(['legacy.com', 'findagrave.com']);
 	});
 });
 
 describe('resolveMatches', () => {
-	const records = [rec('s1'), rec('s2'), rec('s3')];
+	/**
+	 * Resolves records against the default stone.
+	 * @param records Search results.
+	 * @param over Stone fields to override.
+	 * @returns The candidates.
+	 */
+	const resolve = (records: SourceRecord[], over: Partial<Inscription> = {}) =>
+		resolveMatches(stone(over), records);
 
-	it('returns no candidate when nothing was picked', () => {
-		expect(resolveMatches(stone(), records, [])).toEqual([]);
+	it('returns nothing when no result names the person', () => {
+		expect(resolve([rec('Cemetery index of the county, 1932 to 2017.')])).toEqual([]);
+		expect(resolve([])).toEqual([]);
 	});
 
-	it("returns one candidate for the stone's person, built from the picked results", () => {
-		const out = resolveMatches(stone(), records, [pick({ id: 's1' }), pick({ id: 's3' })]);
-		expect(out).toHaveLength(1);
-		expect(out[0].name).toBe('Gaynor Claire Hawks');
-		expect(out[0].sources.map((s) => s.id)).toEqual(['s1', 's3']);
-	});
-
-	it('ignores picks of results that do not exist and repeated picks', () => {
-		const out = resolveMatches(stone(), records, [pick({ id: 'zz' }), pick(), pick()]);
-		expect(out[0].sources.map((s) => s.id)).toEqual(['s1']);
-		expect(resolveMatches(stone(), records, [pick({ id: 'zz' })])).toEqual([]);
-	});
-
-	it('drops hits that never mention the surname, even if the model picked them', () => {
-		const unrelated = { ...rec('s9'), title: 'Cemetery index', snippet: 'Smith, Jones' };
-		expect(resolveMatches(stone(), [...records, unrelated], [pick({ id: 's9' })])).toEqual([]);
-	});
-
-	it('uses the surname before a generational suffix when matching hits', () => {
-		const junior = stone({ name: 'Edward Hildebrand III', carvedName: 'Edward Hildebrand III' });
-		const hit = { ...rec('s1'), snippet: 'Edward Hildebrand obituary 1932 2017' };
-		expect(resolveMatches(junior, [hit], [pick()])).toHaveLength(1);
-	});
-
-	it('drops a pick whose stated years conflict with the stone', () => {
-		expect(resolveMatches(stone(), records, [pick({ died: '2016' })])).toEqual([]);
-		expect(resolveMatches(stone(), records, [pick({ born: '1950' })])).toEqual([]);
-	});
-
-	it('keeps the agreeing pick when another pick conflicts', () => {
-		const out = resolveMatches(stone(), records, [
-			pick({ id: 's1' }),
-			pick({ id: 's2', died: '1990' })
-		]);
-		expect(out[0].sources.map((s) => s.id)).toEqual(['s1']);
-	});
-
-	it('treats ? in the inscription as a wildcard', () => {
-		const worn = stone({ born: '18?8', died: null });
-		for (const born of ['1818', '1848']) {
-			expect(resolveMatches(worn, records, [pick({ born, died: null })])).toHaveLength(1);
-		}
-		expect(resolveMatches(worn, records, [pick({ born: '1749', died: null })])).toEqual([]);
-	});
-
-	it('never conflicts on null years', () => {
-		expect(resolveMatches(stone(), records, [pick({ born: null, died: null })])).toHaveLength(1);
-	});
-
-	it('keeps a date only when the picked result states it', () => {
-		const bare = { ...rec('s1'), snippet: 'Gaynor Hawks, Alsea Cemetery' };
-		const [c] = resolveMatches(stone(), [bare], [pick()]);
-		expect(c.born).toBeNull();
-		expect(c.died).toBeNull();
-		const [stated] = resolveMatches(stone(), records, [pick()]);
-		expect(stated.born).toBe('1932');
-		expect(stated.died).toBe('2017');
-	});
-
-	it('nulls malformed dates instead of trusting them', () => {
-		const [c] = resolveMatches(stone(), records, [pick({ born: 'March 1932', died: null })]);
-		expect(c.born).toBeNull();
-	});
-
-	it('takes the place from the first pick that gives one', () => {
-		const out = resolveMatches(stone(), records, [
-			pick({ id: 's1' }),
-			pick({ id: 's2', place: ' Alsea, Oregon ' })
-		]);
-		expect(out[0].place).toBe('Alsea, Oregon');
-	});
-
-	it('gives the best confidence among the picks', () => {
-		const out = resolveMatches(stone(), records, [
-			pick({ id: 's1', confidence: 'low' }),
-			pick({ id: 's2', confidence: 'medium' })
-		]);
-		expect(out[0].confidence).toBe('medium');
-	});
-
-	it('caps high confidence at medium when no picked result states a year', () => {
-		const bare = { ...rec('s1'), snippet: 'Gaynor Hawks, Alsea Cemetery' };
-		const [c] = resolveMatches(stone(), [bare], [pick({ confidence: 'high' })]);
+	it('returns the right person when only the birth is stated and the death is missing', () => {
+		const [c] = resolve([rec('Gaynor Hawks, born March 10, 1932, taught piano in Alsea.')]);
+		expect(c.sources).toHaveLength(1);
 		expect(c.confidence).toBe('medium');
+		expect(c.born).toBe('1932');
+		expect(c.died).toBeNull();
 	});
 
-	it('keeps high confidence when a picked result states a matching year', () => {
-		const [c] = resolveMatches(stone(), records, [pick({ confidence: 'high' })]);
+	it('returns the right person when only the death is stated', () => {
+		const [c] = resolve([rec('Gaynor Claire Hawks died December 27, 2017 at home.')]);
+		expect(c.confidence).toBe('medium');
+		expect(c.died).toBe('2017');
+	});
+
+	it('rates a name plus both years high', () => {
+		const [c] = resolve([rec('Gaynor Claire Hawks (1932-2017) - Find a Grave memorial')]);
 		expect(c.confidence).toBe('high');
+		expect([c.born, c.died]).toEqual(['1932', '2017']);
+	});
+
+	it('derives the birth year from a stated age', () => {
+		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
+		expect(c.confidence).toBe('high');
+	});
+
+	it('keeps a name-only result at low confidence instead of discarding it', () => {
+		const [c] = resolve([rec('Gaynor Hawks was a beloved piano teacher in Alsea.')]);
+		expect(c.confidence).toBe('low');
+		expect(c.sources).toHaveLength(1);
+		expect([c.born, c.died]).toEqual([null, null]);
+	});
+
+	it('drops name-only results once a stronger result exists', () => {
+		const out = resolve([
+			rec('Gaynor Hawks was a beloved piano teacher.', 'A', 'a'),
+			rec('Gaynor Hawks, born 1932, of Alsea.', 'B', 'b')
+		]);
+		expect(out[0].sources.map((s) => s.id)).toEqual(['b']);
+	});
+
+	it('excludes a result whose stated death year conflicts', () => {
+		expect(resolve([rec('Gaynor Hawks (1932-2016) obituary')])).toEqual([]);
+		expect(resolve([rec('Gaynor Hawks, born 1950, died 2017')])).toEqual([]);
+	});
+
+	it('excludes a namesake with different dates but keeps the real match', () => {
+		const out = resolve([
+			rec('Gaynor Hawks (1901-1970) memorial', 'Other', 'o'),
+			rec('Gaynor Hawks (1932-2017) memorial', 'Real', 'r')
+		]);
+		expect(out[0].sources.map((s) => s.id)).toEqual(['r']);
+	});
+
+	it('does not match a different given name with the same surname', () => {
+		expect(resolve([rec('Charles Hawks (1932-2017) obituary')])).toEqual([]);
+	});
+
+	it('matches the surname as a whole word, not inside a longer name', () => {
+		expect(resolve([rec('Gaynor Hawksworth (1932-2017)')])).toEqual([]);
+	});
+
+	it('accepts a middle name or initial in place of the full given names', () => {
+		expect(resolve([rec('Claire Hawks (1932-2017)')])).toHaveLength(1);
+		expect(resolve([rec('Gaynor C. Hawks (1932-2017)')])).toHaveLength(1);
+	});
+
+	it('uses the maiden name when the stone carries one', () => {
+		const record = rec('Gaynor Staples (1932-2017), later Hawks');
+		expect(resolve([record], { maidenName: 'Staples' })).toHaveLength(1);
+	});
+
+	it('ignores generational suffixes on the stone', () => {
+		const junior = { name: 'Edward Hildebrand III', carvedName: 'Edward Hildebrand III' };
+		expect(resolve([rec('Edward Hildebrand (1932-2017)')], junior)).toHaveLength(1);
+	});
+
+	it('folds accents when comparing names', () => {
+		const norse = { name: 'Ødegård Sæther', carvedName: 'Ødegård Sæther' };
+		expect(resolve([rec('Odegard Saether (1932-2017)')], norse)).toHaveLength(1);
+	});
+
+	it('treats ? in a stone year as a wildcard', () => {
+		const worn = { name: 'Betsey Ellis', carvedName: 'Betsey Ellis', born: '18?8', died: null };
+		const [c] = resolve([rec('Betsey Ellis (1818-1850) memorial')], worn);
+		expect(c.confidence).toBe('high');
+		expect(resolve([rec('Betsey Ellis (1749-1800)')], worn)).toEqual([]);
+	});
+
+	it('never conflicts on a date the stone does not carry', () => {
+		const bornOnly = { born: '1932-03-10', died: null };
+		expect(resolve([rec('Gaynor Hawks, born 1932, died 1999')], bornOnly)).toHaveLength(1);
+	});
+
+	it('rates name-only low when the stone carries no dates', () => {
+		const bare = { born: null, died: null };
+		expect(resolve([rec('Gaynor Hawks, piano teacher')], bare)[0].confidence).toBe('low');
+	});
+
+	it('ignores years that sit far from the name, where another person is likely meant', () => {
+		const far = rec(
+			`Gaynor Hawks taught piano. ${'Local history notes. '.repeat(30)} Howard Hawks (1896-1977).`
+		);
+		expect(resolve([far])[0].confidence).toBe('low');
+	});
+
+	it('keeps at most five sources, best first', () => {
+		const many = Array.from({ length: 7 }, (_, i) =>
+			rec(i === 6 ? 'Gaynor Hawks (1932-2017)' : 'Gaynor Hawks, piano teacher', 'R', `s${i}`)
+		);
+		const [c] = resolve(many);
+		expect(c.sources).toHaveLength(1);
+		const weak = Array.from({ length: 7 }, (_, i) =>
+			rec('Gaynor Hawks, piano teacher', 'R', `w${i}`)
+		);
+		expect(resolve(weak)[0].sources).toHaveLength(5);
+	});
+
+	it('puts record-like pages ahead of other name-only results', () => {
+		const out = resolve([
+			rec('Gaynor Hawks plays tennis.', 'Profile', 'tennis'),
+			rec('Gaynor Hawks obituary and funeral service.', 'Obituary', 'obit')
+		]);
+		expect(out[0].sources[0].id).toBe('obit');
 	});
 });

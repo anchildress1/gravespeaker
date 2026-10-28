@@ -1,17 +1,9 @@
-import type { Candidate, Confidence, Inscription, SourceRecord } from '#lib/types.ts';
+import type { Candidate, Inscription } from '#lib/types.ts';
 
 export interface RawPerson {
 	name: string;
 	born: string | null;
 	died: string | null;
-}
-
-export interface RawMatch {
-	id: string;
-	born: string | null;
-	died: string | null;
-	place: string | null;
-	confidence: Confidence;
 }
 
 export interface RawFact {
@@ -35,14 +27,6 @@ export interface InferenceProvider {
 	 * @throws {ProviderError} When the model fails after retries.
 	 */
 	readStone(image: Uint8Array, mimeType: string): Promise<RawPerson[]>;
-	/**
-	 * Picks the search hits that are about the stone's person.
-	 * @param inscription The stone's person.
-	 * @param records Search hits.
-	 * @returns The picked hits, each with the details it states.
-	 * @throws {ProviderError} When the model fails after retries.
-	 */
-	pickMatches(inscription: Inscription, records: SourceRecord[]): Promise<RawMatch[]>;
 	/**
 	 * Pulls facts about the person out of source text, each as a verbatim quote.
 	 * @param inscription The stone's person.

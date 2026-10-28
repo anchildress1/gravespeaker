@@ -35,6 +35,10 @@ const STEM_LENGTH = 5;
 // A fact counts as used when at least this share of its topic words appear in the story.
 const MIN_FACT_USE = 0.5;
 
+// A quote that names survivors would put living people's names into the story (FR-017).
+const SURVIVORS =
+	/\b(survived by|survivors?|leaves behind|leaving behind|left to mourn|she leaves|he leaves)\b/i;
+
 /** A fact whose quote was found verbatim in a cited source. */
 export type VerifiedFact = RawFact;
 
@@ -72,7 +76,7 @@ function topicStems(text: string): string[] {
 }
 
 /**
- * Keeps only facts whose quote appears verbatim in the source they cite.
+ * Keeps only facts whose quote appears verbatim in the source they cite and names no survivors.
  * @param candidate The confirmed candidate.
  * @param pages Text of each source as the model saw it.
  * @param raw Facts as the model returned them.
@@ -89,6 +93,7 @@ export function verifyFacts(
 	return raw.filter((f) => {
 		const quote = norm(f.quote ?? '');
 		if (!quote || !known.has(f.sourceId) || !text.get(f.sourceId)?.includes(quote)) return false;
+		if (SURVIVORS.test(f.quote)) return false;
 		if (seen.has(quote)) return false;
 		seen.add(quote);
 		return true;

@@ -10,7 +10,7 @@
 	const CONFIDENCE = {
 		high: 'High confidence match',
 		medium: 'Medium confidence match',
-		low: 'Low confidence match. Check the sources before confirming.'
+		low: 'Unverified: only the name matches. Check the sources before confirming.'
 	} as const;
 	const NOTES = {
 		none: 'No public record was confirmed',
@@ -241,7 +241,7 @@
 			{#each candidates as c (c.sources[0].id)}
 				<li>
 					<strong>{c.name}</strong>
-					<span>{show(c.born)} – {show(c.died)}{c.place ? ` · ${c.place}` : ''}</span>
+					<span>{show(c.born)} – {show(c.died)}</span>
 					<span class="confidence" data-confidence={c.confidence}>{CONFIDENCE[c.confidence]}</span>
 					<ul class="links">
 						{#each c.sources as s (s.id)}

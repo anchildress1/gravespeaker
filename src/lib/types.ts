@@ -42,7 +42,6 @@ export interface Candidate {
 	name: string;
 	born: string | null;
 	died: string | null;
-	place: string | null;
 	confidence: Confidence;
 	sources: SourceRecord[];
 }
