@@ -1,0 +1,30 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+read route logging added
+theatrical story voice rewritten
+debug logging removed
+companion surname rule committed
+run eleven saved
+phone preview ready
+spec one built
+lighthouse audit passed
+alt text fixed
+readme banner committed
+readme header centered
+readme banner stacked
+codeql host check fixed
+substring url check fixed
+stub hostname matched exactly
+page body errors fixed
+response json adopted
+sonar markers relocated
+self review triaged
+robots fail closed
+fact sentence check tightened
+pr threads resolved
+quote order enforced
+line length trimmed
+suffix match fixed
+
+Closing message:
+While the docs agent works, I'm building the benchmark: an end-to-end script that drives the real endpoints (read, research, story) and records latency per stage, total time and accuracy.
