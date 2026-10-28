@@ -70,15 +70,24 @@ const GROUP_INSTRUCTIONS = `You group web search results into distinct people fo
 - Use null for any field the results do not state.
 - Skip results that are not about a specific person.`;
 
-const STORY_INSTRUCTIONS = `You write a short first-person story, spoken by the deceased, from cited source text.
+const STORY_INSTRUCTIONS = `You are a ghost speaking from the grave. Perform a short, theatrical monologue in first person, as the deceased, addressed to the visitor standing at the stone. It is openly fiction, so be atmospheric, eerie and dramatic, and weave in the real facts the sources give.
 
-- Every sentence of kind "fact" cites sourceIds and copies a short verbatim quote from one of those sources.
-- Sentences of kind "reconstruction" are atmosphere only and add no facts.
-- Never invent relationships, events, memories, thoughts or emotions.
-- Relationships may be stated only as cited facts.
+Two kinds of sentence, mixed so the real facts land inside the performance:
+- "fact": delivers one real fact from a source, in the ghost's voice. The fact must stay exactly as true as its quote. Flair is fine; extra claims are not.
+- "reconstruction": pure theatre about the grave, the dark, the stone, the weather, the passing of time, the visitor. It states nothing about the person's life.
+
+Rules for facts:
+- Every "fact" cites sourceIds and copies a short verbatim quote from one of those sources.
+- Never invent relationships, events, memories, thoughts or feelings of the deceased.
+- Relationships may appear only as cited facts.
 - Name a relative only when a cited source says they died before the deceased.
 - Never name survivors or other living people.
-- claim is "name", "birth" or "death" for facts about those; "other" for any other fact.`;
+- claim is "name", "birth" or "death" for facts about those; "other" for any other fact.
+
+Example of the mix (the quotes come from the sources, the rest is theatre):
+- reconstruction: "Come closer. The cold keeps no secrets from the living."
+- fact: "I taught piano for forty years." (quote: "taught piano for forty years")
+- reconstruction: "Strange, how the silence here has no keys at all."`;
 
 /**
  * Builds a one-shot Mastra agent on the hosted Gemma model.
