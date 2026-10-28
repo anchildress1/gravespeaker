@@ -1,0 +1,55 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+readme banner stacked
+codeql host check fixed
+substring url check fixed
+stub hostname matched exactly
+page body errors fixed
+response json adopted
+sonar markers relocated
+self review triaged
+robots fail closed
+fact sentence check tightened
+pr threads resolved
+quote order enforced
+line length trimmed
+suffix match fixed
+search url extracted
+review feedback addressed
+engines ordered by rank
+search cut to three
+pipeline run saved
+pipeline run committed
+pipeline run recorded
+twenty one stones searched
+benchmark run logged
+two engines searched
+engines cut to two
+
+Closing message:
+he 35 sources kept in `search-1.json`. That's committed as `6409006`, with 146 tests passing and `make ai-checks` green. I didn't re-run the benchmark with two engines, so the pipeline numbers (`pipeline-1.json`) were measured with three.
+- **Pushed:** the branch now has 5 new commits, and the branch's earlier checks are running.
+- **PR description:** it now says two engines and two credits per lookup, and points to `search-1.json` and `pipeline-1.json`.
+- **Re-reviews:** Copilot is requested, and I posted `@codex review` on the PR.
+
+Still open from before:
+- The Dixon story timeout.
+- The Copilot thread on free-prose validation, left open on purpose.
+- The 4 self-review comments.
+
+I'll check the review results when you tell me they're back.
+Both re-reviews are requested and registered on the PR. Codex has already answered on `6409006`, and Copilot hasn't yet.
+
+- **Copilot:** it shows as a requested reviewer on the PR as of 13:50:04.
+- **Codex:** I posted `@codex review` at 13:49:56. It reviewed `6409006` at 13:51:48 and left a new comment on `search/url.ts:14`, with older ones still open.
+- **CI:** CodeQL, SonarCloud, `ci`, Analyze and Semgrep all pass. Entire Gates is still pending.
+
+Open Codex findings:
+- **P2, `search/url.ts:14` (new):** `canonicalUrl` drops query parameters. Two different records such as `?o_id=5589051` and `?o_id=5589052` collapse into one result. The URL format appears in `search-1.json`, so this is a real bug.
+- **P1, `identity.ts:190`:** a given name and a family name must match the same person.
+- **P2, `identity.ts:203`:** keep source dates when the stone lacks them.
+- **P2, `narrative.ts:218`:** recognize supported facts that are entirely short words.
+
+Older threads still open: the Copilot thread on free-prose validation (left open on purpose) and the 4 self-review comments.
+
+The URL finding needs a fix and a regression test. Do you want me to work through all four Codex findings, with replies in the threads, once Copilot's review is in?
