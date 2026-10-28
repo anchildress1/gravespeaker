@@ -1,0 +1,29 @@
+<task-notification>
+<summary>Commit security review found: SSRF (incomplete deny-list) in src/lib/server/pages.ts</summary>
+</task-notification>
+
+---
+
+phone is connected now. can we use bluetooth? I dunno why I didn't think of that earlier
+
+---
+
+ok. that works, but I click to photograph. take the pic. hit ok. and nothing happens
+
+---
+
+we need to teach it last namemay appear first at top or bottom between 2 people
+
+---
+
+this output is supposed to be theatrical and right now its historical. we need a mix of things from beyond the grave it can say thats obv fiction blended with real facts it is able to find
+
+---
+
+yes fix companion stone.
+
+---
+
+fixed
+add the run. the rule was supposed to be no tests past 10
+we test in app from now on.
