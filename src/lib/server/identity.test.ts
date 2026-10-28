@@ -129,6 +129,18 @@ describe('resolveMatches', () => {
 		expect(c.confidence).toBe('high');
 	});
 
+	it("does not read another person's dates as the matched name's", () => {
+		const [c] = resolve([rec('Gaynor Hawks, born 1932. She married John Smith (1930–2010).')]);
+		expect(c.confidence).toBe('medium');
+		expect(c.born).toBe('1932');
+	});
+
+	it("reads the range that follows the matched name, not an earlier namesake's", () => {
+		const [c] = resolve([rec('Charles Hawks (1930–2010). His wife Gaynor Hawks (1932–2017).')]);
+		expect(c.confidence).toBe('high');
+		expect([c.born, c.died]).toEqual(['1932', '2017']);
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');

@@ -11,6 +11,8 @@ const DATE_LEAD = String.raw`(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.
 const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s]+)?(?:[a-z]{3,9}\.?[,\s]+)?`;
 // A cue-to-year gap must not run across another life-event cue: "born in London, died in 2017".
 const LIFE_CUE = String.raw`\bborn\b|\bb\.|\bdied\b|\bd\.|passed away|\bdeceased\b`;
+// An initial ("b.", "d.", "C.") ends no sentence.
+const SENTENCE_END = /(?<!\b[a-z])\.\s/;
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
@@ -205,10 +207,14 @@ function compareYear(stone: string | null, found: number | null, slack: number):
 /**
  * Reads the birth and death years a text states, by label, range or age.
  * @param text Folded text around the name.
+ * @param own The part of that text that belongs to the matched name, where a range is read from.
  * @returns Stated years; `bornSlack` is 1 when the birth year was derived from an age, which
  *   puts the true year in [born - 1, born].
  */
-function statedYears(text: string): {
+function statedYears(
+	text: string,
+	own: string
+): {
 	born: number | null;
 	died: number | null;
 	bornSlack: number;
@@ -218,7 +224,7 @@ function statedYears(text: string): {
 	let bornSlack = 0;
 	const range = new RegExp(
 		String.raw`${FULL_DATE_LEAD}\b${YEAR}\s*(?:-|–|—|to)\s*${FULL_DATE_LEAD}\b${YEAR}\b`
-	).exec(text);
+	).exec(own);
 	if (range && +range[2] >= +range[1]) {
 		born = +range[1];
 		died = +range[2];
@@ -277,7 +283,10 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 
 	const center = Math.min(...starts);
 	const around = text.slice(Math.max(0, center - WINDOW_BEFORE), center + WINDOW_AFTER);
-	const stated = statedYears(around);
+	// A range belongs to the matched name only up to the end of its sentence: "... married John Smith
+	// (1930-2010)" gives the stone no dates. The title and the snippet may each name the person.
+	const own = starts.map((i) => text.slice(i).split(SENTENCE_END)[0]).join(' ');
+	const stated = statedYears(around, own);
 
 	const born = compareYear(inscription.born, stated.born, stated.bornSlack);
 	const died = compareYear(inscription.died, stated.died, 0);
