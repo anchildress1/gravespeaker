@@ -1,0 +1,79 @@
+- SERPAPI key is in .env
+- merge after using /pr-comment-review 
+- drop image thing. I do not have time to build it. Add as v2 in docs
+- update @CLAUDE.md never bypass lefthook on push. Fix the issue or alert user.
+- merge #2 into #1? or use /gh-stack
+
+---
+
+<task-notification>
+<task-id>a1079f3c86f65a0d4</task-id>
+<tool-use-id>toolu_01ADLNasKV6K7PB3UvWmg7nS</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a1079f3c86f65a0d4.output</output-file>
+<status>completed</status>
+<summary>Agent "/code-review 2" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>```json
+[
+  {
+    "file": "package.json",
+    "line": 25,
+    "summary": "Moving @lhci/cli to `pnpm dlx` hides the 7 advisories from the lockfile scanners but still runs the same vulnerable dependency tree, and that tree is no longer locked.",
+    "failure_scenario": "`make perf` runs `pnpm dlx @lhci/cli@0.15.1`, which resolves the transitive deps fresh on every run and ignores pnpm-lock.yaml. The advisories still execute on the developer's machine, Dependabot and Sonar no longer see them, and two runs can install different transitive versions. The alerts are cleared on paper only, and perf runs are no longer reproducible."
+  },
+  {
+    "file": "src/app.html",
+    "line": 8,
+    "summary": "The static &lt;title&gt; and description in the app shell answer a Sonar rule meant for plain HTML files, and they will clash with any per-route &lt;svelte:head&gt; title.",
+    "failure_scenario": "Once a second route or an error page sets `&lt;svelte:head&gt;&lt;title&gt;…&lt;/title&gt;`, the rendered document has two &lt;title&gt; elements. The browser shows the first, which is always 'Gravespeaker'. On client-side navigation, SvelteKit's managed head can't replace the shell title. The deeper fix is to mark the Sonar S5254-style finding as not applicable to the template and keep &lt;svelte:head&gt; in +layout.svelte."
+  },
+  {
+    "file": "README.md",
+    "line": 112,
+    "summary": "The Security section says 'Uploaded photos are processed in memory and never stored', but there is no upload or processing code in the repo.",
+    "failure_scenario": "src/routes contains only a static +page.svelte. Readers and DEV judges take a security guarantee as fact when no code backs it. This breaks the project rule 'Never fabricate…' in spirit and the docs-accuracy expectation, and nothing will fail if the eventual implementation writes temp files."
+  },
+  {
+    "file": "README.md",
+    "line": 39,
+    "summary": "The Tech Stack table lists Mastra as the AI orchestration layer, but Mastra (and @google/genai) is not in package.json.",
+    "failure_scenario": "Someone following the README looks for Mastra workflows or dependencies and finds none. The README describes the planned stack from the PRD as if it were already shipped."
+  },
+  {
+    "file": "README.md",
+    "line": 100,
+    "summary": "The step-by-step bootstrap for the service account and secret IAM bindings was deleted and replaced with 'already exist'.",
+    "failure_scenario": "If `gravespeaker-run` or a `GRAVESPEAKER_*` secret is deleted, or the project is rebuilt, `deploy.sh` fails with a permission or secret-not-found error. The repo no longer documents how to create the account or grant `roles/secretmanager.secretAccessor`. The old commands were removed, and only a prose description of the pattern remains."
+  },
+  {
+    "file": "deploy.sh",
+    "line": 5,
+    "summary": "PROJECT_ID is now hard-coded, and the old check on the active gcloud project was removed without a warning when the two differ.",
+    "failure_scenario": "A developer whose active gcloud config points at another project runs `make deploy`. `gcloud run deploy --project anchildress1` deploys correctly, but `--source .` builds through Cloud Build with whatever account and quota project is active. Billing or quota errors then point at the wrong project with no hint. This is low-impact but it is a removed safeguard."
+  },
+  {
+    "file": "Dockerfile",
+    "line": 3,
+    "summary": "The touched line still installs pnpm with `npm install -g`, which breaks the repo's package-manager rule.",
+    "failure_scenario": "/Users/anchildress1/git_personal/gravespeaker/CLAUDE.md says: 'pnpm **11.28.9** only. Never npm or yarn.' The line `RUN npm install -g --ignore-scripts pnpm@11.28.9` was edited in this PR but still uses npm. An alternative is the standalone pnpm installer, or copying pnpm from a pinned image."
+  },
+  {
+    "file": "README.md",
+    "line": 113,
+    "summary": "The sentence 'Secret Manager bills per secret, so add one only when production can't run without it' appears in both the Deploying and Security sections.",
+    "failure_scenario": "The same rule is stated in two places in one doc, so the two copies can drift apart when one is edited. This goes against ~/.claude/CLAUDE.md: 'Do not over-document. Ever.… If it doesn't answer a question a reader would actually have, it doesn't belong.'"
+  }
+]
+```</result>
+<usage><subagent_tokens>88303</subagent_tokens><tool_uses>10</tool_uses><duration_ms>87810</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b8dw3i3nv</task-id>
+<tool-use-id>toolu_01KnYVV5UqG3eXQ6SRRZ5CpE</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b8dw3i3nv.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for PR #2 checks" completed (exit code 0)</summary>
+</task-notification>
