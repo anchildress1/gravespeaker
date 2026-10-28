@@ -256,4 +256,68 @@ describe('resolveMatches', () => {
 		};
 		expect(resolve([rec('Cory Chambers (1932-2017) obituary')], nick)).toHaveLength(1);
 	});
+
+	it('does not combine a given name and a surname taken from different people', () => {
+		expect(resolve([rec('Charles Hawks (1932-2017). Survived by Gaynor Jones.')])).toEqual([]);
+		expect(resolve([rec('Charles Hawks, Gaynor Jones (1932-2017)')])).toEqual([]);
+	});
+
+	it('accepts "Surname, Given" ordering and a nickname or middle name between the parts', () => {
+		expect(resolve([rec('Hawks, Gaynor C. (1932-2017)')])).toHaveLength(1);
+		expect(resolve([rec('Gaynor "Gay" Marie Hawks (1932-2017)')])).toHaveLength(1);
+	});
+
+	it('keeps the years each source states when the stone carries no dates', () => {
+		const bare = { born: null, died: null };
+		const out = resolve(
+			[rec('Gaynor Hawks (1932-2017)', 'A', 'a'), rec('Gaynor Hawks (1942-2020)', 'B', 'b')],
+			bare
+		);
+		expect(out.map((c) => [c.born, c.died]).sort()).toEqual([
+			['1932', '2017'],
+			['1942', '2020']
+		]);
+	});
+
+	it('does not report a birth year derived from an age that the stone cannot confirm', () => {
+		const bare = { born: null, died: null };
+		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')], bare);
+		expect([c.born, c.died]).toEqual([null, '2017']);
+	});
+
+	it('excludes a result whose day-first or numeric birth date conflicts', () => {
+		expect(resolve([rec('Gaynor Hawks, born 10 March 1940, died 2017.')])).toEqual([]);
+		expect(resolve([rec('Gaynor Hawks, born 03/10/1940, died 2017.')])).toEqual([]);
+		expect(resolve([rec('Gaynor Hawks, born 10-03-1940, died 2017.')])).toEqual([]);
+	});
+
+	it('reads day-first dates that agree with the stone', () => {
+		const [c] = resolve([rec('Gaynor Hawks, born 10 March 1932, died 27 December 2017.')]);
+		expect([c.confidence, c.born, c.died]).toEqual(['high', '1932', '2017']);
+	});
+
+	it('excludes a stone born later than the age and death year allow', () => {
+		const later = { born: '1933-01-01' };
+		expect(resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')], later)).toEqual([]);
+	});
+
+	it('accepts either birth year an age allows', () => {
+		const earlier = { born: '1931-06-01' };
+		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')], earlier);
+		expect([c.confidence, c.born]).toEqual(['high', '1931']);
+	});
+
+	it('separates an age-derived birth from a stated birth year outside its interval', () => {
+		const bare = { born: null, died: null };
+		const split = resolve(
+			[rec('Gaynor Hawks, age 85, died 2017', 'A', 'a'), rec('Gaynor Hawks (1933-2017)', 'B', 'b')],
+			bare
+		);
+		expect(split).toHaveLength(2);
+		const merged = resolve(
+			[rec('Gaynor Hawks, age 85, died 2017', 'A', 'a'), rec('Gaynor Hawks (1931-2017)', 'B', 'b')],
+			bare
+		);
+		expect(merged).toHaveLength(1);
+	});
 });

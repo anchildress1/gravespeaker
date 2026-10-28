@@ -4,7 +4,12 @@ const GATED =
 	/(^|\.)(ancestry|myheritage|findmypast)\.[a-z.]+$|(^|\.)(newspapers|genealogybank|newspaperarchive|fold3)\.com$/;
 
 const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
-const YEAR = '(1[5-9]\\d\\d|20\\d\\d)';
+const YEAR = String.raw`(1[5-9]\d\d|20\d\d)`;
+// Optional day or numeric date lead before a year: "10 March ", "March 10, ", "03/10/".
+const DATE_LEAD = String.raw`(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.?[,\s]+)?)?`;
+const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
+const NAME_WORDS_MAX = 4;
+const NAME_REACH = 60;
 const MAX_SOURCES = 5;
 const MAX_CANDIDATES = 3;
 // Words that make a page likely to be a record of a death, used to rank name-only results.
@@ -85,32 +90,87 @@ function nameParts(name: string): { given: string[]; surname: string } {
 }
 
 /**
- * Finds the first whole-word occurrence of a word.
+ * Finds every whole-word occurrence of a word.
  * @param text Folded text.
  * @param word Folded word.
- * @returns Index of the occurrence, or -1.
+ * @returns Indexes of the occurrences.
  */
-function wordAt(text: string, word: string): number {
-	if (!word) return -1;
-	const found = new RegExp(
-		`(?<![\\p{L}\\p{N}])${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\p{L}\\p{N}])`,
-		'u'
-	).exec(text);
-	return found ? found.index : -1;
+function wordIndexes(text: string, word: string): number[] {
+	if (!word) return [];
+	const escaped = word.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`);
+	const found = text.matchAll(
+		new RegExp(String.raw`(?<![\p{L}\p{N}])${escaped}(?![\p{L}\p{N}])`, 'gu')
+	);
+	return [...found].map((m) => m.index);
 }
 
 /**
- * Whether a year agrees with a stone year, where `?` matches any digit.
- * @param stone Stone year, possibly with `?` digits.
- * @param found Year the result states.
- * @param slack Years of tolerance, for years derived from an age.
- * @returns True when they can denote the same year.
+ * Splits text into words at whitespace and quotes.
+ * @param chunk Text to split.
+ * @param offset Index of the chunk within the full text.
+ * @returns Words with their index in the full text.
  */
-function yearAgrees(stone: string, found: number, slack = 0): boolean {
-	for (let y = found - slack; y <= found + slack; y++) {
-		if ([...stone].every((c, i) => c === '?' || c === String(y)[i])) return true;
+function wordsOf(chunk: string, offset: number): { word: string; index: number }[] {
+	return [...chunk.matchAll(/[^\s"“”]+/gu)].map((m) => ({ word: m[0], index: offset + m.index }));
+}
+
+/**
+ * Classifies a word as part of a personal name.
+ * @param word A word from the text.
+ * @returns The bare name, and whether trailing punctuation ends the name; null for other words.
+ */
+function namePart(word: string): { name: string; closes: boolean } | null {
+	const name = word.replace(/[.,]$/, '');
+	if (!NAME_WORD.test(name)) return null;
+	return { name, closes: name !== word && !(word.endsWith('.') && name.length === 1) };
+}
+
+/**
+ * Finds where the name phrase containing a surname starts, if a given name is in that phrase.
+ * @param text Folded text.
+ * @param given Folded given names of the stone.
+ * @param at Index of the surname occurrence.
+ * @param length Length of the surname.
+ * @returns Index where the phrase starts, or -1 when no given name sits in the same phrase.
+ */
+function phraseStart(text: string, given: string[], at: number, length: number): number {
+	if (!given.length) return at;
+	const from = Math.max(0, at - NAME_REACH);
+	let first = at;
+	let hit = false;
+	for (const w of wordsOf(text.slice(from, at), from).reverse().slice(0, NAME_WORDS_MAX)) {
+		const part = namePart(w.word);
+		if (!part || part.closes) break;
+		first = w.index;
+		hit ||= given.includes(part.name);
 	}
-	return false;
+	if (hit) return first;
+	// "Surname, Given" counts only when the surname opens its phrase; otherwise
+	// "Charles Hawks, Gaynor Jones" would pair Hawks with Gaynor.
+	if (first !== at || text[at + length] !== ',') return -1;
+	const next = at + length + 1;
+	for (const w of wordsOf(text.slice(next, next + NAME_REACH), next).slice(0, NAME_WORDS_MAX - 1)) {
+		const part = namePart(w.word);
+		if (!part) break;
+		if (given.includes(part.name)) return at;
+		if (part.closes) break;
+	}
+	return -1;
+}
+
+/**
+ * Lists the years a result allows that agree with a stone year, where `?` matches any digit.
+ * @param stone Stone year, possibly with `?` digits.
+ * @param found Latest year the result allows.
+ * @param slack Years the true year may lie before `found`, for years derived from an age.
+ * @returns Agreeing years; empty when none can denote the same year.
+ */
+function agreeingYears(stone: string, found: number, slack = 0): number[] {
+	const years: number[] = [];
+	for (let y = found - slack; y <= found; y++) {
+		if ([...stone].every((c, i) => c === '?' || c === String(y)[i])) years.push(y);
+	}
+	return years;
 }
 
 /**
@@ -120,7 +180,7 @@ function yearAgrees(stone: string, found: number, slack = 0): boolean {
  * @returns The year, or null.
  */
 function labelledYear(text: string, cue: string): number | null {
-	const found = new RegExp(`(?:${cue})[^.\\d]{0,40}?(?:\\d{1,2}[,\\s]+)?\\b${YEAR}\\b`).exec(text);
+	const found = new RegExp(String.raw`(?:${cue})[^.\d]{0,40}?${DATE_LEAD}\b${YEAR}\b`).exec(text);
 	return found ? +found[1] : null;
 }
 
@@ -133,13 +193,14 @@ function labelledYear(text: string, cue: string): number | null {
  */
 function compareYear(stone: string | null, found: number | null, slack: number): KeyState {
 	if (!stone || found === null) return 'none';
-	return yearAgrees(stone.slice(0, 4), found, slack) ? 'match' : 'conflict';
+	return agreeingYears(stone.slice(0, 4), found, slack).length ? 'match' : 'conflict';
 }
 
 /**
  * Reads the birth and death years a text states, by label, range or age.
  * @param text Folded text around the name.
- * @returns Stated years; `bornSlack` is 1 when the birth year was derived from an age.
+ * @returns Stated years; `bornSlack` is 1 when the birth year was derived from an age, which
+ *   puts the true year in [born - 1, born].
  */
 function statedYears(text: string): {
 	born: number | null;
@@ -149,19 +210,33 @@ function statedYears(text: string): {
 	let born: number | null = null;
 	let died: number | null = null;
 	let bornSlack = 0;
-	const range = new RegExp(`\\b${YEAR}\\s*(?:-|–|—|to)\\s*${YEAR}\\b`).exec(text);
+	const range = new RegExp(String.raw`\b${YEAR}\s*(?:-|–|—|to)\s*${YEAR}\b`).exec(text);
 	if (range && +range[2] >= +range[1]) {
 		born = +range[1];
 		died = +range[2];
 	}
-	born ??= labelledYear(text, '\\bborn\\b|\\bb\\.');
-	died ??= labelledYear(text, '\\bdied\\b|\\bd\\.|passed away|\\bdeceased\\b');
-	const age = /\bage[d]?\s+(\d{1,3})\b/.exec(text);
+	born ??= labelledYear(text, String.raw`\bborn\b|\bb\.`);
+	died ??= labelledYear(text, String.raw`\bdied\b|\bd\.|passed away|\bdeceased\b`);
+	const age = /\baged?\s+(\d{1,3})\b/.exec(text);
 	if (born === null && died !== null && age) {
 		born = died - +age[1];
 		bornSlack = 1;
 	}
 	return { born, died, bornSlack };
+}
+
+/**
+ * Picks the year to report for a year a result states.
+ * @param stone The stone's date for the same key, or null.
+ * @param found The year the result states, or null.
+ * @param slack Years the true year may lie before `found`, for years derived from an age.
+ * @returns The stated year; a derived year only when the stone singles out one year of it.
+ */
+function reportedYear(stone: string | null, found: number | null, slack: number): string | null {
+	if (found === null) return null;
+	if (slack === 0) return String(found);
+	const agreeing = stone ? agreeingYears(stone.slice(0, 4), found, slack) : [];
+	return agreeing.length === 1 ? String(agreeing[0]) : null;
 }
 
 /**
@@ -184,12 +259,15 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		stated: { born: null, died: null, slack: 0 }
 	};
 
-	// The surname, or the maiden name, must stand beside one of the given names.
-	const at = [surname, maiden].flatMap((s) => (s ? [wordAt(text, s)] : [])).filter((i) => i >= 0);
-	const givenAt = given.map((g) => wordAt(text, g)).filter((i) => i >= 0);
-	if (!at.length || (given.length > 0 && !givenAt.length)) return none;
+	// The surname, or the maiden name, must share one name phrase with a given name.
+	const starts = [surname, maiden]
+		.flatMap((n) =>
+			n ? wordIndexes(text, n).map((i) => phraseStart(text, given, i, n.length)) : []
+		)
+		.filter((i) => i >= 0);
+	if (!starts.length) return none;
 
-	const center = Math.min(...at, ...givenAt);
+	const center = Math.min(...starts);
 	const around = text.slice(Math.max(0, center - WINDOW_BEFORE), center + WINDOW_AFTER);
 	const stated = statedYears(around);
 
@@ -199,8 +277,8 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		name: true,
 		born,
 		died,
-		bornYear: born === 'match' ? String(stated.born) : null,
-		diedYear: died === 'match' ? String(stated.died) : null,
+		bornYear: reportedYear(inscription.born, stated.born, stated.bornSlack),
+		diedYear: reportedYear(inscription.died, stated.died, 0),
 		stated: { born: stated.born, died: stated.died, slack: stated.bornSlack }
 	};
 }
@@ -220,11 +298,12 @@ function rate(matched: number, available: number): Confidence {
  * Whether two stated years contradict each other.
  * @param x First year, or null when not stated.
  * @param y Second year, or null when not stated.
- * @param slack Years of tolerance.
- * @returns True only when both are stated and further apart than the slack.
+ * @param slackX Years the true first year may lie before `x`.
+ * @param slackY Years the true second year may lie before `y`.
+ * @returns True only when both are stated and their intervals do not overlap.
  */
-function yearsDiffer(x: number | null, y: number | null, slack: number): boolean {
-	return x !== null && y !== null && Math.abs(x - y) > slack;
+function yearsDiffer(x: number | null, y: number | null, slackX: number, slackY: number): boolean {
+	return x !== null && y !== null && (x - y > slackX || y - x > slackY);
 }
 
 /**
@@ -235,8 +314,8 @@ function yearsDiffer(x: number | null, y: number | null, slack: number): boolean
  */
 function sameDates(a: Evidence, b: Evidence): boolean {
 	return (
-		!yearsDiffer(a.stated.born, b.stated.born, a.stated.slack + b.stated.slack) &&
-		!yearsDiffer(a.stated.died, b.stated.died, 0)
+		!yearsDiffer(a.stated.born, b.stated.born, a.stated.slack, b.stated.slack) &&
+		!yearsDiffer(a.stated.died, b.stated.died, 0, 0)
 	);
 }
 
