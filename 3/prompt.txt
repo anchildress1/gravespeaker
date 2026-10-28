@@ -1,0 +1,34 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+gemma research documented
+gemma e2b finding recorded
+ocr runs logged
+ocr run three committed
+scorer reproduces every run
+benchmarks folder landed
+prompt runs documented
+tuning runs four seven
+extra people counted
+median latency scoring added
+stone extraction narrowed
+twelve headstones added
+twelve fixtures committed
+stone pool widened
+spec kit merged
+benchmark branch rebased
+mvp spec drafted
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+
+Closing message:
+File picker opened (no camera on desktop). Uploading the Hawks stone.
+Desktop read works (no "née" shown). Research found nothing for Hawks with the maiden name in the query, so I'm checking why.
+The maiden-name `OR` variant drags in unrelated hits and buries the real record, which the no-maiden query finds. Dropping it from the query (evidence-based change to research R5).
+Fix the stale task line, then rerun the desktop flow end to end.
+Desktop journey passes end to end. Final gate and cleanup.
