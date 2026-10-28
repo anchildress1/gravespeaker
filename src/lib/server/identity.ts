@@ -13,6 +13,12 @@ const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2}
 const LIFE_CUE = String.raw`\bborn\b|\bb\.|\bdied\b|\bd\.|passed away|\bdeceased\b`;
 // An initial ("b.", "d.", "C.") ends no sentence.
 const SENTENCE_END = /(?<!\b[a-z])\.\s/;
+// Descriptive words that can precede a name in a title: "Obituary for Hawks, Gaynor".
+const PREFIX_WORDS = new Set(
+	'obituary obituaries memorial grave cemetery funeral tribute notice remembering for of the in at and by a an'.split(
+		' '
+	)
+);
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
@@ -156,7 +162,7 @@ function phraseStart(text: string, given: string[], at: number, length: number):
 	let hit = false;
 	for (const w of wordsOf(text.slice(from, at), from).reverse().slice(0, NAME_WORDS_MAX)) {
 		const part = namePart(w.word);
-		if (!part || part.closes) break;
+		if (!part || part.closes || PREFIX_WORDS.has(part.name)) break;
 		first = w.index;
 		hit ||= isGiven(given, part.name);
 	}

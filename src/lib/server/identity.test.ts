@@ -140,6 +140,11 @@ describe('resolveMatches', () => {
 		expect(resolve([rec('J. Smith (1932–2017), a schoolteacher.')], initial)).toHaveLength(1);
 	});
 
+	it('matches a surname-first name that follows descriptive words', () => {
+		const [c] = resolve([rec('Obituary for Hawks, Gaynor (1932–2017).')]);
+		expect(c.confidence).toBe('high');
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
