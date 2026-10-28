@@ -1,6 +1,10 @@
+<div align="center">
+
 # 🪦 Gravespeaker
 
 [![CI](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml/badge.svg)](https://github.com/anchildress1/gravespeaker/actions/workflows/ci.yml) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=anchildress1_gravespeaker&metric=alert_status)](https://sonarcloud.io/project/overview?id=anchildress1_gravespeaker) [![License: Polyform Shield](https://img.shields.io/badge/license-Polyform%20Shield-blue)](LICENSE)
+
+</div>
 
 <p align="center">
 	<img src="https://repository-images.githubusercontent.com/1435917299/e2690f14-a937-44d9-985b-7bb07ad44e04" alt="Gravespeaker: a ghost in a top hat sits on a mossy headstone under a full moon. Some stories don't stay buried." width="640">
