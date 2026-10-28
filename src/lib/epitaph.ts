@@ -27,6 +27,16 @@ function phrase(date: string): string {
 }
 
 /**
+ * Phrases how long the person has been buried.
+ * @param years Whole years since death.
+ * @returns A first-person sentence.
+ */
+function tenure(years: number): string {
+	if (years < 1) return "I've been here less than a year.";
+	return `I've been here ${years} ${years === 1 ? 'year' : 'years'}.`;
+}
+
+/**
  * Builds the stone-only epitaph. No model involved.
  * @param inscription The person on the stone.
  * @param today Current date, injected for determinism.
@@ -46,11 +56,7 @@ export function epitaph(inscription: Inscription, today: Date): string[] {
 		) {
 			years -= 1;
 		}
-		sentences.push(
-			years < 1
-				? "I've been here less than a year."
-				: `I've been here ${years} ${years === 1 ? 'year' : 'years'}.`
-		);
+		sentences.push(tenure(years));
 	}
 	return sentences;
 }

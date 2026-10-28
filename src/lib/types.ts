@@ -1,7 +1,4 @@
-/** `YYYY` or `YYYY-MM-DD`, each digit `0-9` or `?`. */
-export type PartialDate = string;
-
-/** Matches a {@link PartialDate}. */
+/** Matches `YYYY` or `YYYY-MM-DD`, each digit `0-9` or `?`. */
 export const PARTIAL_DATE = /^[0-9?]{4}(-[0-9?]{2}-[0-9?]{2})?$/;
 
 /** One person read from a headstone, after normalization. */
@@ -9,8 +6,8 @@ export interface Inscription {
 	carvedName: string;
 	name: string;
 	maidenName: string | null;
-	born: PartialDate | null;
-	died: PartialDate | null;
+	born: string | null;
+	died: string | null;
 }
 
 /** A search hit. */
@@ -25,8 +22,8 @@ export interface SourceRecord {
 /** One hypothesized person with the records that support it. */
 export interface Candidate {
 	name: string;
-	born: PartialDate | null;
-	died: PartialDate | null;
+	born: string | null;
+	died: string | null;
 	place: string | null;
 	sources: SourceRecord[];
 }

@@ -3,7 +3,7 @@ import type { Inscription } from '#lib/types.ts';
 import type { RawPerson } from './inference/index.ts';
 
 const HONORIFIC = /^(?:mr|mrs|miss|dr)\.?(?=\s)/i;
-const MAIDEN = /\s*\b(?:née|nee)\s+(\S+)/iu;
+const MAIDEN = /\b(?:née|nee)\s+(\S+)/iu;
 
 /**
  * Keeps a date only if it is `YYYY` or `YYYY-MM-DD` with `?` for unreadable digits.

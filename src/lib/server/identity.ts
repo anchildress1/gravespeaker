@@ -57,6 +57,59 @@ export function dropGated(records: SourceRecord[]): SourceRecord[] {
 }
 
 /**
+ * Keeps a date only if it matches the partial-date format.
+ * @param value Date as the model returned it.
+ * @returns The date, or null.
+ */
+function validDate(value: string | null | undefined): string | null {
+	return value && PARTIAL_DATE.test(value) ? value : null;
+}
+
+/**
+ * Counts how many candidate groups claim each record.
+ * @param groups Record ids per candidate.
+ * @returns Claim count by record id.
+ */
+function countClaims(groups: { ids: string[] }[]): Map<string, number> {
+	const claims = new Map<string, number>();
+	for (const { ids } of groups) for (const id of ids) claims.set(id, (claims.get(id) ?? 0) + 1);
+	return claims;
+}
+
+/**
+ * Accepts a candidate group that has exclusive sources, a legible name, and agreeing years.
+ * @param inscription The stone's person.
+ * @param c Candidate group the model returned.
+ * @param sources Records only this group claims.
+ * @returns The scored candidate, or null when rejected.
+ */
+function accept(
+	inscription: Inscription,
+	c: RawCandidate,
+	sources: SourceRecord[]
+): { candidate: Candidate; score: number } | null {
+	const born = validDate(c.born);
+	const died = validDate(c.died);
+	if (!sources.length || !/\p{L}/u.test(c.name)) return null;
+	if (!yearsAgree(year(born), year(inscription.born))) return null;
+	if (!yearsAgree(year(died), year(inscription.died))) return null;
+	const text = sources.map((r) => `${r.title} ${r.snippet}`).join(' ');
+	return {
+		candidate: {
+			name: c.name.trim(),
+			born: stated(born, text),
+			died: stated(died, text),
+			place: c.place?.trim() || null,
+			sources
+		},
+		score:
+			Number(c.name.trim().toLowerCase() === inscription.name.toLowerCase()) +
+			Number(!!year(born) && !!year(inscription.born)) +
+			Number(!!year(died) && !!year(inscription.died))
+	};
+}
+
+/**
  * Applies the deterministic identity rules to the model's candidate groups.
  * @param inscription The stone's person.
  * @param records Search hits the model saw.
@@ -79,34 +132,15 @@ export function resolveCandidates(
 		c,
 		ids: [...new Set(c.resultIds)].filter((id) => byId.has(id))
 	}));
-	const claims = new Map<string, number>();
-	for (const { ids } of grouped) for (const id of ids) claims.set(id, (claims.get(id) ?? 0) + 1);
+	const claims = countClaims(grouped);
 
-	const scored: { candidate: Candidate; score: number }[] = [];
-	for (const { c, ids } of grouped) {
+	const scored = grouped.flatMap(({ c, ids }) => {
 		const sources = ids.filter((id) => claims.get(id) === 1).map((id) => byId.get(id)!);
-		const born = c.born && PARTIAL_DATE.test(c.born) ? c.born : null;
-		const died = c.died && PARTIAL_DATE.test(c.died) ? c.died : null;
-		const text = sources.map((r) => `${r.title} ${r.snippet}`).join(' ');
-		if (!sources.length || !/\p{L}/u.test(c.name)) continue;
-		if (!yearsAgree(year(born), year(inscription.born))) continue;
-		if (!yearsAgree(year(died), year(inscription.died))) continue;
-		scored.push({
-			candidate: {
-				name: c.name.trim(),
-				born: stated(born, text),
-				died: stated(died, text),
-				place: c.place?.trim() || null,
-				sources
-			},
-			score:
-				Number(c.name.trim().toLowerCase() === inscription.name.toLowerCase()) +
-				Number(!!year(born) && !!year(inscription.born)) +
-				Number(!!year(died) && !!year(inscription.died))
-		});
-	}
+		const result = accept(inscription, c, sources);
+		return result ? [result] : [];
+	});
 	return scored
-		.sort((a, b) => b.score - a.score)
+		.toSorted((a, b) => b.score - a.score)
 		.slice(0, MAX_CANDIDATES)
 		.map((s) => s.candidate);
 }
