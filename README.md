@@ -100,34 +100,6 @@ Only two seams exist: model inference (`src/lib/server/inference/`) and record s
 
 ---
 
-title: Gravespeaker request flow
-config:
-theme: default
----
-
-flowchart LR
-accTitle: Gravespeaker request flow
-accDescr: The browser calls three stateless endpoints. Each endpoint uses the model or search seam, and deterministic code validates every result.
-
-B[Browser page] -->|photo| R["/api/read"]
-B -->|inscription| S["/api/research"]
-B -->|confirmed candidate| T["/api/story"]
-
-R --> M[(Gemma 4 via Mastra)]
-R --> N[Normalize names and dates]
-S --> G[SerpApi search]
-S --> M
-S --> I[Identity rules]
-T --> P[Page fetch with SSRF guard]
-T --> M
-T --> Q[Citation and quote check]
-
-````
-
-Only two seams exist: model inference (`src/lib/server/inference/`) and record search (`src/lib/server/search/`), one implementation each.
-
----
-
 ## Project Structure
 
 ```text
@@ -156,7 +128,7 @@ benchmarks/                 # Reading, search and end-to-end runs, scorer and sa
 docs/                       # PRD and benchmark write-ups
 fixtures/                   # Reviewed headstone photos and answer key
 specs/001-mvp-journey/      # Spec, plan and tasks
-````
+```
 
 ---
 
