@@ -2,43 +2,13 @@ import { serpApiKey } from '../env.ts';
 import { ProviderError } from '../http.ts';
 import type { SourceRecord } from '#lib/types.ts';
 import type { SearchProvider } from './index.ts';
+import { ENGINES, type Engine } from './engines.ts';
+import { canonicalUrl } from './url.ts';
 
 interface OrganicResult {
 	link?: string;
 	title?: string;
 	snippet?: string;
-}
-
-interface Engine {
-	engine: string;
-	/** SerpApi names the query parameter differently per engine. */
-	queryParam: string;
-	extra?: Record<string, string>;
-}
-
-/** Engines that return organic results as link, title and snippet. Order sets the result order. */
-const ENGINES: Engine[] = [
-	{ engine: 'google', queryParam: 'q', extra: { num: '10', gl: 'us', hl: 'en' } },
-	{ engine: 'bing', queryParam: 'q' },
-	{ engine: 'yahoo', queryParam: 'p' },
-	{ engine: 'duckduckgo', queryParam: 'q' },
-	{ engine: 'yandex', queryParam: 'text' }
-];
-
-/**
- * Reduces a URL to a key shared by duplicates: no scheme, "www.", locale subdomain, query or hash.
- * @param link A result link.
- * @returns The dedupe key, or null when the link is not a web URL.
- */
-export function canonicalUrl(link: string): string | null {
-	const url = URL.parse(link);
-	if (!url || !/^https?:$/.test(url.protocol)) return null;
-	const host = url.hostname.toLowerCase().replace(/^www\./, '');
-	// Find a Grave serves one memorial under many locale subdomains and slugs.
-	const memorial =
-		/^([a-z]{2}\.)?findagrave\.com$/.exec(host) && /\/memorial\/(\d+)/.exec(url.pathname);
-	if (memorial) return `findagrave.com/memorial/${memorial[2]}`;
-	return `${host}${url.pathname.replace(/\/+$/, '')}`;
 }
 
 /**

@@ -43,6 +43,11 @@ describe('buildQuery', () => {
 		);
 	});
 
+	it('leaves a quoted nickname out of the exact-name query', () => {
+		const nick = stone({ name: 'Corwin "Cory" Garner Chambers' });
+		expect(buildQuery(nick)).toContain('"Corwin Garner Chambers"');
+	});
+
 	it('ignores the maiden name', () => {
 		expect(buildQuery(stone({ maidenName: 'Staples' }))).toBe(buildQuery(stone()));
 	});
@@ -242,5 +247,13 @@ describe('resolveMatches', () => {
 			rec(`John Smith (${y}-2020)`, 'R', `s${i}`)
 		);
 		expect(resolve(many, worn)).toHaveLength(3);
+	});
+
+	it('accepts a quoted nickname as a given name', () => {
+		const nick = {
+			name: 'Corwin "Cory" Garner Chambers',
+			carvedName: 'Corwin "Cory" Garner Chambers'
+		};
+		expect(resolve([rec('Cory Chambers (1932-2017) obituary')], nick)).toHaveLength(1);
 	});
 });

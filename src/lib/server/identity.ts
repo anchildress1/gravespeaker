@@ -37,7 +37,12 @@ export function buildQuery(inscription: Inscription): string {
 		.map((d) => (d ? d.slice(0, 4) : null))
 		.filter((y): y is string => y !== null && !y.includes('?'));
 	// A maiden-name OR variant pulled in unrelated hits and buried the real record in live searches.
-	return [`"${inscription.name}"`, ...years, '(obituary OR grave OR cemetery)'].join(' ');
+	// A quoted nickname would break the exact-name quoting; the matcher still uses it.
+	const name = inscription.name
+		.replace(/["“”][^"“”]*["“”]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	return [`"${name}"`, ...years, '(obituary OR grave OR cemetery)'].join(' ');
 }
 
 /**
@@ -69,7 +74,11 @@ function fold(text: string): string {
  * @returns Folded given-name tokens and surname.
  */
 function nameParts(name: string): { given: string[]; surname: string } {
-	const parts = fold(name).replace(/[.,]/g, ' ').split(/\s+/).filter(Boolean);
+	// A quoted nickname (Corwin "Cory" Chambers) is another given name a record may use.
+	const parts = fold(name)
+		.replace(/[.,"“”]/g, ' ')
+		.split(/\s+/)
+		.filter(Boolean);
 	while (parts.length > 1 && NAME_SUFFIXES.has(parts.at(-1)!)) parts.pop();
 	const surname = parts.pop() ?? '';
 	return { given: parts.filter((p) => p.length >= 2), surname };

@@ -3,7 +3,8 @@ import { ProviderError } from '../http';
 
 vi.mock('../env', () => ({ geminiApiKey: () => 'test', serpApiKey: () => 'test' }));
 
-const { SerpApiProvider, canonicalUrl } = await import('./serpapi');
+const { SerpApiProvider } = await import('./serpapi');
+const { canonicalUrl } = await import('./url');
 
 /**
  * Stubs SerpApi per engine.
