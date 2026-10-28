@@ -70,7 +70,7 @@ const RELATIVE_WORDS =
 // Each letter-case spelling is listed, because a case-insensitive flag would also let \p{Lu} match lowercase.
 const RELATIVE = RELATIVE_WORDS.map((w) => `[${w[0].toUpperCase()}${w[0]}]${w.slice(1)}`).join('|');
 const NAMED_RELATIVE = new RegExp(
-	String.raw`\b(?:${RELATIVE})\b[^.,;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:[Hh]er|[Hh]is|[Tt]heir)\s+(?:${RELATIVE})\b`,
+	String.raw`\b(?:${RELATIVE})\b[^.;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:[Hh]er|[Hh]is|[Tt]heir)\s+(?:${RELATIVE})\b`,
 	'u'
 );
 const NAMED_RELATIVE_CASE = /\p{Lu}\p{Ll}/u;
@@ -89,6 +89,16 @@ function norm(s: string): string {
 		.toLowerCase()
 		.replace(/[^\p{L}\p{N}]+/gu, ' ')
 		.trim();
+}
+
+/**
+ * Tells whether normalized text holds a phrase as whole words, so "married" is not found in "unmarried".
+ * @param text Normalized text.
+ * @param phrase Normalized phrase.
+ * @returns True when the phrase appears with a word boundary at both ends.
+ */
+function containsPhrase(text: string, phrase: string): boolean {
+	return ` ${text} `.includes(` ${phrase} `);
 }
 
 /**
@@ -163,7 +173,8 @@ export function verifyFacts(
 	const seen = new Set<string>();
 	return raw.filter((f) => {
 		const quote = norm(f.quote ?? '');
-		if (!quote || !known.has(f.sourceId) || !text.get(f.sourceId)?.includes(quote)) return false;
+		if (!quote || !known.has(f.sourceId) || !containsPhrase(text.get(f.sourceId) ?? '', quote))
+			return false;
 		if (SURVIVORS.test(f.quote) || namesSurvivor(f.quote)) return false;
 		if (seen.has(quote)) return false;
 		seen.add(quote);

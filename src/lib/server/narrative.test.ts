@@ -117,15 +117,23 @@ describe('verifyFacts', () => {
 		expect(verifyFacts(candidate, pages, [fact({ sourceId: 's2' })])).toEqual([]);
 	});
 
-	it.each(['her husband John', 'John, her husband', 'survived by two sons, Mark and Paul'])(
-		'drops a quote that names a relative: %s',
-		(quote) => {
-			const text = [
-				{ sourceId: 's1', text: `Gaynor taught piano. Services: ${quote}, and friends.` }
-			];
-			expect(verifyFacts(candidate, text, [fact({ quote })])).toEqual([]);
-		}
-	);
+	it.each([
+		'her husband John',
+		'John, her husband',
+		'her wife, Jane',
+		'survived by two sons, Mark and Paul'
+	])('drops a quote that names a relative: %s', (quote) => {
+		const text = [
+			{ sourceId: 's1', text: `Gaynor taught piano. Services: ${quote}, and friends.` }
+		];
+		expect(verifyFacts(candidate, text, [fact({ quote })])).toEqual([]);
+	});
+
+	it('drops a quote that matches only part of a source word', () => {
+		const text = [{ sourceId: 's1', text: 'Gaynor Hawks remained unmarried.' }];
+		expect(verifyFacts(candidate, text, [fact({ quote: 'married' })])).toEqual([]);
+		expect(verifyFacts(candidate, text, [fact({ quote: 'remained unmarried' })])).toHaveLength(1);
+	});
 
 	it('keeps a quote about an unnamed relative', () => {
 		const quote = 'She married her husband in 1956';
