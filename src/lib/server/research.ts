@@ -72,9 +72,10 @@ const resolveStep = createStep({
 	id: 'resolve',
 	inputSchema: withRecords.extend({ raw: rawSchema }),
 	outputSchema: z.object({ candidates: z.array(candidateSchema) }),
-	execute: async ({ inputData }) => ({
-		candidates: resolveCandidates(inputData.inscription, inputData.records, inputData.raw)
-	})
+	execute: ({ inputData }) =>
+		Promise.resolve({
+			candidates: resolveCandidates(inputData.inscription, inputData.records, inputData.raw)
+		})
 });
 
 const researchWorkflow = createWorkflow({
@@ -84,7 +85,7 @@ const researchWorkflow = createWorkflow({
 })
 	.then(searchStep)
 	.then(groupStep)
-	.then(resolveStep)
+	.then(resolveStep) // NOSONAR: Mastra builder .then(), not a Promise
 	.commit();
 
 /**

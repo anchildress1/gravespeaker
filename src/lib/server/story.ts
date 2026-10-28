@@ -77,14 +77,16 @@ const groundStep = createStep({
 	id: 'ground',
 	inputSchema: withRaw,
 	outputSchema: storySchema,
-	execute: async ({ inputData }) =>
-		groundStory(inputData.inscription, inputData.candidate, inputData.pages, inputData.raw)
+	execute: ({ inputData }) =>
+		Promise.resolve(
+			groundStory(inputData.inscription, inputData.candidate, inputData.pages, inputData.raw)
+		)
 });
 
 const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: storySchema })
 	.then(fetchStep)
 	.then(tellStep)
-	.then(groundStep)
+	.then(groundStep) // NOSONAR: Mastra builder .then(), not a Promise
 	.commit();
 
 /**
