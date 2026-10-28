@@ -121,6 +121,8 @@ describe('verifyFacts', () => {
 		'her husband John',
 		'John, her husband',
 		'her wife, Jane',
+		'her husband JOHN',
+		'JOHN, HER HUSBAND',
 		'survived by two sons, Mark and Paul'
 	])('drops a quote that names a relative: %s', (quote) => {
 		const text = [

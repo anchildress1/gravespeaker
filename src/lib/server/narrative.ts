@@ -68,12 +68,22 @@ const RELATIVE_WORDS =
 		' '
 	);
 // Each letter-case spelling is listed, because a case-insensitive flag would also let \p{Lu} match lowercase.
-const RELATIVE = RELATIVE_WORDS.map((w) => `[${w[0].toUpperCase()}${w[0]}]${w.slice(1)}`).join('|');
+/**
+ * Builds a regex alternation of each word in lower, capitalized and upper case.
+ * @param words Lowercase words.
+ * @returns The alternation source, without a group.
+ */
+const spellings = (words: string[]): string =>
+	words.flatMap((w) => [w, w[0].toUpperCase() + w.slice(1), w.toUpperCase()]).join('|');
+const RELATIVE = spellings(RELATIVE_WORDS);
+const POSSESSIVE = spellings(['her', 'his', 'their']);
+// A name is a capital followed by letters in any case, so JOHN and John both count.
+const NAME = String.raw`\p{Lu}[\p{L}'’-]+`;
 const NAMED_RELATIVE = new RegExp(
-	String.raw`\b(?:${RELATIVE})\b[^.;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:[Hh]er|[Hh]is|[Tt]heir)\s+(?:${RELATIVE})\b`,
+	String.raw`\b(?:${RELATIVE})\b[^.;]{0,12}?${NAME}|${NAME},?\s+(?:${POSSESSIVE})\s+(?:${RELATIVE})\b`,
 	'u'
 );
-const NAMED_RELATIVE_CASE = /\p{Lu}\p{Ll}/u;
+const NAMED_RELATIVE_CASE = /\p{Lu}/u;
 const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
 
 /** A fact whose quote was found verbatim in a cited source. */
