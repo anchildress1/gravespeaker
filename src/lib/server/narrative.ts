@@ -84,6 +84,7 @@ const NAMED_RELATIVE = new RegExp(
 	'u'
 );
 const NAMED_RELATIVE_CASE = /\p{Lu}/u;
+const MONTH_WORD = new RegExp(String.raw`\b(?:${[...MONTHS].join('|')})\b`, 'giu');
 const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
 
 /** A fact whose quote was found verbatim in a cited source. */
@@ -117,7 +118,9 @@ function containsPhrase(text: string, phrase: string): boolean {
  * @returns True for "her husband John" style quotes, unless the quote says the relative died first.
  */
 function namesSurvivor(quote: string): boolean {
-	return NAMED_RELATIVE_CASE.test(quote) && NAMED_RELATIVE.test(quote) && !PREDECEASED.test(quote);
+	// "May" and "March" are capitalized words that are not names.
+	const bare = quote.replace(MONTH_WORD, ' ');
+	return NAMED_RELATIVE_CASE.test(bare) && NAMED_RELATIVE.test(bare) && !PREDECEASED.test(bare);
 }
 
 /**
@@ -153,17 +156,32 @@ function topicStems(text: string): string[] {
 }
 
 /**
- * Lists the words a fact is matched on: its topic stems, or its content words when it has no long ones.
+ * Tells whether a word carries no biography of its own: a month, a number, a function word, or
+ * wording that introduces a life date.
+ * @param word Normalized word.
+ * @returns True for filler.
+ */
+function isFiller(word: string): boolean {
+	return (
+		MONTHS.has(word) ||
+		/^\d+$/.test(word) ||
+		FUNCTION_WORDS.has(word) ||
+		LIFE_MARKERS.has(word) ||
+		ORDINAL.test(word)
+	);
+}
+
+/**
+ * Lists the words a fact is matched on: the topic stems of its content words, or the content words
+ * themselves when none is long. Filler is left out, so "born March 10, 1932 in Alsea" is matched on
+ * Alsea alone.
  * @param text Normalized fact quote.
  * @returns Stems to look for in the story.
  */
 function factTerms(text: string): string[] {
-	const stems = topicStems(text);
-	if (stems.length > 0) return stems;
-	return text
-		.split(' ')
-		.filter((w) => w && !FUNCTION_WORDS.has(w))
-		.map(canon);
+	const words = text.split(' ').filter((w) => w && !isFiller(w));
+	const stems = topicStems(words.join(' '));
+	return stems.length > 0 ? stems : words.map(canon);
 }
 
 /**
@@ -222,15 +240,7 @@ export function hasEvidence(
 	return facts.some((f) =>
 		norm(f.quote)
 			.split(' ')
-			.some(
-				(t) =>
-					!names.has(t) &&
-					!MONTHS.has(t) &&
-					!/^\d+$/.test(t) &&
-					!FUNCTION_WORDS.has(t) &&
-					!LIFE_MARKERS.has(t) &&
-					!ORDINAL.test(t)
-			)
+			.some((t) => !names.has(t) && !isFiller(t))
 	);
 }
 

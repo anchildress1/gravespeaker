@@ -87,6 +87,12 @@ describe('hasEvidence', () => {
 });
 
 describe('groundParagraph', () => {
+	it('needs the substance of a birth quote in the story, not only its month', () => {
+		const facts = [fact({ claim: 'birth', quote: 'born March 10, 1932 in Alsea' })];
+		expect(told('I was born in March.', facts)).toBeNull();
+		expect(told('I was born in Alsea.', facts)).toContain('Alsea');
+	});
+
 	it.each([
 		['taught piano for 24 years', 'I taught piano for twenty-four years.'],
 		['taught piano for twenty-four years', 'I taught piano for 24 years.']
@@ -135,6 +141,12 @@ describe('verifyFacts', () => {
 		const text = [{ sourceId: 's1', text: 'Gaynor Hawks remained unmarried.' }];
 		expect(verifyFacts(candidate, text, [fact({ quote: 'married' })])).toEqual([]);
 		expect(verifyFacts(candidate, text, [fact({ quote: 'remained unmarried' })])).toHaveLength(1);
+	});
+
+	it('keeps a quote about an unnamed relative that has a month in it', () => {
+		const quote = 'She married her husband in May 1956';
+		const text = [{ sourceId: 's1', text: `Gaynor taught piano. ${quote}.` }];
+		expect(verifyFacts(candidate, text, [fact({ quote })])).toHaveLength(1);
 	});
 
 	it('keeps a quote about an unnamed relative', () => {
