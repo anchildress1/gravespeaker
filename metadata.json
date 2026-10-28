@@ -3,7 +3,7 @@
   "checkpoint_id": "01M5ZY5W8BXB53S7T5SPHBJ4GX",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 17,
+  "checkpoints_count": 18,
   "files_touched": [
     "Dockerfile",
     "package.json",
@@ -60,22 +60,29 @@
       "compact_transcript": "/6/transcript.jsonl",
       "content_hash": "/6/content_hash.txt",
       "prompt": "/6/prompt.txt"
+    },
+    {
+      "metadata": "/7/metadata.json",
+      "transcript": "/7/full.jsonl",
+      "compact_transcript": "/7/transcript.jsonl",
+      "content_hash": "/7/content_hash.txt",
+      "prompt": "/7/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 14,
-    "cache_creation_tokens": 233258,
-    "cache_read_tokens": 388854,
-    "output_tokens": 2592,
-    "api_call_count": 7
+    "input_tokens": 16,
+    "cache_creation_tokens": 273300,
+    "cache_read_tokens": 403048,
+    "output_tokens": 2954,
+    "api_call_count": 8
   },
   "redaction": {
-    "replacements": 74,
+    "replacements": 77,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 46,
+      "credential_value": 49,
       "credentialed_uri": 0,
       "entropy": 267,
       "key_context": 0,
