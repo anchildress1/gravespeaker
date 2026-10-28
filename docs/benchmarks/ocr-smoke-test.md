@@ -165,6 +165,21 @@ The app's own instructions and schema ([`run10.json`](../../benchmarks/prompts/r
 - **Ellis 1818 → 1848** is the only miss, the same worn digit as every run.
 - Targets from the spec hold: at least 57/58 fields, no people on the illegible stone, median under 6 s.
 
+## Run 11: companion stones
+
+Run 10's prompt plus one rule: a surname carved once on a stone shared by two people belongs to both ([`run11.json`](../../benchmarks/prompts/run11.json)). The rule's example uses made-up names, so it doesn't leak the answer. The pool is the 20 earlier stones plus `holmquist-2024`, the companion stone cut after run 1, now human-reviewed. Raw output: [`run11-hosted-26b.json`](../../benchmarks/results/run11-hosted-26b.json).
+
+| Metric                | gemma-4-26b-a4b-it |
+| --------------------- | ------------------ |
+| Fields correct        | 63/64 (98%)        |
+| Extra people          | 0                  |
+| Errors                | 0                  |
+| Median time per photo | 3.8 s              |
+
+- **Holmquist (6/6):** "Marsha Fox Holmquist" and "Charles Ray Holmquist", with Marsha's death date left `null` because none is carved for her. Runs 1 and 2 dropped the shared surname.
+- **The other 20 stones:** unchanged from run 10 (57/58, only Ellis 1818 → 1848 misses).
+- **Last tuning run.** Further prompt changes are tested in the app, not with new benchmark runs.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.
