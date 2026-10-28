@@ -3,7 +3,7 @@
   "checkpoint_id": "01M5ZY802718XR67YN3NRV2H62",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 18,
+  "checkpoints_count": 19,
   "files_touched": [
     "src/routes/+page.svelte",
     "src/routes/journey.e2e.ts"
@@ -64,6 +64,13 @@
       "compact_transcript": "/7/transcript.jsonl",
       "content_hash": "/7/content_hash.txt",
       "prompt": "/7/prompt.txt"
+    },
+    {
+      "metadata": "/8/metadata.json",
+      "transcript": "/8/full.jsonl",
+      "compact_transcript": "/8/transcript.jsonl",
+      "content_hash": "/8/content_hash.txt",
+      "prompt": "/8/prompt.txt"
     }
   ],
   "token_usage": {
@@ -74,12 +81,12 @@
     "api_call_count": 2
   },
   "redaction": {
-    "replacements": 84,
+    "replacements": 87,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 49,
+      "credential_value": 52,
       "credentialed_uri": 0,
       "entropy": 274,
       "key_context": 0,

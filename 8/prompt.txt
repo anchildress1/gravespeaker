@@ -1,0 +1,53 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+scorer reproduces every run
+benchmarks folder landed
+prompt runs documented
+tuning runs four seven
+extra people counted
+median latency scoring added
+stone extraction narrowed
+twelve headstones added
+twelve fixtures committed
+stone pool widened
+spec kit merged
+benchmark branch rebased
+mvp spec drafted
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+
+Closing message:
+width, and the epitaph is built in code with no model.
+- FR-020 (images never stored) is built (images stay in memory), but no test covers it.
+- Success criteria:
+  - SC-001 to SC-003 are measured in run 10: 57/58 fields, the illegible stone returns no people, and the median is 5.1 s.
+  - SC-004 and SC-005 are enforced in code and tests.
+  - SC-006 is the open phone run above.
+
+## Tests added this pass
+- **Errors:** grouping failure with real search hits returns 502. A non-provider error is rethrown instead of being reported as a provider failure. A missing API key throws a clear message. A non-multipart body returns 400.
+- **Negatives and edges:**
+  - Search hits that never mention the surname are dropped.
+  - A story quote missing from the fetched text is dropped.
+  - Page fetch falls back to the search snippet.
+  - A redirect to another public page is followed.
+  - HEIC uploads are accepted.
+- **e2e:** a photo over 10 MB is rejected in the browser with no upload. A non-JSON 413 shows the too-large message. A network failure shows a message and retries.
+
+## Coverage
+Overall coverage reads 72.5%, under the 80% target, which is not a gate. That figure counts the e2e file and `src/env.ts`, which unit tests can't reach. The server logic modules run 91–100%, apart from `env.ts` (0%) and `pages.ts` (91%). `env.ts` is exercised by the new env test, but the test mocks the module it imports from, so the coverage report doesn't count it.
+Coverage now measures app logic only: 97.4% statements, 92.5% branches, 94.2% functions and 98.5% lines, up from 72.5% statements. `make ai-checks` passes.
+
+I added an `exclude` to the coverage block in `vite.config.ts`. It leaves out `**/*.test.ts`, `**/*.spec.ts`, `**/*.e2e.ts`, `src/app.d.ts` and `src/env.ts`. The last is SvelteKit's env declaration, which has no logic. Nothing counts toward a threshold and no gate was added.
+
+The lowest file is `pages.ts` at 91% statements. Its uncovered lines (62, 72, 84, 127) are error-path guards.
