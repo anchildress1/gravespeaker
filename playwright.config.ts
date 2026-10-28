@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
 	testMatch: '**/*.e2e.ts',
+	testIgnore: '**/.worktrees/**',
 	forbidOnly: !!process.env.CI,
 	reporter: process.env.CI ? 'html' : 'list',
 	use: { baseURL: 'http://localhost:4173' },

@@ -20,7 +20,9 @@ export default defineConfig({
 		coverage: {
 			provider: 'v8',
 			reporter: ['text', 'lcov'],
-			include: ['src/**/*.ts', 'scripts/**/*.ts']
+			include: ['src/**/*.ts', 'scripts/**/*.ts'],
+			// Tests, Playwright specs, ambient types and SvelteKit's env declaration hold no app logic.
+			exclude: ['**/*.test.ts', '**/*.spec.ts', '**/*.e2e.ts', 'src/app.d.ts', 'src/env.ts']
 		}
 	}
 });

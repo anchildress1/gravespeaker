@@ -1,6 +1,7 @@
 // Usage: node benchmarks/run.ts <prompt.json> <out.json> <model...>
 // Hosted model names go to the Gemini API; `ollama:<name>` runs locally.
 import { readFile, writeFile } from 'node:fs/promises';
+import { normalizeInscriptions } from '../src/lib/server/inscription.ts';
 
 interface Prompt {
 	system?: string;
@@ -16,6 +17,8 @@ interface Row {
 	model: string;
 	ms: number;
 	got?: unknown;
+	// The app's deterministic layer applied to `got.people` (run 10 onward).
+	normalized?: unknown;
 	error?: string;
 	raw?: string;
 }
@@ -75,6 +78,7 @@ async function hosted(model: string, img: string): Promise<string> {
  */
 async function ollama(model: string, img: string): Promise<string> {
 	const { temperature, topP, topK } = P.sampling;
+	// nosemgrep: typescript.react.security.react-insecure-request.react-insecure-request -- Ollama listens on loopback only.
 	const res = await fetch('http://127.0.0.1:11434/api/chat', {
 		method: 'POST',
 		headers: { 'content-type': 'application/json' },
@@ -111,7 +115,13 @@ const manifest: { file: string }[] = JSON.parse(
 );
 const results: Row[] = [];
 for (const { file } of manifest) {
-	const img = (await readFile(new URL(file, fixturesDir))).toString('base64');
+	// A fixture photo can be kept local-only; skip it instead of failing the whole run.
+	const image = await readFile(new URL(file, fixturesDir)).catch(() => null);
+	if (!image) {
+		console.error(`${file.padEnd(24)} skipped: image not found`);
+		continue;
+	}
+	const img = image.toString('base64');
 	for (const model of models) {
 		const t0 = performance.now();
 		const row: Row = { file, model, ms: 0 };
@@ -121,6 +131,8 @@ for (const { file } of manifest) {
 				? await ollama(model.slice(7), img)
 				: await hosted(model, img);
 			row.got = parse(raw);
+			const people = (row.got as { people?: Parameters<typeof normalizeInscriptions>[0] }).people;
+			if (Array.isArray(people)) row.normalized = normalizeInscriptions(people);
 		} catch (e) {
 			const err = e as Error;
 			row.error = err.name === 'SyntaxError' ? 'unparseable JSON' : `${err.name}: ${err.message}`;

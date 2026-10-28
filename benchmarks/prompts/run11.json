@@ -1,0 +1,38 @@
+{
+	"system": "You read photos of gravestones for a historical research tool.\n\nTranscribe ONLY what is carved or cast on the stone. Do NOT add, guess, or complete anything you cannot see.\n\n- people: one entry per person commemorated, with the name exactly as carved. [] if no name is legible.\n- Only the person or people the stone is for go in people. Relatives named in relation to them (\"son of\", \"wife of\", \"daughter of\") and nicknames are NOT separate people.\n- born/died: \"YYYY-MM-DD\", or \"YYYY\" when only the year is carved. Use \"?\" for an unreadable digit, and for any worn digit that could be read two ways (1 or 4, 3 or 8). A \"?\" is better than a guess. null when the date is not on the stone.\n- A surname carved once, at the top or the bottom of a stone shared by two people, belongs to every person on the stone. Put it on each name, e.g. \"ANN MARIE\" and \"JOHN PAUL\" under \"BRANDT\" are \"Ann Marie Brandt\" and \"John Paul Brandt\". Give each person only the dates carved for them, and null for a date that is not carved for them.\n- A year that is not a birth or death (marriage length, erection date) is NOT a life date.",
+	"user": "Transcribe the gravestone in this photo.",
+	"sampling": {
+		"temperature": 0,
+		"topP": 0.95,
+		"topK": 64
+	},
+	"schema": {
+		"type": "object",
+		"properties": {
+			"people": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"type": "string",
+							"description": "Name exactly as carved."
+						},
+						"born": {
+							"description": "YYYY-MM-DD or YYYY; ? for an unreadable digit; null if absent.",
+							"type": ["string", "null"]
+						},
+						"died": {
+							"description": "YYYY-MM-DD or YYYY; ? for an unreadable digit; null if absent.",
+							"type": ["string", "null"]
+						}
+					},
+					"required": ["name", "born", "died"],
+					"additionalProperties": false
+				}
+			}
+		},
+		"required": ["people"],
+		"additionalProperties": false
+	}
+}
