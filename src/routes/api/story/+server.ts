@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 import { apiError, providerFailed } from '#lib/server/http.ts';
 import { inscriptionSchema } from '#lib/server/research.ts';
 import { candidateInputSchema, runStory } from '#lib/server/story.ts';
@@ -17,7 +16,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	const body = bodySchema.safeParse(await request.json().catch(() => null));
 	if (!body.success) return apiError('invalid_input', 'Send an inscription and a candidate.', 400);
 	try {
-		return json(await runStory(body.data.inscription, body.data.candidate));
+		return Response.json(await runStory(body.data.inscription, body.data.candidate));
 	} catch (e) {
 		return providerFailed(e);
 	}

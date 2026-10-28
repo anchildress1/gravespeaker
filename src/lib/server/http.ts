@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 import type { ApiError } from '#lib/types.ts';
 
 /** Thrown by both provider seams once Mastra's retries are exhausted. */
@@ -21,7 +20,7 @@ export class ProviderError extends Error {
  * @returns The response.
  */
 export function apiError(code: ApiError['error']['code'], message: string, status: number) {
-	return json({ error: { code, message } } satisfies ApiError, { status });
+	return Response.json({ error: { code, message } } satisfies ApiError, { status });
 }
 
 /**

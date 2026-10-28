@@ -1,4 +1,3 @@
-import { json } from '@sveltejs/kit';
 import { inference } from '#lib/server/inference/gemma.ts';
 import { apiError, providerFailed } from '#lib/server/http.ts';
 import { normalizeInscriptions } from '#lib/server/inscription.ts';
@@ -31,7 +30,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	}
 	try {
 		const raw = await inference.readStone(new Uint8Array(await image.arrayBuffer()), image.type);
-		return json({ people: normalizeInscriptions(raw) });
+		return Response.json({ people: normalizeInscriptions(raw) });
 	} catch (e) {
 		return providerFailed(e);
 	}
