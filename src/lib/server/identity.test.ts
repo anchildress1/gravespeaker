@@ -97,8 +97,12 @@ describe('resolveMatches', () => {
 		expect(c.died).toBe('2017');
 	});
 
-	it('rates a name plus both years high', () => {
-		const [c] = resolve([rec('Gaynor Claire Hawks (1932-2017) - Find a Grave memorial')]);
+	it.each([
+		'Gaynor Claire Hawks (1932-2017) - Find a Grave memorial',
+		'Gaynor Hawks, Mar 10, 1932 - Dec 27, 2017, obituary',
+		'Charles Hawks (1930–2010). His wife Gaynor Hawks (1932–2017).'
+	])('rates a name plus both matching years high: %s', (snippet) => {
+		const [c] = resolve([rec(snippet)]);
 		expect(c.confidence).toBe('high');
 		expect([c.born, c.died]).toEqual(['1932', '2017']);
 	});
@@ -110,12 +114,6 @@ describe('resolveMatches', () => {
 		'Gaynor Hawks 06/08/1940 - 07/18/2012'
 	])('excludes a namesake whose full-date range contradicts the stone: %s', (snippet) => {
 		expect(resolve([rec(snippet)])).toEqual([]);
-	});
-
-	it('rates a full-date range that agrees with the stone high', () => {
-		const [c] = resolve([rec('Gaynor Hawks, Mar 10, 1932 - Dec 27, 2017, obituary')]);
-		expect(c.confidence).toBe('high');
-		expect([c.born, c.died]).toEqual(['1932', '2017']);
 	});
 
 	it('keeps a record neutral when the birth place is named but not the birth year', () => {
@@ -133,12 +131,6 @@ describe('resolveMatches', () => {
 		const [c] = resolve([rec('Gaynor Hawks, born 1932. She married John Smith (1930–2010).')]);
 		expect(c.confidence).toBe('medium');
 		expect(c.born).toBe('1932');
-	});
-
-	it("reads the range that follows the matched name, not an earlier namesake's", () => {
-		const [c] = resolve([rec('Charles Hawks (1930–2010). His wife Gaynor Hawks (1932–2017).')]);
-		expect(c.confidence).toBe('high');
-		expect([c.born, c.died]).toEqual(['1932', '2017']);
 	});
 
 	it('derives the birth year from a stated age', () => {
