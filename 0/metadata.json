@@ -1,0 +1,132 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M5ZY5W8BXB53S7T5SPHBJ4GX",
+  "session_id": "092a50a5-6a5a-4fe0-8c45-dcc2512da7ab",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-28T00:22:23.18782Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 11,
+  "save_step_count": 1,
+  "files_touched": [
+    "Dockerfile",
+    "package.json",
+    "pnpm-lock.yaml",
+    "src/lib/server/env.test.ts",
+    "src/lib/server/http.test.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-sonnet-5-5",
+  "turn_id": "848b032a7406",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 3714,
+    "cache_read_tokens": 303690,
+    "output_tokens": 1082,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 56,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 28,
+      "credentialed_uri": 0,
+      "entropy": 267,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "prompt-skill-claude-code-speckit-implement-2026-10-27T23:12:56.620614Z",
+      "event_type": "prompt_invocation",
+      "skill": {
+        "name": "speckit-implement"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "prompt_slash_command",
+        "confidence": "explicit"
+      },
+      "turn_id": "b4a549a7a1d8",
+      "timestamp": "2026-10-27T23:12:56.620614Z",
+      "native": {
+        "command": "/speckit-implement"
+      },
+      "collapse": {
+        "target": "user_message",
+        "label": "/speckit-implement",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01LV4PqWt9M9qz6cueECQ7Gu",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "gemini-prompting"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "848b032a7406",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 999,
+        "end": 1000,
+        "entry_ids": [
+          "ea358ced-1128-44c5-a82c-7f2d45e3961e"
+        ],
+        "tool_use_id": "toolu_01LV4PqWt9M9qz6cueECQ7Gu"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01LV4PqWt9M9qz6cueECQ7Gu"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: gemini-prompting",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_01DP6yuw3pJAbCRNbwZMn9V8",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "readme-generator"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "848b032a7406",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 1138,
+        "end": 1139,
+        "entry_ids": [
+          "e3afc21c-c453-4d9a-a0f4-ad1f4d6ff769"
+        ],
+        "tool_use_id": "toolu_01DP6yuw3pJAbCRNbwZMn9V8"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01DP6yuw3pJAbCRNbwZMn9V8"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: readme-generator",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 11
+  }
+}
