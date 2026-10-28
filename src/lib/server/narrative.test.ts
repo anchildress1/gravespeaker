@@ -51,6 +51,22 @@ const told = (paragraph: string, facts = [fact()]): string | null => {
 	return story.status === 'told' ? story.paragraph : null;
 };
 
+describe('hasEvidence', () => {
+	it.each(['Gaynor Hawks was born in 1932', 'died on December 27, 2017', 'passed away at age 85'])(
+		'does not count a quote that only restates the stone: %s',
+		(quote) => {
+			expect(hasEvidence(stone, candidate, [fact({ quote })])).toBe(false);
+		}
+	);
+
+	it.each(['born March 10, 1932 in Alsea', 'was a chef', 'taught piano for forty years'])(
+		'counts a quote that adds something beyond the stone: %s',
+		(quote) => {
+			expect(hasEvidence(stone, candidate, [fact({ quote })])).toBe(true);
+		}
+	);
+});
+
 describe('groundParagraph', () => {
 	it('drops a negation of a fact made only of short words', () => {
 		const facts = [fact({ quote: 'was a chef' })];

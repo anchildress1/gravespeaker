@@ -43,6 +43,9 @@ const FUNCTION_WORDS = new Set(
 	)
 );
 
+// Life-date words restate the stone's dates, so a quote made of them adds nothing (FR-013).
+const LIFE_MARKERS = new Set('born birth died death passed away deceased aged age'.split(' '));
+
 // A quote that names survivors would put living people's names into the story (FR-017).
 const SURVIVORS =
 	/\b(survived by|survivors?|leaves behind|leaving behind|left to mourn|she leaves|he leaves)\b/i;
@@ -157,7 +160,7 @@ function nameTokens(inscription: Inscription, candidate: Candidate): Set<string>
 }
 
 /**
- * Whether the facts say something beyond the person's name, months and bare numbers (FR-013).
+ * Whether the facts say something beyond the person's name, dates and the words that introduce them (FR-013).
  * @param inscription The stone's person.
  * @param candidate The confirmed candidate.
  * @param facts Verified facts.
@@ -174,7 +177,14 @@ export function hasEvidence(
 			f.claim === 'other' &&
 			norm(f.quote)
 				.split(' ')
-				.some((t) => !names.has(t) && !MONTHS.has(t) && !/^\d+$/.test(t))
+				.some(
+					(t) =>
+						!names.has(t) &&
+						!MONTHS.has(t) &&
+						!/^\d+$/.test(t) &&
+						!FUNCTION_WORDS.has(t) &&
+						!LIFE_MARKERS.has(t)
+				)
 	);
 }
 
