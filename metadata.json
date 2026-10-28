@@ -1,0 +1,50 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M60C28WDZD47GNAKD1GZ7E7X",
+  "strategy": "manual-commit",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 6,
+  "files_touched": [
+    "src/lib/server/http.ts",
+    "src/routes/api/read/+server.ts",
+    "src/routes/api/research/+server.ts",
+    "src/routes/api/story/+server.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 50,
+    "cache_creation_tokens": 41177,
+    "cache_read_tokens": 7851015,
+    "output_tokens": 18640,
+    "api_call_count": 20,
+    "subagent_tokens": {
+      "input_tokens": 48,
+      "cache_creation_tokens": 265743,
+      "cache_read_tokens": 1257097,
+      "output_tokens": 17915,
+      "api_call_count": 24
+    }
+  },
+  "redaction": {
+    "replacements": 140,
+    "layers": {
+      "betterleaks": 51,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 28,
+      "credentialed_uri": 0,
+      "entropy": 283,
+      "key_context": 17,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}

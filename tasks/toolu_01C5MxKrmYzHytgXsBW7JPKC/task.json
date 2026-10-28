@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_01C5MxKrmYzHytgXsBW7JPKC",
+  "agent_id": "ac0a663d4dc97fc40",
+  "subagent_type": "general-purpose",
+  "task_description": "Fix Sonar workflow step issues",
+  "token_usage": {
+    "input_tokens": 14,
+    "cache_creation_tokens": 47966,
+    "cache_read_tokens": 396523,
+    "output_tokens": 2462,
+    "api_call_count": 7
+  },
+  "started_at": "2026-10-27T21:21:08.412143-07:00",
+  "completed_at": "2026-10-27T21:22:10.385016-07:00"
+}

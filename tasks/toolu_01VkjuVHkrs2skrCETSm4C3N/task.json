@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_01VkjuVHkrs2skrCETSm4C3N",
+  "agent_id": "a871506b4e4860394",
+  "subagent_type": "general-purpose",
+  "task_description": "Fix Sonar json deprecation",
+  "token_usage": {
+    "input_tokens": 10,
+    "cache_creation_tokens": 64355,
+    "cache_read_tokens": 240351,
+    "output_tokens": 1640,
+    "api_call_count": 5
+  },
+  "started_at": "2026-10-27T21:20:54.926051-07:00",
+  "completed_at": "2026-10-27T21:21:47.557603-07:00"
+}
