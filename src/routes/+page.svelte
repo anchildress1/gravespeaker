@@ -215,7 +215,13 @@
 	{#if phase === 'capture'}
 		<label class="primary">
 			Photograph a headstone
-			<input type="file" accept="image/*" capture="environment" onchange={onPhoto} hidden />
+			<input
+				type="file"
+				accept="image/*"
+				capture="environment"
+				onchange={onPhoto}
+				class="visually-hidden"
+			/>
 		</label>
 	{:else if phase === 'reading'}
 		<p role="status">Reading the stone…</p>
@@ -315,6 +321,7 @@
 	}
 	button,
 	.primary {
+		position: relative;
 		display: inline-block;
 		min-height: 2.75rem;
 		padding: 0.5rem 1rem;
@@ -331,6 +338,15 @@
 		color: inherit;
 	}
 	button:focus-visible,
+	/* Visually hidden but still focusable, so keyboard users can reach the upload. */
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
 	.primary:focus-within,
 	a:focus-visible {
 		outline: 3px solid #0a5cd6;

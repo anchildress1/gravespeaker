@@ -192,3 +192,9 @@ test('a network failure shows a message and retries the same photo', async ({ pa
 	await page.getByRole('button', { name: 'Try again' }).click();
 	await expect(page.getByRole('alert')).toContainText('No legible name');
 });
+
+test('the upload control can be reached and focused from the keyboard', async ({ page }) => {
+	await page.goto('/');
+	await page.keyboard.press('Tab');
+	await expect(page.locator('input[type=file]')).toBeFocused();
+});
