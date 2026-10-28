@@ -35,7 +35,7 @@ const stub = (serp: () => Response, model: () => Response) =>
 	vi.stubGlobal(
 		'fetch',
 		vi.fn(async (input: string | URL | Request) =>
-			String(input instanceof Request ? input.url : input).includes('serpapi.com')
+			new URL(input instanceof Request ? input.url : input).hostname === 'serpapi.com'
 				? serp()
 				: model()
 		)
