@@ -1,0 +1,45 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+journey wired up
+journey docs updated
+run ten recorded
+dev server stopped cleanly
+atomic commits redone
+commit series ready
+docs amendment committed
+read route logging added
+theatrical story voice rewritten
+debug logging removed
+companion surname rule committed
+
+Closing message:
+- 63/64 fields in total, with the 20 other stones unchanged at 57/58 (Ellis 1818 still misses).
+  - Holmquist came back as "Marsha Fox Holmquist" (born 1940-11-05, no death date) and "Charles Ray Holmquist" (1948-03-12 to 2024-05-06).
+  - No extra people, no errors, and a 3.8 s median.
+- **Files:** I restored `fixtures/holmquist-2024.jpg` and its manifest entry from the old commit. I saved the run as `run11.json` and `run11-hosted-26b.json`. The files for earlier runs are untouched.
+
+**Your review:**
+- **Answer key:** Holmquist's key is still `reviewed: false`. Please check it against the stone, then set `reviewed: true` in `fixtures/manifest.json`. The key says Marsha was born 1940-11-05 with no death date, and Charles was born 1948-03-12 and died 2024-05-06.
+- **Run 11 numbers:** I did not add run 11 to `docs/benchmarks/ocr-smoke-test.md`, because the rules say no numbers from unreviewed fixtures. I'll write it up once you flip that flag.
+
+The UI already shows a picker for a two-person read (FR-012), and I haven't tested that flow with this stone. The phone run (T040) is still open.
+Run 11 is added to `docs/benchmarks/ocr-smoke-test.md`, and the Holmquist key is marked reviewed. Committed as `e7b67b2`.
+
+- **Run 11 entry:** 63/64 fields, Holmquist 6/6, the other 20 stones unchanged, 0 extra people, 0 errors, 3.8 s median. It ends by saying this was the last tuning run.
+- **Rule noted:** I read "no tests past 10" as no more benchmark runs after the companion-stone one, with further prompt changes tested in the app. I saved that as a project memory. If you meant a stricter cutoff, or want it in `CLAUDE.md`, say so — I didn't edit `CLAUDE.md`.
+
+`make format-check` currently fails, and not because of my files. Prettier flags `CLAUDE.md` and `AGENTS.md`, which the Entire tool changed or created outside my commits. They are uncommitted, along with `.claude/settings.json` and `.entire/agent-guide.md`. I haven't touched them. Say if you want them formatted or committed.
