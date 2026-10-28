@@ -19,6 +19,8 @@ const PREFIX_WORDS = new Set(
 		' '
 	)
 );
+// A sentence that opens with a life cue has no subject of its own: it continues the previous one.
+const CONTINUES = /^\s*(?:born|died|passed away|deceased|b\.|d\.)(?![\p{L}])/u;
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
@@ -275,16 +277,22 @@ function reportedYear(stone: string | null, found: number | null, slack: number)
  * @returns The whole sentence, and the part of it from the name onward.
  */
 function sentenceAt(text: string, at: number): { whole: string; fromName: string } {
-	let start = 0;
-	let end = text.length;
+	const spans: [number, number][] = [];
+	let from = 0;
 	for (const m of text.matchAll(SENTENCE_END)) {
-		if (m.index + m[0].length <= at) start = m.index + m[0].length;
-		else {
-			end = m.index;
-			break;
-		}
+		spans.push([from, m.index]);
+		from = m.index + m[0].length;
 	}
-	return { whole: text.slice(start, end), fromName: text.slice(at, end) };
+	spans.push([from, text.length]);
+	const first = Math.max(
+		0,
+		spans.findIndex(([, end]) => at <= end)
+	);
+	let last = first;
+	// "Born 1932. Died in 2010." carries on about the same person; "Her husband John died 2010." does not.
+	while (last + 1 < spans.length && CONTINUES.test(text.slice(...spans[last + 1]))) last++;
+	const end = spans[last][1];
+	return { whole: text.slice(spans[first][0], end), fromName: text.slice(at, end) };
 }
 
 /**

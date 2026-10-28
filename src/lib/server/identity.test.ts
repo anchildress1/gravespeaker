@@ -151,6 +151,12 @@ describe('resolveMatches', () => {
 		expect([c.born, c.died]).toEqual(['1932', null]);
 	});
 
+	it('keeps reading the same person when the next sentence only states a life event', () => {
+		expect(resolve([rec('Gaynor Hawks, born 1932. Died in 2010.')])).toEqual([]);
+		const [c] = resolve([rec('Gaynor Hawks, born 1932. Died in 2017.')]);
+		expect(c.confidence).toBe('high');
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');
