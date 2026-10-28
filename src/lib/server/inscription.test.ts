@@ -28,6 +28,11 @@ describe('normalizeInscriptions', () => {
 		});
 	});
 
+	it('removes a parenthesized maiden-name clause whole', () => {
+		const [p] = normalizeInscriptions([person('Gaynor Hawks (née Staples)')]);
+		expect([p.name, p.maidenName]).toEqual(['Gaynor Hawks', 'Staples']);
+	});
+
 	it('handles nee without the accent', () => {
 		const [p] = normalizeInscriptions([person('Ann Lee nee Park')]);
 		expect(p).toMatchObject({ name: 'Ann Lee', maidenName: 'Park' });

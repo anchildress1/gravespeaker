@@ -3,7 +3,8 @@ import type { Inscription } from '#lib/types.ts';
 import type { RawPerson } from './inference/index.ts';
 
 const HONORIFIC = /^(?:mr|mrs|miss|dr)\.?(?=\s)/i;
-const MAIDEN = /\b(?:née|nee)\s+(\S+)/iu;
+// The clause with any enclosing parenthesis, so "(née Staples)" leaves no stray bracket behind.
+const MAIDEN = /\(?\s*\b(?:née|nee)\s+([\p{L}'’-]+)\s*\)?/iu;
 
 /**
  * Turns model output into inscriptions: drops letterless names, strips honorifics, splits `née`, validates dates.
@@ -16,7 +17,7 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 		if (!/\p{L}/u.test(p.name ?? '')) continue;
 		const carvedName = p.name.trim();
 		const maidenName = MAIDEN.exec(carvedName)?.[1] ?? null;
-		const name = carvedName.replace(MAIDEN, '').replace(HONORIFIC, '').replace(/\s+/g, ' ').trim();
+		const name = carvedName.replace(MAIDEN, ' ').replace(HONORIFIC, '').replace(/\s+/g, ' ').trim();
 		people.push({
 			carvedName,
 			name,
