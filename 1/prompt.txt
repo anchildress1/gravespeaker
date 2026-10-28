@@ -1,0 +1,43 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+twenty one stones searched
+benchmark run logged
+two engines searched
+engines cut to two
+search engines trimmed
+depot runners configured
+actionlint depot label added
+ci moved to depot
+schema tied to seam
+stale findings cleared
+schema derived pushed
+depot runners reverted
+depot copies migrated
+eslint ignores worktrees
+github workflows disabled
+parallel fixes dispatched
+narrative fact match fixed
+url keys corrected
+codex findings fixed
+codex threads answered
+sonar findings addressed
+full date ranges fixed
+namesake ranges excluded
+date ranges covered
+identity matching tightened
+
+Closing message:
+type check pass. The 3 failures are `a failed story shows the message and retries`, `a non-JSON 413…` and `an unverified match…`. Each one uploads a photo and then waits for UI that never appears.
+- **Why I think it's a load flake:** the same tests pass on my machine, and passed on GitHub's runner earlier. I reproduced it by running the suite under heavy CPU load. The failures were the same kind (`This is them` never found, `setInputFiles` timing out, alerts missing), but in different tests each run, plus one failure in an unloaded run. A deterministic bug would hit the same tests every time.
+- **Likely mechanism, not proven:** the test's `upload()` helper picks a file right after `page.goto`. On a slow runner the page may not have hydrated yet, so the upload is ignored. I haven't isolated that as the cause.
+- **Second problem:** `playwright.config.ts` matches `**/*.e2e.ts`, so it also runs the `.worktrees/all-hallows` copies of the tests. Locally that doubles the load. On CI there's no worktree, so it isn't the cause there.
+
+**2. `CodeQL / Analyze` fails at the Initialize CodeQL step.**
+- It gets `Not Found` from GitHub's workflow-runs API while checking its PR cache. Depot's runs aren't GitHub Actions runs, so there's no GitHub run for CodeQL to look up.
+- The workflow already has `actions: read`, so granting that permission won't help. The likely fix is to turn off CodeQL's overlay cache for these runs. I'd need to check CodeQL's docs for the exact setting.
+
+**Decisions for you:**
+1. Should I fix the e2e flake by making `upload()` wait for hydration, and exclude `.worktrees` from Playwright? That second part edits `playwright.config.ts`, a repo config file. I'd verify the fix by repeating the suite under CPU load.
+2. For CodeQL, should I find the overlay setting and edit `.depot/workflows/codeql.yml`, or leave CodeQL off Depot? I'd put CodeQL back on its GitHub workflow, which was passing.
+
+I also stopped the CPU-burner processes I started for the load test.
