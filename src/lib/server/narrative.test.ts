@@ -178,4 +178,42 @@ describe('groundStory', () => {
 			'The fog keeps its own counsel.'
 		]);
 	});
+
+	it('accepts a number word when the source writes the digits, and the reverse', () => {
+		const digits = [{ sourceId: 's1', text: 'She taught piano for 40 years.' }];
+		expect(
+			groundStory(stone, candidate, digits, [
+				fact({ text: 'I taught piano for forty years.', quote: 'taught piano for 40 years' })
+			]).status
+		).toBe('told');
+		const words = [{ sourceId: 's1', text: 'She taught piano for forty years.' }];
+		expect(
+			groundStory(stone, candidate, words, [
+				fact({ text: 'I taught piano for 40 years.', quote: 'taught piano for forty years' })
+			]).status
+		).toBe('told');
+	});
+
+	it('drops a fact that opens with a proper noun the quote never mentions', () => {
+		const story = groundStory(stone, candidate, pages, [
+			fact({ text: 'Chicago was my home, where I taught piano.' })
+		]);
+		expect(story).toEqual({ status: 'insufficient' });
+	});
+
+	it('keeps short theatrical lines but drops longer label debris', () => {
+		const story = groundStory(stone, candidate, pages, [
+			fact({}),
+			{ text: 'Come closer.', kind: 'reconstruction', claim: 'other', sourceIds: [], quote: '' },
+			{
+				text: 'Reconstruction line one:',
+				kind: 'reconstruction',
+				claim: 'other',
+				sourceIds: [],
+				quote: ''
+			}
+		]);
+		if (story.status !== 'told') throw new Error('expected told');
+		expect(story.sentences.map((s) => s.text)).toEqual(['I taught piano.', 'Come closer.']);
+	});
 });

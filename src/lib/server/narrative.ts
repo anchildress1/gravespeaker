@@ -1,8 +1,8 @@
 import type { Candidate, Inscription, Story, StorySentence } from '#lib/types.ts';
 import type { PageText, RawSentence } from './inference/index.ts';
 
-/** Fewer words than this is label debris, not a theatrical line. */
-const MIN_THEATRE_WORDS = 3;
+/** A single word is label debris ("reconstruction:"), not a theatrical line. */
+const MIN_THEATRE_WORDS = 2;
 
 const MONTHS = new Set([
 	'january',
@@ -31,12 +31,27 @@ const MONTHS = new Set([
 	'dec'
 ]);
 
-const NUMBER_WORDS = new Set(
+// Spelled-out numbers compare equal to their digits, so "forty" and "40" support each other.
+const NUMBER_VALUES: Record<string, string> = Object.fromEntries(
 	(
 		'one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen ' +
-		'sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety ' +
-		'hundred thousand'
-	).split(' ')
+		'sixteen seventeen eighteen nineteen twenty'
+	)
+		.split(' ')
+		.map((w, i) => [w, String(i + 1)])
+		.concat(
+			Object.entries({
+				thirty: '30',
+				forty: '40',
+				fifty: '50',
+				sixty: '60',
+				seventy: '70',
+				eighty: '80',
+				ninety: '90',
+				hundred: '100',
+				thousand: '1000'
+			})
+		)
 );
 
 // Pronouns, auxiliaries and connectives the ghost voice swaps freely; they carry no claim.
@@ -68,6 +83,27 @@ function norm(s: string): string {
 }
 
 /**
+ * Maps a spelled-out number to its digits; any other word is returned unchanged.
+ * @param word Lowercase word.
+ * @returns Digits for a number word, else the word.
+ */
+function canon(word: string): string {
+	return NUMBER_VALUES[word] ?? word;
+}
+
+/**
+ * Whether a theatrical line is the model's own label rather than a line to perform.
+ * @param text Reconstruction sentence.
+ * @returns True for one-word lines, trailing-colon labels and "reconstruction ..." prefixes.
+ */
+function isLabelDebris(text: string): boolean {
+	const t = text.trim();
+	return (
+		t.split(/\s+/).length < MIN_THEATRE_WORDS || t.endsWith(':') || /^\W*reconstruction\b/i.test(t)
+	);
+}
+
+/**
  * Checks that a fact sentence adds no number, proper noun or mostly-new content beyond its quote.
  * @param sentence The sentence as the model wrote it.
  * @param quote The normalized quote cited for it.
@@ -75,16 +111,18 @@ function norm(s: string): string {
  * @returns True when the quote supports the sentence.
  */
 function supportsSentence(sentence: string, quote: string, allowed: Set<string>): boolean {
-	const quoted = new Set(quote.split(' '));
-	const stems = new Set([...quoted].map((w) => w.slice(0, STEM_LENGTH)));
+	const quoted = new Set(quote.split(' ').map(canon));
+	const stems = new Set(quote.split(' ').map((w) => w.slice(0, STEM_LENGTH)));
 	const words = sentence.match(/[\p{L}\p{N}]+/gu) ?? [];
 
 	let content = 0;
 	let matched = 0;
 	for (const [i, word] of words.entries()) {
 		const w = word.toLowerCase();
-		const strict = /^\d+$/.test(w) || NUMBER_WORDS.has(w) || (i > 0 && /^\p{Lu}/u.test(word));
-		if (strict && w !== 'i' && !quoted.has(w) && !allowed.has(w)) return false;
+		const properNoun =
+			/^\p{Lu}/u.test(word) && (i > 0 || (w.length >= MIN_CONTENT_LENGTH && !STOPWORDS.has(w)));
+		const strict = /^\d+$/.test(w) || w in NUMBER_VALUES || properNoun;
+		if (strict && w !== 'i' && !quoted.has(canon(w)) && !allowed.has(w)) return false;
 		if (w.length < MIN_CONTENT_LENGTH || STOPWORDS.has(w)) continue;
 		content++;
 		if (stems.has(w.slice(0, STEM_LENGTH))) matched++;
@@ -121,7 +159,7 @@ export function groundStory(
 	for (const s of raw) {
 		if (s.kind === 'reconstruction') {
 			// The model sometimes emits its own labels ("reconstruction:") as a sentence.
-			if (s.text.trim().split(/\s+/).length < MIN_THEATRE_WORDS) continue;
+			if (isLabelDebris(s.text)) continue;
 			sentences.push({ text: s.text, kind: 'reconstruction', sourceIds: [] });
 			continue;
 		}
