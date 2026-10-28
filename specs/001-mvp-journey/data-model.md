@@ -38,35 +38,25 @@ A search hit (`search/` seam output, after the gated-domain filter).
 
 ## Candidate
 
-One hypothesized person (`identity.ts` output).
+The person the identity engine matched records to (`identity.ts` output). Usually one per response. Results whose stated dates contradict each other are different people and become separate candidates, at most three.
 
-| Field     | Type                | Rule                                                   |
-| --------- | ------------------- | ------------------------------------------------------ |
-| `name`    | string              |                                                        |
-| `born`    | PartialDate \| null |                                                        |
-| `died`    | PartialDate \| null | Known years must not conflict with the Inscription.    |
-| `place`   | string \| null      |                                                        |
-| `sources` | SourceRecord[]      | Length ≥ 1. No SourceRecord appears in two candidates. |
-
-- Maximum of 5 per response, ordered by the number of Inscription fields matched.
-
-## StorySentence
-
-| Field       | Type                         | Rule                                                              |
-| ----------- | ---------------------------- | ----------------------------------------------------------------- |
-| `text`      | string                       |                                                                   |
-| `kind`      | `'fact' \| 'reconstruction'` |                                                                   |
-| `sourceIds` | string[]                     | `fact`: ≥ 1, all in `Candidate.sources`. `reconstruction`: empty. |
-
-- Server-only fields `claim` and `quote` are used for validation and never sent to the client.
-- A `fact` survives only if its `quote` is found in one cited source's text.
+| Field        | Type                          | Rule                                                                                          |
+| ------------ | ----------------------------- | --------------------------------------------------------------------------------------------- |
+| `name`       | string                        | The Inscription's name.                                                                       |
+| `born`       | PartialDate \| null           | The year a matched result states, else null.                                                  |
+| `died`       | PartialDate \| null           | The year a matched result states, else null; never conflicts with the stone.                  |
+| `confidence` | `'high' \| 'medium' \| 'low'` | `high`: every key the stone offers matches (at least 2). `medium`: 2+ keys. `low`: name only. |
+| `sources`    | SourceRecord[]                | Length 1-5. Matched results, ordered by matching keys, then record-like pages.                |
 
 ## Story
 
 A union:
 
-- `{ status: 'told', sentences: StorySentence[], sources: SourceRecord[] }`, which requires at least one surviving fact with `claim: 'other'`.
-- `{ status: 'insufficient' }` — the client then shows the Epitaph.
+- `{ status: 'told', paragraph: string, sources: SourceRecord[] }`: one spoken first-person paragraph. `sources` holds only the sources of facts the paragraph uses.
+- `{ status: 'insufficient' }`: the client then shows the Epitaph.
+
+- Facts (`claim`, `sourceId`, `quote`) are server-only and never sent to the client. A fact survives only if its quote is found verbatim in its cited source's text.
+- Sentences that add a number, a proper noun or a negation the verified facts do not give are dropped before the paragraph is returned.
 
 ## Epitaph
 

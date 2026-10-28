@@ -9,13 +9,13 @@
 One SvelteKit page drives the journey photo → read → research → confirm → story. The page talks to three stateless JSON endpoints.
 
 - Hosted Gemma 4 26B, called through Mastra Agents, reads the stone with run 9's rules, rewritten as app-owned instructions and re-measured as run 10.
-- SerpApi finds records.
-- Gemma groups the results into candidates.
-- After the visitor confirms a candidate, the server fetches that candidate's source pages in memory and Gemma writes a first-person story.
+- SerpApi finds records, querying several engines (Google, Bing, Yahoo, DuckDuckGo, Yandex) in parallel.
+- A deterministic engine matches results to the stone by name and dates and builds a candidate per person it finds, usually one. No model call.
+- After the visitor confirms the candidate, the server fetches its source pages in memory. Gemma extracts quoted facts, code verifies them, and Gemma writes one first-person paragraph from the verified facts.
 - Deterministic code owns the format and the grounding at every step:
   - name and date normalization;
-  - identity merge and conflict rules;
-  - citation and quote checks;
+  - result-match and date-conflict rules;
+  - quote and sentence checks;
   - the evidence bar.
 
 ## Technical Context
@@ -28,7 +28,7 @@ One SvelteKit page drives the journey photo → read → research → confirm �
 - New:
   - `@mastra/core` (Agents, `createWorkflow`/`createStep`)
   - `zod` 4
-  - `serpapi`
+  - `undici` (pins the checked DNS address on page fetches)
   - `@mozilla/readability`
   - `linkedom`
   - `robots-parser`
@@ -47,7 +47,7 @@ One SvelteKit page drives the journey photo → read → research → confirm �
 
 - Free Gemini API tier only.
 - Upload limit 10 MB, with adapter-node `BODY_SIZE_LIMIT=12M`.
-- Page fetch: 8 s timeout, 2 MB cap, 5 pages at most.
+- Page fetch: 8 s timeout, 2 MB cap, 5 pages at most, no retries.
 
 **Scale/Scope**: Demo traffic. 1 page, 3 endpoints, and 12 server modules.
 
@@ -55,15 +55,15 @@ One SvelteKit page drives the journey photo → read → research → confirm �
 
 _Gate re-checked after Phase 1: **PASS**._
 
-| Gate                      | Status | Evidence                                                                                                                                                                                                                |
-| ------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| I. Deadline-bound scope   | ✅     | Only PRD §2 steps. Voice, field editing and companion-stone tuning are excluded. The grounding benchmark is deferred to the next spec (R12).                                                                            |
-| II. Never fabricate       | ✅     | Each fact needs a valid `sourceId` and a quote found in that source (R8). The `insufficient`, none and no-record paths end on a code-built stone-only epitaph (FR-023), never a model. Unknown dates render as unknown. |
-| III. Never merge silently | ✅     | A source claimed by two candidates is removed from both. The visitor always confirms, even a single match (R7).                                                                                                         |
-| IV. Two seams only        | ✅     | `InferenceProvider` (Gemma via Mastra) and `SearchProvider` (SerpApi), one implementation each. No cache, queue, flag or config layer. Retries are Mastra's.                                                            |
-| V. Behavior-driven tests  | ✅     | The scenario table in [quickstart.md](quickstart.md) covers parsing, identity, grounding, validation and provider errors. Mocks sit only at Gemini and SerpApi.                                                         |
-| Privacy                   | ✅     | Images stay in memory. Keys stay server-side. Page text is never returned. Survivors are never named, only their relationship. Predeceased relatives may be named with a citation (FR-017).                             |
-| Workflow                  | ✅     | One feature branch. `make ai-checks` is the gate.                                                                                                                                                                       |
+| Gate                      | Status | Evidence                                                                                                                                                                                                                                                                                       |
+| ------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| I. Deadline-bound scope   | ✅     | Only PRD §2 steps. Voice, field editing and companion-stone tuning are excluded. The grounding benchmark is deferred to the next spec (R12).                                                                                                                                                   |
+| II. Never fabricate       | ✅     | Each fact needs a quote found verbatim in its cited source, and prose sentences adding unsupported numbers, names or negations are dropped (R8). The `insufficient`, none and no-record paths end on a code-built stone-only epitaph (FR-023), never a model. Unknown dates render as unknown. |
+| III. Never merge silently | ✅     | Only results that match the stone on name and do not conflict on a stated date attach to the candidate; name-only matches are labelled unverified. The visitor always confirms (R7).                                                                                                           |
+| IV. Two seams only        | ✅     | `InferenceProvider` (Gemma via Mastra) and `SearchProvider` (SerpApi), one implementation each. No cache, queue, flag or config layer. Retries are Mastra's.                                                                                                                                   |
+| V. Behavior-driven tests  | ✅     | The scenario table in [quickstart.md](quickstart.md) covers parsing, identity, grounding, validation and provider errors. Mocks sit only at Gemini and SerpApi.                                                                                                                                |
+| Privacy                   | ✅     | Images stay in memory. Keys stay server-side. Page text is never returned. Survivors are never named, only their relationship. Predeceased relatives may be named with a citation (FR-017).                                                                                                    |
+| Workflow                  | ✅     | One feature branch. `make ai-checks` is the gate.                                                                                                                                                                                                                                              |
 
 ## Project Structure
 
@@ -96,16 +96,16 @@ src/
         ├── env.ts                   # GEMINI_API_KEY, SERPAPI_API_KEY via $env/dynamic/private
         ├── inference/
         │   ├── index.ts             # InferenceProvider interface
-        │   └── gemma.ts             # Mastra Agents: read, group, tell
+        │   └── gemma.ts             # Mastra Agents: read, extract facts, tell
         ├── search/
         │   ├── index.ts             # SearchProvider interface
-        │   └── serpapi.ts
+        │   └── serpapi.ts               # plain fetch to serpapi.com/search.json
         ├── inscription.ts           # name/date normalization (R4)
-        ├── identity.ts              # query build, gated filter, candidate rules (R5–R7)
-        ├── pages.ts                 # SSRF-guarded fetch, robots, readability (R8–R9)
-        ├── narrative.ts             # citation + quote validation, evidence bar (R8)
-        ├── research.ts              # Mastra workflow: search (retries) → group → identity
-        └── story.ts                 # Mastra workflow: fetch pages (retries) → tell → narrative
+        ├── identity.ts              # query build, gated filter, deterministic match engine (R5–R7)
+        ├── pages.ts                 # SSRF-guarded fetch (undici, pinned address), robots, readability (R8–R9)
+        ├── narrative.ts             # fact quote check, prose check, evidence bar (R8)
+        ├── research.ts              # Mastra workflow: search (retries) → resolve
+        └── story.ts                 # Mastra workflow: fetch pages → extract facts → tell → check
 ```
 
 Tests sit next to each module as `*.test.ts`. The e2e test goes in `src/routes/journey.e2e.ts`, matching the repo Playwright `testMatch` (`**/*.e2e.ts`).

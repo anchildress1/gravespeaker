@@ -4,12 +4,14 @@ Three same-origin JSON endpoints. The browser calls only these; providers are se
 
 All errors: `{ "error": { "code": string, "message": string } }`, `message` safe to show the visitor.
 
-| Code               | HTTP | When                                        |
-| ------------------ | ---- | ------------------------------------------- |
-| `invalid_input`    | 400  | Body fails validation                       |
-| `unsupported_type` | 415  | Upload is not an accepted image type        |
-| `too_large`        | 413  | Upload > 10 MB                              |
-| `provider_failed`  | 502  | Model or search failed after Mastra retries |
+| Code               | HTTP | When                                                                |
+| ------------------ | ---- | ------------------------------------------------------------------- |
+| `invalid_input`    | 400  | Body fails validation                                               |
+| `unsupported_type` | 415  | Upload is not an accepted image type                                |
+| `too_large`        | 413  | Upload > 10 MB                                                      |
+| `provider_failed`  | 502  | Model failed after Mastra retries, or search failed on every engine |
+
+Only a `ProviderError` becomes a 502. Any other workflow failure is a 500.
 
 ## POST `/api/read`
 
@@ -47,26 +49,27 @@ Response 200:
 			"name": "Gaynor Claire Hawks",
 			"born": "1932-03-10",
 			"died": "2017-12-27",
-			"place": null,
+			"confidence": "medium",
 			"sources": [{ "id": "s1", "url": "https://…", "title": "…", "site": "…", "snippet": "…" }]
 		}
 	]
 }
 ```
 
-- `candidates: []` → no record found; client shows the Epitaph.
-- Gated domains already removed; no source appears in two candidates.
+- `candidates` has 0 to 3 entries: usually one; more only when records for different people both fit the stone. `[]` → no record found; client shows the Epitaph.
+- `confidence` is `high`, `medium` or `low`; the client shows it. `low` means only the name matches and reads "Unverified: only the name matches. Check the sources before confirming."
+- Gated domains already removed; every source matches the stone on name and none states a conflicting year. `sources` has 1-5 entries.
 
 ## POST `/api/story`
 
 Request: `{ "inscription": Inscription, "candidate": Candidate }` — the candidate the visitor confirmed.
 
-- Every `candidate.sources[].url` passes the SSRF guard (research R9) before fetch; failing URLs fall back to the snippet.
+- Every `candidate.sources[].url` passes the SSRF guard (research R9) before fetch; failing URLs fall back to the snippet. Fetching has no retries.
 
 Response 200, one of:
 
 ```json
-{ "status": "told", "sentences": [{ "text": "I was born on March 10, 1932.", "kind": "fact", "sourceIds": ["s1"] }, { "text": "The stone remembers me still.", "kind": "reconstruction", "sourceIds": [] }], "sources": [ … ] }
+{ "status": "told", "paragraph": "I was born on March 10, 1932. …", "sources": [ … ] }
 ```
 
 ```json
@@ -75,5 +78,6 @@ Response 200, one of:
 
 - `insufficient` → client shows the Epitaph (data-model.md).
 
-- `quote` and `claim` never appear in the response.
+- `sources` lists only the sources of facts the paragraph uses.
+- Facts, quotes and claims never appear in the response.
 - Fetched page text never appears in the response.

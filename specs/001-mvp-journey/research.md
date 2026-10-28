@@ -20,7 +20,7 @@ Each entry: decision, rationale, alternatives rejected.
 
 ## R3. Model access and retries
 
-- **Decision**: Mastra model router with `model: { id: 'google/gemma-4-26b-a4b-it', apiKey: env.GEMINI_API_KEY }`. No `@ai-sdk/google` dependency. Model retries use the Agent's `maxRetries`. Search and page fetch use `createStep({ retries })`.
+- **Decision**: Mastra model router with `model: { id: 'google/gemma-4-26b-a4b-it', apiKey: env.GEMINI_API_KEY }`. No `@ai-sdk/google` dependency. Model retries use the Agent's `maxRetries`. Search uses `createStep({ retries })`. Page fetch has no retries: `fetchPage` never throws.
 - **Rationale**: The router lists `google/gemma-4-26b-a4b-it`. Passing `apiKey` keeps the app reading the generic `GEMINI_API_KEY` per `CLAUDE.md` § Secrets instead of the router's default `GOOGLE_API_KEY`. CLAUDE.md requires Mastra's built-in retries.
 - **Rejected**: Setting `GOOGLE_API_KEY` in deploy, which renames the secret mapping for no gain; hand-rolled retry loops, which CLAUDE.md forbids.
 
@@ -28,17 +28,19 @@ Each entry: decision, rationale, alternatives rejected.
 
 - **Decision**: Every model call uses Mastra `structuredOutput` with a Zod schema. The result then passes through pure functions that own the format:
   - `inscription.ts`: drops names with no letters (`[]`, `[?]`), strips honorifics, splits `née X` into `maidenName`, validates dates against `YYYY | YYYY-MM-DD` with `?` digits, and maps anything else to unknown.
-  - `identity.ts`: filters candidate groups (see R7).
-  - `narrative.ts`: validates citations and quotes (see R8).
+  - `identity.ts`: matches results to the stone and builds the candidate (see R7).
+  - `narrative.ts`: verifies fact quotes and checks the prose (see R8).
 - **Rationale**: The benchmark showed exact strings are fragile across models and the schema doesn't prevent junk values. CLAUDE.md says the model never owns formatting.
 - **Risk**: whether Mastra's parser tolerates fenced JSON from Gemma is unverified. The first read-endpoint test against a recorded fenced reply settles it. If it fails, add a Mastra output processor, not a hand parser.
 
 ## R5. Historical search
 
-- **Decision**: Plain `fetch` to `serpapi.com/search.json` (the `serpapi` package uses `https`, which tests cannot mock), engine `google`, one query per research request: `"<normalized name>" <birth year> <death year> (obituary OR grave OR cemetery)`. A maiden name is not added: live runs showed an `OR "<first> <maiden> <last>"` variant buried the real record under unrelated hits. Use `num=10`, `gl=us`, `hl=en`. Unknown years are omitted from the query, never sent as `18?8`.
-- **Rationale**: One call per stone keeps SerpApi quota spend predictable. Obituary and grave index pages both carry name + dates, which is what identity matching needs.
+- **Decision**: Plain `fetch` to `serpapi.com/search.json` (the `serpapi` package uses `https`, which tests cannot mock), engines `google`, `bing`, `yahoo`, `duckduckgo` and `yandex` queried in parallel (all return organic results as link, title and snippet), the same query for each, one set of calls per research request: `"<normalized name>" <birth year> <death year> (obituary OR grave OR cemetery)`. A maiden name is not added: live runs showed an `OR "<first> <maiden> <last>"` variant buried the real record under unrelated hits. Google uses `num=10`, `gl=us`, `hl=en`. Unknown years are omitted from the query, never sent as `18?8`.
+- **Merge**: Results are merged in that engine order and deduplicated by canonical URL (scheme, `www.`, trailing slash, query and hash ignored; one Find a Grave memorial under any locale subdomain or slug is one page). One engine failing is tolerated; losing every engine is a provider failure (502).
+- **Cost**: One SerpApi search credit per engine per research request (5 credits).
+- **Rationale**: One query per stone keeps SerpApi quota spend predictable. Several engines recover records Google alone ranks low. Obituary and grave index pages both carry name + dates, which is what identity matching needs.
 - **Rejected**:
-  - Multiple engines or providers: PRD Stretch.
+  - Multiple search providers: PRD Stretch. Several engines through the one SerpApi integration are in scope.
   - A Find a Grave scraper: no API and terms restrict it. SerpApi results that link there are fine.
 - **Interface**: `SearchProvider.search(query): Promise<SourceRecord[]>`, with one implementation (`serpapi.ts`).
 
@@ -50,17 +52,19 @@ Each entry: decision, rationale, alternatives rejected.
 
 ## R7. Identity resolution
 
-- **Decision**:
-  1. The model groups search results into candidate people with a structured output: `{ name, born, died, place, resultIds[] }`.
-  2. Code then:
-     - drops unknown `resultIds`;
-     - drops any result claimed by more than one candidate from all of them, which prevents silent merges;
-     - drops candidates whose known years conflict with the inscription (a `?` digit matches any digit);
-     - drops candidates left with no results;
-     - caps the list at 5, ordered by the number of matching inscription fields.
-  3. The visitor always confirms, even when only one candidate remains.
-- **Rationale**: Clustering free text into people is model work. Conflict and merge rules are deterministic and testable (Constitution III).
-- **Rejected**: Pure string scoring, which can't tell two "John Smith 1950–2011" obituaries apart by snippet alone.
+- **Decision**: A deterministic engine, `resolveMatches(inscription, records)`, with no model call. Keys: name, birth year, death year.
+  1. Name key: the surname (or the maiden name) as a whole word, accents folded, generational suffixes (Jr, Sr, II-V) ignored, plus at least one of the stone's given names, in the title or snippet.
+  2. Year keys: read from the text near the name by label ("born", "died", "d.", "passed away"), by a range like `(1932-2017)`, or derived from "age N" with a one-year slack. A `?` digit in the stone's year matches any digit.
+  3. A key the result does not state is neutral. A stated year that disagrees excludes the result (a namesake).
+  4. A result with the name and at least one matching date is kept even when its other date is missing.
+  5. If no result confirms a date, name-only results are kept as unverified. When any result confirms at least one date, name-only results are dropped.
+  6. Results are ordered by number of matching keys, then by whether the page looks like a record (obituary, cemetery, grave, memorial, funeral, died, born). At most 5 become the candidate's sources.
+  7. Results that agree on every stated year form one candidate. Results whose stated years contradict each other (two namesakes that both fit a worn stone) form separate candidates, best first, at most three, so two people are never merged. Each Candidate: name = the inscription's name; born/died = the year a matched result states, else null.
+  8. Confidence: `high` when every key the stone offers matches (and at least two do), `medium` for two or more matching keys otherwise, `low` for name only.
+  9. The visitor always confirms, even for the single candidate, and sees the confidence. `low` is labelled "Unverified: only the name matches. Check the sources before confirming."
+- **Rationale**: Name, year and conflict rules are deterministic and testable (Constitution III). A model call added latency and could attach a result to the wrong person.
+- **Tradeoff**: A search result is not proof that two records are the same person. A namesake whose snippet states no dates can still be returned, but only as unverified low confidence when nothing stronger exists. The visitor must confirm with the sources visible.
+- **Rejected**: Having a model pick or group results (latency, and it let one result attach to the wrong person).
 
 ## R8. Story grounding (fetch page text)
 
@@ -69,20 +73,25 @@ Each entry: decision, rationale, alternatives rejected.
      - Honors robots.txt (`robots-parser`) for user agent `Gravespeaker`.
      - Extracts the main text with `@mozilla/readability` on a `linkedom` DOM.
      - Falls back to the search snippet when a fetch fails.
-  2. Sends the extracted text to the story agent, which returns sentences: `{ text, kind: 'fact' | 'reconstruction', claim: 'name' | 'birth' | 'death' | 'other', sourceIds[], quote }`.
-  3. Code keeps a `fact` sentence only if every `sourceId` belongs to the candidate and its `quote` appears, after normalization, in one cited source's text. Otherwise the sentence is dropped.
-  4. If no surviving fact has `claim: 'other'` with a quote containing a token beyond the deceased's name, month names and digits, the response is `insufficient` (spec FR-013). The model's `claim` label alone is never trusted for the bar.
-  5. Fetched text is never returned to the browser or stored.
-- **Rationale**: The user chose page text over snippets (2026-10-27). Snippets alone would fail the evidence bar on most stones. Quote matching gives a deterministic check against fabrication. The quote is never displayed, so source content isn't republished.
-- **Relatives** (user decision, 2026-10-27): relationships are allowed as cited facts ("my wife of 52 years"). A relative may be named only when a cited source says they died first ("preceded in death by"). Survivors are never named. The story agent's instructions enforce this, and the grounding benchmark (next spec) measures it with obituaries that list survivors. No code check: telling a survivor's name from a predeceased relative's takes reading comprehension, not a pattern.
+  2. Fact extraction (model call 1, temperature 0): the model returns facts as `{ claim, sourceId, quote }`. Code keeps a fact only if its quote appears verbatim in the cited source's text (normalized for case, punctuation and whitespace), drops repeats, and drops any fact whose quote names survivors (patterns such as "survived by", "survivors", "leaves behind").
+  3. If no verified fact says anything beyond the name, months and dates, the response is `{ status: 'insufficient' }` and the second call is skipped (spec FR-013).
+  4. Prose (model call 2, Gemma's recommended sampling: temperature 1.0, top_p 0.95, top_k 64): the model writes one theatrical first-person paragraph of about 100-170 words from the verified fact quotes only. It is plain spoken prose with no stage directions or markup, because a voice service will read it aloud later.
+  5. Code splits the paragraph into sentences and drops any sentence that adds a number or number word, a proper noun, or a negation attached to a fact that the verified facts, the name and month names do not give. It also drops repeated sentences. If the surviving paragraph no longer uses a real fact, the response is `{ status: 'insufficient' }`.
+  6. The response lists only the sources of facts the paragraph actually uses. Fetched text is never returned to the browser or stored.
+- **Rationale**: The user chose page text over snippets (2026-10-27). Snippets alone would fail the evidence bar on most stones. Quote matching gives a deterministic check on every fact. The quote is never displayed, so source content isn't republished.
+- **Limit**: The deterministic prose check covers numbers, names and negations. It cannot check the meaning of free prose, so the prose prompt is what keeps the atmosphere from inventing life events.
+- **Relatives** (user decision, 2026-10-27): relationships are allowed as cited facts ("my wife of 52 years"). A relative may be named only when a cited source says they died first ("preceded in death by"). Survivors are never named. Facts whose quote names survivors are dropped by pattern, and the prose prompt covers the rest. The grounding benchmark (next spec) measures this with obituaries that list survivors.
 - **Rejected**: Snippets only (user rejected); `jsdom`, which is heavier than `linkedom`; a headless browser, which is far too heavy.
 
 ## R9. SSRF on page fetch
 
 - **Decision**: The story endpoint receives source URLs from the client, so `fetchPage` checks every request:
   - only `https:`/`http:` URLs;
-  - resolves DNS and rejects loopback, private, link-local (`169.254.0.0/16`, which includes the metadata server), CGNAT and ULA addresses;
-  - follows redirects manually, at most 3 hops, re-checking each hop.
+  - resolves DNS once per hop and rejects loopback, private, link-local (`169.254.0.0/16`, which includes the metadata server), CGNAT, ULA, multicast, reserved, benchmarking and documentation IPv4 ranges, and IPv6 multicast, NAT64, 6to4 and Teredo addresses;
+  - pins the connection to the checked address with an `undici` dispatcher, so a second lookup cannot return a different address;
+  - follows redirects manually, at most 3 hops, re-checking each hop;
+  - checks robots.txt at every redirect hop (once per origin). An unreachable, 5xx or unreadable robots.txt means the page is skipped (RFC 9309); a 4xx robots.txt means no rules;
+  - a body that fails mid-read or a malformed redirect target makes that source unavailable.
 - **Rationale**: On Cloud Run, an open fetch can reach the metadata server and leak the service account token. Signing candidates server-side would need a new secret, and CLAUDE.md requires asking before adding one.
 - **Rejected**: HMAC-signed candidate payloads, which need a new Secret Manager secret; re-running search in the story request, which doubles SerpApi spend.
 
@@ -99,7 +108,7 @@ Each entry: decision, rationale, alternatives rejected.
 - **Decision**: Add these exact runtime dependencies, resolved at install time:
   - `@mastra/core`
   - `zod` (v4)
-  - `serpapi`
+  - `undici`
   - `@mozilla/readability`
   - `linkedom`
   - `robots-parser`
