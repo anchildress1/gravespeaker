@@ -97,7 +97,7 @@ const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: s
 	.then(fetchStep)
 	.then(extractStep)
 	.then(tellStep)
-	.then(groundStep) // NOSONAR: Mastra builder .then(), not a Promise
+	.then(groundStep)
 	.commit();
 
 /**

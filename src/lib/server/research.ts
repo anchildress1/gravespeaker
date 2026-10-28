@@ -63,7 +63,7 @@ const researchWorkflow = createWorkflow({
 	outputSchema: z.object({ candidates: z.array(candidateSchema) })
 })
 	.then(searchStep)
-	.then(resolveStep) // NOSONAR: Mastra builder .then(), not a Promise
+	.then(resolveStep)
 	.commit();
 
 /**

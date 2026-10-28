@@ -10,35 +10,35 @@ const MAX_REDIRECTS = 3;
 const MAX_BYTES = 2 * 1024 * 1024;
 const TIMEOUT_MS = 8000;
 
-// Deny-list ranges, not endpoints: the NOSONAR markers silence S1313.
+// Deny-list ranges, not endpoints; sonar-project.properties ignores S1313 (hardcoded IP) for this file.
 const blocked = new BlockList();
 for (const [net, bits] of [
 	['0.0.0.0', 8],
-	['10.0.0.0', 8], // NOSONAR
-	['100.64.0.0', 10], // NOSONAR
+	['10.0.0.0', 8],
+	['100.64.0.0', 10],
 	['127.0.0.0', 8],
-	['169.254.0.0', 16], // NOSONAR
-	['172.16.0.0', 12], // NOSONAR
-	['192.168.0.0', 16], // NOSONAR
-	['192.0.0.0', 24], // NOSONAR
+	['169.254.0.0', 16],
+	['172.16.0.0', 12],
+	['192.168.0.0', 16],
+	['192.0.0.0', 24],
 	['192.0.2.0', 24],
-	['198.18.0.0', 15], // NOSONAR
+	['198.18.0.0', 15],
 	['198.51.100.0', 24],
 	['203.0.113.0', 24],
-	['224.0.0.0', 4], // NOSONAR
-	['240.0.0.0', 4] // NOSONAR
+	['224.0.0.0', 4],
+	['240.0.0.0', 4]
 ] as const) {
 	blocked.addSubnet(net, bits, 'ipv4');
 }
 blocked.addAddress('::', 'ipv6');
 blocked.addAddress('::1', 'ipv6');
-blocked.addSubnet('fe80::', 10, 'ipv6'); // NOSONAR
-blocked.addSubnet('fc00::', 7, 'ipv6'); // NOSONAR
-blocked.addSubnet('ff00::', 8, 'ipv6'); // NOSONAR
+blocked.addSubnet('fe80::', 10, 'ipv6');
+blocked.addSubnet('fc00::', 7, 'ipv6');
+blocked.addSubnet('ff00::', 8, 'ipv6');
 // NAT64, 6to4 and Teredo can encode a private IPv4 destination.
-blocked.addSubnet('64:ff9b::', 96, 'ipv6'); // NOSONAR
-blocked.addSubnet('2002::', 16, 'ipv6'); // NOSONAR
-blocked.addSubnet('2001::', 32, 'ipv6'); // NOSONAR
+blocked.addSubnet('64:ff9b::', 96, 'ipv6');
+blocked.addSubnet('2002::', 16, 'ipv6');
+blocked.addSubnet('2001::', 32, 'ipv6');
 
 /**
  * Resolves a host once and returns the address to connect to, or null when any address is non-public.
