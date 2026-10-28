@@ -3,7 +3,7 @@ import { z } from 'zod';
 import type { Candidate, Inscription, SourceRecord } from '#lib/types.ts';
 import { geminiApiKey } from '../env';
 import { ProviderError } from '../http';
-import type { InferenceProvider, PageText, RawCandidate, RawPerson, RawSentence } from './index';
+import type { InferenceProvider, PageText, RawCandidate, RawPerson, RawFact } from './index';
 
 const MODEL_ID = 'google/gemma-4-26b-a4b-it';
 const MAX_RETRIES = 2;
@@ -50,45 +50,47 @@ const groupSchema = z.object({
 	)
 });
 
-const storySchema = z.object({
-	sentences: z.array(
+const factsSchema = z.object({
+	facts: z.array(
 		z.object({
-			text: z.string(),
-			kind: z.enum(['fact', 'reconstruction']),
 			claim: z.enum(['name', 'birth', 'death', 'other']),
-			sourceIds: z.array(z.string()),
-			quote: z
-				.string()
-				.describe('Short verbatim excerpt from a cited source; empty for reconstruction.')
+			sourceId: z.string(),
+			quote: z.string().describe('Copied exactly from the source text, under 25 words.')
 		})
 	)
 });
 
-const GROUP_INSTRUCTIONS = `You group web search results into distinct people for a genealogy lookup.
+const GROUP_INSTRUCTIONS = `Task: sort web search results by the person each one is about.
 
-- Each candidate is one distinct person. Never put one result in two candidates.
-- Use only facts present in a result's title or snippet. Do not copy details from the headstone onto a result that does not state them.
-- Use null for any field the results do not state.
-- Skip results that are not about a specific person.`;
+Context: the results come from searching for one name copied from a headstone. Different results can be about different people who share that name. Your groups decide which results are shown together as one possible match, so merging two people puts the wrong records under one name.
 
-const STORY_INSTRUCTIONS = `You are a ghost speaking from the grave. Perform a short, theatrical monologue in first person, as the deceased, addressed to the visitor standing at the stone. It is openly fiction, so be atmospheric, eerie and dramatic, and weave in the real facts the sources give.
+Rules:
+- Make one group per distinct person. Name, birth year and death year decide who someone is.
+- Put each result in exactly one group. If you cannot tell which person a result is about, leave it out.
+- Leave out results that are not about one specific person, such as lists, indexes and general pages.
+- Fill name, born, died and place only from the result's title and snippet. Use null when it does not say. Never copy details from the headstone.
+- resultIds lists the ids of the results in the group.`;
 
-Two kinds of sentence, mixed so the real facts land inside the performance:
-- "fact": restates one real fact from a source in the first person. Reuse the quote's own words in the quote's order, changing only person and tense. Add no adjectives, places, numbers, names or negations of your own; all flair belongs in "reconstruction" lines.
-- "reconstruction": pure theatre about the grave, the dark, the stone, the weather, the passing of time, the visitor. It states nothing about the person's life.
+const EXTRACT_INSTRUCTIONS = `Task: pull checkable facts about one deceased person out of source texts.
 
-Rules for facts:
-- Every "fact" cites sourceIds and copies a short verbatim quote from one of those sources.
-- Never invent relationships, events, memories, thoughts or feelings of the deceased.
-- Relationships may appear only as cited facts.
-- Name a relative only when a cited source says they died before the deceased.
-- Never name survivors or other living people.
-- claim is "name", "birth" or "death" for facts about those; "other" for any other fact.
+Rules:
+- Return only facts the sources state about this person, each as claim, sourceId and quote.
+- quote is copied exactly from the source text, with no edits. Keep it short: one phrase or sentence, under 25 words.
+- claim is "name", "birth" or "death" for those facts, and "other" for anything else: work, hobbies, places lived, family relationships, achievements.
+- Skip facts about other people, unless the fact states this person's relationship to them. Never include the names of survivors or other living people.
+- Skip guesses, opinions and anything the text does not say.
+- If the sources hold no usable facts, return an empty list.`;
 
-Example of the mix, as it should read aloud (never print labels or the word "reconstruction"; the quotes come from the sources, the rest is theatre):
-Come closer. The cold keeps no secrets from the living.
-I taught piano for forty years.
-Strange, how the silence here has no keys at all.`;
+const STORY_INSTRUCTIONS = `Task: write a short theatrical monologue spoken by a ghost, built around a list of verified facts.
+
+Rules:
+- Write one paragraph of 100 to 170 words, in first person as the deceased, spoken to a visitor at the grave.
+- Weave in as many of the facts as read naturally. State each fact plainly and truthfully.
+- Add atmosphere around the facts: the grave, the dark, the stone, the weather, time, the visitor. Make it eerie, dramatic and intimate. It is openly fiction.
+- Use only the facts given. Do not add any name, place, number, date, event, relationship, memory, thought or feeling of the deceased that the facts do not state. Do not deny or reverse a fact.
+- Never name anyone the facts do not name, and never name living people.
+- A voice actor will read it aloud: use plain flowing sentences. No stage directions, brackets, parentheses, emoji, markdown, headings or lists. Use commas, periods and ellipses for pauses.
+- Output only the paragraph.`;
 
 /**
  * Builds a one-shot Mastra agent on the hosted Gemma model.
@@ -161,26 +163,43 @@ export class GemmaProvider implements InferenceProvider {
 	}
 
 	/** @inheritdoc */
-	async tellStory(
+	async extractFacts(
 		inscription: Inscription,
 		candidate: Candidate,
 		pages: PageText[]
-	): Promise<RawSentence[]> {
+	): Promise<RawFact[]> {
 		const sources = candidate.sources.map(({ id, title }) => ({
 			id,
 			title,
 			text: pages.find((p) => p.sourceId === id)?.text ?? ''
 		}));
 		try {
-			const res = await agent('tell-story', STORY_INSTRUCTIONS).generate(
-				`Speak as ${candidate.name} (stone: ${inscription.carvedName}).\n\nSources:\n${JSON.stringify(sources)}`,
+			const res = await agent('extract-facts', EXTRACT_INSTRUCTIONS).generate(
+				`Person: ${candidate.name} (headstone: ${inscription.carvedName}).\n\nSources:\n${JSON.stringify(sources)}`,
 				{
-					structuredOutput: { schema: storySchema },
-					modelSettings: { temperature: 0.7 },
+					structuredOutput: { schema: factsSchema },
+					modelSettings: { temperature: 0 },
 					providerOptions: NO_THINKING
 				}
 			);
-			return res.object.sentences;
+			return res.object.facts;
+		} catch (e) {
+			throw failed('Extracting facts', e);
+		}
+	}
+
+	/** @inheritdoc */
+	async tellStory(name: string, facts: string[]): Promise<string> {
+		try {
+			const res = await agent('tell-story', STORY_INSTRUCTIONS).generate(
+				`Deceased: ${name}\n\nVerified facts:\n${facts.map((f) => `- ${f}`).join('\n')}`,
+				{
+					// Gemma's documented sampling for every use case; the creative call needs the variety.
+					modelSettings: { temperature: 1, topP: 0.95, topK: 64 },
+					providerOptions: NO_THINKING
+				}
+			);
+			return res.text.trim();
 		} catch (e) {
 			throw failed('Telling the story', e);
 		}

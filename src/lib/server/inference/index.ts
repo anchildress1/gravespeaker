@@ -14,11 +14,9 @@ export interface RawCandidate {
 	resultIds: string[];
 }
 
-export interface RawSentence {
-	text: string;
-	kind: 'fact' | 'reconstruction';
+export interface RawFact {
 	claim: 'name' | 'birth' | 'death' | 'other';
-	sourceIds: string[];
+	sourceId: string;
 	quote: string;
 }
 
@@ -46,16 +44,24 @@ export interface InferenceProvider {
 	 */
 	groupCandidates(inscription: Inscription, records: SourceRecord[]): Promise<RawCandidate[]>;
 	/**
-	 * Writes a first-person story from cited page text.
+	 * Pulls facts about the person out of source text, each as a verbatim quote.
 	 * @param inscription The stone's person.
 	 * @param candidate The confirmed candidate.
 	 * @param pages Extracted text per source.
-	 * @returns Raw sentences with claims and quotes.
+	 * @returns Raw facts as the model returned them.
 	 * @throws {ProviderError} When the model fails after retries.
 	 */
-	tellStory(
+	extractFacts(
 		inscription: Inscription,
 		candidate: Candidate,
 		pages: PageText[]
-	): Promise<RawSentence[]>;
+	): Promise<RawFact[]>;
+	/**
+	 * Writes one theatrical first-person paragraph around verified facts.
+	 * @param name The deceased's name.
+	 * @param facts Verified fact quotes the paragraph may use.
+	 * @returns The paragraph as the model wrote it.
+	 * @throws {ProviderError} When the model fails after retries.
+	 */
+	tellStory(name: string, facts: string[]): Promise<string>;
 }

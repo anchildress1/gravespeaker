@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { groundStory } from './narrative';
-import type { RawSentence } from './inference/index';
+import { groundParagraph, hasEvidence, verifyFacts } from './narrative';
+import type { RawFact } from './inference/index';
 import type { Candidate, Inscription } from '#lib/types.ts';
 
 const stone: Inscription = {
@@ -27,215 +27,146 @@ const pages = [
 	},
 	{ sourceId: 's2', text: 'Unrelated page about something else.' }
 ];
+
 /**
- * Test helper.
- * @param over Test input.
- * @returns The fixture.
+ * Builds a raw fact, defaulting to a verifiable "other" fact.
+ * @param over Fields to override.
+ * @returns The fact.
  */
-const fact = (over: Partial<RawSentence>): RawSentence => ({
-	text: 'I taught piano.',
-	kind: 'fact',
+const fact = (over: Partial<RawFact> = {}): RawFact => ({
 	claim: 'other',
-	sourceIds: ['s1'],
+	sourceId: 's1',
 	quote: 'taught piano for forty years',
 	...over
 });
 
-describe('groundStory', () => {
-	it('keeps a fact whose quote is in the cited source', () => {
-		const story = groundStory(stone, candidate, pages, [fact({})]);
-		expect(story).toEqual({
-			status: 'told',
-			sentences: [{ text: 'I taught piano.', kind: 'fact', sourceIds: ['s1'] }],
-			sources: [candidate.sources[0]]
-		});
+/**
+ * Grounds a paragraph against the default piano fact and returns the told paragraph.
+ * @param paragraph Prose to ground.
+ * @param facts Facts the prose was written from.
+ * @returns The kept paragraph, or null when the story was insufficient.
+ */
+const told = (paragraph: string, facts = [fact()]): string | null => {
+	const story = groundParagraph(stone, candidate, facts, paragraph);
+	return story.status === 'told' ? story.paragraph : null;
+};
+
+describe('verifyFacts', () => {
+	it('keeps a fact whose quote is in its cited source', () => {
+		expect(verifyFacts(candidate, pages, [fact()])).toHaveLength(1);
+	});
+
+	it('drops a fact whose quote is not in the cited source', () => {
+		expect(verifyFacts(candidate, pages, [fact({ quote: 'flew combat missions' })])).toEqual([]);
+		expect(verifyFacts(candidate, pages, [fact({ sourceId: 's2' })])).toEqual([]);
 	});
 
 	it('drops a fact citing a source outside the candidate', () => {
-		expect(groundStory(stone, candidate, pages, [fact({ sourceIds: ['s9'] })])).toEqual({
+		expect(verifyFacts(candidate, pages, [fact({ sourceId: 's9' })])).toEqual([]);
+	});
+
+	it('matches ignoring case, punctuation and whitespace', () => {
+		const loose = fact({ quote: 'TAUGHT   piano, for forty years!' });
+		expect(verifyFacts(candidate, pages, [loose])).toHaveLength(1);
+	});
+
+	it('drops a repeated quote', () => {
+		expect(verifyFacts(candidate, pages, [fact(), fact()])).toHaveLength(1);
+	});
+
+	it('drops an empty quote', () => {
+		expect(verifyFacts(candidate, pages, [fact({ quote: '' })])).toEqual([]);
+	});
+});
+
+describe('hasEvidence', () => {
+	it('is false for facts that only repeat the name and dates', () => {
+		const facts = [
+			fact({ claim: 'name', quote: 'Gaynor Hawks' }),
+			fact({ claim: 'other', quote: 'Gaynor Hawks, March 10, 1932' })
+		];
+		expect(hasEvidence(stone, candidate, facts)).toBe(false);
+	});
+
+	it('is true for one fact with real content', () => {
+		expect(hasEvidence(stone, candidate, [fact()])).toBe(true);
+	});
+
+	it('is false for no facts', () => {
+		expect(hasEvidence(stone, candidate, [])).toBe(false);
+	});
+});
+
+describe('groundParagraph', () => {
+	it('is insufficient when there is no real fact to build on', () => {
+		const dates = [fact({ claim: 'birth', quote: 'March 10, 1932' })];
+		expect(groundParagraph(stone, candidate, dates, 'I was born long ago.')).toEqual({
 			status: 'insufficient'
 		});
 	});
 
-	it('drops a fact whose quote is absent from every cited source', () => {
-		expect(groundStory(stone, candidate, pages, [fact({ sourceIds: ['s2'] })])).toEqual({
-			status: 'insufficient'
-		});
-	});
-
-	it('matches quotes ignoring case, punctuation and whitespace', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ quote: 'TAUGHT   piano, for forty years!' })
-		]);
-		expect(story.status).toBe('told');
-	});
-
-	it('clears sourceIds on a reconstruction', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({}),
-			{
-				text: 'The wind remembers.',
-				kind: 'reconstruction',
-				claim: 'other',
-				sourceIds: ['s1'],
-				quote: ''
-			}
-		]);
-		expect(story).toMatchObject({
-			sentences: [{ kind: 'fact' }, { kind: 'reconstruction', sourceIds: [] }]
-		});
-	});
-
-	it('is insufficient when only name, birth and death facts survive', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ claim: 'name', text: 'I am Gaynor Hawks.', quote: 'Gaynor Hawks' }),
-			fact({ claim: 'birth', text: 'I was born March 10, 1932.', quote: 'born March 10, 1932' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('does not count an "other" fact made only of name and date tokens', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I am Gaynor Hawks, March 10, 1932.', quote: 'Gaynor Hawks, March 10, 1932' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('counts one surviving "other" fact as enough', () => {
-		expect(
-			groundStory(stone, candidate, pages, [
-				fact({ text: 'I loved gardening.', quote: 'She loved gardening' })
-			]).status
-		).toBe('told');
-	});
-
-	it('drops a sentence that invents a claim beside a real quote', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I flew combat missions in the war.' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('keeps a first-person, tense-shifted paraphrase of its quote', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I taught piano for forty years.' })
-		]);
-		expect(story.status).toBe('told');
-	});
-
-	it('keeps a ghost-voice rewording that reuses the quoted proper noun', () => {
-		const quote = 'preceded in death by her husband Arthur';
-		const story = groundStory(
+	it('keeps atmosphere and facts together, and cites only the sources it used', () => {
+		const story = groundParagraph(
 			stone,
 			candidate,
-			[{ sourceId: 's1', text: `Gaynor Hawks was ${quote}.` }],
-			[fact({ text: 'I was preceded in death by my husband Arthur.', quote })]
+			[fact(), fact({ sourceId: 's2', quote: 'something else entirely' })],
+			'Come closer, the cold is patient. I taught piano for forty years. The silence has no keys.'
 		);
-		expect(story.status).toBe('told');
-	});
-
-	it('drops a sentence that changes a quoted number', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I taught piano for fifty years.' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('drops a sentence that adds an unquoted proper noun', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I taught piano in Paris.' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('drops a sentence with no content words', () => {
-		const story = groundStory(stone, candidate, pages, [fact({ text: 'I was there.' })]);
-		expect(story).toEqual({ status: 'insufficient' });
-	});
-
-	it('exposes only text, kind and sourceIds, and only cited sources', () => {
-		const story = groundStory(stone, candidate, pages, [fact({})]);
 		if (story.status !== 'told') throw new Error('expected told');
-		expect(Object.keys(story.sentences[0]).sort()).toEqual(['kind', 'sourceIds', 'text']);
+		expect(story.paragraph).toContain('Come closer');
+		expect(story.paragraph).toContain('piano');
+		expect(story.paragraph).toContain('silence');
 		expect(story.sources.map((s) => s.id)).toEqual(['s1']);
 	});
 
-	it('drops a reconstruction that is only label debris', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'I loved gardening.', quote: 'She loved gardening' }),
-			{ text: 'reconstruction:', kind: 'reconstruction', claim: 'other', sourceIds: [], quote: '' },
-			{
-				text: 'The fog keeps its own counsel.',
-				kind: 'reconstruction',
-				claim: 'other',
-				sourceIds: [],
-				quote: ''
-			}
-		]);
-		if (story.status !== 'told') throw new Error('expected told');
-		expect(story.sentences.map((s) => s.text)).toEqual([
-			'I loved gardening.',
-			'The fog keeps its own counsel.'
-		]);
+	it('is insufficient when the story ignores the facts', () => {
+		expect(told('The fog keeps its counsel. The moon is thin tonight.')).toBeNull();
 	});
 
-	it('accepts a number word when the source writes the digits, and the reverse', () => {
-		const digits = [{ sourceId: 's1', text: 'She taught piano for 40 years.' }];
-		expect(
-			groundStory(stone, candidate, digits, [
-				fact({ text: 'I taught piano for forty years.', quote: 'taught piano for 40 years' })
-			]).status
-		).toBe('told');
-		const words = [{ sourceId: 's1', text: 'She taught piano for forty years.' }];
-		expect(
-			groundStory(stone, candidate, words, [
-				fact({ text: 'I taught piano for 40 years.', quote: 'taught piano for forty years' })
-			]).status
-		).toBe('told');
+	it('drops a sentence with a number the facts do not give', () => {
+		const out = told('I taught piano for forty years. I lived to be 99 years old.');
+		expect(out).toContain('piano');
+		expect(out).not.toContain('99');
 	});
 
-	it('drops a fact that opens with a proper noun the quote never mentions', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({ text: 'Chicago was my home, where I taught piano.' })
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
+	it('accepts a number word where the source writes the digits, and the reverse', () => {
+		const digits = [fact({ quote: 'taught piano for 40 years' })];
+		expect(told('I taught piano for forty years.', digits)).toContain('forty');
+		const words = [fact({ quote: 'taught piano for forty years' })];
+		expect(told('I taught piano for 40 years.', words)).toContain('40');
 	});
 
-	it('keeps short theatrical lines but drops longer label debris', () => {
-		const story = groundStory(stone, candidate, pages, [
-			fact({}),
-			{ text: 'Come closer.', kind: 'reconstruction', claim: 'other', sourceIds: [], quote: '' },
-			{
-				text: 'Reconstruction line one:',
-				kind: 'reconstruction',
-				claim: 'other',
-				sourceIds: [],
-				quote: ''
-			}
-		]);
-		if (story.status !== 'told') throw new Error('expected told');
-		expect(story.sentences.map((s) => s.text)).toEqual(['I taught piano.', 'Come closer.']);
+	it('drops a sentence that names someone the facts do not name', () => {
+		const out = told('I taught piano for forty years. My friend Margaret wept here.');
+		expect(out).toContain('piano');
+		expect(out).not.toContain('Margaret');
 	});
 
-	it.each([
-		['adds an adjective and a claim', 'I was a famous pianist.'],
-		['adds a negation the quote lacks', 'I never taught piano for forty years.'],
-		['adds a claim of its own', 'I taught piano to the whole county for forty years.'],
-		['reverses the order of the quote', 'Forty years of piano taught I.']
-	])('drops a fact that %s', (_label, text) => {
-		expect(
-			groundStory(stone, candidate, pages, [fact({ text, quote: 'taught piano for forty years' })])
-		).toEqual({ status: 'insufficient' });
+	it("allows the person's own name and months without a quote", () => {
+		expect(told('Call me Gaynor, born in March. I taught piano for forty years.')).toContain(
+			'Gaynor'
+		);
 	});
 
-	it('drops a fact that reverses who preceded whom', () => {
-		const obit = [{ sourceId: 's1', text: 'She was preceded in death by her husband Arthur.' }];
-		const story = groundStory(stone, candidate, obit, [
-			fact({
-				text: 'Arthur preceded me in death.',
-				quote: 'preceded in death by her husband Arthur'
-			})
-		]);
-		expect(story).toEqual({ status: 'insufficient' });
+	it('drops a negation that touches a fact but keeps one that is only atmosphere', () => {
+		const out = told('I never taught piano for forty years. The silence here has no end.');
+		expect(out).toBeNull();
+		const both = told(
+			'I taught piano for forty years. I never taught piano for fifty years. The silence has no end.'
+		);
+		expect(both).toContain('silence');
+		expect(both).not.toContain('never');
+	});
+
+	it('drops a sentence the model repeats', () => {
+		const out = told(
+			'The fog keeps its counsel. I taught piano for forty years. The fog keeps its counsel.'
+		);
+		expect(out!.split('fog keeps')).toHaveLength(2);
+	});
+
+	it('returns only the paragraph and the cited sources', () => {
+		const story = groundParagraph(stone, candidate, [fact()], 'I taught piano for forty years.');
+		expect(Object.keys(story).sort()).toEqual(['paragraph', 'sources', 'status']);
 	});
 });

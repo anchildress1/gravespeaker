@@ -25,10 +25,8 @@ const candidate = {
 };
 const told = {
 	status: 'told',
-	sentences: [
-		{ text: 'I taught piano for forty years.', kind: 'fact', sourceIds: ['s1'] },
-		{ text: 'The garden remembers me.', kind: 'reconstruction', sourceIds: [] }
-	],
+	paragraph:
+		'Come closer, and mind the cold. I taught piano for forty years. The garden remembers me.',
 	sources: [source]
 };
 
@@ -96,7 +94,7 @@ test('"none of these" ends on the stone-only epitaph with no AI label', async ({
 	await expect(page.getByText('My name was Gaynor Claire Hawks.')).toBeVisible();
 	await expect(page.getByText('I was born on March 10, 1932.')).toBeVisible();
 	await expect(page.getByText('No public record was confirmed')).toBeVisible();
-	await expect(page.getByText('AI-generated')).toHaveCount(0);
+	await expect(page.getByText('generated with AI')).toHaveCount(0);
 });
 
 test('zero candidates show the epitaph with the no-records note', async ({ page }) => {
@@ -120,16 +118,15 @@ test('a failed research shows the message and retries', async ({ page }) => {
 	await expect(page.getByRole('heading', { name: 'Is this them?' })).toBeVisible();
 });
 
-test('a told story is labelled, with a link on every fact', async ({ page }) => {
+test('a told story is one labelled paragraph with its sources listed', async ({ page }) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', { body: { candidates: [candidate] } });
 	await mock(page, '/api/story', { body: told });
 	await upload(page);
 	await page.getByRole('button', { name: 'This is them' }).click();
-	await expect(page.getByText('AI-generated historical reconstruction')).toBeVisible();
-	const fact = page.locator('.fact', { hasText: 'taught piano' });
-	await expect(fact.getByRole('link')).toHaveAttribute('href', source.url);
-	await expect(page.locator('.reconstruction')).toContainText('Imagined');
+	await expect(page.getByText('Story generated with AI')).toBeVisible();
+	await expect(page.locator('.paragraph')).toContainText('I taught piano for forty years.');
+	await expect(page.getByRole('link', { name: source.title })).toHaveAttribute('href', source.url);
 });
 
 test('an insufficient story falls back to the epitaph without the AI label', async ({ page }) => {
@@ -139,7 +136,7 @@ test('an insufficient story falls back to the epitaph without the AI label', asy
 	await upload(page);
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByText('The records hold nothing beyond the stone')).toBeVisible();
-	await expect(page.getByText('AI-generated')).toHaveCount(0);
+	await expect(page.getByText('generated with AI')).toHaveCount(0);
 });
 
 test('a failed story shows the message and retries', async ({ page }) => {
@@ -155,7 +152,7 @@ test('a failed story shows the message and retries', async ({ page }) => {
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByRole('alert')).toContainText('Story failed.');
 	await page.getByRole('button', { name: 'Try again' }).click();
-	await expect(page.getByText('AI-generated historical reconstruction')).toBeVisible();
+	await expect(page.getByText('Story generated with AI')).toBeVisible();
 });
 
 test('a photo over 10 MB is rejected in the browser without an upload', async ({ page }) => {

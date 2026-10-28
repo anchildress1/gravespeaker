@@ -43,16 +43,8 @@ export interface Candidate {
 	sources: SourceRecord[];
 }
 
-/** One sentence of a story. */
-export interface StorySentence {
-	text: string;
-	kind: 'fact' | 'reconstruction';
-	sourceIds: string[];
-}
-
 export type Story =
-	| { status: 'told'; sentences: StorySentence[]; sources: SourceRecord[] }
-	| { status: 'insufficient' };
+	{ status: 'told'; paragraph: string; sources: SourceRecord[] } | { status: 'insufficient' };
 
 export interface ApiError {
 	error: {

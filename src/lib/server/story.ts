@@ -3,7 +3,7 @@ import { z } from 'zod';
 import type { Candidate, Inscription, Story } from '#lib/types.ts';
 import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
-import { groundStory } from './narrative.ts';
+import { groundParagraph, hasEvidence, verifyFacts } from './narrative.ts';
 import { fetchPage } from './pages.ts';
 import { inscriptionSchema, sourceSchema } from './research.ts';
 
@@ -21,27 +21,17 @@ export const candidateInputSchema = z.object({
 const inputSchema = z.object({ inscription: inscriptionSchema, candidate: candidateInputSchema });
 const pageSchema = z.object({ sourceId: z.string(), text: z.string() });
 const withPages = inputSchema.extend({ pages: z.array(pageSchema) });
-const withRaw = withPages.extend({
-	raw: z.array(
-		z.object({
-			text: z.string(),
-			kind: z.enum(['fact', 'reconstruction']),
-			claim: z.enum(['name', 'birth', 'death', 'other']),
-			sourceIds: z.array(z.string()),
-			quote: z.string()
-		})
-	)
+const factSchema = z.object({
+	claim: z.enum(['name', 'birth', 'death', 'other']),
+	sourceId: z.string(),
+	quote: z.string()
 });
+const withFacts = withPages.extend({ facts: z.array(factSchema) });
+const withParagraph = withFacts.extend({ paragraph: z.string() });
 const storySchema = z.discriminatedUnion('status', [
 	z.object({
 		status: z.literal('told'),
-		sentences: z.array(
-			z.object({
-				text: z.string(),
-				kind: z.enum(['fact', 'reconstruction']),
-				sourceIds: z.array(z.string())
-			})
-		),
+		paragraph: z.string(),
 		sources: z.array(sourceSchema)
 	}),
 	z.object({ status: z.literal('insufficient') })
@@ -62,34 +52,61 @@ const fetchStep = createStep({
 	})
 });
 
-const tellStep = createStep({
-	id: 'tell',
+const extractStep = createStep({
+	id: 'extract',
 	inputSchema: withPages,
-	outputSchema: withRaw,
+	outputSchema: withFacts,
 	execute: async ({ inputData }) => ({
 		...inputData,
-		raw: await inference.tellStory(inputData.inscription, inputData.candidate, inputData.pages)
+		facts: verifyFacts(
+			inputData.candidate,
+			inputData.pages,
+			await inference.extractFacts(inputData.inscription, inputData.candidate, inputData.pages)
+		)
+	})
+});
+
+const tellStep = createStep({
+	id: 'tell',
+	inputSchema: withFacts,
+	outputSchema: withParagraph,
+	execute: async ({ inputData }) => ({
+		...inputData,
+		// With nothing beyond the name and dates there is no story to tell, so skip the model.
+		paragraph: hasEvidence(inputData.inscription, inputData.candidate, inputData.facts)
+			? await inference.tellStory(
+					inputData.candidate.name,
+					inputData.facts.map((f) => f.quote)
+				)
+			: ''
 	})
 });
 
 const groundStep = createStep({
 	id: 'ground',
-	inputSchema: withRaw,
+	inputSchema: withParagraph,
 	outputSchema: storySchema,
 	execute: ({ inputData }) =>
 		Promise.resolve(
-			groundStory(inputData.inscription, inputData.candidate, inputData.pages, inputData.raw)
+			groundParagraph(
+				inputData.inscription,
+				inputData.candidate,
+				inputData.facts,
+				inputData.paragraph
+			)
 		)
 });
 
 const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: storySchema })
 	.then(fetchStep)
+	.then(extractStep)
 	.then(tellStep)
 	.then(groundStep) // NOSONAR: Mastra builder .then(), not a Promise
 	.commit();
 
 /**
- * Fetches the candidate's sources, writes a story and grounds it against them.
+ * Fetches the candidate's sources, extracts verified facts, writes a paragraph around them and
+ * grounds it against those facts.
  * @param inscription The stone's person.
  * @param candidate The candidate the visitor confirmed.
  * @returns A grounded story, or `insufficient`.

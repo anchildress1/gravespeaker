@@ -179,15 +179,6 @@
 		retry = null;
 		phase = 'epitaph';
 	}
-
-	/**
-	 * Finds a source by id.
-	 * @param id Source id.
-	 * @returns The source record, if the story cites it.
-	 */
-	function source(id: string) {
-		return story?.sources.find((s) => s.id === id);
-	}
 </script>
 
 <main>
@@ -266,24 +257,8 @@
 	{:else if phase === 'telling'}
 		<p role="status">Listening for {confirmed?.name}…</p>
 	{:else if phase === 'story' && story}
-		<p class="label">AI-generated historical reconstruction</p>
-		<div class="story">
-			{#each story.sentences as s, i (i)}
-				{#if s.kind === 'fact'}
-					<p class="fact">
-						{s.text}
-						{#each s.sourceIds as id (id)}
-							{@const src = source(id)}
-							{#if src}<a href={src.url} target="_blank" rel="external noopener noreferrer"
-									>[{src.site}]</a
-								>{/if}
-						{/each}
-					</p>
-				{:else}
-					<p class="reconstruction"><span class="tagged">Imagined</span> {s.text}</p>
-				{/if}
-			{/each}
-		</div>
+		<p class="label">Story generated with AI</p>
+		<p class="paragraph">{story.paragraph}</p>
 		<h2>Sources</h2>
 		<ul class="links">
 			{#each story.sources as s (s.id)}
@@ -406,22 +381,16 @@
 		border-radius: 999px;
 		font-weight: 600;
 	}
+	.paragraph {
+		font-size: 1.125rem;
+		line-height: 1.7;
+	}
 	.story p {
 		margin: 0 0 0.75rem;
 		padding-left: 0.75rem;
 	}
 	.fact {
 		border-left: 4px solid #222;
-	}
-	.reconstruction {
-		border-left: 4px dashed #777;
-		font-style: italic;
-	}
-	.tagged {
-		font-size: 0.75rem;
-		font-style: normal;
-		font-weight: 600;
-		text-transform: uppercase;
 	}
 	.note {
 		color: #555;
