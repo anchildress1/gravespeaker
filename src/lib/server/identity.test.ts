@@ -133,6 +133,13 @@ describe('resolveMatches', () => {
 		expect(c.born).toBe('1932');
 	});
 
+	it('does not accept a different given name for a stone that carries only an initial', () => {
+		const initial = { name: 'J. Smith', carvedName: 'J. Smith' };
+		expect(resolve([rec('Mary Smith (1932–2017), a schoolteacher.')], initial)).toEqual([]);
+		expect(resolve([rec('John Smith (1932–2017), a schoolteacher.')], initial)).toHaveLength(1);
+		expect(resolve([rec('J. Smith (1932–2017), a schoolteacher.')], initial)).toHaveLength(1);
+	});
+
 	it('derives the birth year from a stated age', () => {
 		const [c] = resolve([rec('Gaynor Hawks, age 85, died December 27, 2017.')]);
 		expect(c.confidence).toBe('high');

@@ -92,7 +92,7 @@ function nameParts(name: string): { given: string[]; surname: string } {
 		.filter(Boolean);
 	while (parts.length > 1 && NAME_SUFFIXES.has(parts.at(-1)!)) parts.pop();
 	const surname = parts.pop() ?? '';
-	return { given: parts.filter((p) => p.length >= 2), surname };
+	return { given: parts, surname };
 }
 
 /**
@@ -132,6 +132,16 @@ function namePart(word: string): { name: string; closes: boolean } | null {
 }
 
 /**
+ * Tells whether a word from a record can be one of the stone's given names.
+ * @param given Folded given names of the stone; an initial stands for any name that starts with it.
+ * @param word Folded word from the record.
+ * @returns True for an exact match, or when the stone carries only the initial.
+ */
+function isGiven(given: string[], word: string): boolean {
+	return given.some((g) => g === word || (g.length === 1 && word.startsWith(g)));
+}
+
+/**
  * Finds where the name phrase containing a surname starts, if a given name is in that phrase.
  * @param text Folded text.
  * @param given Folded given names of the stone.
@@ -148,7 +158,7 @@ function phraseStart(text: string, given: string[], at: number, length: number):
 		const part = namePart(w.word);
 		if (!part || part.closes) break;
 		first = w.index;
-		hit ||= given.includes(part.name);
+		hit ||= isGiven(given, part.name);
 	}
 	if (hit) return first;
 	// "Surname, Given" counts only when the surname opens its phrase; otherwise
@@ -158,7 +168,7 @@ function phraseStart(text: string, given: string[], at: number, length: number):
 	for (const w of wordsOf(text.slice(next, next + NAME_REACH), next).slice(0, NAME_WORDS_MAX - 1)) {
 		const part = namePart(w.word);
 		if (!part) break;
-		if (given.includes(part.name)) return at;
+		if (isGiven(given, part.name)) return at;
 		if (part.closes) break;
 	}
 	return -1;
