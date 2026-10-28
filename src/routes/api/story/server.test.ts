@@ -76,6 +76,14 @@ describe('POST /api/story', () => {
 		expect((await call({ inscription })).status).toBe(400);
 	});
 
+	it('rejects a candidate with more than five sources', async () => {
+		const sources = Array.from({ length: 6 }, (_, i) => ({
+			...candidate.sources[0],
+			id: `s${i + 1}`
+		}));
+		expect((await call({ inscription, candidate: { ...candidate, sources } })).status).toBe(400);
+	});
+
 	it('rejects a candidate with no sources', async () => {
 		expect((await call({ inscription, candidate: { ...candidate, sources: [] } })).status).toBe(
 			400

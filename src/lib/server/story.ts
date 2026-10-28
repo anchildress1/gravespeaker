@@ -11,7 +11,7 @@ const MAX_PAGES = 5;
 const MAX_CHARS = 12_000;
 
 export const candidateInputSchema = candidateSchema.extend({
-	sources: z.array(sourceSchema).min(1)
+	sources: z.array(sourceSchema).min(1).max(MAX_PAGES)
 });
 
 const inputSchema = z.object({ inscription: inscriptionSchema, candidate: candidateInputSchema });
