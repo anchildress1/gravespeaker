@@ -1,5 +1,5 @@
 // Usage: node benchmarks/score.ts <results.json...>
-// Prints a markdown table per fixture and model. Rows for fixtures no longer in the manifest are skipped.
+// Prints a markdown table per fixture and model. Run 10 onward scores `normalized`; earlier runs score `got`. Rows for fixtures no longer in the manifest are skipped.
 import { readFile } from 'node:fs/promises';
 
 interface Person {
@@ -19,6 +19,8 @@ interface Row {
 	model: string;
 	ms: number;
 	got?: { text?: string | null; people?: Partial<Person>[] };
+	// Present from run 10 on: `got.people` after the app's normalization. Scored in preference to `got`.
+	normalized?: Partial<Person>[];
 	error?: string;
 }
 
@@ -166,7 +168,8 @@ for (const r of rows) {
 		a.text += textScore(f.text, r.got.text);
 		a.textN++;
 	}
-	const s = peopleScore(f.people, Array.isArray(r.got.people) ? r.got.people : []);
+	const read = r.normalized ?? r.got.people;
+	const s = peopleScore(f.people, Array.isArray(read) ? read : []);
 	a.correct += s.correct;
 	a.total += s.total;
 	a.extra += s.extra;

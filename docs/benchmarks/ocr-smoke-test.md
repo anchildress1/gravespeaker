@@ -150,6 +150,21 @@ The run 8 prompt, unchanged ([`run9.json`](../../benchmarks/prompts/run9.json)),
 - **Ellis 1818 → 1848:** the same worn-digit misread as every run.
 - None of the three misses is a prompt problem. Run 10 stays in reserve.
 
+## Run 10: the shipped prompt plus the parsing layer
+
+The app's own instructions and schema ([`run10.json`](../../benchmarks/prompts/run10.json), the same rules as run 9, now owned by `src/lib/server/inference/gemma.ts`), on the same 20 fixtures. From this run on `benchmarks/run.ts` records both the raw reply (`got`) and `normalizeInscriptions(got.people)` (`normalized`), and `benchmarks/score.ts` scores `normalized`. Raw output: [`run10-hosted-26b.json`](../../benchmarks/results/run10-hosted-26b.json).
+
+| Metric                | gemma-4-26b-a4b-it |
+| --------------------- | ------------------ |
+| Fields correct        | 57/58 (98%)        |
+| Extra people          | 0                  |
+| Errors                | 0                  |
+| Median time per photo | 5.1 s              |
+
+- **Hawks and the illegible marble now pass.** Both run 9 misses were parsing-layer jobs: "née Staples" is split into `maidenName`, and the `"[]"` person is dropped.
+- **Ellis 1818 → 1848** is the only miss, the same worn digit as every run.
+- Targets from the spec hold: at least 57/58 fields, no people on the illegible stone, median under 6 s.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.
