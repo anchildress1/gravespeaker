@@ -1,0 +1,48 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+median latency scoring added
+stone extraction narrowed
+twelve headstones added
+twelve fixtures committed
+stone pool widened
+spec kit merged
+benchmark branch rebased
+mvp spec drafted
+plan artifacts written
+privacy conflict flagged
+survivor names excluded
+tasks breakdown written
+consistency analysis complete
+spec analysis cleared
+dead ends get epitaph
+surname rule tested
+desktop journey verified
+pinned address connection added
+dns rebinding closed
+error paths tested
+coverage now counts logic
+ssrf guard hardened
+journey wired up
+journey docs updated
+run ten recorded
+
+Closing message:
+t on Wi-Fi (it's on a wired or other interface at 172.20.x.x), so a phone on Wi-Fi is probably on a different subnet, or the network blocks device-to-device traffic.
+
+## Fixes, easiest first
+1. **Put the Mac on the phone's Wi-Fi.** Join the same network, then tell me. The IP will change, so I'll restart the server and give you the new URL.
+2. **Use the phone's hotspot.** Connect the Mac to it. Hotspots don't isolate clients, and I'll give you the new URL.
+3. **Test from the phone's browser first.** Open `http://172.20.1.18:5199/`. If it times out on office or guest Wi-Fi, the network is isolating clients, so use option 1 or 2.
+
+## Avoid
+A public tunnel (ngrok or cloudflared). The dev server carries your live Gemini and SerpApi keys, so anyone with the link could spend your quota. I won't set one up unless you ask.
+
+Tell me which option you pick.
+Nothing has changed on this Mac: it still has the same address (172.20.1.18), and the server is still up and answering locally. The same URL is the one to try on the phone.
+
+If you switched networks, this Mac didn't pick it up. Tell me which option you used (same Wi-Fi, hotspot, or just retrying the URL) and what the phone shows: a timeout, "can't connect", or a blank page. A timeout means the network is isolating devices, so the next step would be the phone's hotspot.
+The dev server is stopped.
+
+The app can't run on the phone itself, because the server needs Node and the API keys. The only way to use it on a phone without a shared network is a public URL, and `make deploy` produces one. That deploys the current uncommitted work to Cloud Run in project `anchildress1`. The service is `--allow-unauthenticated`, so anyone with the URL can spend your Gemini and SerpApi quota, and it bills your GCP account.
+
+Do you want me to run `make deploy`? If yes, I'll deploy, give you the URL, and you run the phone steps against it. Afterwards I can run Lighthouse on the live URL, and you can delete the service if you don't want it public.
