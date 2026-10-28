@@ -1,0 +1,41 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M60AA50VCKPCWXP4R2AXM7TX",
+  "session_id": "9fab3a90-1800-42d4-9d26-729dfbdece0d",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-28T03:54:27.175534Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "CLAUDE.md"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-haiku-5-5",
+  "turn_id": "f5382a49a5d4",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 39340,
+    "cache_read_tokens": 14194,
+    "output_tokens": 169,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}

@@ -3,7 +3,7 @@
   "checkpoint_id": "01M60AA50VCKPCWXP4R2AXM7TX",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 5,
+  "checkpoints_count": 6,
   "files_touched": [
     "CLAUDE.md"
   ],
@@ -28,22 +28,29 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 22,
-    "cache_creation_tokens": 84403,
-    "cache_read_tokens": 3095859,
-    "output_tokens": 4093,
-    "api_call_count": 11
+    "input_tokens": 24,
+    "cache_creation_tokens": 123743,
+    "cache_read_tokens": 3110053,
+    "output_tokens": 4262,
+    "api_call_count": 12
   },
   "redaction": {
-    "replacements": 69,
+    "replacements": 72,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 34,
+      "credential_value": 37,
       "credentialed_uri": 0,
       "entropy": 274,
       "key_context": 0,
