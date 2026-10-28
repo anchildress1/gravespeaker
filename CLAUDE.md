@@ -88,3 +88,9 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 - Pin every GitHub Action, `actions/*` included, to a full commit SHA with the version in a trailing comment. Resolve with `gh api` at write time.
 - Lighthouse runs only through the chrome-devtools MCP `lighthouse_audit` tool against `pnpm preview`. Never add `@lhci/cli` or `lighthouse` to the repo in any form (`devDependencies`, `pnpm dlx`, CI, hooks): their dependency tree carries unpatched advisories.
 - Edit `README.md` only through the `readme-generator` skill.
+
+<!-- entire-agent:begin -->
+
+Read .entire/agent-guide.md for this repository's workflow, source inspection, and verification guidance.
+@.entire/agent-guide.md
+<!-- entire-agent:end -->
