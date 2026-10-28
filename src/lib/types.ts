@@ -2,12 +2,18 @@
 export const PARTIAL_DATE = /^[0-9?]{4}(-[0-9?]{2}-[0-9?]{2})?$/;
 
 /**
- * Keeps a date only if it is `YYYY` or `YYYY-MM-DD` with `?` for unreadable digits.
+ * Keeps a date only if it is `YYYY` or `YYYY-MM-DD` with `?` for unreadable digits and a real
+ * month and day.
  * @param value Date as a model returned it.
  * @returns The date, or null when absent or malformed.
  */
 export function partialDateOrNull(value: string | null | undefined): string | null {
-	return value && PARTIAL_DATE.test(value) ? value : null;
+	if (!value || !PARTIAL_DATE.test(value)) return null;
+	// A month or day with no unreadable digit must be a real one: "1932-13-45" is a misread.
+	const [, month, day] = value.split('-');
+	if (month && !month.includes('?') && (+month < 1 || +month > 12)) return null;
+	if (day && !day.includes('?') && (+day < 1 || +day > 31)) return null;
+	return value;
 }
 
 /** One person read from a headstone, after normalization. */

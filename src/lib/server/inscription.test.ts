@@ -41,17 +41,25 @@ describe('normalizeInscriptions', () => {
 		expect(normalizeInscriptions([person(input)])[0].name).toBe(name);
 	});
 
+	it('keeps an unreadable month or day', () => {
+		const [p] = normalizeInscriptions([person('A B', '1932-??-10', '1932-05-??')]);
+		expect(p).toMatchObject({ born: '1932-??-10', died: '1932-05-??' });
+	});
+
 	it('keeps partially unreadable and full dates', () => {
 		const [p] = normalizeInscriptions([person('A B', '18?8', '1932-03-10')]);
 		expect(p).toMatchObject({ born: '18?8', died: '1932-03-10' });
 	});
 
-	it.each(['March 1941', '19', '1941-03', ''])('maps the bad date %j to null', (bad) => {
-		expect(normalizeInscriptions([person('A B', bad, bad)])[0]).toMatchObject({
-			born: null,
-			died: null
-		});
-	});
+	it.each(['March 1941', '19', '1941-03', '', '1932-13-10', '1932-00-10', '1932-05-45'])(
+		'maps the bad date %j to null',
+		(bad) => {
+			expect(normalizeInscriptions([person('A B', bad, bad)])[0]).toMatchObject({
+				born: null,
+				died: null
+			});
+		}
+	);
 
 	it('keeps non-English letters', () => {
 		expect(normalizeInscriptions([person('Ødegård Sæther')])[0].name).toBe('Ødegård Sæther');

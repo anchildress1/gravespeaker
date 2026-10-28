@@ -150,10 +150,16 @@ describe('fetchPage', () => {
 	});
 
 	it('truncates a body over 2 MB instead of reading it all', async () => {
-		const huge = '<p>' + 'x'.repeat(3 * 1024 * 1024) + '</p>';
+		const sentence = 'Gaynor taught piano for forty years and loved her garden. ';
+		const huge =
+			'<article><p>' +
+			sentence.repeat(Math.ceil((3 * 1024 * 1024) / sentence.length)) +
+			'</p></article>';
 		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(huge)));
 		const text = await fetchPage('https://public.test/big');
-		expect(text === null || text.length <= 2 * 1024 * 1024).toBe(true);
+		expect(text).not.toBeNull();
+		expect(text!.length).toBeLessThanOrEqual(2 * 1024 * 1024);
+		expect(text!.length).toBeLessThan(huge.length * 0.9);
 	});
 
 	it('returns null instead of throwing when the page body stream errors mid-read', async () => {

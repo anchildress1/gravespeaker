@@ -115,7 +115,13 @@ const manifest: { file: string }[] = JSON.parse(
 );
 const results: Row[] = [];
 for (const { file } of manifest) {
-	const img = (await readFile(new URL(file, fixturesDir))).toString('base64');
+	// A fixture photo can be kept local-only; skip it instead of failing the whole run.
+	const image = await readFile(new URL(file, fixturesDir)).catch(() => null);
+	if (!image) {
+		console.error(`${file.padEnd(24)} skipped: image not found`);
+		continue;
+	}
+	const img = image.toString('base64');
 	for (const model of models) {
 		const t0 = performance.now();
 		const row: Row = { file, model, ms: 0 };
