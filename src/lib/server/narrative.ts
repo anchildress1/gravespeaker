@@ -65,8 +65,8 @@ const STOPWORDS = new Set(
 
 // Words shorter than this are filler ("the", "was", "my"); only longer words count as claims.
 const MIN_CONTENT_LENGTH = 4;
-// Flair may replace some words, but at least this share of claim words must come from the quote.
-const MIN_CONTENT_OVERLAP = 0.5;
+// Negations flip a claim, so one the quote does not contain is never allowed.
+const NEGATIONS = new Set('not never none nobody neither nor without cannot'.split(' '));
 // Compare word stems so "preceded"/"preceding" match without a stemmer dependency.
 const STEM_LENGTH = 4;
 
@@ -104,30 +104,35 @@ function isLabelDebris(text: string): boolean {
 }
 
 /**
- * Checks that a fact sentence adds no number, proper noun or mostly-new content beyond its quote.
+ * Checks that a fact sentence only restates its quote: no new number, proper noun or negation, and
+ * every claim word comes from the quote in the same order.
  * @param sentence The sentence as the model wrote it.
  * @param quote The normalized quote cited for it.
  * @param allowed Normalized name and month tokens that may appear without being quoted.
  * @returns True when the quote supports the sentence.
  */
 function supportsSentence(sentence: string, quote: string, allowed: Set<string>): boolean {
-	const quoted = new Set(quote.split(' ').map(canon));
-	const stems = new Set(quote.split(' ').map((w) => w.slice(0, STEM_LENGTH)));
+	const quoteWords = quote.split(' ');
+	const quoted = new Set(quoteWords.map(canon));
+	const stems = quoteWords.map((w) => canon(w).slice(0, STEM_LENGTH));
 	const words = sentence.match(/[\p{L}\p{N}]+/gu) ?? [];
 
 	let content = 0;
-	let matched = 0;
+	let next = 0;
 	for (const [i, word] of words.entries()) {
 		const w = word.toLowerCase();
 		const properNoun =
 			/^\p{Lu}/u.test(word) && (i > 0 || (w.length >= MIN_CONTENT_LENGTH && !STOPWORDS.has(w)));
-		const strict = /^\d+$/.test(w) || w in NUMBER_VALUES || properNoun;
+		const strict = /^\d+$/.test(w) || w in NUMBER_VALUES || NEGATIONS.has(w) || properNoun;
 		if (strict && w !== 'i' && !quoted.has(canon(w)) && !allowed.has(w)) return false;
 		if (w.length < MIN_CONTENT_LENGTH || STOPWORDS.has(w)) continue;
 		content++;
-		if (stems.has(w.slice(0, STEM_LENGTH))) matched++;
+		// Reordering can reverse who did what to whom, so claim words must follow the quote's order.
+		const at = stems.indexOf(canon(w).slice(0, STEM_LENGTH), next);
+		if (at >= 0) next = at + 1;
+		else if (!allowed.has(w)) return false;
 	}
-	return content > 0 && matched / content >= MIN_CONTENT_OVERLAP;
+	return content > 0;
 }
 
 /**

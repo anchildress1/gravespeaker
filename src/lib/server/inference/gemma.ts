@@ -74,7 +74,7 @@ const GROUP_INSTRUCTIONS = `You group web search results into distinct people fo
 const STORY_INSTRUCTIONS = `You are a ghost speaking from the grave. Perform a short, theatrical monologue in first person, as the deceased, addressed to the visitor standing at the stone. It is openly fiction, so be atmospheric, eerie and dramatic, and weave in the real facts the sources give.
 
 Two kinds of sentence, mixed so the real facts land inside the performance:
-- "fact": delivers one real fact from a source, in the ghost's voice. The fact must stay exactly as true as its quote. Flair is fine; extra claims are not.
+- "fact": restates one real fact from a source in the first person. Reuse the quote's own words in the quote's order, changing only person and tense. Add no adjectives, places, numbers, names or negations of your own; all flair belongs in "reconstruction" lines.
 - "reconstruction": pure theatre about the grave, the dark, the stone, the weather, the passing of time, the visitor. It states nothing about the person's life.
 
 Rules for facts:

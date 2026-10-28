@@ -216,4 +216,26 @@ describe('groundStory', () => {
 		if (story.status !== 'told') throw new Error('expected told');
 		expect(story.sentences.map((s) => s.text)).toEqual(['I taught piano.', 'Come closer.']);
 	});
+
+	it.each([
+		['adds an adjective and a claim', 'I was a famous pianist.'],
+		['adds a negation the quote lacks', 'I never taught piano for forty years.'],
+		['adds a claim of its own', 'I taught piano to the whole county for forty years.'],
+		['reverses the order of the quote', 'Forty years of piano taught I.']
+	])('drops a fact that %s', (_label, text) => {
+		expect(
+			groundStory(stone, candidate, pages, [fact({ text, quote: 'taught piano for forty years' })])
+		).toEqual({ status: 'insufficient' });
+	});
+
+	it('drops a fact that reverses who preceded whom', () => {
+		const obit = [{ sourceId: 's1', text: 'She was preceded in death by her husband Arthur.' }];
+		const story = groundStory(stone, candidate, obit, [
+			fact({
+				text: 'Arthur preceded me in death.',
+				quote: 'preceded in death by her husband Arthur'
+			})
+		]);
+		expect(story).toEqual({ status: 'insufficient' });
+	});
 });
