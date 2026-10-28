@@ -1,0 +1,77 @@
+/speckit-implement 001
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · The first live research search returned candidates whose sources didn't mention the person, with dates that matched the stone.
+>
+> **Research can invent a match from the stone's own dates**
+> * When we ran the real search for the Hawks stone with the maiden name added, the model grouped some unrelated cemetery listings into a "Gaynor Claire Hawks née Staples" candidate.
+> * That candidate's birth and death dates were identical to the stone's. They looked like they came from the records, but the model had only been shown them as the stone's details, and it may have copied them.
+> * The code that checks candidates only rejects dates that *conflict* with the stone. It never checks that a source actually mentions the person, so this candidate passed.
+> * The visitor would be asked "Is this them?" next to links that have nothing to do with the person. That goes against the rule that every claim must trace to a real source.
+> * **A simple fix:** keep a source only if its title or snippet contains the person's surname. Also tell the model to copy dates only when the result text states them.
+
+we have to fix this.
+
+---
+
+leave @../../docs/dev-post-draft.md untracked.
+fix readme.
+run scans. save phone run the desktop tests
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · The page-fetch safety check looks up a site's address once, then fetches it separately, so a hostile site could still reach Cloud Run's internal services.
+>
+> **Internal-address block can be bypassed**
+> The story endpoint downloads web pages whose links come from the browser. Anyone can call it directly with any link they like.
+> - **The guard:** before downloading, `fetchPage` checks that the site's address isn't internal (localhost, private networks, or Google's metadata server, which hands out the service's login token).
+> - **The gap:** the check and the download each look up the address separately. A site run by an attacker can answer "public" the first time and "internal" the second, and the download then goes to the internal address.
+> - **Why it matters:** on Cloud Run, reaching the metadata server can leak the service account's token.
+> - **Fix:** download using the exact address that passed the check, for example by pinning the lookup in the fetch call. This is a small change.
+> - **Next step:** the unit tests can't catch this, so **ask for the pinned-address fix before the security scan and deploy**.
+
+we need to fix this. basic checks only. we're not building area 51 here
+
+---
+
+ok. is everything implemented now for 001? check. make sure all tests for pos/neg/err/edge works
+
+---
+
+fix test coverage config to properly measure app logic
+
+---
+
+ok. what else has to be done to finish 001?
+
+---
+
+phone is connected now
+
+---
+
+can't find it
+
+---
+
+now try
+
+---
+
+can't use it. stop the dev server. run on phone directly
+
+---
+
+fine. skip phone check for now. what else do we need?
+
+---
+
+amend FR06.
+undici is fine.
+make atomic commits.
+do NOT deploy anything.
