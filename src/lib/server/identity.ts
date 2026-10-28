@@ -1,4 +1,4 @@
-import { PARTIAL_DATE } from '#lib/types.ts';
+import { partialDateOrNull } from '#lib/types.ts';
 import type { Candidate, Inscription, SourceRecord } from '#lib/types.ts';
 import type { RawCandidate } from './inference/index.ts';
 
@@ -57,15 +57,6 @@ export function dropGated(records: SourceRecord[]): SourceRecord[] {
 }
 
 /**
- * Keeps a date only if it matches the partial-date format.
- * @param value Date as the model returned it.
- * @returns The date, or null.
- */
-function validDate(value: string | null | undefined): string | null {
-	return value && PARTIAL_DATE.test(value) ? value : null;
-}
-
-/**
  * Counts how many candidate groups claim each record.
  * @param groups Record ids per candidate.
  * @returns Claim count by record id.
@@ -88,8 +79,8 @@ function accept(
 	c: RawCandidate,
 	sources: SourceRecord[]
 ): { candidate: Candidate; score: number } | null {
-	const born = validDate(c.born);
-	const died = validDate(c.died);
+	const born = partialDateOrNull(c.born);
+	const died = partialDateOrNull(c.died);
 	if (!sources.length || !/\p{L}/u.test(c.name)) return null;
 	if (!yearsAgree(year(born), year(inscription.born))) return null;
 	if (!yearsAgree(year(died), year(inscription.died))) return null;

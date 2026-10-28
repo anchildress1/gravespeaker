@@ -1,6 +1,15 @@
 /** Matches `YYYY` or `YYYY-MM-DD`, each digit `0-9` or `?`. */
 export const PARTIAL_DATE = /^[0-9?]{4}(-[0-9?]{2}-[0-9?]{2})?$/;
 
+/**
+ * Keeps a date only if it is `YYYY` or `YYYY-MM-DD` with `?` for unreadable digits.
+ * @param value Date as a model returned it.
+ * @returns The date, or null when absent or malformed.
+ */
+export function partialDateOrNull(value: string | null | undefined): string | null {
+	return value && PARTIAL_DATE.test(value) ? value : null;
+}
+
 /** One person read from a headstone, after normalization. */
 export interface Inscription {
 	carvedName: string;
