@@ -3,7 +3,7 @@
   "checkpoint_id": "01M5ZY8F952PSNDS1Q26F58SN5",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 14,
+  "checkpoints_count": 15,
   "files_touched": [
     "vite.config.ts"
   ],
@@ -35,6 +35,13 @@
       "compact_transcript": "/3/transcript.jsonl",
       "content_hash": "/3/content_hash.txt",
       "prompt": "/3/prompt.txt"
+    },
+    {
+      "metadata": "/4/metadata.json",
+      "transcript": "/4/full.jsonl",
+      "compact_transcript": "/4/transcript.jsonl",
+      "content_hash": "/4/content_hash.txt",
+      "prompt": "/4/prompt.txt"
     }
   ],
   "token_usage": {
@@ -45,12 +52,12 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 72,
+    "replacements": 75,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 37,
+      "credential_value": 40,
       "credentialed_uri": 0,
       "entropy": 274,
       "key_context": 0,
