@@ -51,6 +51,14 @@ const told = (paragraph: string, facts = [fact()]): string | null => {
 	return story.status === 'told' ? story.paragraph : null;
 };
 
+describe('groundParagraph', () => {
+	it('handles prose words that are also Object property names', () => {
+		const facts = [fact({ quote: 'worked as a constructor' })];
+		expect(() => told('I worked as a constructor.', facts)).not.toThrow();
+		expect(told('I worked as a constructor.', facts)).toContain('constructor');
+	});
+});
+
 describe('verifyFacts', () => {
 	it('keeps a fact whose quote is in its cited source', () => {
 		expect(verifyFacts(candidate, pages, [fact()])).toHaveLength(1);
@@ -59,6 +67,22 @@ describe('verifyFacts', () => {
 	it('drops a fact whose quote is not in the cited source', () => {
 		expect(verifyFacts(candidate, pages, [fact({ quote: 'flew combat missions' })])).toEqual([]);
 		expect(verifyFacts(candidate, pages, [fact({ sourceId: 's2' })])).toEqual([]);
+	});
+
+	it.each(['her husband John', 'John, her husband', 'survived by two sons, Mark and Paul'])(
+		'drops a quote that names a relative: %s',
+		(quote) => {
+			const text = [
+				{ sourceId: 's1', text: `Gaynor taught piano. Services: ${quote}, and friends.` }
+			];
+			expect(verifyFacts(candidate, text, [fact({ quote })])).toEqual([]);
+		}
+	);
+
+	it('keeps a relative named in a quote that says they died first', () => {
+		const quote = 'her husband John predeceased her';
+		const text = [{ sourceId: 's1', text: `Gaynor taught piano; ${quote}.` }];
+		expect(verifyFacts(candidate, text, [fact({ quote })])).toHaveLength(1);
 	});
 
 	it('drops a fact citing a source outside the candidate', () => {

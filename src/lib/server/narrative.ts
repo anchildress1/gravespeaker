@@ -10,7 +10,8 @@ const MONTHS = new Set(
 
 // Spelled-out numbers compare equal to their digits, so "forty" and "40" support each other.
 // "one" is left out: "no one" and "one more time" are ordinary prose, not a count.
-const NUMBER_VALUES: Record<string, string> = Object.fromEntries([
+// A Map, not an object: a prose word such as "constructor" must not hit an inherited property.
+const NUMBER_VALUES = new Map<string, string>([
 	...'two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty'
 		.split(' ')
 		.map((w, i) => [w, String(i + 2)]),
@@ -46,6 +47,17 @@ const FUNCTION_WORDS = new Set(
 const SURVIVORS =
 	/\b(survived by|survivors?|leaves behind|leaving behind|left to mourn|she leaves|he leaves)\b/i;
 
+// A relative named in a quote is usually a survivor, so the quote is dropped unless it says the
+// relative died first. Matched on the original text: a name is a capitalized word.
+const RELATIVE =
+	'husband|wife|spouse|partner|son|sons|daughter|daughters|brother|brothers|sister|sisters|mother|father|grandson|granddaughter|grandchildren|nephew|niece|stepson|stepdaughter';
+const NAMED_RELATIVE = new RegExp(
+	String.raw`\b(?:${RELATIVE})\b[^.,;]{0,12}?\p{Lu}\p{Ll}+|\p{Lu}\p{Ll}+,?\s+(?:her|his|their)\s+(?:${RELATIVE})\b`,
+	'iu'
+);
+const NAMED_RELATIVE_CASE = /\p{Lu}\p{Ll}/u;
+const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
+
 /** A fact whose quote was found verbatim in a cited source. */
 export type VerifiedFact = RawFact;
 
@@ -62,12 +74,21 @@ function norm(s: string): string {
 }
 
 /**
+ * Tells whether a quote names a relative who may still be alive.
+ * @param quote Quote as written in the source.
+ * @returns True for "her husband John" style quotes, unless the quote says the relative died first.
+ */
+function namesSurvivor(quote: string): boolean {
+	return NAMED_RELATIVE_CASE.test(quote) && NAMED_RELATIVE.test(quote) && !PREDECEASED.test(quote);
+}
+
+/**
  * Maps a spelled-out number to its digits; any other word is returned unchanged.
  * @param word Lowercase word.
  * @returns Digits for a number word, else the word.
  */
 function canon(word: string): string {
-	return NUMBER_VALUES[word] ?? word;
+	return NUMBER_VALUES.get(word) ?? word;
 }
 
 /**
@@ -114,7 +135,7 @@ export function verifyFacts(
 	return raw.filter((f) => {
 		const quote = norm(f.quote ?? '');
 		if (!quote || !known.has(f.sourceId) || !text.get(f.sourceId)?.includes(quote)) return false;
-		if (SURVIVORS.test(f.quote)) return false;
+		if (SURVIVORS.test(f.quote) || namesSurvivor(f.quote)) return false;
 		if (seen.has(quote)) return false;
 		seen.add(quote);
 		return true;
@@ -179,7 +200,7 @@ function sentenceHolds(
 	for (const [i, word] of words.entries()) {
 		const w = lower[i];
 		const known = quoteWords.has(canon(w)) || allowed.has(w);
-		const number = /^\d+$/.test(w) || w in NUMBER_VALUES;
+		const number = /^\d+$/.test(w) || NUMBER_VALUES.has(w);
 		const properNoun = i > 0 && /^\p{Lu}/u.test(word) && w !== 'i';
 		if ((number || properNoun) && !known) return false;
 		if (NEGATIONS.has(w) && about.length > 0 && !about.some((q) => q.words.has(w))) return false;
