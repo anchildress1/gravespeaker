@@ -20,10 +20,13 @@ const stubElevenLabs = (respond: () => Response) => {
 /**
  * Calls the endpoint.
  * @param params Query parameters.
+ * @param site The browser's `Sec-Fetch-Site` value.
  * @returns The response.
  */
-const call = (params: Record<string, string>) =>
-	GET({ url: new URL(`http://x/api/narrate?${new URLSearchParams(params)}`) } as never);
+const call = (params: Record<string, string>, site = 'same-origin') => {
+	const url = new URL(`http://x/api/narrate?${new URLSearchParams(params)}`);
+	return GET({ url, request: new Request(url, { headers: { 'sec-fetch-site': site } }) } as never);
+};
 
 afterEach(() => {
 	vi.useRealTimers();
@@ -42,6 +45,25 @@ describe('GET /api/narrate', () => {
 		expect(res.status).toBe(400);
 		expect((await res.json()).error.code).toBe('invalid_input');
 		expect(stub).not.toHaveBeenCalled();
+	});
+
+	it.each(['cross-site', 'same-site', 'none'])(
+		'refuses a %s request without calling ElevenLabs',
+		async (site) => {
+			const stub = stubElevenLabs(() => new Response(new Uint8Array([1])));
+			const res = await call({ text: story, voice: 'female' }, site);
+			expect(res.status).toBe(403);
+			expect((await res.json()).error.code).toBe('forbidden');
+			expect(stub).not.toHaveBeenCalled();
+		}
+	);
+
+	it('refuses a request with no Sec-Fetch-Site header', async () => {
+		const url = new URL(
+			`http://x/api/narrate?${new URLSearchParams({ text: story, voice: 'male' })}`
+		);
+		const res = await GET({ url, request: new Request(url) } as never);
+		expect(res.status).toBe(403);
 	});
 
 	it('streams MP3 audio of the story in the chosen voice', async () => {

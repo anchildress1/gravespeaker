@@ -62,7 +62,7 @@ export type Story =
 
 export interface ApiError {
 	error: {
-		code: 'invalid_input' | 'unsupported_type' | 'too_large' | 'provider_failed';
+		code: 'invalid_input' | 'unsupported_type' | 'too_large' | 'provider_failed' | 'forbidden';
 		message: string;
 	};
 }
