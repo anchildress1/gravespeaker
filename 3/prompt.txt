@@ -1,0 +1,33 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+playwright skips worktrees
+codeql back on github
+e2e upload waited
+canon constructor fix added
+review threads addressed
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+
+Closing message:
+Horizontal overflow: the page renders wider than 390px. Finding the culprit.
+Cause: `.card` is set to `width: 100%` and also has padding, and with no `border-box` the padding adds 34px of overflow. Adding a global `box-sizing: border-box`.
+Overflow fixed (390 = 390). Confirming the match to run the real story generation.
+Real story generated end to end. Screenshotting the Story screen.
