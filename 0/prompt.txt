@@ -1,0 +1,58 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+contact sheets delivered
+journey screens shipped
+stone stories shipped
+journey commits pushed
+stone story commits landed
+sonar motion issue flagged
+in flight requests cancelled
+start over race fixed
+story endpoint trust gap
+branch synced with main
+
+Closing message:
+**Need from you**
+- **Commit and push:** say the word and I'll commit the fix, merge `main` in, and push.
+- **Copilot replies:** posting the two explanations on the PR, or leaving them to you.
+
+Codex hasn't posted findings yet. The watch keeps running.
+Pushed: `9fd93fa` (the "Start over" fix) plus a merge of `main`, now at `95a5def`. All push hooks passed, including 22 e2e tests. The branch is no longer behind `main`, so Entire's "Up to date" check should clear; Approvals still waits on you. The watch on PR #7 is still running.
+
+**On evals: agreed, and the reason is concrete**
+- The benchmark scores reading the stone: did the fields come out right.
+- Nothing scores the story: did the model make up a life.
+- The code-based fact check can't judge "I was a nurse" against "the wind howls", and that gap is exactly what Copilot and the side agent both hit.
+
+**Highest-risk assumption: who does the judging**
+- If Gemma judges stories that Gemma wrote, it tends to approve its own inventions, and the eval score means nothing.
+- My recommendation:
+  - Hand-label a small set: about 20 stories, sentence by sentence, as atmosphere, stone fact, record fact, or invented life detail.
+  - Score a judge against those labels first, so you know how far to trust it.
+  - Only then let it grade new prompt runs.
+- Save each run under its own new file, the same way benchmark runs are saved.
+
+This is new scope beyond the PRD, so I'm not starting it. Say when you want a plan.
+Nothing new needs action:
+
+- **Codex:** it restarted its review on the new commit (`95a5def`) and never posted findings on the earlier one.
+- **Copilot:** its "Start over" comment only moved to line 184 because the code shifted; the comment itself is unchanged. That bug is fixed and pushed.
+
+I'm still watching.
+Analyze and CodeQL passed again on the new commit. Still waiting on the rest of CI, Sonar, Entire, and Codex.
+Both new tests fail before the fix. Applying the fixes now. (CI and Sonar passed on the pushed commit.)

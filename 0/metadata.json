@@ -1,0 +1,43 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M630EXG7W0EERM6K1BAKDB7D",
+  "session_id": "018c9e4c-42cf-484a-b7e9-c48fa110c425",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-29T04:59:59.664022Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "src/lib/components/Searching.svelte",
+    "src/lib/components/StoryView.svelte",
+    "src/routes/journey.e2e.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-haiku-5-5",
+  "turn_id": "bccd8fb7a3b7",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 42253,
+    "cache_read_tokens": 14194,
+    "output_tokens": 284,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}
