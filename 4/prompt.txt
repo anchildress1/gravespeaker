@@ -1,0 +1,42 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+load flake diagnosed
+playwright skips worktrees
+codeql back on github
+e2e upload waited
+canon constructor fix added
+review threads addressed
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+
+Closing message:
+We didn't add it. Nothing in the app keeps a place as its own field:
+
+- **`Candidate`** (`src/lib/types.ts`) only has name, born, died, confidence and sources.
+- **`Story`** only has the paragraph and its sources.
+- **The story prompt** (`src/lib/server/inference/gemma.ts:56`) files "places lived" under the generic `other` claim type. So a place can show up in the story text when a source backs it, but the UI has no separate value to display.
+- **The PRD** asks for location in identity matching (`docs/PRD.md:68`). No code does that yet, and git history has no commit adding it.
+
+So the story card shows only the name and dates for now. We'll add it after voice. That will mean a `place` field on `Candidate`, filled from the matched records and left empty when nothing is found, plus a row on the card. Since the card already has a spot for it, the UI part is small.
+Font swapped. Metamorphous may be wider than Uncial Antiqua, so I'm checking that the one-line button still fits.
+Stale page; reloading.
+Metamorphous is wider: at 360px the button runs into the right edge. Tightening its letter-spacing.
+Preview is serving the old CSS. Restarting it.
+Fits now: 16px gutters on both sides at 360px. Final gate run.
