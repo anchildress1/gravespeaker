@@ -19,12 +19,13 @@ export const readSchema = z.object({
 		z.object({
 			name: z.string().describe('Name exactly as carved.'),
 			born: z.string().nullable().describe(dateHint),
-			died: z.string().nullable().describe(dateHint)
+			died: z.string().nullable().describe(dateHint),
+			voice: z.string().nullable().describe('"female", "male" or null.')
 		})
 	)
 }) satisfies z.ZodType<{ people: RawPerson[] }>;
 
-/** Rules measured in benchmark run 10. */
+/** Rules measured in benchmark runs 10 and 11; the voice rule came after and is checked in the app. */
 export const READ_INSTRUCTIONS = `You read photos of gravestones for a historical research tool.
 
 Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or complete anything you cannot see.
@@ -33,7 +34,8 @@ Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or compl
 - Only the person or people the stone is for go in people. Relatives named in relation to them ("son of", "wife of", "daughter of") and nicknames are NOT separate people.
 - born/died: "YYYY-MM-DD", or "YYYY" when only the year is carved. Use "?" for an unreadable digit, and for any worn digit that could be read two ways (1 or 4, 3 or 8). A "?" is better than a guess. null when the date is not on the stone.
 - A surname carved once, at the top or the bottom of a stone shared by two people, belongs to every person on the stone. Put it on each name, e.g. "ANN MARIE" and "JOHN PAUL" under "BRANDT" are "Ann Marie Brandt" and "John Paul Brandt". Give each person only the dates carved for them, and null for a date that is not carved for them.
-- A year that is not a birth or death (marriage length, erection date) is NOT a life date.`;
+- A year that is not a birth or death (marriage length, erection date) is NOT a life date.
+- voice: "female" or "male", whichever the first name more likely belongs to. null when the name gives no hint. It only picks who reads the story aloud.`;
 
 export const READ_USER_TEXT = 'Transcribe the gravestone in this photo.';
 export const READ_SAMPLING = { temperature: 0, topP: 0.95, topK: 64 };

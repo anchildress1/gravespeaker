@@ -1,4 +1,4 @@
-import { partialDateOrNull } from '#lib/types.ts';
+import { partialDateOrNull, VOICES } from '#lib/types.ts';
 import type { Inscription } from '#lib/types.ts';
 import type { RawPerson } from './inference/index.ts';
 
@@ -52,7 +52,8 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 				.replaceAll('"', '”'),
 			maidenName: maiden ? displayCase(maiden) : null,
 			born: partialDateOrNull(p.born),
-			died: partialDateOrNull(p.died)
+			died: partialDateOrNull(p.died),
+			voice: VOICES.find((v) => v === p.voice?.toLowerCase()) ?? null
 		});
 	}
 	return people;

@@ -6,13 +6,15 @@ import { normalizeInscriptions } from './inscription';
  * @param name Test input.
  * @param born Test input.
  * @param died Test input.
+ * @param voice Test input.
  * @returns The fixture.
  */
-const person = (name: string, born: string | null = null, died: string | null = null) => ({
-	name,
-	born,
-	died
-});
+const person = (
+	name: string,
+	born: string | null = null,
+	died: string | null = null,
+	voice: string | null = null
+) => ({ name, born, died, voice });
 
 describe('normalizeInscriptions', () => {
 	it.each(['[]', '[?]'])('drops a person whose name %s has no letters', (name) => {
@@ -103,5 +105,16 @@ describe('normalizeInscriptions', () => {
 
 	it('returns an empty list for no people', () => {
 		expect(normalizeInscriptions([])).toEqual([]);
+	});
+
+	it('keeps a known voice guess in any case and drops anything else', () => {
+		const voices = normalizeInscriptions([
+			person('Ann Lee', null, null, 'female'),
+			person('Tom Lee', null, null, 'male'),
+			person('Sam Lee', null, null, 'Female'),
+			person('Kit Lee', null, null, 'robot'),
+			person('Jo Lee', null, null, null)
+		]).map((p) => p.voice);
+		expect(voices).toEqual(['female', 'male', 'female', null, null]);
 	});
 });

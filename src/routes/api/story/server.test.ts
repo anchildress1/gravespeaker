@@ -13,7 +13,8 @@ const inscription = {
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
 	born: '1932-03-10',
-	died: '2017-12-27'
+	died: '2017-12-27',
+	voice: 'female'
 };
 const candidate = {
 	name: 'Gaynor Claire Hawks',
@@ -93,7 +94,8 @@ describe('POST /api/story', () => {
 		stubModel(() => reply('I grew up in Portland. I had 3 dogs.'));
 		expect(await (await call({ inscription })).json()).toEqual({
 			status: 'stone',
-			paragraph: null
+			paragraph: null,
+			voice: 'female'
 		});
 	});
 
@@ -121,7 +123,7 @@ describe('POST /api/story', () => {
 		const body = await res.json();
 		expect(body.status).toBe('told');
 		expect(body.sources).toHaveLength(1);
-		expect(Object.keys(body).sort()).toEqual(['paragraph', 'sources', 'status']);
+		expect(Object.keys(body).sort()).toEqual(['paragraph', 'sources', 'status', 'voice']);
 		expect(JSON.stringify(body)).not.toContain('loved gardening');
 	});
 
@@ -133,7 +135,8 @@ describe('POST /api/story', () => {
 		const res = await call({ inscription, candidate });
 		expect(await res.json()).toEqual({
 			status: 'stone',
-			paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.'
+			paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.',
+			voice: 'female'
 		});
 	});
 
@@ -145,10 +148,32 @@ describe('POST /api/story', () => {
 		const stub = vi.mocked(fetch);
 		expect(await (await call({ inscription, candidate })).json()).toEqual({
 			status: 'stone',
-			paragraph: 'Mind the cold.'
+			paragraph: 'Mind the cold.',
+			voice: 'female'
 		});
 		// The unverified quote never reaches any model request.
 		expect(JSON.stringify(stub.mock.calls)).not.toContain('flew planes');
+	});
+
+	it('voices a told story from the pronouns in its facts over the name guess', async () => {
+		page.text = 'He taught piano for forty years.';
+		stubModel(
+			() =>
+				factsReply([{ claim: 'other', sourceId: 's1', quote: 'He taught piano for forty years' }]),
+			() => reply('I taught piano for forty years.')
+		);
+		const body = await (await call({ inscription, candidate })).json();
+		expect([body.status, body.voice]).toEqual(['told', 'male']);
+	});
+
+	it('voices a stone story from the name guess', async () => {
+		stubModel(() => reply('Mind the cold.'));
+		const body = await (await call({ inscription: { ...inscription, voice: 'male' } })).json();
+		expect(body.voice).toBe('male');
+	});
+
+	it('rejects an inscription with an unknown voice', async () => {
+		expect((await call({ inscription: { ...inscription, voice: 'robot' } })).status).toBe(400);
 	});
 
 	it('removes an invented number from the story', async () => {

@@ -1,12 +1,14 @@
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 import { epitaph } from '#lib/epitaph.ts';
+import { VOICES } from '#lib/types.ts';
 import type { Candidate, Inscription, Story } from '#lib/types.ts';
 import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
 import { groundParagraph, groundStone, hasEvidence, verifyFacts } from './narrative.ts';
 import { fetchPage } from './pages.ts';
 import { candidateSchema, inscriptionSchema, sourceSchema } from './research.ts';
+import { narratorVoice } from './voice.ts';
 
 const MAX_PAGES = 5;
 const MAX_CHARS = 12_000;
@@ -29,7 +31,8 @@ const storySchema = z.discriminatedUnion('status', [
 	z.object({
 		status: z.literal('told'),
 		paragraph: z.string(),
-		sources: z.array(sourceSchema)
+		sources: z.array(sourceSchema),
+		voice: z.enum(VOICES)
 	}),
 	z.object({ status: z.literal('insufficient') })
 ]);
@@ -83,15 +86,21 @@ const groundStep = createStep({
 	id: 'ground',
 	inputSchema: withParagraph,
 	outputSchema: storySchema,
-	execute: ({ inputData }) =>
-		Promise.resolve(
-			groundParagraph(
-				inputData.inscription,
-				inputData.candidate,
-				inputData.facts,
-				inputData.paragraph
-			)
-		)
+	execute: ({ inputData }) => {
+		const { inscription, candidate, facts, paragraph } = inputData;
+		const grounded = groundParagraph(inscription, candidate, facts, paragraph);
+		return Promise.resolve(
+			grounded.status === 'told'
+				? {
+						...grounded,
+						voice: narratorVoice(
+							inscription,
+							facts.map((f) => f.quote)
+						)
+					}
+				: grounded
+		);
+	}
 });
 
 const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: storySchema })
@@ -111,7 +120,11 @@ const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: s
 export async function runStoneStory(inscription: Inscription, today = new Date()): Promise<Story> {
 	const facts = epitaph(inscription, today);
 	const paragraph = await inference.tellStory(inscription.name, facts);
-	return { status: 'stone', paragraph: groundStone(inscription, facts, paragraph) };
+	return {
+		status: 'stone',
+		paragraph: groundStone(inscription, facts, paragraph),
+		voice: narratorVoice(inscription, [])
+	};
 }
 
 /**

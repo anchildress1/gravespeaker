@@ -1,6 +1,6 @@
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
-import { PARTIAL_DATE } from '#lib/types.ts';
+import { PARTIAL_DATE, VOICES } from '#lib/types.ts';
 import type { Candidate, Inscription } from '#lib/types.ts';
 import { runFailure } from './http.ts';
 import { buildQuery, dropGated, resolveMatches } from './identity.ts';
@@ -15,7 +15,8 @@ export const inscriptionSchema = z.object({
 	name: z.string().min(1),
 	maidenName: z.string().nullable(),
 	born: partialDate.nullable(),
-	died: partialDate.nullable()
+	died: partialDate.nullable(),
+	voice: z.enum(VOICES).nullable()
 });
 
 export const sourceSchema = z.object({

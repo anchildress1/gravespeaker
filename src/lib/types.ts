@@ -16,6 +16,10 @@ export function partialDateOrNull(value: string | null | undefined): string | nu
 	return value;
 }
 
+/** Narrator voices. A guess only picks who reads the story; it is never a fact about the person. */
+export const VOICES = ['female', 'male'] as const;
+export type Voice = (typeof VOICES)[number];
+
 /** One person read from a headstone, after normalization. */
 export interface Inscription {
 	carvedName: string;
@@ -23,6 +27,8 @@ export interface Inscription {
 	maidenName: string | null;
 	born: string | null;
 	died: string | null;
+	/** The model's narrator guess from the name; null when the name gives no hint. */
+	voice: Voice | null;
 }
 
 /** A search hit. */
@@ -51,8 +57,8 @@ export interface Candidate {
  * A stone story's paragraph is null when none of the model's sentences survived grounding.
  */
 export type Story =
-	| { status: 'told'; paragraph: string; sources: SourceRecord[] }
-	| { status: 'stone'; paragraph: string | null };
+	| { status: 'told'; paragraph: string; sources: SourceRecord[]; voice: Voice }
+	| { status: 'stone'; paragraph: string | null; voice: Voice };
 
 export interface ApiError {
 	error: {

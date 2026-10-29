@@ -21,7 +21,7 @@ gcloud run deploy "$SERVICE" \
     --region "$REGION" \
     --project "$PROJECT_ID" \
     --service-account "$SERVICE-run@$PROJECT_ID.iam.gserviceaccount.com" \
-    --set-secrets "GEMINI_API_KEY=GRAVESPEAKER_GEMINI_API_KEY:latest,SERPAPI_API_KEY=GRAVESPEAKER_SERPAPI_API_KEY:latest" \
+    --set-secrets "GEMINI_API_KEY=GRAVESPEAKER_GEMINI_API_KEY:latest,SERPAPI_API_KEY=GRAVESPEAKER_SERPAPI_API_KEY:latest,ELEVENLABS_API_KEY=GRAVESPEAKER_ELEVENLABS_API_KEY:latest" \
     --allow-unauthenticated \
     --cpu-boost \
     --port 8080
