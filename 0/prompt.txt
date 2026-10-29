@@ -1,0 +1,49 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+contact sheets delivered
+journey screens shipped
+stone stories shipped
+journey commits pushed
+stone story commits landed
+sonar motion issue flagged
+
+Closing message:
+The model isn't making up life details. "He flew planes" never came from the model: it is a line I wrote into a test fixture, and the side agent took it as real output.
+
+**Live check**
+- I ran 6 real stone-only stories, two each for Chambers, Hawks and Juntunen.
+- All 6 were pure atmosphere: wind, cold stone, shadows, waiting, the visitor's warmth.
+- None gave a job, hobby, family member, place or event.
+- The only content was the name, the two dates and "I've been here N years".
+
+**Where the side agent is right**
+- The automatic fact check can't catch a made-up claim written in plain lowercase words, like "flew planes". Only the prompt stops it.
+- The prompt already forbids it: "Do not add any name, place, number, date, event, relationship, memory, thought or feeling of the deceased that the facts do not state."
+- A word list strict enough to catch every possible job or hobby would also drop atmosphere and real results, which is the over-restriction you told me to avoid.
+
+**Decision for you**
+- **Leave it (my pick):** the live output already follows the rule, and every paragraph carries the AI label.
+- **Tighten the wording:** add one line to the story prompt saying graveyard and otherworldly details are fine but the life itself is off limits. Unit tests mock the model, so I'd prove it with a few live runs, not a test.
+
+Still watching PR #7 for Codex's findings.
+Fixing Copilot's one real bug: "Start over" doesn't cancel requests already in flight, so a late response can drag the visitor back into the old journey. Writing the failing test first.
+Test fails before the fix, as it should. Applying the fix now.
