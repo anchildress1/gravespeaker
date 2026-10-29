@@ -1,0 +1,141 @@
+Your /goal is to implement the UI and animations for [Image #7] which was started in the local worktree, but that worktree is inaccurate. The image is your source of truth, though the color palette should stay. We'll build out the voice feature next. For now use placeholders in the UI. Use /plan
+
+---
+
+<task-notification>
+<task-id>bifohn94x</task-id>
+<tool-use-id>toolu_01V3SEUvvG9V6brCS3NUbRFQ</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bifohn94x.output</output-file>
+<status>failed</status>
+<summary>Background command "Start preview server" failed with exit code 1</summary>
+</task-notification>
+
+---
+
+youre missing the actual tombstone pic that the user took or up;oaded
+
+---
+
+<task-notification>
+<task-id>bwc11wioh</task-id>
+<tool-use-id>toolu_01KUoVsY1GgzZcFHWxQDHFH1</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bwc11wioh.output</output-file>
+<status>failed</status>
+<summary>Background command "Restart preview server" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+I thought we added place they lived, if found. if not we'll do that after voice.
+
+---
+
+metamorphous
+
+---
+
+<task-notification>
+<task-id>budb28o7g</task-id>
+<tool-use-id>toolu_017xNZqbvJ9eeHTCBXBmiZ8r</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/budb28o7g.output</output-file>
+<status>failed</status>
+<summary>Background command "Start preview server" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bg37rg2nx</task-id>
+<tool-use-id>toolu_01L6R5RymB7Tt5wtAioBtRVZ</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bg37rg2nx.output</output-file>
+<status>failed</status>
+<summary>Background command "Restart preview server" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+use your tools to check this locally
+
+---
+
+<task-notification>
+<task-id>byrypj0w8</task-id>
+<tool-use-id>toolu_01JNz1ATEmMq2jGqgPk92PBt</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/byrypj0w8.output</output-file>
+<status>failed</status>
+<summary>Background command "Start preview server with real APIs" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bu8xlee8j</task-id>
+<tool-use-id>toolu_011avC3mN5BSt71sLaPG8ivD</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bu8xlee8j.output</output-file>
+<status>failed</status>
+<summary>Background command "Restart preview with new build" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+we are omitting real results by being more restrictive. we'll work on that later. fix caps problem in code
+
+---
+
+and the stone only matches should still get tone ai sentences. make sure you test both mobile and desktop views
+
+---
+
+<task-notification>
+<task-id>b89cah3ce</task-id>
+<tool-use-id>toolu_01Pn9Q1zK1qeApqtMqKc1FeC</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b89cah3ce.output</output-file>
+<status>failed</status>
+<summary>Background command "Start preview with real APIs" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bofew1jwb</task-id>
+<tool-use-id>toolu_01E8YwUCLnRuAmpsuFFdgjk9</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bofew1jwb.output</output-file>
+<status>failed</status>
+<summary>Background command "Restart preview on new build" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>blhpowfog</task-id>
+<tool-use-id>toolu_01JLtwAM1BUz8MGeoXkbvWtD</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/blhpowfog.output</output-file>
+<status>failed</status>
+<summary>Background command "Restart preview" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+is claude outputs up to date? because that does not show the uploaded photo or the voice player
+
+---
+
+delete the old pics and show me the new ones
+
+---
+
+<task-notification>
+<task-id>bokcsmkjc</task-id>
+<tool-use-id>toolu_01Lq3GvwRWzuxH8XpiyQH7Dr</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bokcsmkjc.output</output-file>
+<status>failed</status>
+<summary>Background command "Start preview server" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+the dates use an em dash separator but "to" or something would work better
+
+---
+
+commit and push. then watch for review comments and entire results
