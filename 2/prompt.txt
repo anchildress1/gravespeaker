@@ -1,0 +1,47 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+codeql back on github
+e2e upload waited
+canon constructor fix added
+review threads addressed
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+
+Closing message:
+cords found, so both ended on the stone-only screen. Your photo showed in the name card. That matches the saved benchmark run, where both also found nothing. SerpApi quota is fine: 105 of 250 searches left.
+- **juntunen-2012:**
+  - On the Searching screen, the scan light and each checklist step ticked as its real request came back.
+  - "Is this them?" showed a medium-confidence match.
+  - After "This is them" it generated a real story with the AI label and disclaimer, Key facts, Sources, and the disabled narration bar.
+
+## Fixed during the run
+- **Page wider than the phone:** the "Is this them?" cards pushed the page to 408px. `src/app.css` now sets `box-sizing: border-box` everywhere; the page measures 390px after the fix.
+- **Story header lost the full dates:** it showed "1967 — 2012" even though the stone reads 1967-01-28 to 2012-08-03. `StoryView.svelte` now prefers the stone's dates in the header; Key facts still shows only what the records say. One new e2e test covers it.
+
+## Problems found outside the UI (not fixed)
+- **A living stranger was mixed into the match.** The Juntunen match also listed "Troy Juntunen, Age 59 in Richland, WA, (509) 420-4644" from truepeoplesearch.com. That's a different, living person, shown with a phone number, in a project whose rule is never to merge different people silently.
+- **The story makes things up.** It opens and closes with invented scenery: "The wind howls against this cold stone…", "the rain falls on the earth…". "I was born… in Corvallis" may also be unsupported; the obituary was only published in a Corvallis paper.
+- **Names come through in all caps** ("TROY LEONARD JUNTUNEN"), so long names wrap to three lines in the story card.
+
+The first two are backend work in the matching and story prompt, not this UI change. Want me to take them on before voice?
+Matching and grounding both compare names lowercased, so changing the display case is safe. Writing the failing test first.
+Six fail as expected. Implementing.

@@ -3,7 +3,7 @@
   "checkpoint_id": "01M62YPM1XFKM1B562B1N1P7RG",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 2,
+  "checkpoints_count": 3,
   "files_touched": [
     "src/lib/server/narrative.test.ts",
     "src/lib/server/narrative.ts",
@@ -29,6 +29,13 @@
       "compact_transcript": "/1/transcript.jsonl",
       "content_hash": "/1/content_hash.txt",
       "prompt": "/1/prompt.txt"
+    },
+    {
+      "metadata": "/2/metadata.json",
+      "transcript": "/2/full.jsonl",
+      "compact_transcript": "/2/transcript.jsonl",
+      "content_hash": "/2/content_hash.txt",
+      "prompt": "/2/prompt.txt"
     }
   ],
   "token_usage": {
@@ -39,12 +46,12 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 6,
+    "replacements": 9,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 6,
+      "credential_value": 9,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
