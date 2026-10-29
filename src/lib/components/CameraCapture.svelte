@@ -6,6 +6,8 @@
 	let dialog: HTMLDialogElement;
 	let video: HTMLVideoElement;
 	let stream: MediaStream | null = null;
+	// Each open bumps this, so a camera that starts after its window was closed or reopened is released.
+	let request = 0;
 	let ready = $state(false);
 	let error = $state('');
 
@@ -14,6 +16,7 @@
 	 * @returns Resolves once the camera is live or its failure is shown.
 	 */
 	export async function open(): Promise<void> {
+		const mine = ++request;
 		error = '';
 		dialog.showModal();
 		try {
@@ -21,11 +24,11 @@
 				video: { facingMode: { ideal: 'environment' }, width: { ideal: 1920 } },
 				audio: false
 			});
-			// Closed while the permission prompt was up: release the camera instead of leaving it on.
-			if (!dialog.open) return started.getTracks().forEach((t) => t.stop());
+			if (mine !== request || !dialog.open) return started.getTracks().forEach((t) => t.stop());
 			stream = started;
 			video.srcObject = stream;
 		} catch (e) {
+			if (mine !== request) return;
 			error =
 				e instanceof DOMException && e.name === 'NotAllowedError'
 					? 'Camera access was blocked. Allow it in your browser, or upload a photo instead.'

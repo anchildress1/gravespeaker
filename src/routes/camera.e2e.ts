@@ -73,3 +73,39 @@ test('a blocked camera says so and points to the upload', async ({ page }) => {
 	await expect(camera.getByRole('alert')).toContainText('Camera access was blocked');
 	await expect(camera.getByRole('button', { name: 'Take photo' })).toHaveCount(0);
 });
+
+test('reopening the camera before the first one starts leaves only one camera on', async ({
+	page
+}) => {
+	await page.addInitScript(() => {
+		const start = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+		const streams: MediaStream[] = [];
+		Object.assign(window, { cameraStreams: streams });
+		let calls = 0;
+		// The first request answers late, as a slow permission prompt does.
+		navigator.mediaDevices.getUserMedia = async (c) => {
+			const late = calls++ === 0;
+			const stream = await start(c);
+			streams[late ? 0 : 1] = stream;
+			if (late) await new Promise((r) => setTimeout(r, 800));
+			return stream;
+		};
+	});
+	await page.goto('/');
+	await page.waitForLoadState('networkidle');
+	const camera = page.getByRole('dialog', { name: 'Camera' });
+	await page.getByText('Photograph a headstone').click();
+	await camera.getByRole('button', { name: 'Cancel' }).click();
+	await page.getByText('Photograph a headstone').click();
+	await expect(camera.getByRole('button', { name: 'Take photo' })).toBeEnabled();
+
+	await expect
+		.poll(() =>
+			page.evaluate(() =>
+				(window as unknown as { cameraStreams: MediaStream[] }).cameraStreams.map(
+					(s) => s.getVideoTracks()[0].readyState
+				)
+			)
+		)
+		.toEqual(['ended', 'live']);
+});
