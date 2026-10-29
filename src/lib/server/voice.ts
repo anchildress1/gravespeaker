@@ -19,8 +19,8 @@ const FALLBACK: Voice = 'female';
  */
 export function narratorVoice(inscription: Inscription, quotes: string[]): Voice {
 	const text = quotes.join(' ');
-	const female = text.match(CUES.female)?.length ?? 0;
-	const male = text.match(CUES.male)?.length ?? 0;
+	const female = [...text.matchAll(CUES.female)].length;
+	const male = [...text.matchAll(CUES.male)].length;
 	if (female !== male) return female > male ? 'female' : 'male';
 	return inscription.voice ?? FALLBACK;
 }
