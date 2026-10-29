@@ -1,0 +1,42 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+canon constructor fix added
+review threads addressed
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+
+Closing message:
+the headstone alone… not testimony", and the narration placeholder. If grounding drops every sentence, it falls back to the plain stone lines with no AI label.
+- **`inscription.ts`:** straight-quoted nicknames become curly quotes. In the display font, a straight `"Cory"` opened with a closing mark.
+- **`Invitation.svelte`:** on desktop, the photo's left and right edges now fade into the background instead of ending in hard lines.
+
+## Live check
+- **Phone:** Chambers, real Gemini call. The stone story generated, the name read "Corwin “Cory” Garner Chambers", and nothing overflowed sideways.
+- **Desktop:** checked the invitation, Searching, a told story, and a stone story. Nothing overflows and the narration bar sits clear of the last button. The told story was on stubbed data, because the live Juntunen search was serving a stale cached result.
+- **New tests:** unit tests for stone grounding and the endpoint; e2e for "None of these" (checks no candidate is sent), a failed stone story, and the plain-lines fallback.
+
+## You should know
+- **Juntunen briefly stopped matching after the name change, but it isn't a code bug.** The matcher ignores case, and fresh searches return the same results for both spellings. The title-case query was getting an older cached SerpApi result without the obituary. That cache entry clears itself.
+- **Grounding still lets through made-up statements without numbers or names.** "He flew planes over the channel" passes; so does "It was a long life" for someone who died at 51. That's the same leniency record stories have, and I left it alone because you're loosening matching, not tightening it.
+- **The e2e suite still runs at phone size only.** It sets a 390px viewport at the top of `journey.e2e.ts`, and `playwright.config.ts` has a single mobile project. Covering desktop automatically means editing that config, which I won't do without your go-ahead. The suggested change is a second project at 1440×900 and removing the per-file viewport.
