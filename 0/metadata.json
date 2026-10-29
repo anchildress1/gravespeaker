@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M62YP15795WGHGTQE03GV809",
+  "session_id": "1969ed71-f7e2-41d0-8d0b-002e33cc64f0",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-29T04:28:55.755674Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "src/lib/server/inscription.test.ts",
+    "src/lib/server/inscription.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-haiku-5-5",
+  "turn_id": "35c1f6a665e6",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 39371,
+    "cache_read_tokens": 14194,
+    "output_tokens": 309,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}

@@ -1,0 +1,41 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+
+Closing message:
+Mobile told path captured. Now the mobile stone story.
+Building two contact sheets and checking them before sending.
+The three old screenshots are deleted and the new set is in `Claude outputs/`. I sent you two overview sheets, one for mobile and one for desktop.
+
+- **Your photo:**
+  - Shown full-width on Searching, with the scan light passing over it.
+  - Faded behind the name on both the record story and the stone-only story.
+- **Narration player:** fixed to the bottom of both story screens, disabled, with "Narration coming soon" and the Voice picker.
+
+Text from the stone is read live. The search results and both story paragraphs replay real outputs from earlier in this session, because the live Juntunen search was serving a stale cached result.
+
+There are 11 PNGs in all: six phone shots (`mobile-1` to `mobile-6`), three desktop shots (`desktop-1` to `desktop-3`) and the two overview sheets. `mobile-3-confirm.png` is the full "Is this them?" screen, which isn't on the overview sheet.
