@@ -11,6 +11,11 @@
 	let ready = $state(false);
 	let error = $state('');
 
+	$effect(() => () => {
+		request++;
+		stream?.getTracks().forEach((t) => t.stop());
+	});
+
 	/**
 	 * Opens the viewfinder and starts the camera, preferring the one facing away from the visitor.
 	 * @returns Resolves once the camera is live or its failure is shown.
@@ -57,6 +62,8 @@
 		canvas.toBlob(
 			(blob) => {
 				if (!blob) return;
+				// The handoff unmounts this window, so the camera can't wait for the close event.
+				stop();
 				dialog.close();
 				onphoto(new File([blob], 'headstone.jpg', { type: 'image/jpeg' }));
 			},

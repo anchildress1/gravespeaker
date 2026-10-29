@@ -109,3 +109,29 @@ test('reopening the camera before the first one starts leaves only one camera on
 		)
 		.toEqual(['ended', 'live']);
 });
+
+test('taking a photo turns the camera off as the page moves on', async ({ page }) => {
+	await page.addInitScript(() => {
+		const start = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+		navigator.mediaDevices.getUserMedia = async (c) => {
+			const stream = await start(c);
+			Object.assign(window, { cameraStream: stream });
+			return stream;
+		};
+	});
+	// The read never answers, so the check runs while the stone is still being read.
+	await page.route('/api/read', () => new Promise(() => {}));
+	await page.goto('/');
+	await page.waitForLoadState('networkidle');
+	await page.getByText('Photograph a headstone').click();
+	const camera = page.getByRole('dialog', { name: 'Camera' });
+	await camera.getByRole('button', { name: 'Take photo' }).click();
+	await expect(page.getByRole('status')).toHaveText('Reading the stone…');
+
+	const tracks = await page.evaluate(() =>
+		(window as unknown as { cameraStream: MediaStream }).cameraStream
+			.getTracks()
+			.map((t) => t.readyState)
+	);
+	expect(tracks).toEqual(['ended']);
+});
