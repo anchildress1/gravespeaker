@@ -1,0 +1,32 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+invitation screen built
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+contact sheets delivered
+journey screens shipped
+stone stories shipped
+journey commits pushed
+stone story commits landed
+sonar motion issue flagged
+in flight requests cancelled
+start over race fixed
+story endpoint trust gap
+branch synced with main
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+
+Closing message:
+Tabs are working (25 e2e pass, ai-checks green). Now checking them visually on a real Juntunen run.
+Live search came back empty for Juntunen this time, so I'm stubbing the API in the browser to get a told story with sources.
+Tabs work and look right. One cleanup: each panel still repeats its tab name as a heading ("SOURCES" under the Sources tab), so I'm removing those headings.
