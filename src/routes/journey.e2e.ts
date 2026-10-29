@@ -355,3 +355,34 @@ test('starting over while the stone is being read drops the old request', async 
 	await expect(page.getByText('Photograph a headstone')).toBeVisible();
 	await expect(page.getByRole('alert')).toHaveCount(0);
 });
+
+test('key facts show only what the stone says, since a record date may be uncited', async ({
+	page
+}) => {
+	await mock(page, '/api/read', { body: { people: [{ ...hawks, died: null }] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	const facts = page.locator('#facts');
+	await expect(facts).toContainText('From the headstone.');
+	await expect(facts).not.toContainText('2017');
+	await expect(page.getByRole('region', { name: 'Who this is' })).toContainText(
+		'1932-03-10 to unknown'
+	);
+});
+
+test('search progress is announced to screen readers', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	const gate = Promise.withResolvers<void>();
+	await page.route('/api/research', async (route) => {
+		await gate.promise;
+		await route.fulfill({ json: { candidates: [candidate] } });
+	});
+	await upload(page);
+	await expect(page.getByRole('status')).toHaveText('Searching historical records…');
+	gate.resolve();
+	await expect(page.getByRole('status')).toHaveText(
+		'Found possible matches. Confirm the right one.'
+	);
+});

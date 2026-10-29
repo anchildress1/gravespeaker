@@ -19,8 +19,8 @@
 		onreset: () => void;
 	} = $props();
 
-	// A told story names the confirmed record; a stone story only ever has the stone. The header
-	// prefers the stone's dates because records often carry only the year.
+	// A told story names the confirmed record; a stone story only ever has the stone. Dates come
+	// from the stone alone: a record's dates may come from a source the story does not cite.
 	const subject = $derived(story.status === 'told' && confirmed ? confirmed : person);
 </script>
 
@@ -29,7 +29,7 @@
 		{#if photoUrl}<img src={photoUrl} alt="The headstone you uploaded" />{/if}
 		<h2>{subject.name}</h2>
 		<p class="lifespan">
-			{person.born ?? subject.born ?? 'unknown'} to {person.died ?? subject.died ?? 'unknown'}
+			{person.born ?? 'unknown'} to {person.died ?? 'unknown'}
 		</p>
 	</section>
 
@@ -52,11 +52,11 @@
 			<h3 class="eyebrow">Key facts</h3>
 			<dl class="facts">
 				<dt>Born</dt>
-				<dd>{subject.born ?? 'unknown'}</dd>
+				<dd>{person.born ?? 'unknown'}</dd>
 				<dt>Died</dt>
-				<dd>{subject.died ?? 'unknown'}</dd>
+				<dd>{person.died ?? 'unknown'}</dd>
 			</dl>
-			<p class="cite">Documented in the sources below.</p>
+			<p class="cite">From the headstone.</p>
 		</section>
 
 		<section id="sources" class="reveal latest">

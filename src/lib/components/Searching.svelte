@@ -21,6 +21,14 @@
 		confirm: 2,
 		telling: 3
 	};
+	// Read aloud by screen readers as the search moves on; the checklist alone changes silently.
+	const ANNOUNCE: Record<SearchPhase, string> = {
+		reading: 'Reading the stone…',
+		pick: 'More than one person is named. Choose whose story to tell.',
+		researching: 'Searching historical records…',
+		confirm: 'Found possible matches. Confirm the right one.',
+		telling: 'Building the story…'
+	};
 	const CONFIDENCE = {
 		high: 'High confidence match',
 		medium: 'Medium confidence match',
@@ -82,6 +90,8 @@
 		<dd>{person.died ?? 'unknown'}</dd>
 	</dl>
 {/if}
+
+<p class="visually-hidden" role="status">{ANNOUNCE[phase]}</p>
 
 <ol class="checklist">
 	{#each STEPS as label, i (label)}
