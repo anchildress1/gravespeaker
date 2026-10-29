@@ -1,0 +1,49 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+hero avif fallback added
+fog lantern layering fixed
+web vitals budgets added
+favicon set ready
+invitation upload button added
+desktop camera capture added
+desktop camera window built
+capture works everywhere
+text sizes enlarged
+every device covered
+capture ready on phones
+trail findings resolved
+global regex replaced
+pr seven merged
+voice narration wired
+narration bar shipped
+
+Closing message:
+- `src/routes/api/narrate/+server.ts`: new `GET` endpoint that takes the story text and voice and streams MP3. Text over 1,500 characters is rejected.
+- `src/lib/components/NarrationBar.svelte`: play/pause, status line, and the Voice dropdown pre-selected on the guess.
+- `src/env.ts`, `src/lib/server/env.ts`, `.env.example`, `deploy.sh`: wire in `ELEVENLABS_API_KEY`, mapped to `GRAVESPEAKER_ELEVENLABS_API_KEY` in prod.
+- Tests: new `voice.test.ts` and `narrate/server.test.ts`; existing fixtures updated; e2e covers the guessed voice, switching it, and the failure message.
+
+**Worth knowing**
+- **Audio effects work through the API.** The streaming endpoint takes an `audioEffects` setting (filter, distance, reverb, background noise) at no extra cost. Preset IDs come from `GET /v1/audio-effects/catalog`, which needs your key.
+- **The stone-reading prompt changed.** The benchmark doc says run 11 was the last tuning run, so I'm checking OCR in the app instead of adding run12. Say if you want a run12 anyway.
+- **Arbitrary text can be narrated.** The endpoint takes text in the URL, so anyone can have it read anything up to 1,500 characters on your ElevenLabs credits. The length cap is the only guard, as agreed.
+
+Sources: [Mastra ElevenLabs reference](https://mastra.ai/reference/voice/elevenlabs), [`elevenlabs` on npm](https://npmjs.com/package/elevenlabs), [elevenlabs-js on GitHub](https://github.com/elevenlabs/elevenlabs-js), [ElevenLabs TTS playground: audio effects](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech), [ElevenLabs models](https://elevenlabs.io/docs/models)
+Nothing reached `.env`: there's no `ELEVENLABS_API_KEY` line at all. The command looks like it was sent as a chat message, not run. Running it literally would also have saved the text `<key>` instead of your real key.
+
+Run this in the prompt with your real key in place of `sk_...`:
+
+```
+! echo 'ELEVENLABS_API_KEY=sk_...' >> .env
+```
+
+Or paste it into `.env` in your editor. Then say go.
