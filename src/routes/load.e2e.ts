@@ -45,6 +45,10 @@ test('the invitation loads within the Core Web Vitals budget on a slow phone', a
 		onCLS(keep, { reportAllChanges: true });
 	});
 
+	const offsite: string[] = [];
+	page.on('request', (r) => {
+		if (new URL(r.url()).host !== 'localhost:4173') offsite.push(r.url());
+	});
 	await page.goto('/', { waitUntil: 'networkidle' });
 	await expect(page.getByText('Photograph a headstone')).toBeVisible();
 	// CLS and LCP settle once the page is hidden; switching tabs is how a visitor finalizes them.
@@ -56,8 +60,9 @@ test('the invitation loads within the Core Web Vitals budget on a slow phone', a
 	const vitals = await page.evaluate(
 		() => (window as unknown as { vitals: Record<string, number> }).vitals
 	);
-	console.log('web vitals', vitals);
 	expect(vitals.FCP).toBeLessThanOrEqual(BUDGET.FCP);
 	expect(vitals.LCP).toBeLessThanOrEqual(BUDGET.LCP);
 	expect(vitals.CLS ?? 0).toBeLessThanOrEqual(BUDGET.CLS);
+	// Fonts and images are self-hosted, so the budget never depends on a third party.
+	expect(offsite).toEqual([]);
 });
