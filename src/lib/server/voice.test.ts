@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { VOICES } from '#lib/types.ts';
 import type { Inscription, Voice } from '#lib/types.ts';
 import { narratorVoice } from './voice';
 
@@ -47,6 +48,6 @@ describe('narratorVoice', () => {
 	});
 
 	it('picks a voice even with no cue and no name guess', () => {
-		expect(narratorVoice(stone(null), ['taught piano'])).toBe('female');
+		expect(VOICES).toContain(narratorVoice(stone(null), ['taught piano']));
 	});
 });

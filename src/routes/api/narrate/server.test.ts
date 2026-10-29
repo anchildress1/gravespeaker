@@ -25,7 +25,10 @@ const stubElevenLabs = (respond: () => Response) => {
 const call = (params: Record<string, string>) =>
 	GET({ url: new URL(`http://x/api/narrate?${new URLSearchParams(params)}`) } as never);
 
-afterEach(() => vi.unstubAllGlobals());
+afterEach(() => {
+	vi.useRealTimers();
+	vi.unstubAllGlobals();
+});
 
 describe('GET /api/narrate', () => {
 	it.each([
@@ -62,9 +65,13 @@ describe('GET /api/narrate', () => {
 	});
 
 	it('returns 502 when ElevenLabs fails on every attempt', async () => {
+		vi.useFakeTimers();
 		stubElevenLabs(() => Response.json({ detail: 'down' }, { status: 503 }));
-		const res = await call({ text: story, voice: 'female' });
+		const pending = call({ text: story, voice: 'female' });
+		// Skips the SDK's retry backoff instead of sleeping through it.
+		await vi.runAllTimersAsync();
+		const res = await pending;
 		expect(res.status).toBe(502);
 		expect((await res.json()).error.code).toBe('provider_failed');
-	}, 60_000);
+	});
 });
