@@ -76,6 +76,9 @@ describe('normalizeInscriptions', () => {
 		["MARY O'BRIEN-SMITH", "Mary O'Brien-Smith"],
 		['JOHN HILDEBRAND III', 'John Hildebrand III'],
 		['VI ANDERSON', 'Vi Anderson'],
+		['JAMES ANDERSON VI', 'James Anderson VI'],
+		['MARY MCDONALD', 'Mary McDonald'],
+		['ANNE "ANNIE SMITH', 'Anne “Annie Smith'],
 		['ØDEGÅRD SÆTHER', 'Ødegård Sæther']
 	])('title-cases the all-caps carving %s for display', (carved, name) => {
 		const [p] = normalizeInscriptions([person(carved)]);

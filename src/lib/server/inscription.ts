@@ -5,8 +5,8 @@ import type { RawPerson } from './inference/index.ts';
 const HONORIFIC = /^(?:mr|mrs|miss|dr)\.?(?=\s)/i;
 // The clause with any enclosing parenthesis, so "(née Staples)" leaves no stray bracket behind.
 const MAIDEN = /\(?\b(?:née|nee)\s+([\p{L}'’-]+)\)?/iu;
-// Generational suffixes only; a wider numeral pattern would freeze names like "Vi" in capitals.
-const ROMAN = /^(?:II|III|IV)$/;
+// Generational suffixes, kept in capitals only after the first word so a first name like "Vi" isn't.
+const ROMAN = /^(?:II|III|IV|V|VI|VII|VIII|IX|X)$/;
 
 /**
  * Title-cases a name carved in capitals; a name carved in mixed case is left as carved.
@@ -18,12 +18,14 @@ function displayCase(name: string): string {
 	if (/\p{Ll}/u.test(name)) return name;
 	return name
 		.split(' ')
-		.map((word) =>
-			ROMAN.test(word)
+		.map((word, i) =>
+			i > 0 && ROMAN.test(word)
 				? word
 				: word
 						.toLowerCase()
 						.replace(/(^|[^\p{L}])(\p{L})/gu, (_, edge, letter) => edge + letter.toUpperCase())
+						// Mc always capitalizes what follows; Mac does not (Mack, Macy), so it is left alone.
+						.replace(/^Mc(\p{L})/u, (_, letter) => 'Mc' + letter.toUpperCase())
 		)
 		.join(' ');
 }
@@ -44,7 +46,10 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 		people.push({
 			carvedName,
 			// Display fonts draw a straight " as a closing quote, so "Cory" would open backwards.
-			name: displayCase(name).replace(/"([^"]+)"/g, '“$1”'),
+			name: displayCase(name)
+				.replace(/"([^"]+)"/g, '“$1”')
+				.replace(/"(?=\S)/g, '“')
+				.replace(/"/g, '”'),
 			maidenName: maiden ? displayCase(maiden) : null,
 			born: partialDateOrNull(p.born),
 			died: partialDateOrNull(p.died)
