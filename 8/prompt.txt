@@ -1,0 +1,49 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+identity matching tightened
+load flake diagnosed
+playwright skips worktrees
+codeql back on github
+e2e upload waited
+canon constructor fix added
+review threads addressed
+review fixes pushed
+number table typed
+maiden name parsing fixed
+negated short facts fixed
+identity and negation fixed
+quote evidence fixed
+date only quotes fixed
+jsdoc gate green
+birth quotes count evidence
+identity tests consolidated
+sonar test exclusions fixed
+sonar test exclusions dropped
+ordinal wording ignored
+descriptive title names fixed
+eleven edge cases fixed
+sentence continuation trimmed
+readme matches code
+story header photo muted
+
+Closing message:
+t.svelte` — loads Uncial Antiqua and IM Fell English from Google Fonts. No new dependencies.
+- `src/routes/+page.svelte` — the fetch and journey logic is unchanged. It holds the photo for the session, frees it on reset, and picks which screen to show.
+- `static/invitation.webp` — the stone-and-ghost part of `gravespeaker.jpg`, 68 KB.
+- `src/lib/components/`:
+  - `Invitation` — fog drift, lantern flicker, the photograph button, and a "How it works" fold-out.
+  - `Searching` — the photo, the stone readout, and the checklist. The "Whose story?" and "Is this them?" steps also appear here.
+  - `StoryView` — name card, Story · Facts · Sources links, the AI label, the text reveal, Key facts, and the stone-only fallback when there's no story.
+  - `NarrationBar` — the voice placeholder: play button and voice picker both disabled, labelled "Narration coming soon". Only shows on a finished story.
+  - `AppHeader`, `Stepper`, `ErrorNotice`, `Moon` — small shared pieces.
+- `src/routes/journey.e2e.ts` — three new tests: the checklist only ticks when a request actually finishes, the photo stays from search to story, and narration is disabled on a story and absent on the fallback.
+
+## Where it differs from the mock
+- The checklist has 4 real steps, not the mock's 5: Reading, Searching, Confirming, Building. Each ticks only when its request comes back.
+- **Not built:** the share icon, and a place name like "Carroll County" — the data has no place field, so it isn't shown.
+- **Added for honesty:** a line under the story saying it's an AI reconstruction from the linked records, not testimony.
+- The Story/Facts/Sources tabs are links that scroll to each section rather than switching panels. "Story" stays highlighted no matter where you are.
+
+## You should know
+- **Fonts:** Uncial Antiqua is heavier and rounder than the mock's lettering. If you have the real font name from the worktree, it's a one-line change.
+- **Skipped:** the Semgrep and Sonar scans did not run.
