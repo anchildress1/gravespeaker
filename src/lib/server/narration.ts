@@ -7,10 +7,10 @@ import { ProviderError } from './http.ts';
 const MODEL_ID = 'eleven_flash_v2_5';
 const MAX_RETRIES = 2;
 
-// Veda Sky (Suspense & Horror Storyteller) and Callum (Husky Trickster): American and eerie.
-// Callum reads quickly at the default speed, which undercuts the slow graveside pacing.
+// ElevenLabs premade voices, which a library owner cannot withdraw: Matilda (low alto) and
+// Callum (gravelly). Callum reads quickly at the default speed, which undercuts the slow pacing.
 const VOICES: Record<Voice, { id: string; speed: number }> = {
-	female: { id: '1rnYMVDXZksVr6x7pZPX', speed: 1 },
+	female: { id: 'XrExE9yKIg1WjnnlVkGX', speed: 1 },
 	male: { id: 'N2lVS1w4EtoT3dr4eOWO', speed: 0.85 }
 };
 
