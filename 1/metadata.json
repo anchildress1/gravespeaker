@@ -1,0 +1,79 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M630EXG7W0EERM6K1BAKDB7D",
+  "session_id": "edae7001-7970-4e55-a6bb-5d40be659a08",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-29T05:00:00.649842Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 4,
+  "save_step_count": 1,
+  "files_touched": [
+    "src/lib/components/Searching.svelte",
+    "src/lib/components/StoryView.svelte",
+    "src/routes/journey.e2e.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-5-5",
+  "turn_id": "7410115efa73",
+  "checkpoint_transcript_start": 3690,
+  "transcript_lines_at_start": 3690,
+  "compact_transcript_start": 312,
+  "token_usage": {
+    "input_tokens": 42,
+    "cache_creation_tokens": 17241,
+    "cache_read_tokens": 2870691,
+    "output_tokens": 7497,
+    "api_call_count": 18
+  },
+  "redaction": {
+    "replacements": 63,
+    "layers": {
+      "betterleaks": 4,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 10,
+      "credentialed_uri": 0,
+      "entropy": 47,
+      "key_context": 2,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01RDNZkoVQ7y936ghZP6zwLF",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "generate-commit-message"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "b31577266e81",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 3053,
+        "end": 3054,
+        "entry_ids": [
+          "6c43c1d2-d010-4edb-9902-39e53cde5361"
+        ],
+        "tool_use_id": "toolu_01RDNZkoVQ7y936ghZP6zwLF"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01RDNZkoVQ7y936ghZP6zwLF"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: generate-commit-message",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 19
+  }
+}
