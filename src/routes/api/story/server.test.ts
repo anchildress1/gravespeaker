@@ -47,7 +47,7 @@ const pianoFact = { claim: 'other', sourceId: 's1', quote: 'taught piano for for
 /**
  * Stubs the Gemini boundary with one response per model call, in order.
  * @param responses Responses for the extraction call, then the story call.
- * @returns The stub, to count calls.
+ * @returns The stub, to inspect the requests it received.
  */
 const stubModel = (...responses: (() => Response)[]) => {
 	let i = 0;
@@ -72,8 +72,29 @@ afterEach(() => {
 });
 
 describe('POST /api/story', () => {
-	it('rejects an invalid body', async () => {
-		expect((await call({ inscription })).status).toBe(400);
+	it('rejects a body without an inscription', async () => {
+		expect((await call({ candidate })).status).toBe(400);
+	});
+
+	it('tells the stone alone when no candidate is sent, dropping what the stone does not say', async () => {
+		stubModel(() =>
+			reply(
+				'The fog is thick tonight. My name was Gaynor Claire Hawks. I was born on March 10, 1932. I grew up in Portland.'
+			)
+		);
+		const body = await (await call({ inscription })).json();
+		expect(body.status).toBe('stone');
+		expect(body.paragraph).toContain('The fog is thick tonight.');
+		expect(body.paragraph).toContain('March 10, 1932');
+		expect(body.paragraph).not.toContain('Portland');
+	});
+
+	it('returns a null stone paragraph when no sentence survives grounding', async () => {
+		stubModel(() => reply('I grew up in Portland. I had 3 dogs.'));
+		expect(await (await call({ inscription })).json()).toEqual({
+			status: 'stone',
+			paragraph: null
+		});
 	});
 
 	it('rejects a candidate with more than five sources', async () => {
@@ -104,21 +125,30 @@ describe('POST /api/story', () => {
 		expect(JSON.stringify(body)).not.toContain('loved gardening');
 	});
 
-	it('skips the story call when the facts are only the name and dates', async () => {
-		const stub = stubModel(() => factsReply([{ claim: 'name', sourceId: 's1', quote: 'Gaynor' }]));
+	it('falls back to the stone when the facts are only the name and dates', async () => {
+		stubModel(
+			() => factsReply([{ claim: 'name', sourceId: 's1', quote: 'Gaynor' }]),
+			() => reply('Mind the cold. My name was Gaynor Claire Hawks.')
+		);
 		const res = await call({ inscription, candidate });
-		expect(await res.json()).toEqual({ status: 'insufficient' });
-		expect(stub).toHaveBeenCalledTimes(1);
+		expect(await res.json()).toEqual({
+			status: 'stone',
+			paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.'
+		});
 	});
 
 	it('drops a fact whose quote is not in the fetched text', async () => {
-		const stub = stubModel(() =>
-			factsReply([{ claim: 'other', sourceId: 's1', quote: 'flew planes over the channel' }])
+		stubModel(
+			() => factsReply([{ claim: 'other', sourceId: 's1', quote: 'flew planes over the channel' }]),
+			() => reply('Mind the cold.')
 		);
+		const stub = vi.mocked(fetch);
 		expect(await (await call({ inscription, candidate })).json()).toEqual({
-			status: 'insufficient'
+			status: 'stone',
+			paragraph: 'Mind the cold.'
 		});
-		expect(stub).toHaveBeenCalledTimes(1);
+		// The unverified quote never reaches any model request.
+		expect(JSON.stringify(stub.mock.calls)).not.toContain('flew planes');
 	});
 
 	it('removes an invented number from the story', async () => {

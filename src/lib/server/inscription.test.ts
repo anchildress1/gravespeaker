@@ -70,6 +70,37 @@ describe('normalizeInscriptions', () => {
 		expect(normalizeInscriptions([person('Ødegård Sæther')])[0].name).toBe('Ødegård Sæther');
 	});
 
+	it.each([
+		['TROY LEONARD JUNTUNEN', 'Troy Leonard Juntunen'],
+		['CORWIN "CORY" GARNER CHAMBERS', 'Corwin “Cory” Garner Chambers'],
+		["MARY O'BRIEN-SMITH", "Mary O'Brien-Smith"],
+		['JOHN HILDEBRAND III', 'John Hildebrand III'],
+		['VI ANDERSON', 'Vi Anderson'],
+		['JAMES ANDERSON VI', 'James Anderson VI'],
+		['MARY MCDONALD', 'Mary McDonald'],
+		['ANNE "ANNIE SMITH', 'Anne “Annie Smith'],
+		['ØDEGÅRD SÆTHER', 'Ødegård Sæther']
+	])('title-cases the all-caps carving %s for display', (carved, name) => {
+		const [p] = normalizeInscriptions([person(carved)]);
+		expect(p.name).toBe(name);
+		expect(p.carvedName).toBe(carved);
+	});
+
+	it('title-cases an all-caps maiden name', () => {
+		expect(normalizeInscriptions([person('GAYNOR HAWKS NÉE STAPLES')])[0]).toMatchObject({
+			name: 'Gaynor Hawks',
+			maidenName: 'Staples'
+		});
+	});
+
+	it('curls a straight-quoted nickname so it reads open and close', () => {
+		expect(normalizeInscriptions([person('Robert "Bob" Lee')])[0].name).toBe('Robert “Bob” Lee');
+	});
+
+	it('leaves a name that was carved in mixed case alone', () => {
+		expect(normalizeInscriptions([person('Angus McDonald')])[0].name).toBe('Angus McDonald');
+	});
+
 	it('returns an empty list for no people', () => {
 		expect(normalizeInscriptions([])).toEqual([]);
 	});

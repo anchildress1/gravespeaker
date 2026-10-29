@@ -1,9 +1,10 @@
 import { createStep, createWorkflow } from '@mastra/core/workflows';
 import { z } from 'zod';
+import { epitaph } from '#lib/epitaph.ts';
 import type { Candidate, Inscription, Story } from '#lib/types.ts';
 import { runFailure } from './http.ts';
 import { inference } from './inference/gemma.ts';
-import { groundParagraph, hasEvidence, verifyFacts } from './narrative.ts';
+import { groundParagraph, groundStone, hasEvidence, verifyFacts } from './narrative.ts';
 import { fetchPage } from './pages.ts';
 import { candidateSchema, inscriptionSchema, sourceSchema } from './research.ts';
 
@@ -101,11 +102,24 @@ const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: s
 	.commit();
 
 /**
+ * Writes a paragraph around what the stone says and grounds it against the stone alone.
+ * @param inscription The stone's person.
+ * @param today Current date, for how long they have been buried.
+ * @returns A stone story.
+ * @throws {ProviderError} When the model fails after retries.
+ */
+export async function runStoneStory(inscription: Inscription, today = new Date()): Promise<Story> {
+	const facts = epitaph(inscription, today);
+	const paragraph = await inference.tellStory(inscription.name, facts);
+	return { status: 'stone', paragraph: groundStone(inscription, facts, paragraph) };
+}
+
+/**
  * Fetches the candidate's sources, extracts verified facts, writes a paragraph around them and
- * grounds it against those facts.
+ * grounds it against those facts. Falls back to the stone when the records add nothing.
  * @param inscription The stone's person.
  * @param candidate The candidate the visitor confirmed.
- * @returns A grounded story, or `insufficient`.
+ * @returns A grounded story.
  * @throws {ProviderError} When the model fails after retries.
  */
 export async function runStory(inscription: Inscription, candidate: Candidate): Promise<Story> {
@@ -114,5 +128,5 @@ export async function runStory(inscription: Inscription, candidate: Candidate): 
 	if (result.status !== 'success') {
 		throw runFailure('Story', result.status === 'failed' ? result.error : undefined);
 	}
-	return result.result;
+	return result.result.status === 'told' ? result.result : runStoneStory(inscription);
 }

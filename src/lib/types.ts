@@ -46,8 +46,13 @@ export interface Candidate {
 	sources: SourceRecord[];
 }
 
+/**
+ * A story told from the confirmed records, or from the stone alone when there are none to use.
+ * A stone story's paragraph is null when none of the model's sentences survived grounding.
+ */
 export type Story =
-	{ status: 'told'; paragraph: string; sources: SourceRecord[] } | { status: 'insufficient' };
+	| { status: 'told'; paragraph: string; sources: SourceRecord[] }
+	| { status: 'stone'; paragraph: string | null };
 
 export interface ApiError {
 	error: {
