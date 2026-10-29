@@ -49,7 +49,7 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 			name: displayCase(name)
 				.replace(/"([^"]+)"/g, '“$1”')
 				.replace(/"(?=\S)/g, '“')
-				.replace(/"/g, '”'),
+				.replaceAll('"', '”'),
 			maidenName: maiden ? displayCase(maiden) : null,
 			born: partialDateOrNull(p.born),
 			died: partialDateOrNull(p.died)
