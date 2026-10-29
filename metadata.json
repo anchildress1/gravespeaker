@@ -3,7 +3,7 @@
   "checkpoint_id": "01M647JJ6J335F34T0SFN18YRW",
   "strategy": "manual-commit",
   "branch": "feat/mvp-journey",
-  "checkpoints_count": 3,
+  "checkpoints_count": 4,
   "files_touched": [
     "src/app.html",
     "src/lib/assets/favicon.svg",
@@ -30,22 +30,29 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 6,
-    "cache_creation_tokens": 122382,
-    "cache_read_tokens": 42582,
-    "output_tokens": 984,
-    "api_call_count": 3
+    "input_tokens": 8,
+    "cache_creation_tokens": 161484,
+    "cache_read_tokens": 56776,
+    "output_tokens": 1245,
+    "api_call_count": 4
   },
   "redaction": {
-    "replacements": 9,
+    "replacements": 12,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 9,
+      "credential_value": 12,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
