@@ -7,7 +7,8 @@ const hawks = {
 	name: 'Gaynor Claire Hawks',
 	maidenName: 'Staples',
 	born: '1932-03-10',
-	died: '2017-12-27'
+	died: '2017-12-27',
+	voice: 'female'
 };
 const source = {
 	id: 's1',
@@ -24,12 +25,13 @@ const candidate = {
 	sources: [source]
 };
 // The stone story when none of the model's sentences survived grounding.
-const bareStone = { status: 'stone', paragraph: null };
+const bareStone = { status: 'stone', paragraph: null, voice: 'female' };
 const told = {
 	status: 'told',
 	paragraph:
 		'Come closer, and mind the cold. I taught piano for forty years. The garden remembers me.',
-	sources: [source]
+	sources: [source],
+	voice: 'male'
 };
 
 /**
@@ -324,13 +326,13 @@ test("the story header keeps the stone's full dates when the record has only yea
 	);
 });
 
-test('narration is offered but disabled whenever there is a story paragraph', async ({ page }) => {
+test('narration is offered whenever there is a story paragraph', async ({ page }) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', { body: { candidates: [candidate] } });
 	await mock(page, '/api/story', { body: told });
 	await upload(page);
 	await page.getByRole('button', { name: 'This is them' }).click();
-	await expect(page.getByRole('button', { name: 'Play narration' })).toBeDisabled();
+	await expect(page.getByRole('button', { name: 'Play narration' })).toBeEnabled();
 	await page.getByRole('button', { name: 'Try another photo' }).click();
 	await mock(page, '/api/story', { body: bareStone });
 	await page
@@ -339,6 +341,45 @@ test('narration is offered but disabled whenever there is a story paragraph', as
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByText('The records hold nothing beyond the stone')).toBeVisible();
 	await expect(page.getByRole('button', { name: 'Play narration' })).toHaveCount(0);
+});
+
+test('narration plays the story in the guessed voice, and the visitor can switch it', async ({
+	page
+}) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	const asked: URLSearchParams[] = [];
+	await page.route('/api/narrate?*', (route) => {
+		asked.push(new URL(route.request().url()).searchParams);
+		return route.fulfill({ status: 502, body: '' });
+	});
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByLabel('Voice')).toHaveValue('male');
+	await page.getByLabel('Voice').selectOption('female');
+	await page.getByRole('button', { name: 'Play narration' }).click();
+	await expect(page.getByText('Narration failed. Try again.')).toBeVisible();
+	expect(asked.at(-1)?.get('voice')).toBe('female');
+	expect(asked.at(-1)?.get('text')).toBe(told.paragraph);
+});
+
+test('a failed narration is requested again on retry', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	let asked = 0;
+	await page.route('/api/narrate?*', (route) => {
+		asked++;
+		return route.fulfill({ status: 502, body: '' });
+	});
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await page.getByRole('button', { name: 'Play narration' }).click();
+	await expect(page.getByText('Narration failed. Try again.')).toBeVisible();
+	const first = asked;
+	await page.getByRole('button', { name: 'Play narration' }).click();
+	await expect.poll(() => asked).toBeGreaterThan(first);
 });
 
 test('"none of these" tells the stone alone, labelled as AI from the headstone', async ({
@@ -350,7 +391,11 @@ test('"none of these" tells the stone alone, labelled as AI from the headstone',
 	await page.route('/api/story', (route) => {
 		sent = route.request().postDataJSON();
 		return route.fulfill({
-			json: { status: 'stone', paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.' }
+			json: {
+				status: 'stone',
+				paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.',
+				voice: 'female'
+			}
 		});
 	});
 	await upload(page);
@@ -359,7 +404,7 @@ test('"none of these" tells the stone alone, labelled as AI from the headstone',
 	await expect(page.getByText('Story generated with AI')).toBeVisible();
 	await expect(page.getByText('written from the headstone alone')).toBeVisible();
 	await expect(page.getByText('No public record was confirmed')).toBeVisible();
-	await expect(page.getByRole('button', { name: 'Play narration' })).toBeDisabled();
+	await expect(page.getByRole('button', { name: 'Play narration' })).toBeEnabled();
 	expect(sent).toEqual({ inscription: hawks });
 });
 
@@ -370,7 +415,7 @@ test('a failed stone story shows the message and retries', async ({ page }) => {
 		page,
 		'/api/story',
 		{ status: 502, body: { error: { code: 'provider_failed', message: 'Story failed.' } } },
-		{ body: { status: 'stone', paragraph: 'Mind the cold.' } }
+		{ body: { status: 'stone', paragraph: 'Mind the cold.', voice: 'female' } }
 	);
 	await upload(page);
 	await expect(page.getByRole('alert')).toContainText('Story failed.');

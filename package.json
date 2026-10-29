@@ -54,6 +54,7 @@
 		"#lib/*": "./src/lib/*"
 	},
 	"dependencies": {
+		"@elevenlabs/elevenlabs-js": "2.75.0",
 		"@mastra/core": "1.79.0",
 		"@mozilla/readability": "0.6.0",
 		"linkedom": "0.18.14",

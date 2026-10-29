@@ -13,6 +13,7 @@ const stone = (over: Partial<Inscription> = {}): Inscription => ({
 	maidenName: null,
 	born: '1932-03-10',
 	died: '2017-12-27',
+	voice: 'female',
 	...over
 });
 const today = new Date('2026-10-31');

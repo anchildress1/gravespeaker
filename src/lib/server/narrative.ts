@@ -91,7 +91,7 @@ const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
 export type VerifiedFact = RawFact;
 
 /** A records-based story, or `insufficient` when the records hold nothing beyond the stone. */
-type Grounded = Extract<Story, { status: 'told' }> | { status: 'insufficient' };
+type Grounded = Omit<Extract<Story, { status: 'told' }>, 'voice'> | { status: 'insufficient' };
 
 /**
  * Lowercases and collapses everything except letters and digits to single spaces.

@@ -9,7 +9,8 @@ const stone = {
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
 	born: '1932-03-10',
-	died: '2017-12-27'
+	died: '2017-12-27',
+	voice: 'female'
 };
 
 /**

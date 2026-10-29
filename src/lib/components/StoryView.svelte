@@ -153,7 +153,7 @@
 	<button type="button" class="button quiet again" onclick={onreset}>Try another photo</button>
 </div>
 
-{#if story.paragraph}<NarrationBar />{/if}
+{#if story.paragraph}<NarrationBar text={story.paragraph} voice={story.voice} />{/if}
 
 <style>
 	.narrated {

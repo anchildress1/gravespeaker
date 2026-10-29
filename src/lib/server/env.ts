@@ -1,4 +1,4 @@
-import { GEMINI_API_KEY, SERPAPI_API_KEY } from '$app/env/private';
+import { ELEVENLABS_API_KEY, GEMINI_API_KEY, SERPAPI_API_KEY } from '$app/env/private';
 
 /**
  * Asserts a secret is set.
@@ -25,3 +25,10 @@ export const geminiApiKey = (): string => required('GEMINI_API_KEY', GEMINI_API_
  * @throws {Error} When unset.
  */
 export const serpApiKey = (): string => required('SERPAPI_API_KEY', SERPAPI_API_KEY);
+
+/**
+ * ElevenLabs API key.
+ * @returns The key.
+ * @throws {Error} When unset.
+ */
+export const elevenLabsApiKey = (): string => required('ELEVENLABS_API_KEY', ELEVENLABS_API_KEY);

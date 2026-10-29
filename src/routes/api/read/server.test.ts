@@ -19,7 +19,14 @@ const reply = (text: string) =>
 	);
 
 const hawks = JSON.stringify({
-	people: [{ name: 'Gaynor Claire Hawks née Staples', born: '1932-03-10', died: '2017-12-27' }]
+	people: [
+		{
+			name: 'Gaynor Claire Hawks née Staples',
+			born: '1932-03-10',
+			died: '2017-12-27',
+			voice: 'female'
+		}
+	]
 });
 
 /**
@@ -82,7 +89,8 @@ describe('POST /api/read', () => {
 					name: 'Gaynor Claire Hawks',
 					maidenName: 'Staples',
 					born: '1932-03-10',
-					died: '2017-12-27'
+					died: '2017-12-27',
+					voice: 'female'
 				}
 			]
 		});
@@ -96,7 +104,9 @@ describe('POST /api/read', () => {
 	});
 
 	it('returns no people when the only name has no letters', async () => {
-		stubGemini(() => reply(JSON.stringify({ people: [{ name: '[]', born: null, died: null }] })));
+		stubGemini(() =>
+			reply(JSON.stringify({ people: [{ name: '[]', born: null, died: null, voice: null }] }))
+		);
 		const res = await call(jpeg());
 		expect(await res.json()).toEqual({ people: [] });
 	});

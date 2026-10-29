@@ -1,15 +1,67 @@
-<!-- Placeholder until voice narration lands: every control is present but disabled. -->
+<script lang="ts">
+	import type { Voice } from '#lib/types.ts';
+
+	let { text, voice: guessed }: { text: string; voice: Voice } = $props();
+
+	const LABELS: Record<Voice, string> = { female: 'Female voice', male: 'Male voice' };
+	const STATUS = {
+		idle: 'Hear their story',
+		loading: 'Summoning…',
+		playing: 'Speaking…',
+		failed: 'Narration failed. Try again.'
+	} as const;
+
+	// Starts on the server's guess; the visitor's pick overrides it.
+	let voice = $derived(guessed);
+	let status = $state<keyof typeof STATUS>('idle');
+	let audio: HTMLAudioElement;
+	const src = $derived(`/api/narrate?${new URLSearchParams({ text, voice })}`);
+
+	/** Plays or pauses the narration. */
+	function toggle(): void {
+		if (audio.paused) {
+			// A failed source keeps rejecting play() until it is reloaded, so a retry must reload it.
+			if (audio.error) audio.load();
+			// A failed load also fires the element's error event, which owns the failure message.
+			audio.play().catch(() => {});
+		} else audio.pause();
+	}
+</script>
+
 <div class="bar">
-	<button type="button" class="play" aria-label="Play narration" disabled>
-		<svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true"
-			><path d="M5 3.5v11l9-5.5z" /></svg
-		>
+	<audio
+		bind:this={audio}
+		{src}
+		preload="none"
+		onplay={() => (status = 'loading')}
+		onwaiting={() => (status = 'loading')}
+		onplaying={() => (status = 'playing')}
+		onpause={() => status !== 'failed' && (status = 'idle')}
+		onended={() => (status = 'idle')}
+		onemptied={() => (status = 'idle')}
+		onerror={() => (status = 'failed')}
+	></audio>
+	<button
+		type="button"
+		class="play"
+		aria-label={status === 'idle' || status === 'failed' ? 'Play narration' : 'Pause narration'}
+		onclick={toggle}
+	>
+		<svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" aria-hidden="true">
+			{#if status === 'idle' || status === 'failed'}
+				<path d="M5 3.5v11l9-5.5z" />
+			{:else}
+				<path d="M4.5 3.5h3v11h-3zM10.5 3.5h3v11h-3z" />
+			{/if}
+		</svg>
 	</button>
-	<p>Narration coming soon</p>
+	<p aria-live="polite">{STATUS[status]}</p>
 	<label>
 		<span class="visually-hidden">Voice</span>
-		<select disabled>
-			<option>Voice</option>
+		<select bind:value={voice}>
+			{#each Object.entries(LABELS) as [id, label] (id)}
+				<option value={id}>{label}</option>
+			{/each}
 		</select>
 	</label>
 </div>
@@ -38,7 +90,8 @@
 		border: 1px solid var(--line);
 		border-radius: 50%;
 		background: none;
-		color: var(--mist-dim);
+		color: var(--bone);
+		cursor: pointer;
 	}
 	p {
 		flex: 1;
@@ -52,6 +105,6 @@
 		border: 1px solid var(--line);
 		border-radius: 0.375rem;
 		background: var(--ink);
-		color: var(--mist-dim);
+		color: var(--bone);
 	}
 </style>
