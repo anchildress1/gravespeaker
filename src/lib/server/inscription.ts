@@ -5,9 +5,32 @@ import type { RawPerson } from './inference/index.ts';
 const HONORIFIC = /^(?:mr|mrs|miss|dr)\.?(?=\s)/i;
 // The clause with any enclosing parenthesis, so "(née Staples)" leaves no stray bracket behind.
 const MAIDEN = /\(?\b(?:née|nee)\s+([\p{L}'’-]+)\)?/iu;
+// Generational suffixes only; a wider numeral pattern would freeze names like "Vi" in capitals.
+const ROMAN = /^(?:II|III|IV)$/;
 
 /**
- * Turns model output into inscriptions: drops letterless names, strips honorifics, splits `née`, validates dates.
+ * Title-cases a name carved in capitals; a name carved in mixed case is left as carved.
+ * @param name Name with honorifics and maiden clause already removed.
+ * @returns The name as it should read on screen and in the story.
+ */
+function displayCase(name: string): string {
+	// Mixed-case carvings already carry the family's spelling (McDonald, van Buren); don't guess.
+	if (/\p{Ll}/u.test(name)) return name;
+	return name
+		.split(' ')
+		.map((word) =>
+			ROMAN.test(word)
+				? word
+				: word
+						.toLowerCase()
+						.replace(/(^|[^\p{L}])(\p{L})/gu, (_, edge, letter) => edge + letter.toUpperCase())
+		)
+		.join(' ');
+}
+
+/**
+ * Turns model output into inscriptions: drops letterless names, strips honorifics, splits `née`,
+ * title-cases all-caps carvings, validates dates.
  * @param raw People as the model returned them.
  * @returns Normalized people; empty when no name is legible.
  */
@@ -16,12 +39,13 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 	for (const p of raw) {
 		if (!/\p{L}/u.test(p.name ?? '')) continue;
 		const carvedName = p.name.trim();
-		const maidenName = MAIDEN.exec(carvedName)?.[1] ?? null;
+		const maiden = MAIDEN.exec(carvedName)?.[1];
 		const name = carvedName.replace(MAIDEN, ' ').replace(HONORIFIC, '').replace(/\s+/g, ' ').trim();
 		people.push({
 			carvedName,
-			name,
-			maidenName,
+			// Display fonts draw a straight " as a closing quote, so "Cory" would open backwards.
+			name: displayCase(name).replace(/"([^"]+)"/g, '“$1”'),
+			maidenName: maiden ? displayCase(maiden) : null,
 			born: partialDateOrNull(p.born),
 			died: partialDateOrNull(p.died)
 		});
