@@ -1,0 +1,49 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M62YPM1XFKM1B562B1N1P7RG",
+  "session_id": "1f41e38e-90e0-4d75-8008-13a597104bea",
+  "strategy": "manual-commit",
+  "created_at": "2026-10-29T04:29:15.215799Z",
+  "branch": "feat/mvp-journey",
+  "checkpoints_count": 1,
+  "save_step_count": 1,
+  "files_touched": [
+    "src/lib/server/narrative.test.ts",
+    "src/lib/server/narrative.ts",
+    "src/lib/server/story.ts",
+    "src/lib/types.ts",
+    "src/routes/+layout.svelte",
+    "src/routes/+page.svelte",
+    "src/routes/api/story/+server.ts",
+    "src/routes/api/story/server.test.ts",
+    "src/routes/journey.e2e.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-haiku-5-5",
+  "turn_id": "abcf52770ea1",
+  "compact_transcript_start": 0,
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}
