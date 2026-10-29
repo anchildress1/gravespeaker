@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { groundParagraph, hasEvidence, verifyFacts } from './narrative';
+import { groundParagraph, groundStone, hasEvidence, verifyFacts } from './narrative';
 import type { RawFact } from './inference/index';
 import type { Candidate, Inscription } from '#lib/types.ts';
 
@@ -280,5 +280,34 @@ describe('groundParagraph', () => {
 	it('returns only the paragraph and the cited sources', () => {
 		const story = groundParagraph(stone, candidate, [fact()], 'I taught piano for forty years.');
 		expect(Object.keys(story).sort()).toEqual(['paragraph', 'sources', 'status']);
+	});
+});
+
+describe('groundStone', () => {
+	const lines = [
+		'My name was Gaynor Claire Hawks.',
+		'I was born on March 10, 1932.',
+		"I've been here 8 years."
+	];
+
+	it('keeps atmosphere and what the stone says', () => {
+		const out = groundStone(
+			stone,
+			lines,
+			'Come closer. I was born on March 10, 1932. Eight years now.'
+		);
+		expect(out).toBe('Come closer. I was born on March 10, 1932. Eight years now.');
+	});
+
+	it.each([
+		['a place the stone does not name', 'I was raised in Alsea.'],
+		['a number the stone does not give', 'I had 4 children.'],
+		['another person', 'I still wait for Walter.']
+	])('drops a sentence with %s', (_, sentence) => {
+		expect(groundStone(stone, lines, `The fog is thick. ${sentence}`)).toBe('The fog is thick.');
+	});
+
+	it('returns null when nothing survives', () => {
+		expect(groundStone(stone, lines, 'I was raised in Alsea. I had 4 children.')).toBeNull();
 	});
 });

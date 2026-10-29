@@ -1,0 +1,112 @@
+:root {
+	color-scheme: dark;
+	--ink: #0b0d12;
+	--slate: #141822;
+	--slate-raised: #1a1f2b;
+	--line: #262c38;
+	--bone: #e9e3d5;
+	--mist: #a5a29a;
+	--mist-dim: #6f6d68;
+	--verdigris: #7fa89a;
+	--verdigris-deep: #2b4a42;
+	--lantern: #f2a65a;
+	--font-display: 'Metamorphous', 'IM Fell English', serif;
+	--font-serif: 'IM Fell English', Georgia, serif;
+	--font-ui: system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--ink);
+	color: var(--bone);
+	font-family: var(--font-ui);
+	line-height: 1.5;
+}
+
+a {
+	color: var(--verdigris);
+	text-underline-offset: 0.2em;
+}
+
+button,
+input,
+select {
+	font: inherit;
+}
+
+:focus-visible,
+label:focus-within {
+	outline: 2px solid var(--verdigris);
+	outline-offset: 3px;
+}
+
+/* Visually hidden but still focusable, so keyboard users can reach the upload. */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Small caps label used across all three screens. */
+.eyebrow {
+	margin: 0;
+	color: var(--mist);
+	font-family: var(--font-display);
+	font-size: 0.75rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+	min-height: 2.75rem;
+	padding: 0.625rem 1.25rem;
+	border: 1px solid var(--verdigris);
+	border-radius: 0.375rem;
+	background: color-mix(in srgb, var(--verdigris-deep) 55%, transparent);
+	color: var(--bone);
+	font-family: var(--font-display);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: var(--verdigris-deep);
+}
+
+.button.quiet {
+	border-color: var(--line);
+	background: transparent;
+}
+
+.link-button {
+	padding: 0.5rem;
+	border: 0;
+	background: none;
+	color: var(--mist);
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition: none !important;
+	}
+}

@@ -90,6 +90,9 @@ const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
 /** A fact whose quote was found verbatim in a cited source. */
 export type VerifiedFact = RawFact;
 
+/** A records-based story, or `insufficient` when the records hold nothing beyond the stone. */
+export type Grounded = Extract<Story, { status: 'told' }> | { status: 'insufficient' };
+
 /**
  * Lowercases and collapses everything except letters and digits to single spaces.
  * @param s Text to normalize.
@@ -213,12 +216,12 @@ export function verifyFacts(
 /**
  * Tokens of the person's own name, which a story may use without a quote.
  * @param inscription The stone's person.
- * @param candidate The confirmed candidate.
+ * @param candidate The confirmed candidate, when there is one.
  * @returns Normalized name tokens.
  */
-function nameTokens(inscription: Inscription, candidate: Candidate): Set<string> {
+function nameTokens(inscription: Inscription, candidate?: Candidate): Set<string> {
 	return new Set(
-		[inscription.name, candidate.name, inscription.maidenName ?? '']
+		[inscription.name, candidate?.name ?? '', inscription.maidenName ?? '']
 			.flatMap((n) => norm(n).split(' '))
 			.filter(Boolean)
 	);
@@ -291,6 +294,28 @@ function sentencesOf(paragraph: string): string[] {
 }
 
 /**
+ * Keeps the sentences that add nothing the quotes lack, dropping repeats.
+ * @param paragraph Prose as the model wrote it.
+ * @param quotes Normalized quotes the prose may draw on.
+ * @param allowed Name and month tokens that need no quote.
+ * @returns Kept sentences in order.
+ */
+function keptSentences(paragraph: string, quotes: string[], allowed: Set<string>): string[] {
+	const quoteWords = new Set(quotes.flatMap((q) => q.split(' ').map(canon)));
+	const quoteStems = quotes.map((q) => ({
+		stems: new Set(factTerms(q)),
+		words: new Set(q.split(' '))
+	}));
+	const seen = new Set<string>();
+	return sentencesOf(paragraph).filter((s) => {
+		const key = norm(s);
+		if (seen.has(key)) return false;
+		seen.add(key);
+		return sentenceHolds(s, quoteWords, quoteStems, allowed);
+	});
+}
+
+/**
  * Drops sentences that add claims the verified facts do not support, then checks the story still
  * uses the facts and lists the sources it draws on.
  * @param inscription The stone's person.
@@ -304,25 +329,11 @@ export function groundParagraph(
 	candidate: Candidate,
 	facts: VerifiedFact[],
 	paragraph: string
-): Story {
+): Grounded {
 	if (!hasEvidence(inscription, candidate, facts)) return { status: 'insufficient' };
 	const normed = facts.map((f) => norm(f.quote));
-	const quoteWords = new Set(normed.flatMap((q) => q.split(' ').map(canon)));
-	const quoteStems = normed.map((q) => ({
-		stems: new Set(factTerms(q)),
-		terms: factTerms(q),
-		words: new Set(q.split(' '))
-	}));
 	const allowed = new Set([...nameTokens(inscription, candidate), ...MONTHS]);
-
-	const seen = new Set<string>();
-	const kept = sentencesOf(paragraph).filter((s) => {
-		const key = norm(s);
-		if (seen.has(key)) return false;
-		seen.add(key);
-		return sentenceHolds(s, quoteWords, quoteStems, allowed);
-	});
-	const body = kept.join(' ');
+	const body = keptSentences(paragraph, normed, allowed).join(' ');
 
 	const present = new Set(
 		norm(body)
@@ -330,7 +341,7 @@ export function groundParagraph(
 			.map((w) => canon(w).slice(0, STEM_LENGTH))
 	);
 	const used = facts.filter((f, i) => {
-		const { terms } = quoteStems[i];
+		const terms = factTerms(normed[i]);
 		return (
 			terms.length > 0 && terms.filter((t) => present.has(t)).length / terms.length >= MIN_FACT_USE
 		);
@@ -342,4 +353,21 @@ export function groundParagraph(
 		paragraph: body,
 		sources: candidate.sources.filter((s) => cited.has(s.id))
 	};
+}
+
+/**
+ * Drops sentences of a stone-only story that add claims the stone does not make.
+ * @param inscription The stone's person.
+ * @param facts Sentences stating what the stone says.
+ * @param paragraph The paragraph as the model wrote it.
+ * @returns The grounded paragraph, or null when no sentence survives.
+ */
+export function groundStone(
+	inscription: Inscription,
+	facts: string[],
+	paragraph: string
+): string | null {
+	const allowed = new Set([...nameTokens(inscription), ...MONTHS]);
+	const body = keptSentences(paragraph, facts.map(norm), allowed).join(' ');
+	return body || null;
 }

@@ -23,6 +23,8 @@ const candidate = {
 	confidence: 'high',
 	sources: [source]
 };
+// The stone story when none of the model's sentences survived grounding.
+const bareStone = { status: 'stone', paragraph: null };
 const told = {
 	status: 'told',
 	paragraph:
@@ -82,6 +84,7 @@ test('two people show a picker', async ({ page }) => {
 		body: { people: [hawks, { ...hawks, name: 'Arthur Hawks', carvedName: 'Arthur Hawks' }] }
 	});
 	await mock(page, '/api/research', { body: { candidates: [] } });
+	await mock(page, '/api/story', { body: bareStone });
 	await upload(page);
 	await expect(page.getByRole('heading', { name: 'Whose story?' })).toBeVisible();
 	await page.getByRole('button', { name: /Arthur Hawks/ }).click();
@@ -89,9 +92,12 @@ test('two people show a picker', async ({ page }) => {
 	await expect(page.getByText('My name was Arthur Hawks.')).toBeVisible();
 });
 
-test('"none of these" ends on the stone-only epitaph with no AI label', async ({ page }) => {
+test('a stone story with no surviving sentence shows the plain epitaph with no AI label', async ({
+	page
+}) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: bareStone });
 	await upload(page);
 	await page.getByRole('button', { name: 'None of these' }).click();
 	await expect(page.getByText('My name was Gaynor Claire Hawks.')).toBeVisible();
@@ -103,6 +109,7 @@ test('"none of these" ends on the stone-only epitaph with no AI label', async ({
 test('zero candidates show the epitaph with the no-records note', async ({ page }) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', { body: { candidates: [] } });
+	await mock(page, '/api/story', { body: bareStone });
 	await upload(page);
 	await expect(page.getByText('No public records were found')).toBeVisible();
 });
@@ -132,10 +139,10 @@ test('a told story is one labelled paragraph with its sources listed', async ({ 
 	await expect(page.getByRole('link', { name: source.title })).toHaveAttribute('href', source.url);
 });
 
-test('an insufficient story falls back to the epitaph without the AI label', async ({ page }) => {
+test('records with nothing beyond the stone fall back to the stone', async ({ page }) => {
 	await mock(page, '/api/read', { body: { people: [hawks] } });
 	await mock(page, '/api/research', { body: { candidates: [candidate] } });
-	await mock(page, '/api/story', { body: { status: 'insufficient' } });
+	await mock(page, '/api/story', { body: bareStone });
 	await upload(page);
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByText('The records hold nothing beyond the stone')).toBeVisible();
@@ -221,4 +228,110 @@ test('an unverified match tells the visitor to check the sources', async ({ page
 	});
 	await upload(page);
 	await expect(page.getByText(/Unverified/)).toContainText('Check the sources');
+});
+
+test('the checklist ticks a step only when its request resolves', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	const gate = Promise.withResolvers<void>();
+	await page.route('/api/research', async (route) => {
+		await gate.promise;
+		await route.fulfill({ json: { candidates: [candidate] } });
+	});
+	await upload(page);
+	await expect(page.getByRole('listitem').filter({ hasText: 'Reading the stone' })).toContainText(
+		'done'
+	);
+	await expect(
+		page.getByRole('listitem').filter({ hasText: 'Searching historical records' })
+	).toContainText('in progress');
+	await expect(page.getByRole('listitem').filter({ hasText: 'Building the story' })).toContainText(
+		'pending'
+	);
+	gate.resolve();
+	await expect(
+		page.getByRole('listitem').filter({ hasText: 'Searching historical records' })
+	).toContainText('done');
+	await expect(
+		page.getByRole('listitem').filter({ hasText: 'Confirming the match' })
+	).toContainText('waiting for you');
+});
+
+test('the uploaded photo stays with the visitor from search to story', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await expect(page.getByRole('img', { name: 'The headstone you uploaded' })).toBeVisible();
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByRole('heading', { name: 'Gaynor Claire Hawks' })).toBeVisible();
+	await expect(page.getByRole('img', { name: 'The headstone you uploaded' })).toBeVisible();
+});
+
+test("the story header keeps the stone's full dates when the record has only years", async ({
+	page
+}) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', {
+		body: { candidates: [{ ...candidate, born: '1932', died: '2017' }] }
+	});
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByRole('region', { name: 'Who this is' })).toContainText(
+		'1932-03-10 to 2017-12-27'
+	);
+});
+
+test('narration is offered but disabled whenever there is a story paragraph', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByRole('button', { name: 'Play narration' })).toBeDisabled();
+	await page.getByRole('button', { name: 'Try another photo' }).click();
+	await mock(page, '/api/story', { body: bareStone });
+	await page
+		.locator('input[type=file]')
+		.setInputFiles({ name: 's.jpg', mimeType: 'image/jpeg', buffer: Buffer.from([1, 2, 3]) });
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByText('The records hold nothing beyond the stone')).toBeVisible();
+	await expect(page.getByRole('button', { name: 'Play narration' })).toHaveCount(0);
+});
+
+test('"none of these" tells the stone alone, labelled as AI from the headstone', async ({
+	page
+}) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	let sent: unknown;
+	await page.route('/api/story', (route) => {
+		sent = route.request().postDataJSON();
+		return route.fulfill({
+			json: { status: 'stone', paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.' }
+		});
+	});
+	await upload(page);
+	await page.getByRole('button', { name: 'None of these' }).click();
+	await expect(page.locator('.paragraph')).toContainText('Mind the cold.');
+	await expect(page.getByText('Story generated with AI')).toBeVisible();
+	await expect(page.getByText('written from the headstone alone')).toBeVisible();
+	await expect(page.getByText('No public record was confirmed')).toBeVisible();
+	await expect(page.getByRole('button', { name: 'Play narration' })).toBeDisabled();
+	expect(sent).toEqual({ inscription: hawks });
+});
+
+test('a failed stone story shows the message and retries', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [] } });
+	await mock(
+		page,
+		'/api/story',
+		{ status: 502, body: { error: { code: 'provider_failed', message: 'Story failed.' } } },
+		{ body: { status: 'stone', paragraph: 'Mind the cold.' } }
+	);
+	await upload(page);
+	await expect(page.getByRole('alert')).toContainText('Story failed.');
+	await page.getByRole('button', { name: 'Try again' }).click();
+	await expect(page.locator('.paragraph')).toContainText('Mind the cold.');
 });
