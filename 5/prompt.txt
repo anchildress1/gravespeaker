@@ -1,0 +1,33 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+story endpoint trust gap
+branch synced with main
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+hero avif fallback added
+fog lantern layering fixed
+web vitals budgets added
+favicon set ready
+invitation upload button added
+desktop camera capture added
+desktop camera window built
+capture works everywhere
+text sizes enlarged
+every device covered
+capture ready on phones
+trail findings resolved
+global regex replaced
+pr seven merged
+
+Closing message:
+Tests pass except the voice-routing one, which is expected: both voice IDs are still `TODO`. Checking whether your key has landed in `.env` yet.
+Blocked on `ELEVENLABS_API_KEY` in `.env` for the voice IDs, the effects catalog and the browser check. Updating e2e and lint in the meantime.
+The read prompt changed, so I'm running benchmark run12 on the hosted 26B to confirm OCR didn't regress, while I wait for the key.
+The benchmark doc says run 11 was the last tuning run and later prompt changes get tested in the app. Dropping run12 and following that.
