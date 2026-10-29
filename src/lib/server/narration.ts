@@ -8,9 +8,10 @@ const MODEL_ID = 'eleven_flash_v2_5';
 const MAX_RETRIES = 2;
 
 // Veda Sky (Suspense & Horror Storyteller) and Callum (Husky Trickster): American and eerie.
-const VOICE_IDS: Record<Voice, string> = {
-	female: '1rnYMVDXZksVr6x7pZPX',
-	male: 'N2lVS1w4EtoT3dr4eOWO'
+// Callum reads quickly at the default speed, which undercuts the slow graveside pacing.
+const VOICES: Record<Voice, { id: string; speed: number }> = {
+	female: { id: '1rnYMVDXZksVr6x7pZPX', speed: 1 },
+	male: { id: 'N2lVS1w4EtoT3dr4eOWO', speed: 0.85 }
 };
 
 // A hollow tunnel tail and some distance, so the voice seems to rise from below the stone.
@@ -28,9 +29,10 @@ export async function narrate(text: string, voice: Voice): Promise<ReadableStrea
 		return await new ElevenLabsClient({
 			apiKey: elevenLabsApiKey(),
 			maxRetries: MAX_RETRIES
-		}).textToSpeech.stream(VOICE_IDS[voice], {
+		}).textToSpeech.stream(VOICES[voice].id, {
 			text,
 			modelId: MODEL_ID,
+			voiceSettings: { speed: VOICES[voice].speed },
 			audioEffects: BEYOND_THE_GRAVE
 		});
 	} catch (e) {
