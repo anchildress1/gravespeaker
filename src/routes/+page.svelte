@@ -26,12 +26,16 @@
 	let message = $state('');
 	let retry = $state<(() => void) | null>(null);
 	let photoUrl = $state<string | null>(null);
+	// Starting over aborts this, so a late reply cannot pull the visitor back into the old journey.
+	let journey = new AbortController();
 
 	/**
 	 * Returns to the capture screen, clearing the journey.
 	 * @param note Optional message to show.
 	 */
 	function reset(note = ''): void {
+		journey.abort();
+		journey = new AbortController();
 		phase = 'capture';
 		people = [];
 		person = null;
@@ -45,13 +49,14 @@
 	}
 
 	/**
-	 * Shows an error with a retry that re-runs the same request.
-	 * @param text Message for the visitor.
+	 * Shows an error with a retry that re-runs the same request; a request dropped by starting over shows nothing.
+	 * @param e Error the request threw.
 	 * @param back Phase to return to.
 	 * @param again Action the retry button runs.
 	 */
-	function fail(text: string, back: Phase, again: () => void): void {
-		message = text;
+	function fail(e: unknown, back: Phase, again: () => void): void {
+		if (e instanceof DOMException && e.name === 'AbortError') return;
+		message = (e as Error).message;
 		phase = back;
 		retry = again;
 	}
@@ -61,16 +66,19 @@
 	 * @param url Endpoint path.
 	 * @param init Fetch options.
 	 * @returns The parsed body.
-	 * @throws {Error} With a visitor-safe message.
+	 * @throws {Error} With a visitor-safe message, or an `AbortError` when the visitor started over.
 	 */
 	async function call<T>(url: string, init: RequestInit): Promise<T> {
+		const { signal } = journey;
 		let res: Response;
 		try {
-			res = await fetch(url, init);
-		} catch {
-			throw new Error('Could not reach the server. Check your connection.');
+			res = await fetch(url, { ...init, signal });
+		} catch (e) {
+			if (signal.aborted) throw e;
+			throw new Error('Could not reach the server. Check your connection.', { cause: e });
 		}
 		const body = await res.json().catch(() => null);
+		signal.throwIfAborted();
 		if (!res.ok) {
 			if (res.status === 413) throw new Error(TOO_LARGE);
 			throw new Error((body as ApiError | null)?.error.message ?? 'Something went wrong.');
@@ -114,7 +122,7 @@
 				phase = 'pick';
 			} else await research(res.people[0]);
 		} catch (e) {
-			fail((e as Error).message, 'capture', () => read(file));
+			fail(e, 'capture', () => read(file));
 		}
 	}
 
@@ -137,7 +145,7 @@
 			if (candidates.length === 0) await tell(null, NOTES.empty);
 			else phase = 'confirm';
 		} catch (e) {
-			fail((e as Error).message, 'researching', () => research(p));
+			fail(e, 'researching', () => research(p));
 		}
 	}
 
@@ -162,7 +170,7 @@
 			epitaphNote = note;
 			phase = 'story';
 		} catch (e) {
-			fail((e as Error).message, c ? 'confirm' : 'telling', () => tell(c, note));
+			fail(e, c ? 'confirm' : 'telling', () => tell(c, note));
 		}
 	}
 </script>

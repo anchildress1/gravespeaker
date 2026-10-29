@@ -335,3 +335,23 @@ test('a failed stone story shows the message and retries', async ({ page }) => {
 	await page.getByRole('button', { name: 'Try again' }).click();
 	await expect(page.locator('.paragraph')).toContainText('Mind the cold.');
 });
+
+test('starting over while the stone is being read drops the old request', async ({ page }) => {
+	const gate = Promise.withResolvers<void>();
+	await page.route('/api/read', async (route) => {
+		await gate.promise;
+		// The page aborts this request, so fulfilling it may be refused.
+		await route.fulfill({ json: { people: [hawks] } }).catch(() => undefined);
+	});
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await upload(page);
+	await expect(page.getByRole('listitem').filter({ hasText: 'Reading the stone' })).toContainText(
+		'in progress'
+	);
+	await page.getByRole('button', { name: 'Start over' }).click();
+	const research = page.waitForRequest('**/api/research', { timeout: 1500 });
+	gate.resolve();
+	await expect(research).rejects.toThrow();
+	await expect(page.getByText('Photograph a headstone')).toBeVisible();
+	await expect(page.getByRole('alert')).toHaveCount(0);
+});
