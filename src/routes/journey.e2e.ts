@@ -364,6 +364,24 @@ test('narration plays the story in the guessed voice, and the visitor can switch
 	expect(asked.at(-1)?.get('text')).toBe(told.paragraph);
 });
 
+test('a failed narration is requested again on retry', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	let asked = 0;
+	await page.route('/api/narrate?*', (route) => {
+		asked++;
+		return route.fulfill({ status: 502, body: '' });
+	});
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await page.getByRole('button', { name: 'Play narration' }).click();
+	await expect(page.getByText('Narration failed. Try again.')).toBeVisible();
+	const first = asked;
+	await page.getByRole('button', { name: 'Play narration' }).click();
+	await expect.poll(() => asked).toBeGreaterThan(first);
+});
+
 test('"none of these" tells the stone alone, labelled as AI from the headstone', async ({
 	page
 }) => {

@@ -20,6 +20,8 @@
 	/** Plays or pauses the narration. */
 	function toggle(): void {
 		if (audio.paused) {
+			// A failed source keeps rejecting play() until it is reloaded, so a retry must reload it.
+			if (audio.error) audio.load();
 			// A failed load also fires the element's error event, which owns the failure message.
 			audio.play().catch(() => {});
 		} else audio.pause();
