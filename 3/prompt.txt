@@ -1,0 +1,31 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+metamorphous button fits
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+contact sheets delivered
+journey screens shipped
+stone stories shipped
+journey commits pushed
+stone story commits landed
+sonar motion issue flagged
+in flight requests cancelled
+start over race fixed
+story endpoint trust gap
+branch synced with main
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+
+Closing message:
+The hero only ever shows about 410–480 px of its 640 px width: the column tops out at 30rem. I'm cropping it to 480×887 and serving AVIF with a WebP fallback.
+The phone view looks the same as before, now loading the AVIF. Checking desktop, then running the e2e tests.
