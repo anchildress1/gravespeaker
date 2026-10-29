@@ -1,0 +1,31 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+horizontal overflow fixed
+name case fixed
+mobile stone story verified
+stone grounding fallback added
+stone copy tightened
+contact sheets delivered
+journey screens shipped
+stone stories shipped
+journey commits pushed
+stone story commits landed
+sonar motion issue flagged
+in flight requests cancelled
+start over race fixed
+story endpoint trust gap
+branch synced with main
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+hero avif fallback added
+
+Closing message:
+The fog and lantern sit underneath the photo's ink-fade overlay (`.scene::after` paints over them), which is why they never showed. Moving the overlay under them.
+The animations show on desktop now and are off on phones. Stopping the preview and running the final checks.
