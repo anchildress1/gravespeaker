@@ -8,6 +8,17 @@
 
 	type Phase = 'capture' | SearchPhase | 'story';
 
+	// One status line that outlives every screen, so a screen reader hears each step and the story arriving.
+	const ANNOUNCE: Record<Phase, string> = {
+		capture: '',
+		reading: 'Reading the stone…',
+		pick: 'More than one person is named. Choose whose story to tell.',
+		researching: 'Searching historical records…',
+		confirm: 'Found possible matches. Confirm the right one.',
+		telling: 'Building the story…',
+		story: 'Story ready.'
+	};
+
 	const MAX_BYTES = 10 * 1024 * 1024;
 	const TOO_LARGE = 'That photo is over 10 MB. Try a smaller one.';
 	const NOTES = {
@@ -22,7 +33,7 @@
 	let candidates = $state<Candidate[]>([]);
 	let confirmed = $state<Candidate | null>(null);
 	let story = $state<Story | null>(null);
-	let epitaphNote = $state<string>(NOTES.none);
+	let epitaphNote = $state('');
 	let message = $state('');
 	let retry = $state<(() => void) | null>(null);
 	let photoUrl = $state<string | null>(null);
@@ -170,6 +181,8 @@
 		}
 	}
 </script>
+
+<p class="visually-hidden" role="status">{ANNOUNCE[phase]}</p>
 
 {#if phase === 'capture'}
 	<main class="full">

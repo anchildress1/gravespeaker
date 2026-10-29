@@ -3,6 +3,7 @@
 </script>
 
 <script lang="ts">
+	import { lifespan, shownDate } from '#lib/lifespan.ts';
 	import type { Candidate, Inscription } from '#lib/types.ts';
 	import ErrorNotice from './ErrorNotice.svelte';
 	import Moon from './Moon.svelte';
@@ -20,14 +21,6 @@
 		researching: 1,
 		confirm: 2,
 		telling: 3
-	};
-	// Read aloud by screen readers as the search moves on; the checklist alone changes silently.
-	const ANNOUNCE: Record<SearchPhase, string> = {
-		reading: 'Reading the stone…',
-		pick: 'More than one person is named. Choose whose story to tell.',
-		researching: 'Searching historical records…',
-		confirm: 'Found possible matches. Confirm the right one.',
-		telling: 'Building the story…'
 	};
 	const CONFIDENCE = {
 		high: 'High confidence match',
@@ -85,13 +78,11 @@
 		<dt class="eyebrow">Name</dt>
 		<dd>{person.name}</dd>
 		<dt class="eyebrow">Born</dt>
-		<dd>{person.born ?? 'unknown'}</dd>
+		<dd>{shownDate(person.born)}</dd>
 		<dt class="eyebrow">Died</dt>
-		<dd>{person.died ?? 'unknown'}</dd>
+		<dd>{shownDate(person.died)}</dd>
 	</dl>
 {/if}
-
-<p class="visually-hidden" role="status">{ANNOUNCE[phase]}</p>
 
 <ol class="checklist">
 	{#each STEPS as label, i (label)}
@@ -121,7 +112,7 @@
 			<li>
 				<button type="button" class="pick" onclick={() => onpick(p)}>
 					<strong>{p.name}</strong>
-					<span>{p.born ?? 'unknown'} to {p.died ?? 'unknown'}</span>
+					<span>{lifespan(p)}</span>
 				</button>
 			</li>
 		{/each}
@@ -133,7 +124,7 @@
 		{#each candidates as c (c.sources[0].id)}
 			<li class="card">
 				<strong>{c.name}</strong>
-				<span class="dates">{c.born ?? 'unknown'} to {c.died ?? 'unknown'}</span>
+				<span class="dates">{lifespan(c)}</span>
 				<span class="confidence" data-confidence={c.confidence}>{CONFIDENCE[c.confidence]}</span>
 				<ul class="links">
 					{#each c.sources as s (s.id)}

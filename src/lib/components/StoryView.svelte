@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { epitaph } from '#lib/epitaph.ts';
+	import { lifespan, shownDate } from '#lib/lifespan.ts';
 	import type { Candidate, Inscription, Story } from '#lib/types.ts';
 	import NarrationBar from './NarrationBar.svelte';
 
@@ -53,9 +54,10 @@
 <div class="story-view" class:narrated={story.paragraph}>
 	<section class="header-card" aria-label="Who this is">
 		{#if photoUrl}<img src={photoUrl} alt="The headstone you uploaded" />{/if}
-		<h2>{subject.name}</h2>
+		<!-- The button that led here is gone, so focus lands on the story instead of the page body. -->
+		<h2 tabindex="-1" {@attach (h) => h.focus()}>{subject.name}</h2>
 		<p class="lifespan">
-			{person.born ?? 'unknown'} to {person.died ?? 'unknown'}
+			{lifespan(person)}
 		</p>
 	</section>
 
@@ -98,10 +100,12 @@
 			class="reveal"
 		>
 			<dl class="facts">
+				<dt>Carved as</dt>
+				<dd>{person.carvedName}</dd>
 				<dt>Born</dt>
-				<dd>{person.born ?? 'unknown'}</dd>
+				<dd>{shownDate(person.born)}</dd>
 				<dt>Died</dt>
-				<dd>{person.died ?? 'unknown'}</dd>
+				<dd>{shownDate(person.died)}</dd>
 			</dl>
 			<p class="cite">From the headstone.</p>
 		</div>
@@ -285,12 +289,6 @@
 		width: 100%;
 		margin-top: 2rem;
 	}
-	/* Text surfaces as if out of fog: a downward mask wipe with a slight rise. */
-	.reveal {
-		mask-image: linear-gradient(#000 66%, transparent);
-		mask-repeat: no-repeat;
-		mask-size: 100% 300%;
-	}
 	@keyframes reveal {
 		from {
 			opacity: 0;
@@ -305,7 +303,11 @@
 	}
 	/* Motion runs only on mouse-driven screens: phones are too slow for it. */
 	@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+		/* Text surfaces as if out of fog: a downward mask wipe with a slight rise. */
 		.reveal {
+			mask-image: linear-gradient(#000 66%, transparent);
+			mask-repeat: no-repeat;
+			mask-size: 100% 300%;
 			animation: reveal 1.4s ease-out both;
 		}
 	}

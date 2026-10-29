@@ -252,21 +252,17 @@
 		gap: 1rem;
 		padding: 0 1rem 2rem;
 	}
-	.capture {
-		min-height: 3.25rem;
-		gap: 0.625rem;
-		font-size: 0.9375rem;
-		letter-spacing: 0.08em;
-		text-align: center;
-		background: color-mix(in srgb, var(--verdigris-deep) 70%, transparent);
-		backdrop-filter: blur(4px);
-	}
+	.capture,
 	.upload {
 		gap: 0.625rem;
 		font-size: 0.9375rem;
 		letter-spacing: 0.08em;
 		text-align: center;
 		backdrop-filter: blur(4px);
+	}
+	.capture {
+		min-height: 3.25rem;
+		background: color-mix(in srgb, var(--verdigris-deep) 70%, transparent);
 	}
 	details {
 		color: var(--mist);

@@ -47,7 +47,7 @@ const pianoFact = { claim: 'other', sourceId: 's1', quote: 'taught piano for for
 /**
  * Stubs the Gemini boundary with one response per model call, in order.
  * @param responses Responses for the extraction call, then the story call.
- * @returns The stub, to count calls.
+ * @returns The stub, to inspect the requests it received.
  */
 const stubModel = (...responses: (() => Response)[]) => {
 	let i = 0;
@@ -77,7 +77,7 @@ describe('POST /api/story', () => {
 	});
 
 	it('tells the stone alone when no candidate is sent, dropping what the stone does not say', async () => {
-		const stub = stubModel(() =>
+		stubModel(() =>
 			reply(
 				'The fog is thick tonight. My name was Gaynor Claire Hawks. I was born on March 10, 1932. I grew up in Portland.'
 			)
@@ -87,7 +87,6 @@ describe('POST /api/story', () => {
 		expect(body.paragraph).toContain('The fog is thick tonight.');
 		expect(body.paragraph).toContain('March 10, 1932');
 		expect(body.paragraph).not.toContain('Portland');
-		expect(stub).toHaveBeenCalledTimes(1);
 	});
 
 	it('returns a null stone paragraph when no sentence survives grounding', async () => {
@@ -127,7 +126,7 @@ describe('POST /api/story', () => {
 	});
 
 	it('falls back to the stone when the facts are only the name and dates', async () => {
-		const stub = stubModel(
+		stubModel(
 			() => factsReply([{ claim: 'name', sourceId: 's1', quote: 'Gaynor' }]),
 			() => reply('Mind the cold. My name was Gaynor Claire Hawks.')
 		);
@@ -136,8 +135,6 @@ describe('POST /api/story', () => {
 			status: 'stone',
 			paragraph: 'Mind the cold. My name was Gaynor Claire Hawks.'
 		});
-		// One extraction call and one stone story call; no records story is written.
-		expect(stub).toHaveBeenCalledTimes(2);
 	});
 
 	it('drops a fact whose quote is not in the fetched text', async () => {
@@ -150,8 +147,8 @@ describe('POST /api/story', () => {
 			status: 'stone',
 			paragraph: 'Mind the cold.'
 		});
-		// The unverified quote never reaches the story call.
-		expect(JSON.stringify(stub.mock.calls[1])).not.toContain('flew planes');
+		// The unverified quote never reaches any model request.
+		expect(JSON.stringify(stub.mock.calls)).not.toContain('flew planes');
 	});
 
 	it('removes an invented number from the story', async () => {

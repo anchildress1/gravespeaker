@@ -409,6 +409,7 @@ test('key facts show only what the stone says, since a record date may be uncite
 	await page.getByRole('tab', { name: 'Facts' }).click();
 	const facts = page.getByRole('tabpanel', { name: 'Facts' });
 	await expect(facts).toContainText('From the headstone.');
+	await expect(facts).toContainText('Gaynor Claire Hawks née Staples');
 	await expect(facts).not.toContainText('2017');
 	await expect(page.getByRole('region', { name: 'Who this is' })).toContainText(
 		'1932-03-10 to unknown'
@@ -428,4 +429,16 @@ test('search progress is announced to screen readers', async ({ page }) => {
 	await expect(page.getByRole('status')).toHaveText(
 		'Found possible matches. Confirm the right one.'
 	);
+});
+
+test('a finished story takes focus and is announced, so screen readers are not left behind', async ({
+	page
+}) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	await expect(page.getByRole('heading', { name: 'Gaynor Claire Hawks' })).toBeFocused();
+	await expect(page.getByRole('status')).toHaveText('Story ready.');
 });
