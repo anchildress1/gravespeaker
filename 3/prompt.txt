@@ -1,0 +1,50 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+hero avif fallback added
+fog lantern layering fixed
+web vitals budgets added
+favicon set ready
+invitation upload button added
+desktop camera capture added
+desktop camera window built
+capture works everywhere
+text sizes enlarged
+every device covered
+capture ready on phones
+trail findings resolved
+global regex replaced
+pr seven merged
+voice narration wired
+narration bar shipped
+elevenlabs narration streaming
+
+Closing message:
+rces: [Mastra ElevenLabs reference](https://mastra.ai/reference/voice/elevenlabs), [`elevenlabs` on npm](https://npmjs.com/package/elevenlabs), [elevenlabs-js on GitHub](https://github.com/elevenlabs/elevenlabs-js), [ElevenLabs TTS playground: audio effects](https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech), [ElevenLabs models](https://elevenlabs.io/docs/models)
+Nothing reached `.env`: there's no `ELEVENLABS_API_KEY` line at all. The command looks like it was sent as a chat message, not run. Running it literally would also have saved the text `<key>` instead of your real key.
+
+Run this in the prompt with your real key in place of `sk_...`:
+
+```
+! echo 'ELEVENLABS_API_KEY=sk_...' >> .env
+```
+
+Or paste it into `.env` in your editor. Then say go.
+Mostly. The app only calls Text to Speech, but I need one read permission for setup:
+
+- **Endpoints → Text to Speech: on.** This is the only thing the app calls in prod.
+- **Voices → Read.** I need this to list voices and pick the two spooky American ones. Turn it off once the IDs are locked in if you want.
+- **Everything else: off.**
+- **Monthly credit limit: set one.** This is the real defence for the open `/api/narrate` endpoint: if someone abuses it, the key stops at the cap instead of draining your account.
+
+One gap: the effects catalog (`GET /v1/audio-effects/catalog`) has no permission I could find. If the scoped key gets a 401 or 403 there, I'll tell you and you can either flip that permission on or send me the preset names from the playground.
+
+Sources: [ElevenLabs authentication](https://elevenlabs.io/docs/api-reference/authentication/llms.txt), [API key create (scopes, character limit)](https://elevenlabs.io/docs/api-reference/service-accounts/api-keys/create.md), [Spoken: getting an ElevenLabs API key](https://spokenaac.com/help/how-to-get-elevenlabs-api-key/)
+Your account and the shared library have spooky American options. Generating samples with the effect applied so you can pick by ear.

@@ -3,7 +3,7 @@
   "checkpoint_id": "01M64D3X45K5GY34ABFDBR274P",
   "strategy": "manual-commit",
   "branch": "feat/voice-narration",
-  "checkpoints_count": 7,
+  "checkpoints_count": 8,
   "files_touched": [
     ".env.example",
     "deploy.sh",
@@ -55,22 +55,29 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 174,
-    "cache_creation_tokens": 271006,
-    "cache_read_tokens": 13585567,
-    "output_tokens": 50243,
-    "api_call_count": 86
+    "input_tokens": 176,
+    "cache_creation_tokens": 309992,
+    "cache_read_tokens": 13599761,
+    "output_tokens": 50644,
+    "api_call_count": 87
   },
   "redaction": {
-    "replacements": 76,
+    "replacements": 79,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 61,
+      "credential_value": 64,
       "credentialed_uri": 0,
       "entropy": 15,
       "key_context": 0,
