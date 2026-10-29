@@ -25,7 +25,7 @@ export const readSchema = z.object({
 	)
 }) satisfies z.ZodType<{ people: RawPerson[] }>;
 
-/** Rules measured in benchmark runs 10 and 11; the voice rule came after and is checked in the app. */
+/** Rules measured in benchmark run 12. */
 export const READ_INSTRUCTIONS = `You read photos of gravestones for a historical research tool.
 
 Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or complete anything you cannot see.

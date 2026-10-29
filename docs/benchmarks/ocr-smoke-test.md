@@ -180,6 +180,21 @@ Run 10's prompt plus one rule: a surname carved once on a stone shared by two pe
 - **The other 20 stones:** unchanged from run 10 (57/58, only Ellis 1818 → 1848 misses).
 - **Last tuning run.** Further prompt changes are tested in the app, not with new benchmark runs.
 
+## Run 12: voice guess regression check
+
+Not a tuning run. Narration needed a narrator voice guessed from the first name, so run 11's prompt gained one rule and a `voice` output field ([`run12.json`](../../benchmarks/prompts/run12.json)). This run checks that the extra field doesn't change how the stone is read. Same 21 stones. Raw output: [`run12-hosted-26b.json`](../../benchmarks/results/run12-hosted-26b.json).
+
+| Metric                | gemma-4-26b-a4b-it |
+| --------------------- | ------------------ |
+| Fields correct        | 63/64 (98%)        |
+| Extra people          | 0                  |
+| Errors                | 0                  |
+| Median time per photo | 2.1 s              |
+
+- **Reading is unchanged:** the same 63/64, with only Ellis 1818 → 1848 missing.
+- **Latency is unchanged:** run 11's prompt, re-run right before this one as a control, took a median 2.0 s. A first attempt at run 12 took 14 s per photo while the hosted API was slow, so it was re-run back-to-back with the control and that first attempt wasn't kept.
+- **Voice guesses:** 4 female and 17 male across 21 people, each the expected guess for the first name. The guess only picks who reads the story aloud.
+
 ## What went wrong
 
 - **Worn digits:** Ellis's 1818 was read as 1848 by every hosted model in run 1, and by Gemma 26B again in run 2. A zoomed crop confirms 1818. No model marked the digit with `?`.
