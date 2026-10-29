@@ -1,0 +1,7 @@
+<task-notification>
+<task-id>b8bwj2q8t</task-id>
+<tool-use-id>toolu_01ToG7PeSAkqw361ahiDDotE</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b8bwj2q8t.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for PR checks to finish and report" completed (exit code 0)</summary>
+</task-notification>
