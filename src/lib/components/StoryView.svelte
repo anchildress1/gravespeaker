@@ -22,6 +22,32 @@
 	// A told story names the confirmed record; a stone story only ever has the stone. Dates come
 	// from the stone alone: a record's dates may come from a source the story does not cite.
 	const subject = $derived(story.status === 'told' && confirmed ? confirmed : person);
+
+	const TABS = [
+		{ id: 'story', label: 'Story' },
+		{ id: 'facts', label: 'Facts' },
+		{ id: 'sources', label: 'Sources' }
+	] as const;
+	type Tab = (typeof TABS)[number]['id'];
+	let tab = $state<Tab>('story');
+
+	/**
+	 * Moves between tabs with the arrow, Home and End keys, as the ARIA tabs pattern expects.
+	 * @param event Key press on the tab list.
+	 */
+	function onTabKey(event: KeyboardEvent): void {
+		const at = TABS.findIndex((t) => t.id === tab);
+		const next = {
+			ArrowRight: (at + 1) % TABS.length,
+			ArrowLeft: (at - 1 + TABS.length) % TABS.length,
+			Home: 0,
+			End: TABS.length - 1
+		}[event.key];
+		if (next === undefined) return;
+		event.preventDefault();
+		tab = TABS[next].id;
+		document.getElementById(`tab-${tab}`)?.focus();
+	}
 </script>
 
 <div class="story-view" class:narrated={story.paragraph}>
@@ -34,22 +60,43 @@
 	</section>
 
 	{#if story.status === 'told'}
-		<nav aria-label="Sections">
-			<a href="#story">Story</a>
-			<a href="#facts">Facts</a>
-			<a href="#sources">Sources</a>
-		</nav>
+		<div role="tablist" aria-label="Story sections" tabindex="-1" onkeydown={onTabKey}>
+			{#each TABS as t (t.id)}
+				<button
+					type="button"
+					role="tab"
+					id="tab-{t.id}"
+					aria-controls="panel-{t.id}"
+					aria-selected={tab === t.id}
+					tabindex={tab === t.id ? 0 : -1}
+					onclick={() => (tab = t.id)}>{t.label}</button
+				>
+			{/each}
+		</div>
 
-		<section id="story" class="reveal">
+		<div
+			id="panel-story"
+			role="tabpanel"
+			tabindex="0"
+			aria-labelledby="tab-story"
+			hidden={tab !== 'story'}
+			class="reveal"
+		>
 			<p class="label">Story generated with AI</p>
 			<p class="paragraph">{story.paragraph}</p>
 			<p class="disclaimer">
 				An AI reconstruction written from the linked records. It is not testimony.
 			</p>
-		</section>
+		</div>
 
-		<section id="facts" class="reveal later">
-			<h3 class="eyebrow">Key facts</h3>
+		<div
+			id="panel-facts"
+			role="tabpanel"
+			tabindex="0"
+			aria-labelledby="tab-facts"
+			hidden={tab !== 'facts'}
+			class="reveal"
+		>
 			<dl class="facts">
 				<dt>Born</dt>
 				<dd>{person.born ?? 'unknown'}</dd>
@@ -57,10 +104,16 @@
 				<dd>{person.died ?? 'unknown'}</dd>
 			</dl>
 			<p class="cite">From the headstone.</p>
-		</section>
+		</div>
 
-		<section id="sources" class="reveal latest">
-			<h3 class="eyebrow">Sources</h3>
+		<div
+			id="panel-sources"
+			role="tabpanel"
+			tabindex="0"
+			aria-labelledby="tab-sources"
+			hidden={tab !== 'sources'}
+			class="reveal"
+		>
 			<ul class="links">
 				{#each story.sources as s (s.id)}
 					<li>
@@ -71,7 +124,7 @@
 					</li>
 				{/each}
 			</ul>
-		</section>
+		</div>
 	{:else if story.paragraph}
 		<section class="reveal">
 			<p class="label">Story generated with AI</p>
@@ -138,7 +191,7 @@
 		font-family: var(--font-serif);
 		font-size: 1.25rem;
 	}
-	nav {
+	[role='tablist'] {
 		position: sticky;
 		z-index: 1;
 		top: 0;
@@ -148,25 +201,21 @@
 		border-bottom: 1px solid var(--line);
 		background: var(--ink);
 	}
-	nav a {
+	[role='tab'] {
 		padding: 0.75rem 0;
+		border: 0;
+		border-bottom: 2px solid transparent;
+		background: none;
 		color: var(--mist);
 		font-family: var(--font-display);
-		font-size: 0.75rem;
+		font-size: 0.875rem;
 		letter-spacing: 0.16em;
-		text-align: center;
-		text-decoration: none;
 		text-transform: uppercase;
+		cursor: pointer;
 	}
-	nav a:first-child {
-		border-bottom: 2px solid var(--verdigris);
+	[role='tab'][aria-selected='true'] {
+		border-bottom-color: var(--verdigris);
 		color: var(--bone);
-	}
-	section + section {
-		margin-top: 1.75rem;
-	}
-	section {
-		scroll-margin-top: 3.5rem;
 	}
 	.label {
 		display: inline-block;
@@ -176,7 +225,7 @@
 		border-radius: 999px;
 		color: var(--mist);
 		font-family: var(--font-display);
-		font-size: 0.6875rem;
+		font-size: 0.8125rem;
 		letter-spacing: 0.14em;
 		text-transform: uppercase;
 	}
@@ -196,7 +245,7 @@
 	.cite {
 		margin: 0.75rem 0 0;
 		color: var(--mist);
-		font-size: 0.8125rem;
+		font-size: 0.9375rem;
 	}
 	.eyebrow {
 		margin-bottom: 0.75rem;
@@ -241,13 +290,6 @@
 		mask-image: linear-gradient(#000 66%, transparent);
 		mask-repeat: no-repeat;
 		mask-size: 100% 300%;
-		animation: reveal 1.4s ease-out both;
-	}
-	.later {
-		animation-delay: 0.6s;
-	}
-	.latest {
-		animation-delay: 0.9s;
 	}
 	@keyframes reveal {
 		from {
@@ -259,6 +301,12 @@
 			opacity: 1;
 			transform: none;
 			mask-position: 0 0;
+		}
+	}
+	/* Motion runs only on mouse-driven screens: phones are too slow for it. */
+	@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+		.reveal {
+			animation: reveal 1.4s ease-out both;
 		}
 	}
 </style>

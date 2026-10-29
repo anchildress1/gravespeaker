@@ -61,7 +61,7 @@ label:focus-within {
 	margin: 0;
 	color: var(--mist);
 	font-family: var(--font-display);
-	font-size: 0.75rem;
+	font-size: 0.875rem;
 	letter-spacing: 0.18em;
 	text-transform: uppercase;
 }
@@ -100,13 +100,4 @@ label:focus-within {
 	text-decoration: underline;
 	text-underline-offset: 0.2em;
 	cursor: pointer;
-}
-
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*::before,
-	*::after {
-		animation: none !important;
-		transition: none !important;
-	}
 }

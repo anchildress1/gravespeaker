@@ -87,14 +87,10 @@
 	}
 
 	/**
-	 * Uploads the chosen photo and reads the stone.
-	 * @param event Change event from the file input.
+	 * Uploads the chosen or captured photo and reads the stone.
+	 * @param file Photo to read.
 	 */
-	async function onPhoto(event: Event): Promise<void> {
-		const input = event.currentTarget as HTMLInputElement;
-		const file = input.files?.[0];
-		input.value = '';
-		if (!file) return;
+	async function onPhoto(file: File): Promise<void> {
 		reset(file.size > MAX_BYTES ? TOO_LARGE : '');
 		if (file.size > MAX_BYTES) return;
 		photoUrl = URL.createObjectURL(file);

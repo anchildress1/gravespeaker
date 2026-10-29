@@ -184,7 +184,6 @@
 			transparent
 		);
 		mix-blend-mode: screen;
-		animation: scan 2.8s ease-in-out infinite;
 		content: '';
 	}
 	@keyframes scan {
@@ -204,7 +203,7 @@
 		background: var(--slate);
 	}
 	.stone .eyebrow {
-		font-size: 0.625rem;
+		font-size: 0.8125rem;
 	}
 	.stone dd {
 		margin: 0;
@@ -226,7 +225,7 @@
 		align-items: center;
 		gap: 0.75rem;
 		min-height: 2.25rem;
-		color: var(--mist-dim);
+		color: var(--mist);
 		font-size: 0.9375rem;
 		transition: color 0.4s ease;
 	}
@@ -267,13 +266,6 @@
 		height: 0.3rem;
 		border-radius: 50%;
 		background: var(--bone);
-		animation: pulse 1.2s ease-in-out infinite;
-	}
-	.dots i:nth-child(2) {
-		animation-delay: 0.2s;
-	}
-	.dots i:nth-child(3) {
-		animation-delay: 0.4s;
 	}
 	@keyframes pulse {
 		50% {
@@ -289,7 +281,7 @@
 	.hint {
 		margin: 0 0 1rem;
 		color: var(--mist);
-		font-size: 0.875rem;
+		font-size: 0.9375rem;
 	}
 	.cards,
 	.links {
@@ -329,7 +321,7 @@
 	}
 	.confidence {
 		color: var(--verdigris);
-		font-size: 0.8125rem;
+		font-size: 0.9375rem;
 	}
 	.confidence[data-confidence='low'] {
 		color: var(--lantern);
@@ -373,5 +365,20 @@
 		height: 1px;
 		background: var(--line);
 		content: '';
+	}
+	/* Motion runs only on mouse-driven screens: phones are too slow for it. */
+	@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+		.scanning::after {
+			animation: scan 2.8s ease-in-out infinite;
+		}
+		.dots i {
+			animation: pulse 1.2s ease-in-out infinite;
+		}
+		.dots i:nth-child(2) {
+			animation-delay: 0.2s;
+		}
+		.dots i:nth-child(3) {
+			animation-delay: 0.4s;
+		}
 	}
 </style>

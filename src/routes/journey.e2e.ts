@@ -57,7 +57,7 @@ async function upload(page: Page) {
 	// A file chosen before hydration is ignored; a slow runner shows it.
 	await page.waitForLoadState('networkidle');
 	await page
-		.locator('input[type=file]')
+		.getByLabel('Upload a photo')
 		.setInputFiles({ name: 's.jpg', mimeType: 'image/jpeg', buffer: Buffer.from([1, 2, 3]) });
 }
 
@@ -136,7 +136,31 @@ test('a told story is one labelled paragraph with its sources listed', async ({ 
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByText('Story generated with AI')).toBeVisible();
 	await expect(page.locator('.paragraph')).toContainText('I taught piano for forty years.');
+	await page.getByRole('tab', { name: 'Sources' }).click();
 	await expect(page.getByRole('link', { name: source.title })).toHaveAttribute('href', source.url);
+});
+
+test('the story tabs show one section at a time and follow the arrow keys', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await mock(page, '/api/story', { body: told });
+	await upload(page);
+	await page.getByRole('button', { name: 'This is them' }).click();
+	const story = page.getByRole('tab', { name: 'Story' });
+	await expect(story).toHaveAttribute('aria-selected', 'true');
+	await expect(page.locator('.paragraph')).toBeVisible();
+	await expect(page.getByRole('link', { name: source.title })).toBeHidden();
+
+	await page.getByRole('tab', { name: 'Facts' }).click();
+	await expect(page.getByRole('tabpanel', { name: 'Facts' })).toContainText('Born');
+	await expect(page.locator('.paragraph')).toBeHidden();
+
+	await page.keyboard.press('ArrowRight');
+	await expect(page.getByRole('tab', { name: 'Sources' })).toBeFocused();
+	await expect(page.getByRole('link', { name: source.title })).toBeVisible();
+	await page.keyboard.press('ArrowRight');
+	await expect(story).toBeFocused();
+	await expect(page.locator('.paragraph')).toBeVisible();
 });
 
 test('records with nothing beyond the stone fall back to the stone', async ({ page }) => {
@@ -172,7 +196,7 @@ test('a photo over 10 MB is rejected in the browser without an upload', async ({
 		return route.fulfill({ json: { people: [] } });
 	});
 	await page.goto('/');
-	await page.locator('input[type=file]').setInputFiles({
+	await page.getByLabel('Upload a photo').setInputFiles({
 		name: 'big.jpg',
 		mimeType: 'image/jpeg',
 		buffer: Buffer.alloc(11 * 1024 * 1024)
@@ -200,10 +224,28 @@ test('a network failure shows a message and retries the same photo', async ({ pa
 	await expect(page.getByRole('alert')).toContainText('No legible name');
 });
 
-test('the upload control can be reached and focused from the keyboard', async ({ page }) => {
+test('the camera and upload controls can be reached from the keyboard', async ({ page }) => {
 	await page.goto('/');
 	await page.keyboard.press('Tab');
-	await expect(page.locator('input[type=file]')).toBeFocused();
+	await expect(page.getByLabel('Photograph a headstone')).toBeFocused();
+	await page.keyboard.press('Tab');
+	await expect(page.getByLabel('Upload a photo')).toBeFocused();
+});
+
+test('the camera opens the rear camera while upload offers saved photos', async ({ page }) => {
+	await page.goto('/');
+	await expect(page.getByLabel('Photograph a headstone')).toHaveAttribute('capture', 'environment');
+	await expect(page.getByLabel('Upload a photo')).not.toHaveAttribute('capture');
+	await expect(page.getByText('Upload a photo')).toBeInViewport();
+});
+
+test("on a phone, photographing hands off to the phone's own camera", async ({ page }) => {
+	await page.goto('/');
+	await page.waitForLoadState('networkidle');
+	const chooser = page.waitForEvent('filechooser');
+	await page.getByText('Photograph a headstone').click();
+	await chooser;
+	await expect(page.getByRole('dialog')).toHaveCount(0);
 });
 
 test('a focused button stays visible so keyboard users can see it', async ({ page }) => {
@@ -292,7 +334,7 @@ test('narration is offered but disabled whenever there is a story paragraph', as
 	await page.getByRole('button', { name: 'Try another photo' }).click();
 	await mock(page, '/api/story', { body: bareStone });
 	await page
-		.locator('input[type=file]')
+		.getByLabel('Upload a photo')
 		.setInputFiles({ name: 's.jpg', mimeType: 'image/jpeg', buffer: Buffer.from([1, 2, 3]) });
 	await page.getByRole('button', { name: 'This is them' }).click();
 	await expect(page.getByText('The records hold nothing beyond the stone')).toBeVisible();
@@ -364,7 +406,8 @@ test('key facts show only what the stone says, since a record date may be uncite
 	await mock(page, '/api/story', { body: told });
 	await upload(page);
 	await page.getByRole('button', { name: 'This is them' }).click();
-	const facts = page.locator('#facts');
+	await page.getByRole('tab', { name: 'Facts' }).click();
+	const facts = page.getByRole('tabpanel', { name: 'Facts' });
 	await expect(facts).toContainText('From the headstone.');
 	await expect(facts).not.toContainText('2017');
 	await expect(page.getByRole('region', { name: 'Who this is' })).toContainText(

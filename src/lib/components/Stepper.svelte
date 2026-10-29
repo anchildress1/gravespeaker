@@ -69,7 +69,7 @@
 		box-shadow: 0 0 0 4px color-mix(in srgb, var(--verdigris) 25%, transparent);
 	}
 	.eyebrow {
-		font-size: 0.625rem;
+		font-size: 0.8125rem;
 	}
 	.current .eyebrow {
 		color: var(--verdigris);
