@@ -1,0 +1,64 @@
+Your /goal is to implement elevenlabs voice for this app. There is a placeholder in the UI for voice. This must be built with SOLID/DRY/KISS/YAGNI at all times. Ask clarifying questions when design decisions are needed or direction is uncertain. When complete, use local tools to verify in a browser then open the PR and wait for copilot/codex reviews and entire checks to complete. Then request that I execute the manual reviews.
+
+---
+
+ground yourself in a search and make sure the mastra+elevenlabs sdk is deprecated as initially thought. Seems suspicious.
+
+---
+
+I also want the https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech#audio-effects-1 to make it sound like they're coming from beyond the grave
+
+---
+
+! echo 'ELEVENLABS_API_KEY=<key>' >> .env
+
+---
+
+does it just need the tts endpoint accessible?
+
+---
+
+go, key's in .env
+
+---
+
+veda, callum. with gravel. tunnel reverb + distance.
+
+---
+
+<task-notification>
+<task-id>bk57ulyqt</task-id>
+<tool-use-id>toolu_01JF4xpa8ALnQjG8VATgWdYZ</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bk57ulyqt.output</output-file>
+<status>failed</status>
+<summary>Background command "Start dev server for browser verification" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<summary>Commit security review found: Unauthenticated paid-API proxy / cost abuse in src/routes/api/narrate/+server.ts</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b7jmeg24i</task-id>
+<summary>Monitor event: "PR #8 checks and Copilot/Codex reviews"</summary>
+<event>review from chatgpt-codex-connector</event>
+If this event is something the user would act on now, send a PushNotification. Routine or benign output doesn't need one.
+</task-notification>
+
+---
+
+male voice goes a little fast. need to slow it down. do that fix and then open pr
+
+---
+
+<task-notification>
+<task-id>b7jmeg24i</task-id>
+<summary>Monitor event: "PR #8 checks and Copilot/Codex reviews"</summary>
+<event>check Analyze: pass
+check CodeQL: pass</event>
+If this event is something the user would act on now, send a PushNotification. Routine or benign output doesn't need one.
+</task-notification>
