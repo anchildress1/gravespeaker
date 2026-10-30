@@ -1,0 +1,60 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M65AACEPY0WC66SWV93Z00NH",
+  "strategy": "manual-commit",
+  "branch": "feat/place-signal",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "package.json",
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml",
+    "src/lib/components/Searching.svelte",
+    "src/lib/epitaph.test.ts",
+    "src/lib/server/identity.test.ts",
+    "src/lib/server/identity.ts",
+    "src/lib/server/inference/gemma.ts",
+    "src/lib/server/inference/index.ts",
+    "src/lib/server/inscription.test.ts",
+    "src/lib/server/inscription.ts",
+    "src/lib/server/narrative.test.ts",
+    "src/lib/server/research.ts",
+    "src/lib/server/voice.test.ts",
+    "src/lib/types.ts",
+    "src/routes/+page.svelte",
+    "src/routes/api/read/+server.ts",
+    "src/routes/api/read/server.test.ts",
+    "src/routes/api/research/server.test.ts",
+    "src/routes/api/story/server.test.ts",
+    "src/routes/journey.e2e.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 40228,
+    "cache_read_tokens": 14194,
+    "output_tokens": 254,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 3,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 3,
+      "credentialed_uri": 0,
+      "entropy": 0,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
