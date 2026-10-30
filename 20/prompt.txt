@@ -1,0 +1,51 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+
+Closing message:
+ar next to the person's name, with no year that disagrees.
+- **`src/lib/server/story.ts`:**
+  - For a `low` match, pages that don't prove the dates are dropped before fact extraction.
+  - When no pages are left, the fact-extraction model call is skipped, so a fallback is also faster.
+- **`src/lib/server/identity.test.ts`:** 7 tests. They accept the life range, the death year alone, and dates deep in a long page. They reject no years, a namesake's years, years under another name, and years with no name.
+- **`src/routes/api/story/server.test.ts`:** 3 tests. A `low` match whose page proves the dates is told from records. A page with no dates or someone else's dates gets the stone story. The two fallback tests fail against the old code.
+
+## Replay on the 21 recorded stones (no API calls)
+- **All 16 `low` matches now get the stone story.** That includes every wrong-person case: Hayden (Twilight), Dixon, Doran, Cunningham, Holmquist, Mills and Hildebrand Jr.
+- **No real person is lost.** I checked every rejected page for the stone's years. The only two hits:
+  - Hildebrand III: a Winnipeg pastor who retired in 2018.
+  - Schreiber: a legacy.com list of everyone with that surname.
+- **The 4 `high` or `medium` matches are unchanged:** Chambers, Guo, Hall, Juntunen.
+
+## One UX gap
+The confirm screen still offers `low` cards marked "Unverified". A visitor who confirms one now gets the stone story, which may read as the app ignoring their pick. One option is to hide `low` cards when their pages can't prove the dates, but that costs page fetches at research time.
+
+## Next
+- **#2:** commit everything on `feat/story-evals`, including this change. Say commit.
+- **#3:** run the story evals once to put the before/after on record. That spends free-tier Gemma and Gemini quota and no SerpApi searches.
+Removing the confirm screen. Research's top-ranked match goes straight to the story step, which already falls back to the stone when that match's records don't hold up.
+Now the e2e tests.
