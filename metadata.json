@@ -3,7 +3,7 @@
   "checkpoint_id": "01M65AB3VVVXZ2Z3ET7D2QJ3TK",
   "strategy": "manual-commit",
   "branch": "feat/place-signal",
-  "checkpoints_count": 4,
+  "checkpoints_count": 5,
   "files_touched": [
     "benchmarks/search.ts",
     "fixtures/manifest.json"
@@ -36,6 +36,13 @@
       "compact_transcript": "/3/transcript.jsonl",
       "content_hash": "/3/content_hash.txt",
       "prompt": "/3/prompt.txt"
+    },
+    {
+      "metadata": "/4/metadata.json",
+      "transcript": "/4/full.jsonl",
+      "compact_transcript": "/4/transcript.jsonl",
+      "content_hash": "/4/content_hash.txt",
+      "prompt": "/4/prompt.txt"
     }
   ],
   "token_usage": {
@@ -46,12 +53,12 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 12,
+    "replacements": 15,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 12,
+      "credential_value": 15,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
