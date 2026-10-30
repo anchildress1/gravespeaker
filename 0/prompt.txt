@@ -1,0 +1,34 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+
+Closing message:
+Read run 13 holds accuracy (57/58, one fixture photo missing from the worktree), but the median time went from 2.1 s to **23.6 s**. Checking whether the prompt caused that or the API was just slow:
+Run 14: 2.2 s median and 57/58 fields, so no regression. Two stones returned a carved place. Checking both against the photos:
+Approved. Checking the remaining SerpApi balance first. The account lookup costs no searches:
+No rows came back and no searches were spent. Checking how the script picks which stones to run:
+zsh doesn't word-split an unquoted `$F`, so all five names arrived as one bogus filename. Re-running with the names passed separately:
