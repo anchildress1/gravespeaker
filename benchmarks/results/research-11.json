@@ -1,0 +1,1596 @@
+{
+	"meta": {
+		"startedAt": "2026-10-30T13:05:51.905Z",
+		"withPlace": true,
+		"recorded": 0,
+		"missing": []
+	},
+	"rows": [
+		{
+			"file": "chambers-2011.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Corwin \"Cory\" Garner Chambers",
+				"name": "Corwin “Cory” Garner Chambers",
+				"maidenName": null,
+				"born": "1959-11-07",
+				"died": "2011-09-12",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Corwin Garner Chambers\" 1959 2011 (obituary OR grave OR cemetery)",
+				"google: \"Corwin Garner Chambers\" 1959 2011 (obituary OR grave OR cemetery)",
+				"yandex: \"Corwin Garner Chambers\" 1959 2011 eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Corwin “Cory” Garner Chambers",
+					"born": "1959",
+					"died": "2011",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://commons.wikimedia.org/wiki/Category:Eugene_Masonic_Cemetery",
+							"title": "Category:Eugene Masonic Cemetery - Wikimedia Commons",
+							"site": "commons.wikimedia.org",
+							"snippet": "Condon grave markers in the Eugene Masonic Cemetery.jpg 4,608 × 2,801; 5.93 MB. … Media in category \"Eugene Masonic Cemetery\". The following 200 files are in this category, out of 376 total. ... Corwin Garner Chambers (1959-2011), Eugene Masonic Cemetery.jpg 4,976 × 2,800; 5.92 MB."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "gonzalez-2021.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Alfonso Gonzalez",
+				"born": "1951-11-18",
+				"died": "2021-01-17",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Alfonso Gonzalez",
+				"name": "Alfonso Gonzalez",
+				"maidenName": null,
+				"born": "1951-11-18",
+				"died": "2021-01-17",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Alfonso Gonzalez\" 1951 2021 (obituary OR grave OR cemetery)",
+				"google: \"Alfonso Gonzalez\" 1951 2021 (obituary OR grave OR cemetery)",
+				"yandex: \"Alfonso Gonzalez\" 1951 2021 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Alfonso Gonzalez\" 1951 2021 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Alfonso Gonzalez\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Alfonso Gonzalez\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s2",
+							"url": "https://orcid.org/0000-0002-6139-4299",
+							"title": "Alfonso Gonzalez (0000-0002-6139-4299) - ORCID",
+							"site": "orcid.org",
+							"snippet": "ORCID record for Alfonso Gonzalez. ORCID provides an identifier for individuals to use with their name as they engage in research, scholarship, and innovation activities. ... Show more detail. Source : Alfonso Gonzalez via DimensionsWizard."
+						},
+						{
+							"id": "s3",
+							"url": "https://scholar.google.com/citations?user=5Z6nbs0AAAAJ&hl=en",
+							"title": "Alfonso González - Google Scholar",
+							"site": "scholar.google.com",
+							"snippet": "All. Since 2021. Citations. 4675. ... Alfonso González. Facultad de Medicina y Ciencia. Universidad San Sebastián."
+						},
+						{
+							"id": "s5",
+							"url": "https://www.researchgate.net/profile/Alfonso-Gonzalez-11",
+							"title": "Alfonso GONZÁLEZ | Full Professor, Laboratory Head",
+							"site": "www.researchgate.net",
+							"snippet": "Alfonso González. San Sebastián University | USS · Centro Biología Celular y Biomedicina (CEBICEM). ... Full-text available. Jul 2021."
+						},
+						{
+							"id": "s6",
+							"url": "https://www.youtube.com/@alfonsogonzalez-astrodynam2207",
+							"title": "Alfonso Gonzalez - Astrodynamics & SE Podcast - YouTube",
+							"site": "www.youtube.com",
+							"snippet": "Keplerian Orbital Elements. Alfonso Gonzalez - Astrodynamics & SE Podcast • Playlist. View full playlist. ... What was your favorite Space Engineering Podcast episode of 2021? … Keplerian Orbital Elements. Alfonso Gonzalez - Astrodynamics & SE Podcast • Playlist. View full playlist. 13 videos."
+						},
+						{
+							"id": "s9",
+							"url": "https://www.waxahachiefuneralhome.com/obituaries/alfonso-gonzalez",
+							"title": "Alfonso Gonzalez Obituary... - Waxahachie Funeral Home",
+							"site": "www.waxahachiefuneralhome.com",
+							"snippet": "View Alfonso Gonzalez's obituary, send flowers, find service dates, and sign the guestbook. ... Share Alfonso Gonzalez's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "guo-2025.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Jiunn-Shih Guo",
+				"born": "1937-01-18",
+				"died": "2025-12-10",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Jiunn-Shih Guo",
+				"name": "Jiunn-Shih Guo",
+				"maidenName": null,
+				"born": "1937-01-18",
+				"died": "2025-12-10",
+				"voice": null,
+				"place": "Davis, California"
+			},
+			"searches": ["yandex: \"Jiunn-Shih Guo\" 1937 2025 (obituary OR grave OR cemetery)"],
+			"candidates": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937",
+					"died": "2025",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://commons.wikimedia.org/wiki/Category:Jim_Jiunn-Shih_Guo",
+							"title": "Category:Jim Jiunn-Shih Guo - Wikimedia Commons",
+							"site": "commons.wikimedia.org",
+							"snippet": "Jim Jiunn-Shih Guo (1937-2025) or 郭俊士 was born on 18 January 1937, in Madou, Tainan, Taiwan, his father, Han-Yun Guo, was 33 and his mother, Sho-Hua Lee, was 30. He married Alice Jau-Hwa Chang about 1965, in Tainan, Taiwan."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-iii-2018.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Edward Hildebrand III",
+				"born": "1966",
+				"died": "2018",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Edward Hildebrand III",
+				"name": "Edward Hildebrand III",
+				"maidenName": null,
+				"born": "1966",
+				"died": "2018",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Edward Hildebrand III\" 1966 2018 (obituary OR grave OR cemetery)",
+				"google: \"Edward Hildebrand III\" 1966 2018 (obituary OR grave OR cemetery)",
+				"yandex: \"Edward Hildebrand III\" 1966 2018 alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Edward Hildebrand III\" 1966 2018 alsea oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Edward Hildebrand III\" alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Edward Hildebrand III\" alsea oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.supremecourt.gov/search.aspx?filename=/docket/docketfiles/html/public/19-357.html",
+							"title": "Search - Supreme Court of the United States",
+							"site": "www.supremecourt.gov",
+							"snippet": "Henry Edward Hildebrand III Counsel of Record."
+						},
+						{
+							"id": "s3",
+							"url": "https://www.avvo.com/attorneys/37027-tn-henry-hildebrand-1709657.html",
+							"title": "Henry Hildebrand - Lawyer in Brentwood, TN - Avvo",
+							"site": "www.avvo.com",
+							"snippet": "Location. Henry Edward Hildebrand III. 320 Seven Springs Way Ste 110. Brentwood, TN, 37027-4558."
+						},
+						{
+							"id": "s4",
+							"url": "https://familiesbyvelmaparsons.com/pdfs/SHUPE2.pdf",
+							"title": "SHOUPE\\SHUPE",
+							"site": "familiesbyvelmaparsons.com",
+							"snippet": "Both buried, Edgewood Cemetery, Saltsburg, Pa. Children, 5. 2 boys & 3 daughters. 4-1. Edward Clifford Shupe. ... 7-1. Edward Hildebrand, III. Colton, N. Y.pdfView"
+						},
+						{
+							"id": "s5",
+							"url": "https://rico.fentonvstory.com/1-23-cv-01097/index.htm",
+							"title": "FENTON v. STORY et al | CASE: 1:23-cv-01097",
+							"site": "rico.fentonvstory.com",
+							"snippet": "Henry Edward Hildebrand, III individually and in their official capacities."
+						},
+						{
+							"id": "s8",
+							"url": "https://studylib.net/doc/18668227/court-docket---chapter-13-trustee",
+							"title": "COURT DOCKET - Chapter 13 Trustee",
+							"site": "studylib.net",
+							"snippet": "Respondent: WESLEY DALE BROWN JR., AND HENRY EDWARD HILDEBRAND III., TRUSTEE Hearing scheduled 10/5/2016 at 08:30 AM at Courtroom 1, 2nd Floor Customs House, 701 Broadway, Nashville, TN 37203."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-jr-2015.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Edward Leroy Hildebrand Jr",
+				"name": "Edward Leroy Hildebrand Jr",
+				"maidenName": null,
+				"born": "1942-04-28",
+				"died": "2015-10-10",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Edward Leroy Hildebrand Jr\" 1942 2015 (obituary OR grave OR cemetery)",
+				"google: \"Edward Leroy Hildebrand Jr\" 1942 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Edward Leroy Hildebrand Jr\" 1942 2015 alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Edward Leroy Hildebrand Jr\" 1942 2015 alsea oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Edward Leroy Hildebrand Jr\" alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Edward Leroy Hildebrand Jr\" alsea oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Edward Leroy Hildebrand Jr",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s12",
+							"url": "https://www.hursen.com/obituaries/edward-hildebrand",
+							"title": "Edward \"Eddie\" Hildebrand Obituary... - Hursen Funeral Home",
+							"site": "www.hursen.com",
+							"snippet": "Share Edward \"Eddie\" Hildebrand's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated."
+						},
+						{
+							"id": "s30",
+							"url": "https://www.newcomerakron.com/obituaries/edward-hildebrand",
+							"title": "Edward Anthony Hildebrand Obituary... - Newcomer Akron",
+							"site": "www.newcomerakron.com",
+							"snippet": "Share Edward Anthony Hildebrand's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated."
+						},
+						{
+							"id": "s44",
+							"url": "https://unmask.com/Edward-Hildebrand/",
+							"title": "Edward Hildebrand (75 public records)",
+							"site": "unmask.com",
+							"snippet": "75 Edward Hildebrand records available. Edward Hildebrand found with addresses in Ohio, California, Florida and 32 other states. … Edward L Hildebrandjr Phone Number: (541) 487-7282 Address History: 19615 Honey Grove Road # 168, Alsea, OR 97324; 168 Po Box, Alsea, OR 97324. ..."
+						},
+						{
+							"id": "s45",
+							"url": "https://www.anywho.com/people/edward+hildebrand/michigan",
+							"title": "3 Reports for Edward Hildebrand in Michigan",
+							"site": "www.anywho.com",
+							"snippet": "3 Reports for Edward Hildebrand ; Edward Hildebrand · Age 55 · AKA: Edward Hiltedrand · Edward Joseph Hildebrand · Townview Dr, Mancelona, MI ; Edward R Hildebrand."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "cunningham-1752.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Andrew Cunningham",
+				"born": null,
+				"died": "1752-04-27",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Andrew Cunningham",
+				"name": "Andrew Cunningham",
+				"maidenName": null,
+				"born": null,
+				"died": "1752-04-27",
+				"voice": null,
+				"place": "Boston, Massachusetts"
+			},
+			"searches": [
+				"yandex: \"Andrew Cunningham\" 1752 (obituary OR grave OR cemetery)",
+				"google: \"Andrew Cunningham\" 1752 (obituary OR grave OR cemetery)",
+				"yandex: \"Andrew Cunningham\" 1752 boston massachusetts (obituary OR grave OR cemetery)",
+				"google: \"Andrew Cunningham\" 1752 boston massachusetts (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Andrew Cunningham",
+					"born": "1692",
+					"died": "1752",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s35",
+							"url": "https://www.findagrave.com/memorial/20712591/andrew-cunningham",
+							"title": "Andrew Cunningham (1692-1752) - Find a Grave Memorial",
+							"site": "www.findagrave.com",
+							"snippet": "Find a Grave memorial for Andrew Cunningham born 17 Aug 1692 and died 27 Apr 1752. Buried at Granary Burying Ground, Boston, Suffolk County, Massachusetts ... … Find a Grave memorial for Andrew Cunningham born 17 Août 1692 and died 27 Avr 1752. Buried at Granary Burying Ground, Boston, Suffolk County, Massachusetts ... … Find a Grave-gedenkplek voor Andrew Cunningham geboren 17 Aug 1692 en overleden 27 Apr 1752. Begraven om Granary Burying Ground, Boston, Suffolk County, ... … Inhumado en Granary Burying Ground, Boston, Suffolk County, Massachusetts ... Andrew Cunningham. 1692 – 1752 • Granary Burying Ground ... Andrew Cunningham” to ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "ellis-1818.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Betsey Ellis",
+				"born": null,
+				"died": "1818-07-28",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Betsey Ellis",
+				"name": "Betsey Ellis",
+				"maidenName": null,
+				"born": null,
+				"died": "1818-07-28",
+				"voice": null,
+				"place": "Ellisville, Massachusetts"
+			},
+			"searches": [
+				"yandex: \"Betsey Ellis\" 1818 (obituary OR grave OR cemetery)",
+				"google: \"Betsey Ellis\" 1818 (obituary OR grave OR cemetery)",
+				"yandex: \"Betsey Ellis\" 1818 ellisville massachusetts (obituary OR grave OR cemetery)",
+				"google: \"Betsey Ellis\" 1818 ellisville massachusetts (obituary OR grave OR cemetery)",
+				"yandex: \"Betsey Ellis\" ellisville massachusetts (obituary OR grave OR cemetery)",
+				"google: \"Betsey Ellis\" ellisville massachusetts (obituary OR grave OR cemetery)",
+				"google: \"Betsey Ellis\" ellisville massachusetts (obituary OR grave OR cemetery)",
+				"google: \"Betsey Ellis\" ellisville massachusetts (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Betsey Ellis",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s2",
+							"url": "https://twrtimes.com/?author=36",
+							"title": "Betsey Ellis | Tanglewood Resident Times",
+							"site": "twrtimes.com",
+							"snippet": "by Betsey Ellis • 01/29/2024. Murine Mu-rine Adjective Of, like, or pertaining to mice and/or rats The scientist was constantly constructing new and more elaborate mazes for the rats to run in the course of his studies of murine intelligence."
+						},
+						{
+							"id": "s9",
+							"url": "https://commons.wikimedia.org/wiki/Category:Ellis_(surname)",
+							"title": "Category:Ellis (surname) - Wikimedia Commons",
+							"site": "commons.wikimedia.org",
+							"snippet": "Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB. Chronologie der geschiedenis van Suriname - voorafgegaan door de aardrijkskundige ligging, grenzen en naamoorsprong dier kolonie (IA bub gb zjVyp2f2SNsC)..."
+						},
+						{
+							"id": "s23",
+							"url": "https://commons.wikimedia.org/wiki/Category:Ellisville,_Massachusetts",
+							"title": "Category:Ellisville, Massachusetts - Wikimedia Commons",
+							"site": "commons.wikimedia.org",
+							"snippet": "Media in category \"Ellisville, Massachusetts\". This category contains only the following file. Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB. … Ellisville Harbor State Park (16 F). Media in category \"Ellisville, Massachusetts\". This category contains only the following file. Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB."
+						},
+						{
+							"id": "s24",
+							"url": "https://twrtimes.com/author/betseyels/",
+							"title": "Betsey Ellis | Tanglewood Resident Times",
+							"site": "twrtimes.com",
+							"snippet": "HomeAuthorsPosts by Betsey Ellis. Betsey Ellis. Tanglewood's News."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "luxford-2015.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Robert E. Luxford",
+				"born": "1934",
+				"died": "2015",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Robert E. Luxford",
+				"name": "Robert E. Luxford",
+				"maidenName": null,
+				"born": "1934",
+				"died": "2015",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Robert E. Luxford\" 1934 2015 (obituary OR grave OR cemetery)",
+				"google: \"Robert E. Luxford\" 1934 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Robert E. Luxford\" 1934 2015 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Robert E. Luxford\" 1934 2015 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Robert E. Luxford\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Robert E. Luxford\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Robert E. Luxford\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Robert E. Luxford\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Robert E. Luxford",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s3",
+							"url": "https://www.legacy.com/us/obituaries/legacyremembers/robert-luxford-obituary?id=44017355",
+							"title": "Robert LUXFORD Obituary (2016) - Legacy Remembers",
+							"site": "www.legacy.com",
+							"snippet": "Devoted father of Christine, Robert, Mark (deceased) and Paul. A loved grandfather and great grandfather. Aged 86 years. Rest in Peace Relatives ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "morgan-2019.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Daisy M. Morgan",
+				"born": "1929-04-28",
+				"died": "2019-01-18",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Daisy M. Morgan",
+				"name": "Daisy M. Morgan",
+				"maidenName": null,
+				"born": "1929-04-28",
+				"died": "2019-01-18",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Daisy M. Morgan\" 1929 2019 (obituary OR grave OR cemetery)",
+				"google: \"Daisy M. Morgan\" 1929 2019 (obituary OR grave OR cemetery)",
+				"yandex: \"Daisy M. Morgan\" 1929 2019 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Daisy M. Morgan\" 1929 2019 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Daisy M. Morgan\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Daisy M. Morgan\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Daisy M. Morgan",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s4",
+							"url": "https://ru.kinorium.com/name/8044815/",
+							"title": "Дэйзи Мэри Морган - актриса - биография, фото, лучшие...",
+							"site": "ru.kinorium.com",
+							"snippet": "Дэйзи Мэри Морган. Daisy Mary Morgan. Актриса Актриса. карьера. ... фантастика, драма, фэнтези, 55 мин (в титрах как: Daisy Morgan) США • Угла Хёйксдоуттир..."
+						},
+						{
+							"id": "s9",
+							"url": "https://www.legacy.com/us/obituaries/nky/name/daisy-morgan-obituary?id=33093605",
+							"title": "Daisy Morgan Obituary (2017) - Cincinnati, OH",
+							"site": "www.legacy.com",
+							"snippet": "MORGAN, Daisy Mae70, Cincinnati , 04/06/2017, Spring Grove Funeral Home-Tri-county www.springgrove.org, Spring Grove F.H.-Tri-county, ..."
+						},
+						{
+							"id": "s10",
+							"url": "https://www.legacy.com/us/obituaries/nky/name/daisy-morgan-obituary?id=33093604",
+							"title": "Daisy Morgan Obituary (2017) - Cincinnati, OH",
+							"site": "www.legacy.com",
+							"snippet": "MORGAN, Daisy Mae70, Cincinnati, 04/06/2017, Spring Grove Funeral Home-Tri-county www.springgrove.org, Spring Grove F.H.-Tri-County, ..."
+						},
+						{
+							"id": "s14",
+							"url": "https://www.legacy.com/obituaries/name/morgan/daisy",
+							"title": "Search Daisy Morgan Obituaries and Funeral Services",
+							"site": "www.legacy.com",
+							"snippet": "Daisy M. Morgan · Daisy M. Morgan. Wednesday, February 7, 2007. Daisy Irene Morgan. Wednesday, August 16, 2006. Daisy Morgan. Friday, October 1, 2004. Daisy ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "waechter-2012.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Martin Waechter",
+				"born": "1943-03-07",
+				"died": "2012-01-31",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Martin Waechter",
+				"name": "Martin Waechter",
+				"maidenName": null,
+				"born": "1943-03-07",
+				"died": "2012-01-31",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Martin Waechter\" 1943 2012 (obituary OR grave OR cemetery)",
+				"google: \"Martin Waechter\" 1943 2012 (obituary OR grave OR cemetery)",
+				"yandex: \"Martin Waechter\" 1943 2012 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Martin Waechter\" 1943 2012 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Martin Waechter\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Martin Waechter\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Martin Waechter",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s4",
+							"url": "https://cba.associates/associate/martin-wachter-consulting-professional/",
+							"title": "CBA • Martin Wächter | Consulting Professional",
+							"site": "cba.associates",
+							"snippet": "CV Résumé. Martin Waechter is a quality driven and highly motivated marketing professional. Combines and balances a creative mind with perseverance and discipline to accomplish objectives."
+						},
+						{
+							"id": "s6",
+							"url": "https://archiveofourown.org/tags/Martin%20Waechter%20(OC)",
+							"title": "Martin Waechter (OC) | Archive of Our Own",
+							"site": "archiveofourown.org",
+							"snippet": "Martin Waechter (OC). This tag belongs to the Character Category. This tag has not been marked common and can't be filtered on (yet)."
+						},
+						{
+							"id": "s10",
+							"url": "https://www.oeffnungszeitenbuch.de/filiale/Walldorf-Martin%2520Waechter-2609063Z.html",
+							"title": "ᐅ Martin Waechter in Walldorf | Telefonnummer...",
+							"site": "www.oeffnungszeitenbuch.de",
+							"snippet": "Telefonnummer, Adresse und Öffnungszeiten für Martin Waechter in Walldorf, Nußlocher Str. 20  Alles Wichtige auf einen Blick! … Telefonnummer, Adresse und Öffnungszeiten für Martin Waechter in Walldorf, Nußlocher Str. 20  Alles Wichtige auf einen Blick! Branchen & Suchbegriffe zu Martin Waechter: bausparkassen, bausparkassenagenturen, berater, martin, waechter."
+						},
+						{
+							"id": "s11",
+							"url": "https://www.northwestcoastcreatives.com/veronica-rose-waechter",
+							"title": "Veronica Rose Waechter | NWC Creatives",
+							"site": "www.northwestcoastcreatives.com",
+							"snippet": "Veronica graduated with a Master's of Fine Arts degree from OCAD University (Tkaronto) in 2023, and has since been mentoring her niece Jade English (Gitxsan, Metis) in sculpture and design. Her teachers in sculpture include her father Martin Waechter, as..."
+						},
+						{
+							"id": "s28",
+							"url": "https://www.deutsches-jagdportal.de/portal/index.php/community-home/9446-martin-waechter/groups",
+							"title": "Martin Waechter's Gruppen | DEUTSCHES JAGDPORTAL",
+							"site": "www.deutsches-jagdportal.de",
+							"snippet": "Martin Waechter. 117. Als Freund hinzufügen Nachricht senden."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "mills-2015.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Joshua John Mills",
+				"name": "Joshua John Mills",
+				"maidenName": null,
+				"born": "1979-07-21",
+				"died": "2015-01-07",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Joshua John Mills\" 1979 2015 (obituary OR grave OR cemetery)",
+				"google: \"Joshua John Mills\" 1979 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Joshua John Mills\" 1979 2015 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Joshua John Mills\" 1979 2015 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Joshua John Mills\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Joshua John Mills\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Joshua John Mills",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw/videos",
+							"title": "Joshua John Mills - YouTube",
+							"site": "www.youtube.com",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos."
+						},
+						{
+							"id": "s2",
+							"url": "https://www.abebooks.com/9780371108468/History-Creation-World-Death-Joshua-0371108462/plp",
+							"title": "History from the Creation of the World to the Death of Joshua...",
+							"site": "www.abebooks.com",
+							"snippet": "John Mills Jackson."
+						},
+						{
+							"id": "s12",
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw",
+							"title": "Joshua John Mills - YouTube",
+							"site": "www.youtube.com",
+							"snippet": "Show more. Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos."
+						},
+						{
+							"id": "s20",
+							"url": "https://www.youtube.com/user/TheMRDrums/videos",
+							"title": "Joshua John Mills - YouTube",
+							"site": "www.youtube.com",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hall-2014.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "James Kenneth Hall",
+				"born": "1940-07-23",
+				"died": "2014-03-18",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "James Kenneth Hall",
+				"name": "James Kenneth Hall",
+				"maidenName": null,
+				"born": "1940-07-23",
+				"died": "2014-03-18",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": ["yandex: \"James Kenneth Hall\" 1940 2014 (obituary OR grave OR cemetery)"],
+			"candidates": [
+				{
+					"name": "James Kenneth Hall",
+					"born": "1940",
+					"died": "2014",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s6",
+							"url": "https://www.flickr.com/photos/tags/EugeneMasonicCemetery/",
+							"title": "EugeneMasonicCemetery photos on Flickr | Flickr",
+							"site": "www.flickr.com",
+							"snippet": "James Kenneth Hall (1940-2014), Eugene Masonic Cemetery by Rick Obst."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "juntunen-2012.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Troy Leonard Juntunen",
+				"born": "1967-01-28",
+				"died": "2012-08-03",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Troy Leonard Juntunen",
+				"name": "Troy Leonard Juntunen",
+				"maidenName": null,
+				"born": "1967-01-28",
+				"died": "2012-08-03",
+				"voice": null,
+				"place": "Corvallis, Oregon"
+			},
+			"searches": [
+				"yandex: \"Troy Leonard Juntunen\" 1967 2012 (obituary OR grave OR cemetery)",
+				"google: \"Troy Leonard Juntunen\" 1967 2012 (obituary OR grave OR cemetery)",
+				"yandex: \"Troy Leonard Juntunen\" 1967 2012 corvallis oregon (obituary OR grave OR cemetery)",
+				"google: \"Troy Leonard Juntunen\" 1967 2012 corvallis oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Troy Leonard Juntunen",
+					"born": "1967",
+					"died": "2012",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s36",
+							"url": "https://www.sunsetgardenstricities.com/obituary/2012/08/troy-leonard-juntunen/",
+							"title": "Troy Leonard Juntunen - Sunset Gardens",
+							"site": "www.sunsetgardenstricities.com",
+							"snippet": "Troy Leonard Juntunen. Troy Leonard Juntunen, 45, died August 3, 2012 in Richland, WA. He was born January 28, 1967 in Corvallis, OR and lived in the ..."
+						},
+						{
+							"id": "s37",
+							"url": "https://commons.wikimedia.org/wiki/File:Troy_Leonard_Juntunen_(1967-2012)_in_Crystal_Lake_Cemetery.jpg",
+							"title": "File:Troy Leonard Juntunen (1967-2012) in Crystal Lake ...",
+							"site": "commons.wikimedia.org",
+							"snippet": "DescriptionTroy Leonard Juntunen (1967-2012) in Crystal Lake Cemetery.jpg. English: Crystal Lake Cemetery in Corvallis, Oregon. Date, 28 August 2024, 07:52:28."
+						},
+						{
+							"id": "s38",
+							"url": "https://www.legacy.com/us/obituaries/gazettetimes/name/troy-juntunen-obituary?id=13595336",
+							"title": "Troy Juntunen Obituary (2012) - Corvallis, OR",
+							"site": "www.legacy.com",
+							"snippet": "Troy Leonard Juntunen, 45, of Richland, Wash., died Aug. 3, 2012, on the Washington State University Riverbank Trail in Richland."
+						},
+						{
+							"id": "s39",
+							"url": "https://www.legacy.com/us/obituaries/tricityherald/name/troy-leonardjuntunen-obituary?id=18389814",
+							"title": "TROY LEONARDJUNTUNEN Obituary (2012) - Kennewick, WA",
+							"site": "www.legacy.com",
+							"snippet": "Troy Leonard Juntunen, 45, died August 3, 2012, in Richland, WA. He was born January 28, 1967, in Corvallis, OR, and lived in the Tri-Cities for 20 years."
+						},
+						{
+							"id": "s40",
+							"url": "https://commons.wikimedia.org/wiki/Category:Crystal_Lake_Cemetery",
+							"title": "Category:Crystal Lake Cemetery",
+							"site": "commons.wikimedia.org",
+							"snippet": "Together Forever in Crystal Lake Cemetery.jpg 4,592 × 3,448; 7.47 MB. Troy Leonard Juntunen (1967-2012) in Crystal Lake Cemetery.jpg 4,592 × 3,448; 6.12 MB."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "dixon-2018.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Lloyd Dee Dixon",
+				"name": "Lloyd Dee Dixon",
+				"maidenName": null,
+				"born": "1943-07-11",
+				"died": "2018-05-26",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Lloyd Dee Dixon\" 1943 2018 (obituary OR grave OR cemetery)",
+				"google: \"Lloyd Dee Dixon\" 1943 2018 (obituary OR grave OR cemetery)",
+				"yandex: \"Lloyd Dee Dixon\" 1943 2018 alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Lloyd Dee Dixon\" 1943 2018 alsea oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Lloyd Dee Dixon\" alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Lloyd Dee Dixon\" alsea oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Lloyd Dee Dixon",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s21",
+							"url": "https://www.legacy.com/us/obituaries/name/lloyd-dixon-obituary?pid=178175921",
+							"title": "Lloyd Dixon Obituary (2008) - Downey, CA",
+							"site": "www.legacy.com",
+							"snippet": "Lloyd and LaVeta Dixon, longtime residents of Downey, CA, passed away peacefully a few days apart. Lloyd was born on December 20, ..."
+						},
+						{
+							"id": "s25",
+							"url": "https://www.aasum-dufour.com/obituaries?page=182",
+							"title": "Obituary Listing | AAsum-Dufour Funeral Home | Albany, OR",
+							"site": "www.aasum-dufour.com",
+							"snippet": "Lloyd Dee Dixon. Jul 11, 1943. A tribute is not available at this time for Lloyd Dee Dixon."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "schreiber-2012.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Tyson Lee Schreiber",
+				"born": "1992-08-21",
+				"died": "2012-02-12",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Tyson Lee Schreiber",
+				"name": "Tyson Lee Schreiber",
+				"maidenName": null,
+				"born": "1992-08-21",
+				"died": "2012-02-12",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Tyson Lee Schreiber\" 1992 2012 (obituary OR grave OR cemetery)",
+				"google: \"Tyson Lee Schreiber\" 1992 2012 (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Tyson Lee Schreiber",
+					"born": "1992",
+					"died": null,
+					"confidence": "medium",
+					"sources": [
+						{
+							"id": "s4",
+							"url": "https://www.mchenryfuneralhome.com/m/obituaries/tyson-schreiber-34163/",
+							"title": "Tyson Schreiber Obituary - Visitation & Funeral Information",
+							"site": "www.mchenryfuneralhome.com",
+							"snippet": "Tyson Lee Schreiber was born Aug. 21, 1992, to Mark and Julie Schreiber. He graduated from Alsea High School in 2010, as salutatorian."
+						},
+						{
+							"id": "s5",
+							"url": "https://www.legacy.com/us/obituaries/gazettetimes/name/tyson-schreiber-obituary?id=13600984",
+							"title": "Tyson Schreiber Obituary (2012) - Corvallis, OR",
+							"site": "www.legacy.com",
+							"snippet": "Tyson Lee Schreiber was born Aug. 21, 1992, to Mark and Julie Schreiber. He graduated from Alsea High School in 2010, as salutatorian."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hawks-2017.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Gaynor Claire Hawks",
+				"born": "1932-03-10",
+				"died": "2017-12-27",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Gaynor Claire Hawks",
+				"name": "Gaynor Claire Hawks",
+				"maidenName": null,
+				"born": "1932-03-10",
+				"died": "2017-12-27",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Gaynor Claire Hawks\" 1932 2017 (obituary OR grave OR cemetery)",
+				"google: \"Gaynor Claire Hawks\" 1932 2017 (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Gaynor Claire Hawks",
+					"born": "1932",
+					"died": "2017",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s15",
+							"url": "https://de.findagrave.com/user/49041838/memorial",
+							"title": "Gedenkstätten verwaltet von Jennifer Moore",
+							"site": "de.findagrave.com",
+							"snippet": "Lone Oak Cemetery. Stayton, Marion County, Oregon, United States of America. Gaynor Claire Hawks. 1932 – 2017. Alsea Cemetery. Alsea, Benton County, Oregon ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Jasper \"Bub\" Hayden",
+				"name": "Jasper “Bub” Hayden",
+				"maidenName": null,
+				"born": "1907",
+				"died": "1993",
+				"voice": null,
+				"place": "Alsea, Oregon"
+			},
+			"searches": [
+				"yandex: \"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+				"google: \"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+				"yandex: \"Jasper Hayden\" 1907 1993 alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Jasper Hayden\" 1907 1993 alsea oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Jasper Hayden\" alsea oregon (obituary OR grave OR cemetery)",
+				"google: \"Jasper Hayden\" alsea oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Jasper “Bub” Hayden",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s3",
+							"url": "https://lawgazette.com.sg/author/jasper-hayden-chan/",
+							"title": "Jasper Hayden Chan, Author at The Singapore Law Gazette",
+							"site": "lawgazette.com.sg",
+							"snippet": "by Jasper Hayden Chan. The issue of renovation fraud and consumer protection is a hot topic for many Singaporeans, especially for young couples who have just bought their first property, and looking to turn it into their dream home."
+						},
+						{
+							"id": "s4",
+							"url": "https://www.quotev.com/story/678987/Hour-in-Twilight-Heaven/3",
+							"title": "Jasper Hayden Whitlock Hale | Hour in Twilight... | Quotev",
+							"site": "www.quotev.com",
+							"snippet": "Jasper Hayden Whitlock Hale. i was just talking to my best friend jasper when someone shoved a hat in my face. you fished something out of the hat and hid it from jasper so you could see what it was. it was a military bagde..."
+						},
+						{
+							"id": "s7",
+							"url": "https://dsotm.fandom.com/wiki/Jasper_Hale",
+							"title": "Jasper Hale | The Dark Side of the Moon Wiki | Fandom",
+							"site": "dsotm.fandom.com",
+							"snippet": "Jasper Hayden Whitlock Hale is a Texan vampires sired by Maria Evans in 1863, aged twenty. After devoting almost a century of his life to serving her within her army during the Southern Wars, he left with Peter and Charlotte in search of something better."
+						},
+						{
+							"id": "s40",
+							"url": "https://www.facebook.com/jasper.hayden.7/?locale=zh_CN",
+							"title": "Jasper Hayden",
+							"site": "www.facebook.com",
+							"snippet": "Jasper Hayden 正在使用Facebook。加入Facebook，与Jasper Hayden 和其他可能认识的用户互动。Facebook 让人们相互分享，让世界更开放、联系更紧密。"
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "bell-1994.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Russell O Bell",
+				"born": "1924-09-24",
+				"died": "1994-02-08",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Russell O Bell",
+				"name": "Russell O Bell",
+				"maidenName": null,
+				"born": "1924-09-24",
+				"died": "1994-02-08",
+				"voice": null,
+				"place": "Corvallis, Oregon"
+			},
+			"searches": [
+				"yandex: \"Russell O Bell\" 1924 1994 (obituary OR grave OR cemetery)",
+				"google: \"Russell O Bell\" 1924 1994 (obituary OR grave OR cemetery)",
+				"yandex: \"Russell O Bell\" 1924 1994 corvallis oregon (obituary OR grave OR cemetery)",
+				"google: \"Russell O Bell\" 1924 1994 corvallis oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Russell O Bell\" corvallis oregon (obituary OR grave OR cemetery)",
+				"google: \"Russell O Bell\" corvallis oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Russell O Bell",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s3",
+							"url": "https://obits.syracuse.com/us/obituaries/syracuse/name/imelda-bell-obituary?id=51316468",
+							"title": "Imelda Bell Obituary (2003) - Syracuse, NY",
+							"site": "obits.syracuse.com",
+							"snippet": "Predeceased by son, Lisle Simpson, husband, Russell O. Bell. Funeral Services will be held at 11 a.m. in the Adems Rural Cemetery, Adems ..."
+						},
+						{
+							"id": "s4",
+							"url": "https://www.dignitymemorial.com/obituaries/montgomery-al/john-bell-jb-6684813",
+							"title": "John Bell \"JB\" Obituary - Montgomery, AL",
+							"site": "www.dignitymemorial.com",
+							"snippet": "Born in Louisville, KY and raised in South Bend Indiana, John was preceded in death by his father, Russell O. Bell and is survived by his mother ..."
+						},
+						{
+							"id": "s6",
+							"url": "https://www.legacy.com/us/obituaries/gazettetimes/name/joyce-bell-obituary?id=19058310",
+							"title": "Joyce Bell Obituary (2014) - Corvallis, OR",
+							"site": "www.legacy.com",
+							"snippet": "She is survived by daughters Juanita Linn of Corvallis, LaJuana Berdanier (Jim) of Central Point, and Juanona Warrick; sons Russell O. Bell Jr."
+						},
+						{
+							"id": "s7",
+							"url": "https://gis.co.benton.or.us/gisdata/Survey_Information/Surveys/CS04838.pdf",
+							"title": "4638 - survey for",
+							"site": "gis.co.benton.or.us",
+							"snippet": "RUSSELL O. BELL of NW1/4 of Sec 4. SECTION 4, T. II S.,. T. II S.,. R.5 W.,. W. M.. BENTON COUNTY,. N. 89° 45'W. SCALE 1\"= 100'. OREGON. NOVEMBER 1969. S. 70 ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "doran-2008.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Bruce Doran",
+				"born": "1934-05-31",
+				"died": "2008-03-28",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Bruce Doran",
+				"name": "Bruce Doran",
+				"maidenName": null,
+				"born": "1934-05-31",
+				"died": "2008-03-28",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Bruce Doran\" 1934 2008 (obituary OR grave OR cemetery)",
+				"google: \"Bruce Doran\" 1934 2008 (obituary OR grave OR cemetery)",
+				"yandex: \"Bruce Doran\" 1934 2008 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Bruce Doran\" 1934 2008 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Bruce Doran\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Bruce Doran\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Bruce Doran",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.researchgate.net/profile/Bruce-Doran",
+							"title": "Bruce DORAN | Australian National University, Canberra | ANU",
+							"site": "www.researchgate.net",
+							"snippet": "Fenner School of Environment & Society. Bruce Doran. ... Full-text available. Jan 2008. … Australian National University. Fenner School of Environment & Society. Bruce Doran. ... Bruce Doran. Brian G. Lees Brian G. Lees."
+						},
+						{
+							"id": "s2",
+							"url": "https://researchportalplus.anu.edu.au/en/persons/bruce-doran/",
+							"title": "Bruce Doran - The Australian National University",
+							"site": "researchportalplus.anu.edu.au",
+							"snippet": "Bruce Doran. View Scopus Profile. Dr Bruce Doran. Associate Professor (Geographic Information Systems), Fenner School of Environment and Society."
+						},
+						{
+							"id": "s3",
+							"url": "https://anu-au.academia.edu/BruceDoran",
+							"title": "Bruce Doran - The Australian National University",
+							"site": "anu-au.academia.edu",
+							"snippet": "No profile photo available for Bruce Doran. Bruce Doran. The Australian National University, Fenner School of Environment and Society, Faculty Member."
+						},
+						{
+							"id": "s4",
+							"url": "https://scispace.com/authors/bruce-doran-1l6t82kena",
+							"title": "Bruce Doran | Australian National University | 65 Publications",
+							"site": "scispace.com",
+							"snippet": "Bruce Doran is an academic researcher from Australian National University. The author has contributed to research in topics: Fear of crime & Indigenous. The author has an hindex of 17, co-authored 59 publications."
+						},
+						{
+							"id": "s5",
+							"url": "https://www.youtube.com/watch?v=auEoOBvbLqI",
+							"title": "Remembering Bruce Doran",
+							"site": "www.youtube.com",
+							"snippet": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "holmquist-2024.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Marsha Fox Holmquist",
+				"born": "1940-11-05",
+				"died": null,
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Marsha Fox Holmquist",
+				"name": "Marsha Fox Holmquist",
+				"maidenName": null,
+				"born": "1940-11-05",
+				"died": null,
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Marsha Fox Holmquist\" 1940 (obituary OR grave OR cemetery)",
+				"google: \"Marsha Fox Holmquist\" 1940 (obituary OR grave OR cemetery)",
+				"yandex: \"Marsha Fox Holmquist\" 1940 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Marsha Fox Holmquist\" 1940 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Marsha Fox Holmquist\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Marsha Fox Holmquist\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Marsha Fox Holmquist\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Marsha Fox Holmquist\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": []
+		},
+		{
+			"file": "holmquist-2024.jpg",
+			"reviewed": true,
+			"person": {
+				"name": "Charles Ray Holmquist",
+				"born": "1948-03-12",
+				"died": "2024-05-06",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Charles Ray Holmquist",
+				"name": "Charles Ray Holmquist",
+				"maidenName": null,
+				"born": "1948-03-12",
+				"died": "2024-05-06",
+				"voice": null,
+				"place": "Eugene, Oregon"
+			},
+			"searches": [
+				"yandex: \"Charles Ray Holmquist\" 1948 2024 (obituary OR grave OR cemetery)",
+				"google: \"Charles Ray Holmquist\" 1948 2024 (obituary OR grave OR cemetery)",
+				"yandex: \"Charles Ray Holmquist\" 1948 2024 eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Charles Ray Holmquist\" 1948 2024 eugene oregon (obituary OR grave OR cemetery)",
+				"yandex: \"Charles Ray Holmquist\" eugene oregon (obituary OR grave OR cemetery)",
+				"google: \"Charles Ray Holmquist\" eugene oregon (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Charles Ray Holmquist",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Holmquist,_Charles_Ray_(1948-2024).jpg",
+							"title": "File:Oak Hill Cemetery - Holmquist, Charles Ray...",
+							"site": "commons.wikimedia.org",
+							"snippet": "English: Oak Hill Cemetery is one of Lane County's oldest and most beautiful historic cemeteries. Founded in 1850, Oak Hill is situated on a gentle hillside overlooking Fern Ridge Lake and the coast range of the Cascade Mountains. … Oak Hill Cemetery (Lane County, Oregon). Summary. ... Although far from busy roadways, Oak Hill Cemetery can be easily accessed from the Eugene area (see Directions), since it is only two miles west of the Eugene city limits."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-235467347",
+			"reviewed": false,
+			"person": {
+				"name": "Efrain Pineda Jr.",
+				"born": "2019-11-29",
+				"died": "2019-12-02",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Efrain Pineda Jr.",
+				"name": "Efrain Pineda Jr.",
+				"maidenName": null,
+				"born": "2019-11-29",
+				"died": "2019-12-02",
+				"voice": null,
+				"place": "Comfort, Texas"
+			},
+			"searches": [
+				"yandex: \"Efrain Pineda Jr.\" 2019 2019 (obituary OR grave OR cemetery)",
+				"google: \"Efrain Pineda Jr.\" 2019 2019 (obituary OR grave OR cemetery)",
+				"yandex: \"Efrain Pineda Jr.\" 2019 2019 comfort texas (obituary OR grave OR cemetery)",
+				"google: \"Efrain Pineda Jr.\" 2019 2019 comfort texas (obituary OR grave OR cemetery)",
+				"yandex: \"Efrain Pineda Jr.\" comfort texas (obituary OR grave OR cemetery)",
+				"google: \"Efrain Pineda Jr.\" comfort texas (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Efrain Pineda Jr.",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.juntosencristo.org/documents/letter-to-members-of-the-117th-congress-of-the-united-states",
+							"title": "Letter to Members of the 117th Congress of the United States...",
+							"site": "www.juntosencristo.org",
+							"snippet": "Ruben N Ortiz - Latino Field Ministries Coordinator, Cooperative Baptist Fellowship (CBF) Sandra Ovalle Martínez - Director of Campaigns and Mobilizing, Sojourners Rev. Efraín Pineda, Jr."
+						},
+						{
+							"id": "s2",
+							"url": "https://www.christianpost.com/news/hispanics-cheer-gingrichs-comments-on-immigration.html",
+							"title": "Hispanics Cheer Gingrich's Comments on Immigration | Politics",
+							"site": "www.christianpost.com",
+							"snippet": "“House Speaker Newt Gingrich’s response last night left me motivated and thoroughly impressed,” said the Rev. Efrain Pineda Jr., executive director of the National Hispanic Christian Leadership, in an email to The Christian Post."
+						},
+						{
+							"id": "s3",
+							"url": "https://www.txgenwebcounties.net/elpaso/obit/000601.htm",
+							"title": "Obituaries, 2000 | El Paso County, TXGenWeb",
+							"site": "www.txgenwebcounties.net",
+							"snippet": "Survivors include his son, Efrain Pineda Jr.; his daughters, Charlene Castro, Lisa Oaxaca, Loretta Dominguez and Suzanne Levison; and 12 grandchildren. He was a business owner for 32 years and an Army veteran. El Paso Times - Jun 3 2000."
+						},
+						{
+							"id": "s4",
+							"url": "https://www.tapinto.net/towns/stafford-slash-lbi/sections/giving-back/articles/gobble-wobble-thanksgiving-day-results",
+							"title": "Gobble Wobble Thanksgiving Day Results | TAPinto",
+							"site": "www.tapinto.net",
+							"snippet": "54. Ronald Fella Jr. ... Efrain Pineda Jr. … Efrain Pineda Jr. ... Sam Ross Jr."
+						},
+						{
+							"id": "s10",
+							"url": "https://www.memorialfuneral.com/obituaries/efrain-pineda-pineda",
+							"title": "Efrain Pineda Pineda Obituary... - Memorial Funeral Home",
+							"site": "www.memorialfuneral.com",
+							"snippet": "Share Efrain Pineda Pineda's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated. We'll notify you when service details or new memories are added."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-170852342",
+			"reviewed": false,
+			"person": {
+				"name": "Ethan John Chartre",
+				"born": "2007-08-25",
+				"died": "2016-09-17",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Ethan John Chartre",
+				"name": "Ethan John Chartre",
+				"maidenName": null,
+				"born": "2007-08-25",
+				"died": "2016-09-17",
+				"voice": null,
+				"place": "Wells, Michigan"
+			},
+			"searches": [
+				"yandex: \"Ethan John Chartre\" 2007 2016 (obituary OR grave OR cemetery)",
+				"google: \"Ethan John Chartre\" 2007 2016 (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Ethan John Chartre",
+					"born": "2007",
+					"died": "2016",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s15",
+							"url": "https://www.skradskifuneralhomes.com/obituaries/Ethan-Chartre?obId=46308102",
+							"title": "Obituary information for Ethan Chartre",
+							"site": "www.skradskifuneralhomes.com",
+							"snippet": "Ethan John Chartre, age 9, of Cornell, passed away on September 17, 2016 as a result of a boating accident on Lake Superior. Ethan was born August 25, 2007 ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-151025078",
+			"reviewed": false,
+			"person": {
+				"name": "Georgia Wallace-Porter Overton",
+				"born": "2006-01-23",
+				"died": "2015-08-20",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Georgia Wallace-Porter Overton",
+				"name": "Georgia Wallace-Porter Overton",
+				"maidenName": null,
+				"born": "2006-01-23",
+				"died": "2015-08-20",
+				"voice": null,
+				"place": "Jonesboro, Arkansas"
+			},
+			"searches": [
+				"yandex: \"Georgia Wallace-Porter Overton\" 2006 2015 (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)"
+			],
+			"candidates": []
+		},
+		{
+			"file": "lancasteronline-olivia-grace-dusablon",
+			"reviewed": false,
+			"person": {
+				"name": "Olivia Grace Dusablon",
+				"born": "2011",
+				"died": "2014-12-24",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Olivia Grace Dusablon",
+				"name": "Olivia Grace Dusablon",
+				"maidenName": null,
+				"born": "2011",
+				"died": "2014-12-24",
+				"voice": null,
+				"place": "Mount Joy, Pennsylvania"
+			},
+			"searches": ["yandex: \"Olivia Grace Dusablon\" 2011 2014 (obituary OR grave OR cemetery)"],
+			"candidates": [
+				{
+					"name": "Olivia Grace Dusablon",
+					"born": "2011",
+					"died": "2014",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s2",
+							"url": "https://www.forevermissed.com/olivia-grace-dusablon/",
+							"title": "Olivia Grace Dusablon (2011 - 2014) - ForeverMissed.com...",
+							"site": "www.forevermissed.com",
+							"snippet": "Born on January 5, 2011. Passed away on December 24, 2014. Share memories. Tributes are short messages commemorating Olivia, or an expression of support to her closest family and friends. Leave your first tribute here, and others will follow."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-177939034",
+			"reviewed": false,
+			"person": {
+				"name": "Bree Nichol Reynolds",
+				"born": "2000-10-11",
+				"died": "2017-03-23",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Bree Nichol Reynolds",
+				"name": "Bree Nichol Reynolds",
+				"maidenName": null,
+				"born": "2000-10-11",
+				"died": "2017-03-23",
+				"voice": null,
+				"place": "Altoona, Kansas"
+			},
+			"searches": [
+				"yandex: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"yandex: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Bree Nichol Reynolds",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.loranfawcettfuneralhome.com/obituaries/bree-reynolds",
+							"title": "Bree Reynolds Obituary Mar 23, 2017 - Loran Fawcett Chapel",
+							"site": "www.loranfawcettfuneralhome.com",
+							"snippet": "Bree Reynolds Profile Photo. 2000 Bree 2017. Send Flowers. ... Bree Nichol Reynolds joined her Savior Jesus Christ, Thursday evening March 23 2017 in Neodesha KS at the age of 16. … Bree Nichol Reynolds joined her Savior Jesus Christ, Thursday evening March 23 2017 in Neodesha KS at the age of 16. ... Share Bree Reynolds's obituary with others. Invite friends and family to read the obituary and add memories."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-124837698",
+			"reviewed": false,
+			"person": {
+				"name": "Stephen Abraham Reynolds Jr.",
+				"born": "1989-02-20",
+				"died": "2014-02-08",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Stephen Abraham Reynolds Jr.",
+				"name": "Stephen Abraham Reynolds Jr.",
+				"maidenName": null,
+				"born": "1989-02-20",
+				"died": "2014-02-08",
+				"voice": null,
+				"place": "Lamar, South Carolina"
+			},
+			"searches": [
+				"yandex: \"Stephen Abraham Reynolds Jr.\" 1989 2014 (obituary OR grave OR cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" 1989 2014 (obituary OR grave OR cemetery)",
+				"yandex: \"Stephen Abraham Reynolds Jr.\" 1989 2014 lamar south carolina (obituary OR grave OR cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" 1989 2014 lamar south carolina (obituary OR grave OR cemetery)",
+				"yandex: \"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary OR grave OR cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Stephen Abraham Reynolds Jr.",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s9",
+							"url": "https://www.virtualwall.org/dr/ReynoldsJS01a.htm",
+							"title": "PFC James Stephen Reynolds, Jr, Litchfield Park, AZ on...",
+							"site": "www.virtualwall.org",
+							"snippet": "A native of Stillwater, Oklahoma, James Reynolds moved to the Phoenix area in 1959. A resident of Litchfield Park, Reynolds attended Agua Fria Union High School and Glendale Community College before joining the Marines in 1968."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-199134996",
+			"reviewed": false,
+			"person": {
+				"name": "Georgia D. Hiatt",
+				"born": "1943-09-20",
+				"died": "2015-11-09",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Georgia D. Hiatt",
+				"name": "Georgia D. Hiatt",
+				"maidenName": null,
+				"born": "1943-09-20",
+				"died": "2015-11-09",
+				"voice": null,
+				"place": "Roscoe, Illinois"
+			},
+			"searches": [
+				"yandex: \"Georgia D. Hiatt\" 1943 2015 (obituary OR grave OR cemetery)",
+				"google: \"Georgia D. Hiatt\" 1943 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia D. Hiatt\" 1943 2015 roscoe illinois (obituary OR grave OR cemetery)",
+				"google: \"Georgia D. Hiatt\" 1943 2015 roscoe illinois (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia D. Hiatt\" roscoe illinois (obituary OR grave OR cemetery)",
+				"google: \"Georgia D. Hiatt\" roscoe illinois (obituary OR grave OR cemetery)"
+			],
+			"candidates": []
+		},
+		{
+			"file": "findagrave-179920298",
+			"reviewed": false,
+			"person": {
+				"name": "Louella Marie White",
+				"born": "1935-08-22",
+				"died": "2017-05-24",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Louella Marie White",
+				"name": "Louella Marie White",
+				"maidenName": null,
+				"born": "1935-08-22",
+				"died": "2017-05-24",
+				"voice": null,
+				"place": "Fremont County, Wyoming"
+			},
+			"searches": [
+				"yandex: \"Louella Marie White\" 1935 2017 (obituary OR grave OR cemetery)",
+				"google: \"Louella Marie White\" 1935 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Louella Marie White\" 1935 2017 fremont county wyoming (obituary OR grave OR cemetery)",
+				"google: \"Louella Marie White\" 1935 2017 fremont county wyoming (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Louella Marie White",
+					"born": "1935",
+					"died": "2017",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s27",
+							"url": "https://www.findagrave.com/memorial/179920298/louella-marie-white",
+							"title": "Louella Marie “Yellow Bird Woman” Crispin White...",
+							"site": "www.findagrave.com",
+							"snippet": "Louella Marie White. 22 Aug 1935 – 24 May 2017. This memorial is currently managed by Find a Grave. We'd be happy to transfer management to you. As a memorial ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-240298109",
+			"reviewed": false,
+			"person": {
+				"name": "Violet Yacobi",
+				"born": "1950-01-08",
+				"died": "2017-10-09",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Violet Yacobi",
+				"name": "Violet Yacobi",
+				"maidenName": null,
+				"born": "1950-01-08",
+				"died": "2017-10-09",
+				"voice": null,
+				"place": "Hollywood Hills, California"
+			},
+			"searches": [
+				"yandex: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"yandex: \"Violet Yacobi\" hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" hollywood hills california (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Violet Yacobi",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://abc7.com/post/prominent-dentist-charged-in-death-of-his-mother-in-beverly-hills/3085537/",
+							"title": "Prominent dentist charged in strangling... - ABC7 Los Angeles",
+							"site": "abc7.com",
+							"snippet": "Daniel Simon Yacobi, 36, was charged with one count of murder, which carries a special circumstance allegation of murder for financial gain. Authorities said on Oct. 10, 2017, his 67-year-old mother, Violet Yacobi, was found dead in her Beverly Hills home."
+						},
+						{
+							"id": "s2",
+							"url": "https://www.cbsnews.com/news/violet-daniel-yacobi-beverly-hills-staircase-mansion-murder-48-hours/",
+							"title": "A wealthy Beverly Hills widow winds up dead... - CBS News",
+							"site": "www.cbsnews.com",
+							"snippet": "Violet Yacobi, 67, lived alone in her Beverly Hills mansion. Her husband had died a year earlier. Los Angeles Superior Court. ... Violet Yacobi's death was ruled a homicide. The official cause of death was asphyxia by neck compression. … Beverly Hills detectives responding to the death of 67-year-old Violet Yacobi — who was found on the marble floor below a staircase in her mansion — suspected foul play and her dentist son, and wondered if the family fortune was a motive for murder."
+						},
+						{
+							"id": "s3",
+							"url": "https://www.msn.com/en-us/news/crime/wealthy-widow-found-dead-in-beverly-hills-mansion-son-convicted-of-murder-he-said-he-hated-her/ar-AA1LRRXh",
+							"title": "Wealthy Widow Found Dead in Beverly Hills Mansion, Son...",
+							"site": "www.msn.com",
+							"snippet": "Daniel Yacobi was found guilty of strangling his mother Violet Yacobi to death to inherit a share of her $12 millon estate. Need to know. Violet Yacobi was found dead in her Beverly Hills home on Oct. … Daniel Yacobi was found guilty of strangling his mother Violet Yacobi to death to inherit a share of her $12 millon estate. ... Paul Giamou Photography Ltd/Getty Violet Yacobi's $8 million home in Beverly Hills. Daniel Yacobi in court in 2018."
+						},
+						{
+							"id": "s4",
+							"url": "https://abcnews.com/US/los-angeles-dentist-arrested-months-allegedly-strangling-mother/story?id=53080092",
+							"title": "Daniel Yacobi, 36, was arrested this week in the Oct. 27 killing.",
+							"site": "abcnews.com",
+							"snippet": "Violet Yacobi was pronounced dead at the scene and her death was ruled a homicide by strangulation, police said. The Beverly Hills sign in Los Angeles is captured in this undated photo."
+						},
+						{
+							"id": "s5",
+							"url": "https://www.dailymail.com/news/article-5395725/Beverly-Hills-dentist-accused-strangling-mother.html",
+							"title": "Beverly Hills dentist accused of strangling... | Daily Mail Online",
+							"site": "www.dailymail.com",
+							"snippet": "Daniel Yacobi has been accused of strangling his mother Violet Yacobi. He and his sister found the 67-year-old unconscious in her home on October 10. The siblings called 911 and she was pronounced dead at her Beverly Hills home. … A prominent Los Angeles dentist was arrested Wednesday and accused of strangling his wealthy mother in October for financial gain. Beverly Hills Police claim Daniel Yacobi strangled his 67-year-old mother Violet Yacobi on October 10, 2017."
+						}
+					]
+				}
+			]
+		}
+	]
+}

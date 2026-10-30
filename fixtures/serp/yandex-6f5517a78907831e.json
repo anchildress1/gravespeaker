@@ -1,0 +1,79 @@
+{
+	"engine": "yandex",
+	"query": "\"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Obituaries | The Arkansas Democrat-Gazette - Arkansas...",
+				"link": "https://www.arkansasonline.com/obituaries/today/",
+				"displayed_link": "arkansasonline.com › obituaries › today",
+				"snippet": "The Arkansas Democrat-Gazette is the largest source for award-winning news and opinion that matters to you. Featuring up to the minute breaking news and the most in-depth Razorback, business, and political coverage in Arkansas."
+			},
+			{
+				"position": 2,
+				"title": "Jonesboro Sun Obituary Archives Search... | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/obituaries/all/usa/arkansas/jonesboro/jonesboro-sun",
+				"displayed_link": "genealogybank.com › explore › obituaries › all › usa",
+				"snippet": "Jonesboro Sun (Jonesboro, Arkansas) Newspaper Obituaries (1999 - Current). Enter your ancestor's name below and we'll search obituaries to help you learn more."
+			},
+			{
+				"position": 3,
+				"title": "Sharon Dunlap Porter Obituary... - Emerson Funeral Home",
+				"link": "https://www.emersonfuneralhome.com/obituaries/sharon-porter",
+				"displayed_link": "emersonfuneralhome.com › obituaries › sharon-porter",
+				"snippet": "Sharon Dunlap Porter, 80, of Jonesboro, passed away peacefully at the Flo and Phil Jones Hospice House on Friday, June 3, 2022. She was born in Wyandotte, Michigan, on January 15, 1942, to the late Pete and Georgia Dunlap."
+			},
+			{
+				"position": 4,
+				"title": "Arkansas Obituaries - over 1,900 AR Obituary Indexes",
+				"link": "https://www.newspaperobituaries.net/arkansas/index.html",
+				"displayed_link": "newspaperobituaries.net › arkansas › index",
+				"snippet": "browse over 1,900 Arkansas obituary indexes, including newspaper obituaries, death indexes, funeral home obituaries.."
+			},
+			{
+				"position": 5,
+				"title": "Jonesboro Sun Obituaries 2015",
+				"link": "https://gscca.net/2015.htm",
+				"displayed_link": "gscca.net",
+				"snippet": "JONESBORO SUN INDEX OF OBITUARIES 2015 Craighead County, Arkansas. Listed below are the names, the date and the page number of the obituaries that have appeared in the Jonesboro Sun."
+			},
+			{
+				"position": 6,
+				"title": "Porter, Wallace J.",
+				"link": "https://wacotrib.com/obituaries/article_cbbbfb21-89c2-52e7-b70f-4b9a4cbc58ad.html",
+				"displayed_link": "wacotrib.com › obituaries › article_cbbbfb21-89c2",
+				"snippet": "Porter, Wallace J. Obituaries Newsletter. Sign up to get the most recent local obituaries delivered to your inbox."
+			},
+			{
+				"position": 7,
+				"title": "Most Recent Obituaries | Tri-County Funeral Home",
+				"link": "https://www.tricountyfuneralhome.com/obituaries",
+				"displayed_link": "tricountyfuneralhome.com › obituaries",
+				"snippet": "Tri-County Funeral Home obituaries and Death Notices for the Hardy, AR area. Explore Life Stories, Offer Condolences & Send Flowers. ... Perry Lee Yoeckel, 62, of Hardy, Arkansas, formerly of Tampa, Florida, passed away in Jonesboro, Arkansas."
+			},
+			{
+				"position": 8,
+				"title": "Obituaries - Craighead County Jonesboro Public Library",
+				"link": "https://www.libraryinjonesboro.org/books/genealogy-obituaries/obituaries.php",
+				"displayed_link": "libraryinjonesboro.org › books › genealogy-obituaries",
+				"snippet": "To search for an obituary, please use the Jonesboro Sun Deaths and Obituaries Index online."
+			},
+			{
+				"position": 9,
+				"title": "Jonesboro City Cemetery Department Jonesboro, Arkansas",
+				"link": "https://www.imortuary.com/funeral-homes/arkansas/jonesboro/jonesboro-city-cemetery-department/",
+				"displayed_link": "imortuary.com › funeral-homes › arkansas › jonesboro",
+				"snippet": "Send flowers to Jonesboro City Cemetery Department in Jonesboro, Arkansas. Plus info on funeral services, obituaries, address / directions, & planning."
+			},
+			{
+				"position": 10,
+				"title": "Obituaries | Barker Funeral Home",
+				"link": "https://www.barkerfuneral.com/obituaries",
+				"displayed_link": "barkerfuneral.com › obituaries",
+				"snippet": "Barker Funeral Home Obituaries. Local Obituaries for the Salem, Arkansas area. ... Nicola Alleva, 78, of Salem, Arkansas, passed away on September 25, 2026, in Jonesboro, Arkansas."
+			}
+		]
+	}
+}

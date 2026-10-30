@@ -1,0 +1,128 @@
+[
+	{
+		"file": "findagrave-235467347",
+		"source": "https://www.findagrave.com/memorial/235467347/baby-efrain-pineda",
+		"reviewed": true,
+		"place": "Comfort, Kendall County, Texas",
+		"people": [
+			{
+				"name": "Efrain Pineda Jr.",
+				"born": "2019-11-27",
+				"died": "2019-11-27",
+				"voice": "male"
+			}
+		]
+	},
+	{
+		"file": "findagrave-170852342",
+		"source": "https://www.findagrave.com/memorial/170852342/ethan-john-chartre",
+		"reviewed": true,
+		"place": "Wells, Delta County, Michigan",
+		"people": [
+			{
+				"name": "Ethan John Chartre",
+				"born": "2007-08-25",
+				"died": "2016-09-17",
+				"voice": "male"
+			}
+		]
+	},
+	{
+		"file": "findagrave-151025078",
+		"source": "https://www.findagrave.com/memorial/151025078/georgia-wallace_porter-overton",
+		"reviewed": true,
+		"place": "Jonesboro, Craighead County, Arkansas",
+		"people": [
+			{
+				"name": "Georgia Wallace-Porter Overton",
+				"born": "2006-01-23",
+				"died": "2015-08-20",
+				"voice": "female"
+			}
+		]
+	},
+	{
+		"file": "lancasteronline-olivia-grace-dusablon",
+		"source": "https://lancasteronline.com/obituaries/olivia-grace-dusablon/article_ec858a10-ce2e-51ba-aaad-54697411c374.html",
+		"reviewed": true,
+		"place": "Mount Joy, Lancaster County, Pennsylvania",
+		"people": [
+			{
+				"name": "Olivia Grace Dusablon",
+				"born": "2011-01-05",
+				"died": "2014-12-24",
+				"voice": "female"
+			}
+		]
+	},
+	{
+		"file": "findagrave-177939034",
+		"source": "https://www.findagrave.com/memorial/177939034/bree-nichol-reynolds",
+		"reviewed": true,
+		"place": "Altoona, Wilson County, Kansas",
+		"people": [
+			{
+				"name": "Bree Nichol Reynolds",
+				"born": "2000-10-11",
+				"died": "2017-03-23",
+				"voice": "female"
+			}
+		]
+	},
+	{
+		"file": "findagrave-124837698",
+		"source": "https://www.findagrave.com/memorial/124837698/stephen-a_-reynolds",
+		"reviewed": true,
+		"place": "Lamar, Darlington County, South Carolina",
+		"people": [
+			{
+				"name": "Stephen Abraham Reynolds Jr.",
+				"born": "1989-02-20",
+				"died": "2014-02-08",
+				"voice": "male"
+			}
+		]
+	},
+	{
+		"file": "findagrave-199134996",
+		"source": "https://www.findagrave.com/memorial/199134996/georgia-d.-hiatt",
+		"reviewed": true,
+		"place": "Roscoe, Winnebago County, Illinois",
+		"people": [
+			{
+				"name": "Georgia D. Hiatt",
+				"born": "1943-09-20",
+				"died": "2015-11-09",
+				"voice": "female"
+			}
+		]
+	},
+	{
+		"file": "findagrave-179920298",
+		"source": "https://www.findagrave.com/memorial/179920298/louella-marie-white",
+		"reviewed": true,
+		"place": "Fremont County, Wyoming",
+		"people": [
+			{
+				"name": "Louella Marie White",
+				"born": "1935-08-22",
+				"died": "2017-05-24",
+				"voice": "female"
+			}
+		]
+	},
+	{
+		"file": "findagrave-240298109",
+		"source": "https://www.findagrave.com/memorial/240298109/violet-yacobi",
+		"reviewed": true,
+		"place": "Hollywood Hills, Los Angeles County, California",
+		"people": [
+			{
+				"name": "Violet Yacobi",
+				"born": "1950-01-08",
+				"died": "2017-10-09",
+				"voice": "female"
+			}
+		]
+	}
+]

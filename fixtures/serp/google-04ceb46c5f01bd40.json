@@ -1,0 +1,8 @@
+{
+	"engine": "google",
+	"query": "\"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"error": "Google hasn't returned any results for this query."
+	}
+}

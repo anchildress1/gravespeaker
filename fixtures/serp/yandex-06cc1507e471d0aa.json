@@ -1,0 +1,44 @@
+{
+	"engine": "yandex",
+	"query": "(\"Efrain Pineda\" | \"Efrain * Pineda\") 2019 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Efrain Pineda Pineda Obituary... - Memorial Funeral Home",
+				"link": "https://www.memorialfuneral.com/obituaries/efrain-pineda-pineda",
+				"displayed_link": "memorialfuneral.com › obituaries › efrain-pineda",
+				"snippet": "View Efrain Pineda Pineda's obituary, send flowers, find service dates, and sign the guestbook."
+			},
+			{
+				"position": 2,
+				"title": "Efrain Pinedo: Age, Phone Number, Aliases, Address...",
+				"link": "https://www.truthfinder.com/people-search/efrain-pinedo/",
+				"displayed_link": "truthfinder.com › people-search › efrain-pinedo",
+				"snippet": "Searching for Efrain Pinedo? Find 9+ results with phone numbers, current & past addresses, aliases, criminal & traffic records."
+			},
+			{
+				"position": 3,
+				"title": "Efrain pineda pineda",
+				"link": "https://vimeo.com/user102336942",
+				"displayed_link": "vimeo.com › user102336942",
+				"snippet": "EFRAIN PINEDA PINEDA is a member of Vimeo, the home for high quality videos and the people who love them."
+			},
+			{
+				"position": 4,
+				"title": "Jose Efrain Pineda | Consulta Rápida de Antecedentes",
+				"link": "https://www.verificapersonas.com/mx/beneficiarios/jose-efrain-pineda",
+				"displayed_link": "verificapersonas.com › mx › beneficiarios › jose-efrain",
+				"snippet": "Datos oficiales de Jose Efrain Pineda en México. Jose Efrain Pineda Cedillo en Gabriel Zamora. Conoce a fondo a (Nombre Completo), un residente de (Municipio), (Estado), México, a través de la plataforma de VerificaPersonas.com."
+			},
+			{
+				"position": 5,
+				"title": "Reporte Judicial de Efrain Pineda Amador - Panamá",
+				"link": "https://tbuscolatam.com/persona/efrain-pineda-amador-4871dd",
+				"displayed_link": "tbuscolatam.com › persona › efrain-pineda-amador",
+				"snippet": "Consulta antecedentes de Efrain Pineda Amador en Panamá. Registros judiciales, penales y fuentes públicas verificadas | TBusco Latam."
+			}
+		]
+	}
+}

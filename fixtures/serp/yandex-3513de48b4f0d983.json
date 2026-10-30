@@ -1,0 +1,86 @@
+{
+	"engine": "yandex",
+	"query": "\"Betsey Ellis\" 1818 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Betsey C. (Ellis) Hathaway (1818-1859)",
+				"link": "https://www.wikitree.com/wiki/Ellis-12644",
+				"displayed_link": "wikitree.com › wiki › Ellis-12644",
+				"snippet": "Betsey C. (Ellis) Hathaway (1818 - 1859). Born 1818 in Plymouth, Massachusetts, United States."
+			},
+			{
+				"position": 2,
+				"title": "Betsey Ellis | Tanglewood Resident Times",
+				"link": "https://twrtimes.com/?author=36",
+				"displayed_link": "twrtimes.com",
+				"snippet": "by Betsey Ellis • 01/29/2024. Murine Mu-rine Adjective Of, like, or pertaining to mice and/or rats The scientist was constantly constructing new and more elaborate mazes for the rats to run in the course of his studies of murine intelligence."
+			},
+			{
+				"position": 3,
+				"title": "Full text of \"Ancient landmarks of Plymouth\"",
+				"link": "https://archive.org/stream/ancientlandmarks00indavi/ancientlandmarks00indavi_djvu.txt",
+				"displayed_link": "archive.org › stream › _djvu.txt",
+				"snippet": "Ellis, Abneb, came from Middleboro', and m., about 1818, Sophia Peterson of Duxbiiry, by whom he had Mary, m. Phineas Leach; Anna VV., m. Francis Henri Weston; and Abner. Aunek, son of above, in."
+			},
+			{
+				"position": 4,
+				"title": "Jedediah Ellis Family – Rootie",
+				"link": "https://rootie.org/home/genealogy/ellis-family/jedediah-ellis-family/",
+				"displayed_link": "rootie.org › home › genealogy › ellis-family › jedediah",
+				"snippet": "Jedediah Ellis, son of Samuel Ellis, was born April 10, 1822 in Woodstock, Massachusetts (now Connecticut) to Samuel Ellis and Betsey Young. He died July 6, 1894, Syracuse, Onandaga, New York."
+			},
+			{
+				"position": 5,
+				"title": "Pioneer Ellis Family",
+				"link": "https://jefferson.nygenweb.net/ellisp.htm",
+				"displayed_link": "jefferson.nygenweb.net › ellisp",
+				"snippet": "Pioneer ellis family. 1. CALEB ELLIS (son of RICHARD & MARY (PHILLIPS) ELLIS) was born on August 16, 1754 in Massachusetts. During the Revolutionary War, Caleb served as a private in Capt."
+			},
+			{
+				"position": 6,
+				"title": "Middleboro Gazette Index 1852 - 1868",
+				"link": "https://midlib.org/sites/midlib.org/files/attachments/1852-1868.pdf",
+				"displayed_link": "midlib.org › sites › midlib.org › files › attachments",
+				"snippet": "Baxter, Betsey Marston Mills widow dies at age 88, 05/29/1857:2. Baxter (daughter of Olive) West Dennis woman kills daughter, 02/20/1858:2.pdfView"
+			},
+			{
+				"position": 7,
+				"title": "William Ticknor - Wikipedia",
+				"link": "https://en.wikipedia.org/wiki/William_Ticknor",
+				"displayed_link": "en.wikipedia.org › William Ticknor",
+				"snippet": "William Davis Ticknor I (August 6, 1810 – April 10, 1864) was an American publisher in Boston, Massachusetts, USA, and a founder of the publishing house Ticknor and Fields."
+			},
+			{
+				"position": 8,
+				"title": "Bert Ellis — Phone Numbers, Addresses... | BeenVerified",
+				"link": "https://www.beenverified.com/people/bert-ellis/",
+				"displayed_link": "beenverified.com › people › bert-ellis",
+				"snippet": "Browse our names directory for people named Bert Ellis — records across 14 states with ages, phone numbers, addresses, emails and public records."
+			},
+			{
+				"position": 9,
+				"title": "Category:Ellis (surname) - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Ellis_(surname)",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Ellis_(",
+				"snippet": "Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB. Chronologie der geschiedenis van Suriname - voorafgegaan door de aardrijkskundige ligging, grenzen en naamoorsprong dier kolonie (IA bub gb zjVyp2f2SNsC)..."
+			},
+			{
+				"position": 10,
+				"title": "BURIAL PLACE",
+				"link": "https://dedhamvillage.org/wp-content/uploads/2017/08/epitaphs-in-the-old-burial-place_dedham.pdf",
+				"displayed_link": "dedhamvillage.org › wp-content › uploads",
+				"snippet": "ALGER, Betsey E., xvi, 2. ALLIN; John, xv, 4. ALL-. WRIGHT, Alfred, x, 8. ARBONNE, Charlotte, ii, 1. ATHERTON, Abner, xvi, 17 ... ELLIS, ix, 4. Here lies buried the Body of Mr. Samuel Ellis, who.pdfView"
+			},
+			{
+				"position": 11,
+				"title": "Massachusetts and More Genealogy Blog: September 2012",
+				"link": "https://massandmoregenealogy.blogspot.com/2012_09_01_archive.html",
+				"displayed_link": "massandmoregenealogy.blogspot.com › 2012_09_01",
+				"snippet": "The mill is believed to have been just north of the Main Street Bridge. Bethiah died before 30 April 1782 when Patrick married, second, Elizabeth (Betsey) (Ellis) Nickerson. I have not found his death date, but it was obviously after his 1782 marriage."
+			}
+		]
+	}
+}

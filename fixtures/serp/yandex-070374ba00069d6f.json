@@ -1,0 +1,65 @@
+{
+	"engine": "yandex",
+	"query": "\"Edward Hildebrand III\" 1966 2018 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Search - Supreme Court of the United States",
+				"link": "https://www.supremecourt.gov/search.aspx?filename=/docket/docketfiles/html/public/19-357.html",
+				"displayed_link": "supremecourt.gov › search.aspx",
+				"snippet": "Henry Edward Hildebrand III Counsel of Record."
+			},
+			{
+				"position": 2,
+				"title": "Donna Irene Hildebrand Obituary Jun... - Newcomer Dayton",
+				"link": "https://www.newcomerdayton.com/obituaries/donna-hildebrand",
+				"displayed_link": "newcomerdayton.com › obituaries › donna-hildebrand",
+				"snippet": "Donna Irene Hildebrand, age 75 of Fairborn, Ohio, passed away on June 30, 2024, in Kettering, Ohio. She was born on March 11, 1949, in Oklahoma City, Oklahoma."
+			},
+			{
+				"position": 3,
+				"title": "Henry Hildebrand - Lawyer in Brentwood, TN - Avvo",
+				"link": "https://www.avvo.com/attorneys/37027-tn-henry-hildebrand-1709657.html",
+				"displayed_link": "avvo.com › attorneys › 37027-tn-henry-hildebrand",
+				"snippet": "Location. Henry Edward Hildebrand III. 320 Seven Springs Way Ste 110. Brentwood, TN, 37027-4558."
+			},
+			{
+				"position": 4,
+				"title": "SHOUPE\\SHUPE",
+				"link": "https://familiesbyvelmaparsons.com/pdfs/SHUPE2.pdf",
+				"displayed_link": "familiesbyvelmaparsons.com › pdfs › SHUPE2.pdf",
+				"snippet": "Both buried, Edgewood Cemetery, Saltsburg, Pa. Children, 5. 2 boys & 3 daughters. 4-1. Edward Clifford Shupe. ... 7-1. Edward Hildebrand, III. Colton, N. Y.pdfView"
+			},
+			{
+				"position": 5,
+				"title": "FENTON v. STORY et al | CASE: 1:23-cv-01097",
+				"link": "https://rico.fentonvstory.com/1-23-cv-01097/index.htm",
+				"displayed_link": "rico.fentonvstory.com › 1-23-cv-01097 › index",
+				"snippet": "Henry Edward Hildebrand, III individually and in their official capacities."
+			},
+			{
+				"position": 6,
+				"title": "Full text of \"The George Washington University 1987-1997\"",
+				"link": "https://archive.org/stream/gwu_presidents_report_1997/gwu_presidents_report_1997_djvu.txt",
+				"displayed_link": "archive.org › stream › gwu_presidents_report_1997 › gwu",
+				"snippet": "Mrs. Marcus Lederer Ralph W. Lee, III Rose Bente Lee Martha Louise Leggette Sheldon G. Leibow, M.D., and Lois A. Leihow Edward J. Lenkin Morton S. Lerner*."
+			},
+			{
+				"position": 7,
+				"title": "248 F.3d - Volume 248 of the Federal Reporter, 3rd... :: Justia",
+				"link": "https://law.justia.com/cases/federal/appellate-courts/F3/248/",
+				"displayed_link": "law.justia.com › cases › federal › appellate-courts › F3",
+				"snippet": "In Re: Tonya Mae Brown, Eugene and Anita Toivonen, and Doris Ann Berry, Debtors.internal Revenue Service, Appellee, v. Henry Edward Hildebrand, Iii, Trustee, Appellant Date: April 9, 2001 Citation: 248 F.3d 484."
+			},
+			{
+				"position": 8,
+				"title": "COURT DOCKET - Chapter 13 Trustee",
+				"link": "https://studylib.net/doc/18668227/court-docket---chapter-13-trustee",
+				"displayed_link": "studylib.net › doc › court-docket---chapter",
+				"snippet": "Respondent: WESLEY DALE BROWN JR., AND HENRY EDWARD HILDEBRAND III., TRUSTEE Hearing scheduled 10/5/2016 at 08:30 AM at Courtroom 1, 2nd Floor Customs House, 701 Broadway, Nashville, TN 37203."
+			}
+		]
+	}
+}

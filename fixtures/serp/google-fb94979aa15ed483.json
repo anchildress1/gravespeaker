@@ -1,0 +1,30 @@
+{
+	"engine": "google",
+	"query": "\"Ethan John Chartre\" 2007 2016 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Obituary information for Ethan Chartre",
+				"link": "https://www.skradskifuneralhomes.com/obituaries/Ethan-Chartre?obId=46308102",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEShgEB6zswFQ-9ueV9ceqy_NqLn7UaUcvSk-U7Bif7xG2-xjE4-jWQpSK_P1SxGqjjOOMd9kPK4KMcEksPxOhtJzSbq79B1xtqcA7-FGEmKWgyZvAHDxQ5Q2HWs7ddrk8FV_mztd4tgtWkRKaZ8hsBOLfsll69m8KQTn8BCddvpoZrLjbxtPT2rg&ved=2ahUKEwjpp4COm-GXAxXTlSsGHTeIH0MQFnoECBkQAQ&uoh=1",
+				"displayed_link": "https://www.skradskifuneralhomes.com › obituaries › Et...",
+				"snippet": "Ethan John Chartre, age 9, of Cornell, passed away on September 17, 2016 as a result of a boating accident on Lake Superior. Ethan was born August 25, 2007 ...",
+				"snippet_highlighted_words": ["Ethan John Chartre", "2016", "2007"],
+				"about_this_result": {
+					"source": {
+						"description": "Ethan John Chartre, age 9, of Cornell, passed away on September 17, 2016 as a result of a boating accident on Lake Superior. Ethan was born August 25, 2007 ...",
+						"source_info_link": "https://www.skradskifuneralhomes.com/obituaries/Ethan-Chartre?obId=46308102"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CsQBL2dvdG8_dXJsPUNBRVNoZ0VCNnpzd0ZVaG9jSC03cXkwblE4Nld5VmNlaDVrajE5bkc2d0hrNXYtX3VXWURFbTJFSGFRY08tdHBlVVZBeUJlQXdkTWNCSVhHU2UxMW5ZdmZzc25WUU5JM2FtNDJFZVV0cEtBR0FJTjFVYzF6YVJfN0IycGhEQ1ROZEoyb0I0ZUhLZTZDNGRyVzdoMm40R3VuOXpzbjFuNzJNMTNlWkF3bFQ0WGxWdjc1YmRJNDFGNkxxQRIEGgIIABqPBhIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDrBQgAEAAYACAAKgwKBWV0aGFuFTxm40AqCwoEam9obhXtX5o_KhgKB2NoYXJ0cmUVdrTHQBoIY2hhcnRyw6kqGgoEMjAwNxV6xsU_GgIwNxoJaXY7bjsyMDA3KhYKBDIwMTYVX-PNPxoJaXY7bjsyMDE2Kq0BCghvYml0dWFyeRX4fINAGg1pdjtwO29iaXR1YXJ5GgppdjtwO2dyYXZlGg1pdjtwO2NlbWV0ZXJ5GgpvYml0dWFyaWVzGgRkaWVkGgVkZWF0aBoHZnVuZXJhbBoEb2JpdBoGcGFzc2VkGgZidXJpYWwaBmdyYXZlcxoGYnVyaWVkGglncmF2ZXNpdGUaCWdyYXZleWFyZBoKY2VtZXRlcmllcxoIbWVtb3JpYWwyxAEvZ290bz91cmw9Q0FFU2hnRUI2enN3RlVob2NILTdxeTBuUTg2V3lWY2VoNWtqMTluRzZ3SGs1di1fdVdZREVtMkVIYVFjTy10cGVVVkF5QmVBd2RNY0JJWEdTZTExbll2ZnNzblZRTkkzYW00MkVlVXRwS0FHQUlOMVVjMXphUl83QjJwaERDVE5kSjJvQjRlSEtlNkM0ZHJXN2gybjRHdW45enNuMW43Mk0xM2VaQXdsVDRYbFZ2NzViZEk0MUY2THFBOkU8Yj5PYml0dWFyeTwvYj4gaW5mb3JtYXRpb24gZm9yIEV0aGFuIENoYXJ0cmUgLSBTa3JhZHNraSBGdW5lcmFsIEhvbWVCuQE8Yj5FdGhhbiBKb2huIENoYXJ0cmU8L2I-LCBhZ2UgOSwgb2YgQ29ybmVsbCwgcGFzc2VkIGF3YXkgb24gU2VwdGVtYmVyIDE3LCA8Yj4yMDE2PC9iPiBhcyBhIHJlc3VsdCBvZiBhIGJvYXRpbmcgYWNjaWRlbnQgb24gTGFrZSBTdXBlcmlvci4gRXRoYW4gd2FzIGJvcm4gQXVndXN0IDI1LCA8Yj4yMDA3PC9iPiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CsQBL2dvdG8_dXJsPUNBRVNoZ0VCNnpzd0ZVaG9jSC03cXkwblE4Nld5VmNlaDVrajE5bkc2d0hrNXYtX3VXWURFbTJFSGFRY08tdHBlVVZBeUJlQXdkTWNCSVhHU2UxMW5ZdmZzc25WUU5JM2FtNDJFZVV0cEtBR0FJTjFVYzF6YVJfN0IycGhEQ1ROZEoyb0I0ZUhLZTZDNGRyVzdoMm40R3VuOXpzbjFuNzJNMTNlWkF3bFQ0WGxWdjc1YmRJNDFGNkxxQRIEGgIIABqPBhIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDrBQgAEAAYACAAKgwKBWV0aGFuFTxm40AqCwoEam9obhXtX5o_KhgKB2NoYXJ0cmUVdrTHQBoIY2hhcnRyw6kqGgoEMjAwNxV6xsU_GgIwNxoJaXY7bjsyMDA3KhYKBDIwMTYVX-PNPxoJaXY7bjsyMDE2Kq0BCghvYml0dWFyeRX4fINAGg1pdjtwO29iaXR1YXJ5GgppdjtwO2dyYXZlGg1pdjtwO2NlbWV0ZXJ5GgpvYml0dWFyaWVzGgRkaWVkGgVkZWF0aBoHZnVuZXJhbBoEb2JpdBoGcGFzc2VkGgZidXJpYWwaBmdyYXZlcxoGYnVyaWVkGglncmF2ZXNpdGUaCWdyYXZleWFyZBoKY2VtZXRlcmllcxoIbWVtb3JpYWwyxAEvZ290bz91cmw9Q0FFU2hnRUI2enN3RlVob2NILTdxeTBuUTg2V3lWY2VoNWtqMTluRzZ3SGs1di1fdVdZREVtMkVIYVFjTy10cGVVVkF5QmVBd2RNY0JJWEdTZTExbll2ZnNzblZRTkkzYW00MkVlVXRwS0FHQUlOMVVjMXphUl83QjJwaERDVE5kSjJvQjRlSEtlNkM0ZHJXN2gybjRHdW45enNuMW43Mk0xM2VaQXdsVDRYbFZ2NzViZEk0MUY2THFBOkU8Yj5PYml0dWFyeTwvYj4gaW5mb3JtYXRpb24gZm9yIEV0aGFuIENoYXJ0cmUgLSBTa3JhZHNraSBGdW5lcmFsIEhvbWVCuQE8Yj5FdGhhbiBKb2huIENoYXJ0cmU8L2I-LCBhZ2UgOSwgb2YgQ29ybmVsbCwgcGFzc2VkIGF3YXkgb24gU2VwdGVtYmVyIDE3LCA8Yj4yMDE2PC9iPiBhcyBhIHJlc3VsdCBvZiBhIGJvYXRpbmcgYWNjaWRlbnQgb24gTGFrZSBTdXBlcmlvci4gRXRoYW4gd2FzIGJvcm4gQXVndXN0IDI1LCA8Yj4yMDA3PC9iPiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"source": "Skradski Family Funeral Homes",
+				"read_more_link": "https://www.skradskifuneralhomes.com/obituaries/Ethan-Chartre?obId=46308102#:~:text=Ethan%20John%20Chartre%2C%20age%209%2C,Steven%20and%20April%20(Weikel)%20Chartre."
+			}
+		]
+	}
+}

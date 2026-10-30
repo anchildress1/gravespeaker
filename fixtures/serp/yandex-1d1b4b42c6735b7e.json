@@ -1,0 +1,107 @@
+{
+	"engine": "yandex",
+	"query": "\"Russell O Bell\" corvallis oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "ancestry.com/obituaries/oregon/corvallis",
+				"link": "https://www.ancestry.com/obituaries/oregon/corvallis",
+				"displayed_link": "ancestry.com › obituaries › oregon › corvallis",
+				"snippet": "Links to the page contain: Corvallis...."
+			},
+			{
+				"position": 2,
+				"title": "Cemeteries in Corvallis, Oregon - Find a Grave",
+				"link": "https://www.findagrave.com/cemetery-browse/USA/Oregon/Benton-County/Corvallis?id=city_113122",
+				"displayed_link": "findagrave.com › cemetery-browse › USA › Oregon › Benton",
+				"snippet": "cemeteries found in Corvallis, Oregon will be saved to your photo volunteer list."
+			},
+			{
+				"position": 3,
+				"title": "Corvallis Obituaries",
+				"link": "https://www.echovita.com/us/obituaries/or/corvallis",
+				"displayed_link": "echovita.com › us › obituaries › or › corvallis",
+				"snippet": "Search obituaries and death notices from Corvallis, Oregon, brought to you by Echovita.com. Discover detailed obituaries, access complete funeral service information, and express your feelings by leaving condolence messages."
+			},
+			{
+				"position": 4,
+				"title": "Corvallis, Oregon Obituaries (1999...) | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/obituaries/all/usa/oregon/corvallis",
+				"displayed_link": "genealogybank.com › explore › obituaries › all › usa",
+				"snippet": "Search Corvallis, Oregon obituaries from 1999 - Current. Find death notices, funeral announcements, and burial records for your Corvallis ancestors in our archives."
+			},
+			{
+				"position": 5,
+				"title": "Benton County & Corvallis, OR Obituaries, 25+ indexes",
+				"link": "https://www.newspaperobituaries.net/oregon/benton-county.htm",
+				"displayed_link": "newspaperobituaries.net › oregon › benton-county",
+				"snippet": "Benton County and Corvallis, Oregon Obituaries. Corvallis Gazette-Times Obituaries in Corvallis, OR."
+			},
+			{
+				"position": 6,
+				"title": "Miscellaneous Douglas County, Oregon, Obituaries",
+				"link": "https://www.genealogybuff.com/or/or-douglas-obits20.htm",
+				"displayed_link": "genealogybuff.com › or › or-douglas-obits20",
+				"snippet": "Jean Eggers EGGERS, Elizabeth Jean - Age 70, of Salem, Oregon, passed away on Saturday, June 2, 2001, in Corvallis, Oregon. She was born on July 16, 1930 to Chester and Gladys (Roen) Pickens in Salem, Oregon."
+			},
+			{
+				"position": 7,
+				"title": "Most Recent Obituaries | Fir Lawn Memorial Park & Funeral...",
+				"link": "https://www.firlawnfh.com/obituaries",
+				"displayed_link": "firlawnfh.com › obituaries",
+				"snippet": "Recent obituaries in Hillsboro and Washington County, Oregon. The obituaries in the Hillsboro Washington County, OR Area reflect the region's diverse population, featuring individuals from a variety of ethnic, religious, and cultural backgrounds."
+			},
+			{
+				"position": 8,
+				"title": "Corvallis, Oregon Online Obituaries | Ever Loved",
+				"link": "https://everloved.com/obituary-search/OR/corvallis/",
+				"displayed_link": "everloved.com › obituary-search › OR › corvallis",
+				"snippet": "View recent online obituaries and memorials websites for people who lived in Corvallis, Oregon. Get death information, see service details and more."
+			},
+			{
+				"position": 9,
+				"title": "Oregon Obituaries | Local Obits for Oregon, WI",
+				"link": "https://www.legacy.com/us/obituaries/local/wisconsin/oregon",
+				"displayed_link": "legacy.com › us › obituaries › local › wisconsin › oregon",
+				"snippet": "View Oregon obituaries on Legacy, the most timely and comprehensive collection of local obituaries for Oregon, Wisconsin, updated regularly throughout the day with submissions from newspapers, funeral homes, and direct from the community."
+			},
+			{
+				"position": 10,
+				"title": "Corvallis Gazette-Times Obituaries (1999 – 2026)...",
+				"link": "https://www.obitsarchive.com/obituaries/usa/oregon/corvallis/corvallis-gazette-times",
+				"displayed_link": "obitsarchive.com › obituaries › usa › oregon › corvallis",
+				"snippet": "1999 – 2026 | Corvallis Gazette-Times obituary and death notices in Corvallis, Oregon."
+			},
+			{
+				"position": 11,
+				"title": "Obituary Listing | AAsum-Dufour Funeral Home | Albany, OR",
+				"link": "https://www.aasum-dufour.com/obituaries",
+				"displayed_link": "aasum-dufour.com › obituaries",
+				"snippet": "Obituary Listing. The best funeral and cremation services in Albany, Oregon. ... Lisa Rosen (64) of Corvallis passed away on March 6th, 2026."
+			},
+			{
+				"position": 12,
+				"title": "Jacksonville Cemetery, Jacksconville, Oregon - Surnames O-R",
+				"link": "https://www.interment.net/data/us/or/jackson/jacksonville-cemetery-records-o-r.htm",
+				"displayed_link": "interment.net › data › us › or › jackson › jacksonville",
+				"snippet": "Oregon Obituary Search - (1988-current). Oregon Funeral Notices. Jacksonville Cemetery Jacksonville, Jackson County, Oregon. ... 1st marriage 1850 to Thomas Bell. 2nd. Marriage 1890 to Samuel Phillips."
+			},
+			{
+				"position": 13,
+				"title": "Corvallis Gazette Times : Obituaries in Corvallis, Oregon...",
+				"link": "https://www.the-funeral-home-directory.com/newspapers/oregon/corvallis/3362/obits.ashx",
+				"displayed_link": "the-funeral-home-directory.com › newspapers › oregon",
+				"snippet": "Corvallis Gazette Times. 600 SW Jefferson Ave. Corvallis, Oregon 97333. Benton County. (541) 753-2641. Obituary Information."
+			},
+			{
+				"position": 14,
+				"title": "Portland, Oregon Obituaries, Funeral... | CurrentObituary.com",
+				"link": "https://www.currentobituary.com/browse/or/portland",
+				"displayed_link": "currentobituary.com › browse › or › portland",
+				"snippet": "Currentobituary.com. Your source for online obituaries and funeral notices."
+			}
+		]
+	}
+}

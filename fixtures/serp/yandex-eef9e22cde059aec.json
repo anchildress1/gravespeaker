@@ -1,0 +1,37 @@
+{
+	"engine": "yandex",
+	"query": "\"Daisy M. Morgan\" 1929 2019 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Daisy Morgan: 139 records - Addresses, Phone Numbers, Cars",
+				"link": "https://ufind.name/Daisy+Morgan",
+				"displayed_link": "ufind.name › Daisy Morgan",
+				"snippet": "Daisy Morgan - we found 139 people search records: 50 addresses & phone numbers, 5 Daisy Morgan's cars, 1 real estate objects, 61 CVs and social profiles."
+			},
+			{
+				"position": 2,
+				"title": "Daisy Morgan Phone Number, Address, Email... | BeenVerified",
+				"link": "https://www.beenverified.com/people/daisy-morgan/",
+				"displayed_link": "beenverified.com › people › daisy-morgan",
+				"snippet": "Looking for Daisy Morgan? We found records in 21 states. See Daisy's age, contact number, house address, email address and public records in our names directory."
+			},
+			{
+				"position": 3,
+				"title": "Daisy M Morgan - Salisbury SP5 - full address - 192.com",
+				"link": "https://www.192.com/atoz/people/morgan/daisy/sp5/2688068336/",
+				"displayed_link": "192.com › atoz › people › morgan › daisy › sp5",
+				"snippet": "We have a record for a Daisy M Morgan living at an address in Salisbury SP5. The record includes the full address, along with information about the source of the data that will show whether the address is likely to be current."
+			},
+			{
+				"position": 4,
+				"title": "Дэйзи Мэри Морган - актриса - биография, фото, лучшие...",
+				"link": "https://ru.kinorium.com/name/8044815/",
+				"displayed_link": "ru.kinorium.com › name",
+				"snippet": "Дэйзи Мэри Морган. Daisy Mary Morgan. Актриса Актриса. карьера. ... фантастика, драма, фэнтези, 55 мин (в титрах как: Daisy Morgan) США • Угла Хёйксдоуттир..."
+			}
+		]
+	}
+}

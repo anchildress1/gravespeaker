@@ -1,0 +1,65 @@
+{
+	"engine": "yandex",
+	"query": "\"Betsey Ellis\" 1818 ellisville massachusetts (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Springfield Cemetery, Springfield, Massachusetts - Burial...",
+				"link": "https://www.interment.net/data/us/ma/hampden/springfield-cemetery/records-ba-bl.htm",
+				"displayed_link": "interment.net › data › us › ma › hampden › springfield",
+				"snippet": "Cemetery records of Springfield Cemetery, Surnames Ba-Bl, in Springfield, Hampden County, Massachusetts, compiled by Hampden County Genealogical Volunteers."
+			},
+			{
+				"position": 2,
+				"title": "Jedediah Ellis Family – Rootie",
+				"link": "https://rootie.org/home/genealogy/ellis-family/jedediah-ellis-family/",
+				"displayed_link": "rootie.org › home › genealogy › ellis-family › jedediah",
+				"snippet": "Jedediah Ellis, son of Samuel Ellis, was born April 10, 1822 in Woodstock, Massachusetts (now Connecticut) to Samuel Ellis and Betsey Young. He died July 6, 1894, Syracuse, Onandaga, New York."
+			},
+			{
+				"position": 3,
+				"title": "Full text of \"Ancient landmarks of Plymouth\"",
+				"link": "https://archive.org/stream/ancientlandmarks00indavi/ancientlandmarks00indavi_djvu.txt",
+				"displayed_link": "archive.org › stream › _djvu.txt",
+				"snippet": "Ellis, Abneb, came from Middleboro', and m., about 1818, Sophia Peterson of Duxbiiry, by whom he had Mary, m. Phineas Leach; Anna VV., m. Francis Henri Weston; and Abner."
+			},
+			{
+				"position": 4,
+				"title": "Category:Ellisville, Massachusetts - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Ellisville,_Massachusetts",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Ellisville,",
+				"snippet": "Media in category \"Ellisville, Massachusetts\". This category contains only the following file. Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB."
+			},
+			{
+				"position": 5,
+				"title": "Pioneer Ellis Family",
+				"link": "https://jefferson.nygenweb.net/ellisp.htm",
+				"displayed_link": "jefferson.nygenweb.net › ellisp",
+				"snippet": "Pioneer ellis family. 1. CALEB ELLIS (son of RICHARD & MARY (PHILLIPS) ELLIS) was born on August 16, 1754 in Massachusetts. During the Revolutionary War, Caleb served as a private in Capt."
+			},
+			{
+				"position": 6,
+				"title": "Middleboro Gazette Index 1852 - 1868",
+				"link": "https://midlib.org/sites/midlib.org/files/attachments/1852-1868.pdf",
+				"displayed_link": "midlib.org › sites › midlib.org › files › attachments",
+				"snippet": "It is my hope that Index to the Middleboro Gazette Index, 1852 – 1868 will provide a lasting resource for people researching the history of Middleboro and Lakeville, Massachusetts.pdfView"
+			},
+			{
+				"position": 7,
+				"title": "William Ticknor - Wikipedia",
+				"link": "https://en.wikipedia.org/wiki/William_Ticknor",
+				"displayed_link": "en.wikipedia.org › William Ticknor",
+				"snippet": "William Davis Ticknor I (August 6, 1810 – April 10, 1864) was an American publisher in Boston, Massachusetts, USA, and a founder of the publishing house Ticknor and Fields."
+			},
+			{
+				"position": 8,
+				"title": "Betsey Ellis | Tanglewood Resident Times",
+				"link": "https://twrtimes.com/author/betseyels/",
+				"displayed_link": "twrtimes.com › author › betseyels",
+				"snippet": "HomeAuthorsPosts by Betsey Ellis. Betsey Ellis. Tanglewood's News."
+			}
+		]
+	}
+}

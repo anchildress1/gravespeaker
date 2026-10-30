@@ -1,0 +1,8 @@
+{
+	"engine": "google",
+	"query": "\"Edward Hildebrand III\" 1966 2018 alsea oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"error": "Google hasn't returned any results for this query."
+	}
+}

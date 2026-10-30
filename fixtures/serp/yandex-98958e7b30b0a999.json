@@ -1,0 +1,65 @@
+{
+	"engine": "yandex",
+	"query": "\"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "The Political Graveyard: Index to Politicians: Hayakawa to...",
+				"link": "https://politicalgraveyard.com/bio/hayakawa-haydon.html",
+				"displayed_link": "politicalgraveyard.com › bio › hayakawa-haydon",
+				"snippet": "A database of political history and cemeteries, with brief biographical entries for 338,260 U.S. political figures, living and dead, from the 1700s to the present."
+			},
+			{
+				"position": 2,
+				"title": "Harriet Amanda Reynolds Hayden... - Find a Grave Memorial",
+				"link": "https://www.findagrave.com/memorial/28204664/harriet_amanda-hayden",
+				"displayed_link": "findagrave.com › memorial › harriet_amanda",
+				"snippet": "* 1850 United States Census Name: Harriet Hayden Age: 44 Estimated Birth Year: 1805 Birth Place: New York Gender: Female Home in 1850 (City,County,State): Summerfield, Monroe, Michigan Page: 287 Roll: M432_358."
+			},
+			{
+				"position": 3,
+				"title": "Jasper Hayden Chan, Author at The Singapore Law Gazette",
+				"link": "https://lawgazette.com.sg/author/jasper-hayden-chan/",
+				"displayed_link": "lawgazette.com.sg › author › jasper-hayden-chan",
+				"snippet": "by Jasper Hayden Chan. The issue of renovation fraud and consumer protection is a hot topic for many Singaporeans, especially for young couples who have just bought their first property, and looking to turn it into their dream home."
+			},
+			{
+				"position": 4,
+				"title": "Jasper Hayden Whitlock Hale | Hour in Twilight... | Quotev",
+				"link": "https://www.quotev.com/story/678987/Hour-in-Twilight-Heaven/3",
+				"displayed_link": "quotev.com › story › Hour-in-Twilight-Heaven",
+				"snippet": "Jasper Hayden Whitlock Hale. i was just talking to my best friend jasper when someone shoved a hat in my face. you fished something out of the hat and hid it from jasper so you could see what it was. it was a military bagde..."
+			},
+			{
+				"position": 5,
+				"title": "Hayden Powell - Jasper - YouTube",
+				"link": "https://www.youtube.com/watch?v=L4XO818WIns",
+				"displayed_link": "youtube.com › watch",
+				"snippet": "Hayden Powell performs with Eyolf Dale on piano and Peedu Kass on bass at Lantaren Venster in Rotterdam. This concert was part of the tour \"MINT Jazz 2012\", and the band also played in Oslo and Cologne."
+			},
+			{
+				"position": 6,
+				"title": "Obituaries of Tri-County People buried Out of Tri-County area...",
+				"link": "https://joycetice.com/clippings/tcobt460.htm",
+				"displayed_link": "joycetice.com › clippings › tcobt460",
+				"snippet": "Anna was predeceased by her husband, Dorsey M. Gilbert, in 1993; a daughter, Patricia Stopper; and a brother, Harry Thomas Pentz. Relatives and friends are invited to Anna's Memorial Service at Faith United Methodist Church, 700 Fairview Dr..."
+			},
+			{
+				"position": 7,
+				"title": "Jasper Hale | The Dark Side of the Moon Wiki | Fandom",
+				"link": "https://dsotm.fandom.com/wiki/Jasper_Hale",
+				"displayed_link": "dsotm.fandom.com › wiki › Jasper_Hale",
+				"snippet": "Jasper Hayden Whitlock Hale is a Texan vampires sired by Maria Evans in 1863, aged twenty. After devoting almost a century of his life to serving her within her army during the Southern Wars, he left with Peter and Charlotte in search of something better."
+			},
+			{
+				"position": 8,
+				"title": "Jasper Thayer слушать и скачать музыку, треки...",
+				"link": "https://lightaudio.ru/mp3/jasper%20thayer",
+				"displayed_link": "lightaudio.ru › mp3 › jasper thayer",
+				"snippet": "Charles Howard - Jasper, Jasper Q - Different, Hayden Powell - Jasper, John 5, The Creatures - Ode to Jasper, Hamper McBee - Jasper Jail, Yasper - Solid, jasper - Moody, Jasper - Shelagh, Jasper Sawyer - High и другие скачать в mp3 и слушать..."
+			}
+		]
+	}
+}

@@ -1,0 +1,107 @@
+{
+	"engine": "yandex",
+	"query": "\"Marsha Fox Holmquist\" 1940 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Billings Obituaries",
+				"link": "https://www.echovita.com/us/obituaries/mt/billings",
+				"displayed_link": "echovita.com › us › obituaries › mt › billings",
+				"snippet": "Search Billings, Montana recent obituaries and death notices. Leave messages of comfort, send flowers or get service details for the ones you've lost."
+			},
+			{
+				"position": 2,
+				"title": "Portland, OR Obituaries | Find Portland Obituaries",
+				"link": "https://www.dignitymemorial.com/obituaries/portland-or",
+				"displayed_link": "dignitymemorial.com › obituaries › portland-or",
+				"snippet": "Portland, OR Obituaries. The Dignity Memorial® online obituary search tool gives you access to obituaries from thousands of locations across North America. You can search by first or last name, state and publication date."
+			},
+			{
+				"position": 3,
+				"title": "Search Millions of Grave Records - Find a Grave",
+				"link": "https://www.findagrave.com/memorial",
+				"displayed_link": "findagrave.com › memorial",
+				"snippet": "The World’s largest gravesite collection. Contribute, create and discover gravesites from all over the world. ."
+			},
+			{
+				"position": 4,
+				"title": "mvfh.org/obituary/john-holmquist",
+				"link": "https://www.mvfh.org/obituary/john-holmquist",
+				"displayed_link": "mvfh.org › obituary › john-holmquist",
+				"snippet": "Links to the page contain: Obituary | John E. Holmquist of New Ulm, Minnesota ......"
+			},
+			{
+				"position": 5,
+				"title": "Obituaries in Joliet, IL | Carlson Holmquist-Sayles Funeral...",
+				"link": "https://www.carlsonholmquistsayles.com/obituaries",
+				"displayed_link": "carlsonholmquistsayles.com › obituaries",
+				"snippet": "Obituaries. Use the search below to find the obituary of a loved one. We invite you to share memories, offer condolences, and celebrate a life well lived."
+			},
+			{
+				"position": 6,
+				"title": "2018 Marsha Fox Memorial Fundraiser - YouTube",
+				"link": "https://www.youtube.com/watch?v=fv6wacv8aXs",
+				"displayed_link": "youtube.com › watch",
+				"snippet": "О сервисе Прессе Авторские права Связаться с нами Авторам Рекламодателям..."
+			},
+			{
+				"position": 7,
+				"title": "Obituary Listing | Fox Funeral Home | Youngstown, OH",
+				"link": "https://www.foxfuneralhome.org/obituaries",
+				"displayed_link": "foxfuneralhome.org › obituaries",
+				"snippet": "John was born June 21, 1940, in Youngstown, a son of Regis John and Helen Gertrude Holden Reese. He was a proud 1958 graduate of Ursuline High School and spent his working career as an insurance adjustor for several area companies."
+			},
+			{
+				"position": 8,
+				"title": "Find a Grave Oklahoma | Search Cemeteries & Burial Records",
+				"link": "https://cemeteryguide.org/find-a-grave-oklahoma/",
+				"displayed_link": "cemeteryguide.org › find-a-grave-oklahoma",
+				"snippet": "Search Find a Grave Oklahoma cemeteries and burial records. Free memorial search by name, cemetery lookup, GPS locations, headstone photos & obituary records."
+			},
+			{
+				"position": 9,
+				"title": "Obituaries | Colville & Stevens County... | Statesman-Examiner",
+				"link": "https://www.statesmanexaminer.com/obituaries",
+				"displayed_link": "statesmanexaminer.com › obituaries",
+				"snippet": "View recent obituaries and death notices published in Colville and Stevens County, Washington by the Statesman-Examiner. ... Marsha May Fox, age 80, passed away on July 29, 2026."
+			},
+			{
+				"position": 10,
+				"title": "Obituaries | Tribute Archive",
+				"link": "https://www.tributearchive.com/obituaries",
+				"displayed_link": "tributearchive.com › obituaries",
+				"snippet": "Search for obituaries by name, state, city, birth date, death date, or keywords. Find your loved one’s obituary to view and leave memories, photos, and messages of love on their Tribute Wall."
+			},
+			{
+				"position": 11,
+				"title": "Most Recent Obituaries | Tufts Schildmeyer Family Funeral...",
+				"link": "https://www.tuftsschildmeyer.com/obituaries?query=obituary+listings",
+				"displayed_link": "tuftsschildmeyer.com › obituaries",
+				"snippet": "Visit Obituary. Elizabeth Ann Holmquist. ... Elizabeth Ann Holmquist of Canfield, OH, passed away peacefully September 24, 2026, at the age of 87. Known as “Ann” to her family and friends she cherished her family above all else."
+			},
+			{
+				"position": 12,
+				"title": "Obituary for DONALD HOLMQUIST | Hamilton Funeral Homes",
+				"link": "https://www.hamiltonfhs.com/obituary/DONALD-HOLMQUIST",
+				"displayed_link": "hamiltonfhs.com › obituary › DONALD-HOLMQUIST",
+				"snippet": "Obituary for DONALD HOLMQUIST | Donald John Holmquist, of Braham, Minnesota passed away peacefully on Thursday, April 3, 2025, at the Cambridge Medical Center. He was 92 years old."
+			},
+			{
+				"position": 13,
+				"title": "Marsha (Fox) Roady Obituary Dec... - Hale's Funeral Homes",
+				"link": "https://www.halesfuneralhomes.com/obituaries/marsh-roady",
+				"displayed_link": "halesfuneralhomes.com › obituaries › marsh-roady",
+				"snippet": "Share Marsha (Fox) Roady's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated. We'll notify you when service details or new memories are added."
+			},
+			{
+				"position": 14,
+				"title": "Obituaries | The Guardian",
+				"link": "https://www.theguardian.com/tone/obituaries",
+				"displayed_link": "theguardian.com › tone › obituaries",
+				"snippet": "Derrick Harriott obituary. Singer, songwriter, producer and record label owner who was a leading figure in Jamaican pop music. Chekov, in a yellow uniform, turns to look back on the Starship Enterprise bridge. Star Trek. Walter Koenig obituary."
+			}
+		]
+	}
+}

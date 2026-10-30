@@ -1,0 +1,107 @@
+{
+	"engine": "yandex",
+	"query": "(\"Stephen Reynolds\" | \"Stephen * Reynolds\") 1989 2014 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Stephen P. Reynolds - INSPIRE",
+				"link": "https://inspirehep.net/authors/1029477",
+				"displayed_link": "inspirehep.net › authors",
+				"snippet": "Kazimierz J. Borkowski. , Stephen P. Reynolds. , David A. Green."
+			},
+			{
+				"position": 2,
+				"title": "Modernist Short Story Project - Stephen Reynolds",
+				"link": "https://mssp.byu.edu/author/stephen-reynolds/",
+				"displayed_link": "mssp.byu.edu › author › stephen-reynolds",
+				"snippet": "Stephen Sydney Reynolds was born on May 16, 1881 in Devizes, Wiltshire, the oldest child of Frank and Clara Williams."
+			},
+			{
+				"position": 3,
+				"title": "How the new hymn ‘As Bread Is Broken’ came to be – Church...",
+				"link": "https://www.thechurchnews.com/members/2026/02/01/new-hymn-as-bread-is-broken-began-during-sacrament-meeting-reflection/",
+				"displayed_link": "thechurchnews.com › members › new-hymn-as",
+				"snippet": "Words Stephen Reynolds jotted down on a ward program became a new hymn in the global hymnbook. ... Hymn writer Stephen Reynolds and his wife, Emily Reynolds, pose near Park City, Utah, on Aug. 30, 2024. Ashlyn Arlene Photography."
+			},
+			{
+				"position": 4,
+				"title": "Stephen Reynolds in Florida - 68 Records... | BeenVerified",
+				"link": "https://www.beenverified.com/people/stephen-reynolds/fl/2/",
+				"displayed_link": "beenverified.com › people › stephen-reynolds › fl",
+				"snippet": "Stephen Reynolds may live in Bradenton, FL with a 941 area phone number and may have connections to Dori L Percifield, Susan J Leggins and Doug Leggins."
+			},
+			{
+				"position": 5,
+				"title": "Stephen Reynolds (1784-) | WikiTree FREE Family Tree",
+				"link": "https://www.wikitree.com/wiki/Reynolds-14300",
+				"displayed_link": "wikitree.com › wiki › Reynolds-14300",
+				"snippet": "Compare DNA and explore genealogy for Stephen Reynolds born 1784 Warren, New York, United States including ancestors + descendants + DNA connections + more in the free family tree community."
+			},
+			{
+				"position": 6,
+				"title": "Dr. Stephen Reynolds, DO | Ocala, FL | US News Doctors",
+				"link": "https://health.usnews.com/doctors/stephen-reynolds-1118482",
+				"displayed_link": "health.usnews.com › doctors › stephen-reynolds-1118482",
+				"snippet": "Dr. Stephen Reynolds is a ENT-Otolaryngologist in Ocala, FL. Find Dr. Reynolds's phone number, address, insurance information, hospital affiliations and more."
+			},
+			{
+				"position": 7,
+				"title": "Stephen Reynolds - The Mathematics Genealogy Project",
+				"link": "https://www.mathgenealogy.org/id.php?id=217167",
+				"displayed_link": "mathgenealogy.org › id",
+				"snippet": "Stephen Eugene Reynolds. Ph.D. University of Wisconsin-Madison 1970 UnitedStates. ... According to our current on-line database, Stephen Reynolds has 4 students and 5 descendants."
+			},
+			{
+				"position": 8,
+				"title": "Stephen Reynolds Obituary - Ronald B. Jones Funeral Home",
+				"link": "https://www.ronaldbjones.com/obituaries/338-stephen-reynolds",
+				"displayed_link": "ronaldbjones.com › obituaries › 338-stephen-reynolds",
+				"snippet": "Cover photo for Stephen Reynolds's Obituary. ... Stephen Richard Reynolds, 83, of Burlington, passed away on Friday, March 25, 2016 at Bridge Point Center in Florence."
+			},
+			{
+				"position": 9,
+				"title": "Memorial Resolution on the Reverend Stephen James...",
+				"link": "https://anglicanhistory.org/canada/sjreynolds/memorial2011.html",
+				"displayed_link": "anglicanhistory.org › canada › sjreynolds",
+				"snippet": "Upon graduation, Stephen Reynolds returned to active parish ministry in the Diocese of Toronto, first as Associate Priest at the Church of St. Mary Magdalene, then as Incumbent of the parish of Bridgenorth and Emily."
+			},
+			{
+				"position": 10,
+				"title": "Geoff Thompson Masterclass 2008 by Stephen Reynolds",
+				"link": "https://www.youtube.com/watch?v=T8jZcUTMdiY",
+				"displayed_link": "youtube.com › watch",
+				"snippet": "stephen reynolds 36,054 views 18 years ago. ... Stephen 'Block' Reynolds Vs Declan Trainorpaulyoldmac3K views • 9 years agoLivePlaylist ()Mix (50+). 14:24. Feared Bully 'TERRORS' Coventry Pubs."
+			},
+			{
+				"position": 11,
+				"title": "Stephen Shane Reynolds, 51 - Palm Bay, FL - Has Court or...",
+				"link": "https://www.mylife.com/stephen-reynolds/e709967182242",
+				"displayed_link": "mylife.com › stephen-reynolds › e709967182242",
+				"snippet": "Stephen Reynolds , 51 - Leo. location. Palm Bay, FL. View Address. Stephen Reynolds was born on 08/12/1975 and is 51 years old. Stephen Reynolds currently lives in Palm Bay, FL; in the past Stephen has also lived in Grant FL."
+			},
+			{
+				"position": 12,
+				"title": "MRS. STEPHEN REYNOLDS - The New York Times",
+				"link": "https://www.nytimes.com/1960/05/20/archives/mrs-stephen-reynolds.html",
+				"displayed_link": "nytimes.com › archives › mrs-stephen",
+				"snippet": "Mrs. Catherine Walter Reynolds of 28 Catalpa Road, wife of Stephen J. Reynolds, operator of Reynolds Farm Nurseries at South Norwalk, died yesterday in Norwalk Hospital at the age of 70."
+			},
+			{
+				"position": 13,
+				"title": "Stephen REYNOLDS | Californian Department of...",
+				"link": "https://www.researchgate.net/profile/Stephen-Reynolds-9",
+				"displayed_link": "researchgate.net › profile › Stephen-Reynolds-9",
+				"snippet": "Stephen Drury Reynolds. Californian Department of Conservation · Forest and Watershed Geology."
+			},
+			{
+				"position": 14,
+				"title": "Stephen Reynolds | Downtown Indianapolis",
+				"link": "https://downtownindy.org/go/stephen-reynolds",
+				"displayed_link": "downtownindy.org › go › stephen-reynolds",
+				"snippet": "Details. Stephen Reynolds is an associate in the Business Litigation Group, with a practice that focuses on commercial litigation, products liability litigation, contract litigation, privacy and information law, trade secrets litigation, risk management, and..."
+			}
+		]
+	}
+}
