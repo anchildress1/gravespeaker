@@ -1,0 +1,35 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+
+Closing message:
+The page check already reads only dates stated next to the person's name. I'll apply its conflict test to every match, not just name-only ones. Checking the existing story tests to copy their shape:
+Date rule done. Next, the new stones: searching Wikimedia Commons (free, no credits) for recent headstones outside the current few towns.
+Most hits are famous people or more Oregon. Pulling location and photographer for the plausible ones:
+Rick Obst again on almost everything. Excluding his uploads from the search:
+Commons barely has recent, non-famous US graves outside Rick Obst's uploads, which is why the set clustered. Trying a search by state category:
+Wikimedia rate-limited me. Retrying slower, one request every 3 s:
