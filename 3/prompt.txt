@@ -1,0 +1,62 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+
+Closing message:
+ing 964. Overall, adding place came out even.
+
+| Stone | No place (A) | With place (B) | Change |
+|---|---|---|---|
+| Chambers | — | **high** 1959–2011 | ✅ win |
+| Hayden | low (Singapore lawyer) | **high** 1907–1993 (FamilySearch, Jasper Neil Hayden) | ✅ win |
+| Hall | **high** 1940–2014 (Flickr, Eugene Masonic) | low (legacy.com) | ❌ loss |
+| Juntunen | **medium**, died 2012 (Gazette-Times) | low (same obit, dates lost) | ❌ loss |
+| Hawks | — | low (Find a Grave user page, junk) | noise |
+| Guo | high | high | same |
+| The other 9 | low | low | same: wrong people either way |
+
+## What it means 🪦
+- **2 wins, 2 losses.** Adding the place by itself is not an improvement.
+- **The wins fill gaps.** Place found Chambers and Hayden when the no-place query got nothing or the wrong person.
+- **The losses are on stones that were already working.** With the town in the query, Juntunen's obituary came back without its dates.
+- **One run per arm.** Some of these swings could be noise, but I ran it once, as you asked.
+
+## Recommendation
+- Search without the place first. Re-search with the place only when nothing comes back `high` or `medium`.
+- On this run, that gets every win and none of the losses.
+- It costs one extra search, and only on misses: 11 of these 15 stones.
+- It's a second query, not a retry. Say yes and I'll build it.
+
+## Captured (place worktree, uncommitted)
+- `benchmarks/results/search-4-no-place.json`
+- `benchmarks/results/search-5-place.json`
+- Raw logs:
+  - `/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/46816981-401c-468f-8b9a-553cdd362601/scratchpad/ab4.log`
+  - `/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/46816981-401c-468f-8b9a-553cdd362601/scratchpad/ab5.log`
+
+These numbers rest on place labels you haven't reviewed, so don't publish them yet.
+The fallback is in. Running the tests now. The worktree's vitest config has no `unit` project, so I'm running them without the project filter.

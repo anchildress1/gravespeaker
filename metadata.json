@@ -3,7 +3,7 @@
   "checkpoint_id": "01M65AACEPY0WC66SWV93Z00NH",
   "strategy": "manual-commit",
   "branch": "feat/place-signal",
-  "checkpoints_count": 3,
+  "checkpoints_count": 4,
   "files_touched": [
     "package.json",
     "pnpm-lock.yaml",
@@ -48,22 +48,29 @@
       "compact_transcript": "/2/transcript.jsonl",
       "content_hash": "/2/content_hash.txt",
       "prompt": "/2/prompt.txt"
+    },
+    {
+      "metadata": "/3/metadata.json",
+      "transcript": "/3/full.jsonl",
+      "compact_transcript": "/3/transcript.jsonl",
+      "content_hash": "/3/content_hash.txt",
+      "prompt": "/3/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 6,
-    "cache_creation_tokens": 126272,
-    "cache_read_tokens": 42582,
-    "output_tokens": 617,
-    "api_call_count": 3
+    "input_tokens": 8,
+    "cache_creation_tokens": 169464,
+    "cache_read_tokens": 56776,
+    "output_tokens": 733,
+    "api_call_count": 4
   },
   "redaction": {
-    "replacements": 9,
+    "replacements": 12,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 9,
+      "credential_value": 12,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
