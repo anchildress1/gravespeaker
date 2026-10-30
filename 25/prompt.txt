@@ -1,0 +1,34 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+plain queries reordered
+review banner updated
+place matching stopped
+identity matching tightened
+test review received
+code review received
+
+Closing message:
+Adding the documented-risk test for "wed." and running unit tests.
+Unit tests pass (359). Replaying the research benchmark, since the ranking and redirect fixes change results. It runs from saved responses, so no credits.
+The 9 failures are a missing assertion: the eval config requires every test to assert something. Fixing that.
+Updating the write-up with the review's corrections.
+Fixing one lint error (a test helper missing JSDoc), then rerunning the gate.
