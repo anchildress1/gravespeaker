@@ -1,0 +1,56 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+plain queries reordered
+
+Closing message:
+*`docs/benchmarks/search.md`** (new) is the write-up:
+  - the final design
+  - a table of 11 key challenges and how each was fixed
+  - the four search-order and stop-rule runs compared
+  - a table of the gaps we couldn't fill
+- **`README.md`**: now describes the keyword pairs, the 1–12 searches per stone, and how results from each phase are mixed by rank. It also links the write-up.
+- **New results:**
+  - `research-15.json` to `research-19.json`. 15 is a broken run missing 23 searches; I didn't delete it because results files are never overwritten.
+  - `sources-5.json`, the source audit of the final run.
+  - 50 new search recordings, with no API key in any of them.
+
+## Gaps we couldn't fill
+
+- **4 of 9 people never get a dated match.** Pineda, Reynolds Jr., Hiatt and Yacobi end name-only after 12 to 16 searches. Place matching is the fix, in the next branch.
+- **Only 2 of 9 own memorials come back from search** (Overton and Louella), confirmed against the final run.
+- **Name-only results are mostly noise.** The only thing keeping them out of a story is the rule that a fetched page must state the stone's dates.
+- **Almost every dated match has a single source.** Olivia is the only one with a second.
+- **Google sometimes goes past the 20 s timeout.** Those results are lost, both in prod and in the replays.
+- **Gated sites like Ancestry are dropped without being read.**
+- **The 21 photo fixtures' saved searches use the old queries.** Re-recording them costs about 100 to 150 credits.
+
+## You need to act on
+
+- **The numbers in the write-up aren't publishable yet.** `people.json` is `reviewed: false`, and the `right` and `match` labels are still empty. The doc says so at the top; review those before quoting any of it.
+- **Credits:** this round spent 50, not the 23 I estimated, because the longer runs reached searches that had never been recorded.
+- **Nothing is committed**, and the place branch hasn't been created.
+Updating the write-up's review banner, then answering.
