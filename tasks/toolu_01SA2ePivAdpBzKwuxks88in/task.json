@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_01SA2ePivAdpBzKwuxks88in",
+  "agent_id": "a530a7d6e2cb95bda",
+  "subagent_type": "pr-review-toolkit:code-reviewer",
+  "task_description": "Code review for slop and principles",
+  "token_usage": {
+    "input_tokens": 20,
+    "cache_creation_tokens": 124596,
+    "cache_read_tokens": 869732,
+    "output_tokens": 13819,
+    "api_call_count": 10
+  },
+  "started_at": "2026-10-30T09:41:04.705676-07:00",
+  "completed_at": "2026-10-30T09:43:28.970017-07:00"
+}

@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_01TYWs9vYj1XWjwsMhnHMzAu",
+  "agent_id": "a3b4fee627c1a00e2",
+  "subagent_type": "pr-review-toolkit:comment-analyzer",
+  "task_description": "Comment accuracy and slop",
+  "token_usage": {
+    "input_tokens": 24,
+    "cache_creation_tokens": 112490,
+    "cache_read_tokens": 1064683,
+    "output_tokens": 14575,
+    "api_call_count": 12
+  },
+  "started_at": "2026-10-30T09:41:21.457474-07:00",
+  "completed_at": "2026-10-30T09:43:50.227099-07:00"
+}

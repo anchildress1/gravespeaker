@@ -1,0 +1,15 @@
+{
+  "tool_use_id": "toolu_0155wiykJA4T7r7jk4DpVu9v",
+  "agent_id": "a2272fa47637adb00",
+  "subagent_type": "pr-review-toolkit:silent-failure-hunter",
+  "task_description": "Hunt silent failures",
+  "token_usage": {
+    "input_tokens": 36,
+    "cache_creation_tokens": 104963,
+    "cache_read_tokens": 1666542,
+    "output_tokens": 14576,
+    "api_call_count": 18
+  },
+  "started_at": "2026-10-30T09:41:16.720642-07:00",
+  "completed_at": "2026-10-30T09:44:32.356848-07:00"
+}
