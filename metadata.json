@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67E0VDYJ41579CC3HDRM7YS",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 12,
+  "checkpoints_count": 45,
   "files_touched": [
     "README.md",
     "docs/benchmarks/search.md"
@@ -92,6 +92,13 @@
       "compact_transcript": "/11/transcript.jsonl",
       "content_hash": "/11/content_hash.txt",
       "prompt": "/11/prompt.txt"
+    },
+    {
+      "metadata": "/12/metadata.json",
+      "transcript": "/12/full.jsonl",
+      "compact_transcript": "/12/transcript.jsonl",
+      "content_hash": "/12/content_hash.txt",
+      "prompt": "/12/prompt.txt"
     }
   ],
   "token_usage": {
@@ -102,14 +109,14 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 36,
+    "replacements": 3516,
     "layers": {
-      "betterleaks": 0,
+      "betterleaks": 12,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 36,
+      "credential_value": 562,
       "credentialed_uri": 0,
-      "entropy": 0,
+      "entropy": 4116,
       "key_context": 0,
       "provider_token": 0,
       "shell_stdin": 0
