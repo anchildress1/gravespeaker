@@ -1,0 +1,51 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+narrate endpoint validated
+voice presets sampled
+pr eight opened
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+
+Closing message:
+0+`, harness `pixie-qa`), so it can't run here without adding a second runtime to a TypeScript repo. Its method is still useful. Here's how it compares to what I built:
+
+## 🔍 Eval-driven-dev vs this branch
+| Pixie rule | Here |
+|---|---|
+| Real LLM, never mocked | ✅ Gemma and the judge are live |
+| Swap only external data at the edges (`wrap()`) | ✅ Page fetches are replayed; app code runs for real |
+| LLM judge for meaning, code for mechanical checks | ✅ Life-claims judge plus the stone-years check |
+| Check the evaluator itself before trusting scores | ✅ Already caught the judge flagging "lived a life" and recalibrated it |
+| **Capture traces of in-between steps**, not just the final output | ❌ **Gap.** I only score the final paragraph, so I can't tell whether a bad claim came from the extracted facts, the story model, or text that slipped past grounding. |
+| **Written eval criteria and a per-run analysis** with evidence | ❌ **Gap.** Criteria live in my chat messages and test names. |
+| **Dataset from real data, not project fixtures**, with at least one case whose outcome is uncertain | ⚠️ Partly conflicts with the hand-written set |
+
+## What I'd take from it
+- **Traces:** record the verified facts and the pre-grounding paragraph per sample through Mastra's workflow result, so a failure can be blamed on extraction or on the story model. This is the biggest gain.
+- **Criteria doc:** add a short `docs/benchmarks/story-evals.md` covering the criteria, how to run the eval, and what labels mean.
+- **Real plus synthetic:** the recorded set is the realism check and the hand-written set is the targeted traps. Pixie would argue for the recorded set alone; I'd keep both, since the traps test failure modes real data hits only by luck.
+
+## What I'd skip
+- `pixie-qa` itself, its web server, and the Python wrapper around the app. That's a second toolchain for zero new capability over Mastra and Vitest.
+
+Meanwhile, wiring both sets into the eval as you asked:
