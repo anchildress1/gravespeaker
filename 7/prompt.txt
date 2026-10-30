@@ -1,0 +1,59 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+
+Closing message:
+committed.
+
+## The 9 people with a known memorial
+| | With keywords (`research-12`) | Without (`research-13`) | **Without, then with (`research-14`)** |
+|---|---|---|---|
+| Dated matches | 3 | 4 | **5** |
+| Own memorial found | 1 | 1 | **2** (Overton, Louella) |
+| Searches (credits) | 69 | 44 | 72 |
+
+- **Gains over the keyword version:** Overton (high, her own memorial) and Bree (medium, her funeral home obituary).
+- **Losses:** none. Chartre, Olivia and Louella are still found.
+- **Cheaper when someone is found:** Overton took 2 searches instead of 12, and Bree 1 instead of 14.
+- **More expensive on a miss:** up to 12 searches instead of 6, because every step now runs twice. Pineda, Hiatt and Stephen Reynolds still find no dated match.
+- **Cost of this test:** 2 credits. Everything else was already saved.
+
+## Search order in the workflow (`src/lib/server/identity.ts`)
+The plan step lines these up for the existing search loop, which still stops at the first dated match:
+1. Name + dates, without keywords: Yandex, then Google.
+2. Name + dates, with keywords: Yandex, then Google.
+3. The same pair with the town.
+4. The same pair for name + town.
+
+The tests pin this order, including one that checks the keyword search runs only when the plain one finds nobody with matching dates.
+
+## Still open
+- **Cost on a miss:** each person with no dated match now costs up to 12 credits instead of 6. The free plan allows 1,000 searches a month.
+- **README:** still describes the old 3 steps and the old 5-source rule. I'll update it through the readme skill once you sign off.
+- **The 21 photo fixtures:** their saved searches predate this change. A full 30-person run needs about 100–150 credits to record the plain queries.
+Replay missed 23 searches the old runs never reached (the 3-source rule searches further). Recording them: 23 credits.
+Google timeouts (20s cap) are saved as failures, same as prod would see — left as is. Now the counterfactual for the stop rule, free from replay:
