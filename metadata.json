@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67DP2HMBNAFWEA3MWYE8S38",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 15,
+  "checkpoints_count": 48,
   "files_touched": [
     "src/lib/components/ErrorNotice.svelte",
     "src/lib/components/Invitation.svelte",
@@ -15,11 +15,15 @@
     "src/lib/server/narrative.ts",
     "src/lib/server/pages.test.ts",
     "src/lib/server/pages.ts",
+    "src/lib/server/query.test.ts",
+    "src/lib/server/query.ts",
     "src/lib/server/research.ts",
     "src/lib/server/search/engines.ts",
     "src/lib/server/search/index.ts",
     "src/lib/server/search/serpapi.test.ts",
     "src/lib/server/search/serpapi.ts",
+    "src/lib/server/search/sites.test.ts",
+    "src/lib/server/search/sites.ts",
     "src/lib/server/story.ts",
     "src/lib/types.ts",
     "src/routes/+page.svelte",
@@ -133,24 +137,31 @@
       "compact_transcript": "/14/transcript.jsonl",
       "content_hash": "/14/content_hash.txt",
       "prompt": "/14/prompt.txt"
+    },
+    {
+      "metadata": "/15/metadata.json",
+      "transcript": "/15/full.jsonl",
+      "compact_transcript": "/15/transcript.jsonl",
+      "content_hash": "/15/content_hash.txt",
+      "prompt": "/15/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 0,
-    "cache_creation_tokens": 0,
-    "cache_read_tokens": 0,
-    "output_tokens": 0,
-    "api_call_count": 0
+    "input_tokens": 2,
+    "cache_creation_tokens": 670,
+    "cache_read_tokens": 363847,
+    "output_tokens": 625,
+    "api_call_count": 1
   },
   "redaction": {
-    "replacements": 45,
+    "replacements": 3330,
     "layers": {
-      "betterleaks": 0,
+      "betterleaks": 12,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 45,
+      "credential_value": 529,
       "credentialed_uri": 0,
-      "entropy": 0,
+      "entropy": 3925,
       "key_context": 0,
       "provider_token": 0,
       "shell_stdin": 0
