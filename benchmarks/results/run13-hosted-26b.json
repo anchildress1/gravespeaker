@@ -1,0 +1,532 @@
+[
+	{
+		"file": "chambers-2011.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 141020,
+		"got": {
+			"people": [
+				{
+					"name": "CORWIN \"CORY\" GARNER CHAMBERS",
+					"born": "1959-11-07",
+					"died": "2011-09-12",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "CORWIN \"CORY\" GARNER CHAMBERS",
+				"name": "Corwin “Cory” Garner Chambers",
+				"maidenName": null,
+				"born": "1959-11-07",
+				"died": "2011-09-12",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "gonzalez-2021.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 95757,
+		"got": {
+			"people": [
+				{
+					"name": "Alfonso Gonzalez",
+					"born": "1951-11-18",
+					"died": "2021-01-17",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Alfonso Gonzalez",
+				"name": "Alfonso Gonzalez",
+				"maidenName": null,
+				"born": "1951-11-18",
+				"died": "2021-01-17",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "guo-2025.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 63390,
+		"got": {
+			"people": [
+				{
+					"name": "Jiunn-Shih Guo",
+					"born": "1937-01-18",
+					"died": "2025-12-10",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Jiunn-Shih Guo",
+				"name": "Jiunn-Shih Guo",
+				"maidenName": null,
+				"born": "1937-01-18",
+				"died": "2025-12-10",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "hildebrand-iii-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 46325,
+		"got": {
+			"people": [
+				{
+					"name": "Edward Hildebrand III",
+					"born": "1966",
+					"died": "2018",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Edward Hildebrand III",
+				"name": "Edward Hildebrand III",
+				"maidenName": null,
+				"born": "1966",
+				"died": "2018",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "hildebrand-jr-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 40840,
+		"got": {
+			"people": [
+				{
+					"name": "EDWARD LEROY HILDEBRAND JR",
+					"born": "1942-04-28",
+					"died": "2015-10-10",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "EDWARD LEROY HILDEBRAND JR",
+				"name": "Edward Leroy Hildebrand Jr",
+				"maidenName": null,
+				"born": "1942-04-28",
+				"died": "2015-10-10",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "cunningham-1752.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 37147,
+		"got": {
+			"people": [
+				{
+					"name": "Mr. Andrew Cunningham",
+					"born": null,
+					"died": "1752-04-27",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Mr. Andrew Cunningham",
+				"name": "Andrew Cunningham",
+				"maidenName": null,
+				"born": null,
+				"died": "1752-04-27",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "ellis-1818.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 37343,
+		"got": {
+			"people": [
+				{
+					"name": "BETSEY ELLIS",
+					"born": null,
+					"died": "1848-07-28",
+					"voice": "female",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "BETSEY ELLIS",
+				"name": "Betsey Ellis",
+				"maidenName": null,
+				"born": null,
+				"died": "1848-07-28",
+				"voice": "female",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "illegible-marble.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 32782,
+		"got": {
+			"people": [
+				{
+					"name": "[]",
+					"born": null,
+					"died": null,
+					"voice": null,
+					"place": null
+				}
+			]
+		},
+		"normalized": []
+	},
+	{
+		"file": "luxford-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 23318,
+		"got": {
+			"people": [
+				{
+					"name": "Robert E. Luxford",
+					"born": "1934",
+					"died": "2015",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Robert E. Luxford",
+				"name": "Robert E. Luxford",
+				"maidenName": null,
+				"born": "1934",
+				"died": "2015",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "morgan-2019.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 24506,
+		"got": {
+			"people": [
+				{
+					"name": "Daisy M. Morgan",
+					"born": "1929-04-28",
+					"died": "2019-01-18",
+					"voice": "female",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Daisy M. Morgan",
+				"name": "Daisy M. Morgan",
+				"maidenName": null,
+				"born": "1929-04-28",
+				"died": "2019-01-18",
+				"voice": "female",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "waechter-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 23787,
+		"got": {
+			"people": [
+				{
+					"name": "MARTIN WAECHTER",
+					"born": "1943-03-07",
+					"died": "2012-01-31",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "MARTIN WAECHTER",
+				"name": "Martin Waechter",
+				"maidenName": null,
+				"born": "1943-03-07",
+				"died": "2012-01-31",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "mills-2015.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 20716,
+		"got": {
+			"people": [
+				{
+					"name": "Joshua John Mills",
+					"born": "1979-07-21",
+					"died": "2015-01-07",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Joshua John Mills",
+				"name": "Joshua John Mills",
+				"maidenName": null,
+				"born": "1979-07-21",
+				"died": "2015-01-07",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "hall-2014.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 14913,
+		"got": {
+			"people": [
+				{
+					"name": "James Kenneth Hall",
+					"born": "1940-07-23",
+					"died": "2014-03-18",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "James Kenneth Hall",
+				"name": "James Kenneth Hall",
+				"maidenName": null,
+				"born": "1940-07-23",
+				"died": "2014-03-18",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "juntunen-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 14444,
+		"got": {
+			"people": [
+				{
+					"name": "Troy Leonard Juntunen",
+					"born": "1967-01-28",
+					"died": "2012-08-03",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Troy Leonard Juntunen",
+				"name": "Troy Leonard Juntunen",
+				"maidenName": null,
+				"born": "1967-01-28",
+				"died": "2012-08-03",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "dixon-2018.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 19245,
+		"got": {
+			"people": [
+				{
+					"name": "LLOYD DEE DIXON",
+					"born": "1943-07-11",
+					"died": "2018-05-26",
+					"voice": "male",
+					"place": "VIETNAM"
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "LLOYD DEE DIXON",
+				"name": "Lloyd Dee Dixon",
+				"maidenName": null,
+				"born": "1943-07-11",
+				"died": "2018-05-26",
+				"voice": "male",
+				"place": "VIETNAM"
+			}
+		]
+	},
+	{
+		"file": "schreiber-2012.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 18044,
+		"got": {
+			"people": [
+				{
+					"name": "Tyson Lee Schreiber",
+					"born": "1992-08-21",
+					"died": "2012-02-12",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Tyson Lee Schreiber",
+				"name": "Tyson Lee Schreiber",
+				"maidenName": null,
+				"born": "1992-08-21",
+				"died": "2012-02-12",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "hawks-2017.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 17918,
+		"got": {
+			"people": [
+				{
+					"name": "Gaynor Claire Hawks née Staples",
+					"born": "1932-03-10",
+					"died": "2017-12-27",
+					"voice": "female",
+					"place": "Cheyenne, Wyoming"
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Gaynor Claire Hawks née Staples",
+				"name": "Gaynor Claire Hawks",
+				"maidenName": "Staples",
+				"born": "1932-03-10",
+				"died": "2017-12-27",
+				"voice": "female",
+				"place": "Cheyenne, Wyoming"
+			}
+		]
+	},
+	{
+		"file": "hayden-1993.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 19996,
+		"got": {
+			"people": [
+				{
+					"name": "Jasper \"Bub\" Hayden",
+					"born": "1907",
+					"died": "1993",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Jasper \"Bub\" Hayden",
+				"name": "Jasper “Bub” Hayden",
+				"maidenName": null,
+				"born": "1907",
+				"died": "1993",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "bell-1994.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 16498,
+		"got": {
+			"people": [
+				{
+					"name": "RUSSELL O BELL",
+					"born": "1924-09-24",
+					"died": "1994-02-08",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "RUSSELL O BELL",
+				"name": "Russell O Bell",
+				"maidenName": null,
+				"born": "1924-09-24",
+				"died": "1994-02-08",
+				"voice": "male",
+				"place": null
+			}
+		]
+	},
+	{
+		"file": "doran-2008.jpg",
+		"model": "gemma-4-26b-a4b-it",
+		"ms": 17560,
+		"got": {
+			"people": [
+				{
+					"name": "Bruce Doran",
+					"born": "1934-05-31",
+					"died": "2008-03-28",
+					"voice": "male",
+					"place": null
+				}
+			]
+		},
+		"normalized": [
+			{
+				"carvedName": "Bruce Doran",
+				"name": "Bruce Doran",
+				"maidenName": null,
+				"born": "1934-05-31",
+				"died": "2008-03-28",
+				"voice": "male",
+				"place": null
+			}
+		]
+	}
+]
