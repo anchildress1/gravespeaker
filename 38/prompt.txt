@@ -1,0 +1,53 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+
+Closing message:
+ out a given name: "Thai DelRay Hiatt" is not Georgia D.
+- **Someone else's page:** a page whose title gives another person's dates is dropped even when it lists your person as family. Example: Tonie Bell's memorial listing Russell O Bell.
+- **One behaviour change to know:** a stone reading "Gaynor C. Hawks" no longer matches a record that only says "Claire Hawks".
+
+Every rule has a test that fails on the old engine and passes now.
+
+## Search and recording
+- **Google redirect links:** some full `google.com/goto` links were being kept as if they were pages (Waechter's source was one). They're now followed like the other redirects. I recorded 12 more of those hops; they're free.
+- **`benchmarks/research.eval.ts`:** names are now cleaned up the same way the app does it. Each row also saves the exact person details that were searched.
+- **`benchmarks/record-stories.ts`:** reads the newest `research-N.json` and refuses one that has missing saved searches. It reuses saved page text and keeps your `match` label only while that person's candidates stay the same.
+
+## Still wrong, needs your call
+- **Find a Grave pages:** the text we fetch is the site's welcome banner (the same 1,737 characters every time), not the memorial. So a high match like Louella's has no usable page, and the story falls back to the stone.
+- **Chambers and Hall:** still matched from listings of their own headstone photos (a Commons category and a Flickr tag).
+- **Unresolved low leftovers:**
+  - Bell: three obituaries of relatives that name him
+  - Pineda: named as a survivor in his father's obituary
+  - Yacobi: the CBS murder article
+
+## For you
+- **Labels:** all 30 cases in `fixtures/stories-recorded.json` are rebuilt, and every `match` label is still unset.
+- **README:** its matching paragraph is still accurate but doesn't describe the new name-only rules. Say the word and I'll update it with the readme skill.
+- **Reminder:** voice labels are still waiting for your review.
+Applying the README edits.
