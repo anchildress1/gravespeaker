@@ -1,0 +1,34 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+
+Closing message:
+Now wiring the file into the research benchmark and the story recorder:
+The dry run fails for the 9 new people, as expected (nothing recorded yet). But 58 searches missing is more than 9 new people should need. Checking which ones:
+Left to record: the 7 stones whose towns were added or corrected, plus the 9 new people. That's 82 searches at most, fewer where a phase finds the person early. Checking the balance, then recording:
+Searches recorded: 67 credits, 789 left. No saved file contains the key. Now the story cases. They go through the running app and should hit SerpApi's cache for free, so I'll check the balance after.
+The story recorder cost 6 credits rather than none: 6 of its searches missed SerpApi's cache. Stopping the preview and reading the results:
