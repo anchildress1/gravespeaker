@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67DN7E3FAHM3FM75N7MK2CN",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 8,
+  "checkpoints_count": 9,
   "files_touched": [
     "Makefile",
     "package.json",
@@ -66,6 +66,13 @@
       "compact_transcript": "/7/transcript.jsonl",
       "content_hash": "/7/content_hash.txt",
       "prompt": "/7/prompt.txt"
+    },
+    {
+      "metadata": "/8/metadata.json",
+      "transcript": "/8/full.jsonl",
+      "compact_transcript": "/8/transcript.jsonl",
+      "content_hash": "/8/content_hash.txt",
+      "prompt": "/8/prompt.txt"
     }
   ],
   "token_usage": {
@@ -76,12 +83,12 @@
     "api_call_count": 3
   },
   "redaction": {
-    "replacements": 24,
+    "replacements": 27,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 24,
+      "credential_value": 27,
       "credentialed_uri": 0,
       "entropy": 0,
       "key_context": 0,
