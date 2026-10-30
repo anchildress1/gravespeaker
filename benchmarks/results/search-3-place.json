@@ -1,0 +1,276 @@
+{
+	"meta": {
+		"startedAt": "2026-10-30T01:50:29.947Z",
+		"commit": "afe61c7",
+		"dirty": true,
+		"node": "v26.12.1",
+		"engines": ["google", "yandex"],
+		"creditsBefore": {
+			"used": 217,
+			"left": 33
+		},
+		"withPlace": true,
+		"finishedAt": "2026-10-30T01:50:58.518Z",
+		"creditsAfter": {
+			"used": 226,
+			"left": 24
+		}
+	},
+	"summary": {
+		"stones": 5,
+		"wallMs": 28542,
+		"medianSearchMs": 2013,
+		"creditsUsed": 9,
+		"creditsLeft": 24,
+		"withCandidate": 5,
+		"byConfidence": {
+			"high": 1,
+			"medium": 0,
+			"low": 4
+		},
+		"perEngine": [
+			{
+				"engine": "google",
+				"failures": 1,
+				"medianMs": 1091,
+				"results": 39,
+				"sourcesKept": 2
+			},
+			{
+				"engine": "yandex",
+				"failures": 0,
+				"medianMs": 2007,
+				"results": 31,
+				"sourcesKept": 8
+			}
+		]
+	},
+	"rows": [
+		{
+			"file": "dixon-2018.jpg",
+			"person": {
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26"
+			},
+			"query": "\"Lloyd Dee Dixon\" 1943 2018 alsea oregon (obituary OR grave OR cemetery)",
+			"searchMs": 2013,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 977,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 2013,
+					"results": 1
+				}
+			],
+			"mergedResults": 3,
+			"afterGatedFilter": 3,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/us/obituaries/legacyremembers/lloyd-dixon-memorial?pid=178530055",
+							"title": "Lloyd Dixon Obituary and Online Memorial (2010)",
+							"snippet": "Lloyd Dixon Obituary and Online Memorial (2010). Share your favorite memories Lloyd and celebrate their life with the Dixon family on their online obituary.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.aasum-dufour.com/obituaries?page=182",
+							"title": "Obituary Listing | AAsum-Dufour Funeral Home | Albany, OR",
+							"snippet": "Lloyd Dee Dixon. Jul 11, 1943. A tribute is not available at this time for Lloyd Dee Dixon.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"person": {
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993"
+			},
+			"query": "\"Jasper Hayden\" 1907 1993 alsea oregon (obituary OR grave OR cemetery)",
+			"searchMs": 20004,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 20004,
+					"results": 0,
+					"error": "The operation was aborted due to timeout"
+				},
+				{
+					"engine": "yandex",
+					"ms": 2007,
+					"results": 12
+				}
+			],
+			"mergedResults": 12,
+			"afterGatedFilter": 12,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.quotev.com/story/678987/Hour-in-Twilight-Heaven/3",
+							"title": "Jasper Hayden Whitlock Hale | Hour in Twilight... | Quotev",
+							"snippet": "Jasper Hayden Whitlock Hale. i was just talking to my best friend jasper when someone shoved a hat in my face. you fished something out of the hat and hid it from jasper so you could see what it was. it was a military bagde...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://dsotm.fandom.com/wiki/Jasper_Hale",
+							"title": "Jasper Hale | The Dark Side of the Moon Wiki | Fandom",
+							"snippet": "Jasper Hayden Whitlock Hale is a Texan vampires sired by Maria Evans in 1863, aged twenty. After devoting almost a century of his life to serving her within her army during the Southern Wars, he left with Peter and Charlotte in search of something better.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-jr-2015.jpg",
+			"person": {
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10"
+			},
+			"query": "\"Edward Leroy Hildebrand Jr\" 1942 2015 alsea oregon (obituary OR grave OR cemetery)",
+			"searchMs": 2502,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 953,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 2501,
+					"results": 14
+				}
+			],
+			"mergedResults": 16,
+			"afterGatedFilter": 15,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.mysteinbach.ca/obituaries/2035/edward-hildebrand/",
+							"title": "Edward Hildebrand - Obituary",
+							"snippet": "Obituary. Edward (Ed) Hildebrand passed away suddenly of cardiac arrest on Thursday, November 21, 2019, in Minneapolis on a return trip from Florida.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.newcomerakron.com/obituaries/edward-hildebrand",
+							"title": "Edward Anthony Hildebrand Obituary... - Newcomer Akron",
+							"snippet": "Share Edward Anthony Hildebrand's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.whitepages.com/name/Edward-Hildebrand",
+							"title": "Edward Hildebrand Address & Phone Number",
+							"snippet": "Edward L Hildebrand is in their 60s. Edward's current address is 7183 Township Road 92 Mount Gilead OH 43338. They have also lived in Fredericktown, OH.",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "mills-2015.jpg",
+			"person": {
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07"
+			},
+			"query": "\"Joshua John Mills\" 1979 2015 eugene oregon (obituary OR grave OR cemetery)",
+			"searchMs": 1955,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 1091,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 1954,
+					"results": 2
+				}
+			],
+			"mergedResults": 3,
+			"afterGatedFilter": 3,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw/videos",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Show more. Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "chambers-2011.jpg",
+			"person": {
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			},
+			"query": "\"Corwin Garner Chambers\" 1959 2011 eugene oregon (obituary OR grave OR cemetery)",
+			"searchMs": 1952,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 1201,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 1951,
+					"results": 2
+				}
+			],
+			"mergedResults": 5,
+			"afterGatedFilter": 3,
+			"candidates": [
+				{
+					"confidence": "high",
+					"born": "1959",
+					"died": "2011",
+					"sources": [
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Eugene_Masonic_Cemetery",
+							"title": "Category:Eugene Masonic Cemetery - Wikimedia Commons",
+							"snippet": "Media in category \"Eugene Masonic Cemetery\". The following 200 files are in this category, out of 376 total. ... Corwin Garner Chambers (1959-2011), Eugene Masonic Cemetery.jpg 4,976 × 2,800; 5.92 MB.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		}
+	]
+}

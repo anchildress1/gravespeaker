@@ -1,0 +1,729 @@
+{
+	"meta": {
+		"startedAt": "2026-10-30T01:58:48.020Z",
+		"commit": "afe61c7",
+		"dirty": true,
+		"node": "v26.12.1",
+		"engines": ["google", "yandex"],
+		"creditsBefore": {
+			"used": 0,
+			"left": 1000
+		},
+		"withPlace": false,
+		"finishedAt": "2026-10-30T01:59:58.727Z",
+		"creditsAfter": {
+			"used": 20,
+			"left": 980
+		}
+	},
+	"summary": {
+		"stones": 15,
+		"wallMs": 70678,
+		"medianSearchMs": 1989,
+		"creditsUsed": 20,
+		"creditsLeft": 980,
+		"withCandidate": 13,
+		"byConfidence": {
+			"high": 2,
+			"medium": 1,
+			"low": 10
+		},
+		"perEngine": [
+			{
+				"engine": "google",
+				"failures": 2,
+				"medianMs": 838,
+				"results": 113,
+				"sourcesKept": 5
+			},
+			{
+				"engine": "yandex",
+				"failures": 0,
+				"medianMs": 1960,
+				"results": 134,
+				"sourcesKept": 28
+			}
+		]
+	},
+	"rows": [
+		{
+			"file": "chambers-2011.jpg",
+			"person": {
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			},
+			"query": "\"Corwin Garner Chambers\" 1959 2011 (obituary OR grave OR cemetery)",
+			"searchMs": 37,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 37,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 31,
+					"results": 2
+				}
+			],
+			"mergedResults": 3,
+			"afterGatedFilter": 3,
+			"candidates": []
+		},
+		{
+			"file": "guo-2025.jpg",
+			"person": {
+				"name": "Jiunn-Shih Guo",
+				"born": "1937-01-18",
+				"died": "2025-12-10"
+			},
+			"query": "\"Jiunn-Shih Guo\" 1937 2025 (obituary OR grave OR cemetery)",
+			"searchMs": 1993,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 872,
+					"results": 4
+				},
+				{
+					"engine": "yandex",
+					"ms": 1992,
+					"results": 4
+				}
+			],
+			"mergedResults": 5,
+			"afterGatedFilter": 5,
+			"candidates": [
+				{
+					"confidence": "high",
+					"born": "1937",
+					"died": "2025",
+					"sources": [
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Jim_Jiunn-Shih_Guo",
+							"title": "Category:Jim Jiunn-Shih Guo - Wikimedia Commons",
+							"snippet": "Jim Jiunn-Shih Guo (1937-2025) or 郭俊士 was born on 18 January 1937, in Madou, Tainan, Taiwan, his father, Han-Yun Guo, was 33 and his mother, Sho-Hua Lee, was 30. He married Alice Jau-Hwa Chang about 1965, in Tainan, Taiwan.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Guo_Hanyong",
+							"title": "Category:Guo Hanyong",
+							"snippet": "Jim Jiunn-Shih Guo (1937-2025) family tree.png 1,701 × 2,336; 1.87 MB. Last edited 2 months ago by Richard Arthur Norton (1958- ). Languages.",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-iii-2018.jpg",
+			"person": {
+				"name": "Edward Hildebrand III",
+				"born": "1966",
+				"died": "2018"
+			},
+			"query": "\"Edward Hildebrand III\" 1966 2018 (obituary OR grave OR cemetery)",
+			"searchMs": 1964,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 739,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 1963,
+					"results": 8
+				}
+			],
+			"mergedResults": 9,
+			"afterGatedFilter": 9,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://familiesbyvelmaparsons.com/pdfs/SHUPE2.pdf",
+							"title": "SHOUPE\\SHUPE",
+							"snippet": "Both buried, Edgewood Cemetery, Saltsburg, Pa. Children, 5. 2 boys & 3 daughters. 4-1. Edward Clifford Shupe. ... 7-1. Edward Hildebrand, III. Colton, N. Y.pdfView",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.supremecourt.gov/search.aspx?filename=/docket/docketfiles/html/public/19-357.html",
+							"title": "Search - Supreme Court of the United States",
+							"snippet": "Henry Edward Hildebrand III Counsel of Record.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.avvo.com/attorneys/37027-tn-henry-hildebrand-1709657.html",
+							"title": "Henry Hildebrand - Lawyer in Brentwood, TN - Avvo",
+							"snippet": "Location. Henry Edward Hildebrand III. 320 Seven Springs Way Ste 110. Brentwood, TN, 37027-4558.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://rico.fentonvstory.com/1-23-cv-01097/index.htm",
+							"title": "FENTON v. STORY et al | CASE: 1:23-cv-01097",
+							"snippet": "Henry Edward Hildebrand, III individually and in their official capacities.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://law.justia.com/cases/federal/appellate-courts/F3/248/",
+							"title": "248 F.3d - Volume 248 of the Federal Reporter, 3rd... :: Justia",
+							"snippet": "In Re: Tonya Mae Brown, Eugene and Anita Toivonen, and Doris Ann Berry, Debtors.internal Revenue Service, Appellee, v. Henry Edward Hildebrand, Iii, Trustee, Appellant Date: April 9, 2001 Citation: 248 F.3d 484.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-jr-2015.jpg",
+			"person": {
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10"
+			},
+			"query": "\"Edward Leroy Hildebrand Jr\" 1942 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 29,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 29,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 27,
+					"results": 14
+				}
+			],
+			"mergedResults": 15,
+			"afterGatedFilter": 15,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.thompsonfh.net/obituaries/edward-hildebrand-jr",
+							"title": "Edward Eugene Hildebrand, Jr. Obituary October 15, 2023...",
+							"snippet": "Edward “Big Bubba” Eugene Hildebrand, Jr., 59, of St. Matthews passed away unexpectedly on Sunday, October 15, 2023. A service celebrating his life will be held at 4:00 P.M. on...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.hursen.com/obituaries/edward-hildebrand",
+							"title": "Edward \"Eddie\" Hildebrand Obituary... - Hursen Funeral Home",
+							"snippet": "Share Edward \"Eddie\" Hildebrand's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "cunningham-1752.jpg",
+			"person": {
+				"name": "Andrew Cunningham",
+				"born": null,
+				"died": "1752-04-27"
+			},
+			"query": "\"Andrew Cunningham\" 1752 (obituary OR grave OR cemetery)",
+			"searchMs": 5124,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 5124,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 2107,
+					"results": 14
+				}
+			],
+			"mergedResults": 15,
+			"afterGatedFilter": 15,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": "1873",
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.encyclopedia-titanica.org/titanic-survivor/andrew-cunningham.html",
+							"title": "Andrew Orr Cunningham : Titanic Survivor",
+							"snippet": "Mr Andrew Orr Cunningham was born on 3 July 1873 in Shotts, Lanarkshire, Scotland, a small town midway between Glasgow and Edinburgh. He was the son of David Cunningham (b. 1848), a joiner, and his wife Jeanie Thomson (b. 1852).",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://oa.anu.edu.au/obituary/cunningham-andrew-1642",
+							"title": "Obituary - Andrew Cunningham - Obituaries Australia",
+							"snippet": "The funeral of the late Mr. Cunningham took place on Saturday, and, though intended to be strictly private, was attended by fully 100 of the principal residents of the district, including many of his brother magistrates.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.youtube.com/watch?v=bSH9rQWTOlI",
+							"title": "Admiral Andrew Cunningham - Triumph and... - YouTube",
+							"snippet": "Andrew Cunningham, 1st Viscount Cunningham of Hyndhope. Royal Navy Admiral of the Fleet (1883–1963). Transcript. ... Admiral Andrew Cunningham - Boers, Beatty and Bolsheviks (Part 1). Drachinifel. 174K 3y ago.Duration 41 minutes 7 seconds99K viewsPublished on6 Aug 2025",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://journals.openedition.org/miranda/3057",
+							"title": "Andrew Cunningham, The Anatomist Anatomis’d: An...",
+							"snippet": "After his fascinating The Anatomical Renaissance: The Resurrection of the Anatomical Projects of the Ancients (1997), Andrew Cunningham offers us a new study of anatomy, The Anatomist Anatomis’d: A...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.researchgate.net/profile/Andrew-Cunningham-6",
+							"title": "Andrew CUNNINGHAM | Head of Markets, crime and supply...",
+							"snippet": "Andrew Cunningham. European Monitoring Centre for Drugs and Drug Addiction (EMCDDA) | EMCDDA · Risks to Public Safety and Security Unit.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "ellis-1818.jpg",
+			"person": {
+				"name": "Betsey Ellis",
+				"born": null,
+				"died": "1818-07-28"
+			},
+			"query": "\"Betsey Ellis\" 1818 (obituary OR grave OR cemetery)",
+			"searchMs": 20002,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 20002,
+					"results": 0,
+					"error": "The operation was aborted due to timeout"
+				},
+				{
+					"engine": "yandex",
+					"ms": 1960,
+					"results": 11
+				}
+			],
+			"mergedResults": 11,
+			"afterGatedFilter": 11,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://commons.wikimedia.org/wiki/Category:Ellis_(surname)",
+							"title": "Category:Ellis (surname) - Wikimedia Commons",
+							"snippet": "Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB. Chronologie der geschiedenis van Suriname - voorafgegaan door de aardrijkskundige ligging, grenzen en naamoorsprong dier kolonie (IA bub gb zjVyp2f2SNsC)...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://twrtimes.com/?author=36",
+							"title": "Betsey Ellis | Tanglewood Resident Times",
+							"snippet": "by Betsey Ellis • 01/29/2024. Murine Mu-rine Adjective Of, like, or pertaining to mice and/or rats The scientist was constantly constructing new and more elaborate mazes for the rats to run in the course of his studies of murine intelligence.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "waechter-2012.jpg",
+			"person": {
+				"name": "Martin Waechter",
+				"born": "1943-03-07",
+				"died": "2012-01-31"
+			},
+			"query": "\"Martin Waechter\" 1943 2012 (obituary OR grave OR cemetery)",
+			"searchMs": 20002,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 20002,
+					"results": 0,
+					"error": "The operation was aborted due to timeout"
+				},
+				{
+					"engine": "yandex",
+					"ms": 1981,
+					"results": 14
+				}
+			],
+			"mergedResults": 14,
+			"afterGatedFilter": 14,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://cba.associates/associate/martin-wachter-consulting-professional/",
+							"title": "CBA • Martin Wächter | Consulting Professional",
+							"snippet": "CV Résumé. Martin Waechter is a quality driven and highly motivated marketing professional. Combines and balances a creative mind with perseverance and discipline to accomplish objectives.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://archiveofourown.org/tags/Martin%20Waechter%20(OC)",
+							"title": "Martin Waechter (OC) | Archive of Our Own",
+							"snippet": "Martin Waechter (OC). This tag belongs to the Character Category. This tag has not been marked common and can't be filtered on (yet).",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.oeffnungszeitenbuch.de/filiale/Walldorf-Martin%2520Waechter-2609063Z.html",
+							"title": "ᐅ Martin Waechter in Walldorf | Telefonnummer...",
+							"snippet": "Telefonnummer, Adresse und Öffnungszeiten für Martin Waechter in Walldorf, Nußlocher Str. 20  Alles Wichtige auf einen Blick!",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.northwestcoastcreatives.com/veronica-rose-waechter",
+							"title": "Veronica Rose Waechter | NWC Creatives",
+							"snippet": "Veronica graduated with a Master's of Fine Arts degree from OCAD University (Tkaronto) in 2023, and has since been mentoring her niece Jade English (Gitxsan, Metis) in sculpture and design. Her teachers in sculpture include her father Martin Waechter, as...",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "mills-2015.jpg",
+			"person": {
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07"
+			},
+			"query": "\"Joshua John Mills\" 1979 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 31,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 31,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 29,
+					"results": 2
+				}
+			],
+			"mergedResults": 2,
+			"afterGatedFilter": 2,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw/videos",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.abebooks.com/9780371108468/History-Creation-World-Death-Joshua-0371108462/plp",
+							"title": "History from the Creation of the World to the Death of Joshua...",
+							"snippet": "John Mills Jackson.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hall-2014.jpg",
+			"person": {
+				"name": "James Kenneth Hall",
+				"born": "1940-07-23",
+				"died": "2014-03-18"
+			},
+			"query": "\"James Kenneth Hall\" 1940 2014 (obituary OR grave OR cemetery)",
+			"searchMs": 1989,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 838,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 1989,
+					"results": 11
+				}
+			],
+			"mergedResults": 12,
+			"afterGatedFilter": 12,
+			"candidates": [
+				{
+					"confidence": "high",
+					"born": "1940",
+					"died": "2014",
+					"sources": [
+						{
+							"url": "https://www.flickr.com/photos/tags/EugeneMasonicCemetery/",
+							"title": "EugeneMasonicCemetery photos on Flickr | Flickr",
+							"snippet": "James Kenneth Hall (1940-2014), Eugene Masonic Cemetery by Rick Obst.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "juntunen-2012.jpg",
+			"person": {
+				"name": "Troy Leonard Juntunen",
+				"born": "1967-01-28",
+				"died": "2012-08-03"
+			},
+			"query": "\"Troy Leonard Juntunen\" 1967 2012 (obituary OR grave OR cemetery)",
+			"searchMs": 2253,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 1166,
+					"results": 7
+				},
+				{
+					"engine": "yandex",
+					"ms": 2252,
+					"results": 14
+				}
+			],
+			"mergedResults": 16,
+			"afterGatedFilter": 15,
+			"candidates": [
+				{
+					"confidence": "medium",
+					"born": null,
+					"died": "2012",
+					"sources": [
+						{
+							"url": "https://www.legacy.com/us/obituaries/gazettetimes/name/troy-juntunen-obituary?id=13595336",
+							"title": "Troy Juntunen Obituary (2012) - Corvallis, OR",
+							"snippet": "Troy Leonard Juntunen, 45, of Richland, Wash., died Aug. 3, 2012, on the Washington State University Riverbank Trail in Richland.",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "dixon-2018.jpg",
+			"person": {
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26"
+			},
+			"query": "\"Lloyd Dee Dixon\" 1943 2018 (obituary OR grave OR cemetery)",
+			"searchMs": 27,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 27,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 27,
+					"results": 14
+				}
+			],
+			"mergedResults": 16,
+			"afterGatedFilter": 16,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/us/obituaries/courier/name/lloyd-dixon-obituary?id=20132198",
+							"title": "Lloyd Dixon Obituary (2013) - Conroe, TX - The Courier of ...",
+							"snippet": "Lloyd Dixon,88 of Shepherd, TX, passed away Wed. June 19, 2013. Visitation, Fri. 1:30-5 Collins & Johnson. Services, Sat.11 AM @ Lake Poole Baptist Church, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/jsonline/name/lloyd-dixon-obituary?id=3165413",
+							"title": "Lloyd Dixon Obituary (2008) - Wauwatosa, WI",
+							"snippet": "Dixon, Lloyd Of Menomonee Falls. Age 81. Found peace Wed., March 12, 2008. Loving husband of Marcella (nee Strutz).",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "schreiber-2012.jpg",
+			"person": {
+				"name": "Tyson Lee Schreiber",
+				"born": "1992-08-21",
+				"died": "2012-02-12"
+			},
+			"query": "\"Tyson Lee Schreiber\" 1992 2012 (obituary OR grave OR cemetery)",
+			"searchMs": 1831,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 933,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 1830,
+					"results": 3
+				}
+			],
+			"mergedResults": 4,
+			"afterGatedFilter": 4,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/obituaries/name/schreiber/tyson",
+							"title": "Search Tyson Schreiber Obituaries and Funeral Services",
+							"snippet": "1 Obituaries. Publish Date. Result Type. Filter Options. Thursday, February 16, 2012. Tyson Lee Schreiber · See all \"Schreiber\" obituaries. Submit An Obituary.",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://onelegacyfloat.org/si/participants/2014_flora.html",
+							"title": "Donate Life Float Rose Parade - 2014 Floragraph Honorees",
+							"snippet": "Tyson Lee Schreiber. Tyson Schreiber was a multi-sport athlete who won state-level medals in high school. When he received his learner’s permit, he also learned about organ donation and said, “I want to be a donor.”",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.donatelifenw.org/sites/default/files/quilts/pdf/Quilt%20Book%20for%20Submitters%202014%20%28FINAL%29.pdf",
+							"title": "Aimeé Adelmann",
+							"snippet": "Tyson Schreiber. Alsea, Oregon Organ, Eye, and Tissue Donor August 21, 1992 – February 12, 2012. Tyson Lee Schreiber was the most awe-some son you could ever have in your life.pdfView",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hawks-2017.jpg",
+			"person": {
+				"name": "Gaynor Claire Hawks",
+				"born": "1932-03-10",
+				"died": "2017-12-27"
+			},
+			"query": "\"Gaynor Claire Hawks\" 1932 2017 (obituary OR grave OR cemetery)",
+			"searchMs": 2219,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 779,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 2219,
+					"results": 14
+				}
+			],
+			"mergedResults": 16,
+			"afterGatedFilter": 15,
+			"candidates": []
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"person": {
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993"
+			},
+			"query": "\"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+			"searchMs": 40,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 40,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 38,
+					"results": 8
+				}
+			],
+			"mergedResults": 10,
+			"afterGatedFilter": 9,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://lawgazette.com.sg/author/jasper-hayden-chan/",
+							"title": "Jasper Hayden Chan, Author at The Singapore Law Gazette",
+							"snippet": "by Jasper Hayden Chan. The issue of renovation fraud and consumer protection is a hot topic for many Singaporeans, especially for young couples who have just bought their first property, and looking to turn it into their dream home.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.quotev.com/story/678987/Hour-in-Twilight-Heaven/3",
+							"title": "Jasper Hayden Whitlock Hale | Hour in Twilight... | Quotev",
+							"snippet": "Jasper Hayden Whitlock Hale. i was just talking to my best friend jasper when someone shoved a hat in my face. you fished something out of the hat and hid it from jasper so you could see what it was. it was a military bagde...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://dsotm.fandom.com/wiki/Jasper_Hale",
+							"title": "Jasper Hale | The Dark Side of the Moon Wiki | Fandom",
+							"snippet": "Jasper Hayden Whitlock Hale is a Texan vampires sired by Maria Evans in 1863, aged twenty. After devoting almost a century of his life to serving her within her army during the Southern Wars, he left with Peter and Charlotte in search of something better.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "bell-1994.jpg",
+			"person": {
+				"name": "Russell O Bell",
+				"born": "1924-09-24",
+				"died": "1994-02-08"
+			},
+			"query": "\"Russell O Bell\" 1924 1994 (obituary OR grave OR cemetery)",
+			"searchMs": 12979,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 12979,
+					"results": 6
+				},
+				{
+					"engine": "yandex",
+					"ms": 1882,
+					"results": 1
+				}
+			],
+			"mergedResults": 2,
+			"afterGatedFilter": 2,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.findagrave.com/memorial/18918765/tonie_silas-bell",
+							"title": "Tonie Silas Bell (1892-1960) - Find a Grave Memorial",
+							"snippet": "Adding photos to this memorial is not allowed. Photo requests are not allowed for this cemetery. Tonie Silas Bell. ... Bertha Marie Bell Humphry. 1917–2014. Lucian Clyde Bell. 1919–2000. PFC Russell O Bell. 1924–1994.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		}
+	]
+}

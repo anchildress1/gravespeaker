@@ -1,4 +1,4 @@
-// Usage: node --env-file=.env benchmarks/search.ts <out.json> [fixture-file ...]
+// Usage: node --env-file=.env benchmarks/search.ts <out.json> [--no-place] [fixture-file ...]
 // Runs the real multi-engine search and the deterministic engine for each stone's answer key
 // (no photo, no model call). The output file is rewritten after every stone, so a stopped run
 // still leaves proof. Never overwrite an earlier run: pass a new file name.
@@ -27,7 +27,10 @@ interface EngineRun {
 	error?: string;
 }
 
-const [outFile, ...files] = process.argv.slice(2);
+const [outFile, ...args] = process.argv.slice(2);
+// --no-place runs the same stones without the town, as the baseline for the place signal.
+const withPlace = !args.includes('--no-place');
+const files = args.filter((a) => a !== '--no-place');
 const key = process.env.SERPAPI_API_KEY ?? '';
 // Spread across eras, name commonness and difficulty when no files are named.
 const DEFAULT_FILES = [
@@ -113,7 +116,7 @@ function median(xs: number[]): number {
 	return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
 }
 
-const manifest: { file: string; people: Person[] }[] = JSON.parse(
+const manifest: { file: string; place: string | null; people: Person[] }[] = JSON.parse(
 	await readFile(new URL('../fixtures/manifest.json', import.meta.url), 'utf8')
 );
 const before = await credits();
@@ -123,7 +126,8 @@ const meta = {
 	dirty: execSync('git status --porcelain src').toString().trim() !== '',
 	node: process.version,
 	engines: ENGINES.map((e) => e.engine),
-	creditsBefore: before
+	creditsBefore: before,
+	withPlace
 };
 const rows: unknown[] = [];
 const wall0 = performance.now();
@@ -140,7 +144,9 @@ for (const file of wanted) {
 			name: person.name,
 			maidenName: null,
 			born: person.born,
-			died: person.died
+			died: person.died,
+			voice: null,
+			place: withPlace ? fixture.place : null
 		};
 		const query = buildQuery(inscription);
 		const t0 = performance.now();
