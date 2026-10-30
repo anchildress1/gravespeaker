@@ -1,0 +1,7 @@
+<task-notification>
+<task-id>bq3k1gsl3</task-id>
+<tool-use-id>toolu_01MWDL4ZT4K6rZgBx3ugsmLL</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bq3k1gsl3.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait for all checks on the new push, then report" completed (exit code 0)</summary>
+</task-notification>
