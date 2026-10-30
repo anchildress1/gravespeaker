@@ -1,0 +1,58 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+
+Closing message:
+hether it was kept or dropped and why, plus what the fetched page proves.
+
+| What happened | Count |
+|---|---|
+| Kept | 75 |
+| Dropped: date against the stone | 95 |
+| Dropped: name not there, or a middle initial that doesn't fit | 488 |
+| Dropped: paywalled or people-search site | 96 |
+| Dropped: name-only while a dated match exists | 38 |
+| Dropped: over the 5-source limit | 48 |
+
+**Drops look right.** I checked the 60 dropped results that carry the person's first name and surname. All 60 are someone else. Examples:
+- "Alfonso Gonzalez Jr. (1942-2021)"
+- "Andrew L. Cunningham… 2022" (a different middle initial)
+- "Daisy A. Morgan"
+- "Betsey C. (Ellis) Hathaway (1818-1859)"
+
+**Dated keeps are mostly right.** Of 14 sources with a matching date, 9 pages prove the dates once fetched. The other 5 are:
+- 2 pages that can't be read
+- 2 Commons listings of headstone photos
+- Chartre's obituary page, which doesn't carry his name in the extracted text
+
+**Name-only keeps are mostly wrong.** These are the 61 kept sources with no date: YouTube channels, court dockets, the Gingrich article, a vampire wiki.
+- Without a date, the engine can't tell a namesake from the person. You ruled out filtering by page type, so these stay.
+- **The safety net works:** the story only uses a name-only match if its fetched page proves the dates. Of those 61, exactly one page passes: Bree Reynolds' funeral home obituary. It is her.
+
+## What's still missing
+- **Search barely finds the true pages.** For the 9 `people.json` cases, I know the Find a Grave memorial is the right page. Search returned it for only 1 (Louella's, and she's kept). The other 8 never came back from any search. That's a search problem, not a matching problem.
+- **Real precision and recall need labels.** Every result in `sources-1.json` has a `right` field, set to `null`. Mark it `true` or `false`, starting with the 75 kept ones. Then I'll turn the audit into an eval that fails when we keep a wrong source or drop a right one.
