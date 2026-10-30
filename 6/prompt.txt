@@ -1,0 +1,55 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+pr seven merged
+voice narration wired
+narration bar shipped
+elevenlabs narration streaming
+narrate endpoint validated
+voice presets sampled
+pr eight opened
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+
+Closing message:
+ut):
+  - "a long life" for a man who died at 45
+  - "died too soon", "a life spent in service", "these were the places I called home"
+  - "I left pieces of myself behind", "my life was maps and layers"
+- **Stories about the wrong person**:
+  - Dixon: a namesake born 1914 who died 2021, against a stone that says 1943–2018.
+  - Hayden: a vampire from a Twilight fan wiki.
+  - Charles Holmquist: an obituary for *Gary* Ray Holmquist, including "died on a Tuesday".
+  - Cunningham: an admiral. Doran: a university researcher. Mills: an 85-year-old plus a staff sergeant.
+  - The judge already rejects claims when the records clearly describe someone else, so this scorer catches some of the wrong-person problem too.
+- **Speed:** stories take a median of 7.5 s. The eval never runs in the request path, so it adds nothing to generation time.
+
+## 🏷️ Labels for you to review
+- Every case in `fixtures/stories.json` has `"match": null, "reviewed": false`.
+- Set `match` to `0` if the top candidate is the person on the stone, or `-1` if it's someone else.
+- `-1` makes the eval use the stone-only story, the same fallback the app uses.
+- Each recorded person has at most one candidate, so the only values you'll need are `0` and `-1`.
+- From the year mismatches above, I'd set **-1** for Dixon, Hayden, Charles Holmquist, Cunningham and Doran. I haven't looked into the rest.
+- These labels are also the ground truth for (a), replacing your manual confirmation step.
+
+## ⚠️ One problem before tuning
+- The story model runs at temperature 1, so each run fails a different set: 4 cases failed only in run 1 and 5 only in run 2.
+- One sample per case can't tell whether a prompt change helped or just got lucky.
+- I recommend 3 samples per case, passing only if all 3 pass. That's about 3× the free-tier calls, around 20 minutes per run.
+- Do you want that, or should I tune against single samples?
+Three samples per case are in place. Running the baseline in the background (about 20 minutes):
