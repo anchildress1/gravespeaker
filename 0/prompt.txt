@@ -1,0 +1,32 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+in flight requests cancelled
+start over race fixed
+story endpoint trust gap
+branch synced with main
+regression tests added
+headstone dates cited correctly
+story dates cited
+codex feedback addressed
+search progress announced
+push hooks passed
+codex fixes pushed
+stone dates sourced
+story tabs e2e passing
+hero avif fallback added
+fog lantern layering fixed
+web vitals budgets added
+favicon set ready
+invitation upload button added
+desktop camera capture added
+desktop camera window built
+capture works everywhere
+text sizes enlarged
+every device covered
+capture ready on phones
+trail findings resolved
+
+Closing message:
+The commit was rejected because one body line ran over 100 characters. Retrying with shorter lines. `README.md` shows as modified; that change isn't mine, so I'm leaving it out.
+Fixed one Sonar issue (`replaceAll`). Waiting for CI and the latest Sonar analysis to find the second.
+Sonar shows three issues on PR #7. The two `!important` ones in `app.css` were already closed by the earlier motion commit; the third is the `replaceAll` one I just fixed. Committing and pushing it.
