@@ -1,0 +1,60 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+
+Closing message:
+13`) |
+|---|---|---|
+| Overton | low: music sites | **high: her own Find a Grave memorial** |
+| Bree Reynolds | low | **medium: her funeral home obituary** |
+| Chartre | **high: funeral home obituary** | low: a Wikipedia election page |
+| Louella White | **high: her own memorial** | low: another Luella Marie White's memorial |
+| Olivia | high | high |
+| Pineda, Stephen Reynolds, Hiatt, Yacobi | no dated match | no dated match |
+
+- **Dated matches:** 3 → 4 of 9.
+- **Own memorials returned:** 1 → 1, but a different one (Overton's instead of Louella's).
+- **Searches used:** 69 → 44. Overton dropped from 12 to 2 and Bree from 14 to 1, because a dated match stops the loop early.
+- **New noise:** the town searches now return Wikipedia pages about the town itself (Lamar SC, Roscoe IL).
+- **Spent:** 48 credits on this test, 84 across both tests. 0 key leaks.
+
+## What it means
+- Neither query form finds what the other does. With keywords, Chartre and Louella are found; without, Overton and Bree are.
+- Nine people is too few to call a winner. A swing of 2 people either way is noise at this size.
+
+## State of the code now
+- **Queries:** no death keywords (#2 is active).
+- **Source sharing (#5):** kept, and the README still needs updating for it.
+- **Saved responses:** for the 21 photo fixtures, the saved searches still use the old keyword queries. A full 30-person replay would need about 100 credits to re-record them.
+
+## Your call
+- **Keep #2:** 4 of 9 dated, fewer credits per person.
+- **Revert #2:** back to 3 of 9.
+- **Try both forms:** without keywords first, with keywords only when that misses. It would have found all 5 of Chartre, Louella, Overton, Bree and Olivia, at about 2 more credits per miss.
+
+I'd test the third option next. It's the only one that keeps every win seen so far, and all of its searches for these 9 are already saved, so testing it costs no credits.
+Only 2 searches unsaved (Pineda, from the year de-dupe). Recording those 2 credits and re-running.
