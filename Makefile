@@ -1,7 +1,7 @@
 # Without this, Volta runs pnpm on the Node it was installed with instead of the pinned one.
 export VOLTA_FEATURE_PNPM := 1
 
-.PHONY: install dev format format-check lint typecheck test build e2e secret-scan clean ai-checks deploy
+.PHONY: install dev format format-check lint typecheck test eval eval-research build e2e secret-scan clean ai-checks deploy
 
 install:
 	@echo "📦 Installing dependencies..."
@@ -30,6 +30,14 @@ typecheck:
 test:
 	@echo "🧪 Running unit tests..."
 	pnpm test
+
+eval:
+	@echo "👻 Running live story evals..."
+	pnpm eval benchmarks/evals/
+
+eval-research:
+	@echo "🔎 Replaying research from saved searches (writes a new research-N.json)..."
+	pnpm eval benchmarks/research.eval.ts
 
 build:
 	@echo "🏗️ Building project..."
