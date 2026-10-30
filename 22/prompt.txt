@@ -1,0 +1,57 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+plain queries reordered
+review banner updated
+place matching stopped
+identity matching tightened
+test review received
+code review received
+lint helper docs fixed
+accessibility checks added
+redirect limit removed
+namesake rules tightened
+
+Closing message:
+rovider tests now check that every redirect is followed, even next to direct links.
+
+## Changed
+
+- `src/lib/server/identity.ts`: each mention of the name is now marked as the stone's person, someone else, or unclear, and suffixes are parsed.
+- `src/lib/server/search/serpapi.ts`: the 3-link limit is removed and every redirect is followed.
+- README and `docs/benchmarks/search.md` are updated to match.
+- New results files:
+  - `research-22.json`: a test run of dropping only the mismatched mention
+  - `research-23.json`: the final replay
+  - `sources-7.json`: its source audit
+
+Nothing is committed.
+Measuring before answering. These are free requests to Google, not SerpApi.
+No, we don't need a backoff. I tried to trigger the drops at much higher volume than the app ever sends, and none happened.
+
+| Burst of saved redirect links, sent at once | Resolved |
+|---|---|
+| 10, six times back to back (one research run's worth) | 60 / 60 |
+| 50 | 50 / 50 |
+| 200 | 200 / 200 |
+
+- **Concurrency isn't the cause.** One Google search follows at most about 10 redirects, and 200 at once went through without a single drop.
+- **The real cause of the 418 drops is still unknown.** My best guess is that Google's redirect links only start working a little while after the search that produces them. They failed right after recording and all worked later. Confirming that needs fresh searches, which cost credits, so I haven't tested it.
+- **A backoff would be a hand-rolled retry,** and CLAUDE.md bans those unless a broken user path demands it. Nothing measured here does.
+- **The worst case is no longer silent.** If every redirect in a search fails, the search now throws, counts as a failed search, and can trigger the outage error. If only some fail, just those pages are lost, which costs the same as a result that never had a link.
+
+If drops ever show up in prod, the fix is the PRD's error handling: Mastra's built-in retry around the search step. That's already in place, and no backoff is needed.
