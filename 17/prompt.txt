@@ -1,0 +1,56 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+
+Closing message:
+oogle timeouts.
+
+| Run | Order | Stop rule | Searches | Dated |
+|---|---|---|---|---|
+| research-14 | plain + keywords per phase | first dated | **72** | 5 |
+| research-17 | all plain, then all keywords | first dated | 78 | 5 |
+| research-18 | all plain, then all keywords | 2 sources | 128 | 5 |
+| research-16 | all plain, then all keywords | **3 sources** | **136** | 5 |
+
+- **The 3-source minimum never triggers.** None of the 9 dated matches had 3 sources; Olivia was the only one with 2. So every person runs every search, which is the maximum cost every time.
+- **Running all plain queries first is still slightly worse (+6).** Chartre's and Louella's matches come from keyword queries. Pushing those to the end costs 4 and 2 extra searches.
+- **People with no dated match cost the same under every order.** They run the full list regardless. Your instinct is right that this is where the waste is, and that's the place branch's problem.
+- Recording cost **50 credits**, not the 23 I estimated. The longer runs opened paths that had never been searched. 0 key leaks. 5 Google searches timed out at the 20s cap and are saved as failures, the same as prod would see.
+
+## Current state (uncommitted)
+
+- `src/lib/server/identity.ts`: `searchPhases` returns all plain queries, then all keyword queries.
+- `src/lib/server/research.ts`: `MIN_SOURCES = 3` stop rule.
+- `src/routes/api/research/server.test.ts`: **not updated yet**, so `make ai-checks` fails until you pick a design.
+
+## Decision needed
+
+My recommendation is to **revert to research-14: plain then keywords per phase, stop at the first dated match.** It's the cheapest of the four and finds the same 5.
+
+Or keep running all plain queries first with a first-dated stop if you want the order for its own sake (+6 searches). Say which, and I'll fix the tests and run the gate.
+Gate passes (342 tests). research-19 replays at 72 searches, identical to research-14. Now the write-up.
+README updated; writing `docs/benchmarks/search.md` now.
