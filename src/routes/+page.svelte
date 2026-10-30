@@ -15,7 +15,6 @@
 		reading: 'Reading the stone…',
 		pick: 'More than one person is named. Choose whose story to tell.',
 		researching: 'Searching historical records…',
-		confirm: 'Found possible matches. Confirm the right one.',
 		telling: 'Building the story…',
 		story: 'Story ready.'
 	};
@@ -23,7 +22,6 @@
 	const MAX_BYTES = 10 * 1024 * 1024;
 	const TOO_LARGE = 'That photo is over 10 MB. Try a smaller one.';
 	const NOTES = {
-		none: 'No public record was confirmed',
 		empty: 'No public records were found',
 		insufficient: 'The records hold nothing beyond the stone'
 	} as const;
@@ -31,8 +29,7 @@
 	let phase = $state<Phase>('capture');
 	let people = $state<Inscription[]>([]);
 	let person = $state<Inscription | null>(null);
-	let candidates = $state<Candidate[]>([]);
-	let confirmed = $state<Candidate | null>(null);
+	let match = $state<Candidate | null>(null);
 	let story = $state<Story | null>(null);
 	let epitaphNote = $state('');
 	let message = $state('');
@@ -51,8 +48,7 @@
 		phase = 'capture';
 		people = [];
 		person = null;
-		candidates = [];
-		confirmed = null;
+		match = null;
 		story = null;
 		message = note;
 		retry = null;
@@ -140,7 +136,7 @@
 	}
 
 	/**
-	 * Looks up candidate people for one inscription.
+	 * Looks up the person behind one inscription and tells their story.
 	 * @param p Inscription to research.
 	 */
 	async function research(p: Inscription): Promise<void> {
@@ -154,23 +150,24 @@
 				headers: { 'content-type': 'application/json' },
 				body: JSON.stringify(p)
 			});
-			candidates = res.candidates;
-			if (candidates.length === 0) await tell(null, NOTES.empty);
-			else phase = 'confirm';
+			// Research ranks the best match first; the story step falls back to the stone when that
+			// match's pages don't hold up.
+			const [best] = res.candidates;
+			await (best ? tell(best) : tell(null, NOTES.empty));
 		} catch (e) {
 			fail(e, 'researching', () => research(p));
 		}
 	}
 
 	/**
-	 * Tells the story of the confirmed candidate, or of the stone alone when there is none.
-	 * @param c Confirmed candidate, or null for the stone alone.
+	 * Tells the story of the best match, or of the stone alone when there is none.
+	 * @param c Best match, or null for the stone alone.
 	 * @param note Why the story rests on the stone, shown if the server falls back to it.
 	 */
 	async function tell(c: Candidate | null, note: string = NOTES.insufficient): Promise<void> {
 		if (!person) return;
 		const p = person;
-		confirmed = c;
+		match = c;
 		phase = 'telling';
 		message = '';
 		retry = null;
@@ -183,7 +180,7 @@
 			epitaphNote = note;
 			phase = 'story';
 		} catch (e) {
-			fail(e, c ? 'confirm' : 'telling', () => tell(c, note));
+			fail(e, 'telling', () => tell(c, note));
 		}
 	}
 </script>
@@ -200,22 +197,11 @@
 		{#if phase === 'story'}
 			<Stepper current={2} />
 			{#if person && story}
-				<StoryView {person} {confirmed} {story} {photoUrl} {epitaphNote} onreset={() => reset()} />
+				<StoryView {person} {match} {story} {photoUrl} {epitaphNote} onreset={() => reset()} />
 			{/if}
 		{:else}
 			<Stepper current={1} />
-			<Searching
-				{phase}
-				{photoUrl}
-				{person}
-				{people}
-				{candidates}
-				{message}
-				{retry}
-				onpick={research}
-				onconfirm={tell}
-				onnone={() => tell(null, NOTES.none)}
-			/>
+			<Searching {phase} {photoUrl} {person} {people} {message} {retry} onpick={research} />
 		{/if}
 	</main>
 {/if}

@@ -3,15 +3,21 @@ export interface Engine {
 	/** SerpApi names the query parameter differently per engine. */
 	queryParam: string;
 	extra?: Record<string, string>;
+	/** Origin that answers the engine's relative result links with a redirect to the page. */
+	redirects?: string;
 }
 
 /**
- * Engines that return organic results as link, title and snippet. Order sets the result order.
- * Kept after benchmarks/results/search-1.json: Google and Yandex found 31 of the 35 kept sources and
- * 29 of the 31 found by one engine only. Yahoo added little at the slowest speed of the three, Bing
- * returned 94 results and no match, and DuckDuckGo returned one result in ten stones.
+ * Engines that return organic results as link, title and snippet, in the order research tries them.
  */
+// Yandex leads: it returns more results per query, and Google rarely dates a match without a town.
 export const ENGINES: Engine[] = [
-	{ engine: 'google', queryParam: 'q', extra: { num: '10', gl: 'us', hl: 'en' } },
-	{ engine: 'yandex', queryParam: 'text' }
+	{ engine: 'yandex', queryParam: 'text' },
+	{
+		engine: 'google',
+		queryParam: 'q',
+		extra: { num: '10', gl: 'us', hl: 'en' },
+		// Since October 2026 Google links most results through /goto, which SerpApi passes on as-is.
+		redirects: 'https://www.google.com'
+	}
 ];

@@ -1,55 +1,38 @@
 <script lang="ts" module>
-	export type SearchPhase = 'reading' | 'pick' | 'researching' | 'confirm' | 'telling';
+	export type SearchPhase = 'reading' | 'pick' | 'researching' | 'telling';
 </script>
 
 <script lang="ts">
 	import { lifespan, shownDate } from '#lib/lifespan.ts';
-	import type { Candidate, Inscription } from '#lib/types.ts';
+	import type { Inscription } from '#lib/types.ts';
 	import ErrorNotice from './ErrorNotice.svelte';
 	import Moon from './Moon.svelte';
 
-	const STEPS = [
-		'Reading the stone',
-		'Searching historical records',
-		'Confirming the match',
-		'Building the story'
-	];
+	const STEPS = ['Reading the stone', 'Searching historical records', 'Building the story'];
 	// Index of the first unfinished step per phase; pick waits on the visitor before research.
 	const CURRENT: Record<SearchPhase, number> = {
 		reading: 0,
 		pick: 1,
 		researching: 1,
-		confirm: 2,
-		telling: 3
+		telling: 2
 	};
-	const CONFIDENCE = {
-		high: 'High confidence match',
-		medium: 'Medium confidence match',
-		low: 'Unverified: only the name matches. Check the sources before confirming.'
-	} as const;
 
 	let {
 		phase,
 		photoUrl,
 		person,
 		people,
-		candidates,
 		message,
 		retry,
-		onpick,
-		onconfirm,
-		onnone
+		onpick
 	}: {
 		phase: SearchPhase;
 		photoUrl: string | null;
 		person: Inscription | null;
 		people: Inscription[];
-		candidates: Candidate[];
 		message: string;
 		retry: (() => void) | null;
 		onpick: (p: Inscription) => void;
-		onconfirm: (c: Candidate) => void;
-		onnone: () => void;
 	} = $props();
 
 	const busy = $derived(
@@ -130,31 +113,6 @@
 			</li>
 		{/each}
 	</ul>
-{:else if phase === 'confirm'}
-	<h2>Is this them?</h2>
-	<p class="hint">Pick one, or none. Nothing is merged without you.</p>
-	<ul class="cards">
-		{#each candidates as c (c.sources[0].id)}
-			<li class="card">
-				<strong>{c.name}</strong>
-				<span class="dates">{lifespan(c)}</span>
-				<span class="confidence" data-confidence={c.confidence}>{CONFIDENCE[c.confidence]}</span>
-				<ul class="links">
-					{#each c.sources as s (s.id)}
-						<li>
-							<a href={s.url} target="_blank" rel="external noopener noreferrer"
-								>{s.title || s.site}</a
-							>
-							<small>{s.site}</small>
-						</li>
-					{/each}
-				</ul>
-				<button type="button" class="button quiet" onclick={() => onconfirm(c)}>This is them</button
-				>
-			</li>
-		{/each}
-	</ul>
-	<button type="button" class="link-button none" onclick={onnone}>None of these</button>
 {/if}
 
 <footer>
@@ -276,19 +234,18 @@
 			opacity: 0.25;
 		}
 	}
+	.hint {
+		margin: 0 0 1rem;
+		color: var(--mist);
+		font-size: 0.9375rem;
+	}
 	h2 {
 		margin: 1.5rem 0 0.25rem;
 		font-family: var(--font-serif);
 		font-size: 1.625rem;
 		font-weight: 400;
 	}
-	.hint {
-		margin: 0 0 1rem;
-		color: var(--mist);
-		font-size: 0.9375rem;
-	}
-	.cards,
-	.links {
+	.cards {
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -297,7 +254,6 @@
 		display: grid;
 		gap: 1rem;
 	}
-	.card,
 	.pick {
 		display: grid;
 		gap: 0.375rem;
@@ -312,38 +268,14 @@
 	.pick {
 		cursor: pointer;
 	}
-	.card strong,
 	.pick strong {
 		font-family: var(--font-serif);
 		font-size: 1.25rem;
 		font-weight: 400;
 	}
-	.dates,
 	.pick span {
 		color: var(--mist);
 		font-family: var(--font-serif);
-	}
-	.confidence {
-		color: var(--verdigris);
-		font-size: 0.9375rem;
-	}
-	.confidence[data-confidence='low'] {
-		color: var(--lantern);
-	}
-	.links li {
-		margin: 0.25rem 0;
-		overflow-wrap: anywhere;
-	}
-	.links small {
-		margin-left: 0.5rem;
-		color: var(--mist);
-	}
-	.card .button {
-		margin-top: 0.5rem;
-	}
-	.none {
-		display: block;
-		margin: 1rem auto 0;
 	}
 	footer {
 		display: grid;

@@ -91,7 +91,8 @@ const PREDECEASED = /\b(predeceased|preceded (?:her |him |them )?in death)\b/i;
 export type VerifiedFact = RawFact;
 
 /** A records-based story, or `insufficient` when the records hold nothing beyond the stone. */
-type Grounded = Omit<Extract<Story, { status: 'told' }>, 'voice'> | { status: 'insufficient' };
+type Grounded =
+	Omit<Extract<Story, { status: 'told' }>, 'voice' | 'confidence'> | { status: 'insufficient' };
 
 /**
  * Lowercases and collapses everything except letters and digits to single spaces.
@@ -189,7 +190,7 @@ function factTerms(text: string): string[] {
 
 /**
  * Keeps only facts whose quote appears verbatim in the source they cite and names no survivors.
- * @param candidate The confirmed candidate.
+ * @param candidate The matched candidate.
  * @param pages Text of each source as the model saw it.
  * @param raw Facts as the model returned them.
  * @returns Verified facts, without repeats.
@@ -216,7 +217,7 @@ export function verifyFacts(
 /**
  * Tokens of the person's own name, which a story may use without a quote.
  * @param inscription The stone's person.
- * @param candidate The confirmed candidate, when there is one.
+ * @param candidate The matched candidate, when there is one.
  * @returns Normalized name tokens.
  */
 function nameTokens(inscription: Inscription, candidate?: Candidate): Set<string> {
@@ -230,7 +231,7 @@ function nameTokens(inscription: Inscription, candidate?: Candidate): Set<string
 /**
  * Whether the facts say something beyond the person's name, dates and the words that introduce them (FR-013).
  * @param inscription The stone's person.
- * @param candidate The confirmed candidate.
+ * @param candidate The matched candidate.
  * @param facts Verified facts.
  * @returns True when at least one fact carries real content.
  */
@@ -319,7 +320,7 @@ function keptSentences(paragraph: string, quotes: string[], allowed: Set<string>
  * Drops sentences that add claims the verified facts do not support, then checks the story still
  * uses the facts and lists the sources it draws on.
  * @param inscription The stone's person.
- * @param candidate The confirmed candidate.
+ * @param candidate The matched candidate.
  * @param facts Verified facts the paragraph was written from.
  * @param paragraph The paragraph as the model wrote it.
  * @returns A told story, or `insufficient` when no real fact survives in it.

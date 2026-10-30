@@ -32,7 +32,7 @@ export interface InferenceProvider {
 	/**
 	 * Pulls facts about the person out of source text, each as a verbatim quote.
 	 * @param inscription The stone's person.
-	 * @param candidate The confirmed candidate.
+	 * @param candidate The matched candidate.
 	 * @param pages Extracted text per source.
 	 * @returns Raw facts as the model returned them.
 	 * @throws {ProviderError} When the model fails after retries.

@@ -4,7 +4,12 @@
 
 <div class="error" role="alert">
 	<p>{message}</p>
-	{#if retry}<button type="button" class="button quiet" onclick={() => retry?.()}>Try again</button
+	<!-- Focus lands on the retry, so a keyboard user is not left on a control that is gone. -->
+	{#if retry}<button
+			type="button"
+			class="button quiet"
+			onclick={() => retry?.()}
+			{@attach (b) => b.focus()}>Try again</button
 		>{/if}
 </div>
 

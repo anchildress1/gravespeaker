@@ -96,7 +96,7 @@
 			<summary class="eyebrow">How it works</summary>
 			<p>
 				Point your camera at a headstone. The name and dates are read from the stone, matched to
-				public records you confirm, and told back in the first person, with every source linked.
+				public records, and told back in the first person, with every source linked.
 			</p>
 			<p class="fine">Photos are read in memory and never stored. Up to 10 MB.</p>
 		</details>

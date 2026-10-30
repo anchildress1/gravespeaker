@@ -6,23 +6,28 @@
 
 	let {
 		person,
-		confirmed,
+		match,
 		story,
 		photoUrl,
 		epitaphNote,
 		onreset
 	}: {
 		person: Inscription;
-		confirmed: Candidate | null;
+		match: Candidate | null;
 		story: Story;
 		photoUrl: string | null;
 		epitaphNote: string;
 		onreset: () => void;
 	} = $props();
 
-	// A told story names the confirmed record; a stone story only ever has the stone. Dates come
+	// A told story names the matched record; a stone story only ever has the stone. Dates come
 	// from the stone alone: a record's dates may come from a source the story does not cite.
-	const subject = $derived(story.status === 'told' && confirmed ? confirmed : person);
+	const subject = $derived(story.status === 'told' && match ? match : person);
+	// Deterministic: how many of the stone's keys (name, birth year, death year) the records match.
+	const CONFIDENCE = {
+		high: 'High confidence: the name and every date on the stone match the records',
+		medium: 'Medium confidence: the name and one date match the records'
+	} as const;
 
 	const TABS = [
 		{ id: 'story', label: 'Story' },
@@ -59,6 +64,9 @@
 		<p class="lifespan">
 			{lifespan(person)}
 		</p>
+		{#if story.status === 'told'}
+			<p class="confidence">{CONFIDENCE[story.confidence]}</p>
+		{/if}
 	</section>
 
 	{#if story.status === 'told'}
@@ -156,6 +164,11 @@
 {#if story.paragraph}<NarrationBar text={story.paragraph} voice={story.voice} />{/if}
 
 <style>
+	.confidence {
+		margin: 0.25rem 0 0;
+		color: var(--verdigris);
+		font-size: 0.9375rem;
+	}
 	.narrated {
 		padding-bottom: 5rem;
 	}

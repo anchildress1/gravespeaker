@@ -55,11 +55,18 @@ export interface Candidate {
 }
 
 /**
- * A story told from the confirmed records, or from the stone alone when there are none to use.
+ * A story told from the matched records, or from the stone alone when there are none to use.
  * A stone story's paragraph is null when none of the model's sentences survived grounding.
  */
 export type Story =
-	| { status: 'told'; paragraph: string; sources: SourceRecord[]; voice: Voice }
+	| {
+			status: 'told';
+			paragraph: string;
+			/** A told story always rests on a page that states at least one of the stone's dates. */
+			confidence: Exclude<Confidence, 'low'>;
+			sources: SourceRecord[];
+			voice: Voice;
+	  }
 	| { status: 'stone'; paragraph: string | null; voice: Voice };
 
 export interface ApiError {

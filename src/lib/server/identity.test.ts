@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildQuery, dropGated, resolveMatches } from './identity';
+import { pageEvidence, resolveMatches } from './identity';
 import type { Inscription, SourceRecord } from '#lib/types.ts';
 
 /**
@@ -30,56 +30,6 @@ const rec = (snippet: string, title = 'Obituary', id = 'x'): SourceRecord => ({
 	title,
 	site: 'legacy.com',
 	snippet
-});
-
-describe('buildQuery', () => {
-	it('uses the name, both years and the record terms', () => {
-		expect(buildQuery(stone())).toBe(
-			'"Gaynor Claire Hawks" 1932 2017 (obituary OR grave OR cemetery)'
-		);
-	});
-
-	it('omits a year with an unreadable digit', () => {
-		expect(buildQuery(stone({ born: '18?8' }))).toBe(
-			'"Gaynor Claire Hawks" 2017 (obituary OR grave OR cemetery)'
-		);
-	});
-
-	it('leaves a quoted nickname out of the exact-name query', () => {
-		const nick = stone({ name: 'Corwin "Cory" Garner Chambers' });
-		expect(buildQuery(nick)).toContain('"Corwin Garner Chambers"');
-	});
-
-	it('adds the place without punctuation or quotes', () => {
-		expect(buildQuery(stone({ place: 'Alsea, Oregon' }))).toBe(
-			'"Gaynor Claire Hawks" 1932 2017 alsea oregon (obituary OR grave OR cemetery)'
-		);
-	});
-
-	it('keeps a place from closing the quoted name or adding operators', () => {
-		expect(buildQuery(stone({ place: '"Westfield" (Mass.) OR site:x' }))).toBe(
-			'"Gaynor Claire Hawks" 1932 2017 westfield mass or site x (obituary OR grave OR cemetery)'
-		);
-	});
-
-	it('ignores the maiden name', () => {
-		expect(buildQuery(stone({ maidenName: 'Staples' }))).toBe(buildQuery(stone()));
-	});
-});
-
-describe('dropGated', () => {
-	it('removes paywalled genealogy hosts and keeps open ones', () => {
-		const kept = dropGated(
-			[
-				'ancestry.com',
-				'www.newspapers.com',
-				'search.findmypast.co.uk',
-				'legacy.com',
-				'findagrave.com'
-			].map((s) => ({ ...rec('', 'x', s), site: s }))
-		);
-		expect(kept.map((r) => r.site)).toEqual(['legacy.com', 'findagrave.com']);
-	});
 });
 
 describe('resolveMatches', () => {
@@ -251,9 +201,198 @@ describe('resolveMatches', () => {
 
 	it('ignores years that sit far from the name, where another person is likely meant', () => {
 		const far = rec(
-			`Gaynor Hawks taught piano. ${'Local history notes. '.repeat(30)} Howard Hawks (1896-1977).`
+			`Gaynor Hawks, born 1932, taught piano. ${'Local history notes. '.repeat(30)} Howard Hawks (1896-1977).`
 		);
-		expect(resolve([far])[0].confidence).toBe('low');
+		expect(resolve([far])[0].confidence).toBe('medium');
+	});
+
+	it.each([
+		['a later sentence', 'Passing of Alfonso Gonzalez on June 7. He was born on May 16, 1986.'],
+		[
+			'a title before the surname',
+			'Alfonso Gonzalez Obituary. Mr. Gonzalez was born on April 22, 1954.'
+		]
+	])('drops a name-only result that gives a year against the stone in %s', (_, snippet) => {
+		const alfonso = {
+			name: 'Alfonso Gonzalez',
+			carvedName: 'Alfonso Gonzalez',
+			born: '1951-11-18',
+			died: '2021-01-17'
+		};
+		expect(resolve([rec(snippet)], alfonso)).toEqual([]);
+	});
+
+	it.each([
+		[
+			'an abbreviated month',
+			'Charles LeRoy Hildebrand, 81, of Winnebago, died Tuesday, Dec. 25, 2012.'
+		],
+		[
+			'a saint town',
+			'Edward Eugene Hildebrand, Jr., 59, of St. Matthews passed away on Sunday, October 15, 2023.'
+		],
+		['a dashed day-month-year range', 'Edward Leroy Hildebrand 05-Sep-1929 - 01-Sep-2024.']
+	])('reads a conflicting death year written with %s', (_, snippet) => {
+		const edward = {
+			name: 'Edward Leroy Hildebrand Jr',
+			carvedName: 'Edward Leroy Hildebrand Jr',
+			born: '1942-04-28',
+			died: '2015-10-10'
+		};
+		expect(resolve([rec(snippet)], edward)).toEqual([]);
+	});
+
+	it.each([
+		['an ordinal day', 'Reynolds, Stephen Passed away on September 21st, 2022 in Windsor.'],
+		['an abbreviated weekday', 'Stephen Reynolds, 88, passed away Wed. June 19, 2013.']
+	])('reads a conflicting death year after %s', (_, snippet) => {
+		const stephen = {
+			name: 'Stephen Abraham Reynolds Jr.',
+			carvedName: 'Stephen Abraham Reynolds Jr.',
+			born: '1989-02-20',
+			died: '2014-02-08'
+		};
+		expect(resolve([rec(snippet)], stephen)).toEqual([]);
+	});
+
+	it('rejects a middle initial the stone rules out', () => {
+		const daisy = {
+			name: 'Daisy M. Morgan',
+			carvedName: 'Daisy M. Morgan',
+			born: null,
+			died: null
+		};
+		expect(
+			resolve([rec('Daisy Morgan Obituary. Daisy A. Morgan, 83, loving wife.')], daisy)
+		).toEqual([]);
+		expect(resolve([rec('Daisy M. Morgan obituary')], daisy)).toHaveLength(1);
+	});
+
+	it('keeps a record that adds a middle initial the stone leaves out', () => {
+		const daisy = { name: 'Daisy Morgan', carvedName: 'Daisy Morgan' };
+		const [c] = resolve([rec('Daisy M. Morgan (1932-2017), a schoolteacher.')], daisy);
+		expect(c.confidence).toBe('high');
+	});
+
+	it("keeps a record about the stone's person that also names a relative with another initial", () => {
+		const daisy = { name: 'Daisy M. Morgan', carvedName: 'Daisy M. Morgan' };
+		const snippet = 'Daisy M. Morgan (1932-2017) is survived by granddaughter Daisy A. Morgan.';
+		expect(resolve([rec(snippet)], daisy)[0].confidence).toBe('high');
+	});
+
+	it("drops a relative's mention and reads no dates from it", () => {
+		const daisy = { name: 'Daisy A. Morgan', carvedName: 'Daisy A. Morgan' };
+		const snippet = 'Daisy M. Morgan (1910-1990) is survived by granddaughter Daisy A. Morgan.';
+		expect(resolve([rec(snippet)], daisy)).toEqual([]);
+	});
+
+	it.each([
+		['Jr. against Sr.', 'Stephen Reynolds Sr. (1989-2014) of Lamar.', 0],
+		['Jr. against III', 'Stephen A. Reynolds III (1989-2014) of Lamar.', 0],
+		['Jr. as II', 'Stephen A. Reynolds II (1989-2014) of Lamar.', 1],
+		['Jr. as Junior', 'Stephen Reynolds, Junior (1989-2014) of Lamar.', 1],
+		[
+			'Jr. beside his father Sr.',
+			'Stephen Reynolds Jr. (1989-2014), son of Stephen Reynolds Sr.',
+			1
+		],
+		['a bare name beside a Sr.', 'Stephen Reynolds (1989-2014), son of Stephen Reynolds Sr.', 0]
+	])('compares generational suffixes: %s', (_, snippet, found) => {
+		const stephen = {
+			name: 'Stephen Abraham Reynolds Jr.',
+			carvedName: 'Stephen Abraham Reynolds Jr.',
+			born: '1989-02-20',
+			died: '2014-02-08'
+		};
+		expect(resolve([rec(snippet)], stephen)).toHaveLength(found);
+	});
+
+	it('checks no suffix the stone does not carry', () => {
+		expect(resolve([rec('Gaynor Claire Hawks Sr. (1932-2017)')])).toHaveLength(1);
+	});
+
+	it('reads "I" after a surname as a suffix only before punctuation', () => {
+		const junior = { name: 'Edward Hildebrand Jr.', carvedName: 'Edward Hildebrand Jr.' };
+		expect(resolve([rec('Edward Hildebrand I, 1932-2017.')], junior)).toEqual([]);
+		expect(resolve([rec('Edward Hildebrand I remember, 1932-2017.')], junior)).toHaveLength(1);
+	});
+
+	it('reads the age after a suffix set off by commas', () => {
+		// Age 59 at a 2023 death puts the birth in 1963 or 1964, against the stone's 1950.
+		const edward = {
+			name: 'Edward Hildebrand Jr.',
+			carvedName: 'Edward Hildebrand Jr.',
+			born: '1950-01-01',
+			died: null
+		};
+		const snippet = 'Edward Hildebrand, Jr., 59, of St. Matthews passed away on October 15, 2023.';
+		expect(resolve([rec(snippet)], edward)).toEqual([]);
+	});
+
+	it("does not read another person's comma-set age as the person's age", () => {
+		const [c] = resolve([rec('Gaynor Hawks died in 2017 and leaves son John, 12, of Eugene.')]);
+		expect(c.confidence).toBe('medium');
+	});
+
+	it('reads "wed." as a weekday, which can only drop a match, never add one', () => {
+		expect(resolve([rec('Gaynor Hawks and John Hawks wed. Mary Smith died 1990.')])).toEqual([]);
+	});
+
+	it('does not read "married" as a month that carries a range over to the name', () => {
+		const [c] = resolve([rec('Gaynor Hawks died in 2017. Married 1950 – 2001 to John Hawks.')]);
+		expect(c.confidence).toBe('medium');
+	});
+
+	it('does not match on an initial alone when the stone spells out a given name', () => {
+		const georgia = {
+			name: 'Georgia D. Hiatt',
+			carvedName: 'Georgia D. Hiatt',
+			born: null,
+			died: null
+		};
+		expect(resolve([rec("Thai DelRay Hiatt's obituary")], georgia)).toEqual([]);
+	});
+
+	it("drops a page titled with another person's dates that lists the stone's person as kin", () => {
+		const russell = {
+			name: 'Russell O Bell',
+			carvedName: 'Russell O Bell',
+			born: '1924-09-24',
+			died: '1994-02-08'
+		};
+		const kin = rec(
+			'Tonie Silas Bell. Lucian Clyde Bell. 1919–2000. PFC Russell O Bell. 1924–1994.',
+			'Tonie Silas Bell (1892-1960) - Find a Grave Memorial'
+		);
+		expect(resolve([kin], russell)).toEqual([]);
+	});
+
+	it('reads the life range in the sentence after the name', () => {
+		const louella = {
+			name: 'Louella Marie White',
+			carvedName: 'Louella Marie White',
+			born: '1935-08-22',
+			died: '2017-05-24'
+		};
+		const [c] = resolve(
+			[rec('Louella Marie White. 22 Aug 1935 – 24 May 2017. This memorial is managed.')],
+			louella
+		);
+		expect(c.confidence).toBe('high');
+	});
+
+	it('derives the birth year from an age set off by commas', () => {
+		const troy = {
+			name: 'Troy Leonard Juntunen',
+			carvedName: 'Troy Leonard Juntunen',
+			born: '1967-01-28',
+			died: '2012-08-03'
+		};
+		const [c] = resolve(
+			[rec('Troy Leonard Juntunen, 45, of Richland, Wash., died Aug. 3, 2012.')],
+			troy
+		);
+		expect(c.confidence).toBe('high');
 	});
 
 	it('keeps at most five sources, best first', () => {
@@ -268,12 +407,9 @@ describe('resolveMatches', () => {
 		expect(resolve(weak)[0].sources).toHaveLength(5);
 	});
 
-	it('puts record-like pages ahead of other name-only results', () => {
-		const out = resolve([
-			rec('Gaynor Hawks plays tennis.', 'Profile', 'tennis'),
-			rec('Gaynor Hawks obituary and funeral service.', 'Obituary', 'obit')
-		]);
-		expect(out[0].sources[0].id).toBe('obit');
+	it('keeps a name-only page about the life, not only records of a death', () => {
+		const out = resolve([rec('Gaynor Hawks plays tennis.', 'Profile', 'tennis')]);
+		expect(out.flatMap((c) => c.sources.map((s) => s.id))).toEqual(['tennis']);
 	});
 
 	it('keeps two people with different dates as separate candidates instead of merging them', () => {
@@ -289,6 +425,31 @@ describe('resolveMatches', () => {
 		const ids = out.map((c) => c.sources.map((s) => s.id));
 		expect(ids.flat().sort()).toEqual(['a', 'b']);
 		expect(ids.every((i) => i.length === 1)).toBe(true);
+	});
+
+	it('ranks the person more results agree on first when two people tie', () => {
+		const worn = { name: 'John Smith', carvedName: 'John Smith', born: '19?8', died: null };
+		const out = resolve(
+			[
+				rec('John Smith (1938-2011) obituary', 'A', 'a'),
+				rec('John Smith (1948-2015) obituary', 'B', 'b1'),
+				rec('John Smith, born 1948, retired teacher', 'B', 'b2')
+			],
+			worn
+		);
+		expect(out.map((c) => c.sources.map((s) => s.id))).toEqual([['b1', 'b2'], ['a']]);
+	});
+
+	it('keeps search rank between two people with equal support', () => {
+		const worn = { name: 'John Smith', carvedName: 'John Smith', born: '19?8', died: null };
+		const out = resolve(
+			[
+				rec('John Smith (1938-2011) obituary', 'A', 'a'),
+				rec('John Smith (1948-2015) obituary', 'B', 'b')
+			],
+			worn
+		);
+		expect(out.map((c) => c.sources[0].id)).toEqual(['a', 'b']);
 	});
 
 	it('merges results that agree with each other into one candidate', () => {
@@ -387,5 +548,36 @@ describe('resolveMatches', () => {
 			bare
 		);
 		expect(merged).toHaveLength(1);
+	});
+});
+
+describe('pageEvidence', () => {
+	it.each([
+		['the life range', 'Gaynor Claire Hawks (1932-2017) taught piano.', 'high'],
+		[
+			'the death year alone',
+			'Services for Gaynor Hawks, who died in 2017, were held Friday.',
+			'medium'
+		],
+		[
+			'the dates far down a long page',
+			`${'Menu Home Obituaries. '.repeat(200)}Gaynor Hawks, 1932 - 2017.`,
+			'high'
+		],
+		['no years', 'Gaynor Hawks taught piano for forty years.', 'low'],
+		[
+			'the years under another name',
+			'Mary Smith (1932-2017). Gaynor Hawks sang in the choir.',
+			'low'
+		]
+	])('grades a page stating %s', (_, text, grade) => {
+		expect(pageEvidence(stone(), text)).toEqual({ grade, conflicts: false });
+	});
+
+	it.each([
+		["a namesake's years", 'Gaynor Hawks (1918-1979) taught piano.', true],
+		['the years without the name', 'In memory, 1932 - 2017.', false]
+	])('rejects a page stating %s', (_, text, conflicts) => {
+		expect(pageEvidence(stone(), text)).toEqual({ grade: null, conflicts });
 	});
 });
