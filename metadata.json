@@ -3,8 +3,12 @@
   "checkpoint_id": "01M65AB3VVVXZ2Z3ET7D2QJ3TK",
   "strategy": "manual-commit",
   "branch": "feat/place-signal",
-  "checkpoints_count": 6,
+  "checkpoints_count": 20,
   "files_touched": [
+    "benchmarks/results/search-2-no-place.json",
+    "benchmarks/results/search-3-place.json",
+    "benchmarks/results/search-4-no-place.json",
+    "benchmarks/results/search-5-place.json",
     "benchmarks/search.ts",
     "fixtures/manifest.json"
   ],
@@ -50,6 +54,13 @@
       "compact_transcript": "/5/transcript.jsonl",
       "content_hash": "/5/content_hash.txt",
       "prompt": "/5/prompt.txt"
+    },
+    {
+      "metadata": "/6/metadata.json",
+      "transcript": "/6/full.jsonl",
+      "compact_transcript": "/6/transcript.jsonl",
+      "content_hash": "/6/content_hash.txt",
+      "prompt": "/6/prompt.txt"
     }
   ],
   "token_usage": {
@@ -60,14 +71,14 @@
     "api_call_count": 0
   },
   "redaction": {
-    "replacements": 18,
+    "replacements": 79,
     "layers": {
       "betterleaks": 0,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 18,
+      "credential_value": 49,
       "credentialed_uri": 0,
-      "entropy": 0,
+      "entropy": 36,
       "key_context": 0,
       "provider_token": 0,
       "shell_stdin": 0
