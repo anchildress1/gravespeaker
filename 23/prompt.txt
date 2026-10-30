@@ -1,0 +1,58 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+
+Closing message:
+and I'll pick candidates for you to approve.
+
+## What to review, and for what
+In order of importance:
+
+**1. Did the app pick the right person?** (`fixtures/stories-recorded.json`, field `match`, 21 cases)
+- For each stone, open the record the app picked and set `match` to `true` if it's the person on the stone, `false` if it's someone else with the same name.
+- This is the main one: the false-positive score is measured against these labels, and right now every `match` is `null`.
+
+**2. The 8 good/bad story pairs** (`fixtures/stories-written.json`)
+- I wrote each pair: the GOOD story should contain nothing false, and the BAD one has exactly one planted lie (for example "I left four small children behind").
+- For each pair: is GOOD really clean, and is BAD really wrong?
+- If one of my own pairs is mislabeled, the judge gets graded against a broken answer key.
+
+**3. Voice** (`voice` field, 21 people)
+- Check male/female for each person against the stone or records.
+- A wrong label fails a correct narration voice.
+
+**4. Town** (`fixtures/manifest.json`, field `place`)
+- Check that the town matches the cemetery named in each source link.
+- The only one I'm unsure of is Oak Hill Cemetery → "Eugene". Everything else is named in the file title.
+- Only the internal benchmark numbers depend on this.
+
+**A note on Bell:** the Commons file title says "1914–1994", but the stone reads SEP 24 1924. The manifest uses 1924, which matches the stone. No action needed.
+
+Want a review page instead: one card per case with the photo, the record, and yes/no buttons, that writes the labels back for me? That's probably faster than editing JSON.
+Now the recorded cases. Checking what was picked, where it came from, and whether its pages are full text:
+Adding whitepages and the other people-search sites in this data to the excluded list. They list living people and never prove a death.
+Removing the excluded sites from the recorded story cases as well, so they match what research now returns:
