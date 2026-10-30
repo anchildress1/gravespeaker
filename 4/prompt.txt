@@ -1,0 +1,36 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+pr eight opened
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+
+Closing message:
+The place isn't read from the stone, so it shouldn't appear in the "Read from the stone" panel. I'm adding a separate "Searching near…" line with the OSM credit underneath it:
+Lint and types are clean. Running the full gate and the e2e suite:
+Playwright found no tests: its config ignores `**/.worktrees/**`, and this worktree lives under that path. Running with a temporary config that drops the ignore:
+All 39 e2e tests pass, including the 3 new ones (location sent when allowed, omitted when denied, place line and map credit). Next, checking whether the read benchmark picks up the prompt change:
+Running read benchmark 13 to check that adding `place` doesn't cost reading accuracy or speed:
+The story baseline finished. Summarizing it while read run 13 continues:
+The baseline is in. The voice checks landed after it started, so they'll show up in the next run. Pulling the written-set failures, since those are the ones that measure your concern:
