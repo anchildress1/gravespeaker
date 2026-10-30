@@ -1,0 +1,64 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+plain queries reordered
+review banner updated
+place matching stopped
+
+Closing message:
+ would accept the father as the son.
+
+A side finding: the name matching let Wikipedia's Lamar page through as a name-only match for Reynolds Jr. That's how loose name-only matching is today.
+
+## Obit photo: easy to build, but scheduled for after the challenge
+
+- **Technical effort is small, about half a day.** `fetchPage` already parses each page's HTML. Reading `og:image` there, passing it with the text, and showing it in `StoryView` with a credit and link is a handful of changes. The site's image policy would also need to allow those image hosts.
+- **The PRD puts it in §10 v2, "Not part of the October 31 build".** It also requires a licensing check before it ships.
+- **The image may show the wrong thing:**
+  - Find a Grave's `og:image` is often the headstone or the site logo.
+  - Obituary pages can lead with a relative's photo.
+- **5 of the 9 test people are children.** Showing their photos needs a deliberate decision, not a default.
+- **The deadline is tomorrow.** My recommendation is to leave it in v2.
+
+## Changed
+
+- **`docs/benchmarks/search.md`:** the banner now says people.json is reviewed. The `right` and `match` labels are still empty.
+- **`benchmarks/results/research-20.json`:** replay with the corrected infant.
+
+## Decision needed
+
+How do you want to handle place?
+
+1. **Stop here.** Place matching adds no signal, so the 4 people stay as name-only stone stories, which is the honest result. This is my recommendation.
+2. **Spend about 20–40 credits** testing different town queries on those 4.
+3. **Something else** you have in mind.
+Four review agents are running in parallel:
+
+- **Code:** AI slop, SOLID/KISS/YAGNI/DRY, and bugs.
+- **Tests:** positive/negative/error/edge coverage, plus whether the e2e tests check accessibility.
+- **Silent failures:** errors that get swallowed.
+- **Comments:** whether they still match the code.
+
+I'll combine their findings and fix the important ones when they finish.
+The test review is back; three reviews are still running.
