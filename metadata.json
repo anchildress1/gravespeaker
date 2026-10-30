@@ -1,0 +1,42 @@
+{
+  "cli_version": "0.12.2",
+  "checkpoint_id": "01M65AAXBRTC1B2WRDJFPKZQ4P",
+  "strategy": "manual-commit",
+  "branch": "feat/place-signal",
+  "checkpoints_count": 14,
+  "files_touched": [
+    "benchmarks/results/run13-hosted-26b.json",
+    "benchmarks/results/run14-hosted-26b.json",
+    "benchmarks/results/run15-hosted-26b.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/0/metadata.json",
+      "transcript": "/0/full.jsonl",
+      "compact_transcript": "/0/transcript.jsonl",
+      "content_hash": "/0/content_hash.txt",
+      "prompt": "/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 2,
+    "cache_creation_tokens": 583,
+    "cache_read_tokens": 139710,
+    "output_tokens": 827,
+    "api_call_count": 1
+  },
+  "redaction": {
+    "replacements": 61,
+    "layers": {
+      "betterleaks": 0,
+      "connection_string": 0,
+      "credential_key": 0,
+      "credential_value": 31,
+      "credentialed_uri": 0,
+      "entropy": 36,
+      "key_context": 0,
+      "provider_token": 0,
+      "shell_stdin": 0
+    }
+  }
+}
