@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67DP2HMBNAFWEA3MWYE8S38",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 62,
+  "checkpoints_count": 63,
   "files_touched": [
     "src/lib/components/ErrorNotice.svelte",
     "src/lib/components/Invitation.svelte",
@@ -242,6 +242,13 @@
       "compact_transcript": "/29/transcript.jsonl",
       "content_hash": "/29/content_hash.txt",
       "prompt": "/29/prompt.txt"
+    },
+    {
+      "metadata": "/30/metadata.json",
+      "transcript": "/30/full.jsonl",
+      "compact_transcript": "/30/transcript.jsonl",
+      "content_hash": "/30/content_hash.txt",
+      "prompt": "/30/prompt.txt"
     }
   ],
   "token_usage": {
@@ -252,12 +259,12 @@
     "api_call_count": 1
   },
   "redaction": {
-    "replacements": 3372,
+    "replacements": 3375,
     "layers": {
       "betterleaks": 12,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 571,
+      "credential_value": 574,
       "credentialed_uri": 0,
       "entropy": 3925,
       "key_context": 0,
