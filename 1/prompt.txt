@@ -1,0 +1,133 @@
+We need to tune the model to eliminate false positives and to keep the story about the otherworld from messing with facts about a person's life. Benchmarks showed 67/68, I think. We want to tighten this with strict evals if we can without hurting generation speed. Suggest an actual eval lib for this work. Bonus points if existing libs can be extended.
+
+---
+
+the story should always be told. it's what the story contains that makes it difficult to judge. mastra is good. 
+a) currently has a human validation step that I'd really like to remove if we can.
+b) is the baseline for these evals and should be built first. 
+create a new branch for this work and wire evals up to run like tests do.
+we prob need additional fixture labels. i can review them.
+
+---
+
+<task-notification>
+<task-id>bft0s0b0d</task-id>
+<tool-use-id>toolu_012y8kdgB5mgLboGXquMu1Zs</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bft0s0b0d.output</output-file>
+<status>completed</status>
+<summary>Background command "Record story fixtures against the preview app" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>byv40gwim</task-id>
+<tool-use-id>toolu_014b7BjdyhTVqWorkUU2zxD1</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/byv40gwim.output</output-file>
+<status>failed</status>
+<summary>Background command "Run preview server with keys from .env" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+yes. use that
+
+---
+
+<task-notification>
+<task-id>bmsom1nmb</task-id>
+<tool-use-id>toolu_0129T5qfcj9ymVnadPqpHMjr</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bmsom1nmb.output</output-file>
+<status>completed</status>
+<summary>Background command "Run 3-sample baseline eval, save log as eval run 1" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b75qoxa6k</task-id>
+<tool-use-id>toolu_019kCpNidVtgt2hK1kVbna7R</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b75qoxa6k.output</output-file>
+<status>completed</status>
+<summary>Background command "Run eval 2 with the calibrated judge" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+I do not understand what you are doing and why it looks like you've captured ai results here. or why you're using live serpapi results
+
+---
+
+do both now that you already have one almost finished
+
+---
+
+go read this. it uses a different test harness: https://github.com/github/awesome-copilot/blob/main/skills/eval-driven-dev/SKILL.md
+
+---
+
+and this https://www.anthropic.com/research/demystifying-evals-for-ai-agents
+
+---
+
+now you're taking out my story. it is a MADE UP ambience you're removing here. If they died at 96 it WAS a long life. That is correct.
+
+---
+
+also. we need tests to confirm gender picks and we need to start returning the place they lived (or died) at to improve search guesses
+
+---
+
+<task-notification>
+<task-id>brkrih1jf</task-id>
+<tool-use-id>toolu_01UnnSKoeGEqiRPMgSAWDu8M</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/brkrih1jf.output</output-file>
+<status>completed</status>
+<summary>Background command "Run full baseline eval on the original story prompt" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bxhsgxa70</task-id>
+<tool-use-id>toolu_01DBJkHu81k2PXMFvPs99jsb</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bxhsgxa70.output</output-file>
+<status>completed</status>
+<summary>Background command "Run read benchmark 13 and compare with run 12" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Do the ab benchmark. 
+We do not have quota left to check
+
+---
+
+How many searches did it use?
+
+---
+
+I got the starter plan but do not spend all my challenge credits
+
+---
+
+It absorbed them. Great. Run the test exactly once and capture the results
+
+---
+
+Do it
+
+---
+
+yes commit. what's next?
+
+---
+
+<task-notification>
+<summary>Commit security review found: denial-of-service (unbounded shared queue defeats timeout) in src/lib/server/geocode.ts</summary>
+</task-notification>
+
+---
+
+are you spending gemini credits or gemma credits?
+Yes. start 1.
