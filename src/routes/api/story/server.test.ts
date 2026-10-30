@@ -12,6 +12,7 @@ const inscription = {
 	carvedName: 'Gaynor Claire Hawks',
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
+	place: null,
 	born: '1932-03-10',
 	died: '2017-12-27',
 	voice: 'female'

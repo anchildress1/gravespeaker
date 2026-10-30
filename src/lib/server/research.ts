@@ -16,7 +16,8 @@ export const inscriptionSchema = z.object({
 	maidenName: z.string().nullable(),
 	born: partialDate.nullable(),
 	died: partialDate.nullable(),
-	voice: z.enum(VOICES).nullable()
+	voice: z.enum(VOICES).nullable(),
+	place: z.string().max(120).nullable()
 });
 
 export const sourceSchema = z.object({
@@ -35,36 +36,45 @@ export const candidateSchema = z.object({
 	sources: z.array(sourceSchema)
 });
 
-const withRecords = z.object({ inscription: inscriptionSchema, records: z.array(sourceSchema) });
+const candidatesSchema = z.object({ candidates: z.array(candidateSchema) });
+
+/**
+ * Runs one search and keeps the records that match the stone.
+ * @param inscription The stone's person; its place, when set, goes into the query.
+ * @returns Candidates, possibly empty.
+ */
+async function lookUp(inscription: Inscription): Promise<Candidate[]> {
+	return resolveMatches(inscription, dropGated(await search.search(buildQuery(inscription))));
+}
+
+/**
+ * Tells whether any candidate matched more than the name.
+ * @param candidates Resolved candidates.
+ * @returns True when one is high or medium confidence.
+ */
+const dated = (candidates: Candidate[]) => candidates.some((c) => c.confidence !== 'low');
 
 const searchStep = createStep({
 	id: 'search',
 	inputSchema: inscriptionSchema,
-	outputSchema: withRecords,
+	outputSchema: candidatesSchema,
 	retries: 2,
-	execute: async ({ inputData }) => ({
-		inscription: inputData,
-		records: dropGated(await search.search(buildQuery(inputData)))
-	})
-});
-
-const resolveStep = createStep({
-	id: 'resolve',
-	inputSchema: withRecords,
-	outputSchema: z.object({ candidates: z.array(candidateSchema) }),
-	execute: ({ inputData }) =>
-		Promise.resolve({
-			candidates: resolveMatches(inputData.inscription, inputData.records)
-		})
+	execute: async ({ inputData }) => {
+		// The town finds people a bare name misses, but it also strips dates from records a bare
+		// name already matched, so it only runs when the bare search finds nobody dated.
+		const plain = await lookUp({ ...inputData, place: null });
+		if (!inputData.place || dated(plain)) return { candidates: plain };
+		const near = await lookUp(inputData);
+		return { candidates: dated(near) ? near : plain };
+	}
 });
 
 const researchWorkflow = createWorkflow({
 	id: 'research',
 	inputSchema: inscriptionSchema,
-	outputSchema: z.object({ candidates: z.array(candidateSchema) })
+	outputSchema: candidatesSchema
 })
 	.then(searchStep)
-	.then(resolveStep)
 	.commit();
 
 /**

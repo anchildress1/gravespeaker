@@ -53,7 +53,8 @@ export function normalizeInscriptions(raw: RawPerson[]): Inscription[] {
 			maidenName: maiden ? displayCase(maiden) : null,
 			born: partialDateOrNull(p.born),
 			died: partialDateOrNull(p.died),
-			voice: VOICES.find((v) => v === p.voice?.toLowerCase()) ?? null
+			voice: VOICES.find((v) => v === p.voice?.toLowerCase()) ?? null,
+			place: p.place?.replace(/\s+/g, ' ').trim() || null
 		});
 	}
 	return people;

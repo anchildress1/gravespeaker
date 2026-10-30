@@ -11,6 +11,7 @@ const stone = (over: Partial<Inscription> = {}): Inscription => ({
 	carvedName: 'Gaynor Claire Hawks',
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
+	place: null,
 	born: '1932-03-10',
 	died: '2017-12-27',
 	voice: 'female',
@@ -47,6 +48,18 @@ describe('buildQuery', () => {
 	it('leaves a quoted nickname out of the exact-name query', () => {
 		const nick = stone({ name: 'Corwin "Cory" Garner Chambers' });
 		expect(buildQuery(nick)).toContain('"Corwin Garner Chambers"');
+	});
+
+	it('adds the place without punctuation or quotes', () => {
+		expect(buildQuery(stone({ place: 'Alsea, Oregon' }))).toBe(
+			'"Gaynor Claire Hawks" 1932 2017 alsea oregon (obituary OR grave OR cemetery)'
+		);
+	});
+
+	it('keeps a place from closing the quoted name or adding operators', () => {
+		expect(buildQuery(stone({ place: '"Westfield" (Mass.) OR site:x' }))).toBe(
+			'"Gaynor Claire Hawks" 1932 2017 westfield mass or site x (obituary OR grave OR cemetery)'
+		);
 	});
 
 	it('ignores the maiden name', () => {

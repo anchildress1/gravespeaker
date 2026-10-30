@@ -8,6 +8,7 @@ const stone = {
 	carvedName: 'Gaynor Claire Hawks',
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
+	place: null,
 	born: '1932-03-10',
 	died: '2017-12-27',
 	voice: 'female'
@@ -107,4 +108,72 @@ describe('POST /api/research', () => {
 		expect(res.status).toBe(502);
 		expect((await res.json()).error.code).toBe('provider_failed');
 	}, 60_000);
+});
+
+describe('POST /api/research with a place', () => {
+	const near = { ...stone, place: 'Eugene, Oregon' };
+
+	/**
+	 * Builds a SerpApi reply with one result.
+	 * @param link Result URL.
+	 * @param snippet Result snippet.
+	 * @returns The response.
+	 */
+	const one = (link: string, snippet: string) =>
+		Response.json({ organic_results: [{ link, title: 'Gaynor Hawks', snippet }] });
+
+	/**
+	 * Stubs SerpApi with separate answers for the bare query and the one naming the town.
+	 * @param bare Reply to the query without the place.
+	 * @param placed Reply to the query with the place.
+	 */
+	const stubQueries = (bare: () => Response, placed: () => Response): void => {
+		vi.stubGlobal(
+			'fetch',
+			vi.fn(async (url: string) =>
+				new URL(url).searchParams.get('q')?.includes('eugene') ? placed() : bare()
+			)
+		);
+	};
+
+	/**
+	 * Calls the endpoint and lists the first source of each candidate.
+	 * @returns Candidate source URLs.
+	 */
+	const urls = async () =>
+		((await (await call(near)).json()).candidates as { sources: { url: string }[] }[]).map(
+			(c) => c.sources[0].url
+		);
+
+	it('searches near the place when the bare search finds nobody', async () => {
+		stubQueries(
+			() => Response.json({}),
+			() => one('https://a.com/near', 'Gaynor Claire Hawks (1932-2017)')
+		);
+		expect(await urls()).toEqual(['https://a.com/near']);
+	});
+
+	it('searches near the place when the bare search matches only the name', async () => {
+		stubQueries(
+			() => one('https://a.com/bare', 'Gaynor Hawks, singer'),
+			() => one('https://a.com/near', 'Gaynor Claire Hawks (1932-2017)')
+		);
+		expect(await urls()).toEqual(['https://a.com/near']);
+	});
+
+	it('keeps a dated bare match over a match near the place', async () => {
+		stubQueries(
+			() => one('https://a.com/bare', 'Gaynor Claire Hawks (1932-2017)'),
+			() => one('https://a.com/near', 'Gaynor Claire Hawks (1932-2017)')
+		);
+		expect(await urls()).toEqual(['https://a.com/bare']);
+	});
+
+	it('keeps the bare result when the place finds nobody dated either', async () => {
+		stubQueries(
+			() => one('https://a.com/bare', 'Gaynor Hawks, singer'),
+			() => one('https://a.com/near', 'Gaynor Hawks, painter')
+		);
+		expect(await urls()).toEqual(['https://a.com/bare']);
+	});
 });

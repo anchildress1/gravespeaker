@@ -8,7 +8,8 @@ const hawks = {
 	maidenName: 'Staples',
 	born: '1932-03-10',
 	died: '2017-12-27',
-	voice: 'female'
+	voice: 'female',
+	place: null
 };
 const source = {
 	id: 's1',
@@ -72,6 +73,40 @@ test('a read shows read-only fields and waits for confirmation', async ({ page }
 	await expect(page.getByLabel('Read from the stone')).not.toContainText('Staples');
 	await expect(page.getByText('High confidence match')).toBeVisible();
 	await expect(page.getByRole('textbox')).toHaveCount(0);
+});
+
+test("sends the visitor's location with the photo when allowed", async ({ page, context }) => {
+	await context.grantPermissions(['geolocation']);
+	await context.setGeolocation({ latitude: 44.4263, longitude: -123.6162 });
+	let sent: string | null = null;
+	await page.route('/api/read', (route) => {
+		sent = route.request().postData();
+		return route.fulfill({ json: { people: [] } });
+	});
+	await upload(page);
+	await expect(page.getByRole('alert')).toContainText('No legible name');
+	expect(sent).toContain('44.4263');
+	expect(sent).toContain('-123.6162');
+});
+
+test('reads the photo without a location when it is denied', async ({ page }) => {
+	let sent: string | null = null;
+	await page.route('/api/read', (route) => {
+		sent = route.request().postData();
+		return route.fulfill({ json: { people: [] } });
+	});
+	await upload(page);
+	await expect(page.getByRole('alert')).toContainText('No legible name');
+	expect(sent).not.toContain('name="lat"');
+});
+
+test('shows the town searched near with the map credit', async ({ page }) => {
+	await mock(page, '/api/read', { body: { people: [{ ...hawks, place: 'Alsea, Oregon' }] } });
+	await mock(page, '/api/research', { body: { candidates: [candidate] } });
+	await upload(page);
+	await expect(page.getByText('Searching near Alsea, Oregon')).toBeVisible();
+	await expect(page.getByRole('link', { name: 'OpenStreetMap contributors' })).toBeVisible();
+	await expect(page.getByLabel('Read from the stone')).not.toContainText('Alsea');
 });
 
 test('no legible name offers another photo', async ({ page }) => {

@@ -4,6 +4,7 @@
 	import Searching, { type SearchPhase } from '#lib/components/Searching.svelte';
 	import Stepper from '#lib/components/Stepper.svelte';
 	import StoryView from '#lib/components/StoryView.svelte';
+	import { locate } from '#lib/locate.ts';
 	import type { ApiError, Candidate, Inscription, Story } from '#lib/types.ts';
 
 	type Phase = 'capture' | SearchPhase | 'story';
@@ -118,6 +119,11 @@
 		retry = null;
 		const form = new FormData();
 		form.set('image', file);
+		const at = await locate();
+		if (at) {
+			form.set('lat', String(at.lat));
+			form.set('lon', String(at.lon));
+		}
 		try {
 			const res = await call<{ people: Inscription[] }>('/api/read', {
 				method: 'POST',

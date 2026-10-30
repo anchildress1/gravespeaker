@@ -25,6 +25,8 @@ export interface Inscription {
 	carvedName: string;
 	name: string;
 	maidenName: string | null;
+	/** Town or region the person lived or died in, to narrow search; null when unknown. */
+	place: string | null;
 	born: string | null;
 	died: string | null;
 	/** The model's narrator guess from the name; null when the name gives no hint. */

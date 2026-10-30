@@ -57,6 +57,7 @@
 		"@elevenlabs/elevenlabs-js": "2.75.0",
 		"@mastra/core": "1.79.0",
 		"@mozilla/readability": "0.6.0",
+		"exifreader": "4.52.0",
 		"linkedom": "0.18.14",
 		"robots-parser": "3.0.1",
 		"undici": "8.12.3",

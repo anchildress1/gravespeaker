@@ -82,6 +82,19 @@
 		<dt class="eyebrow">Died</dt>
 		<dd>{shownDate(person.died)}</dd>
 	</dl>
+	{#if person.place}
+		<!-- Kept apart from the stone: the place may come from the visitor's location, not the carving. -->
+		<p class="hint">
+			Searching near {person.place}
+			<small
+				>Place names © <a
+					href="https://www.openstreetmap.org/copyright"
+					target="_blank"
+					rel="external noopener noreferrer">OpenStreetMap contributors</a
+				></small
+			>
+		</p>
+	{/if}
 {/if}
 
 <ol class="checklist">

@@ -47,7 +47,7 @@ interface Evidence {
 /**
  * Builds the single research query for a stone.
  * @param inscription The stone's person.
- * @returns A search query; unknown years are omitted.
+ * @returns A search query; unknown years and place are omitted.
  */
 export function buildQuery(inscription: Inscription): string {
 	const years = [inscription.born, inscription.died]
@@ -59,7 +59,16 @@ export function buildQuery(inscription: Inscription): string {
 		.replace(/["“”][^"“”]*["“”]/g, ' ')
 		.replace(/\s+/g, ' ')
 		.trim();
-	return [`"${name}"`, ...years, '(obituary OR grave OR cemetery)'].join(' ');
+	// Unquoted, so an obituary naming the town in other words still ranks. Lowercase, so a carved
+	// "OR" can't act as a search operator.
+	const place = inscription.place
+		?.toLowerCase()
+		.replace(/[^\p{L}\p{N}' -]+/gu, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+	return [`"${name}"`, ...years, place, '(obituary OR grave OR cemetery)']
+		.filter(Boolean)
+		.join(' ');
 }
 
 /**

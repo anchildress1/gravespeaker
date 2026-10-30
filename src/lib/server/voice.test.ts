@@ -12,6 +12,7 @@ const stone = (voice: Voice | null): Inscription => ({
 	carvedName: 'Robin Ash',
 	name: 'Robin Ash',
 	maidenName: null,
+	place: null,
 	born: null,
 	died: null,
 	voice

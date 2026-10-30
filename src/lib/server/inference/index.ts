@@ -5,6 +5,7 @@ export interface RawPerson {
 	born: string | null;
 	died: string | null;
 	voice: string | null;
+	place: string | null;
 }
 
 export interface RawFact {

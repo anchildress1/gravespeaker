@@ -20,7 +20,11 @@ export const readSchema = z.object({
 			name: z.string().describe('Name exactly as carved.'),
 			born: z.string().nullable().describe(dateHint),
 			died: z.string().nullable().describe(dateHint),
-			voice: z.string().nullable().describe('"female", "male" or null.')
+			voice: z.string().nullable().describe('"female", "male" or null.'),
+			place: z
+				.string()
+				.nullable()
+				.describe('Place carved for this person, as carved; null if none.')
 		})
 	)
 }) satisfies z.ZodType<{ people: RawPerson[] }>;
@@ -35,7 +39,8 @@ Transcribe ONLY what is carved or cast on the stone. Do NOT add, guess, or compl
 - born/died: "YYYY-MM-DD", or "YYYY" when only the year is carved. Use "?" for an unreadable digit, and for any worn digit that could be read two ways (1 or 4, 3 or 8). A "?" is better than a guess. null when the date is not on the stone.
 - A surname carved once, at the top or the bottom of a stone shared by two people, belongs to every person on the stone. Put it on each name, e.g. "ANN MARIE" and "JOHN PAUL" under "BRANDT" are "Ann Marie Brandt" and "John Paul Brandt". Give each person only the dates carved for them, and null for a date that is not carved for them.
 - A year that is not a birth or death (marriage length, erection date) is NOT a life date.
-- voice: "female" or "male", whichever the first name more likely belongs to. null when the name gives no hint. It only picks who reads the story aloud.`;
+- voice: "female" or "male", whichever the first name more likely belongs to. null when the name gives no hint. It only picks who reads the story aloud.
+- place: where this person lived or died, when a town, county, state or country is carved for them ("of Westfield", "Waldport, Oregon"), as carved. When both a birth place and a death place are carved, give the death place. A war, branch or unit (VIETNAM, WORLD WAR II, US ARMY) is service, not a place. null when no place is carved. Never guess it from the cemetery, the stone's style or the name.`;
 
 export const READ_USER_TEXT = 'Transcribe the gravestone in this photo.';
 export const READ_SAMPLING = { temperature: 0, topP: 0.95, topK: 64 };
