@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67DMBSZTS0SYCC4NQJT82R3",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 52,
+  "checkpoints_count": 53,
   "files_touched": [
     "CLAUDE.md",
     "docs/PRD.md"
@@ -148,14 +148,21 @@
       "compact_transcript": "/19/transcript.jsonl",
       "content_hash": "/19/content_hash.txt",
       "prompt": "/19/prompt.txt"
+    },
+    {
+      "metadata": "/20/metadata.json",
+      "transcript": "/20/full.jsonl",
+      "compact_transcript": "/20/transcript.jsonl",
+      "content_hash": "/20/content_hash.txt",
+      "prompt": "/20/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 1038,
-    "cache_creation_tokens": 2515725,
-    "cache_read_tokens": 115408949,
-    "output_tokens": 426740,
-    "api_call_count": 514,
+    "input_tokens": 1040,
+    "cache_creation_tokens": 2555832,
+    "cache_read_tokens": 115423143,
+    "output_tokens": 426969,
+    "api_call_count": 515,
     "subagent_tokens": {
       "input_tokens": 100,
       "cache_creation_tokens": 458722,
@@ -165,12 +172,12 @@
     }
   },
   "redaction": {
-    "replacements": 3336,
+    "replacements": 3339,
     "layers": {
       "betterleaks": 12,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 541,
+      "credential_value": 544,
       "credentialed_uri": 0,
       "entropy": 3919,
       "key_context": 0,
