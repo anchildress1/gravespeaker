@@ -1,0 +1,34 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+
+Closing message:
+Readability is picking Find a Grave's onboarding modal as the "main content". Checking what it extracts with dialogs stripped.
+Hidden-element stripping recovers the memorial bio. Applying it to `pages.ts` with a test.
+Fetch bug fixed and proven (the new test fails without the fix). Now re-fetching the saved pages, which still hold the banner text.
+Banner gone from all Find a Grave pages. Now building the proof: an audit of every search hit, kept or dropped, with the reason and the known-true page.
+Adding the two missing JSDoc blocks in the audit script, then re-running the gate.
