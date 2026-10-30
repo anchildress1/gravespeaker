@@ -1,0 +1,53 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+
+Closing message:
+dex first, Google second, with a comment explaining why from the data.
+- `src/lib/server/research.ts`: fixed a bug in how repeated pages are merged. A page found again by a later search used to keep only its first snippet, so the dates in the later snippet were lost and Chambers was missed. It now keeps every snippet. A new test fails without the fix.
+- `src/routes/api/research/server.test.ts` and `src/lib/server/search/serpapi.test.ts`: updated for the new engine order.
+- `README.md` (through the skill): diagram, Architecture paragraph, project-structure comment and the cost line now say Yandex first. Diagram validated.
+- `make ai-checks` passed: 316 tests, 0 warnings.
+
+## Offline replays
+These use the town labels you haven't reviewed, so the numbers aren't for publishing.
+
+| Run | Order | Town | Searches | Found with dates |
+|---|---|---|---|---|
+| research-1 | Google first | yes | 87 | 5 of 21 |
+| research-3 | Yandex first, before the fix | yes | 88 | 5 of 21 |
+| research-4 | Yandex first, with the fix | yes | 83 | 6 of 21 (adds Chambers) |
+| research-5 | Yandex first, with the fix | no | 40 | 2 of 21 |
+
+- Research-3 is the run that recorded the 3 new searches.
+- Chambers is now found on the second search with the town, so the Google query that hangs no longer runs for him. It still costs about 60 s for anyone else who reaches it (20 s timeout × 3 tries). My suggestion to cut the timeout to about 8 s is still open.
+
+Sources:
+- [SerpApi #4201: Google Search API returning goto links](https://github.com/serpapi/public-roadmap/issues/4201)
+- [SerpApi #4476: Google redirect link in organic_results[].link](https://github.com/serpapi/public-roadmap/issues/4476)
+- [Search Engine Land: Google confirms goto URL redirects](https://searchengineland.com/google-confirms-deploying-goto-url-redirects-to-search-results-links-485926)
+Regenerating research-4 and research-5. Both came from this session's code, so the new runs are the same results, just without the bidi characters.
