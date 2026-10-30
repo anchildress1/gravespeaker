@@ -1,0 +1,54 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+
+Closing message:
+ Hayden (Alsea) | low: Twilight fanfic, a lawyer | low: Twilight fanfic |
+| Hildebrand Jr (Alsea) | low: Ohio funeral homes | low: Steinbach and Akron obits |
+| Mills (Eugene) | low: YouTube, AbeBooks | low: YouTube |
+| Chambers (Eugene) | **no candidates** | **high: 1959–2011, Eugene Masonic Cemetery (Commons)** |
+
+## What it means 🪦
+- **Chambers is the one real gain.** Adding "eugene oregon" turned no result into a correct, dated, high-confidence match.
+- **The 4 wrong-person stones don't change.** The other people with these names drown out the place, and the right person is probably not indexed at all.
+- **No regressions.** No stone got worse with place added.
+- **The baseline isn't stable.** Chambers was supposed to be the control because it matched before. This time no-place returned nothing. With n=5 and one sample per arm, read this as "place is safe and sometimes helps", not as a measured lift.
+- **Unreviewed labels.** These numbers rest on the place labels in the manifest, which you haven't reviewed. Don't publish them yet.
+
+## The real false-positive source
+- All 4 wrong-person stones come back as `low` ("only the name matches") in both arms.
+- The recorded story evals then tell stories from those low candidates, which is about 85% of the grounding failures.
+- **Recommendation:** never tell a story from a `low` candidate; fall back to the stone story instead. That fixes the false positives directly, with no SerpApi spend, and it's part of identity task (a). Say the word and I'll build it on `feat/story-evals`.
+
+## Repo changes (place worktree, uncommitted)
+- `benchmarks/results/search-2-no-place.json`: the no-place arm, 5 stones.
+- `benchmarks/results/search-3-place.json`: the with-place arm, 5 stones.
+
+## Still waiting on you
+- Review the place labels in the manifest. The Oak Hill stones are `null`.
+- Calibrate the 8 judge lines.
+- Review the `match` labels in `stories-recorded.json`. I suggest -1 for Dixon, Hayden, Holmquist, Cunningham and Doran.
