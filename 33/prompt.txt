@@ -1,0 +1,33 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+voice presets sampled
+pr eight opened
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+story evals wired up
+recorded stories wired in
+
+Closing message:
+Now the reference stories, one good and one bad per written case:
+Now refactoring the eval to share one grading step, adding the grader checks, and adding the pass@1 and pass^3 summary:
+Running just the grader checks (judge only, about 16 calls):
+Fixing the judge so true, implied characterizations pass, and adding your examples as positive controls:
