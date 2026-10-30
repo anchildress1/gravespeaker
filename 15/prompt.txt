@@ -1,0 +1,52 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+story evals wired up
+recorded stories wired in
+grader checks passing
+place line shipped
+zsh name args fixed
+place arms benchmarked
+place search arms compared
+place search results saved
+place fallback wired
+bare search first
+nominatim wait capped
+low candidates fall back
+confirm screen removed
+ranking tests passing
+saved responses formatted
+yandex first dedupe fixed
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+
+Closing message:
+ + town | 20 | **0** | 2 |
+| google3: name + town | 20 | **0** | 1 |
+
+- **Stopping works:** for all 10 dated matches, no search ran after the one that found it.
+- **The name + town step is the waste:** 40 searches (40 credits), 0 dated matches, and 3 pages with only a name.
+- **Yandex with the town never helps:** 24 searches, 0 dated matches. All three dated wins with the town came from Google.
+- **People never found:** 20 people run all 6 searches and still end with a name only or nothing. That's 78 of the 144 searches, run after the last search that supplied anything.
+- **Small sample:** 30 people, none reviewed, so these are trends, not proof.
+
+## Recommendation
+- **Drop the name + town step.** It saves up to 2 credits per person and has never found a dated match. The story already needs a dated page before it uses a name-only match.
+- **Not recommended yet: putting Google first on the town step.** It's 3 wins against 0, which is too few to change the order on.
+
+Say which you want and I'll make the change.
+
+## Changed in this turn
+- **`src/lib/server/identity.ts`:** a page about someone's life now counts, not only an obituary. A name-only result is dropped only when it gives a date that disagrees with the stone, or when it's a namesake by middle initial, an initial alone, or a page titled with someone else's dates.
+- **Tests:** updated to match. The one that dropped profiles now checks that a profile page is kept.
+- **`README.md`:** the death-record wording is removed (edited through the readme skill).
+- **`benchmarks/results/research-11.json`:** new run. **`fixtures/stories-recorded.json`:** rebuilt from it with no searches sent.
+- **Validation:** `make ai-checks` passes, 338 tests.
+
+There's a bigger limit on finding evidence of someone's life: every search still ends in `(obituary OR grave OR cemetery)`, which pulls in death records. Changing that changes every saved search, and re-recording them costs about 170 credits. I haven't touched it; that's your call.
