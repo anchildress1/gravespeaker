@@ -1,0 +1,63 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+yandex first reordered
+goto hops resolved
+google redirects followed
+people search sites excluded
+town lookup skipped
+serpapi fixtures recorded
+recorder key helper fixed
+readme matching updated
+name only cue removed
+profile pages kept
+findagrave banner stripped
+sources audit summarized
+research evals recorded
+route test keys restored
+death keywords dropped
+search order pinned
+plain queries reordered
+review banner updated
+place matching stopped
+identity matching tightened
+test review received
+code review received
+lint helper docs fixed
+accessibility checks added
+redirect limit removed
+
+Closing message:
+ee).
+- **The memorial gap is real.** The source audit already follows every redirect in the saved results, and 7 of the 9 memorials are in neither engine's results. It isn't our redirect handling.
+
+## Namesake rule
+
+I took "drop the check for relatives" to mean: stop throwing out the whole result because a relative's name appears. The check that drops a page titled with someone else's dates is still there. Tell me if you meant that one instead.
+
+| Rule | Now |
+|---|---|
+| A relative with a mismatched initial or suffix | Only that mention is ignored; the result is kept when it also names the stone's person with their own initial or suffix |
+| A bare name next to a mismatched one | Doesn't count: "Daisy Morgan Obituary… Daisy A. Morgan" is still rejected |
+| Middle initial | Checked only when the stone carries a middle name or initial |
+| Suffix | Checked only when the stone carries one |
+| Suffix variants | Jr = Junior = II = 2nd, Sr = Senior = I, III = 3rd, IV = 4th, V = 5th |
+| Bare "I" or "V" after a surname | Counts as a suffix only before punctuation, so "Hawks I remember" isn't one |
+| "Name, Jr., 59," | Still reads the age after the suffix |
+
+**Tests:**
+- 10 new tests cover these rules.
+- Every one fails under the old behavior: each new rule fails at least one when switched off.
+- The Google provider tests now check that every redirect is followed, even next to direct links.
+
+## Changed
+
+- `src/lib/server/identity.ts`: each mention of the name is now marked as the stone's person, someone else, or unclear, and suffixes are parsed.
+- `src/lib/server/search/serpapi.ts`: the 3-link limit is removed and every redirect is followed.
+- README and `docs/benchmarks/search.md` are updated to match.
+- New results files:
+  - `research-22.json`: a test run of dropping only the mismatched mention
+  - `research-23.json`: the final replay
+  - `sources-7.json`: its source audit
+
+Nothing is committed.
+Measuring before answering. These are free requests to Google, not SerpApi.
