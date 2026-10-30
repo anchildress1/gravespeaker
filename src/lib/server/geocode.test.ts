@@ -85,4 +85,18 @@ describe('placeAt', () => {
 		expect(await second).toBe('Eugene, Oregon');
 		expect(urls).toHaveLength(2);
 	});
+
+	it('skips the lookup instead of queueing behind a burst', async () => {
+		stub(() => reply({ city: 'Eugene', state: 'Oregon' }));
+		const burst = Array.from({ length: 5 }, () => placeAt(eugene));
+		await vi.advanceTimersByTimeAsync(5000);
+		expect(await Promise.all(burst)).toEqual([
+			'Eugene, Oregon',
+			'Eugene, Oregon',
+			'Eugene, Oregon',
+			null,
+			null
+		]);
+		expect(urls).toHaveLength(3);
+	});
 });
