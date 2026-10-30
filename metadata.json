@@ -3,7 +3,7 @@
   "checkpoint_id": "01M67DSX3KR771ZBEVXTS21KW3",
   "strategy": "manual-commit",
   "branch": "feat/story-evals",
-  "checkpoints_count": 61,
+  "checkpoints_count": 62,
   "files_touched": [
     "benchmarks/audit-sources.ts",
     "benchmarks/record-stories.ts",
@@ -1255,6 +1255,13 @@
       "compact_transcript": "/28/transcript.jsonl",
       "content_hash": "/28/content_hash.txt",
       "prompt": "/28/prompt.txt"
+    },
+    {
+      "metadata": "/29/metadata.json",
+      "transcript": "/29/full.jsonl",
+      "compact_transcript": "/29/transcript.jsonl",
+      "content_hash": "/29/content_hash.txt",
+      "prompt": "/29/prompt.txt"
     }
   ],
   "token_usage": {
@@ -1265,12 +1272,12 @@
     "api_call_count": 1
   },
   "redaction": {
-    "replacements": 3394,
+    "replacements": 3397,
     "layers": {
       "betterleaks": 12,
       "connection_string": 0,
       "credential_key": 0,
-      "credential_value": 572,
+      "credential_value": 575,
       "credentialed_uri": 0,
       "entropy": 3946,
       "key_context": 0,
