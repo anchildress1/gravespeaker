@@ -1,0 +1,50 @@
+Output ONLY one fresh 2-4 word lowercase phrase for macOS say. It must describe the completed coding work. It must not exactly match any recent phrase. No punctuation, no quotes, no preamble.
+Recent used phrases, avoid exactly:
+elevenlabs narration streaming
+narrate endpoint validated
+voice presets sampled
+pr eight opened
+narration commit landed
+male narrator slowed
+graveside pace set
+narration retry recovers
+narration retry fixed
+playback reloads before retry
+matilda voice swapped
+benchmark run twelve recorded
+review fixes committed
+slop findings cleared
+same origin guard added
+cross site narration blocked
+narration origin check pushed
+regex matches counted
+sonar issues fixed
+voice cues counted
+stale branches pruned
+mojibake scorer fixed
+three samples wired
+eval labels drafted
+judge calibrated eval
+
+Closing message:
+null, "reviewed": false`.
+- Set `match` to `0` if the top candidate is the person on the stone, or `-1` if it's someone else.
+- `-1` makes the eval use the stone-only story, the same fallback the app uses.
+- Each recorded person has at most one candidate, so the only values you'll need are `0` and `-1`.
+- From the year mismatches above, I'd set **-1** for Dixon, Hayden, Charles Holmquist, Cunningham and Doran. I haven't looked into the rest.
+- These labels are also the ground truth for (a), replacing your manual confirmation step.
+
+## ⚠️ One problem before tuning
+- The story model runs at temperature 1, so each run fails a different set: 4 cases failed only in run 1 and 5 only in run 2.
+- One sample per case can't tell whether a prompt change helped or just got lucky.
+- I recommend 3 samples per case, passing only if all 3 pass. That's about 3× the free-tier calls, around 20 minutes per run.
+- Do you want that, or should I tune against single samples?
+Three samples per case are in place. Running the baseline in the background (about 20 minutes):
+While the baseline runs, here's the prompt change I'll test next, in `STORY_INSTRUCTIONS` (`src/lib/server/inference/gemma.ts`):
+- Limit atmosphere to the present scene: the grave, the night, the weather, the visitor, being a ghost.
+- Ban atmosphere lines that describe the life itself: its length, its pace, its work, its homes, what was left behind, or whether death came early or late.
+- Add 2–3 short examples of banned and allowed lines. For Gemma, examples work better than prose rules.
+
+The wrong-person stories are a research and labeling problem, so the prompt can't fix them. I'll wait for the baseline before editing so the comparison is clean.
+Eval 2 (story prompt unchanged, judge calibrated) is running, about 20 minutes. I'll compare it with run 1 and then try the story-prompt change.
+Eval 3 (tuned story prompt with the calibrated judge) is running, about 20 minutes. I'll compare it with eval 2 when it finishes.
