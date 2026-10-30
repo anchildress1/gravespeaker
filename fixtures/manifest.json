@@ -8,7 +8,8 @@
 			{
 				"name": "Corwin \"Cory\" Garner Chambers",
 				"born": "1959-11-07",
-				"died": "2011-09-12"
+				"died": "2011-09-12",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Corwin_Garner_Chambers_(1959-2011),_Eugene_Masonic_Cemetery.jpg",
@@ -16,7 +17,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": "Eugene, Oregon"
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "gonzalez-2021.jpg",
@@ -27,7 +28,8 @@
 			{
 				"name": "Alfonso Gonzalez",
 				"born": "1951-11-18",
-				"died": "2021-01-17"
+				"died": "2021-01-17",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Gonzalez,_Alfonso_(1951-2021).jpg",
@@ -35,7 +37,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": null
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "guo-2025.jpg",
@@ -46,7 +48,8 @@
 			{
 				"name": "Jiunn-Shih Guo",
 				"born": "1937-01-18",
-				"died": "2025-12-10"
+				"died": "2025-12-10",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Jim_Jiunn-Shih_Guo_(1937-2025)_brick_at_Davis_Cemetery_in_Davis,_California.jpg",
@@ -65,7 +68,8 @@
 			{
 				"name": "Edward Hildebrand III",
 				"born": "1966",
-				"died": "2018"
+				"died": "2018",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1966-2018)_in_Alsea_Cemetery.jpg",
@@ -84,7 +88,8 @@
 			{
 				"name": "Edward Leroy Hildebrand Jr",
 				"born": "1942-04-28",
-				"died": "2015-10-10"
+				"died": "2015-10-10",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Edward_Hildebrand_(1942-2015)_in_Alsea_Cemetery.jpg",
@@ -103,7 +108,8 @@
 			{
 				"name": "Andrew Cunningham",
 				"born": null,
-				"died": "1752-04-27"
+				"died": "1752-04-27",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Andrew_Cunningham_headstone_(36114).jpg",
@@ -122,7 +128,8 @@
 			{
 				"name": "Betsey Ellis",
 				"born": null,
-				"died": "1818-07-28"
+				"died": "1818-07-28",
+				"voice": "female"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Betsey_Ellis_tombstone,_Savery_Cemetery,_Ellisville_MA.jpg",
@@ -130,7 +137,7 @@
 		"license": "CC BY-SA 3.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
 		"reviewed": true,
-		"place": "Plymouth, Massachusetts"
+		"place": "Ellisville, Massachusetts"
 	},
 	{
 		"file": "illegible-marble.jpg",
@@ -143,7 +150,7 @@
 		"license": "CC BY-SA 4.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
 		"reviewed": true,
-		"place": null
+		"place": "Boone Township, Porter County, Indiana"
 	},
 	{
 		"file": "luxford-2015.jpg",
@@ -154,7 +161,8 @@
 			{
 				"name": "Robert E. Luxford",
 				"born": "1934",
-				"died": "2015"
+				"died": "2015",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Luxford,_Robert_E._(1934-2015).jpg",
@@ -162,7 +170,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": null
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "morgan-2019.jpg",
@@ -173,7 +181,8 @@
 			{
 				"name": "Daisy M. Morgan",
 				"born": "1929-04-28",
-				"died": "2019-01-18"
+				"died": "2019-01-18",
+				"voice": "female"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Morgan,_Daisy_M._(1929-2019).jpg",
@@ -181,7 +190,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": null
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "waechter-2012.jpg",
@@ -192,7 +201,8 @@
 			{
 				"name": "Martin Waechter",
 				"born": "1943-03-07",
-				"died": "2012-01-31"
+				"died": "2012-01-31",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Martin_Waechter_(1943-2012),_Eugene_Masonic_Cemetery_(25854725748).jpg",
@@ -200,7 +210,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": "Eugene, Oregon"
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "mills-2015.jpg",
@@ -211,7 +221,8 @@
 			{
 				"name": "Joshua John Mills",
 				"born": "1979-07-21",
-				"died": "2015-01-07"
+				"died": "2015-01-07",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Joshua_John_Mills_(1979-2015),_Eugene_Masonic_Cemetery_(38961982154).jpg",
@@ -219,7 +230,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": "Eugene, Oregon"
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "hall-2014.jpg",
@@ -230,7 +241,8 @@
 			{
 				"name": "James Kenneth Hall",
 				"born": "1940-07-23",
-				"died": "2014-03-18"
+				"died": "2014-03-18",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:James_Kenneth_Hall_(1940-2014),_Eugene_Masonic_Cemetery_(27935355179).jpg",
@@ -238,7 +250,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": "Eugene, Oregon"
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "juntunen-2012.jpg",
@@ -249,7 +261,8 @@
 			{
 				"name": "Troy Leonard Juntunen",
 				"born": "1967-01-28",
-				"died": "2012-08-03"
+				"died": "2012-08-03",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Troy_Leonard_Juntunen_(1967-2012)_in_Crystal_Lake_Cemetery.jpg",
@@ -268,7 +281,8 @@
 			{
 				"name": "Lloyd Dee Dixon",
 				"born": "1943-07-11",
-				"died": "2018-05-26"
+				"died": "2018-05-26",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Lloyd_Dee_Dixon_(1943-2018)_in_Alsea_Cemetery.jpg",
@@ -287,7 +301,8 @@
 			{
 				"name": "Tyson Lee Schreiber",
 				"born": "1992-08-21",
-				"died": "2012-02-12"
+				"died": "2012-02-12",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Tyson_Lee_Schreiber_(1992-2012)_in_Alsea_Cemetery.jpg",
@@ -306,7 +321,8 @@
 			{
 				"name": "Gaynor Claire Hawks",
 				"born": "1932-03-10",
-				"died": "2017-12-27"
+				"died": "2017-12-27",
+				"voice": "female"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Gaynor_Clire_Hawks_(1932-2017)_in_Alsea_Cemetery.jpg",
@@ -325,7 +341,8 @@
 			{
 				"name": "Jasper \"Bub\" Hayden",
 				"born": "1907",
-				"died": "1993"
+				"died": "1993",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Jasper_Hayden_(1907-1993)_in_Alsea_Cemetery.jpg",
@@ -344,7 +361,8 @@
 			{
 				"name": "Russell O Bell",
 				"born": "1924-09-24",
-				"died": "1994-02-08"
+				"died": "1994-02-08",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Russell_O._Bell_(1914-1994)_in_Crystal_Lake_Cemetery.jpg",
@@ -363,7 +381,8 @@
 			{
 				"name": "Bruce Doran",
 				"born": "1934-05-31",
-				"died": "2008-03-28"
+				"died": "2008-03-28",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Doran,_Bruce_(1934-2008).jpg",
@@ -371,7 +390,7 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": null
+		"place": "Eugene, Lane County, Oregon"
 	},
 	{
 		"file": "holmquist-2024.jpg",
@@ -382,12 +401,14 @@
 			{
 				"name": "Marsha Fox Holmquist",
 				"born": "1940-11-05",
-				"died": null
+				"died": null,
+				"voice": "female"
 			},
 			{
 				"name": "Charles Ray Holmquist",
 				"born": "1948-03-12",
-				"died": "2024-05-06"
+				"died": "2024-05-06",
+				"voice": "male"
 			}
 		],
 		"source": "https://commons.wikimedia.org/wiki/File:Oak_Hill_Cemetery_-_Holmquist,_Charles_Ray_(1948-2024).jpg",
@@ -395,6 +416,6 @@
 		"license": "CC BY 2.0",
 		"licenseUrl": "https://creativecommons.org/licenses/by/2.0",
 		"reviewed": true,
-		"place": null
+		"place": "Eugene, Lane County, Oregon"
 	}
 ]

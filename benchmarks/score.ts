@@ -6,6 +6,7 @@ interface Person {
 	name: string | null;
 	born: string | null;
 	died: string | null;
+	voice?: string | null;
 }
 
 interface Fixture {
@@ -97,25 +98,34 @@ function nameTokens(name: string | null | undefined): string {
 }
 
 /**
- * Counts correct name/born/died fields. A wrong name zeroes that person's dates.
+ * Counts correct name/born/died fields. A wrong name zeroes that person's dates. Voice is counted
+ * apart, only for people matched by name where the fixture records a voice and the run returned one.
  * @param expected Ground-truth people.
  * @param got People the model returned.
- * @returns Correct and total field counts, plus returned people that match no one on the stone.
+ * @returns Correct and total field counts, voice counts, and returned people that match no one on
+ * the stone.
  */
 function peopleScore(
 	expected: Person[],
 	got: Partial<Person>[]
-): { correct: number; total: number; extra: number } {
-	if (!expected.length) return { correct: got.length ? 0 : 1, total: 1, extra: got.length };
+): { correct: number; total: number; extra: number; voice: number; voiceN: number } {
+	if (!expected.length)
+		return { correct: got.length ? 0 : 1, total: 1, extra: got.length, voice: 0, voiceN: 0 };
 	const pool = [...got];
 	let correct = 0;
+	let voice = 0;
+	let voiceN = 0;
 	for (const p of expected) {
 		const i = pool.findIndex((q) => nameTokens(q.name) === nameTokens(p.name));
 		const q = i >= 0 ? pool.splice(i, 1)[0] : null;
 		if (!q) continue;
 		correct += 1 + Number((q.born ?? null) === p.born) + Number((q.died ?? null) === p.died);
+		if (p.voice && 'voice' in q) {
+			voiceN++;
+			voice += Number(q.voice === p.voice);
+		}
 	}
-	return { correct, total: expected.length * 3, extra: pool.length };
+	return { correct, total: expected.length * 3, extra: pool.length, voice, voiceN };
 }
 
 const manifest: Fixture[] = JSON.parse(
@@ -136,6 +146,8 @@ const agg = new Map<
 		correct: number;
 		total: number;
 		extra: number;
+		voice: number;
+		voiceN: number;
 		times: number[];
 	}
 >();
@@ -152,6 +164,8 @@ for (const r of rows) {
 		correct: 0,
 		total: 0,
 		extra: 0,
+		voice: 0,
+		voiceN: 0,
 		times: []
 	};
 	agg.set(r.model, a);
@@ -173,6 +187,8 @@ for (const r of rows) {
 	a.correct += s.correct;
 	a.total += s.total;
 	a.extra += s.extra;
+	a.voice += s.voice;
+	a.voiceN += s.voiceN;
 	cells.set(
 		`${r.file}|${r.model}`,
 		`${s.correct}/${s.total}${s.extra ? ` +${s.extra} extra` : ''}`
@@ -200,6 +216,7 @@ line([
 	'Text similarity',
 	...stats.map((a) => (a.textN ? `${((100 * a.text) / a.textN).toFixed(1)}%` : 'n/a'))
 ]);
+line(['Voice correct', ...stats.map((a) => (a.voiceN ? `${a.voice}/${a.voiceN}` : 'n/a'))]);
 line(['Extra people (not on the stone)', ...stats.map((a) => String(a.extra))]);
 line(['Errors', ...stats.map((a) => String(a.errors))]);
 line(['Median time per photo', ...stats.map((a) => `${(median(a.times) / 1000).toFixed(1)} s`)]);
