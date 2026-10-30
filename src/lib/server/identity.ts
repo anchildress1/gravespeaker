@@ -101,7 +101,10 @@ function nameParts(name: string): NameParts {
 		.split(/\s+/)
 		.filter(Boolean);
 	let suffix: string | null = null;
-	while (parts.length > 1 && parts.at(-1)! in SUFFIXES) suffix ??= SUFFIXES[parts.pop()!];
+	while (parts.length > 1 && Object.hasOwn(SUFFIXES, parts.at(-1)!)) {
+		const last = SUFFIXES[parts.pop()!];
+		suffix ??= last;
+	}
 	const surname = parts.pop() ?? '';
 	return { given: parts, surname, suffix };
 }

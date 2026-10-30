@@ -177,6 +177,16 @@ describe('resolveMatches', () => {
 		expect(resolve([rec('Edward Hildebrand (1932-2017)')], junior)).toHaveLength(1);
 	});
 
+	it('reads a stone that stacks two suffixes', () => {
+		const stacked = { name: 'Edward Hildebrand Jr. II', carvedName: 'Edward Hildebrand Jr. II' };
+		expect(resolve([rec('Edward Hildebrand (1932-2017)')], stacked)).toHaveLength(1);
+	});
+
+	it('keeps a surname that is an object property name', () => {
+		const ada = { name: 'Ada Constructor', carvedName: 'Ada Constructor' };
+		expect(resolve([rec('Ada Constructor (1932-2017)')], ada)).toHaveLength(1);
+	});
+
 	it('folds accents when comparing names', () => {
 		const norse = { name: 'Ødegård Sæther', carvedName: 'Ødegård Sæther' };
 		expect(resolve([rec('Odegard Saether (1932-2017)')], norse)).toHaveLength(1);
