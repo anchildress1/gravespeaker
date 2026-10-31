@@ -506,6 +506,27 @@ describe('resolveMatches', () => {
 		expect(resolve([rec('Gaynor "Gay" Marie Hawks (1932-2017)')])).toHaveLength(1);
 	});
 
+	it.each([
+		['a middle initial the stone rules out', 'Hawks, Gaynor B. (1932-2017)', {}, 0],
+		["the stone's own initial before the given name", 'Hawks, C. Gaynor (1932-2017)', {}, 1],
+		[
+			'a conflicting suffix',
+			'Reynolds, Stephen Sr. (1989-2014)',
+			{ name: 'Stephen Reynolds Jr.', carvedName: 'Stephen Reynolds Jr.' },
+			0
+		],
+		[
+			"the stone's own suffix",
+			'Reynolds, Stephen A., Jr. (1989-2014)',
+			{ name: 'Stephen Abraham Reynolds Jr.', carvedName: 'Stephen Abraham Reynolds Jr.' },
+			1
+		],
+		['a list that names another initial later', 'Hawks, Gaynor, and A. Smith (1932-2017)', {}, 1]
+	])('reads "Surname, Given" with %s', (_, snippet, stone, found) => {
+		const dates = 'name' in stone ? { born: '1989-02-20', died: '2014-02-08' } : {};
+		expect(resolve([rec(snippet)], { ...stone, ...dates })).toHaveLength(found);
+	});
+
 	it('keeps the years each source states when the stone carries no dates', () => {
 		const bare = { born: null, died: null };
 		const out = resolve(

@@ -238,13 +238,25 @@ function mentionAt(text: string, stone: NameParts, at: number, length: number): 
 	// "Charles Hawks, Gaynor Jones" would pair Hawks with Gaynor.
 	if (first !== at || text[at + length] !== ',') return null;
 	const next = at + length + 1;
+	let tail = suffix;
 	for (const w of wordsOf(text.slice(next, next + NAME_REACH), next).slice(0, NAME_WORDS_MAX - 1)) {
 		const part = namePart(w.word);
 		if (!part) break;
-		if (isGiven(given, part.name)) return { start: at, mark: null };
+		// After the given name, "Jr." or "III" is a suffix; a lone I or V is read as an initial.
+		const after = hit && part.name.length > 1 ? suffixAfter(text, w.index) : null;
+		if (after) {
+			tail = after;
+			break;
+		}
+		if (part.name.length === 1 && w.word.endsWith('.')) initials.push(part.name);
+		else if (PREFIX_WORDS.has(part.name)) break;
+		else {
+			words.push(part.name);
+			hit ||= isGiven(given, part.name);
+		}
 		if (part.closes) break;
 	}
-	return null;
+	return hit ? { start: at, mark: markOf(stone, initials, words, tail) } : null;
 }
 
 /**
