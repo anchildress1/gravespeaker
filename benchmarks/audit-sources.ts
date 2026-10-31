@@ -1,8 +1,7 @@
 // Usage: node benchmarks/audit-sources.ts [benchmarks/results/research-N.json]
 // Lists every search result each person's research run saw, from the saved SerpApi responses, with
-// what the identity engine did with it and why. Saves benchmarks/results/sources-N.json for labeling:
-// `right` is null until the user marks a result true (the stone's person) or false (someone else).
-// A people.json case's own memorial is the one result known to be right before labeling.
+// what the identity engine did with it and why. Saves benchmarks/results/sources-N.json. `own` marks
+// a people.json case's reviewed memorial, the one result known to be the stone's person.
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { pageEvidence, resolveMatches } from '../src/lib/server/identity.ts';
 import { dropGated } from '../src/lib/server/search/sites.ts';
@@ -110,7 +109,7 @@ const people = run.rows.map((row) => {
 					: text === null
 						? 'unreadable'
 						: (pageEvidence(ins, text).grade ?? 'against or unnamed'),
-			right: truth.get(row.file) === key ? true : null
+			own: truth.get(row.file) === key
 		};
 	});
 	return { file: row.file, name: ins.name, born: ins.born, died: ins.died, results };
@@ -129,7 +128,7 @@ const count = (pick: (r: (typeof all)[number]) => boolean) => all.filter(pick).l
 console.log(`${out}: ${all.length} results for ${people.length} people from ${runFile}`);
 for (const v of VERDICTS) console.log(`  ${v.padEnd(32)} ${count((r) => r.verdict === v)}`);
 for (const p of people.filter((x) => truth.has(x.file))) {
-	const own = p.results.find((r) => r.right);
+	const own = p.results.find((r) => r.own);
 	console.log(
 		`  own memorial, ${p.name.padEnd(30)} ${own ? `${own.verdict} (${own.search})` : 'never returned'}`
 	);

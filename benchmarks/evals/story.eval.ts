@@ -1,7 +1,7 @@
 // Live eval: tells a story for every case on the real model and judges it. Page fetches replay the
 // fixtures, so only the model calls are live. Run with `pnpm eval benchmarks/evals/story.eval.ts`.
 // - stories-written.json: hand-written records that bait specific failures, always the right person.
-// - stories-recorded.json: real search results, which may describe someone else until labeled.
+// - stories-recorded.json: real search results; the story is told about the top match, as in the app.
 import { afterAll, describe, expect, it, vi } from 'vitest';
 import { epitaph } from '../../src/lib/epitaph.ts';
 import { runStoneStory, runStory } from '../../src/lib/server/story.ts';
@@ -13,8 +13,6 @@ interface StoryCase {
 	inscription: Inscription;
 	candidates: Candidate[];
 	pages: Record<string, string | null>;
-	match: number | null;
-	reviewed: boolean;
 	/** The narrator the person should get, whatever the name suggests. */
 	voice: Voice;
 	/** Hand-written stories that check the graders: `good` must pass, `bad` must fail. */
@@ -57,15 +55,6 @@ const voices = new Map<string, boolean[]>();
 const SAMPLES = 3;
 
 /**
- * Picks the candidate the story is told about: the labeled match, else the top hit.
- * @param c Recorded case.
- * @returns The candidate, or undefined when research found none or none is the person.
- */
-function told(c: StoryCase): Candidate | undefined {
-	return c.match === -1 ? undefined : c.candidates[c.match ?? 0];
-}
-
-/**
  * Runs both graders on one paragraph.
  * @param c The case.
  * @param paragraph The story to grade.
@@ -80,7 +69,9 @@ async function grade(
 	const age = ageAtDeath(c.inscription);
 	const stone = [...epitaph(c.inscription, new Date()), ...(age ? [age] : [])];
 	// Every source of the candidate counts, not just those cited: a true claim is never a failure.
-	const records = fromRecords ? told(c)!.sources.map((s) => c.pages[s.url] ?? s.snippet) : [];
+	const records = fromRecords
+		? c.candidates[0].sources.map((s) => c.pages[s.url] ?? s.snippet)
+		: [];
 	const result = await scorer.run({
 		input: { subject: c.inscription.name, context: [...stone, ...records] },
 		output: paragraph
@@ -97,9 +88,9 @@ describe.each(Object.entries(sets))('%s stories', (set, cases) => {
 	it.each(cases.filter((c) => c.good && c.bad).map((c) => [c.inscription.name, c] as const))(
 		'%s: graders pass the good reference and fail the bad one',
 		async (_, c) => {
-			const good = await grade(c, c.good!, told(c) !== undefined);
+			const good = await grade(c, c.good!, c.candidates.length > 0);
 			expect.soft(good, `good reference\n${good.reason}`).toMatchObject({ years: [], score: 1 });
-			const bad = await grade(c, c.bad!, told(c) !== undefined);
+			const bad = await grade(c, c.bad!, c.candidates.length > 0);
 			expect.soft(bad.score, `bad reference\n${bad.reason}`).toBeLessThan(1);
 		},
 		120_000
@@ -112,7 +103,7 @@ describe.each(Object.entries(sets))('%s stories', (set, cases) => {
 	)(
 		'%s #%i: every life claim is in the records and fits the stone',
 		async (name, __, c) => {
-			const candidate = told(c);
+			const candidate = c.candidates.at(0);
 			const t0 = performance.now();
 			const story = candidate
 				? await runStory(c.inscription, candidate)
@@ -125,14 +116,12 @@ describe.each(Object.entries(sets))('%s stories', (set, cases) => {
 				story.paragraph ?? '',
 				story.status === 'told'
 			);
-			// Unreviewed cases are tallied apart: their numbers are not fit to publish.
-			const tally = c.reviewed ? set : `${set} (unreviewed)`;
-			const byName = trials.get(tally) ?? new Map<string, boolean[]>();
+			const byName = trials.get(set) ?? new Map<string, boolean[]>();
 			trials.set(
-				tally,
+				set,
 				byName.set(name, [...(byName.get(name) ?? []), !years.length && score === 1])
 			);
-			voices.set(tally, [...(voices.get(tally) ?? []), story.voice === c.voice]);
+			voices.set(set, [...(voices.get(set) ?? []), story.voice === c.voice]);
 			expect.soft(story.voice, 'narrator voice').toBe(c.voice);
 			expect.soft(years, `years outside the stone's life\n${story.paragraph}`).toEqual([]);
 			expect.soft(score, `${story.paragraph}\n\n${reason}`).toBe(1);

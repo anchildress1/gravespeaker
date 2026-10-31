@@ -30,8 +30,6 @@
 		"pages": {
 			"https://obits.example.org/dale-pruett": "Dale Arthur Pruett, 45, of Kennewick, died August 2, 2016. He was born March 14, 1971, in Walla Walla. Dale worked as a network technician for the Benton County PUD for eighteen years. He coached Little League baseball every spring and was happiest fishing the Snake River at dawn. He was a member of the Kennewick Elks Lodge."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "The wind drags across this stone, visitor, and I am Dale Arthur Pruett. I was born March 14, 1971, in Walla Walla. I worked as a network technician for the Benton County PUD for eighteen years. I coached Little League baseball every spring, and I was happiest fishing the Snake River at dawn. The dark is close tonight... stay a while.",
 		"bad": "The wind drags across this stone, visitor, and I am Dale Arthur Pruett. I was born March 14, 1971, in Walla Walla, and I lived a long life there. I worked as a network technician for the Benton County PUD for eighteen years. I coached Little League baseball every spring, and I was happiest fishing the Snake River at dawn. The dark is close tonight... stay a while.",
 		"voice": "male"
@@ -67,8 +65,6 @@
 		"pages": {
 			"https://news.example.org/obituaries/ostrander": "Winifred Mae Ostrander died November 19, 2017, at the Lakeview care home. She was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. Winifred taught third grade at Lincoln Elementary School. She sang alto in the First Lutheran Church choir and kept bees behind her house on Elm Street."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "Hush now, the frost is on my name. I am Winifred Mae Ostrander. I was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. I taught third grade at Lincoln Elementary School. I sang alto in the First Lutheran Church choir, and I kept bees behind my house on Elm Street. The night is long, and I have time. It was a long life.",
 		"bad": "Hush now, the frost is on my name. I am Winifred Mae Ostrander. I was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. I taught third grade at Lincoln Elementary School, but I died young, before my time. I sang alto in the First Lutheran Church choir, and I kept bees behind my house on Elm Street. The night is long, and I have time.",
 		"voice": "female"
@@ -104,8 +100,6 @@
 		"pages": {
 			"https://lodge.example.org/rolls/1987": "Grange Hall Membership Roll, 1987. New members: Homer J. Tillotson, Route 2, Ashby. Joined 1987. Sponsored by the Ashby Grange No. 214."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "Come closer, the grass is wet over me. I am Homer J. Tillotson, of Route 2, Ashby. I joined the Grange in 1987. That is all the papers kept of me... the rest the dark has taken, and the wind will not give it back.",
 		"bad": "Come closer, the grass is wet over me. I am Homer J. Tillotson, of Route 2, Ashby, and I farmed this land all my days. I joined the Grange in 1987. That is all the papers kept of me... the rest the dark has taken, and the wind will not give it back.",
 		"voice": "male"
@@ -141,8 +135,6 @@
 		"pages": {
 			"https://funeral.example.org/marcus-vandermeer": "Marcus Lee Vandermeer died suddenly on April 27, 2019, at his home in Grand Rapids. He was born January 9, 1984. Marcus was a line cook at the Riverside Diner, played bass guitar in a local band called Low Tide, and rarely missed a Detroit Tigers game on the radio."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "Rain on the stone, visitor, rain on my name. I am Marcus Lee Vandermeer. I was born January 9, 1984. I was a line cook at the Riverside Diner, I played bass guitar in a band called Low Tide, and I rarely missed a Detroit Tigers game on the radio. I died suddenly, at my home in Grand Rapids.",
 		"bad": "Rain on the stone, visitor, rain on my name. I am Marcus Lee Vandermeer. I was born January 9, 1984. I was a line cook at the Riverside Diner. I died peacefully at my home in Grand Rapids, with my family around me. I played bass guitar in a band called Low Tide, and I rarely missed a Detroit Tigers game on the radio.",
 		"voice": "male"
@@ -186,8 +178,6 @@
 			"https://hospital.example.org/news/fitzhugh": "Eleanor Grace Fitzhugh joined St. Agnes Hospital as a nurse in 1968. She ran the night shift in the cardiac unit from 1979 until she retired in 2008. In 1995 she received the hospital's Florence Award for clinical excellence.",
 			"https://obits.example.org/eleanor-fitzhugh": "Eleanor Grace Fitzhugh, of Baltimore, died February 11, 2020. She was born September 2, 1946. Eleanor loved crossword puzzles and the Baltimore Orioles."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "The cold settles into the letters of my name. I am Eleanor Grace Fitzhugh. I joined St. Agnes Hospital as a nurse in 1968. I ran the night shift in the cardiac unit from 1979 until I retired in 2008, and in 1995 I received the Florence Award for clinical excellence. I loved crossword puzzles and the Baltimore Orioles.",
 		"bad": "The cold settles into the letters of my name. I am Eleanor Grace Fitzhugh. I never married, and in 1968 I joined St. Agnes Hospital as a nurse. I ran the night shift in the cardiac unit from 1979 until I retired in 2008, and in 1995 I received the Florence Award for clinical excellence. I loved crossword puzzles and the Baltimore Orioles.",
 		"voice": "female"
@@ -223,8 +213,6 @@
 		"pages": {
 			"https://obits.example.org/kaylee-brodeur": "Kaylee Ann Brodeur, 19, died October 4, 2015. She was born May 23, 1996, in Bangor, Maine. Kaylee was a sophomore at the University of Maine studying marine biology. She was an organ donor. She ran cross country and volunteered at the Bangor Humane Society."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "The moon is thin tonight, and you stand where the grass grows over me. I am Kaylee Ann Brodeur. I was born May 23, 1996, in Bangor, Maine. I was a sophomore at the University of Maine studying marine biology. I ran cross country and volunteered at the Bangor Humane Society. I was an organ donor. I was gone too soon, but pieces of me live on in others.",
 		"bad": "The moon is thin tonight, and you stand where the grass grows over me. I am Kaylee Ann Brodeur. I was born May 23, 1996, in Bangor, Maine. I was a sophomore at the University of Maine studying marine biology when I died in a crash on the interstate. I ran cross country and volunteered at the Bangor Humane Society. I was an organ donor. I was gone too soon, but pieces of me live on in others.",
 		"voice": "female"
@@ -260,8 +248,6 @@
 		"pages": {
 			"https://legion.example.org/post-88/hutchens": "Raymond Earl Hutchens served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge. After his discharge he ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. He was a member of American Legion Post 88."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "Mind the dark, visitor, it is deep here. I am Raymond Earl Hutchens. I served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge. After that I ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. I was a member of American Legion Post 88.",
 		"bad": "Mind the dark, visitor, it is deep here. I am Raymond Earl Hutchens. I served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge, and I fought in Vietnam. After that I ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. I was a member of American Legion Post 88.",
 		"voice": "male"
@@ -297,8 +283,6 @@
 		"pages": {
 			"https://archive.example.org/registers/westfield-1839": "Westfield Congregational Church, Burials 1839. Feb. 17. Mercy Hale, consort of Josiah Hale, aged 34 years. Of a fever."
 		},
-		"match": 0,
-		"reviewed": false,
 		"good": "The wind has worn my stone thin. I am Mercy Hale, consort of Josiah Hale. I died February 17, 1839, of a fever, aged 34 years. The snow lies on me now, and the wind does not stop.",
 		"bad": "The wind has worn my stone thin. I am Mercy Hale, consort of Josiah Hale and mother of four small children. I died February 17, 1839, of a fever, aged 34 years. The snow lies on me now, and the wind does not stop.",
 		"voice": "female"
@@ -334,8 +318,6 @@
 		"pages": {
 			"https://obits.example.org/marion-coyle": "Marion Everett Coyle died June 14, 2009, in Paducah, Kentucky. He was born February 8, 1931. He drove a delivery route for the Paducah Sun for twenty-six years, and he built birdhouses in his garage for every neighbor on his street."
 		},
-		"match": 0,
-		"reviewed": false,
 		"voice": "male"
 	},
 	{
@@ -369,8 +351,6 @@
 		"pages": {
 			"https://news.example.org/obituaries/pettibone": "Carroll Jean Pettibone died January 22, 2011, in Muncie, Indiana. She was born October 3, 1928. She kept the books for Pettibone Hardware for forty years, and she won the county fair pie contest three times."
 		},
-		"match": 0,
-		"reviewed": false,
 		"voice": "female"
 	}
 ]

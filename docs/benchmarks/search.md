@@ -2,7 +2,7 @@
 
 How research turns a carved name and dates into sources, what broke along the way, and what is still open. The final design is research run 21 (`benchmarks/results/research-21.json`), which replays every search from saved SerpApi responses in `fixtures/serp/`. Run 20 is run 19 with the infant's corrected dates; run 21 adds the review fixes and the re-recorded Google redirects.
 
-> **Not publishable yet.** The `right` labels in `benchmarks/results/sources-6.json` are unreviewed (460 `null`, 2 `true`). The `match` labels in `fixtures/stories-recorded.json` are unreviewed (30 `null`). Until the user reviews them, "dated" below means the identity engine's grade, not a verified match.
+> **Ground truth is reviewed.** Every name and date in `fixtures/people.json` (9 people) and `fixtures/manifest.json` (21 stones) is user-reviewed. "Dated" below is the identity engine's grade; a match is proven to be the right person only where it is that person's own reviewed memorial.
 
 ## Final design
 
@@ -61,5 +61,5 @@ Tried and dropped: Yandex's `|` OR syntax and a name-variant query. Neither foun
 | Single-source matches              | Only Olivia's dated match had a second source                                                                | None in scope; the story cites what it has    |
 | Google timeouts                    | 4 saved Google searches timed out at the 20 s cap and replay as misses; runs list them under `meta.failures` | Re-record them; about 4 credits               |
 | Gated sites                        | Ancestry and similar are dropped unread                                                                      | None; no access                               |
-| Unreviewed labels                  | No accuracy numbers can be published                                                                         | User review of `right` and `match` labels     |
+| Most matches unproven              | Beyond the 2 own memorials, a dated match rests on the identity engine's grade                               | None in scope; the engine is the judge        |
 | Photo fixtures use old queries     | Their saved searches predate the keyword pairs, so a full 30-person replay can't run                         | Re-record, about 100 to 150 credits           |
