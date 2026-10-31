@@ -241,7 +241,30 @@ function mentionAt(text: string, stone: NameParts, at: number, length: number): 
 	// "Surname, Given" counts only when the surname opens its phrase; otherwise
 	// "Charles Hawks, Gaynor Jones" would pair Hawks with Gaynor.
 	if (first !== at || text[at + length] !== ',') return null;
+	return surnameFirst(text, stone, at, length, suffix);
+}
+
+/**
+ * Reads the given names after the comma of a "Surname, Given" mention.
+ * @param text Folded text.
+ * @param stone The stone's name parts.
+ * @param at Index of the surname occurrence.
+ * @param length Length of the surname.
+ * @param suffix Suffix right after the surname, if any.
+ * @returns The mention, starting at the surname, or null when no given name follows.
+ */
+function surnameFirst(
+	text: string,
+	stone: NameParts,
+	at: number,
+	length: number,
+	suffix: string | null
+): Mention | null {
+	const { given } = stone;
 	const next = at + length + 1;
+	const initials: string[] = [];
+	const words: string[] = [];
+	let hit = false;
 	let tail = suffix;
 	for (const w of wordsOf(text.slice(next, next + NAME_REACH), next).slice(0, NAME_WORDS_MAX - 1)) {
 		const part = namePart(w.word);
