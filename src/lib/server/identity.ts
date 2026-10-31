@@ -245,6 +245,21 @@ function mentionAt(text: string, stone: NameParts, at: number, length: number): 
 }
 
 /**
+ * Files a name word under initials or names.
+ * @param name The word as a name part.
+ * @param word The word as written, to tell an initial by its period.
+ * @param initials Initials so far, appended to.
+ * @param words Names so far, appended to.
+ * @returns False when the word is a prefix word, which ends the name.
+ */
+function collect(name: string, word: string, initials: string[], words: string[]): boolean {
+	if (name.length === 1 && word.endsWith('.')) initials.push(name);
+	else if (PREFIX_WORDS.has(name)) return false;
+	else words.push(name);
+	return true;
+}
+
+/**
  * Reads the given names after the comma of a "Surname, Given" mention.
  * @param text Folded text.
  * @param stone The stone's name parts.
@@ -275,9 +290,7 @@ function surnameFirst(
 			tail = after;
 			break;
 		}
-		if (part.name.length === 1 && w.word.endsWith('.')) initials.push(part.name);
-		else if (PREFIX_WORDS.has(part.name)) break;
-		else words.push(part.name);
+		if (!collect(part.name, w.word, initials, words)) break;
 		hit ||= isGiven(given, part.name);
 		if (part.closes) break;
 	}
