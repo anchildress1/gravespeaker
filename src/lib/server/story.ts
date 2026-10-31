@@ -127,7 +127,7 @@ const groundStep = createStep({
 /**
  * Grades the told match from its search results and the pages the story read, whichever is stronger.
  * @param candidate The match the story was told from.
- * @param pages Pages kept for the story.
+ * @param pages Pages kept for the story; the search grade counts only when none was dropped.
  * @returns The match's confidence; never low, because a name-only match keeps only pages that
  *   state one of the stone's dates, and a story with no pages is never told.
  */
@@ -136,9 +136,9 @@ function matchGrade(
 	pages: { grade: Confidence | null }[]
 ): Exclude<Confidence, 'low'> {
 	const ranks = pages.map((p) => GRADES.indexOf(p.grade ?? 'low'));
-	return GRADES[Math.max(GRADES.indexOf(candidate.confidence), ...ranks)] === 'high'
-		? 'high'
-		: 'medium';
+	// A dropped page may be the result that earned the search grade, so the survivors stand alone.
+	const searched = pages.length === candidate.sources.length ? candidate.confidence : 'low';
+	return GRADES[Math.max(GRADES.indexOf(searched), ...ranks)] === 'high' ? 'high' : 'medium';
 }
 
 const storyWorkflow = createWorkflow({ id: 'story', inputSchema, outputSchema: storySchema })

@@ -194,6 +194,26 @@ describe('POST /api/story', () => {
 		expect(JSON.stringify(model.mock.calls[0])).not.toContain('raced horses');
 	});
 
+	it('grades a high match by its surviving pages when one page dates a namesake', async () => {
+		const two = {
+			...candidate,
+			sources: [
+				...candidate.sources,
+				{ id: 's2', url: 'https://other.com/h', title: 'Obit', site: 'other.com', snippet: '' }
+			]
+		};
+		page.byUrl = {
+			'https://legacy.com/h': 'Gaynor Claire Hawks, born 1932, taught piano for forty years.',
+			'https://other.com/h': 'Gaynor Hawks (1918-1979) raced horses in Kentucky.'
+		};
+		stubModel(
+			() => factsReply([pianoFact]),
+			() => reply('Come closer. I taught piano for forty years.')
+		);
+		const body = await (await call({ inscription, candidate: two })).json();
+		expect([body.status, body.confidence]).toEqual(['told', 'medium']);
+	});
+
 	it('falls back to the stone when the facts are only the name and dates', async () => {
 		stubModel(
 			() => factsReply([{ claim: 'name', sourceId: 's1', quote: 'Gaynor' }]),
