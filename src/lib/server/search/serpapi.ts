@@ -83,9 +83,10 @@ export class SerpApiProvider implements SearchProvider {
 		);
 		// Every hop is followed: it costs a request, never a SerpApi credit.
 		const links = await Promise.all(
-			results.map((r, i) =>
-				hops[i] ? follow(redirects!, r.link!) : r.link && canonicalUrl(r.link) ? r.link : null
-			)
+			results.map((r, i) => {
+				if (hops[i]) return follow(redirects!, r.link!);
+				return Promise.resolve(r.link && canonicalUrl(r.link) ? r.link : null);
+			})
 		);
 		// Every result a hop and none resolving means the redirects are down, not an empty search.
 		if (hops.length && hops.every(Boolean) && !links.some(Boolean))

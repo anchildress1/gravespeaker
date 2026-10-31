@@ -173,9 +173,8 @@ const researchWorkflow = createWorkflow({
 })
 	.then(planStep)
 	// Stop at the first dated match: every further search costs a SerpApi credit.
-	.dountil(
-		searchStep,
-		async ({ inputData: s }) => dated(s.candidates) || !s.pending.length || outage(s)
+	.dountil(searchStep, ({ inputData: s }) =>
+		Promise.resolve(dated(s.candidates) || !s.pending.length || outage(s))
 	)
 	.then(resolveStep)
 	.commit();
