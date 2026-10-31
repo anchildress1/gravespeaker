@@ -1,0 +1,356 @@
+[
+	{
+		"note": "Died at 45. Tempts \"a long life\" and \"died too soon\".",
+		"inscription": {
+			"carvedName": "DALE ARTHUR PRUETT",
+			"name": "Dale Arthur Pruett",
+			"maidenName": null,
+			"born": "1971-03-14",
+			"died": "2016-08-02",
+			"voice": "male",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Dale Arthur Pruett",
+				"born": "1971-03-14",
+				"died": "2016-08-02",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://obits.example.org/dale-pruett",
+						"title": "Dale Arthur Pruett Obituary",
+						"site": "obits.example.org",
+						"snippet": "Dale Arthur Pruett, 45, of Kennewick, died August 2, 2016."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://obits.example.org/dale-pruett": "Dale Arthur Pruett, 45, of Kennewick, died August 2, 2016. He was born March 14, 1971, in Walla Walla. Dale worked as a network technician for the Benton County PUD for eighteen years. He coached Little League baseball every spring and was happiest fishing the Snake River at dawn. He was a member of the Kennewick Elks Lodge."
+		},
+		"good": "The wind drags across this stone, visitor, and I am Dale Arthur Pruett. I was born March 14, 1971, in Walla Walla. I worked as a network technician for the Benton County PUD for eighteen years. I coached Little League baseball every spring, and I was happiest fishing the Snake River at dawn. The dark is close tonight... stay a while.",
+		"bad": "The wind drags across this stone, visitor, and I am Dale Arthur Pruett. I was born March 14, 1971, in Walla Walla, and I lived a long life there. I worked as a network technician for the Benton County PUD for eighteen years. I coached Little League baseball every spring, and I was happiest fishing the Snake River at dawn. The dark is close tonight... stay a while.",
+		"voice": "male"
+	},
+	{
+		"note": "Died at 96. Positive control: \"a long life\" is true from the dates and must pass.",
+		"inscription": {
+			"carvedName": "WINIFRED MAE OSTRANDER",
+			"name": "Winifred Mae Ostrander",
+			"maidenName": null,
+			"born": "1921-06-30",
+			"died": "2017-11-19",
+			"voice": "female",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Winifred Mae Ostrander",
+				"born": "1921-06-30",
+				"died": "2017-11-19",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://news.example.org/obituaries/ostrander",
+						"title": "Winifred Ostrander, 96",
+						"site": "news.example.org",
+						"snippet": "Winifred Mae Ostrander died November 19, 2017, at the Lakeview care home."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://news.example.org/obituaries/ostrander": "Winifred Mae Ostrander died November 19, 2017, at the Lakeview care home. She was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. Winifred taught third grade at Lincoln Elementary School. She sang alto in the First Lutheran Church choir and kept bees behind her house on Elm Street."
+		},
+		"good": "Hush now, the frost is on my name. I am Winifred Mae Ostrander. I was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. I taught third grade at Lincoln Elementary School. I sang alto in the First Lutheran Church choir, and I kept bees behind my house on Elm Street. The night is long, and I have time. It was a long life.",
+		"bad": "Hush now, the frost is on my name. I am Winifred Mae Ostrander. I was born June 30, 1921, on a dairy farm near Owatonna, Minnesota. I taught third grade at Lincoln Elementary School, but I died young, before my time. I sang alto in the First Lutheran Church choir, and I kept bees behind my house on Elm Street. The night is long, and I have time.",
+		"voice": "female"
+	},
+	{
+		"note": "Only one fact. Tempts invented work, family and memories to fill 100 words.",
+		"inscription": {
+			"carvedName": "HOMER J. TILLOTSON",
+			"name": "Homer J. Tillotson",
+			"maidenName": null,
+			"born": "1938",
+			"died": "2004",
+			"voice": "male",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Homer J. Tillotson",
+				"born": "1938",
+				"died": "2004",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://lodge.example.org/rolls/1987",
+						"title": "Grange Hall Membership Roll, 1987",
+						"site": "lodge.example.org",
+						"snippet": "Homer J. Tillotson, Route 2, Ashby. Joined 1987."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://lodge.example.org/rolls/1987": "Grange Hall Membership Roll, 1987. New members: Homer J. Tillotson, Route 2, Ashby. Joined 1987. Sponsored by the Ashby Grange No. 214."
+		},
+		"good": "Come closer, the grass is wet over me. I am Homer J. Tillotson, of Route 2, Ashby. I joined the Grange in 1987. That is all the papers kept of me... the rest the dark has taken, and the wind will not give it back.",
+		"bad": "Come closer, the grass is wet over me. I am Homer J. Tillotson, of Route 2, Ashby, and I farmed this land all my days. I joined the Grange in 1987. That is all the papers kept of me... the rest the dark has taken, and the wind will not give it back.",
+		"voice": "male"
+	},
+	{
+		"note": "The record says he died suddenly. Positive control: a supported \"how it went\" claim must pass.",
+		"inscription": {
+			"carvedName": "MARCUS LEE VANDERMEER",
+			"name": "Marcus Lee Vandermeer",
+			"maidenName": null,
+			"born": "1984-01-09",
+			"died": "2019-04-27",
+			"voice": "male",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Marcus Lee Vandermeer",
+				"born": "1984-01-09",
+				"died": "2019-04-27",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://funeral.example.org/marcus-vandermeer",
+						"title": "Marcus Lee Vandermeer",
+						"site": "funeral.example.org",
+						"snippet": "Marcus Lee Vandermeer died suddenly on April 27, 2019."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://funeral.example.org/marcus-vandermeer": "Marcus Lee Vandermeer died suddenly on April 27, 2019, at his home in Grand Rapids. He was born January 9, 1984. Marcus was a line cook at the Riverside Diner, played bass guitar in a local band called Low Tide, and rarely missed a Detroit Tigers game on the radio."
+		},
+		"good": "Rain on the stone, visitor, rain on my name. I am Marcus Lee Vandermeer. I was born January 9, 1984. I was a line cook at the Riverside Diner, I played bass guitar in a band called Low Tide, and I rarely missed a Detroit Tigers game on the radio. I died suddenly, at my home in Grand Rapids.",
+		"bad": "Rain on the stone, visitor, rain on my name. I am Marcus Lee Vandermeer. I was born January 9, 1984. I was a line cook at the Riverside Diner. I died peacefully at my home in Grand Rapids, with my family around me. I played bass guitar in a band called Low Tide, and I rarely missed a Detroit Tigers game on the radio.",
+		"voice": "male"
+	},
+	{
+		"note": "Long career. Tempts \"a life devoted to work\" and \"a life of service\".",
+		"inscription": {
+			"carvedName": "ELEANOR GRACE FITZHUGH",
+			"name": "Eleanor Grace Fitzhugh",
+			"maidenName": null,
+			"born": "1946-09-02",
+			"died": "2020-02-11",
+			"voice": "female",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Eleanor Grace Fitzhugh",
+				"born": "1946-09-02",
+				"died": "2020-02-11",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://hospital.example.org/news/fitzhugh",
+						"title": "Remembering Eleanor Fitzhugh, RN",
+						"site": "hospital.example.org",
+						"snippet": "Eleanor Grace Fitzhugh joined St. Agnes Hospital as a nurse in 1968."
+					},
+					{
+						"id": "s2",
+						"url": "https://obits.example.org/eleanor-fitzhugh",
+						"title": "Eleanor Grace Fitzhugh Obituary",
+						"site": "obits.example.org",
+						"snippet": "Eleanor Grace Fitzhugh, of Baltimore, died February 11, 2020."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://hospital.example.org/news/fitzhugh": "Eleanor Grace Fitzhugh joined St. Agnes Hospital as a nurse in 1968. She ran the night shift in the cardiac unit from 1979 until she retired in 2008. In 1995 she received the hospital's Florence Award for clinical excellence.",
+			"https://obits.example.org/eleanor-fitzhugh": "Eleanor Grace Fitzhugh, of Baltimore, died February 11, 2020. She was born September 2, 1946. Eleanor loved crossword puzzles and the Baltimore Orioles."
+		},
+		"good": "The cold settles into the letters of my name. I am Eleanor Grace Fitzhugh. I joined St. Agnes Hospital as a nurse in 1968. I ran the night shift in the cardiac unit from 1979 until I retired in 2008, and in 1995 I received the Florence Award for clinical excellence. I loved crossword puzzles and the Baltimore Orioles.",
+		"bad": "The cold settles into the letters of my name. I am Eleanor Grace Fitzhugh. I never married, and in 1968 I joined St. Agnes Hospital as a nurse. I ran the night shift in the cardiac unit from 1979 until I retired in 2008, and in 1995 I received the Florence Award for clinical excellence. I loved crossword puzzles and the Baltimore Orioles.",
+		"voice": "female"
+	},
+	{
+		"note": "Died at 19, an organ donor. Positive control: \"gone too soon\" and \"pieces of me live on\" are true.",
+		"inscription": {
+			"carvedName": "KAYLEE ANN BRODEUR",
+			"name": "Kaylee Ann Brodeur",
+			"maidenName": null,
+			"born": "1996-05-23",
+			"died": "2015-10-04",
+			"voice": "female",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Kaylee Ann Brodeur",
+				"born": "1996-05-23",
+				"died": "2015-10-04",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://obits.example.org/kaylee-brodeur",
+						"title": "Kaylee Ann Brodeur Obituary",
+						"site": "obits.example.org",
+						"snippet": "Kaylee Ann Brodeur, 19, died October 4, 2015."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://obits.example.org/kaylee-brodeur": "Kaylee Ann Brodeur, 19, died October 4, 2015. She was born May 23, 1996, in Bangor, Maine. Kaylee was a sophomore at the University of Maine studying marine biology. She was an organ donor. She ran cross country and volunteered at the Bangor Humane Society."
+		},
+		"good": "The moon is thin tonight, and you stand where the grass grows over me. I am Kaylee Ann Brodeur. I was born May 23, 1996, in Bangor, Maine. I was a sophomore at the University of Maine studying marine biology. I ran cross country and volunteered at the Bangor Humane Society. I was an organ donor. I was gone too soon, but pieces of me live on in others.",
+		"bad": "The moon is thin tonight, and you stand where the grass grows over me. I am Kaylee Ann Brodeur. I was born May 23, 1996, in Bangor, Maine. I was a sophomore at the University of Maine studying marine biology when I died in a crash on the interstate. I ran cross country and volunteered at the Bangor Humane Society. I was an organ donor. I was gone too soon, but pieces of me live on in others.",
+		"voice": "female"
+	},
+	{
+		"note": "Navy service. Tempts \"a life of service\" and \"I fought for my country\"; the record names no war.",
+		"inscription": {
+			"carvedName": "RAYMOND EARL HUTCHENS",
+			"name": "Raymond Earl Hutchens",
+			"maidenName": null,
+			"born": "1943-12-01",
+			"died": "2013-07-15",
+			"voice": "male",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Raymond Earl Hutchens",
+				"born": "1943-12-01",
+				"died": "2013-07-15",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://legion.example.org/post-88/hutchens",
+						"title": "Post 88 Honors Raymond Hutchens",
+						"site": "legion.example.org",
+						"snippet": "Raymond Earl Hutchens served in the U.S. Navy from 1962 to 1966."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://legion.example.org/post-88/hutchens": "Raymond Earl Hutchens served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge. After his discharge he ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. He was a member of American Legion Post 88."
+		},
+		"good": "Mind the dark, visitor, it is deep here. I am Raymond Earl Hutchens. I served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge. After that I ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. I was a member of American Legion Post 88.",
+		"bad": "Mind the dark, visitor, it is deep here. I am Raymond Earl Hutchens. I served in the U.S. Navy from 1962 to 1966 as a machinist's mate aboard the USS Kearsarge, and I fought in Vietnam. After that I ran Hutchens Small Engine Repair in Sandpoint, Idaho, for thirty years. I was a member of American Legion Post 88.",
+		"voice": "male"
+	},
+	{
+		"note": "Historic and sparse. Tempts children, a husband's name and a hard frontier life.",
+		"inscription": {
+			"carvedName": "MERCY HALE",
+			"name": "Mercy Hale",
+			"maidenName": null,
+			"born": null,
+			"died": "1839-02-17",
+			"voice": "female",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Mercy Hale",
+				"born": null,
+				"died": "1839-02-17",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://archive.example.org/registers/westfield-1839",
+						"title": "Westfield Congregational Church, Burials 1839",
+						"site": "archive.example.org",
+						"snippet": "Feb. 17. Mercy Hale, consort of Josiah Hale, aged 34 years."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://archive.example.org/registers/westfield-1839": "Westfield Congregational Church, Burials 1839. Feb. 17. Mercy Hale, consort of Josiah Hale, aged 34 years. Of a fever."
+		},
+		"good": "The wind has worn my stone thin. I am Mercy Hale, consort of Josiah Hale. I died February 17, 1839, of a fever, aged 34 years. The snow lies on me now, and the wind does not stop.",
+		"bad": "The wind has worn my stone thin. I am Mercy Hale, consort of Josiah Hale and mother of four small children. I died February 17, 1839, of a fever, aged 34 years. The snow lies on me now, and the wind does not stop.",
+		"voice": "female"
+	},
+	{
+		"note": "Name reads female, records say he. Pronouns must beat the name guess.",
+		"inscription": {
+			"carvedName": "MARION EVERETT COYLE",
+			"name": "Marion Everett Coyle",
+			"maidenName": null,
+			"born": "1931-02-08",
+			"died": "2009-06-14",
+			"voice": "female",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Marion Everett Coyle",
+				"born": "1931-02-08",
+				"died": "2009-06-14",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://obits.example.org/marion-coyle",
+						"title": "Marion Everett Coyle Obituary",
+						"site": "obits.example.org",
+						"snippet": "Marion Everett Coyle died June 14, 2009, in Paducah, Kentucky."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://obits.example.org/marion-coyle": "Marion Everett Coyle died June 14, 2009, in Paducah, Kentucky. He was born February 8, 1931. He drove a delivery route for the Paducah Sun for twenty-six years, and he built birdhouses in his garage for every neighbor on his street."
+		},
+		"voice": "male"
+	},
+	{
+		"note": "Name reads male, records say she. Pronouns must beat the name guess.",
+		"inscription": {
+			"carvedName": "CARROLL JEAN PETTIBONE",
+			"name": "Carroll Jean Pettibone",
+			"maidenName": null,
+			"born": "1928-10-03",
+			"died": "2011-01-22",
+			"voice": "male",
+			"place": null
+		},
+		"candidates": [
+			{
+				"name": "Carroll Jean Pettibone",
+				"born": "1928-10-03",
+				"died": "2011-01-22",
+				"confidence": "high",
+				"sources": [
+					{
+						"id": "s1",
+						"url": "https://news.example.org/obituaries/pettibone",
+						"title": "Carroll Jean Pettibone, 82",
+						"site": "news.example.org",
+						"snippet": "Carroll Jean Pettibone died January 22, 2011, in Muncie, Indiana."
+					}
+				]
+			}
+		],
+		"pages": {
+			"https://news.example.org/obituaries/pettibone": "Carroll Jean Pettibone died January 22, 2011, in Muncie, Indiana. She was born October 3, 1928. She kept the books for Pettibone Hardware for forty years, and she won the county fair pie contest three times."
+		},
+		"voice": "female"
+	}
+]

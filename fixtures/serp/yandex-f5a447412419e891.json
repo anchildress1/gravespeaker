@@ -1,0 +1,30 @@
+{
+	"engine": "yandex",
+	"query": "\"Efrain Pineda Jr.\" 2019 2019 comfort texas (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Hispanics Cheer Gingrich's Comments on Immigration | Politics",
+				"link": "https://www.christianpost.com/news/hispanics-cheer-gingrichs-comments-on-immigration.html",
+				"displayed_link": "christianpost.com › news › hispanics-cheer-gingrichs",
+				"snippet": "“House Speaker Newt Gingrich’s response last night left me motivated and thoroughly impressed,” said the Rev. Efrain Pineda Jr., executive director of the National Hispanic Christian Leadership, in an email to The Christian Post."
+			},
+			{
+				"position": 2,
+				"title": "Letter to Members of the 117th Congress of the United States...",
+				"link": "https://www.juntosencristo.org/documents/letter-to-members-of-the-117th-congress-of-the-united-states",
+				"displayed_link": "juntosencristo.org › documents › letter-to-members-of",
+				"snippet": "Ruben N Ortiz - Latino Field Ministries Coordinator, Cooperative Baptist Fellowship (CBF) Sandra Ovalle Martínez - Director of Campaigns and Mobilizing, Sojourners Rev. Efraín Pineda, Jr."
+			},
+			{
+				"position": 3,
+				"title": "Gobble Wobble Thanksgiving Day Results | TAPinto",
+				"link": "https://www.tapinto.net/towns/stafford-slash-lbi/sections/giving-back/articles/gobble-wobble-thanksgiving-day-results",
+				"displayed_link": "tapinto.net › towns › stafford-slash-lbi › sections",
+				"snippet": "Efrain Pineda Jr. ... Sam Ross Jr."
+			}
+		]
+	}
+}

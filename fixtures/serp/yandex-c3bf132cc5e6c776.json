@@ -1,0 +1,44 @@
+{
+	"engine": "yandex",
+	"query": "(\"Louella White\" | \"Louella * White\") 1935 2017 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Louella White Magouirk (1906-1986) - Find a Grave Memorial",
+				"link": "https://www.findagrave.com/memorial/147652010/louella_magouirk",
+				"displayed_link": "findagrave.com › memorial › louella_magouirk",
+				"snippet": "Fulfill Photo Request for Louella White Magouirk. ... I thought you might like to see a memorial for Louella White Magouirk I found on Findagrave.com. Check out this Find a Grave memorial."
+			},
+			{
+				"position": 2,
+				"title": "Most Recent Obituaries | LaGrone Funeral Chapel & Crematory",
+				"link": "https://www.lagronefuneralchapels.com/obituaries?page=107",
+				"displayed_link": "lagronefuneralchapels.com › obituaries",
+				"snippet": "Visit Obituary. Louella White. ... WHITE, LOUELLA H. -- No services are scheduled at this time for Louella H. White, age 91 of Roswell, who passed away September 28, 2007 at her home."
+			},
+			{
+				"position": 3,
+				"title": "Louella E White, 82 - Dallas, TX - Has Court or Arrest Records",
+				"link": "https://www.mylife.com/louella-white/e932260600542",
+				"displayed_link": "mylife.com › louella-white › e932260600542",
+				"snippet": "Anna E White, Uella White, Louella White White, Louella W White and Louella E White are some of the alias or nicknames that Louella has used. As of this date, Louella is married. Louella's personal network of family, friends..."
+			},
+			{
+				"position": 4,
+				"title": "Stream Louella White by LOUISEAN | Listen online for free...",
+				"link": "https://soundcloud.com/louisean/louella-white",
+				"displayed_link": "soundcloud.com › louisean › louella-white",
+				"snippet": "Listen to Louella White by LOUISEAN #np on #SoundCloud. ... Like \"Louella White\" ? Sign up to make it official. With a free SoundCloud account you can save this track and start supporting your favorite artists."
+			},
+			{
+				"position": 5,
+				"title": "Louella DeVille Summer Collection Review – Miss MonMon",
+				"link": "https://missmonmon.com/2018/11/29/louella-deville-summer-collection-review/",
+				"displayed_link": "missmonmon.com › louella-deville-summer",
+				"snippet": "I paired my outfit with Louella white stud earrings and hair flower in contrasting colours. Have fun with your accessories! Enjoy your summer wardrobe by adding these fabulous separates for Louella DeVille!"
+			}
+		]
+	}
+}

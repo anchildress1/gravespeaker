@@ -1,0 +1,37 @@
+{
+	"engine": "yandex",
+	"query": "\"Jiunn-Shih Guo\" 1937 2025 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Category:Jim Jiunn-Shih Guo - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Jim_Jiunn-Shih_Guo",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Jim_Jiunn",
+				"snippet": "Jim Jiunn-Shih Guo (1937-2025) or 郭俊士 was born on 18 January 1937, in Madou, Tainan, Taiwan, his father, Han-Yun Guo, was 33 and his mother, Sho-Hua Lee, was 30. He married Alice Jau-Hwa Chang about 1965, in Tainan, Taiwan."
+			},
+			{
+				"position": 2,
+				"title": "Category:Davis Cemetery (Davis, California) - Wikimedia...",
+				"link": "https://commons.wikimedia.org/wiki/Category:Davis_Cemetery_(Davis,_California)",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Davis",
+				"snippet": "Jim Jiunn-Shih Guo (5 F). Media in category \"Davis Cemetery (Davis, California)\". This category contains only the following file."
+			},
+			{
+				"position": 3,
+				"title": "Charles Guo: Age, Phone Number, Aliases, Address & Records",
+				"link": "https://www.truthfinder.com/people-search/charles-guo/",
+				"displayed_link": "truthfinder.com › people-search › charles-guo",
+				"snippet": "Searching for Charles Guo? Find 18+ results with phone numbers, current & past addresses, aliases, criminal & traffic records."
+			},
+			{
+				"position": 4,
+				"title": "Jenny Guo Phone Number, Address, Email... | BeenVerified",
+				"link": "https://www.beenverified.com/people/jenny-guo/",
+				"displayed_link": "beenverified.com › people › jenny-guo",
+				"snippet": "Jenny P Guo | Somerset, New Jersey. Jenny may go by Jenny N Guo or Jenny Peijen Guo and have relatives of Betty P Guo, Charles H Guo and Jiunn Shih Guo. Age: 58. Phone Number"
+			}
+		]
+	}
+}

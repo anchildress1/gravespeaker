@@ -1,0 +1,51 @@
+{
+	"engine": "yandex",
+	"query": "\"Betsey Ellis\" ellisville massachusetts (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Category:Ellisville, Massachusetts - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Ellisville,_Massachusetts",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Ellisville,",
+				"snippet": "Ellisville Harbor State Park (16 F). Media in category \"Ellisville, Massachusetts\". This category contains only the following file. Betsey Ellis tombstone, Savery Cemetery, Ellisville MA.jpg 3,264 × 2,448; 3.65 MB."
+			},
+			{
+				"position": 2,
+				"title": "Peres Ellis (abt.1766-1838) | WikiTree FREE Family Tree",
+				"link": "https://www.wikitree.com/wiki/Ellis-18476",
+				"displayed_link": "wikitree.com › wiki › Ellis-18476",
+				"snippet": "Is this your ancestor? Compare DNA and explore genealogy for Peres Ellis born abt. 1766 Raynham, Bristol, Massachusetts Bay Colony died 1838 Hartford, Oxford, Maine, United States including ancestors + descendants..."
+			},
+			{
+				"position": 3,
+				"title": "Pioneer Ellis Family",
+				"link": "https://jefferson.nygenweb.net/ellisp.htm",
+				"displayed_link": "jefferson.nygenweb.net › ellisp",
+				"snippet": "Pioneer ellis family. 1. CALEB ELLIS (son of RICHARD & MARY (PHILLIPS) ELLIS) was born on August 16, 1754 in Massachusetts. During the Revolutionary War, Caleb served as a private in Capt."
+			},
+			{
+				"position": 4,
+				"title": "Betsey Ellis | Tanglewood Resident Times",
+				"link": "https://twrtimes.com/?author=36",
+				"displayed_link": "twrtimes.com",
+				"snippet": "by Betsey Ellis • 01/29/2024. Murine Mu-rine Adjective Of, like, or pertaining to mice and/or rats The scientist was constantly constructing new and more elaborate mazes for the rats to run in the course of his studies of murine intelligence."
+			},
+			{
+				"position": 5,
+				"title": "Bernie Ellis Phone Number, Address, Email... | BeenVerified",
+				"link": "https://www.beenverified.com/people/bernie-ellis/",
+				"displayed_link": "beenverified.com › people › bernie-ellis",
+				"snippet": "Bernie Ellis in Briggsdale, Colorado | Age: 71. Bernie Ellis, also possibly known as Bernie B Ellis, has a last known location of Briggsdale, CO using the 970-402-5325 phone number."
+			},
+			{
+				"position": 6,
+				"title": "Full text of \"The early records of the town ..\"",
+				"link": "https://archive.org/stream/cu31924028819971/cu31924028819971_djvu.txt",
+				"displayed_link": "archive.org › stream › cu31924028819971",
+				"snippet": "of Mr. Newel & Betsey Fisher, Ellis and Franklin sons of. ... CARLOS SLAFTER, A. M. In every old Massachusetts town, among the locaUties of special interest, is the spot where the early in^iabitants committed to the earth the bodies of their lamented dead."
+			}
+		]
+	}
+}

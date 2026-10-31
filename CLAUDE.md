@@ -22,7 +22,8 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 - Follow SOLID, KISS, YAGNI at all times. When they conflict, KISS and YAGNI win.
 - One responsibility per module. No god files, no `utils` dumping grounds.
 - Never fabricate history. Every narrative claim maps to a source record; unsupported fields render as unknown, not guessed.
-- Never merge records from different people silently. Ambiguous identity → return candidates for user confirmation.
+- Never merge records from different people silently. The identity engine picks the best match; no visitor confirmation step.
+- Tell a story from records only when they prove the stone's dates for that name. Otherwise tell the stone story.
 
 ## Tests
 
@@ -88,6 +89,7 @@ MVP proof of concept. Hard deadline: 2026-10-31 23:59 PDT. Ship the smallest thi
 - Pin every GitHub Action, `actions/*` included, to a full commit SHA with the version in a trailing comment. Resolve with `gh api` at write time.
 - Lighthouse runs only through the chrome-devtools MCP `lighthouse_audit` tool against `pnpm preview`. Never add `@lhci/cli` or `lighthouse` to the repo in any form (`devDependencies`, `pnpm dlx`, CI, hooks): their dependency tree carries unpatched advisories.
 - Edit `README.md` only through the `readme-generator` skill.
+- Work on the current branch. Never create a branch or worktree unless the user asks for one.
 
 <!-- entire-agent:begin -->
 

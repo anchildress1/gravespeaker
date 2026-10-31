@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Bree Nichol Reynolds\" 2000 2017",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Bree Reynolds Obituary Mar 23, 2017 - Loran Fawcett Chapel",
+				"link": "https://www.loranfawcettfuneralhome.com/obituaries/bree-reynolds",
+				"displayed_link": "loranfawcettfuneralhome.com › obituaries › bree",
+				"snippet": "Book signing will be from 12:00pm to 4:00pm Monday March 27th 2017 at the Loran Fawcett Chapel in Neodesha KS, Bree Nichol Reynolds was born October 11th 2000 in Wichita, KS the daughter of Floyd Allen Reynolds III and Kendra Shae..."
+			},
+			{
+				"position": 2,
+				"title": "Queens Charlotte Brimslay and Reynolds | TikTok",
+				"link": "https://www.tiktok.com/discover/queens-charlotte-brimslay-and-reynolds",
+				"displayed_link": "tiktok.com › discover › queens-charlotte-brimslay-and",
+				"snippet": "Discover videos related to Queens Charlotte Brimslay and Reynolds on TikTok. Last updated 2026-05-18."
+			}
+		]
+	}
+}

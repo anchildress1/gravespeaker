@@ -1,0 +1,58 @@
+{
+	"engine": "yandex",
+	"query": "(\"Georgia Overton\" | \"Georgia * Overton\") 2006 2015 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Georgia Ku Lyrics, Songs, and Albums | Genius",
+				"link": "https://genius.com/artists/Georgia-ku",
+				"displayed_link": "genius.com › G › Georgia Ku",
+				"snippet": "Georgia’s songs have been placed by Fifth Harmony, Zedd, Nicky Romero, Echosmith, Jack U, Dillon Francis, Stargate, Rita Ora, Snakehips, Tinashe, Simon Wilcox, Jean-Baptiste, PooBear, MAG, and Mitch Allan."
+			},
+			{
+				"position": 2,
+				"title": "Georgia Overton Phone Number, Address... | BeenVerified",
+				"link": "https://www.beenverified.com/people/georgia-overton/",
+				"displayed_link": "beenverified.com › people › georgia-overton",
+				"snippet": "Looking for Georgia Overton? We found records in 1 state. ... Georgia Overton may live in Laurelton, NY with a 718 area phone number and may have connections to Thomas Overton, Derek D Overton and Douglas A Overton."
+			},
+			{
+				"position": 3,
+				"title": "Overton Newsletter",
+				"link": "http://www.armory.com/~vern/family/newsletter/overton.htm",
+				"displayed_link": "http://armory.com › ~vern › family › newsletter › overton",
+				"snippet": "Georgia Annie Overton Hoffman (Mrs. Norman Alfred Hoffman) San Diego, Texas December 1954 Copied by Vern TOLER January 10, 1998. ... She was born in Georgia in 1800 and died July 22, 1859, and is buried in the Overton Cemetery."
+			},
+			{
+				"position": 4,
+				"title": "Overton Genealogy | WikiTree FREE Family Tree",
+				"link": "https://www.wikitree.com/genealogy/OVERTON",
+				"displayed_link": "wikitree.com › genealogy › OVERTON",
+				"snippet": "Georgia Edith (Overton) Gardner. 11 Oct 1925 Mobile, Alabama, United States - 22 Mar 2000 Denver, Colorado, United States • managed by Nelda Spires • last edited 4 Jun 2026. Connie (Overton) Dickinson."
+			},
+			{
+				"position": 5,
+				"title": "Georgia Ku — Biography, Discography, Albums... | AllMusic",
+				"link": "https://www.allmusic.com/artist/georgia-ku-mn0003398337",
+				"displayed_link": "allmusic.com › artist › georgia-ku-mn0003398337",
+				"snippet": "Georgia Ku's complete discography, biography, and expert reviews. 2010–present. ... Georgia Ku Overton. Listen on Spotify. Set Your Streaming Service."
+			},
+			{
+				"position": 6,
+				"title": "Georgia - Georgia Overton",
+				"link": "https://www.karaoketeksty.pl/tekste/georgia-overton-38652/georgia-34854",
+				"displayed_link": "karaoketeksty.pl › tekste › georgia-overton-38652",
+				"snippet": "Album Georgia od Georgia Overton. Teksty do piosenek, tłumaczenia i teledyski na KaraokeTeksty.pl."
+			},
+			{
+				"position": 7,
+				"title": "Letra de Shell Shock (feat. Georgia Ku) [Mixed]... | Musixmatch",
+				"link": "https://www.musixmatch.com/es/letras/Zomboy/Shell-Shock-Georgia-Ku-Mixed",
+				"displayed_link": "musixmatch.com › es › letras › Zomboy › Shell-Shock",
+				"snippet": "Georgia Ku) [Mixed] de Zomboy ha sido traducida a 1 idioma(s). ... Writer(s): Jean Baptiste, Tyler Marenyi, Jean Baptiste Kouame, Joshua Paul Jenkin, Georgia Ku Overton, Steven Haddad, Georgia Overton."
+			}
+		]
+	}
+}

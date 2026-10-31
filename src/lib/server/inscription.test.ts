@@ -7,14 +7,16 @@ import { normalizeInscriptions } from './inscription';
  * @param born Test input.
  * @param died Test input.
  * @param voice Test input.
+ * @param place Test input.
  * @returns The fixture.
  */
 const person = (
 	name: string,
 	born: string | null = null,
 	died: string | null = null,
-	voice: string | null = null
-) => ({ name, born, died, voice });
+	voice: string | null = null,
+	place: string | null = null
+) => ({ name, born, died, voice, place });
 
 describe('normalizeInscriptions', () => {
 	it.each(['[]', '[?]'])('drops a person whose name %s has no letters', (name) => {
@@ -116,5 +118,15 @@ describe('normalizeInscriptions', () => {
 			person('Jo Lee', null, null, null)
 		]).map((p) => p.voice);
 		expect(voices).toEqual(['female', 'male', 'female', null, null]);
+	});
+
+	it.each([
+		['  Westfield,\n  Mass. ', 'Westfield, Mass.'],
+		['   ', null],
+		[null, null]
+	])('normalizes the carved place %j to %j', (carved, place) => {
+		expect(normalizeInscriptions([person('Mercy Hale', null, null, null, carved)])[0].place).toBe(
+			place
+		);
 	});
 });

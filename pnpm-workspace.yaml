@@ -1,3 +1,4 @@
 engineStrict: true
 allowBuilds:
   lefthook: false
+  exifreader: false

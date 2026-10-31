@@ -87,9 +87,43 @@ describe('fetchPage', () => {
 		expect(fetchMock).not.toHaveBeenCalled();
 	});
 
+	it('reads the page instead of a hidden tour or dialog that is longer than it', async () => {
+		const tour = '<p>Learn how to make the most of a memorial page and its photos tab. </p>'.repeat(
+			30
+		);
+		const page =
+			`<section class="tutorials hidden">${tour}</section>` +
+			`<div role="dialog" aria-modal="true">${tour}</div>` +
+			`<article><p>${'Louella Marie White passed away on May 24, 2017 at her home. '.repeat(4)}</p></article>`;
+		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(page)));
+		const text = await fetchPage('https://public.test/memorial');
+		expect(text).toContain('Louella Marie White passed away');
+		expect(text).not.toContain('photos tab');
+	});
+
+	it('keeps an article that a utility class hides on small screens only', async () => {
+		const page = `<article class="hidden md:block"><p>${'Louella Marie White passed away on May 24, 2017 at her home. '.repeat(4)}</p></article>`;
+		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(page)));
+		expect(await fetchPage('https://public.test/obit')).toContain(
+			'Louella Marie White passed away'
+		);
+	});
+
 	it('extracts readable text from a public page', async () => {
 		stub((url) => (url.endsWith('/robots.txt') ? notFound() : html(article)));
 		expect(await fetchPage('https://public.test/obit')).toContain('taught piano for forty years');
+	});
+
+	it.each([
+		['no markup', 'Service unavailable'],
+		['only a script for a root', '<script>challenge()</script>']
+	])('returns null for an HTML response with %s', async (_, body) => {
+		stub((url) =>
+			url.endsWith('/robots.txt')
+				? notFound()
+				: new Response(body, { headers: { 'content-type': 'text/html' } })
+		);
+		expect(await fetchPage('https://public.test/obit')).toBeNull();
 	});
 
 	it('resolves each host once per request and connects to that checked address', async () => {

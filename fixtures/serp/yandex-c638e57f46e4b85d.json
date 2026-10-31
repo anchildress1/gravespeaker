@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Tyson Lee Schreiber\" alsea oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Donate Life Rose Parade Float",
+				"link": "https://onelegacyfloat.org/prod/components/media_center/floragraphs/floragraphs_2014.html",
+				"displayed_link": "onelegacyfloat.org › prod › components › media_center",
+				"snippet": "Tyson Lee Schreiber Alsea, OR. Todd Semon Norwood, NJ."
+			},
+			{
+				"position": 2,
+				"title": "Aimeé Adelmann",
+				"link": "https://www.donatelifenw.org/sites/default/files/quilts/pdf/Quilt%20Book%20for%20Submitters%202014%20%28FINAL%29.pdf",
+				"displayed_link": "donatelifenw.org › sites › default › files › quilts › pdf",
+				"snippet": "HONORING. Tyson Schreiber. Alsea, Oregon Organ, Eye, and Tissue Donor August 21, 1992 – February 12, 2012.pdfView"
+			}
+		]
+	}
+}

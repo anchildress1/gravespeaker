@@ -1,0 +1,79 @@
+{
+	"engine": "yandex",
+	"query": "\"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "North Carolina Obituaries, 4,600+ indexes",
+				"link": "https://www.newspaperobituaries.net/northcarolina/index.html",
+				"displayed_link": "newspaperobituaries.net › northcarolina › index",
+				"snippet": "browse over 4,600 North Carolina obituary indexes including newspaper obituaries, death indexes, funeral home obituaries...."
+			},
+			{
+				"position": 2,
+				"title": "legacy.com/us/obituaries/today/south-carolina/greenville-area",
+				"link": "https://www.legacy.com/us/obituaries/today/south-carolina/greenville-area",
+				"displayed_link": "legacy.com › us › obituaries › today › south-carolina",
+				"snippet": "Links to the page contain: Find Recent Obituaries for Greenville, South Carolina Area...."
+			},
+			{
+				"position": 3,
+				"title": "South Carolina Obituaries (1873 - Current)... | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/obituaries/all/usa/south-carolina",
+				"displayed_link": "genealogybank.com › explore › obituaries › all › usa",
+				"snippet": "South Carolina obituaries are an invaluable resource for genealogy research. ... South Carolina Newspaper Obituaries (1873 - Current). Enter your ancestor's name below and we'll search obituaries to help you learn more."
+			},
+			{
+				"position": 4,
+				"title": "South Carolina: Obituaries in Today's SC Newspapers",
+				"link": "https://www.sciway.net/today/deaths.html",
+				"displayed_link": "sciway.net › today › deaths",
+				"snippet": "Find all South Carolina obituaries and death notices in the current issue of every online SC newspaper."
+			},
+			{
+				"position": 5,
+				"title": "GenealogyBuff.com - South Carolina Obituary Collection...",
+				"link": "https://www.genealogybuff.com/sc/state/webbbs_config.pl/noframes/read/374",
+				"displayed_link": "genealogybuff.com › sc › state › webbbs_config.pl",
+				"snippet": "South Carolina Obituary and Death Notices Collection. ... Kim Strong officiating. Burial will follow in the church cemetery. Pallbearers will be Carl Campbell, Jr., Glen Stephens, Barry Stephens, Richard Crook, Bill Way, and Rich Way."
+			},
+			{
+				"position": 6,
+				"title": "Find a Grave - Millions of Cemetery Records",
+				"link": "https://www.findagrave.com/",
+				"displayed_link": "findagrave.com",
+				"snippet": "The World’s largest gravesite collection. Contribute, create and discover gravesites from all over the world. Find a Grave - Millions of Cemetery Records."
+			},
+			{
+				"position": 7,
+				"title": "Fort Jackson National Cemetery, Columbia, South Carolina...",
+				"link": "https://www.interment.net/data/us/sc/richland/fort-jackson-national-cemetery/records-n-s.htm",
+				"displayed_link": "interment.net › data › us › sc › richland › fort-jackson",
+				"snippet": "South Carolina Obituary Search - (1873-current). South Carolina Birth Records Database, (1767-1999). Fort Jackson National Cemetery - Burial Records Columbia, Richland County, South Carolina. GPS: 34.089795, -80.848545."
+			},
+			{
+				"position": 8,
+				"title": "Most Recent Obituaries | Belk Funeral Home",
+				"link": "https://www.belkfuneralhome.com/obituaries",
+				"displayed_link": "belkfuneralhome.com › obituaries",
+				"snippet": "Steve Lucius Tallon, of Lamar, South Carolina, passed away peacefully on June 27, 2026, at the age of 81."
+			},
+			{
+				"position": 9,
+				"title": "Most Recent Obituaries | The J. M. Dunbar Funeral Home...",
+				"link": "https://www.jmdunbar.com/obituaries",
+				"displayed_link": "jmdunbar.com › obituaries",
+				"snippet": "Local Spartanburg, South Carolina Obituaries. ... Douglas Lamar Richardson was born on October 7, 1951, in Spartanburg, South Carolina, and raised primarily in Philadelphia, Pennsylvania."
+			},
+			{
+				"position": 10,
+				"title": "Most Recent Obituaries | McDougald Funeral & Cremation...",
+				"link": "https://www.mcdougaldfuneralhome.com/obituaries",
+				"displayed_link": "mcdougaldfuneralhome.com › obituaries",
+				"snippet": "McDougald Funeral & Cremation Services obituaries and Death Notices for the Anderson , SC area. ... Born January 2, 1957, in Anderson, South Carolina, Ricky was the son of Edna S. Smith and the late Grady W. Simpson."
+			}
+		]
+	}
+}

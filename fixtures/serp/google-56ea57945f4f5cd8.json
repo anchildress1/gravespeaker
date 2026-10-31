@@ -1,0 +1,226 @@
+{
+	"engine": "google",
+	"query": "\"Troy Leonard Juntunen\" 1967 2012 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "1967",
+				"link": "/goto?url=CAESXQHrOzAVamdHP7HXnDAG0hEVKcXQMWHXH6DW65xESgw6-JCphTd0P8JcL6DCodN4LRSE-TynA427TKKg5YPO7tAOx1XM0B8JOIEcqPl59ubbME0tMhksYMfD9-UbJg",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESXQHrOzAVlBeeGflmDjAsFv2ve-_DAr8lD4U9qZ_cyCONLg35g3UNCezayZR05bLkogv04KFPipTrlFRaKfnmPLVq-mYcrIJhYk57_oIGROhQwOd048cHxgnFt0Pl0Q&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECB4QAQ&uoh=1",
+				"displayed_link": "https://en.wikipedia.org › wiki › 1967",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png",
+				"snippet": "1967 (MCMLXVII) was a common year. His death results in the founding of the terrorist group 2 June Movement. Archived from the original on February 18, 2012.",
+				"snippet_highlighted_words": ["1967", "2012"],
+				"about_this_result": {
+					"source": {
+						"description": "1967 (MCMLXVII) was a common year. His death results in the founding of the terrorist group 2 June Movement. Archived from the original on February 18, 2012.",
+						"source_info_link": "/goto?url=CAESXQHrOzAVamdHP7HXnDAG0hEVKcXQMWHXH6DW65xESgw6-JCphTd0P8JcL6DCodN4LRSE-TynA427TKKg5YPO7tAOx1XM0B8JOIEcqPl59ubbME0tMhksYMfD9-UbJg",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CowBL2dvdG8_dXJsPUNBRVNYUUhyT3pBVmFtZEhQN0hYbkRBRzBoRVZLY1hRTVdIWEg2RFc2NXhFU2d3Ni1KQ3BoVGQwUDhKY0w2RENvZE40TFJTRS1UeW5BNDI3VEtLZzVZUE83dEFPeDFYTTBCOEpPSUVjcVBsNTl1YmJNRTB0TWhrc1lNZkQ5LVViSmcSBBoCCAAakQMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDrAggAEAAYACAAKgsKBHRyb3kVTRWcQDKMAS9nb3RvP3VybD1DQUVTWFFIck96QVZhbWRIUDdIWG5EQUcwaEVWS2NYUU1XSFhINkRXNjV4RVNndzYtSkNwaFRkMFA4SmNMNkRDb2RONExSU0UtVHluQTQyN1RLS2c1WVBPN3RBT3gxWE0wQjhKT0lFY3FQbDU5dWJiTUUwdE1oa3NZTWZEOS1VYkpnOhc8Yj4xOTY3PC9iPiAtIFdpa2lwZWRpYUKrATxiPjE5Njc8L2I-IChNQ01MWFZJSSkgd2FzIGEgY29tbW9uIHllYXIuIEhpcyBkZWF0aCByZXN1bHRzIGluIHRoZSBmb3VuZGluZyBvZiB0aGUgdGVycm9yaXN0IGdyb3VwIDIgSnVuZSBNb3ZlbWVudC4gQXJjaGl2ZWQgZnJvbSB0aGUgb3JpZ2luYWwgb24gRmVicnVhcnkgMTgsIDxiPjIwMTI8L2I-LiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CowBL2dvdG8_dXJsPUNBRVNYUUhyT3pBVmFtZEhQN0hYbkRBRzBoRVZLY1hRTVdIWEg2RFc2NXhFU2d3Ni1KQ3BoVGQwUDhKY0w2RENvZE40TFJTRS1UeW5BNDI3VEtLZzVZUE83dEFPeDFYTTBCOEpPSUVjcVBsNTl1YmJNRTB0TWhrc1lNZkQ5LVViSmcSBBoCCAAakQMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDrAggAEAAYACAAKgsKBHRyb3kVTRWcQDKMAS9nb3RvP3VybD1DQUVTWFFIck96QVZhbWRIUDdIWG5EQUcwaEVWS2NYUU1XSFhINkRXNjV4RVNndzYtSkNwaFRkMFA4SmNMNkRDb2RONExSU0UtVHluQTQyN1RLS2c1WVBPN3RBT3gxWE0wQjhKT0lFY3FQbDU5dWJiTUUwdE1oa3NZTWZEOS1VYkpnOhc8Yj4xOTY3PC9iPiAtIFdpa2lwZWRpYUKrATxiPjE5Njc8L2I-IChNQ01MWFZJSSkgd2FzIGEgY29tbW9uIHllYXIuIEhpcyBkZWF0aCByZXN1bHRzIGluIHRoZSBmb3VuZGluZyBvZiB0aGUgdGVycm9yaXN0IGdyb3VwIDIgSnVuZSBNb3ZlbWVudC4gQXJjaGl2ZWQgZnJvbSB0aGUgb3JpZ2luYWwgb24gRmVicnVhcnkgMTgsIDxiPjIwMTI8L2I-LiICEAFIAFgAaAA",
+				"source": "Wikipedia"
+			},
+			{
+				"position": 2,
+				"title": "The 1967 Arab-Israeli War",
+				"link": "/goto?url=CAESfwHrOzAVK8sc8ecr0l43BAffqYrVjRZVnsHMXMKsQF2iI5By-aILu5E7rLcBGrd7MhiQtyY0TrXrCXG_FVexVZ47v7G6Bu8h84ygQj0pm0PVw4AsE-daZbZMsmiRlf31CdR_ZjH7tA1wnDYWiEDiSVkBI5pfzKg3n15Srb_hnhE",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESfwHrOzAV6Zj3l_cM_dBjvrsx9bSiODtBBeu0svg_i1C_IqrsR3JZvnVQy5IR7QplNIztlL07CcXSDT6hzwyI0q9VIEFyXYgaBk1g01F5jaSBUb7x5fBn3K9xmmDNXs9NcK4w6NFn04MfVh4kMsfwv0mMSbKT4QM5FZNcvnF1YCs&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECCEQAQ&uoh=1",
+				"displayed_link": "https://history.state.gov › Milestones › 1961-1968",
+				"favicon": "https://serpapi.com/searches/6ae41a6ec1c556bb175e505c/images/ZxOefflKPyy9JIL6Jv0O2pfRoxHxkcRui5AAUf2b2yA.png",
+				"snippet": "The 1967 Arab-Israeli War marked the failure of the Eisenhower, Kennedy, and Johnson administrations' efforts to prevent renewed Arab-Israeli conflict",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "The 1967 Arab-Israeli War marked the failure of the Eisenhower, Kennedy, and Johnson administrations' efforts to prevent renewed Arab-Israeli conflict",
+						"source_info_link": "/goto?url=CAESfwHrOzAVK8sc8ecr0l43BAffqYrVjRZVnsHMXMKsQF2iI5By-aILu5E7rLcBGrd7MhiQtyY0TrXrCXG_FVexVZ47v7G6Bu8h84ygQj0pm0PVw4AsE-daZbZMsmiRlf31CdR_ZjH7tA1wnDYWiEDiSVkBI5pfzKg3n15Srb_hnhE",
+						"icon": "https://serpapi.com/searches/6ae41a6ec1c556bb175e505c/images/ZxOefflKPyy9JIL6Jv0O2jULxdx7w0taXzNrOnTarSHvPb3D7X20F7XrHdggZnpj.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CrkBL2dvdG8_dXJsPUNBRVNmd0hyT3pBVks4c2M4ZWNyMGw0M0JBZmZxWXJWalJaVm5zSE1YTUtzUUYyaUk1QnktYUlMdTVFN3JMY0JHcmQ3TWhpUXR5WTBUclhyQ1hHX0ZWZXhWWjQ3djdHNkJ1OGg4NHlnUWowcG0wUFZ3NEFzRS1kYVpiWk1zbWlSbGYzMUNkUl9aakg3dEExd25EWVdpRURpU1ZrQkk1cGZ6S2czbjE1U3JiX2huaEUSBBoCCAAa1wMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCxAwgAEAAYACAAKgsKBHRyb3kVaMk3QDK5AS9nb3RvP3VybD1DQUVTZndIck96QVZLOHNjOGVjcjBsNDNCQWZmcVlyVmpSWlZuc0hNWE1Lc1FGMmlJNUJ5LWFJTHU1RTdyTGNCR3JkN01oaVF0eVkwVHJYckNYR19GVmV4Vlo0N3Y3RzZCdThoODR5Z1FqMHBtMFBWdzRBc0UtZGFaYlpNc21pUmxmMzFDZFJfWmpIN3RBMXduRFlXaUVEaVNWa0JJNXBmektnM24xNVNyYl9obmhFOjpUaGUgPGI-MTk2NzwvYj4gQXJhYi1Jc3JhZWxpIFdhciAtIE9mZmljZSBvZiB0aGUgSGlzdG9yaWFuQqEBVGhlIDxiPjE5Njc8L2I-IEFyYWItSXNyYWVsaSBXYXIgbWFya2VkIHRoZSBmYWlsdXJlIG9mIHRoZSBFaXNlbmhvd2VyLCBLZW5uZWR5LCBhbmQgSm9obnNvbiBhZG1pbmlzdHJhdGlvbnMmIzM5OyBlZmZvcnRzIHRvIHByZXZlbnQgcmVuZXdlZCBBcmFiLUlzcmFlbGkgY29uZmxpY3QiAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CrkBL2dvdG8_dXJsPUNBRVNmd0hyT3pBVks4c2M4ZWNyMGw0M0JBZmZxWXJWalJaVm5zSE1YTUtzUUYyaUk1QnktYUlMdTVFN3JMY0JHcmQ3TWhpUXR5WTBUclhyQ1hHX0ZWZXhWWjQ3djdHNkJ1OGg4NHlnUWowcG0wUFZ3NEFzRS1kYVpiWk1zbWlSbGYzMUNkUl9aakg3dEExd25EWVdpRURpU1ZrQkk1cGZ6S2czbjE1U3JiX2huaEUSBBoCCAAa1wMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCxAwgAEAAYACAAKgsKBHRyb3kVaMk3QDK5AS9nb3RvP3VybD1DQUVTZndIck96QVZLOHNjOGVjcjBsNDNCQWZmcVlyVmpSWlZuc0hNWE1Lc1FGMmlJNUJ5LWFJTHU1RTdyTGNCR3JkN01oaVF0eVkwVHJYckNYR19GVmV4Vlo0N3Y3RzZCdThoODR5Z1FqMHBtMFBWdzRBc0UtZGFaYlpNc21pUmxmMzFDZFJfWmpIN3RBMXduRFlXaUVEaVNWa0JJNXBmektnM24xNVNyYl9obmhFOjpUaGUgPGI-MTk2NzwvYj4gQXJhYi1Jc3JhZWxpIFdhciAtIE9mZmljZSBvZiB0aGUgSGlzdG9yaWFuQqEBVGhlIDxiPjE5Njc8L2I-IEFyYWItSXNyYWVsaSBXYXIgbWFya2VkIHRoZSBmYWlsdXJlIG9mIHRoZSBFaXNlbmhvd2VyLCBLZW5uZWR5LCBhbmQgSm9obnNvbiBhZG1pbmlzdHJhdGlvbnMmIzM5OyBlZmZvcnRzIHRvIHByZXZlbnQgcmVuZXdlZCBBcmFiLUlzcmFlbGkgY29uZmxpY3QiAhABSABYAGgA",
+				"source": "Office of the Historian (.gov)"
+			},
+			{
+				"position": 3,
+				"title": "1967 Hugo Awards",
+				"link": "/goto?url=CAESdwHrOzAVg8eCVyDBQWj_3-iA2bZW2aW2SawTD-BNFWi--88B0ZzA_riFmZSH_rYI1LbqwmqljnNTYqLA-LV0XDw4wMk-N5R_jjeF1F1Xo26uh7ICiunrvCit0qSHwuEBKtbJeYKc251wI5SDa8f42o8xQmBGqkbI",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESdwHrOzAVDN5edOAVuoI6DIsCUH2CprdSU_wxKX_qEfZAiaFZ8tSdy_ZQu89SUeZS3KwkkPAG0VLnd5YjJz9HuyRiZhINItB07AK84VT9xo4MsQ6T9IasknCVYm0CydrKVKyNNOx2xSQedQW-o7yedqtboPE-BZHx&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECCQQAQ&uoh=1",
+				"displayed_link": "https://www.thehugoawards.org › hugo-history › 1967-...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAXVBMVEX____V1dVMTEz8_Pzq6es-PUDm5-na2drIyMjMzs-5ublCQkSzsrPAv8DLy8vj4-NHR0mUk5dYV1kuLC739_dfXmAfGhva2tqXlpsNBAf___2bmpsAAADn5-ff399j343uAAAAd0lEQVR4Ab3PtQHDQBAEQDHrman_Mp2aVmZvOofVP1IfYdNi6_oB49iPGKd-xrisE8btbTwcu68EI-nnN_-kPcVYswUjF7JDprg2FqLTHmFoo04UYeV0yhXKvMX23rop19bmtkyF7nNpL7G2ZbKZ2qlYUqvqpzkBb7AFpW2RJ7YAAAAASUVORK5CYII.png",
+				"snippet": "Presented at: NyCon 3, New York, August 31 – September 4, 1967. Toastmaster: Harlan Ellison. Base design: Awards Administration: Best Novel.",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "Presented at: NyCon 3, New York, August 31 – September 4, 1967. Toastmaster: Harlan Ellison. Base design: Awards Administration: Best Novel.",
+						"source_info_link": "/goto?url=CAESdwHrOzAVg8eCVyDBQWj_3-iA2bZW2aW2SawTD-BNFWi--88B0ZzA_riFmZSH_rYI1LbqwmqljnNTYqLA-LV0XDw4wMk-N5R_jjeF1F1Xo26uh7ICiunrvCit0qSHwuEBKtbJeYKc251wI5SDa8f42o8xQmBGqkbI",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAXVBMVEX____V1dVMTEz8_Pzq6es-PUDm5-na2drIyMjMzs-5ublCQkSzsrPAv8DLy8vj4-NHR0mUk5dYV1kuLC739_dfXmAfGhva2tqXlpsNBAf___2bmpsAAADn5-ff399j343uAAAAd0lEQVR4Ab3PtQHDQBAEQDHrman_Mp2aVmZvOofVP1IfYdNi6_oB49iPGKd-xrisE8btbTwcu68EI-nnN_-kPcVYswUjF7JDprg2FqLTHmFoo04UYeV0yhXKvMX23rop19bmtkyF7nNpL7G2ZbKZ2qlYUqvqpzkBb7AFpW2RJ7YAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cq4BL2dvdG8_dXJsPUNBRVNkd0hyT3pBVmc4ZUNWeURCUVdqXzMtaUEyYlpXMmFXMlNhd1RELUJORldpLS04OEIwWnpBX3JpRm1aU0hfcllJMUxicXdtcWxqbk5UWXFMQS1MVjBYRHc0d01rLU41Ul9qamVGMUYxWG8yNnVoN0lDaXVucnZDaXQwcVNId3VFQkt0YkplWUtjMjUxd0k1U0RhOGY0Mm84eFFtQkdxa2JJEgQaAggAGp0DEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJA9wIIABAAGAAgACoLCgR0cm95FSIchkAyrgEvZ290bz91cmw9Q0FFU2R3SHJPekFWZzhlQ1Z5REJRV2pfMy1pQTJiWlcyYVcyU2F3VEQtQk5GV2ktLTg4QjBaekFfcmlGbVpTSF9yWUkxTGJxd21xbGpuTlRZcUxBLUxWMFhEdzR3TWstTjVSX2pqZUYxRjFYbzI2dWg3SUNpdW5ydkNpdDBxU0h3dUVCS3RiSmVZS2MyNTF3STVTRGE4ZjQybzh4UW1CR3FrYkk6FzxiPjE5Njc8L2I-IEh1Z28gQXdhcmRzQpUBUHJlc2VudGVkIGF0OiBOeUNvbiAzLCBOZXcgWW9yaywgQXVndXN0IDMxIOKAkyBTZXB0ZW1iZXIgNCwgPGI-MTk2NzwvYj4uIFRvYXN0bWFzdGVyOiBIYXJsYW4gRWxsaXNvbi4gQmFzZSBkZXNpZ246IEF3YXJkcyBBZG1pbmlzdHJhdGlvbjogQmVzdCBOb3ZlbC4iAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cq4BL2dvdG8_dXJsPUNBRVNkd0hyT3pBVmc4ZUNWeURCUVdqXzMtaUEyYlpXMmFXMlNhd1RELUJORldpLS04OEIwWnpBX3JpRm1aU0hfcllJMUxicXdtcWxqbk5UWXFMQS1MVjBYRHc0d01rLU41Ul9qamVGMUYxWG8yNnVoN0lDaXVucnZDaXQwcVNId3VFQkt0YkplWUtjMjUxd0k1U0RhOGY0Mm84eFFtQkdxa2JJEgQaAggAGp0DEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJA9wIIABAAGAAgACoLCgR0cm95FSIchkAyrgEvZ290bz91cmw9Q0FFU2R3SHJPekFWZzhlQ1Z5REJRV2pfMy1pQTJiWlcyYVcyU2F3VEQtQk5GV2ktLTg4QjBaekFfcmlGbVpTSF9yWUkxTGJxd21xbGpuTlRZcUxBLUxWMFhEdzR3TWstTjVSX2pqZUYxRjFYbzI2dWg3SUNpdW5ydkNpdDBxU0h3dUVCS3RiSmVZS2MyNTF3STVTRGE4ZjQybzh4UW1CR3FrYkk6FzxiPjE5Njc8L2I-IEh1Z28gQXdhcmRzQpUBUHJlc2VudGVkIGF0OiBOeUNvbiAzLCBOZXcgWW9yaywgQXVndXN0IDMxIOKAkyBTZXB0ZW1iZXIgNCwgPGI-MTk2NzwvYj4uIFRvYXN0bWFzdGVyOiBIYXJsYW4gRWxsaXNvbi4gQmFzZSBkZXNpZ246IEF3YXJkcyBBZG1pbmlzdHJhdGlvbjogQmVzdCBOb3ZlbC4iAhABSABYAGgA",
+				"source": "The Hugo Award",
+				"read_more_link": "https://www.google.com/goto?url=CAESswEB6zswFfknMG7eTAWKjrK2zg1mlGOvkcVC0z4n5z_3So0YwECi5oxqBBMR-wAP0b2XkomHEuXe5fE2BXV84Ov3waWsaw7kz0LnDTjQUqEl5Le-J243qYxDxanLLhEF5Bim8M5ez7Ze3ECWkpDOb-4Pos3yidSZEd_N9m4Zg116oMQuGNJKeRSqOnP9miDS6xAVW724wzjnexWAl53hew1-P6koRgcYDq7qVdwKhXz17g056g"
+			},
+			{
+				"position": 4,
+				"title": "Pierson v. Ray | 386 U.S. 547 (1967)",
+				"link": "/goto?url=CAESbwHrOzAV68VVgiZeUkF_zYIJSmFPTXcZTnD8qm2Za3YIeqXFAEGyaeJyFNfDX_XxoNHan5ViaQRWhPItezPEFzr1YM6J0YNqWptdyJ_v3qF6ptrcsWiL_L1F2bHY7nR_aMDnWhPYnC7vSy0FZXEi8g",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbwHrOzAVDOuRy-AGe3Y0bGSKZJhA38dKiiMQGElFZUXxleV0eDe0aLqm6f0ygAJNirWbLos952Peh_hcX4Z7RNrLxOqnHqyHf-Y2kfLVUjy2uPgp4VT8RXGu6L1q25EK57DPsWmPl_O1siPzNUQPRw&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECCMQAQ&uoh=1",
+				"displayed_link": "https://supreme.justia.com › cases › federal",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcBAMAAACAI8KnAAAAMFBMVEUGNXoGNXoFNXoGNXoALHZYbJlwgaYAH3HL0Nz___8AFW6Yo73n6vCUn7qosscZQIAjPKm1AAAABHRSTlM78P_xeONVEgAAAHhJREFUeAFjYFRCAgYMRshcRQYYy8XFCUjCuCphaSlIXPXOmbOGMlfFCYVbHa6kNXPmKShXPXNu1YqZM9uhXNeZM-fMnDkT5v0KIBsosgimuBPEPaQEM2rZyZkz5znBuSrr01KXK0G4YL6LixKEK4Qc7MoMzMhcAQCWGFuAjn7OlgAAAABJRU5ErkJggg.png",
+				"snippet": "Argued January 11, 1967 ... It was against this background that the section was passed, and it is against this background that it should be interpreted.",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "Argued January 11, 1967 ... It was against this background that the section was passed, and it is against this background that it should be interpreted.",
+						"source_info_link": "/goto?url=CAESbwHrOzAV68VVgiZeUkF_zYIJSmFPTXcZTnD8qm2Za3YIeqXFAEGyaeJyFNfDX_XxoNHan5ViaQRWhPItezPEFzr1YM6J0YNqWptdyJ_v3qF6ptrcsWiL_L1F2bHY7nR_aMDnWhPYnC7vSy0FZXEi8g",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcBAMAAACAI8KnAAAAMFBMVEUGNXoGNXoFNXoGNXoALHZYbJlwgaYAH3HL0Nz___8AFW6Yo73n6vCUn7qosscZQIAjPKm1AAAABHRSTlM78P_xeONVEgAAAHhJREFUeAFjYFRCAgYMRshcRQYYy8XFCUjCuCphaSlIXPXOmbOGMlfFCYVbHa6kNXPmKShXPXNu1YqZM9uhXNeZM-fMnDkT5v0KIBsosgimuBPEPaQEM2rZyZkz5znBuSrr01KXK0G4YL6LixKEK4Qc7MoMzMhcAQCWGFuAjn7OlgAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjY4VlZnaVplVWtGX3pZSUpTbUZQVFhjWlRuRDhxbTJaYTNZSWVxWEZBRUd5YWVKeUZOZkRYX1h4b05IYW41VmlhUVJXaFBJdGV6UEVGenIxWU02SjBZTnFXcHRkeUpfdjNxRjZwdHJjc1dpTF9MMUYyYkhZN25SX2FNRG5XaFBZbkM3dlN5MEZaWEVpOGcSBBoCCAAasQMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkCLAwgAEAAYACAAKgsKBHRyb3kVtsaCQDKkAS9nb3RvP3VybD1DQUVTYndIck96QVY2OFZWZ2laZVVrRl96WUlKU21GUFRYY1pUbkQ4cW0yWmEzWUllcVhGQUVHeWFlSnlGTmZEWF9YeG9OSGFuNVZpYVFSV2hQSXRlelBFRnpyMVlNNkowWU5xV3B0ZHlKX3YzcUY2cHRyY3NXaUxfTDFGMmJIWTduUl9hTURuV2hQWW5DN3ZTeTBGWlhFaThnOitQaWVyc29uIHYuIFJheSB8IDM4NiBVLlMuIDU0NyAoPGI-MTk2NzwvYj4pQp8BQXJndWVkIEphbnVhcnkgMTEsIDxiPjE5Njc8L2I-IC4uLiBJdCB3YXMgYWdhaW5zdCB0aGlzIGJhY2tncm91bmQgdGhhdCB0aGUgc2VjdGlvbiB3YXMgcGFzc2VkLCBhbmQgaXQgaXMgYWdhaW5zdCB0aGlzIGJhY2tncm91bmQgdGhhdCBpdCBzaG91bGQgYmUgaW50ZXJwcmV0ZWQuIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjY4VlZnaVplVWtGX3pZSUpTbUZQVFhjWlRuRDhxbTJaYTNZSWVxWEZBRUd5YWVKeUZOZkRYX1h4b05IYW41VmlhUVJXaFBJdGV6UEVGenIxWU02SjBZTnFXcHRkeUpfdjNxRjZwdHJjc1dpTF9MMUYyYkhZN25SX2FNRG5XaFBZbkM3dlN5MEZaWEVpOGcSBBoCCAAasQMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkCLAwgAEAAYACAAKgsKBHRyb3kVtsaCQDKkAS9nb3RvP3VybD1DQUVTYndIck96QVY2OFZWZ2laZVVrRl96WUlKU21GUFRYY1pUbkQ4cW0yWmEzWUllcVhGQUVHeWFlSnlGTmZEWF9YeG9OSGFuNVZpYVFSV2hQSXRlelBFRnpyMVlNNkowWU5xV3B0ZHlKX3YzcUY2cHRyY3NXaUxfTDFGMmJIWTduUl9hTURuV2hQWW5DN3ZTeTBGWlhFaThnOitQaWVyc29uIHYuIFJheSB8IDM4NiBVLlMuIDU0NyAoPGI-MTk2NzwvYj4pQp8BQXJndWVkIEphbnVhcnkgMTEsIDxiPjE5Njc8L2I-IC4uLiBJdCB3YXMgYWdhaW5zdCB0aGlzIGJhY2tncm91bmQgdGhhdCB0aGUgc2VjdGlvbiB3YXMgcGFzc2VkLCBhbmQgaXQgaXMgYWdhaW5zdCB0aGlzIGJhY2tncm91bmQgdGhhdCBpdCBzaG91bGQgYmUgaW50ZXJwcmV0ZWQuIgIQAUgAWABoAA",
+				"source": "Justia U.S. Supreme Court Center",
+				"read_more_link": "https://www.google.com/goto?url=CAES6wEB6zswFcptf_3CWjIH9XhFDSzwY0J8wIWpRpETKvmNhPcM9FH_GTxiVj2wnihdNguwCkC4WYApkI_311uTqs_SnPyCGUOtGRSpyK0mOAxe4An0EQQuM0hOJGT4hGGWbMDvCeqSg9a_viN0INOSHbuGMQU9BpdES1KagQ3iLtXkoi8xn4LD2ZfLXW3iRIJo3_Lv0IRRFkOS8IXR34uAxwJ4zdAh9v8cKhjNeiVpmPoQevwJTgg0CJGnlSmUSdni61lKGIeK44_z1eRAEA0CNWxJkIT7V6DGRdH3yTWiTeuOCFedbil9V5UQV-JD"
+			},
+			{
+				"position": 5,
+				"title": "1967 Annual Exhibition of Contemporary Painting",
+				"link": "/goto?url=CAESZgHrOzAVm8mOxsN0eYd9FFycneHerYMpsO6LDFSr7dz4kuMQw_1MniXs9yniJKDCnXYRk_pSEK4vwH26drgaOIZwKd4kjgjiRtNinDe0D9Pr5iT4pRKiG8yVj_IRKpqghkAALuK5Ug",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESZgHrOzAVASJZawE-oEPvUNo6Jfy0SFfonbX84BY-PT3QxQsambqKQNgoZbFVwbin7hwEDbWegIP8NvNwaY0guQ_p8zk8Q-PWpxjKD03BdT8HRXUwBj3Fsr7yZGDhYrB-z41rmpLtOA&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECB8QAQ&uoh=1",
+				"displayed_link": "https://whitney.org › exhibitions › annual-1967",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAq0lEQVR4AWL4jwcMlOSr_6cPnL98esPsVc8Wbdly-T1Y4j1M5_MNUVsK6res2tLle-B5F6AvOdCAIAQCMPz-r3IA7i0WIbAQwsRAGBjgP9hUddsH8N0OIC0txDteMcTy-XqoMiXCoCxJGtNsTtchkTlRPyRpSK9Lknsia5odktwTXZPUU7Z0PSTqLSllTRItZU9yS5U9rT7JtSe5pbEn6Un-pau-J5oOyTG7H6nO-sxjmiDYAAAAAElFTkSuQmCC.png",
+				"snippet": "Annual Exhibition of Contemporary Painting Dec 13, 1967–Feb 4, View the full exhibition catalogue at the Internet Archive.",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "Annual Exhibition of Contemporary Painting Dec 13, 1967–Feb 4, View the full exhibition catalogue at the Internet Archive.",
+						"source_info_link": "/goto?url=CAESZgHrOzAVm8mOxsN0eYd9FFycneHerYMpsO6LDFSr7dz4kuMQw_1MniXs9yniJKDCnXYRk_pSEK4vwH26drgaOIZwKd4kjgjiRtNinDe0D9Pr5iT4pRKiG8yVj_IRKpqghkAALuK5Ug",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAq0lEQVR4AWL4jwcMlOSr_6cPnL98esPsVc8Wbdly-T1Y4j1M5_MNUVsK6res2tLle-B5F6AvOdCAIAQCMPz-r3IA7i0WIbAQwsRAGBjgP9hUddsH8N0OIC0txDteMcTy-XqoMiXCoCxJGtNsTtchkTlRPyRpSK9Lknsia5odktwTXZPUU7Z0PSTqLSllTRItZU9yS5U9rT7JtSe5pbEn6Un-pau-J5oOyTG7H6nO-sxjmiDYAAAAAElFTkSuQmCC.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpgBL2dvdG8_dXJsPUNBRVNaZ0hyT3pBVm04bU94c04wZVlkOUZGeWNuZUhlcllNcHNPNkxERlNyN2R6NGt1TVF3XzFNbmlYczl5bmlKS0RDblhZUmtfcFNFSzR2d0gyNmRyZ2FPSVp3S2Q0a2pnamlSdE5pbkRlMEQ5UHI1aVQ0cFJLaUc4eVZqX0lSS3BxZ2hrQUFMdUs1VWcSBBoCCAAalAMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDuAggAEAAYACAAKgsKBHRyb3kVdEKIQDKYAS9nb3RvP3VybD1DQUVTWmdIck96QVZtOG1PeHNOMGVZZDlGRnljbmVIZXJZTXBzTzZMREZTcjdkejRrdU1Rd18xTW5pWHM5eW5pSktEQ25YWVJrX3BTRUs0dndIMjZkcmdhT0lad0tkNGtqZ2ppUnROaW5EZTBEOVByNWlUNHBSS2lHOHlWal9JUktwcWdoa0FBTHVLNVVnOjY8Yj4xOTY3PC9iPiBBbm51YWwgRXhoaWJpdGlvbiBvZiBDb250ZW1wb3JhcnkgUGFpbnRpbmdCgwFBbm51YWwgRXhoaWJpdGlvbiBvZiBDb250ZW1wb3JhcnkgUGFpbnRpbmcgRGVjIDEzLCA8Yj4xOTY3PC9iPuKAk0ZlYiA0LCBWaWV3IHRoZSBmdWxsIGV4aGliaXRpb24gY2F0YWxvZ3VlIGF0IHRoZSBJbnRlcm5ldCBBcmNoaXZlLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpgBL2dvdG8_dXJsPUNBRVNaZ0hyT3pBVm04bU94c04wZVlkOUZGeWNuZUhlcllNcHNPNkxERlNyN2R6NGt1TVF3XzFNbmlYczl5bmlKS0RDblhZUmtfcFNFSzR2d0gyNmRyZ2FPSVp3S2Q0a2pnamlSdE5pbkRlMEQ5UHI1aVQ0cFJLaUc4eVZqX0lSS3BxZ2hrQUFMdUs1VWcSBBoCCAAalAMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDuAggAEAAYACAAKgsKBHRyb3kVdEKIQDKYAS9nb3RvP3VybD1DQUVTWmdIck96QVZtOG1PeHNOMGVZZDlGRnljbmVIZXJZTXBzTzZMREZTcjdkejRrdU1Rd18xTW5pWHM5eW5pSktEQ25YWVJrX3BTRUs0dndIMjZkcmdhT0lad0tkNGtqZ2ppUnROaW5EZTBEOVByNWlUNHBSS2lHOHlWal9JUktwcWdoa0FBTHVLNVVnOjY8Yj4xOTY3PC9iPiBBbm51YWwgRXhoaWJpdGlvbiBvZiBDb250ZW1wb3JhcnkgUGFpbnRpbmdCgwFBbm51YWwgRXhoaWJpdGlvbiBvZiBDb250ZW1wb3JhcnkgUGFpbnRpbmcgRGVjIDEzLCA8Yj4xOTY3PC9iPuKAk0ZlYiA0LCBWaWV3IHRoZSBmdWxsIGV4aGliaXRpb24gY2F0YWxvZ3VlIGF0IHRoZSBJbnRlcm5ldCBBcmNoaXZlLiICEAFIAFgAaAA",
+				"source": "Whitney Museum of American Art"
+			},
+			{
+				"position": 6,
+				"title": "5. Protocol relating to the Status of Refugees",
+				"link": "/goto?url=CAESiAEB6zswFc146dNLuSJUrQ-OWHcFGSIsh4M_mmK642zscTG6O3QIlDUHelBQkulbclG6Tx4f5oDoHfJA4WEdGofzksAkrS8MpTMIJAO4bJrNHdVPLZN8gyHf3XosJ6N-cf8QiseN_BqbhLZnEm8f83UpRsuakwpC6hL5LAWYZbZby5L8Q6pE5s21",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESiAEB6zswFbq9m9EraMgBF_BmotEfwWYGThPn0z5iodpLTmbG2lwGu1rPXhsTS0zbyXBnpxLZb0iL3mchZGj4K6StoTXJObXWepfV4gSeyz4PoIeRur75Zm9H61RMX88r5I3uIj9-muxm2DbZlblk49ci4xy0w3bp0NaEwD9ZmidaiPX4qV2hJr6E&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECCAQAQ&uoh=1",
+				"displayed_link": "https://treaties.un.org › pages › ViewDetails",
+				"favicon": "https://serpapi.com/searches/6ae41a6ec1c556bb175e505c/images/ZxOefflKPyy9JIL6Jv0O2rd87fqKJqn8Graj_Tur0SQ.jpeg",
+				"snippet": "This is the United Nations Treaty Collection homepage. Protocol relating to the Status of Refugees New York, 31 January 1967. High Commissioner for Refugees, ...",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "This is the United Nations Treaty Collection homepage. Protocol relating to the Status of Refugees New York, 31 January 1967. High Commissioner for Refugees, ...",
+						"source_info_link": "/goto?url=CAESiAEB6zswFc146dNLuSJUrQ-OWHcFGSIsh4M_mmK642zscTG6O3QIlDUHelBQkulbclG6Tx4f5oDoHfJA4WEdGofzksAkrS8MpTMIJAO4bJrNHdVPLZN8gyHf3XosJ6N-cf8QiseN_BqbhLZnEm8f83UpRsuakwpC6hL5LAWYZbZby5L8Q6pE5s21",
+						"icon": "https://serpapi.com/searches/6ae41a6ec1c556bb175e505c/images/ZxOefflKPyy9JIL6Jv0O2pSIYbE-KjZsOU_qws9Dh92HlKF5Z_PXZhVx4ed2CY-p.jpeg"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CsYBL2dvdG8_dXJsPUNBRVNpQUVCNnpzd0ZjMTQ2ZE5MdVNKVXJRLU9XSGNGR1NJc2g0TV9tbUs2NDJ6c2NURzZPM1FJbERVSGVsQlFrdWxiY2xHNlR4NGY1b0RvSGZKQTRXRWRHb2Z6a3NBa3JTOE1wVE1JSkFPNGJKck5IZFZQTFpOOGd5SGYzWG9zSjZOLWNmOFFpc2VOX0JxYmhMWm5FbThmODNVcFJzdWFrd3BDNmhMNUxBV1laYlpieTVMOFE2cEU1czIxEgQaAggAGusDEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAxQMIABAAGAAgACoLCgR0cm95FUxKuD8yxgEvZ290bz91cmw9Q0FFU2lBRUI2enN3RmMxNDZkTkx1U0pVclEtT1dIY0ZHU0lzaDRNX21tSzY0MnpzY1RHNk8zUUlsRFVIZWxCUWt1bGJjbEc2VHg0ZjVvRG9IZkpBNFdFZEdvZnprc0FrclM4TXBUTUlKQU80YkpyTkhkVlBMWk44Z3lIZjNYb3NKNk4tY2Y4UWlzZU5fQnFiaExabkVtOGY4M1VwUnN1YWt3cEM2aEw1TEFXWVpiWmJ5NUw4UTZwRTVzMjE6NTUuIFByb3RvY29sIHJlbGF0aW5nIHRvIHRoZSBTdGF0dXMgb2YgUmVmdWdlZXMgLSBVTlRDQq0BVGhpcyBpcyB0aGUgVW5pdGVkIE5hdGlvbnMgVHJlYXR5IENvbGxlY3Rpb24gaG9tZXBhZ2UuIFByb3RvY29sIHJlbGF0aW5nIHRvIHRoZSBTdGF0dXMgb2YgUmVmdWdlZXMgTmV3IFlvcmssIDMxIEphbnVhcnkgPGI-MTk2NzwvYj4uIEhpZ2ggQ29tbWlzc2lvbmVyIGZvciBSZWZ1Z2VlcywmbmJzcDsuLi4iAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CsYBL2dvdG8_dXJsPUNBRVNpQUVCNnpzd0ZjMTQ2ZE5MdVNKVXJRLU9XSGNGR1NJc2g0TV9tbUs2NDJ6c2NURzZPM1FJbERVSGVsQlFrdWxiY2xHNlR4NGY1b0RvSGZKQTRXRWRHb2Z6a3NBa3JTOE1wVE1JSkFPNGJKck5IZFZQTFpOOGd5SGYzWG9zSjZOLWNmOFFpc2VOX0JxYmhMWm5FbThmODNVcFJzdWFrd3BDNmhMNUxBV1laYlpieTVMOFE2cEU1czIxEgQaAggAGusDEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAxQMIABAAGAAgACoLCgR0cm95FUxKuD8yxgEvZ290bz91cmw9Q0FFU2lBRUI2enN3RmMxNDZkTkx1U0pVclEtT1dIY0ZHU0lzaDRNX21tSzY0MnpzY1RHNk8zUUlsRFVIZWxCUWt1bGJjbEc2VHg0ZjVvRG9IZkpBNFdFZEdvZnprc0FrclM4TXBUTUlKQU80YkpyTkhkVlBMWk44Z3lIZjNYb3NKNk4tY2Y4UWlzZU5fQnFiaExabkVtOGY4M1VwUnN1YWt3cEM2aEw1TEFXWVpiWmJ5NUw4UTZwRTVzMjE6NTUuIFByb3RvY29sIHJlbGF0aW5nIHRvIHRoZSBTdGF0dXMgb2YgUmVmdWdlZXMgLSBVTlRDQq0BVGhpcyBpcyB0aGUgVW5pdGVkIE5hdGlvbnMgVHJlYXR5IENvbGxlY3Rpb24gaG9tZXBhZ2UuIFByb3RvY29sIHJlbGF0aW5nIHRvIHRoZSBTdGF0dXMgb2YgUmVmdWdlZXMgTmV3IFlvcmssIDMxIEphbnVhcnkgPGI-MTk2NzwvYj4uIEhpZ2ggQ29tbWlzc2lvbmVyIGZvciBSZWZ1Z2VlcywmbmJzcDsuLi4iAhABSABYAGgA",
+				"source": "United Nations Treaty Collection"
+			},
+			{
+				"position": 7,
+				"title": "What do you remember about the year 1967? Both ...",
+				"link": "/goto?url=CAESpAEB6zswFTOAC-SkMGNfLNyEqVGQwPd8f2XWqSreuI1U8IHvIVQFD4cubpPRaVR0YYveB2r11zFlBh5k3qGiIihMbMB7zhTETLiNmjaznagsTUt8JOuLV6z9bB9H_tmv2WDyxZI_VoKnZiZR80JMehXszJobFW3C2E7IAVoXMReShSjM2gHtyoMlyudQFukbo7sMkOqx9YK-_FCUMCFWKiqrk7OBRQ",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESpAEB6zswFVYeX6P-tppr2Ew5bh72dIs36x81BUsVwKcpIxWTkXLh5oWeQ9Uj67VNqoiHDJV0g206BLlGNcroWGkfLApWUplGoHlVnwmrWIzeKNnzkEPJZ6c9xW4vKhk0uXhdW7Kk81oay0Q_UshNBbngTpH0MV8Tn5r8eBSbbymu8OZ5wFJgzBY27BNQS0U7lqIRJeVVTAt_URscK-40ELknRwyoqQ&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECEgQAQ&uoh=1",
+				"displayed_link": "80+ comments",
+				"date": "2 years ago",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAqFBMVEVHcEz_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_PAD_____RQD_PAD_QAD_MQDS4Of_RAD_NwD6-vv4_v_K2N_z-fra5uzm7_H72NLq9vkCCAvweWDol4r_hm3-mYX9YTj-cFDW7PP45uP4qJjbUTNBR0rRtbD_wLO-MgW1vsHfzc_gFQDUqKf_WAb_UgAxODwAHilxLR1scnTHa13kHQCLRbHLAAAADHRSTlMA_kAZ4YjF7WQ0GH3klhKFAAABhUlEQVQokW2T53aDMAyFoSGQpMfyJmaEnb1X-_5vVttkkDT3BxJ8xyBdCce5a9j3A9cN_P7QedcggIeCwQvqeU8EhIA3erKvDgJa1ZTD10cmVghNxYOOugzWY4RQiQF6Fna_tz5fNigMDfRsnd1z5zleNs0Yc52bmh89ECzWF4FpllkGge5dB0wpxrQqV_vlqqyoMPf68dDp6-KLJCmLKbppWpRJUlCAvuODmKEPmgnwnYCTTwwhwgPHJXVocrlv3xtO98rGmriOyyFVEqE5zaR9-Fv96KtKgbu6E5w3UsrdAScGJvSwU6Fscqx78XW1M6XC-RHsSQnHeajUTFfrm1ZIlaZKJbItRCZKpWlFTCvGBMriOFWbxeJ0Wiw2YRrHEbUmGPtIFkVxHE-sdBI1GbH2WeNFzsYsYtfJ5KoDY7m4GW9HJrKxFosiZmJmmNcukBkBJvnWnGHRNifGdbitkakJOBZQF0UNoh3YfYm-bwPlRIu3-TvryOvd1_kf6iz1C3z9Hf4AClYvY_ay9KgAAAAASUVORK5CYII.png",
+				"snippet": "1967. The year I turned 13. I was 17, senior in HS. Had a full 4 year scholarship, a boyfriend with a convertible. Viet Nam is what I remember. ...",
+				"snippet_highlighted_words": ["1967"],
+				"sitelinks": {
+					"list": [
+						{
+							"title": "1967: What was the year like? : r/AskOldPeople - Reddit",
+							"link": "https://www.google.com/goto?url=CAESjQEB6zswFcXxaf2fRLRVYnDtN1V8qwEHrtb3qqnpjfmVYJpTjTBbJquj-kmfGCIPrDWO1TZkWVXZ9UK7kHVTGMhdjN4vAq5inJRAbOSzMrdTen1Ldjf_T3OHTgQLh2KESiIKZC21E-NbzuvaVoAQNbb1bP9BwY5-Rlp7bq0JPpS3lioWuxtc4Qt-QAgZ7XY",
+							"answer_count": 50,
+							"date": "Aug 8, 2022"
+						},
+						{
+							"title": "The Prisoner (1967) : r/television - Reddit",
+							"link": "https://www.google.com/goto?url=CAESggEB6zswFbe_SD2mJluT-0kfuV3xjZenPr1LOwKWrOFTuP0kJjVrgldn8ZP9uzOci04ATvPcMXnmPdPqcR_EdpVti--Gf-IjDB3bq6ctQsMx4HVx55lAd1WN3lvGUA6iOveS9YIw-eeZy3TwCY9k9ND5lv4fg2yZ4fFlkTzcOvjBbZ5_",
+							"answer_count": 99,
+							"date": "May 30, 2024"
+						}
+					]
+				},
+				"about_this_result": {
+					"source": {
+						"description": "1967. The year I turned 13. I was 17, senior in HS. Had a full 4 year scholarship, a boyfriend with a convertible. Viet Nam is what I remember. ...",
+						"source_info_link": "/goto?url=CAESpAEB6zswFTOAC-SkMGNfLNyEqVGQwPd8f2XWqSreuI1U8IHvIVQFD4cubpPRaVR0YYveB2r11zFlBh5k3qGiIihMbMB7zhTETLiNmjaznagsTUt8JOuLV6z9bB9H_tmv2WDyxZI_VoKnZiZR80JMehXszJobFW3C2E7IAVoXMReShSjM2gHtyoMlyudQFukbo7sMkOqx9YK-_FCUMCFWKiqrk7OBRQ",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAqFBMVEVHcEz_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_RQD_PAD_____RQD_PAD_QAD_MQDS4Of_RAD_NwD6-vv4_v_K2N_z-fra5uzm7_H72NLq9vkCCAvweWDol4r_hm3-mYX9YTj-cFDW7PP45uP4qJjbUTNBR0rRtbD_wLO-MgW1vsHfzc_gFQDUqKf_WAb_UgAxODwAHilxLR1scnTHa13kHQCLRbHLAAAADHRSTlMA_kAZ4YjF7WQ0GH3klhKFAAABhUlEQVQokW2T53aDMAyFoSGQpMfyJmaEnb1X-_5vVttkkDT3BxJ8xyBdCce5a9j3A9cN_P7QedcggIeCwQvqeU8EhIA3erKvDgJa1ZTD10cmVghNxYOOugzWY4RQiQF6Fna_tz5fNigMDfRsnd1z5zleNs0Yc52bmh89ECzWF4FpllkGge5dB0wpxrQqV_vlqqyoMPf68dDp6-KLJCmLKbppWpRJUlCAvuODmKEPmgnwnYCTTwwhwgPHJXVocrlv3xtO98rGmriOyyFVEqE5zaR9-Fv96KtKgbu6E5w3UsrdAScGJvSwU6Fscqx78XW1M6XC-RHsSQnHeajUTFfrm1ZIlaZKJbItRCZKpWlFTCvGBMriOFWbxeJ0Wiw2YRrHEbUmGPtIFkVxHE-sdBI1GbH2WeNFzsYsYtfJ5KoDY7m4GW9HJrKxFosiZmJmmNcukBkBJvnWnGHRNifGdbitkakJOBZQF0UNoh3YfYm-bwPlRIu3-TvryOvd1_kf6iz1C3z9Hf4AClYvY_ay9KgAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CuwBL2dvdG8_dXJsPUNBRVNwQUVCNnpzd0ZUT0FDLVNrTUdOZkxOeUVxVkdRd1BkOGYyWFdxU3JldUkxVThJSHZJVlFGRDRjdWJwUFJhVlIwWVl2ZUIycjExekZsQmg1azNxR2lJaWhNYk1CN3poVEVUTGlObWphem5hZ3NUVXQ4Sk91TFY2ejliQjlIX3RtdjJXRHl4WklfVm9LblppWlI4MEpNZWhYc3pKb2JGVzNDMkU3SUFWb1hNUmVTaFNqTTJnSHR5b01seXVkUUZ1a2JvN3NNa09xeDlZSy1fRkNVTUNGV0tpcXJrN09CUlESBBoCCAAajwQSABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJA6wMIABAAGAAgACoLCgR0cm95FWaGikAy7AEvZ290bz91cmw9Q0FFU3BBRUI2enN3RlRPQUMtU2tNR05mTE55RXFWR1F3UGQ4ZjJYV3FTcmV1STFVOElIdklWUUZENGN1YnBQUmFWUjBZWXZlQjJyMTF6RmxCaDVrM3FHaUlpaE1iTUI3emhURVRMaU5tamF6bmFnc1RVdDhKT3VMVjZ6OWJCOUhfdG12MldEeXhaSV9Wb0tuWmlaUjgwSk1laFhzekpvYkZXM0MyRTdJQVZvWE1SZVNoU2pNMmdIdHlvTWx5dWRRRnVrYm83c01rT3F4OVlLLV9GQ1VNQ0ZXS2lxcms3T0JSUTpDV2hhdCBkbyB5b3UgcmVtZW1iZXIgYWJvdXQgdGhlIHllYXIgPGI-MTk2NzwvYj4_IEJvdGggdGhlIG11c2ljIC4uLkKfATxiPjE5Njc8L2I-LiBUaGUgeWVhciBJIHR1cm5lZCAxMy4gSSB3YXMgMTcsIHNlbmlvciBpbiBIUy4gSGFkIGEgZnVsbCA0IHllYXIgc2Nob2xhcnNoaXAsIGEgYm95ZnJpZW5kIHdpdGggYSBjb252ZXJ0aWJsZS4gVmlldCBOYW0gaXMgd2hhdCBJIHJlbWVtYmVyLiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CuwBL2dvdG8_dXJsPUNBRVNwQUVCNnpzd0ZUT0FDLVNrTUdOZkxOeUVxVkdRd1BkOGYyWFdxU3JldUkxVThJSHZJVlFGRDRjdWJwUFJhVlIwWVl2ZUIycjExekZsQmg1azNxR2lJaWhNYk1CN3poVEVUTGlObWphem5hZ3NUVXQ4Sk91TFY2ejliQjlIX3RtdjJXRHl4WklfVm9LblppWlI4MEpNZWhYc3pKb2JGVzNDMkU3SUFWb1hNUmVTaFNqTTJnSHR5b01seXVkUUZ1a2JvN3NNa09xeDlZSy1fRkNVTUNGV0tpcXJrN09CUlESBBoCCAAajwQSABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJA6wMIABAAGAAgACoLCgR0cm95FWaGikAy7AEvZ290bz91cmw9Q0FFU3BBRUI2enN3RlRPQUMtU2tNR05mTE55RXFWR1F3UGQ4ZjJYV3FTcmV1STFVOElIdklWUUZENGN1YnBQUmFWUjBZWXZlQjJyMTF6RmxCaDVrM3FHaUlpaE1iTUI3emhURVRMaU5tamF6bmFnc1RVdDhKT3VMVjZ6OWJCOUhfdG12MldEeXhaSV9Wb0tuWmlaUjgwSk1laFhzekpvYkZXM0MyRTdJQVZvWE1SZVNoU2pNMmdIdHlvTWx5dWRRRnVrYm83c01rT3F4OVlLLV9GQ1VNQ0ZXS2lxcms3T0JSUTpDV2hhdCBkbyB5b3UgcmVtZW1iZXIgYWJvdXQgdGhlIHllYXIgPGI-MTk2NzwvYj4_IEJvdGggdGhlIG11c2ljIC4uLkKfATxiPjE5Njc8L2I-LiBUaGUgeWVhciBJIHR1cm5lZCAxMy4gSSB3YXMgMTcsIHNlbmlvciBpbiBIUy4gSGFkIGEgZnVsbCA0IHllYXIgc2Nob2xhcnNoaXAsIGEgYm95ZnJpZW5kIHdpdGggYSBjb252ZXJ0aWJsZS4gVmlldCBOYW0gaXMgd2hhdCBJIHJlbWVtYmVyLiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"source": "Reddit · r/AskOldPeople"
+			},
+			{
+				"position": 8,
+				"title": "Jay's Dream Car: This 1967 E-Type Restoration Fixes Everything",
+				"link": "https://www.google.com/goto?url=CAESZgHrOzAVwqYQBKc_IttX0C-ZkwN18Y4nAdGvYTPr3TZLgsZZRGcFlxst2sDv0BgPjNcs5UA5TtqNai6lGPfLdEOUqNR59lXACeluyhz-pToceS0L_79Qwon0p_M6GcaoaK036C0GeQ",
+				"displayed_link": "900.6K+ views",
+				"date": "1 year ago",
+				"thumbnail": "https://serpapi.com/searches/6ae41a6ec1c556bb175e505c/images/ZxOefflKPyy9JIL6Jv0O2j2Im9BMaS54ydVGy8bGnH8.jpeg",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAhUlEQVR4AWNwL_ChCFPHgP8MxqxA7ArEKVBcCcUNIAznI-RdQXrABgAZpv8ZjP6Tg0F6QQbsosCAXSADHmGVVPIC0jKEDHgAMuAbmgRE445D___feYzXIJBeBigH04BVW_9DAcgwqEGYaik2gGIvUByIlEbjDooTEiwps5GRlNmolpkowgBVP9wMSzSKGAAAAABJRU5ErkJggg.png",
+				"snippet": "Jay Leno is finally driving the car his own collection piece \"is supposed to be\"—a spectacular, numbers-matching 1967 Jaguar E-Type Fixed Head",
+				"duration": "36:46",
+				"about_this_result": {
+					"source": {
+						"description": "Jay Leno is finally driving the car his own collection piece \"is supposed to be\"—a spectacular, numbers-matching 1967 Jaguar E-Type Fixed Head",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAhUlEQVR4AWNwL_ChCFPHgP8MxqxA7ArEKVBcCcUNIAznI-RdQXrABgAZpv8ZjP6Tg0F6QQbsosCAXSADHmGVVPIC0jKEDHgAMuAbmgRE445D___feYzXIJBeBigH04BVW_9DAcgwqEGYaik2gGIvUByIlEbjDooTEiwps5GRlNmolpkowgBVP9wMSzSKGAAAAABJRU5ErkJggg.png"
+					}
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpgBL2dvdG8_dXJsPUNBRVNaZ0hyT3pBVndxWVFCS2NfSXR0WDBDLVprd04xOFk0bkFkR3ZZVFByM1RaTGdzWlpSR2NGbHhzdDJzRHYwQmdQak5jczVVQTVUdHFOYWk2bEdQZkxkRU9VcU5SNTlsWEFDZWx1eWh6LXBUb2NlUzBMXzc5UXdvbjBwX002R2Nhb2FLMDM2QzBHZVESFgoQCgQIMEgCCgQISEgCCgIIPxoCCAAaFhIAGgAiACoAMgA6AEIASgBaAHIAegAiAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpgBL2dvdG8_dXJsPUNBRVNaZ0hyT3pBVndxWVFCS2NfSXR0WDBDLVprd04xOFk0bkFkR3ZZVFByM1RaTGdzWlpSR2NGbHhzdDJzRHYwQmdQak5jczVVQTVUdHFOYWk2bEdQZkxkRU9VcU5SNTlsWEFDZWx1eWh6LXBUb2NlUzBMXzc5UXdvbjBwX002R2Nhb2FLMDM2QzBHZVESFgoQCgQIMEgCCgQISEgCCgIIPxoCCAAaFhIAGgAiACoAMgA6AEIASgBaAHIAegAiAhABSABYAGgA",
+				"video_link": "https://encrypted-vtbn0.gstatic.com/video?q=tbn:ANd9GcS_7WgbUSVm43BzHv25tjxSoK2xum3nttZuxg",
+				"source": "YouTube · Jay Leno's Garage"
+			},
+			{
+				"position": 9,
+				"title": "Survival in Duchenne muscular dystrophy: improvements ...",
+				"link": "/goto?url=CAESZAHrOzAVK4F46moKNTPDtRAtsiruw7BmheYJjnAjIos8LbG97SVFUf7NktaTHWWUGWQ8YoNp4skhiRA1_PRIASwSSX0CdWs6S7n8I5Wp4yz-kNmlWiei4mcymQLbIk9G6cswcDg",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESZAHrOzAVshlcpsdlWrVUqwS63q4vnWwt19w3I7RQIBFKVIjZHoQRVOpbalr0W9_0egN4HT2Dd8iqCsj0No00Zqm4r6d1AbAmWFm_zLkAZk7moIgFVmkpV52kykzEDp1EOh2FTfc&ved=2ahUKEwjP9s2i8eCXAxXHM1kFHTkuOQUQFnoECEQQAQ&uoh=1",
+				"displayed_link": "https://pubmed.ncbi.nlm.nih.gov › ...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd-UAAABA0lEQVR4AWJwL_ChKwYTEqE9BglJae0kYGe4AUFTPIB4ChRXAM1SxGshUHMCEP8nFQfG54tBHasItOg_Gk7EZ-EjkAFk4JVIvqxAt1QspJcb0GwdWAAIhGEYnqVtGqNtWqAlAjdKbRBNEXD5cZyPu4_zRvgF9Kh7-9UC8-jIq70ETV-Ah5xlrifaoMGYpUKToCcA2oAeDciAeEBPBORBNqDNg3xAkwfhgDzIb6CZBmPW6ik3AS8PwvGwoPk8uDOU84trYwGg4OoKJcHbLXEB0VDOxpbBQLtHUbCsrLhxKxQF2Y9cQiHBu7yuiKIXioI7sKg1lNT7Lx1BDw1Fq-yC9PwKfAFmoVRnLcb2rQAAAABJRU5ErkJggg.png",
+				"author": "by M Eagle",
+				"snippet": "We reviewed the notes of 197 patients with Duchenne muscular dystrophy whose treatment was managed at the Newcastle muscle centre from 1967 to 2002, ...",
+				"snippet_highlighted_words": ["1967"],
+				"about_this_result": {
+					"source": {
+						"description": "We reviewed the notes of 197 patients with Duchenne muscular dystrophy whose treatment was managed at the Newcastle muscle centre from 1967 to 2002, ...",
+						"source_info_link": "/goto?url=CAESZAHrOzAVK4F46moKNTPDtRAtsiruw7BmheYJjnAjIos8LbG97SVFUf7NktaTHWWUGWQ8YoNp4skhiRA1_PRIASwSSX0CdWs6S7n8I5Wp4yz-kNmlWiei4mcymQLbIk9G6cswcDg",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd-UAAABA0lEQVR4AWJwL_ChKwYTEqE9BglJae0kYGe4AUFTPIB4ChRXAM1SxGshUHMCEP8nFQfG54tBHasItOg_Gk7EZ-EjkAFk4JVIvqxAt1QspJcb0GwdWAAIhGEYnqVtGqNtWqAlAjdKbRBNEXD5cZyPu4_zRvgF9Kh7-9UC8-jIq70ETV-Ah5xlrifaoMGYpUKToCcA2oAeDciAeEBPBORBNqDNg3xAkwfhgDzIb6CZBmPW6ik3AS8PwvGwoPk8uDOU84trYwGg4OoKJcHbLXEB0VDOxpbBQLtHUbCsrLhxKxQF2Y9cQiHBu7yuiKIXioI7sKg1lNT7Lx1BDw1Fq-yC9PwKfAFmoVRnLcb2rQAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpUBL2dvdG8_dXJsPUNBRVNaQUhyT3pBVks0RjQ2bW9LTlRQRHRSQXRzaXJ1dzdCbWhlWUpqbkFqSW9zOExiRzk3U1ZGVWY3Tmt0YVRIV1dVR1dROFlvTnA0c2toaVJBMV9QUklBU3dTU1gwQ2RXczZTN244STVXcDR5ei1rTm1sV2llaTRtY3ltUUxiSWs5RzZjc3djRGcSBBoCCAAarAMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCGAwgAEAAYACAAKgsKBHRyb3kVeAdfQDKVAS9nb3RvP3VybD1DQUVTWkFIck96QVZLNEY0Nm1vS05UUER0UkF0c2lydXc3Qm1oZVlKam5BaklvczhMYkc5N1NWRlVmN05rdGFUSFdXVUdXUThZb05wNHNraGlSQTFfUFJJQVN3U1NYMENkV3M2UzduOEk1V3A0eXota05tbFdpZWk0bWN5bVFMYklrOUc2Y3N3Y0RnOjBTdXJ2aXZhbCBpbiBEdWNoZW5uZSBtdXNjdWxhciBkeXN0cm9waHkgLSBQdWJNZWRCpAFXZSByZXZpZXdlZCB0aGUgbm90ZXMgb2YgMTk3IHBhdGllbnRzIHdpdGggRHVjaGVubmUgbXVzY3VsYXIgZHlzdHJvcGh5IHdob3NlIHRyZWF0bWVudCB3YXMgbWFuYWdlZCBhdCB0aGUgTmV3Y2FzdGxlIG11c2NsZSBjZW50cmUgZnJvbSA8Yj4xOTY3PC9iPiB0byAyMDAyLCZuYnNwOy4uLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpUBL2dvdG8_dXJsPUNBRVNaQUhyT3pBVks0RjQ2bW9LTlRQRHRSQXRzaXJ1dzdCbWhlWUpqbkFqSW9zOExiRzk3U1ZGVWY3Tmt0YVRIV1dVR1dROFlvTnA0c2toaVJBMV9QUklBU3dTU1gwQ2RXczZTN244STVXcDR5ei1rTm1sV2llaTRtY3ltUUxiSWs5RzZjc3djRGcSBBoCCAAarAMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCGAwgAEAAYACAAKgsKBHRyb3kVeAdfQDKVAS9nb3RvP3VybD1DQUVTWkFIck96QVZLNEY0Nm1vS05UUER0UkF0c2lydXc3Qm1oZVlKam5BaklvczhMYkc5N1NWRlVmN05rdGFUSFdXVUdXUThZb05wNHNraGlSQTFfUFJJQVN3U1NYMENkV3M2UzduOEk1V3A0eXota05tbFdpZWk0bWN5bVFMYklrOUc2Y3N3Y0RnOjBTdXJ2aXZhbCBpbiBEdWNoZW5uZSBtdXNjdWxhciBkeXN0cm9waHkgLSBQdWJNZWRCpAFXZSByZXZpZXdlZCB0aGUgbm90ZXMgb2YgMTk3IHBhdGllbnRzIHdpdGggRHVjaGVubmUgbXVzY3VsYXIgZHlzdHJvcGh5IHdob3NlIHRyZWF0bWVudCB3YXMgbWFuYWdlZCBhdCB0aGUgTmV3Y2FzdGxlIG11c2NsZSBjZW50cmUgZnJvbSA8Yj4xOTY3PC9iPiB0byAyMDAyLCZuYnNwOy4uLiICEAFIAFgAaAA",
+				"source": "National Institutes of Health (NIH) | (.gov)"
+			}
+		]
+	}
+}

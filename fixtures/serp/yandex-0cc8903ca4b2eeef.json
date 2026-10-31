@@ -1,0 +1,16 @@
+{
+	"engine": "yandex",
+	"query": "\"Robert E. Luxford\" 1934 2015 eugene oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Robert Luxford Phone Number, Address... | BeenVerified",
+				"link": "https://www.beenverified.com/people/robert-luxford/",
+				"displayed_link": "beenverified.com › people › robert-luxford",
+				"snippet": "Looking for Robert Luxford? We found records in 2 states. ... Robert E Luxford in Eugene, Oregon | Age: 92. Phone Number: 503-484-6235, 541-484-6235. Addresses: Eugene, OR. Relatives"
+			}
+		]
+	}
+}

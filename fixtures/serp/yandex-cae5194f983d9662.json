@@ -1,0 +1,16 @@
+{
+	"engine": "yandex",
+	"query": "\"Efrain Pineda Jr.\" comfort texas (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Obituaries, 2000 | El Paso County, TXGenWeb",
+				"link": "https://www.txgenwebcounties.net/elpaso/obit/000601.htm",
+				"displayed_link": "txgenwebcounties.net › elpaso › obit",
+				"snippet": "Survivors include his son, Efrain Pineda Jr.; his daughters, Charlene Castro, Lisa Oaxaca, Loretta Dominguez and Suzanne Levison; and 12 grandchildren. He was a business owner for 32 years and an Army veteran. El Paso Times - Jun 3 2000."
+			}
+		]
+	}
+}

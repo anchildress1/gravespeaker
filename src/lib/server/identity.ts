@@ -1,35 +1,60 @@
 import type { Candidate, Confidence, Inscription, SourceRecord } from '#lib/types.ts';
 
-const GATED =
-	/(^|\.)(ancestry|myheritage|findmypast)\.[a-z.]+$|(^|\.)(newspapers|genealogybank|newspaperarchive|fold3)\.com$/;
-
-const NAME_SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
+// Generational suffixes, each folded to one form: a Jr. is often recorded as II, a Sr. as I.
+const SUFFIXES: Record<string, string> = {
+	jr: 'jr',
+	junior: 'jr',
+	ii: 'jr',
+	'2nd': 'jr',
+	sr: 'sr',
+	senior: 'sr',
+	i: 'sr',
+	iii: 'iii',
+	'3rd': 'iii',
+	iv: 'iv',
+	'4th': 'iv',
+	v: 'v',
+	'5th': 'v'
+};
+// A suffix right after the surname: "Reynolds Jr.", "Hildebrand, Jr.,". "I" and "V" count only before
+// punctuation or the end, so "Hawks I remember" is not a suffix.
+const SUFFIX_AFTER = /^\s*(?:,\s*)?(junior|senior|jr|sr|iii|ii|iv|2nd|3rd|4th|5th|i|v)\b\.?/;
 const YEAR = String.raw`(1[5-9]\d\d|20\d\d)`;
-// Optional day or numeric date lead before a year: "10 March ", "March 10, ", "03/10/".
-const DATE_LEAD = String.raw`(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.?[,\s]+)?)?`;
-// Same, for both ends of a range, where no cue word bridges the gap: "Jun 8, 1981 - Jul 18, 2012".
-const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:\d{1,2}(?:[/.-]\d{1,2})?[/.,\s]+)?(?:[a-z]{3,9}\.?[,\s]+)?`;
+const MONTH = String.raw`(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b`;
+const WEEKDAY = String.raw`(?:mon|tues?|wed(?:nes)?|thu(?:rs?)?|fri|sat(?:ur)?|sun)(?:day)?\b`;
+const DAY = String.raw`\d{1,2}(?:st|nd|rd|th)?`;
+// Optional date lead before a year: "10 March ", "Wed. June 19, ", "September 21st, ", "03/10/".
+const DATE_LEAD = String.raw`(?:${WEEKDAY}\.?,?\s+)?(?:${MONTH}\.?\s+)?(?:${DAY}(?:[/.-]\d{1,2})?[/.,\s-]+(?:[a-z]{3,9}\.?[,\s]+)?)?`;
+// Same, for both ends of a range, where no cue word bridges the gap: "Jun 8, 1981 - 01-Sep-2012".
+const FULL_DATE_LEAD = String.raw`(?:[a-z]{3,9}\.?\s+)?(?:${DAY}(?:[/.-]\d{1,2})?[/.,\s-]+)?(?:[a-z]{3,9}\.?[,\s-]+)?`;
+const DIED_CUE = String.raw`\bdied\b|\bd\.|passed away|\bpassing\b|\bdeceased\b`;
 // A cue-to-year gap must not run across another life-event cue: "born in London, died in 2017".
-const LIFE_CUE = String.raw`\bborn\b|\bb\.|\bdied\b|\bd\.|passed away|\bdeceased\b`;
-// An initial ("b.", "d.", "C.") ends no sentence.
-const SENTENCE_END = /(?<!\b[a-z])\.\s/g;
+const LIFE_CUE = String.raw`\bborn\b|\bb\.|${DIED_CUE}`;
+// An initial ("b.", "d.", "C."), a title, a suffix or a short day or month ends no sentence:
+// "Dec. 25", "Wed. June 19" and "St. Matthews" split a death from the name it belongs to.
+const NOT_SENTENCE_END =
+	'mr mrs ms dr st jr sr jan feb mar apr jun jul aug sep sept oct nov dec mon tue tues wed thu thur thurs fri sat sun';
+const SENTENCE_END = new RegExp(
+	String.raw`(?<!\b(?:[a-z]|${NOT_SENTENCE_END.replaceAll(' ', '|')}))\.\s`,
+	'g'
+);
 // Descriptive words that can precede a name in a title: "Obituary for Hawks, Gaynor".
 const PREFIX_WORDS = new Set(
 	'obituary obituaries memorial grave cemetery funeral tribute notice remembering for of the in at and by a an'.split(
 		' '
 	)
 );
-// A sentence that opens with a life cue has no subject of its own: it continues the previous one.
-const CONTINUES = /^\s*(?:born|died|passed away|deceased|b\.|d\.)(?!\p{L})/u;
+// A sentence that opens with a life cue or a life range has no subject of its own: it continues the
+// previous one, as in "Louella Marie White. 22 Aug 1935 – 24 May 2017."
+const CONTINUES = new RegExp(
+	String.raw`^\s*(?:(?:born|died|passed away|deceased|b\.|d\.)(?!\p{L})|(?:\d{1,2}\s+)?(?:${MONTH}\.?\s+)?(?:\d{1,2},?\s+)?${YEAR}\s*[-–—])`,
+	'u'
+);
 const NAME_WORD = /^\p{L}[\p{L}'’-]*$/u;
 const NAME_WORDS_MAX = 4;
 const NAME_REACH = 60;
 const MAX_SOURCES = 5;
 const MAX_CANDIDATES = 3;
-// Words that make a page likely to be a record of a death, used to rank name-only results.
-const RECORD_CUES =
-	/obituar|cemeter|grave|memorial|funeral|\bdied\b|passed away|\bborn\b|interment/;
-// How far around the name to look for its dates, so another person's dates on the page are ignored.
 
 type KeyState = 'match' | 'conflict' | 'none';
 
@@ -42,33 +67,8 @@ interface Evidence {
 	diedYear: string | null;
 	/** Years the result states for the person, whether or not the stone carries that date. */
 	stated: { born: number | null; died: number | null; slack: number };
-}
-
-/**
- * Builds the single research query for a stone.
- * @param inscription The stone's person.
- * @returns A search query; unknown years are omitted.
- */
-export function buildQuery(inscription: Inscription): string {
-	const years = [inscription.born, inscription.died]
-		.map((d) => (d ? d.slice(0, 4) : null))
-		.filter((y): y is string => y !== null && !y.includes('?'));
-	// A maiden-name OR variant pulled in unrelated hits and buried the real record in live searches.
-	// A quoted nickname would break the exact-name quoting; the matcher still uses it.
-	const name = inscription.name
-		.replace(/["“”][^"“”]*["“”]/g, ' ')
-		.replace(/\s+/g, ' ')
-		.trim();
-	return [`"${name}"`, ...years, '(obituary OR grave OR cemetery)'].join(' ');
-}
-
-/**
- * Removes records from paywalled or login-gated genealogy sites.
- * @param records Search hits.
- * @returns Hits on open sites.
- */
-export function dropGated(records: SourceRecord[]): SourceRecord[] {
-	return records.filter((r) => !GATED.test(r.site.toLowerCase()));
+	/** Whether a year stated anywhere in the result, beside the name or not, disagrees with the stone. */
+	statesOther: boolean;
 }
 
 /**
@@ -85,20 +85,32 @@ function fold(text: string): string {
 		.replace(/[æœøßđł]/g, (c) => letters[c]);
 }
 
+/** The parts of the stone's name a mention is checked against. */
+interface NameParts {
+	given: string[];
+	surname: string;
+	/** Folded generational suffix, such as "jr", or null when the stone carries none. */
+	suffix: string | null;
+}
+
 /**
- * Splits a name into given names and a surname, ignoring generational suffixes.
+ * Splits a name into given names, a surname and a generational suffix.
  * @param name Full name.
- * @returns Folded given-name tokens and surname.
+ * @returns Folded given-name tokens, surname and suffix.
  */
-function nameParts(name: string): { given: string[]; surname: string } {
+function nameParts(name: string): NameParts {
 	// A quoted nickname (Corwin "Cory" Chambers) is another given name a record may use.
 	const parts = fold(name)
 		.replace(/[.,"“”]/g, ' ')
 		.split(/\s+/)
 		.filter(Boolean);
-	while (parts.length > 1 && NAME_SUFFIXES.has(parts.at(-1)!)) parts.pop();
+	let suffix: string | null = null;
+	while (parts.length > 1 && Object.hasOwn(SUFFIXES, parts.at(-1)!)) {
+		const last = SUFFIXES[parts.pop()!];
+		suffix ??= last;
+	}
 	const surname = parts.pop() ?? '';
-	return { given: parts, surname };
+	return { given: parts, surname, suffix };
 }
 
 /**
@@ -139,45 +151,150 @@ function namePart(word: string): { name: string; closes: boolean } | null {
 
 /**
  * Tells whether a word from a record can be one of the stone's given names.
- * @param given Folded given names of the stone; an initial stands for any name that starts with it.
+ * @param given Folded given names of the stone; an initial stands for any name that starts with it
+ *   when the stone spells out no given name.
  * @param word Folded word from the record.
- * @returns True for an exact match, or when the stone carries only the initial.
+ * @returns True for an exact match, or a name that fits a stone carrying initials only.
  */
 function isGiven(given: string[], word: string): boolean {
-	return given.some((g) => g === word || (g.length === 1 && word.startsWith(g)));
+	// Once the stone spells out a name, an initial alone is too weak: "Thai DelRay Hiatt" for Georgia D.
+	const full = given.filter((g) => g.length > 1);
+	return full.length ? full.includes(word) : given.some((g) => g === word || word.startsWith(g));
+}
+
+/** One mention of the stone's name in a text. */
+interface Mention {
+	start: number;
+	/**
+	 * "own" when the mention carries the stone's own middle initial or suffix, "other" when it
+	 * carries one the stone rules out, null when it carries neither.
+	 */
+	mark: 'own' | 'other' | null;
 }
 
 /**
- * Finds where the name phrase containing a surname starts, if a given name is in that phrase.
+ * Reads the generational suffix right after a surname.
  * @param text Folded text.
- * @param given Folded given names of the stone.
+ * @param end Index just past the surname.
+ * @returns The folded suffix, or null.
+ */
+function suffixAfter(text: string, end: number): string | null {
+	const m = SUFFIX_AFTER.exec(text.slice(end));
+	if (!m) return null;
+	const next = text[end + m[0].length];
+	if ((m[1] === 'i' || m[1] === 'v') && next !== undefined && !/[,.)\n]/.test(next)) return null;
+	return SUFFIXES[m[1]];
+}
+
+/**
+ * Compares a mention's middle initials, middle names and suffix with the stone's. Each is checked
+ * only when the stone carries one: a stone without a middle name rules out no middle initial.
+ * @param stone The stone's name parts.
+ * @param initials Single-letter initials in the mention.
+ * @param words Other given-name words in the mention.
+ * @param suffix The mention's folded suffix, or null.
+ * @returns The mention's mark.
+ */
+function markOf(
+	stone: NameParts,
+	initials: string[],
+	words: string[],
+	suffix: string | null
+): Mention['mark'] {
+	const middles = stone.given.slice(1);
+	const otherInitial =
+		middles.length > 0 && initials.some((i) => !stone.given.some((g) => g.startsWith(i)));
+	if (otherInitial || (stone.suffix && suffix && suffix !== stone.suffix)) return 'other';
+	const ownMiddle =
+		initials.some((i) => middles.some((g) => g.startsWith(i))) ||
+		words.some((w) => middles.some((g) => g === w || (g.length === 1 && w.startsWith(g))));
+	return ownMiddle || (stone.suffix && suffix === stone.suffix) ? 'own' : null;
+}
+
+/**
+ * Finds the name phrase around a surname, if a given name is in that phrase.
+ * @param text Folded text.
+ * @param stone The stone's name parts.
  * @param at Index of the surname occurrence.
  * @param length Length of the surname.
- * @returns Index where the phrase starts, or -1 when no given name sits in the same phrase.
+ * @returns The mention, or null when no given name sits in the same phrase.
  */
-function phraseStart(text: string, given: string[], at: number, length: number): number {
-	if (!given.length) return at;
+function mentionAt(text: string, stone: NameParts, at: number, length: number): Mention | null {
+	const { given } = stone;
+	const suffix = suffixAfter(text, at + length);
+	if (!given.length) return { start: at, mark: markOf(stone, [], [], suffix) };
 	const from = Math.max(0, at - NAME_REACH);
 	let first = at;
 	let hit = false;
+	const initials: string[] = [];
+	const words: string[] = [];
 	for (const w of wordsOf(text.slice(from, at), from).reverse().slice(0, NAME_WORDS_MAX)) {
 		const part = namePart(w.word);
-		if (!part || part.closes || PREFIX_WORDS.has(part.name)) break;
+		// Checked before the prefix words, which hold "a": "Daisy A. Morgan" is not Daisy M. Morgan.
+		if (part?.name.length === 1 && w.word.endsWith('.')) initials.push(part.name);
+		else if (!part || part.closes || PREFIX_WORDS.has(part.name)) break;
+		else words.push(part.name);
 		first = w.index;
 		hit ||= isGiven(given, part.name);
 	}
-	if (hit) return first;
+	if (hit) return { start: first, mark: markOf(stone, initials, words, suffix) };
 	// "Surname, Given" counts only when the surname opens its phrase; otherwise
 	// "Charles Hawks, Gaynor Jones" would pair Hawks with Gaynor.
-	if (first !== at || text[at + length] !== ',') return -1;
+	if (first !== at || text[at + length] !== ',') return null;
+	return surnameFirst(text, stone, at, length, suffix);
+}
+
+/**
+ * Files a name word under initials or names.
+ * @param name The word as a name part.
+ * @param word The word as written, to tell an initial by its period.
+ * @param initials Initials so far, appended to.
+ * @param words Names so far, appended to.
+ * @returns False when the word is a prefix word, which ends the name.
+ */
+function collect(name: string, word: string, initials: string[], words: string[]): boolean {
+	if (name.length === 1 && word.endsWith('.')) initials.push(name);
+	else if (PREFIX_WORDS.has(name)) return false;
+	else words.push(name);
+	return true;
+}
+
+/**
+ * Reads the given names after the comma of a "Surname, Given" mention.
+ * @param text Folded text.
+ * @param stone The stone's name parts.
+ * @param at Index of the surname occurrence.
+ * @param length Length of the surname.
+ * @param suffix Suffix right after the surname, if any.
+ * @returns The mention, starting at the surname, or null when no given name follows.
+ */
+function surnameFirst(
+	text: string,
+	stone: NameParts,
+	at: number,
+	length: number,
+	suffix: string | null
+): Mention | null {
+	const { given } = stone;
 	const next = at + length + 1;
+	const initials: string[] = [];
+	const words: string[] = [];
+	let hit = false;
+	let tail = suffix;
 	for (const w of wordsOf(text.slice(next, next + NAME_REACH), next).slice(0, NAME_WORDS_MAX - 1)) {
 		const part = namePart(w.word);
 		if (!part) break;
-		if (isGiven(given, part.name)) return at;
+		// After the given name, "Jr." or "III" is a suffix; a lone I or V is read as an initial.
+		const after = hit && part.name.length > 1 ? suffixAfter(text, w.index) : null;
+		if (after) {
+			tail = after;
+			break;
+		}
+		if (!collect(part.name, w.word, initials, words)) break;
+		hit ||= isGiven(given, part.name);
 		if (part.closes) break;
 	}
-	return -1;
+	return hit ? { start: at, mark: markOf(stone, initials, words, tail) } : null;
 }
 
 /**
@@ -203,7 +320,7 @@ function agreeingYears(stone: string, found: number, slack = 0): number[] {
  */
 function labelledYear(text: string, cue: string): number | null {
 	const found = new RegExp(
-		String.raw`(?:${cue})(?:(?!${LIFE_CUE})[^.\d]){0,40}?${DATE_LEAD}\b${YEAR}\b`
+		String.raw`(?:${cue})(?:(?!${LIFE_CUE})[^.\d]){0,60}?${DATE_LEAD}\b${YEAR}\b`
 	).exec(text);
 	return found ? +found[1] : null;
 }
@@ -246,8 +363,12 @@ function statedYears(
 		died = +range[2];
 	}
 	born ??= labelledYear(text, String.raw`\bborn\b|\bb\.`);
-	died ??= labelledYear(text, String.raw`\bdied\b|\bd\.|passed away|\bdeceased\b`);
-	const age = /\baged?\s+(\d{1,3})\b/.exec(text);
+	died ??= labelledYear(text, DIED_CUE);
+	// "age 85", or right after the name as in "Troy Juntunen, 45, of Richland"; a comma-number
+	// elsewhere ("son John, 12,") is someone else's age.
+	const age =
+		/\baged?\s+(\d{1,3})\b/.exec(text) ??
+		/^[\p{L} \t\u00a0.'’-]*(?:,\s*(?:jr|sr|ii|iii|iv)\.?)?,\s*(\d{1,3}),/mu.exec(own);
 	if (born === null && died !== null && age) {
 		born = died - +age[1];
 		bornSlack = 1;
@@ -304,7 +425,7 @@ function sentenceAt(text: string, at: number): { whole: string; fromName: string
  */
 function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 	const text = fold(`${record.title}\n${record.snippet}`);
-	const { given, surname } = nameParts(inscription.name);
+	const stone = nameParts(inscription.name);
 	const maiden = inscription.maidenName ? fold(inscription.maidenName) : null;
 	const none: Evidence = {
 		name: false,
@@ -312,15 +433,29 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 		died: 'none',
 		bornYear: null,
 		diedYear: null,
-		stated: { born: null, died: null, slack: 0 }
+		stated: { born: null, died: null, slack: 0 },
+		statesOther: false
 	};
 
+	// A page titled with other life dates is someone else's, even when it lists the stone's person
+	// among their kin.
+	const title = fold(record.title);
+	const titled = statedYears(title, title);
+	if (
+		compareYear(inscription.born, titled.born, titled.bornSlack) === 'conflict' ||
+		compareYear(inscription.died, titled.died, 0) === 'conflict'
+	)
+		return none;
+
 	// The surname, or the maiden name, must share one name phrase with a given name.
-	const starts = [surname, maiden]
-		.flatMap((n) =>
-			n ? wordIndexes(text, n).map((i) => phraseStart(text, given, i, n.length)) : []
-		)
-		.filter((i) => i >= 0);
+	const mentions = [stone.surname, maiden]
+		.flatMap((n) => (n ? wordIndexes(text, n).map((i) => mentionAt(text, stone, i, n.length)) : []))
+		.filter((m) => m !== null);
+	// A mention marked as someone else is set aside. Beside one, a bare mention is as likely that
+	// person too, so only a mention marked as the stone's own still counts.
+	const starts = (
+		mentions.some((m) => m.mark === 'other') ? mentions.filter((m) => m.mark === 'own') : mentions
+	).map((m) => m.start);
 	if (!starts.length) return none;
 
 	const sentences = starts.map((i) => sentenceAt(text, i));
@@ -332,14 +467,49 @@ function weigh(inscription: Inscription, record: SourceRecord): Evidence {
 
 	const born = compareYear(inscription.born, stated.born, stated.bornSlack);
 	const died = compareYear(inscription.died, stated.died, 0);
+	const all = statedYears(text, text);
 	return {
 		name: true,
 		born,
 		died,
 		bornYear: reportedYear(inscription.born, stated.born, stated.bornSlack),
 		diedYear: reportedYear(inscription.died, stated.died, 0),
-		stated: { born: stated.born, died: stated.died, slack: stated.bornSlack }
+		stated: { born: stated.born, died: stated.died, slack: stated.bornSlack },
+		statesOther:
+			compareYear(inscription.born, all.born, all.bornSlack) === 'conflict' ||
+			compareYear(inscription.died, all.died, 0) === 'conflict'
 	};
+}
+
+/**
+ * Weighs a fetched page as evidence for the stone's person, on the same keys as a search result.
+ * @param inscription The stone's person.
+ * @param text The page's text.
+ * @returns The page's grade, null when it lacks the name or dates it against the stone; and
+ *   whether a year stated beside the name disagrees with the stone.
+ */
+export function pageEvidence(
+	inscription: Inscription,
+	text: string
+): { grade: Confidence | null; conflicts: boolean } {
+	const e = weigh(inscription, { id: '', url: '', title: '', site: '', snippet: text });
+	const conflicts = e.born === 'conflict' || e.died === 'conflict';
+	return {
+		grade:
+			e.name && !conflicts
+				? rate(1 + Number(e.born === 'match') + Number(e.died === 'match'), keysOf(inscription))
+				: null,
+		conflicts
+	};
+}
+
+/**
+ * Counts the keys a stone offers for matching.
+ * @param inscription The stone's person.
+ * @returns Its name plus each date it carries.
+ */
+function keysOf(inscription: Inscription): number {
+	return 1 + Number(!!inscription.born) + Number(!!inscription.died);
 }
 
 /**
@@ -383,7 +553,6 @@ interface Scored {
 	record: SourceRecord;
 	e: Evidence;
 	score: number;
-	recordLike: boolean;
 }
 
 /**
@@ -394,27 +563,21 @@ interface Scored {
  */
 function candidateOf(inscription: Inscription, group: Scored[]): Candidate {
 	const kept = group.slice(0, MAX_SOURCES);
-	const available = 1 + Number(!!inscription.born) + Number(!!inscription.died);
 	return {
 		name: inscription.name,
 		born: kept.find((s) => s.e.bornYear)?.e.bornYear ?? null,
 		died: kept.find((s) => s.e.diedYear)?.e.diedYear ?? null,
-		confidence: rate(Math.max(...kept.map((s) => s.score)), available),
+		confidence: rate(Math.max(...kept.map((s) => s.score)), keysOf(inscription)),
 		sources: kept.map((s) => s.record)
 	};
 }
 
 /**
- * Finds the search results that are about the stone's person.
- *
- * Name, birth year and death year are the keys. A result with the name and at least one matching
- * date is returned even when its other date is missing. A stated year that disagrees with the
- * stone excludes the result. When nothing confirms a date, name-only results are returned as
- * unverified. Results whose stated dates contradict each other are different people, so they
- * become separate candidates rather than being merged.
+ * Finds the search results about the stone's person, keyed on name, birth year and death year.
  * @param inscription The stone's person.
  * @param records Deduplicated search results.
- * @returns Up to three candidates, best first; none when nothing matches.
+ * @returns Up to three candidates, best first: most keys matched, then most agreeing results,
+ *   then the order the records arrive in. None when nothing matches.
  */
 export function resolveMatches(inscription: Inscription, records: SourceRecord[]): Candidate[] {
 	const scored: Scored[] = records
@@ -423,19 +586,25 @@ export function resolveMatches(inscription: Inscription, records: SourceRecord[]
 		.map(({ record, e }) => ({
 			record,
 			e,
-			score: 1 + Number(e.born === 'match') + Number(e.died === 'match'),
-			recordLike: RECORD_CUES.test(fold(`${record.title} ${record.snippet} ${record.site}`))
-		}));
+			score: 1 + Number(e.born === 'match') + Number(e.died === 'match')
+		}))
+		// Nothing else ties a name-only result to the stone, so any date it gives against the stone
+		// marks a namesake.
+		.filter((s) => s.score >= 2 || !s.e.statesOther);
 	const best = Math.max(0, ...scored.map((s) => s.score));
 	if (!best) return [];
 	const ranked = scored
 		.filter((s) => (best >= 2 ? s.score >= 2 : s.score === 1))
-		.sort((a, b) => b.score - a.score || Number(b.recordLike) - Number(a.recordLike));
+		.sort((a, b) => b.score - a.score);
+	// Results whose stated dates contradict each other are different people, never merged.
 	const groups: Scored[][] = [];
 	for (const s of ranked) {
 		const home = groups.find((g) => g.every((m) => sameDates(m.e, s.e)));
 		if (home) home.push(s);
 		else groups.push([s]);
 	}
+	// The app tells the first candidate without asking, so a tie goes to the person more results
+	// agree on; a stable sort keeps the records' order after that.
+	groups.sort((a, b) => b[0].score - a[0].score || b.length - a.length);
 	return groups.slice(0, MAX_CANDIDATES).map((g) => candidateOf(inscription, g));
 }

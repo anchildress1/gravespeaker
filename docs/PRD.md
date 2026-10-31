@@ -20,16 +20,16 @@ The experience should feel mysterious and personal while remaining historically 
 
 ## 2. MVP User Journey
 
-| #   | Step                  | What happens                                                                             | Done when                                                                                      |
-| --- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| 1   | **Capture or upload** | Photograph a gravestone or select an existing image.                                     | Works from a phone camera and from a desktop file picker.                                      |
-| 2   | **Identify**          | AI extracts the name and birth and death dates of the person the stone is for.           | Extracted fields are shown before searching. The user can't edit them in the MVP.              |
-| 3   | **Research**          | Search obituaries, cemetery records, historical archives and indexed public information. | Results come back with source URLs attached.                                                   |
-| 4   | **Verify**            | Cross-reference names, dates and places.                                                 | When more than one plausible person matches, the user picks one (or none).                     |
-| 5   | **Resurrect**         | Generate a short first-person narrative grounded in the confirmed records.               | Every factual sentence links to at least one source.                                           |
-| 6   | **Explore**           | Show source links and separate documented facts from AI reconstruction.                  | Facts and reconstruction are visually distinct, and the narrative is labelled as AI-generated. |
+| #   | Step                  | What happens                                                                             | Done when                                                                                                                                               |
+| --- | --------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Capture or upload** | Photograph a gravestone or select an existing image.                                     | Works from a phone camera and from a desktop file picker.                                                                                               |
+| 2   | **Identify**          | AI extracts the name and birth and death dates of the person the stone is for.           | Extracted fields are shown before searching. The user can't edit them in the MVP.                                                                       |
+| 3   | **Research**          | Search obituaries, cemetery records, historical archives and indexed public information. | Results come back with source URLs attached.                                                                                                            |
+| 4   | **Verify**            | Cross-reference names, dates and places.                                                 | The best match is picked automatically. A name-only match counts only when its records prove the stone's dates; otherwise the story rests on the stone. |
+| 5   | **Resurrect**         | Generate a short first-person narrative grounded in the matched records.                 | Every factual sentence links to at least one source.                                                                                                    |
+| 6   | **Explore**           | Show source links and separate documented facts from AI reconstruction.                  | Facts and reconstruction are visually distinct, and the narrative is labelled as AI-generated.                                                          |
 
-Misread fields are accepted in the MVP. A wrong name or date fails at the Verify step (no match, or the user picks none) instead of reaching the story.
+Misread fields are accepted in the MVP. A wrong name or date fails at the Verify step (no match, or no record proves the dates) instead of reaching the story.
 
 If credible information can't be found, the app says so. It never fills historical gaps with fabricated claims.
 
@@ -152,7 +152,7 @@ The schedule leaves room for GitHub Universe. Prefer vertical slices, with a dep
 
 ## 9. Definition of Done
 
-A user can visit Gravespeaker on a phone, photograph or upload a real gravestone, confirm the extracted identity, and receive a readable first-person historical reconstruction with accessible source evidence.
+A user can visit Gravespeaker on a phone, photograph or upload a real gravestone, see the extracted identity, and receive a readable first-person historical reconstruction with accessible source evidence.
 
 If the history can't be reliably established, the app says so clearly.
 
@@ -178,7 +178,7 @@ Not part of the October 31 build. Captured so the ideas aren't lost.
   - Google Search engine with `site:` operators (for example `site:facebook.com`, `site:instagram.com`) plus name, dates and place, to find candidate profile URLs.
   - SerpApi's Facebook Profile and Instagram Profile engines to read public profile fields. Both take a profile ID or username, not a name, so the Google step has to come first.
 - SerpApi has no LinkedIn engine. LinkedIn results come only from the Google `site:` step.
-- Profile hits are candidates like any other search result. They go through the same identity verification in §2, and the user confirms the match.
+- Profile hits are candidates like any other search result. They go through the same identity verification in §2.
 - Recent deaths mean living relatives and friends are all over these profiles. Only facts about the deceased can reach the story; comments, tags and other people's posts never do.
 - Link to the profile; don't republish posts or photos.
 

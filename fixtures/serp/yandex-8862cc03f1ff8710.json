@@ -1,0 +1,16 @@
+{
+	"engine": "yandex",
+	"query": "(\"Georgia Hiatt\" | \"Georgia * Hiatt\") 1943 2015 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Georgia Hiatt — Phone Numbers, Addresses... | BeenVerified",
+				"link": "https://www.beenverified.com/people/georgia-hiatt/",
+				"displayed_link": "beenverified.com › people › georgia-hiatt",
+				"snippet": "Georgia L Hiatt in Yucca Valley, California | Age: 99. Georgia may go by Georgia Loucretia Hiatt or Georgia E Hiatt and have relatives of Arthur E Hiatt. Phone Number: 619-365-1256."
+			}
+		]
+	}
+}

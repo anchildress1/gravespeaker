@@ -1,0 +1,261 @@
+{
+	"meta": {
+		"startedAt": "2026-10-30T01:50:15.588Z",
+		"commit": "afe61c7",
+		"dirty": true,
+		"node": "v26.12.1",
+		"engines": ["google", "yandex"],
+		"creditsBefore": {
+			"used": 209,
+			"left": 41
+		},
+		"withPlace": false,
+		"finishedAt": "2026-10-30T01:50:29.693Z",
+		"creditsAfter": {
+			"used": 217,
+			"left": 33
+		}
+	},
+	"summary": {
+		"stones": 5,
+		"wallMs": 14076,
+		"medianSearchMs": 2283,
+		"creditsUsed": 8,
+		"creditsLeft": 33,
+		"withCandidate": 4,
+		"byConfidence": {
+			"high": 0,
+			"medium": 0,
+			"low": 4
+		},
+		"perEngine": [
+			{
+				"engine": "google",
+				"failures": 0,
+				"medianMs": 1011,
+				"results": 49,
+				"sourcesKept": 2
+			},
+			{
+				"engine": "yandex",
+				"failures": 0,
+				"medianMs": 1974,
+				"results": 40,
+				"sourcesKept": 7
+			}
+		]
+	},
+	"rows": [
+		{
+			"file": "dixon-2018.jpg",
+			"person": {
+				"name": "Lloyd Dee Dixon",
+				"born": "1943-07-11",
+				"died": "2018-05-26"
+			},
+			"query": "\"Lloyd Dee Dixon\" 1943 2018 (obituary OR grave OR cemetery)",
+			"searchMs": 2283,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 1011,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 2282,
+					"results": 14
+				}
+			],
+			"mergedResults": 16,
+			"afterGatedFilter": 16,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.legacy.com/us/obituaries/courier/name/lloyd-dixon-obituary?id=20132198",
+							"title": "Lloyd Dixon Obituary (2013) - Conroe, TX - The Courier of ...",
+							"snippet": "Lloyd Dixon,88 of Shepherd, TX, passed away Wed. June 19, 2013. Visitation, Fri. 1:30-5 Collins & Johnson. Services, Sat.11 AM @ Lake Poole Baptist Church, ...",
+							"engines": ["google"]
+						},
+						{
+							"url": "https://www.legacy.com/us/obituaries/jsonline/name/lloyd-dixon-obituary?id=3165413",
+							"title": "Lloyd Dixon Obituary (2008) - Wauwatosa, WI",
+							"snippet": "Dixon, Lloyd Of Menomonee Falls. Age 81. Found peace Wed., March 12, 2008. Loving husband of Marcella (nee Strutz).",
+							"engines": ["google"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hayden-1993.jpg",
+			"person": {
+				"name": "Jasper \"Bub\" Hayden",
+				"born": "1907",
+				"died": "1993"
+			},
+			"query": "\"Jasper Hayden\" 1907 1993 (obituary OR grave OR cemetery)",
+			"searchMs": 1844,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 916,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 1844,
+					"results": 8
+				}
+			],
+			"mergedResults": 10,
+			"afterGatedFilter": 9,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://lawgazette.com.sg/author/jasper-hayden-chan/",
+							"title": "Jasper Hayden Chan, Author at The Singapore Law Gazette",
+							"snippet": "by Jasper Hayden Chan. The issue of renovation fraud and consumer protection is a hot topic for many Singaporeans, especially for young couples who have just bought their first property, and looking to turn it into their dream home.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.quotev.com/story/678987/Hour-in-Twilight-Heaven/3",
+							"title": "Jasper Hayden Whitlock Hale | Hour in Twilight... | Quotev",
+							"snippet": "Jasper Hayden Whitlock Hale. i was just talking to my best friend jasper when someone shoved a hat in my face. you fished something out of the hat and hid it from jasper so you could see what it was. it was a military bagde...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://dsotm.fandom.com/wiki/Jasper_Hale",
+							"title": "Jasper Hale | The Dark Side of the Moon Wiki | Fandom",
+							"snippet": "Jasper Hayden Whitlock Hale is a Texan vampires sired by Maria Evans in 1863, aged twenty. After devoting almost a century of his life to serving her within her army during the Southern Wars, he left with Peter and Charlotte in search of something better.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "hildebrand-jr-2015.jpg",
+			"person": {
+				"name": "Edward Leroy Hildebrand Jr",
+				"born": "1942-04-28",
+				"died": "2015-10-10"
+			},
+			"query": "\"Edward Leroy Hildebrand Jr\" 1942 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 2484,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 920,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 2484,
+					"results": 14
+				}
+			],
+			"mergedResults": 15,
+			"afterGatedFilter": 15,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.thompsonfh.net/obituaries/edward-hildebrand-jr",
+							"title": "Edward Eugene Hildebrand, Jr. Obituary October 15, 2023...",
+							"snippet": "Edward “Big Bubba” Eugene Hildebrand, Jr., 59, of St. Matthews passed away unexpectedly on Sunday, October 15, 2023. A service celebrating his life will be held at 4:00 P.M. on...",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.hursen.com/obituaries/edward-hildebrand",
+							"title": "Edward \"Eddie\" Hildebrand Obituary... - Hursen Funeral Home",
+							"snippet": "Share Edward \"Eddie\" Hildebrand's obituary with others. Invite friends and family to read the obituary and add memories. Stay updated.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "mills-2015.jpg",
+			"person": {
+				"name": "Joshua John Mills",
+				"born": "1979-07-21",
+				"died": "2015-01-07"
+			},
+			"query": "\"Joshua John Mills\" 1979 2015 (obituary OR grave OR cemetery)",
+			"searchMs": 5365,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 5365,
+					"results": 9
+				},
+				{
+					"engine": "yandex",
+					"ms": 1973,
+					"results": 2
+				}
+			],
+			"mergedResults": 2,
+			"afterGatedFilter": 2,
+			"candidates": [
+				{
+					"confidence": "low",
+					"born": null,
+					"died": null,
+					"sources": [
+						{
+							"url": "https://www.youtube.com/channel/UCz0m_nhfQrd1JhI93LOE0tw/videos",
+							"title": "Joshua John Mills - YouTube",
+							"snippet": "Joshua John Mills. @TheMRDrums. • 84 subscribers • 85 videos.",
+							"engines": ["yandex"]
+						},
+						{
+							"url": "https://www.abebooks.com/9780371108468/History-Creation-World-Death-Joshua-0371108462/plp",
+							"title": "History from the Creation of the World to the Death of Joshua...",
+							"snippet": "John Mills Jackson.",
+							"engines": ["yandex"]
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "chambers-2011.jpg",
+			"person": {
+				"name": "Corwin \"Cory\" Garner Chambers",
+				"born": "1959-11-07",
+				"died": "2011-09-12"
+			},
+			"query": "\"Corwin Garner Chambers\" 1959 2011 (obituary OR grave OR cemetery)",
+			"searchMs": 1974,
+			"engines": [
+				{
+					"engine": "google",
+					"ms": 1153,
+					"results": 10
+				},
+				{
+					"engine": "yandex",
+					"ms": 1974,
+					"results": 2
+				}
+			],
+			"mergedResults": 3,
+			"afterGatedFilter": 3,
+			"candidates": []
+		}
+	]
+}

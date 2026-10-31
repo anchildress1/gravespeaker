@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Efrain Pineda Jr.\" 2019 (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Letter to Members of the 117th Congress of the United States...",
+				"link": "https://www.juntosencristo.org/documents/letter-to-members-of-the-117th-congress-of-the-united-states",
+				"displayed_link": "juntosencristo.org › documents › letter-to-members-of",
+				"snippet": "Ruben N Ortiz - Latino Field Ministries Coordinator, Cooperative Baptist Fellowship (CBF) Sandra Ovalle Martínez - Director of Campaigns and Mobilizing, Sojourners Rev. Efraín Pineda, Jr."
+			},
+			{
+				"position": 2,
+				"title": "Obituaries, 2000 | El Paso County, TXGenWeb",
+				"link": "https://www.txgenwebcounties.net/elpaso/obit/000601.htm",
+				"displayed_link": "txgenwebcounties.net › elpaso › obit",
+				"snippet": "Survivors include his son, Efrain Pineda Jr.; his daughters, Charlene Castro, Lisa Oaxaca, Loretta Dominguez and Suzanne Levison; and 12 grandchildren. He was a business owner for 32 years and an Army veteran. El Paso Times - Jun 3 2000."
+			}
+		]
+	}
+}

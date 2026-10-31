@@ -1,0 +1,79 @@
+{
+	"engine": "yandex",
+	"query": "\"Stephen Abraham Reynolds Jr.\" 1989 2014 lamar south carolina (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Obituaries & Death Records (1690-Today)... | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/all-obits",
+				"displayed_link": "genealogybank.com › explore › all-obits",
+				"snippet": "Search 346+ million obituaries and death records from 1690 to today. Find funeral notices, burial information, and family details for your ancestors."
+			},
+			{
+				"position": 2,
+				"title": "Currituck Co., NC Obituaries - R",
+				"link": "https://www.ncgenweb.us/currituck/obits/obitsr.html",
+				"displayed_link": "ncgenweb.us › currituck › obits › obitsr",
+				"snippet": "Mr. REYNOLDS, a native of Roanoke, VA was the son of the late Obie Daniel REYNOLDS, SR. and Ivor Bray REYNOLDS. He is survived by his wife of sixty-three years, Evelyn Smithson REYNOLDS of the residence."
+			},
+			{
+				"position": 3,
+				"title": "South Carolina Obituaries",
+				"link": "https://www.echovita.com/us/obituaries/sc",
+				"displayed_link": "echovita.com › us › obituaries › sc",
+				"snippet": "Search obituaries and death notices from South Carolina, United States, brought to you by Echovita.com. Discover detailed obituaries, access complete funeral service information, and express your feelings by leaving condolence messages."
+			},
+			{
+				"position": 4,
+				"title": "Fort Jackson National Cemetery, Columbia, South Carolina...",
+				"link": "https://www.interment.net/data/us/sc/richland/fort-jackson-national-cemetery/records-n-s.htm",
+				"displayed_link": "interment.net › data › us › sc › richland › fort-jackson",
+				"snippet": "South Carolina Obituary Search - (1873-current). South Carolina Birth Records Database, (1767-1999). Fort Jackson National Cemetery - Burial Records Columbia, Richland County, South Carolina. GPS: 34.089795, -80.848545."
+			},
+			{
+				"position": 5,
+				"title": "GenealogyBuff.com - South Carolina Obituary Collection...",
+				"link": "https://www.genealogybuff.com/sc/state/webbbs_config.pl/noframes/read/374",
+				"displayed_link": "genealogybuff.com › sc › state › webbbs_config.pl",
+				"snippet": "South Carolina Obituary and Death Notices Collection. ... Kim Strong officiating. Burial will follow in the church cemetery. Pallbearers will be Carl Campbell, Jr., Glen Stephens, Barry Stephens, Richard Crook, Bill Way, and Rich Way."
+			},
+			{
+				"position": 6,
+				"title": "York County Obituaries - Rock Hill, SC Obituary Indexes",
+				"link": "https://www.newspaperobituaries.net/southcarolina/york-county/index.html",
+				"displayed_link": "newspaperobituaries.net › southcarolina › york-county",
+				"snippet": "browse over 65 York County & Rock Hill, South Carolina obituary indexes, including newspaper obituaries, death indexes, funeral home obituaries.."
+			},
+			{
+				"position": 7,
+				"title": "Find a Grave - Millions of Cemetery Records",
+				"link": "https://www.findagrave.com/",
+				"displayed_link": "findagrave.com",
+				"snippet": "The World’s largest gravesite collection. Contribute, create and discover gravesites from all over the world. Find a Grave - Millions of Cemetery Records."
+			},
+			{
+				"position": 8,
+				"title": "Most Recent Obituaries | Norton Funeral Home and Crematory",
+				"link": "https://www.nortonfh.net/obituaries",
+				"displayed_link": "nortonfh.net › obituaries",
+				"snippet": "Lamar, SC. It is with heavy hearts that we share with you the passing of Mr. Stephen Leslie “Steve” Watkins. Mr. Watkins passed away Saturday morning, September 26th, 2026, while at McCoy Nursing Center. He was 71 years old."
+			},
+			{
+				"position": 9,
+				"title": "Obituaries | Charleston & South Carolina Tributes",
+				"link": "https://www.postandcourier.com/obits/",
+				"displayed_link": "postandcourier.com › obits",
+				"snippet": "Explore heartfelt obituaries and death notices in Charleston and across South Carolina. Discover life stories, share your condolences, find funeral information, and access an archive of recent tributes."
+			},
+			{
+				"position": 10,
+				"title": "Most Recent Obituaries | McDougald Funeral & Cremation...",
+				"link": "https://www.mcdougaldfuneralhome.com/obituaries",
+				"displayed_link": "mcdougaldfuneralhome.com › obituaries",
+				"snippet": "Born January 2, 1957, in Anderson, South Carolina, Ricky was the son of Edna S. Smith and the late Grady W. Simpson. In addition to his father, he was preceded in death by grandparents Jesse and Dessie Simpson and William and Mary Hill; a..."
+			}
+		]
+	}
+}

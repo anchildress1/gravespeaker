@@ -1,10 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('#lib/server/env.ts', () => ({ geminiApiKey: () => 'test', serpApiKey: () => 'test' }));
+// pages.ts is the page-fetching network adapter; its own tests cover the HTTP boundary.
 const page = vi.hoisted(() => ({
-	text: 'Gaynor taught piano for forty years. She loved gardening.' as string | null
+	text: 'Gaynor taught piano for forty years. She loved gardening.' as string | null,
+	byUrl: {} as Record<string, string>
 }));
-vi.mock('#lib/server/pages.ts', () => ({ fetchPage: async () => page.text }));
+vi.mock('#lib/server/pages.ts', () => ({
+	fetchPage: async (url: string) => page.byUrl[url] ?? page.text
+}));
 
 const { POST } = await import('./+server');
 
@@ -12,6 +16,7 @@ const inscription = {
 	carvedName: 'Gaynor Claire Hawks',
 	name: 'Gaynor Claire Hawks',
 	maidenName: null,
+	place: null,
 	born: '1932-03-10',
 	died: '2017-12-27',
 	voice: 'female'
@@ -70,6 +75,7 @@ const call = (body: unknown) =>
 afterEach(() => {
 	vi.unstubAllGlobals();
 	page.text = 'Gaynor taught piano for forty years. She loved gardening.';
+	page.byUrl = {};
 });
 
 describe('POST /api/story', () => {
@@ -123,8 +129,89 @@ describe('POST /api/story', () => {
 		const body = await res.json();
 		expect(body.status).toBe('told');
 		expect(body.sources).toHaveLength(1);
-		expect(Object.keys(body).sort()).toEqual(['paragraph', 'sources', 'status', 'voice']);
+		expect(body).not.toHaveProperty('facts');
 		expect(JSON.stringify(body)).not.toContain('loved gardening');
+	});
+
+	it.each([
+		[
+			'keeps the search grade when the page adds no dates',
+			'Gaynor taught piano for forty years.',
+			'medium'
+		],
+		[
+			'raises the grade when the page proves both dates',
+			'Gaynor Claire Hawks (1932-2017) taught piano for forty years.',
+			'high'
+		]
+	])('%s', async (_, text, grade) => {
+		page.text = text;
+		stubModel(
+			() => factsReply([pianoFact]),
+			() => reply('Come closer. I taught piano for forty years.')
+		);
+		const body = await (
+			await call({ inscription, candidate: { ...candidate, confidence: 'medium' } })
+		).json();
+		expect(body.confidence).toBe(grade);
+	});
+
+	it('never lowers a high match when its page states no dates', async () => {
+		page.text = 'Gaynor taught piano for forty years.';
+		stubModel(
+			() => factsReply([pianoFact]),
+			() => reply('Come closer. I taught piano for forty years.')
+		);
+		const body = await (await call({ inscription, candidate })).json();
+		expect(body.confidence).toBe('high');
+	});
+
+	it("tells only from the page with the stone's dates when another page dates a namesake", async () => {
+		const two = {
+			...candidate,
+			sources: [
+				...candidate.sources,
+				{ id: 's2', url: 'https://other.com/h', title: 'Obit', site: 'other.com', snippet: '' }
+			]
+		};
+		page.byUrl = {
+			'https://legacy.com/h': 'Gaynor Claire Hawks (1932-2017) taught piano for forty years.',
+			'https://other.com/h': 'Gaynor Hawks (1918-1979) raced horses in Kentucky.'
+		};
+		const model = stubModel(
+			() =>
+				factsReply([
+					pianoFact,
+					{ claim: 'other', sourceId: 's2', quote: 'raced horses in Kentucky' }
+				]),
+			() => reply('Come closer. I taught piano for forty years. I raced horses in Kentucky.')
+		);
+		const body = await (await call({ inscription, candidate: two })).json();
+		expect(body.status).toBe('told');
+		expect(body.paragraph).toContain('taught piano');
+		expect(body.paragraph).not.toContain('horses');
+		// The namesake's page never reaches the model.
+		expect(JSON.stringify(model.mock.calls[0])).not.toContain('raced horses');
+	});
+
+	it('grades a high match by its surviving pages when one page dates a namesake', async () => {
+		const two = {
+			...candidate,
+			sources: [
+				...candidate.sources,
+				{ id: 's2', url: 'https://other.com/h', title: 'Obit', site: 'other.com', snippet: '' }
+			]
+		};
+		page.byUrl = {
+			'https://legacy.com/h': 'Gaynor Claire Hawks, born 1932, taught piano for forty years.',
+			'https://other.com/h': 'Gaynor Hawks (1918-1979) raced horses in Kentucky.'
+		};
+		stubModel(
+			() => factsReply([pianoFact]),
+			() => reply('Come closer. I taught piano for forty years.')
+		);
+		const body = await (await call({ inscription, candidate: two })).json();
+		expect([body.status, body.confidence]).toEqual(['told', 'medium']);
 	});
 
 	it('falls back to the stone when the facts are only the name and dates', async () => {
@@ -198,6 +285,46 @@ describe('POST /api/story', () => {
 		const res = await call({ inscription, candidate: withSnippet });
 		expect((await res.json()).status).toBe('told');
 	});
+
+	it('tells a name-only match whose page states the stone dates', async () => {
+		page.text = 'Gaynor Claire Hawks (1932-2017) taught piano for forty years.';
+		stubModel(
+			() => factsReply([pianoFact]),
+			() => reply('Come closer. I taught piano for forty years.')
+		);
+		const body = await (
+			await call({ inscription, candidate: { ...candidate, confidence: 'low' } })
+		).json();
+		expect(body.status).toBe('told');
+		expect(body.paragraph).toContain('taught piano for forty years');
+		expect(body.confidence).toBe('high');
+	});
+
+	it.each([
+		['states no dates', 'Gaynor Hawks taught piano for forty years.'],
+		['states other dates', 'Gaynor Hawks (1918-1979) taught piano for forty years.']
+	])('tells the stone instead of a name-only match whose page %s', async (_, text) => {
+		page.text = text;
+		stubModel(() => reply('The fog is thick tonight. My name was Gaynor Claire Hawks.'));
+		const body = await (
+			await call({ inscription, candidate: { ...candidate, confidence: 'low' } })
+		).json();
+		expect(body.status).toBe('stone');
+		expect(body.paragraph).not.toContain('piano');
+	});
+
+	it.each(['medium', 'high'] as const)(
+		'tells the stone instead of a %s match whose page states other dates for the name',
+		async (confidence) => {
+			page.text = 'Gaynor Claire Hawks (1918-1979) taught piano for forty years.';
+			stubModel(() => reply('The fog is thick tonight. My name was Gaynor Claire Hawks.'));
+			const body = await (
+				await call({ inscription, candidate: { ...candidate, confidence } })
+			).json();
+			expect(body.status).toBe('stone');
+			expect(body.paragraph).not.toContain('piano');
+		}
+	);
 
 	it('returns 502 when the model fails on every attempt', async () => {
 		stubModel(() => Response.json({ error: { code: 503, message: 'down' } }, { status: 503 }));

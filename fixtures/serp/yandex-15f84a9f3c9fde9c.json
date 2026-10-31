@@ -1,0 +1,30 @@
+{
+	"engine": "yandex",
+	"query": "\"Tyson Lee Schreiber\" 1992 2012 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Donate Life Float Rose Parade - 2014 Floragraph Honorees",
+				"link": "https://onelegacyfloat.org/si/participants/2014_flora.html",
+				"displayed_link": "onelegacyfloat.org › si › participants › 2014_flora",
+				"snippet": "Tyson Lee Schreiber. Tyson Schreiber was a multi-sport athlete who won state-level medals in high school. When he received his learner’s permit, he also learned about organ donation and said, “I want to be a donor.”"
+			},
+			{
+				"position": 2,
+				"title": "Aimeé Adelmann",
+				"link": "https://www.donatelifenw.org/sites/default/files/quilts/pdf/Quilt%20Book%20for%20Submitters%202014%20%28FINAL%29.pdf",
+				"displayed_link": "donatelifenw.org › sites › default › files › quilts › pdf",
+				"snippet": "Tyson Schreiber. Alsea, Oregon Organ, Eye, and Tissue Donor August 21, 1992 – February 12, 2012. Tyson Lee Schreiber was the most awe-some son you could ever have in your life.pdfView"
+			},
+			{
+				"position": 3,
+				"title": "OneLegacy - Donate Life Float Rose Parade",
+				"link": "https://studylib.net/doc/6633444/onelegacy---donate-life-float-rose-parade",
+				"displayed_link": "studylib.net › doc › onelegacy---donate-life",
+				"snippet": "Lee rankin community achievement award. Concept Paper for an Office of Population In The White House."
+			}
+		]
+	}
+}

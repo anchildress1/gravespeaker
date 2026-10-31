@@ -1,0 +1,242 @@
+{
+	"engine": "google",
+	"query": "\"Alfonso Gonzalez\" 1951 2021 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Alfonso González",
+				"link": "https://en.wikipedia.org/wiki/Alfonso_Gonz%C3%A1lez",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbgHrOzAVpiQgpjbi0LRtOlZFPBFuQhQBfwctTmpcRxMbJgDD-0BVok0WLZRC5XeVHZiZ6Af7n2-REkgEtbbvllfAQDOjNFw2ttivZqYahSmZJLrZT6jZHET3mm4TDMDZpzdIGiMzDfr8nkzzV2xc&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECB4QAQ&uoh=1",
+				"displayed_link": "https://en.wikipedia.org › wiki › Alfonso_González",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png",
+				"snippet": "Arturo Alfonso González González (born 5 September 1994), also known as Ponchito, is a Mexican professional footballer who plays as a midfielder for Liga MX ...",
+				"snippet_highlighted_words": ["Alfonso González"],
+				"about_this_result": {
+					"source": {
+						"description": "Arturo Alfonso González González (born 5 September 1994), also known as Ponchito, is a Mexican professional footballer who plays as a midfielder for Liga MX ...",
+						"source_info_link": "https://en.wikipedia.org/wiki/Alfonso_Gonz%C3%A1lez",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVnFDekxyT3ZUOGdOYmhhQkw5aTJVclpKTnRzY1QtQkpTX2FLTTc5cW0tTVd4R3p3ank0VDdtamxDSkdrOGFMWkZXNWEzRXR6bWhCd21RLV8yNS14eDliZ1I3bERqUlQxMWtSaE5WajhRVWkyQ3Z0YVlwUDl6ZHMtaGJoODNFTU16Qk5aRExPb1hUUmZvEgQaAggAGtYDEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAsAMIABAAGAAgACoOCgdhbGZvbnNvFfaPkkAqGgoIZ29uemFsZXoVQCCqQBoJZ29uesOhbGV6MqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVnFDekxyT3ZUOGdOYmhhQkw5aTJVclpKTnRzY1QtQkpTX2FLTTc5cW0tTVd4R3p3ank0VDdtamxDSkdrOGFMWkZXNWEzRXR6bWhCd21RLV8yNS14eDliZ1I3bERqUlQxMWtSaE5WajhRVWkyQ3Z0YVlwUDl6ZHMtaGJoODNFTU16Qk5aRExPb1hUUmZvOiQ8Yj5BbGZvbnNvIEdvbnrDoWxlejwvYj4gLSBXaWtpcGVkaWFCrgFBcnR1cm8gPGI-QWxmb25zbyBHb256w6FsZXo8L2I-IEdvbnrDoWxleiAoYm9ybiA1IFNlcHRlbWJlciAxOTk0KSwgYWxzbyBrbm93biBhcyBQb25jaGl0bywgaXMgYSBNZXhpY2FuIHByb2Zlc3Npb25hbCBmb290YmFsbGVyIHdobyBwbGF5cyBhcyBhIG1pZGZpZWxkZXIgZm9yIExpZ2EgTVgmbmJzcDsuLi4iAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVnFDekxyT3ZUOGdOYmhhQkw5aTJVclpKTnRzY1QtQkpTX2FLTTc5cW0tTVd4R3p3ank0VDdtamxDSkdrOGFMWkZXNWEzRXR6bWhCd21RLV8yNS14eDliZ1I3bERqUlQxMWtSaE5WajhRVWkyQ3Z0YVlwUDl6ZHMtaGJoODNFTU16Qk5aRExPb1hUUmZvEgQaAggAGtYDEgIIARoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAsAMIABAAGAAgACoOCgdhbGZvbnNvFfaPkkAqGgoIZ29uemFsZXoVQCCqQBoJZ29uesOhbGV6MqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVnFDekxyT3ZUOGdOYmhhQkw5aTJVclpKTnRzY1QtQkpTX2FLTTc5cW0tTVd4R3p3ank0VDdtamxDSkdrOGFMWkZXNWEzRXR6bWhCd21RLV8yNS14eDliZ1I3bERqUlQxMWtSaE5WajhRVWkyQ3Z0YVlwUDl6ZHMtaGJoODNFTU16Qk5aRExPb1hUUmZvOiQ8Yj5BbGZvbnNvIEdvbnrDoWxlejwvYj4gLSBXaWtpcGVkaWFCrgFBcnR1cm8gPGI-QWxmb25zbyBHb256w6FsZXo8L2I-IEdvbnrDoWxleiAoYm9ybiA1IFNlcHRlbWJlciAxOTk0KSwgYWxzbyBrbm93biBhcyBQb25jaGl0bywgaXMgYSBNZXhpY2FuIHByb2Zlc3Npb25hbCBmb290YmFsbGVyIHdobyBwbGF5cyBhcyBhIG1pZGZpZWxkZXIgZm9yIExpZ2EgTVgmbmJzcDsuLi4iAhABSABYAGgA",
+				"source": "Wikipedia",
+				"read_more_link": "https://www.google.com/goto?url=CAES0AEB6zswFVmUYJtnA0kIgM8FNZRenPhg6YAbdgbaiIbIMA6wYobPHXEOfmI4mWt8X9Fh-2z2nKGcVgLRrQP7H7w-fiFJXC3PVN_FXtw2eB9pBf0J0CNFUbclVR2kvCpZXhDtPD-NCr9MqXILcNeccogFvKWBV5v-dycTlEg__WLtoKKMaaSXIqgIpwomyDRrlxFJ8aT2R3T5NGdYXWlewEcESfSVzEZJUgzU9quMhKpcf3CuDUg5-MDvHe3K9gpelvbvoomG2TLYfZU5NicHrhd_"
+			},
+			{
+				"position": 2,
+				"title": "Alfonso Gonzalez Jr. (@_alfonsogonzalezjr)",
+				"link": "https://www.instagram.com/_alfonsogonzalezjr/?hl=en",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbgHrOzAVdqxxndi8B6tFUthLGaibJPAGn9nSnLYQ2aMquMSRxy6NSMtRIrUNtyCxz8-T13KgonmJmBHnR-ek4mHdq5DvBypjzWVovdpy4cAYsZLQmTwVtL4QbNSl_UQisq3fZ7A8FTqOOTSg1IkN&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCIQAQ&uoh=1",
+				"displayed_link": "29.6K+ followers",
+				"favicon": "https://serpapi.com/searches/6ae4197eb6981ec5d58b6330/images/p8SwI8AxgBTKd6ixrUuX556OU4xSPLvW2yKLwgm4g5I.png",
+				"snippet": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles) is an artist whose work developed from close observation of his father's skillful trade in commercial sign painting.",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles) is an artist whose work developed from close observation of his father's skillful trade in commercial sign painting.",
+						"source_info_link": "https://www.instagram.com/_alfonsogonzalezjr/?hl=en",
+						"icon": "https://serpapi.com/searches/6ae4197eb6981ec5d58b6330/images/p8SwI8AxgBTKd6ixrUuX58w1s1n5JW7VOS_-_7eM91OYbKXiG2JpXXKcx7v6RJus.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVklUMmEyaEhJRWZrektQaFFqOE1MUXQyLWNBal9nS3AybE5ONDQ2ZFg3RVVTMkNNNFR2bnFBcWp6M1A4U3NTVjYzd3F3eThNQjhvLWpvQThFbGRMbGxJT3Q1elZFamRpOUVtSlBnNG1SN3JoQ3ZYUzdOZjlUNFI3dFVKMWNKWkQtbFJZTnpMSWtOTXBUEgQaAggAGuwDEgIIARoAIgAqADIGCAESAnVzOgBCBAgBEABKAFoAcgB6AIJAxgMIABAAGAAgACoOCgdhbGZvbnNvFW0HlEAqGgoIZ29uemFsZXoVWnaJQBoJZ29uesOhbGV6MqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVklUMmEyaEhJRWZrektQaFFqOE1MUXQyLWNBal9nS3AybE5ONDQ2ZFg3RVVTMkNNNFR2bnFBcWp6M1A4U3NTVjYzd3F3eThNQjhvLWpvQThFbGRMbGxJT3Q1elZFamRpOUVtSlBnNG1SN3JoQ3ZYUzdOZjlUNFI3dFVKMWNKWkQtbFJZTnpMSWtOTXBUOj08Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci4gKEBfYWxmb25zb2dvbnphbGV6anIpIC0gSW5zdGFncmFtQqsBPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlcykgaXMgYW4gYXJ0aXN0IHdob3NlIHdvcmsgZGV2ZWxvcGVkIGZyb20gY2xvc2Ugb2JzZXJ2YXRpb24gb2YgaGlzIGZhdGhlciYjMzk7cyBza2lsbGZ1bCB0cmFkZSBpbiBjb21tZXJjaWFsIHNpZ24gcGFpbnRpbmcuIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVklUMmEyaEhJRWZrektQaFFqOE1MUXQyLWNBal9nS3AybE5ONDQ2ZFg3RVVTMkNNNFR2bnFBcWp6M1A4U3NTVjYzd3F3eThNQjhvLWpvQThFbGRMbGxJT3Q1elZFamRpOUVtSlBnNG1SN3JoQ3ZYUzdOZjlUNFI3dFVKMWNKWkQtbFJZTnpMSWtOTXBUEgQaAggAGuwDEgIIARoAIgAqADIGCAESAnVzOgBCBAgBEABKAFoAcgB6AIJAxgMIABAAGAAgACoOCgdhbGZvbnNvFW0HlEAqGgoIZ29uemFsZXoVWnaJQBoJZ29uesOhbGV6MqIBL2dvdG8_dXJsPUNBRVNiZ0hyT3pBVklUMmEyaEhJRWZrektQaFFqOE1MUXQyLWNBal9nS3AybE5ONDQ2ZFg3RVVTMkNNNFR2bnFBcWp6M1A4U3NTVjYzd3F3eThNQjhvLWpvQThFbGRMbGxJT3Q1elZFamRpOUVtSlBnNG1SN3JoQ3ZYUzdOZjlUNFI3dFVKMWNKWkQtbFJZTnpMSWtOTXBUOj08Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci4gKEBfYWxmb25zb2dvbnphbGV6anIpIC0gSW5zdGFncmFtQqsBPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlcykgaXMgYW4gYXJ0aXN0IHdob3NlIHdvcmsgZGV2ZWxvcGVkIGZyb20gY2xvc2Ugb2JzZXJ2YXRpb24gb2YgaGlzIGZhdGhlciYjMzk7cyBza2lsbGZ1bCB0cmFkZSBpbiBjb21tZXJjaWFsIHNpZ24gcGFpbnRpbmcuIgIQAUgAWABoAA",
+				"source": "Instagram · _alfonsogonzalezjr"
+			},
+			{
+				"position": 3,
+				"title": "Alfonso Gonzalez Jr | Los Angeles Visual Artist",
+				"link": "/goto?url=CAESXQHrOzAVZiwBOoO5hOdMxWRxr-1LA5KC8u8q-vn7uhQjYpP_Nd75KXTMOYxDEx-NGFbL70uBZ8Ko9uEgZM3khH90g8JTeEMY_FXTxkv34qPAjW5SIB_tQkYvKzGdbA",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESXQHrOzAVYQU0FVZDALEGAej10Sel0BPqrzkgosZPydS3AzRumGKKuYr6QIb8LhKuz2mJgUNfCH2OID9Vlx39DNKoSINWUR0a-EbCgxvzdivPOrmXqCrfXkJw_cGfeg&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECB8QAQ&uoh=1",
+				"displayed_link": "https://www.alfonsogonzalezjr.com",
+				"favicon": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Ny03Nzc3NTc3Nzc3Kzc3NzcrN__AABEIABwAHAMBIgACEQEDEQH_xAAZAAADAQEBAAAAAAAAAAAAAAAEBQcDBgL_xAAvEAACAQIFAgQDCQAAAAAAAAABAgMEEQAFEiExUWEGE0GRFSOBFCIkM0JDU3Gh_8QAGAEAAgMAAAAAAAAAAAAAAAAAAgQAAwX_xAAgEQABBAEEAwAAAAAAAAAAAAABAAIDESExUZGhBDJB_9oADAMBAAIRAxEAPwAr47nSFvxSWF7_ACFtb2xm_izM9C1H2sWbhjGo2xjmVfk8tMVK1gWWcltQA0ab2HO9zbj624wirBlk0VNFSztTyREK8ciElrkXNxtsbj04wck0Q9GDhLthm1LjS7Khz7PK6KRoanUEW40QrsfbBcfiDOVQarMT3At23wj8LUcMTTl6qMTxgM6g3Bvqspsd_wC7YcVbtHKBHpUFQbNIy89AMJSEPNjpafjNqOnZN_UmzOFSrNPWQzWkK-THUN8sbm_B6W98A02S0lTOqrTxh3YANNWSseQOg9SMU0ZXQqutaSANcftKevbucF_CaN9zDHe_8Seu5_TiA4wgN6FS-QjKZp4adKebSS0jRSsSjX4Ab1uSNhye-N6zyaqbzpWliZhuogZv9G2KE-SZeodhTRX2P5a7-nTHgRRMWBiX7pKixPA-uBcW7KyOSRuGlf_Z.jpeg",
+				"snippet": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles; lives and works in Los Angeles) is an artist whose practice draws from his early exposure to his father's work ...",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles; lives and works in Los Angeles) is an artist whose practice draws from his early exposure to his father's work ...",
+						"source_info_link": "/goto?url=CAESXQHrOzAVZiwBOoO5hOdMxWRxr-1LA5KC8u8q-vn7uhQjYpP_Nd75KXTMOYxDEx-NGFbL70uBZ8Ko9uEgZM3khH90g8JTeEMY_FXTxkv34qPAjW5SIB_tQkYvKzGdbA",
+						"icon": "https://serpapi.com/images/i/_9j_4AAQSkZJRgABAQAAAQABAAD_2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys_RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Ny03Nzc3NTc3Nzc3Kzc3NzcrN__AABEIABwAHAMBIgACEQEDEQH_xAAZAAADAQEBAAAAAAAAAAAAAAAEBQcDBgL_xAAvEAACAQIFAgQDCQAAAAAAAAABAgMEEQAFEiExUWEGE0GRFSOBFCIkM0JDU3Gh_8QAGAEAAgMAAAAAAAAAAAAAAAAAAgQAAwX_xAAgEQABBAEEAwAAAAAAAAAAAAABAAIDESExUZGhBDJB_9oADAMBAAIRAxEAPwAr47nSFvxSWF7_ACFtb2xm_izM9C1H2sWbhjGo2xjmVfk8tMVK1gWWcltQA0ab2HO9zbj624wirBlk0VNFSztTyREK8ciElrkXNxtsbj04wck0Q9GDhLthm1LjS7Khz7PK6KRoanUEW40QrsfbBcfiDOVQarMT3At23wj8LUcMTTl6qMTxgM6g3Bvqspsd_wC7YcVbtHKBHpUFQbNIy89AMJSEPNjpafjNqOnZN_UmzOFSrNPWQzWkK-THUN8sbm_B6W98A02S0lTOqrTxh3YANNWSseQOg9SMU0ZXQqutaSANcftKevbucF_CaN9zDHe_8Seu5_TiA4wgN6FS-QjKZp4adKebSS0jRSsSjX4Ab1uSNhye-N6zyaqbzpWliZhuogZv9G2KE-SZeodhTRX2P5a7-nTHgRRMWBiX7pKixPA-uBcW7KyOSRuGlf_Z.jpeg"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CowBL2dvdG8_dXJsPUNBRVNYUUhyT3pBVlppd0JPb081aE9kTXhXUnhyLTFMQTVLQzh1OHEtdm43dWhRallwUF9OZDc1S1hUTU9ZeERFeC1OR0ZiTDcwdUJaOEtvOXVFZ1pNM2toSDkwZzhKVGVFTVlfRlhUeGt2MzRxUEFqVzVTSUJfdFFrWXZLekdkYkESBBoCCAAa0gMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkCsAwgAEAAYACAAKg4KB2FsZm9uc28VU8n3QCoaCghnb256YWxlehVTyfdAGglnb256w6FsZXoyjAEvZ290bz91cmw9Q0FFU1hRSHJPekFWWml3Qk9vTzVoT2RNeFdSeHItMUxBNUtDOHU4cS12bjd1aFFqWXBQX05kNzVLWFRNT1l4REV4LU5HRmJMNzB1Qlo4S285dUVnWk0za2hIOTBnOEpUZUVNWV9GWFR4a3YzNHFQQWpXNVNJQl90UWtZdkt6R2RiQTo2PGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIgfCBMb3MgQW5nZWxlcyBWaXN1YWwgQXJ0aXN0Qq4BPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlczsgbGl2ZXMgYW5kIHdvcmtzIGluIExvcyBBbmdlbGVzKSBpcyBhbiBhcnRpc3Qgd2hvc2UgcHJhY3RpY2UgZHJhd3MgZnJvbSBoaXMgZWFybHkgZXhwb3N1cmUgdG8gaGlzIGZhdGhlciYjMzk7cyB3b3JrJm5ic3A7Li4uIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CowBL2dvdG8_dXJsPUNBRVNYUUhyT3pBVlppd0JPb081aE9kTXhXUnhyLTFMQTVLQzh1OHEtdm43dWhRallwUF9OZDc1S1hUTU9ZeERFeC1OR0ZiTDcwdUJaOEtvOXVFZ1pNM2toSDkwZzhKVGVFTVlfRlhUeGt2MzRxUEFqVzVTSUJfdFFrWXZLekdkYkESBBoCCAAa0gMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkCsAwgAEAAYACAAKg4KB2FsZm9uc28VU8n3QCoaCghnb256YWxlehVTyfdAGglnb256w6FsZXoyjAEvZ290bz91cmw9Q0FFU1hRSHJPekFWWml3Qk9vTzVoT2RNeFdSeHItMUxBNUtDOHU4cS12bjd1aFFqWXBQX05kNzVLWFRNT1l4REV4LU5HRmJMNzB1Qlo4S285dUVnWk0za2hIOTBnOEpUZUVNWV9GWFR4a3YzNHFQQWpXNVNJQl90UWtZdkt6R2RiQTo2PGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIgfCBMb3MgQW5nZWxlcyBWaXN1YWwgQXJ0aXN0Qq4BPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlczsgbGl2ZXMgYW5kIHdvcmtzIGluIExvcyBBbmdlbGVzKSBpcyBhbiBhcnRpc3Qgd2hvc2UgcHJhY3RpY2UgZHJhd3MgZnJvbSBoaXMgZWFybHkgZXhwb3N1cmUgdG8gaGlzIGZhdGhlciYjMzk7cyB3b3JrJm5ic3A7Li4uIgIQAUgAWABoAA",
+				"source": "Alfonso Gonzalez Jr",
+				"read_more_link": "https://www.google.com/goto?url=CAEStAEB6zswFcXJpftPjYAduMQwVrxqJBMxa6Wfw4PbLvSgnBxLoLkoGfuKp7Qgpo_ef2q2PzEovZsjPjcPWw9JbHdFersjHC8032ikx8ZitTKPGe6e753vz_NMI-K3f_2HdPCKUMC36RtUsj9cQoORaQKgMCvn81YbGaqQilMOo2ESI8lVK51kvokD4nWvuOmaMdyiT4c8TihmnZEJDAlDQmdBGa2fyxAAPJyNwlBhhT2f3A0SLOI"
+			},
+			{
+				"position": 4,
+				"title": "Alfonso Gonzalez Jr.: The Power of Observation",
+				"link": "/goto?url=CAESmAEB6zswFQehng6aeuNrVWo5M2UNR915T5BoPN84dGwJ2FTYVXmQcRQhNWSmTR7CabgOra390CUFIn3w0XIpntOUOIv-b6qREKcUvlnd0kYfV-LX3oLaIR3fIuf-804j-1EnQL9IQpHu6aVTeYQRfy-mSEtsqzOpsgJCaANOEbHLbM6Jz5fcWjOsfHhfvAhnyBEpAPpqhLV2Gw",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESmAEB6zswFW2TuHeC2J4g6Df6Jif-A_tKZ9a7IhuNd3i2DiBZK6FvHw83r8S6HNBecO8WqguWi5Loaokm62cZDXVD0nTWO6-r1-H5TTMd_ejMckqOh4V19ZXJuZwA8XFLqpRBgBYZWGZVr3Ikv0JDZTLgZ3NTvLOu-XM2H1A-yCtZJeKbc5t99xcQn9os6-dOib3qVDfdIaGbcA&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCMQAQ&uoh=1",
+				"displayed_link": "https://www.juxtapoz.com › news › magazine › features",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAANlBMVEVHcEwjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyApX735AAAAEnRSTlMAECseBGvmsvbZvMeaGFt8_0BTad1WAAAAtUlEQVR4AdzPURbFEAwEUIIIRKf73-yT-Gu7gjcfOO4ZCP-WSJQSUc7J5-Q7lA8W5lqlUewyJkvVsFi6HrxEagffcaCVCllqQ3jjvQS9CGr6Qu0QPsU37hcAu_iNuwr2Yo4vzJdgkKFed3pgGoAUQxK5nncKgJ4cUWkeXLfhLkrzqiGPBkO0IRvtj4u9SvAYelrx8ytQ8r6dLW1O9vTZeMawGlcNWZMnxjOr7nWwbc2_Da2kBQC2tQy44PEvqAAAAABJRU5ErkJggg.png",
+				"snippet": "My dad Alfonso Gonzalez Sr., a.k.a. AL SIGNS, has been painting signs for over 40 years. He's originally from Tijuana and moved to City Terrace, Los Angeles, in ...",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "My dad Alfonso Gonzalez Sr., a.k.a. AL SIGNS, has been painting signs for over 40 years. He's originally from Tijuana and moved to City Terrace, Los Angeles, in ...",
+						"source_info_link": "/goto?url=CAESmAEB6zswFQehng6aeuNrVWo5M2UNR915T5BoPN84dGwJ2FTYVXmQcRQhNWSmTR7CabgOra390CUFIn3w0XIpntOUOIv-b6qREKcUvlnd0kYfV-LX3oLaIR3fIuf-804j-1EnQL9IQpHu6aVTeYQRfy-mSEtsqzOpsgJCaANOEbHLbM6Jz5fcWjOsfHhfvAhnyBEpAPpqhLV2Gw",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAANlBMVEVHcEwjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyAjHyApX735AAAAEnRSTlMAECseBGvmsvbZvMeaGFt8_0BTad1WAAAAtUlEQVR4AdzPURbFEAwEUIIIRKf73-yT-Gu7gjcfOO4ZCP-WSJQSUc7J5-Q7lA8W5lqlUewyJkvVsFi6HrxEagffcaCVCllqQ3jjvQS9CGr6Qu0QPsU37hcAu_iNuwr2Yo4vzJdgkKFed3pgGoAUQxK5nncKgJ4cUWkeXLfhLkrzqiGPBkO0IRvtj4u9SvAYelrx8ytQ8r6dLW1O9vTZeMawGlcNWZMnxjOr7nWwbc2_Da2kBQC2tQy44PEvqAAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CtwBL2dvdG8_dXJsPUNBRVNtQUVCNnpzd0ZRZWhuZzZhZXVOclZXbzVNMlVOUjkxNVQ1Qm9QTjg0ZEd3SjJGVFlWWG1RY1JRaE5XU21UUjdDYWJnT3JhMzkwQ1VGSW4zdzBYSXBudE9VT0l2LWI2cVJFS2NVdmxuZDBrWWZWLUxYM29MYUlSM2ZJdWYtODA0ai0xRW5RTDlJUXBIdTZhVlRlWVFSZnktbVNFdHNxek9wc2dKQ2FBTk9FYkhMYk02Sno1ZmNXak9zZkhoZnZBaG55QkVwQVBwcWhMVjJHdxIEGgIIABqlBBIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCBBAgAEAAYACAAKg4KB2FsZm9uc28VJ1KSQCoaCghnb256YWxlehWwWI5AGglnb256w6FsZXoy3AEvZ290bz91cmw9Q0FFU21BRUI2enN3RlFlaG5nNmFldU5yVldvNU0yVU5SOTE1VDVCb1BOODRkR3dKMkZUWVZYbVFjUlFoTldTbVRSN0NhYmdPcmEzOTBDVUZJbjN3MFhJcG50T1VPSXYtYjZxUkVLY1V2bG5kMGtZZlYtTFgzb0xhSVIzZkl1Zi04MDRqLTFFblFMOUlRcEh1NmFWVGVZUVJmeS1tU0V0c3F6T3BzZ0pDYUFOT0ViSExiTTZKejVmY1dqT3NmSGhmdkFobnlCRXBBUHBxaExWMkd3OjU8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci46IFRoZSBQb3dlciBvZiBPYnNlcnZhdGlvbkK0AU15IGRhZCA8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBTci4sIGEuay5hLiBBTCBTSUdOUywgaGFzIGJlZW4gcGFpbnRpbmcgc2lnbnMgZm9yIG92ZXIgNDAgeWVhcnMuIEhlJiMzOTtzIG9yaWdpbmFsbHkgZnJvbSBUaWp1YW5hIGFuZCBtb3ZlZCB0byBDaXR5IFRlcnJhY2UsIExvcyBBbmdlbGVzLCBpbiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CtwBL2dvdG8_dXJsPUNBRVNtQUVCNnpzd0ZRZWhuZzZhZXVOclZXbzVNMlVOUjkxNVQ1Qm9QTjg0ZEd3SjJGVFlWWG1RY1JRaE5XU21UUjdDYWJnT3JhMzkwQ1VGSW4zdzBYSXBudE9VT0l2LWI2cVJFS2NVdmxuZDBrWWZWLUxYM29MYUlSM2ZJdWYtODA0ai0xRW5RTDlJUXBIdTZhVlRlWVFSZnktbVNFdHNxek9wc2dKQ2FBTk9FYkhMYk02Sno1ZmNXak9zZkhoZnZBaG55QkVwQVBwcWhMVjJHdxIEGgIIABqlBBIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCBBAgAEAAYACAAKg4KB2FsZm9uc28VJ1KSQCoaCghnb256YWxlehWwWI5AGglnb256w6FsZXoy3AEvZ290bz91cmw9Q0FFU21BRUI2enN3RlFlaG5nNmFldU5yVldvNU0yVU5SOTE1VDVCb1BOODRkR3dKMkZUWVZYbVFjUlFoTldTbVRSN0NhYmdPcmEzOTBDVUZJbjN3MFhJcG50T1VPSXYtYjZxUkVLY1V2bG5kMGtZZlYtTFgzb0xhSVIzZkl1Zi04MDRqLTFFblFMOUlRcEh1NmFWVGVZUVJmeS1tU0V0c3F6T3BzZ0pDYUFOT0ViSExiTTZKejVmY1dqT3NmSGhmdkFobnlCRXBBUHBxaExWMkd3OjU8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci46IFRoZSBQb3dlciBvZiBPYnNlcnZhdGlvbkK0AU15IGRhZCA8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBTci4sIGEuay5hLiBBTCBTSUdOUywgaGFzIGJlZW4gcGFpbnRpbmcgc2lnbnMgZm9yIG92ZXIgNDAgeWVhcnMuIEhlJiMzOTtzIG9yaWdpbmFsbHkgZnJvbSBUaWp1YW5hIGFuZCBtb3ZlZCB0byBDaXR5IFRlcnJhY2UsIExvcyBBbmdlbGVzLCBpbiZuYnNwOy4uLiICEAFIAFgAaAA",
+				"source": "Juxtapoz Magazine",
+				"read_more_link": "https://www.google.com/goto?url=CAES7wEB6zswFSNNWifD1Y3H8Fuf1-fwWB-HjaDo6JEtxnnRHVAbRXv7_Yn3CwB-Fd0sLDzEEf0s6f8CMXGTbCsY9mmn3jQL5g2-LtxRD5CI765THZWddzIVCSmgGd0C-p8N9cKBoaxQZZAIcR6XEGgXCjgSTerodvg9EgKcnCPrjRZKPLodGyafLeOvG2i9_RL-ue2magz2PBxTLXbKPSl1CgLOp0S09tywOmmhBApU1drp5I2MG4LtLAom_P_-zdD1wpMUg-XIhJJZ9iqW7dOVULW9WPG3wOBe1TlBbRg-Umzy9NTv_8RoFuey9d6I5bsdzQ"
+			},
+			{
+				"position": 5,
+				"title": "Alfonso Gonzalez - Senior GNC Engineer at SpaceX",
+				"link": "/goto?url=CAESagHrOzAVBqEFMNZP-TJpA3F4a-YlcggYvfBfHSXeXhpb127lb3iC_bgX7COmU0Plri5dG3fCwCc77yQQKxVf0znYHrAZTRSQeesU2d0B8bXJwuIWM-yxD3Li4Csh_HJs-wt9IjBanKb-CeE",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESagHrOzAVXJllTnB1JZwQpuvwlS0H5bQQfwRc-qY4ipFe55GCX3ouT-NWTcVvZRJh6ado52-Lo0mYZtK5qWf-U6JpQng1BbaiJA1MWZTHigZ9uEV0ZCT6ZT32DW5DnGLMc93wjXSrVuXGwx0&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCAQAQ&uoh=1",
+				"displayed_link": "3.4K+ followers",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAm0lEQVR4AWP4__8_RRhMyLfs3sNQvOk_KRikB24ATNB2yhEQJtoQuAEwzVAAYtPVAMJe4Cjf8l-0bsd_RkIGQAGc_ej9t_-TDt_7_-vPXzD_6Yfv_-2nHSXWAAT49P33_z9__4HZl559JM2Aqm3XwXyXGcfA_H___pFmgFj9DjCfp3IrTIgkA5ADbbAbQA6mKDPp9x7YBTOAIgwAVba5DGceMlQAAAAASUVORK5CYII.png",
+				"snippet": "Alfonso Gonzalez. Senior GNC Engineer at SpaceX. SpaceX California Polytechnic State University-San Luis Obispo. Hawthorne, California, United ...",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"rich_snippet": {
+					"top": {
+						"extensions": ["Hawthorne, California, United States", "Senior GNC Engineer", "SpaceX"]
+					}
+				},
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez. Senior GNC Engineer at SpaceX. SpaceX California Polytechnic State University-San Luis Obispo. Hawthorne, California, United ...",
+						"source_info_link": "/goto?url=CAESagHrOzAVBqEFMNZP-TJpA3F4a-YlcggYvfBfHSXeXhpb127lb3iC_bgX7COmU0Plri5dG3fCwCc77yQQKxVf0znYHrAZTRSQeesU2d0B8bXJwuIWM-yxD3Li4Csh_HJs-wt9IjBanKb-CeE",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAm0lEQVR4AWP4__8_RRhMyLfs3sNQvOk_KRikB24ATNB2yhEQJtoQuAEwzVAAYtPVAMJe4Cjf8l-0bsd_RkIGQAGc_ej9t_-TDt_7_-vPXzD_6Yfv_-2nHSXWAAT49P33_z9__4HZl559JM2Aqm3XwXyXGcfA_H___pFmgFj9DjCfp3IrTIgkA5ADbbAbQA6mKDPp9x7YBTOAIgwAVba5DGceMlQAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cp0BL2dvdG8_dXJsPUNBRVNhZ0hyT3pBVkJxRUZNTlpQLVRKcEEzRjRhLVlsY2dnWXZmQmZIU1hlWGhwYjEyN2xiM2lDX2JnWDdDT21VMFBscmk1ZEczZkN3Q2M3N3lRUUt4VmYwem5ZSHJBWlRSU1FlZXNVMmQwQjhiWEp3dUlXTS15eEQzTGk0Q3NoX0hKcy13dDlJakJhbktiLUNlRRIEGgIIABrdAxIAGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkC5AwgAEAAYACAAKg4KB2FsZm9uc28V522WQCoaCghnb256YWxlehUT6ZBAGglnb256w6FsZXoynQEvZ290bz91cmw9Q0FFU2FnSHJPekFWQnFFRk1OWlAtVEpwQTNGNGEtWWxjZ2dZdmZCZkhTWGVYaHBiMTI3bGIzaUNfYmdYN0NPbVUwUGxyaTVkRzNmQ3dDYzc3eVFRS3hWZjB6bllIckFaVFJTUWVlc1UyZDBCOGJYSnd1SVdNLXl4RDNMaTRDc2hfSEpzLXd0OUlqQmFuS2ItQ2VFOkI8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiAtIFNlbmlvciBHTkMgRW5naW5lZXIgYXQgU3BhY2VYIC0gTGlua2VkSW5CngE8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPi4gU2VuaW9yIEdOQyBFbmdpbmVlciBhdCBTcGFjZVguIFNwYWNlWCBDYWxpZm9ybmlhIFBvbHl0ZWNobmljIFN0YXRlIFVuaXZlcnNpdHktU2FuIEx1aXMgT2Jpc3BvLiBIYXd0aG9ybmUsIENhbGlmb3JuaWEsIFVuaXRlZCZuYnNwOy4uLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cp0BL2dvdG8_dXJsPUNBRVNhZ0hyT3pBVkJxRUZNTlpQLVRKcEEzRjRhLVlsY2dnWXZmQmZIU1hlWGhwYjEyN2xiM2lDX2JnWDdDT21VMFBscmk1ZEczZkN3Q2M3N3lRUUt4VmYwem5ZSHJBWlRSU1FlZXNVMmQwQjhiWEp3dUlXTS15eEQzTGk0Q3NoX0hKcy13dDlJakJhbktiLUNlRRIEGgIIABrdAxIAGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkC5AwgAEAAYACAAKg4KB2FsZm9uc28V522WQCoaCghnb256YWxlehUT6ZBAGglnb256w6FsZXoynQEvZ290bz91cmw9Q0FFU2FnSHJPekFWQnFFRk1OWlAtVEpwQTNGNGEtWWxjZ2dZdmZCZkhTWGVYaHBiMTI3bGIzaUNfYmdYN0NPbVUwUGxyaTVkRzNmQ3dDYzc3eVFRS3hWZjB6bllIckFaVFJTUWVlc1UyZDBCOGJYSnd1SVdNLXl4RDNMaTRDc2hfSEpzLXd0OUlqQmFuS2ItQ2VFOkI8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiAtIFNlbmlvciBHTkMgRW5naW5lZXIgYXQgU3BhY2VYIC0gTGlua2VkSW5CngE8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPi4gU2VuaW9yIEdOQyBFbmdpbmVlciBhdCBTcGFjZVguIFNwYWNlWCBDYWxpZm9ybmlhIFBvbHl0ZWNobmljIFN0YXRlIFVuaXZlcnNpdHktU2FuIEx1aXMgT2Jpc3BvLiBIYXd0aG9ybmUsIENhbGlmb3JuaWEsIFVuaXRlZCZuYnNwOy4uLiICEAFIAFgAaAA",
+				"source": "LinkedIn · Alfonso Gonzalez",
+				"read_more_link": "https://www.google.com/goto?url=CAEStAEB6zswFVzr69FL9uCMZvytSE2wTnBAp-0rWyqbi-tVywbj6maRNK8W4ZAibQXPLlcpOv0uPKaxQ2dbHgsD4K7-X_87S3CeXDT80J8FghmlN7KLWnGgrhMWn8kisa3gzTE1HqD296tTX-HdKZAECYQ-TSy5CCXlSIpn-hBXRJPhuCVaxuMgU2dkw0KKFHXSsgZ7r-VdvQKHnxZBOCiOjEPQahJUAV9z7PAuj6a1Xpverj2zdTY"
+			},
+			{
+				"position": 6,
+				"title": "Alfonso Gonzalez Loeschen",
+				"link": "/goto?url=CAESpQEB6zswFYpzqVcuWTbiqwY6kDAxK5ZrAj2BZKiKRfmeGduQdtToOF9IUXmg9CCB9ZWTBeWqFyufpNnMqoLH3ovjz5h0QBls0WWgXYWObnmLLYcZyqE393AJYMr7ZJEZQ1irBHg3w20zcXagC7Ri1IPEWKi4inuZbiWdYSGDSFYFPDPK-3VL3PH9JmUbI80n84eICoOFsS9YOBNj1d1fy3d-tIoZxnk",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESpQEB6zswFVyqrLNsuAIIS_UnDTrXdjr7_wM5uzZUpMDprDwyXZqjwdOf_MVUBS2zYCKlFObbuQ9l7pla0jrgH1rzjHZdJ8UTYjbfvzbyqdd31eEv4qQduBS-BhoYrwcVCZDWvPSvkSkkuCU8-mC7FHElAAhrjGb5rQ2Q0Bs9vv09bFJGSeCB3TCsUZLOK9g0fVvE-h41fnOatWmGSHdOiCUbl1R96Bc&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCUQAQ&uoh=1",
+				"displayed_link": "https://www.nestle.com › management › executive-board",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAbFBMVEX____-_v729fT7-vry8O67tKzAubLDvbbm5OGqoJXHwbrp5-Tk4d7Jw73d2dW4saiuppzW0cyMf3Kkmo_g3Nm0q6LSzcjOycOckoeThneupZqXjIGViX14aVlwX01XQillUz5eSjOGeWt8bl4AXDAFAAABWklEQVR4AWTRB3atIBQF0EO9SruiT_DZ0uY_xl8TNCvH7qaD7xFo-SFCiP8lPp_fEbhQfH5JQCkAUPpH08ZSZwwA2VsHwHc3pBD7ZB2HISFHYJTBNxTTQ1N22dm5Q6FciFzDGkvVRlqnwBKJ9PK8GuZotQkpmgTOEjEqXFE5PgxYuVRqisAqcMtWSkkZSUtfXMia78jWcKqhVipJ2hCdv2ExYSrsYhmIdeCQ5xvKkalaw8bPVCvmULq2D5GUfzx0yMOcyQDBDVevBIieZ5rZcAYQ_WpbTQHlHIRsi1JZNASExi1hiaqhVH_0M0oJCSmvwvsBOvdtG_dtoiFttOxzw-eLo6kbe5iRlqN_6uciW7OjeeXliPvyVi0v5XmYfvyPQuA99W_b2S_klg-e0nhO09BwzOptGJ4f9WP6yEe_2fd3aqgVtESnIYOE1hr-97gZ4JI4AaYkWICwTgBSnhKZrfXwJQAAAABJRU5ErkJggg.png",
+				"snippet": "Alfonso Gonzalez Loeschen. Alfonso Gonzalez Loeschen. Alfonso Gonzalez Loeschen. Executive Vice President Chief Executive Officer, Nestlé Nespresso S.A..",
+				"snippet_highlighted_words": ["Alfonso Gonzalez", "Alfonso Gonzalez", "Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez Loeschen. Alfonso Gonzalez Loeschen. Alfonso Gonzalez Loeschen. Executive Vice President Chief Executive Officer, Nestlé Nespresso S.A..",
+						"source_info_link": "/goto?url=CAESpQEB6zswFYpzqVcuWTbiqwY6kDAxK5ZrAj2BZKiKRfmeGduQdtToOF9IUXmg9CCB9ZWTBeWqFyufpNnMqoLH3ovjz5h0QBls0WWgXYWObnmLLYcZyqE393AJYMr7ZJEZQ1irBHg3w20zcXagC7Ri1IPEWKi4inuZbiWdYSGDSFYFPDPK-3VL3PH9JmUbI80n84eICoOFsS9YOBNj1d1fy3d-tIoZxnk",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAbFBMVEX____-_v729fT7-vry8O67tKzAubLDvbbm5OGqoJXHwbrp5-Tk4d7Jw73d2dW4saiuppzW0cyMf3Kkmo_g3Nm0q6LSzcjOycOckoeThneupZqXjIGViX14aVlwX01XQillUz5eSjOGeWt8bl4AXDAFAAABWklEQVR4AWTRB3atIBQF0EO9SruiT_DZ0uY_xl8TNCvH7qaD7xFo-SFCiP8lPp_fEbhQfH5JQCkAUPpH08ZSZwwA2VsHwHc3pBD7ZB2HISFHYJTBNxTTQ1N22dm5Q6FciFzDGkvVRlqnwBKJ9PK8GuZotQkpmgTOEjEqXFE5PgxYuVRqisAqcMtWSkkZSUtfXMia78jWcKqhVipJ2hCdv2ExYSrsYhmIdeCQ5xvKkalaw8bPVCvmULq2D5GUfzx0yMOcyQDBDVevBIieZ5rZcAYQ_WpbTQHlHIRsi1JZNASExi1hiaqhVH_0M0oJCSmvwvsBOvdtG_dtoiFttOxzw-eLo6kbe5iRlqN_6uciW7OjeeXliPvyVi0v5XmYfvyPQuA99W_b2S_klg-e0nhO09BwzOptGJ4f9WP6yEe_2fd3aqgVtESnIYOE1hr-97gZ4JI4AaYkWICwTgBSnhKZrfXwJQAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cu0BL2dvdG8_dXJsPUNBRVNwUUVCNnpzd0ZZcHpxVmN1V1RiaXF3WTZrREF4SzVackFqMkJaS2lLUmZtZUdkdVFkdFRvT0Y5SVVYbWc5Q0NCOVpXVEJlV3FGeXVmcE5uTXFvTEgzb3ZqejVoMFFCbHMwV1dnWFlXT2JubUxMWWNaeXFFMzkzQUpZTXI3WkpFWlExaXJCSGczdzIwemNYYWdDN1JpMUlQRVdLaTRpbnVaYmlXZFlTR0RTRllGUERQSy0zVkwzUEg5Sm1VYkk4MG44NGVJQ29PRnNTOVlPQk5qMWQxZnkzZC10SW9aeG5rEgQaAggAGq0EEgAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQIkECAAQABgAIAAqDgoHYWxmb25zbxVjunZAKhoKCGdvbnphbGV6FZb-YkAaCWdvbnrDoWxlejLtAS9nb3RvP3VybD1DQUVTcFFFQjZ6c3dGWXB6cVZjdVdUYmlxd1k2a0RBeEs1WnJBajJCWktpS1JmbWVHZHVRZHRUb09GOUlVWG1nOUNDQjlaV1RCZVdxRnl1ZnBObk1xb0xIM292ano1aDBRQmxzMFdXZ1hZV09ibm1MTFljWnlxRTM5M0FKWU1yN1pKRVpRMWlyQkhnM3cyMHpjWGFnQzdSaTFJUEVXS2k0aW51WmJpV2RZU0dEU0ZZRlBEUEstM1ZMM1BIOUptVWJJODBuODRlSUNvT0ZzUzlZT0JOajFkMWZ5M2QtdElvWnhuazoxPGI-QWxmb25zbyBHb256YWxlejwvYj4gTG9lc2NoZW4gfCBOZXN0bMOpIEdsb2JhbEKvATxiPkFsZm9uc28gR29uemFsZXo8L2I-IExvZXNjaGVuLiA8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBMb2VzY2hlbi4gPGI-QWxmb25zbyBHb256YWxlejwvYj4gTG9lc2NoZW4uIEV4ZWN1dGl2ZSBWaWNlIFByZXNpZGVudCBDaGllZiBFeGVjdXRpdmUgT2ZmaWNlciwgTmVzdGzDqSBOZXNwcmVzc28gUy5BLi4iAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cu0BL2dvdG8_dXJsPUNBRVNwUUVCNnpzd0ZZcHpxVmN1V1RiaXF3WTZrREF4SzVackFqMkJaS2lLUmZtZUdkdVFkdFRvT0Y5SVVYbWc5Q0NCOVpXVEJlV3FGeXVmcE5uTXFvTEgzb3ZqejVoMFFCbHMwV1dnWFlXT2JubUxMWWNaeXFFMzkzQUpZTXI3WkpFWlExaXJCSGczdzIwemNYYWdDN1JpMUlQRVdLaTRpbnVaYmlXZFlTR0RTRllGUERQSy0zVkwzUEg5Sm1VYkk4MG44NGVJQ29PRnNTOVlPQk5qMWQxZnkzZC10SW9aeG5rEgQaAggAGq0EEgAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQIkECAAQABgAIAAqDgoHYWxmb25zbxVjunZAKhoKCGdvbnphbGV6FZb-YkAaCWdvbnrDoWxlejLtAS9nb3RvP3VybD1DQUVTcFFFQjZ6c3dGWXB6cVZjdVdUYmlxd1k2a0RBeEs1WnJBajJCWktpS1JmbWVHZHVRZHRUb09GOUlVWG1nOUNDQjlaV1RCZVdxRnl1ZnBObk1xb0xIM292ano1aDBRQmxzMFdXZ1hZV09ibm1MTFljWnlxRTM5M0FKWU1yN1pKRVpRMWlyQkhnM3cyMHpjWGFnQzdSaTFJUEVXS2k0aW51WmJpV2RZU0dEU0ZZRlBEUEstM1ZMM1BIOUptVWJJODBuODRlSUNvT0ZzUzlZT0JOajFkMWZ5M2QtdElvWnhuazoxPGI-QWxmb25zbyBHb256YWxlejwvYj4gTG9lc2NoZW4gfCBOZXN0bMOpIEdsb2JhbEKvATxiPkFsZm9uc28gR29uemFsZXo8L2I-IExvZXNjaGVuLiA8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBMb2VzY2hlbi4gPGI-QWxmb25zbyBHb256YWxlejwvYj4gTG9lc2NoZW4uIEV4ZWN1dGl2ZSBWaWNlIFByZXNpZGVudCBDaGllZiBFeGVjdXRpdmUgT2ZmaWNlciwgTmVzdGzDqSBOZXNwcmVzc28gUy5BLi4iAhABSABYAGgA",
+				"source": "Nestlé Global",
+				"read_more_link": "https://www.google.com/goto?url=CAEShAIB6zswFYST_B82TOHVmRud4algpRtFBGWuv4KjoRFp17Iy3xKZKzNJRwk7X7KehUPMvO_Cj9eXJc9ZehQZZO9yeKzmSfTHHpuEc1262fzv5AQtB1J4oiJLCh9ZsbVQoJqVC4B5rLRF3l8gSCDuetCz65YKiCmCbYqm8Iv_r_jF93lcS3rGaIWYu54qsF8Q8boriaeMN-w-3YcizW3q9aIcIPixgPmZ7p_1CrLN1opRwnccJVoAwpdDdl0KGclfHS9FPXqUaYTIaGZwX43jROJhqAlDYgFZsr8ylIpVzJdmjZX80mLmfTv2A0RLOdyYtdjeeVXvAxydJpqhvlDN7Xt6CYTDaA"
+			},
+			{
+				"position": 7,
+				"title": "Alfonso Gonzalez Jr. - Artists",
+				"link": "/goto?url=CAESegHrOzAVKnBRqA_WT_u6X_QuhOhtIInuAIsEZpxIEbNM_9JncJSjFamJnS5IYl7jFIxfcJJyOLGedqDFux-MbpHBCCtEK89h0RYO3RD9CfoB91ZdPAMpmEQtn2BaisYQVON42JboH0q0xZ8wi8RoHT2nlcKtQBQ3oWE1",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESegHrOzAVcek1ookyxNAsRgxBfDPAkZJaVGOVtZoiFnmOq4wo2JCjsQTxagOzFfwPPq-X8-CR5haxaRh1PSjv_70zJuWC-DUOWJdwOWNhBexXLWszHnNd8v6icj8jNHCRY7msCGhna5-7bPXaUZ8W9GCRj5jHhCiTEEb6&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCEQAQ&uoh=1",
+				"displayed_link": "https://www.matthewbrowngallery.com › artists › alfonso...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVR4Ae3WAURccRzA8ZyTSXIy5ySZJBkIyZAZhiSZmWQCMDNDJjMhhmEYmMCEyYSZGWbmJJkJmUxykjCcOXNO5pwc3j64eG7vXXWNhvvxwb27__t_uf-d1xYEwYW6-IBWQCvAdDFIH8kzLEwxSC8JklxhMMYAHVEBM1TIM3yGgA9U-Eg3vexQaaDMJg9JHQfMEtQsnHLzQYoEZEMBe-wwy-06d1hgjwov6AgHVNkldcLmCRY5ohoRsNboHuYyWYrcRICb8Y0St04I6GGTA3JnCwAzzxF3jwPKPCXPCh0NFo9T4SXZJgPuccRsOGCK9xQYiFmY5A1lRpsJMJdY4pCJcMA4UwTMxyy-Sp639DQZME2Bz2TqAzJsskU64vDNU2KG7piAPK95FWGDQ9boC9y3PiDJM4pM1gV0kSVHukFAmT1yEQpU2WDkr4DahX7yrJIMBVwn4EntdXeTX8EEOX5wLSogwTtKpEPXlikxfM6ARGjPpfqAcGWFudDh22eVzuYDwKQo8j0uIMMG66R5QJHp2mfOG5DkV0wAmDmKTPGFPVL_KOAGv1lpFJCmyFeqLNbeazrAtDPKOgXGYwLArBLwk5FTBuyzwKM6j1nmgDL3aadtkm3GIgLG2GKJzoiDtFyTIsMncuxG2CbLc4ZIhJ-IhuiM-d8eIBPzc-qrSZCkn6EYA3T9d8-ErYBWQCvgDxb363gMZix_AAAAAElFTkSuQmCC.png",
+				"snippet": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles) lives and works in Los Angeles. His solo exhibition In Between Stops is currently on view at Los Angeles County ...",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez Jr. (b. 1989, Los Angeles) lives and works in Los Angeles. His solo exhibition In Between Stops is currently on view at Los Angeles County ...",
+						"source_info_link": "/goto?url=CAESegHrOzAVKnBRqA_WT_u6X_QuhOhtIInuAIsEZpxIEbNM_9JncJSjFamJnS5IYl7jFIxfcJJyOLGedqDFux-MbpHBCCtEK89h0RYO3RD9CfoB91ZdPAMpmEQtn2BaisYQVON42JboH0q0xZ8wi8RoHT2nlcKtQBQ3oWE1",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEElEQVR4Ae3WAURccRzA8ZyTSXIy5ySZJBkIyZAZhiSZmWQCMDNDJjMhhmEYmMCEyYSZGWbmJJkJmUxykjCcOXNO5pwc3j64eG7vXXWNhvvxwb27__t_uf-d1xYEwYW6-IBWQCvAdDFIH8kzLEwxSC8JklxhMMYAHVEBM1TIM3yGgA9U-Eg3vexQaaDMJg9JHQfMEtQsnHLzQYoEZEMBe-wwy-06d1hgjwov6AgHVNkldcLmCRY5ohoRsNboHuYyWYrcRICb8Y0St04I6GGTA3JnCwAzzxF3jwPKPCXPCh0NFo9T4SXZJgPuccRsOGCK9xQYiFmY5A1lRpsJMJdY4pCJcMA4UwTMxyy-Sp639DQZME2Bz2TqAzJsskU64vDNU2KG7piAPK95FWGDQ9boC9y3PiDJM4pM1gV0kSVHukFAmT1yEQpU2WDkr4DahX7yrJIMBVwn4EntdXeTX8EEOX5wLSogwTtKpEPXlikxfM6ARGjPpfqAcGWFudDh22eVzuYDwKQo8j0uIMMG66R5QJHp2mfOG5DkV0wAmDmKTPGFPVL_KOAGv1lpFJCmyFeqLNbeazrAtDPKOgXGYwLArBLwk5FTBuyzwKM6j1nmgDL3aadtkm3GIgLG2GKJzoiDtFyTIsMncuxG2CbLc4ZIhJ-IhuiM-d8eIBPzc-qrSZCkn6EYA3T9d8-ErYBWQCvgDxb363gMZix_AAAAAElFTkSuQmCC.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CrIBL2dvdG8_dXJsPUNBRVNlZ0hyT3pBVktuQlJxQV9XVF91NlhfUXVoT2h0SUludUFJc0VacHhJRWJOTV85Sm5jSlNqRmFtSm5TNUlZbDdqRkl4ZmNKSnlPTEdlZHFERnV4LU1icEhCQ0N0RUs4OWgwUllPM1JEOUNmb0I5MVpkUEFNcG1FUXRuMkJhaXNZUVZPTjQySmJvSDBxMHhaOHdpOFJvSFQybmxjS3RRQlEzb1dFMRIEGgIIABr6AxIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDWAwgAEAAYACAAKg4KB2FsZm9uc28VhAjGQCoaCghnb256YWxlehXHVcxAGglnb256w6FsZXoysgEvZ290bz91cmw9Q0FFU2VnSHJPekFWS25CUnFBX1dUX3U2WF9RdWhPaHRJSW51QUlzRVpweElFYk5NXzlKbmNKU2pGYW1KblM1SVlsN2pGSXhmY0pKeU9MR2VkcURGdXgtTWJwSEJDQ3RFSzg5aDBSWU8zUkQ5Q2ZvQjkxWmRQQU1wbUVRdG4yQmFpc1lRVk9ONDJKYm9IMHEweFo4d2k4Um9IVDJubGNLdFFCUTNvV0UxOj08Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci4gLSBBcnRpc3RzIC0gTWF0dGhldyBCcm93biBHYWxsZXJ5QqsBPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlcykgbGl2ZXMgYW5kIHdvcmtzIGluIExvcyBBbmdlbGVzLiBIaXMgc29sbyBleGhpYml0aW9uIEluIEJldHdlZW4gU3RvcHMgaXMgY3VycmVudGx5IG9uIHZpZXcgYXQgTG9zIEFuZ2VsZXMgQ291bnR5Jm5ic3A7Li4uIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CrIBL2dvdG8_dXJsPUNBRVNlZ0hyT3pBVktuQlJxQV9XVF91NlhfUXVoT2h0SUludUFJc0VacHhJRWJOTV85Sm5jSlNqRmFtSm5TNUlZbDdqRkl4ZmNKSnlPTEdlZHFERnV4LU1icEhCQ0N0RUs4OWgwUllPM1JEOUNmb0I5MVpkUEFNcG1FUXRuMkJhaXNZUVZPTjQySmJvSDBxMHhaOHdpOFJvSFQybmxjS3RRQlEzb1dFMRIEGgIIABr6AxIAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDWAwgAEAAYACAAKg4KB2FsZm9uc28VhAjGQCoaCghnb256YWxlehXHVcxAGglnb256w6FsZXoysgEvZ290bz91cmw9Q0FFU2VnSHJPekFWS25CUnFBX1dUX3U2WF9RdWhPaHRJSW51QUlzRVpweElFYk5NXzlKbmNKU2pGYW1KblM1SVlsN2pGSXhmY0pKeU9MR2VkcURGdXgtTWJwSEJDQ3RFSzg5aDBSWU8zUkQ5Q2ZvQjkxWmRQQU1wbUVRdG4yQmFpc1lRVk9ONDJKYm9IMHEweFo4d2k4Um9IVDJubGNLdFFCUTNvV0UxOj08Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci4gLSBBcnRpc3RzIC0gTWF0dGhldyBCcm93biBHYWxsZXJ5QqsBPGI-QWxmb25zbyBHb256YWxlejwvYj4gSnIuIChiLiAxOTg5LCBMb3MgQW5nZWxlcykgbGl2ZXMgYW5kIHdvcmtzIGluIExvcyBBbmdlbGVzLiBIaXMgc29sbyBleGhpYml0aW9uIEluIEJldHdlZW4gU3RvcHMgaXMgY3VycmVudGx5IG9uIHZpZXcgYXQgTG9zIEFuZ2VsZXMgQ291bnR5Jm5ic3A7Li4uIgIQAUgAWABoAA",
+				"source": "Matthew Brown Gallery"
+			},
+			{
+				"position": 8,
+				"title": "Alfonso Gonzalez Jr.: In Between Stops",
+				"link": "/goto?url=CAESgQEB6zswFUuPdS7sVNhB1Jrx4J4VeNUIRICasb7FjsKCLv5LI_QmxecwcHVF1KlWlbVGn4zeLGCIqQLD68RdsjQrOJCw5gcvlFHxgER9yTeJyseXyi-wTk8AuwCQf93xVh79k9u0y0nWnKICeBBX-KoEWDK13dVwjsyVR9dhn8FLnxc",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESgQEB6zswFfe5mMoBKjam6Tvms3iwt-UgwS_hObDv2zbWOpMvNKlIfUWbbDdBCTPI4jcmomgR7J0M3hm73Fwgu2E7CVHwyecYKfGUSHFB-27evyFVIc1dAHHOvyGmuS0FlzMenUUOGNYM-cRTSyX-ramE-oFum4AQ66tmet3vHFKVQsM&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECCYQAQ&uoh=1",
+				"displayed_link": "https://www.lacma.org › art › exhibition › alfonso-gonz...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAM1BMVEVHcEwkICEkICElISIkICEkHyEjHyAjHyAjHyEjHyAjHyElISMjHyAjHyAqKyojHyAjHyAxjR_vAAAAEXRSTlMAJW48W06V_9r17A-ltwbHgd8cwsMAAACkSURBVHgBtdIFEoMwFEXRKO9bZP-brRcNI5U7yhwg6v6YD3H1kPIGJ5CbCyy6RgO7d2pAOsNIQDnDAAAnqIYiSGP0glxQxphBPkB0hNVg1TPSCFXQemfYCCOekQ7QAGEWSFqjv1cdMFVVJ5hWCGaAfITk52Y3_8bO927Y0fQ5NOU3-vwo1pjjc0U5e_dtVQfVFyaSQ_OEOgaF-X71Q8G_sLqfdwUHRAlA1PjJ5wAAAABJRU5ErkJggg.png",
+				"snippet": "Alfonso Gonzalez Jr.: In Between Stops features 12 benches designed by the Los Angeles–based artist installed along LACMA's Kendall Concourse.",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez Jr.: In Between Stops features 12 benches designed by the Los Angeles–based artist installed along LACMA's Kendall Concourse.",
+						"source_info_link": "/goto?url=CAESgQEB6zswFUuPdS7sVNhB1Jrx4J4VeNUIRICasb7FjsKCLv5LI_QmxecwcHVF1KlWlbVGn4zeLGCIqQLD68RdsjQrOJCw5gcvlFHxgER9yTeJyseXyi-wTk8AuwCQf93xVh79k9u0y0nWnKICeBBX-KoEWDK13dVwjsyVR9dhn8FLnxc",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAM1BMVEVHcEwkICEkICElISIkICEkHyEjHyAjHyAjHyEjHyAjHyElISMjHyAjHyAqKyojHyAjHyAxjR_vAAAAEXRSTlMAJW48W06V_9r17A-ltwbHgd8cwsMAAACkSURBVHgBtdIFEoMwFEXRKO9bZP-brRcNI5U7yhwg6v6YD3H1kPIGJ5CbCyy6RgO7d2pAOsNIQDnDAAAnqIYiSGP0glxQxphBPkB0hNVg1TPSCFXQemfYCCOekQ7QAGEWSFqjv1cdMFVVJ5hWCGaAfITk52Y3_8bO927Y0fQ5NOU3-vwo1pjjc0U5e_dtVQfVFyaSQ_OEOgaF-X71Q8G_sLqfdwUHRAlA1PjJ5wAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cr0BL2dvdG8_dXJsPUNBRVNnUUVCNnpzd0ZVdVBkUzdzVk5oQjFKcng0SjRWZU5VSVJJQ2FzYjdGanNLQ0x2NUxJX1FteGVjd2NIVkYxS2xXbGJWR240emVMR0NJcVFMRDY4UmRzalFyT0pDdzVnY3ZsRkh4Z0VSOXlUZUp5c2VYeWktd1RrOEF1d0NRZjkzeFZoNzlrOXUweTBuV25LSUNlQkJYLUtvRVdESzEzZFZ3anN5VlI5ZGhuOEZMbnhjEgQaAggAGu8DEgIIABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAyQMIABAAGAAgACoOCgdhbGZvbnNvFfP_l0AqGgoIZ29uemFsZXoVstOhQBoJZ29uesOhbGV6Mr0BL2dvdG8_dXJsPUNBRVNnUUVCNnpzd0ZVdVBkUzdzVk5oQjFKcng0SjRWZU5VSVJJQ2FzYjdGanNLQ0x2NUxJX1FteGVjd2NIVkYxS2xXbGJWR240emVMR0NJcVFMRDY4UmRzalFyT0pDdzVnY3ZsRkh4Z0VSOXlUZUp5c2VYeWktd1RrOEF1d0NRZjkzeFZoNzlrOXUweTBuV25LSUNlQkJYLUtvRVdESzEzZFZ3anN5VlI5ZGhuOEZMbnhjOjU8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci46IEluIEJldHdlZW4gU3RvcHMgLSBMQUNNQUKbATxiPkFsZm9uc28gR29uemFsZXo8L2I-IEpyLjogSW4gQmV0d2VlbiBTdG9wcyBmZWF0dXJlcyAxMiBiZW5jaGVzIGRlc2lnbmVkIGJ5IHRoZSBMb3MgQW5nZWxlc-KAk2Jhc2VkIGFydGlzdCBpbnN0YWxsZWQgYWxvbmcgTEFDTUEmIzM5O3MgS2VuZGFsbCBDb25jb3Vyc2UuIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cr0BL2dvdG8_dXJsPUNBRVNnUUVCNnpzd0ZVdVBkUzdzVk5oQjFKcng0SjRWZU5VSVJJQ2FzYjdGanNLQ0x2NUxJX1FteGVjd2NIVkYxS2xXbGJWR240emVMR0NJcVFMRDY4UmRzalFyT0pDdzVnY3ZsRkh4Z0VSOXlUZUp5c2VYeWktd1RrOEF1d0NRZjkzeFZoNzlrOXUweTBuV25LSUNlQkJYLUtvRVdESzEzZFZ3anN5VlI5ZGhuOEZMbnhjEgQaAggAGu8DEgIIABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAyQMIABAAGAAgACoOCgdhbGZvbnNvFfP_l0AqGgoIZ29uemFsZXoVstOhQBoJZ29uesOhbGV6Mr0BL2dvdG8_dXJsPUNBRVNnUUVCNnpzd0ZVdVBkUzdzVk5oQjFKcng0SjRWZU5VSVJJQ2FzYjdGanNLQ0x2NUxJX1FteGVjd2NIVkYxS2xXbGJWR240emVMR0NJcVFMRDY4UmRzalFyT0pDdzVnY3ZsRkh4Z0VSOXlUZUp5c2VYeWktd1RrOEF1d0NRZjkzeFZoNzlrOXUweTBuV25LSUNlQkJYLUtvRVdESzEzZFZ3anN5VlI5ZGhuOEZMbnhjOjU8Yj5BbGZvbnNvIEdvbnphbGV6PC9iPiBKci46IEluIEJldHdlZW4gU3RvcHMgLSBMQUNNQUKbATxiPkFsZm9uc28gR29uemFsZXo8L2I-IEpyLjogSW4gQmV0d2VlbiBTdG9wcyBmZWF0dXJlcyAxMiBiZW5jaGVzIGRlc2lnbmVkIGJ5IHRoZSBMb3MgQW5nZWxlc-KAk2Jhc2VkIGFydGlzdCBpbnN0YWxsZWQgYWxvbmcgTEFDTUEmIzM5O3MgS2VuZGFsbCBDb25jb3Vyc2UuIgIQAUgAWABoAA",
+				"source": "LACMA"
+			},
+			{
+				"position": 9,
+				"title": "Alfonso Gonzalez - Astrodynamics & SE Podcast",
+				"link": "/goto?url=CAEScwHrOzAVu2wNdkTyhz8GlW_YwONou4QLcFJiYCxki9QOaR8Wtf27LcsJfyVkYfFXvlpM4PzAwKTMACI1XoTGR-x5_MrMvJxpQh3mAvdreF8VNRradyfMJAsPeR0N2k5U1A4e0kZUkDPrpOg3WldH_MIj3xg",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEScwHrOzAV7kB0b9SbhYJN0WwaK_Y4dqHXIm2jUC5ePtEO7FG__zglY0wJUzgG25vAPFVgN7Jmj7Y9Nyy90vHsgqDiBYKvJaLGLxjCJ-Zapa450AaEKvd2V63Oa3gHkMgcxM32b9fPX0KcrmzIPrjJVKxcNmw&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECEkQAQ&uoh=1",
+				"displayed_link": "13.8K+ followers",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAhUlEQVR4AWNwL_ChCFPHgP8MxqxA7ArEKVBcCcUNIAznI-RdQXrABgAZpv8ZjP6Tg0F6QQbsosCAXSADHmGVVPIC0jKEDHgAMuAbmgRE445D___feYzXIJBeBigH04BVW_9DAcgwqEGYaik2gGIvUByIlEbjDooTEiwps5GRlNmolpkowgBVP9wMSzSKGAAAAABJRU5ErkJggg.png",
+				"snippet": "Alfonso Gonzalez - Astrodynamics & SE Podcast · Space Engineering Podcast Full Episodes · Videos · Popular videos · Orbital Mechanics with Python Playlists.",
+				"snippet_highlighted_words": ["Alfonso Gonzalez"],
+				"about_this_result": {
+					"source": {
+						"description": "Alfonso Gonzalez - Astrodynamics & SE Podcast · Space Engineering Podcast Full Episodes · Videos · Popular videos · Orbital Mechanics with Python Playlists.",
+						"source_info_link": "/goto?url=CAEScwHrOzAVu2wNdkTyhz8GlW_YwONou4QLcFJiYCxki9QOaR8Wtf27LcsJfyVkYfFXvlpM4PzAwKTMACI1XoTGR-x5_MrMvJxpQh3mAvdreF8VNRradyfMJAsPeR0N2k5U1A4e0kZUkDPrpOg3WldH_MIj3xg",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8_9hAAAAhUlEQVR4AWNwL_ChCFPHgP8MxqxA7ArEKVBcCcUNIAznI-RdQXrABgAZpv8ZjP6Tg0F6QQbsosCAXSADHmGVVPIC0jKEDHgAMuAbmgRE445D___feYzXIJBeBigH04BVW_9DAcgwqEGYaik2gGIvUByIlEbjDooTEiwps5GRlNmolpkowgBVP9wMSzSKGAAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqkBL2dvdG8_dXJsPUNBRVNjd0hyT3pBVnUyd05ka1R5aHo4R2xXX1l3T05vdTRRTGNGSmlZQ3hraTlRT2FSOFd0ZjI3TGNzSmZ5VmtZZkZYdmxwTTRQekF3S1RNQUNJMVhvVEdSLXg1X01yTXZKeHBRaDNtQXZkcmVGOFZOUnJhZHlmTUpBc1BlUjBOMms1VTFBNGUwa1pVa0RQcnBPZzNXbGRIX01JajN4ZxIEGgIIABqQBBICCAAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQOoDCAAQABgAIAAqDgoHYWxmb25zbxUMXL5AKhoKCGdvbnphbGV6FQxcvkAaCWdvbnrDoWxlejKpAS9nb3RvP3VybD1DQUVTY3dIck96QVZ1MndOZGtUeWh6OEdsV19Zd09Ob3U0UUxjRkppWUN4a2k5UU9hUjhXdGYyN0xjc0pmeVZrWWZGWHZscE00UHpBd0tUTUFDSTFYb1RHUi14NV9Nck12SnhwUWgzbUF2ZHJlRjhWTlJyYWR5Zk1KQXNQZVIwTjJrNVUxQTRlMGtaVWtEUHJwT2czV2xkSF9NSWozeGc6QjxiPkFsZm9uc28gR29uemFsZXo8L2I-IC0gQXN0cm9keW5hbWljcyAmYW1wOyBTRSBQb2RjYXN0IC0gWW91VHViZULDATxiPkFsZm9uc28gR29uemFsZXo8L2I-IC0gQXN0cm9keW5hbWljcyAmYW1wOyBTRSBQb2RjYXN0ICZtaWRkb3Q7IFNwYWNlIEVuZ2luZWVyaW5nIFBvZGNhc3QgRnVsbCBFcGlzb2RlcyAmbWlkZG90OyBWaWRlb3MgJm1pZGRvdDsgUG9wdWxhciB2aWRlb3MgJm1pZGRvdDsgT3JiaXRhbCBNZWNoYW5pY3Mgd2l0aCBQeXRob24gUGxheWxpc3RzLiICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqkBL2dvdG8_dXJsPUNBRVNjd0hyT3pBVnUyd05ka1R5aHo4R2xXX1l3T05vdTRRTGNGSmlZQ3hraTlRT2FSOFd0ZjI3TGNzSmZ5VmtZZkZYdmxwTTRQekF3S1RNQUNJMVhvVEdSLXg1X01yTXZKeHBRaDNtQXZkcmVGOFZOUnJhZHlmTUpBc1BlUjBOMms1VTFBNGUwa1pVa0RQcnBPZzNXbGRIX01JajN4ZxIEGgIIABqQBBICCAAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQOoDCAAQABgAIAAqDgoHYWxmb25zbxUMXL5AKhoKCGdvbnphbGV6FQxcvkAaCWdvbnrDoWxlejKpAS9nb3RvP3VybD1DQUVTY3dIck96QVZ1MndOZGtUeWh6OEdsV19Zd09Ob3U0UUxjRkppWUN4a2k5UU9hUjhXdGYyN0xjc0pmeVZrWWZGWHZscE00UHpBd0tUTUFDSTFYb1RHUi14NV9Nck12SnhwUWgzbUF2ZHJlRjhWTlJyYWR5Zk1KQXNQZVIwTjJrNVUxQTRlMGtaVWtEUHJwT2czV2xkSF9NSWozeGc6QjxiPkFsZm9uc28gR29uemFsZXo8L2I-IC0gQXN0cm9keW5hbWljcyAmYW1wOyBTRSBQb2RjYXN0IC0gWW91VHViZULDATxiPkFsZm9uc28gR29uemFsZXo8L2I-IC0gQXN0cm9keW5hbWljcyAmYW1wOyBTRSBQb2RjYXN0ICZtaWRkb3Q7IFNwYWNlIEVuZ2luZWVyaW5nIFBvZGNhc3QgRnVsbCBFcGlzb2RlcyAmbWlkZG90OyBWaWRlb3MgJm1pZGRvdDsgUG9wdWxhciB2aWRlb3MgJm1pZGRvdDsgT3JiaXRhbCBNZWNoYW5pY3Mgd2l0aCBQeXRob24gUGxheWxpc3RzLiICEAFIAFgAaAA",
+				"source": "YouTube · Alfonso Gonzalez - Astrodynamics & SE Podcast",
+				"read_more_link": "https://www.google.com/goto?url=CAESxAIB6zswFUiLB_mHngolNfpMTpFrwHODBwhrPyL0arlLViX5j9gkzVzye4BPFFO1rdLSYpiM9iyZjUjN_TUPV1CGBLGd46b74AijXMekI7GThSnxH4ExULeisdAV-BYY886QlmqNL8idK4oHQwFtI6qmP3g6hvqgwiKCqnznNfTSz-w7EWBxyw0JcPZeFZr3w0pkGHt5aG27ut1bJDD6p-QCYe9JqBzBvJdUlu2cUAGsdIWIS3zvDH_WNbrBZp4DKpLfXVVJi33uY0SxxO_4zszRBXTCp1UZ6uh837dw2iBawGgFMIjqJbkoiaM9p2oiM3K81amshm_u_UTu3xNcBtkapSDfsnCSBo03TRuKNp-1_4yXsI750wAX3okZYkj8c6au1crZoO0EaCvaM8Az9nJ6GDtvlaWUC9Tn5Ainpwes6nL8Q1w"
+			},
+			{
+				"position": 10,
+				"title": "Alfonso González's Portfolio 2026, by AlfonsoGonzalez",
+				"link": "/goto?url=CAESYgHrOzAVvmfi-0tYd7IHRqEuRWSF1Fg3HxfGF_3DGxxXa5EAX2wjqD7Yxoredrxtr9AtIijZID95PVwczNCBEbsfpAS1h_c5abvbBYuLSHLjmDFQGMRUyFw83Ocy4bNtY6Cn",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYgHrOzAVPTu3E-h_CwugXVU_7ECtf9lFu40nEHuWZ3ZnHzreGv5DOBI0Kf1FAbgJ_EOvY7Jg8g5-fu_X-7bZn4-OXoxyE8M_dNnm66GQUBn_rYWfWn7nnNP0ZKr1jdokWIWw&ved=2ahUKEwjpnKaw8OCXAxVIGFkFHTVLJ7sQFnoECEYQAQ&uoh=1",
+				"displayed_link": "https://www.therookies.co › Rookie Awards 2026",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEUREREMDRAODxAmIhgpJBoAAAUAAAAAAAzlwmoAAA3Ts2LcumbPr2CJdUJIPiZOQyg_NyKiiU22mlW9oFluXjYDCA7gvmiPeUSAbT4dGxVBOCPXtmSTfEabhErFp1yqkFB2ZDk0LR4aGBQiHxfxzG9jVTFWSiy0ZG8OAAABA0lEQVR4AbXPVZbDMAxAUcttJBnCzDjZ_w4Lw_bpb184N2CLtwYCPpPyhV3g-hkESL4jK_2ZYRuS8tBAFD9L1DXlmDwkzp7lxhQXjkoPK6zDMGyi1qZdjz7S8GicNJrExqWH5YBEhPW8pOFAHrYaPyfcJ3kxBy7yF5arjvIldRHWzeIjaZuhThvnsxWZysZsqqpZGbmFfwjbtovHtgf7yMk4B-5UjN6O_hFVH-eB0kVcV4sdDBPxnqUo_NHak3nL0o6xX8hFo-yZRU9YLFToIuf2zLHRyPEIxkWM4kQlJc4ZRRh42Gut-5QkTkb3vYOwX5_tUkj6PAHxXz97Tk9-nol3dgczIBM6QCT7iQAAAABJRU5ErkJggg.png",
+				"date": "May 22, 2026",
+				"snippet": "My name is Alfonso González, and I just finished my Master's degree in Environment Modeling and 3D Production at Animum Creativity Advanced ...",
+				"snippet_highlighted_words": ["Alfonso González"],
+				"about_this_result": {
+					"source": {
+						"description": "My name is Alfonso González, and I just finished my Master's degree in Environment Modeling and 3D Production at Animum Creativity Advanced ...",
+						"source_info_link": "/goto?url=CAESYgHrOzAVvmfi-0tYd7IHRqEuRWSF1Fg3HxfGF_3DGxxXa5EAX2wjqD7Yxoredrxtr9AtIijZID95PVwczNCBEbsfpAS1h_c5abvbBYuLSHLjmDFQGMRUyFw83Ocy4bNtY6Cn",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAdVBMVEUREREMDRAODxAmIhgpJBoAAAUAAAAAAAzlwmoAAA3Ts2LcumbPr2CJdUJIPiZOQyg_NyKiiU22mlW9oFluXjYDCA7gvmiPeUSAbT4dGxVBOCPXtmSTfEabhErFp1yqkFB2ZDk0LR4aGBQiHxfxzG9jVTFWSiy0ZG8OAAABA0lEQVR4AbXPVZbDMAxAUcttJBnCzDjZ_w4Lw_bpb184N2CLtwYCPpPyhV3g-hkESL4jK_2ZYRuS8tBAFD9L1DXlmDwkzp7lxhQXjkoPK6zDMGyi1qZdjz7S8GicNJrExqWH5YBEhPW8pOFAHrYaPyfcJ3kxBy7yF5arjvIldRHWzeIjaZuhThvnsxWZysZsqqpZGbmFfwjbtovHtgf7yMk4B-5UjN6O_hFVH-eB0kVcV4sdDBPxnqUo_NHak3nL0o6xX8hFo-yZRU9YLFToIuf2zLHRyPEIxkWM4kQlJc4ZRRh42Gut-5QkTkb3vYOwX5_tUkj6PAHxXz97Tk9-nol3dgczIBM6QCT7iQAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpIBL2dvdG8_dXJsPUNBRVNZZ0hyT3pBVnZtZmktMHRZZDdJSFJxRXVSV1NGMUZnM0h4ZkdGXzNER3h4WGE1RUFYMndqcUQ3WXhvcmVkcnh0cjlBdElpalpJRDk1UFZ3Y3pOQ0JFYnNmcEFTMWhfYzVhYnZiQll1TFNITGptREZRR01SVXlGdzgzT2N5NGJOdFk2Q24SBBoCCAAazwMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCpAwgAEAAYACAAKg4KB2FsZm9uc28VJbi8QCoaCghnb256YWxlehUluLxAGglnb256w6FsZXoykgEvZ290bz91cmw9Q0FFU1lnSHJPekFWdm1maS0wdFlkN0lIUnFFdVJXU0YxRmczSHhmR0ZfM0RHeHhYYTVFQVgyd2pxRDdZeG9yZWRyeHRyOUF0SWlqWklEOTVQVndjek5DQkVic2ZwQVMxaF9jNWFidmJCWXVMU0hMam1ERlFHTVJVeUZ3ODNPY3k0Yk50WTZDbjo7PGI-QWxmb25zbyBHb256w6FsZXomIzM5O3M8L2I-IFBvcnRmb2xpbyAyMDI2IC0gVGhlIFJvb2tpZXNCoAFNeSBuYW1lIGlzIDxiPkFsZm9uc28gR29uesOhbGV6PC9iPiwgYW5kIEkganVzdCBmaW5pc2hlZCBteSBNYXN0ZXImIzM5O3MgZGVncmVlIGluIEVudmlyb25tZW50IE1vZGVsaW5nIGFuZCAzRCBQcm9kdWN0aW9uIGF0IEFuaW11bSBDcmVhdGl2aXR5IEFkdmFuY2VkJm5ic3A7Li4uIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpIBL2dvdG8_dXJsPUNBRVNZZ0hyT3pBVnZtZmktMHRZZDdJSFJxRXVSV1NGMUZnM0h4ZkdGXzNER3h4WGE1RUFYMndqcUQ3WXhvcmVkcnh0cjlBdElpalpJRDk1UFZ3Y3pOQ0JFYnNmcEFTMWhfYzVhYnZiQll1TFNITGptREZRR01SVXlGdzgzT2N5NGJOdFk2Q24SBBoCCAAazwMSAggAGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCpAwgAEAAYACAAKg4KB2FsZm9uc28VJbi8QCoaCghnb256YWxlehUluLxAGglnb256w6FsZXoykgEvZ290bz91cmw9Q0FFU1lnSHJPekFWdm1maS0wdFlkN0lIUnFFdVJXU0YxRmczSHhmR0ZfM0RHeHhYYTVFQVgyd2pxRDdZeG9yZWRyeHRyOUF0SWlqWklEOTVQVndjek5DQkVic2ZwQVMxaF9jNWFidmJCWXVMU0hMam1ERlFHTVJVeUZ3ODNPY3k0Yk50WTZDbjo7PGI-QWxmb25zbyBHb256w6FsZXomIzM5O3M8L2I-IFBvcnRmb2xpbyAyMDI2IC0gVGhlIFJvb2tpZXNCoAFNeSBuYW1lIGlzIDxiPkFsZm9uc28gR29uesOhbGV6PC9iPiwgYW5kIEkganVzdCBmaW5pc2hlZCBteSBNYXN0ZXImIzM5O3MgZGVncmVlIGluIEVudmlyb25tZW50IE1vZGVsaW5nIGFuZCAzRCBQcm9kdWN0aW9uIGF0IEFuaW11bSBDcmVhdGl2aXR5IEFkdmFuY2VkJm5ic3A7Li4uIgIQAUgAWABoAA",
+				"source": "The Rookies",
+				"read_more_link": "https://www.google.com/goto?url=CAESvAEB6zswFS2QZs3W1yOCqufIxb3hkywTC1o1Cgaijg-RKA91-tuJ43C0KJvUebdr7t5iG69bLeVBRJH34VwZAdZtijEtWnCpW_cPsj7WG_Mwb5ryZOHqidIKaerQSumQwUD_jMDbhsw3JMb7Pk0w2TyszMGHJTQJ4RmW_OiIR1R8XvOHfr3c-cRdRIr2FwJy31zM4-80pAMkacF3lpgK3QHR3TDE63Ns_xPMBnUBVcAmAnCofH6Y4sKEExfdew"
+			}
+		]
+	}
+}

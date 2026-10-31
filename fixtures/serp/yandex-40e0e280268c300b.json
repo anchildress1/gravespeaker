@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Corwin Garner Chambers\" eugene oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Category:Eugene Masonic Cemetery - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Eugene_Masonic_Cemetery",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Eugene",
+				"snippet": "Media in category \"Eugene Masonic Cemetery\". The following 200 files are in this category, out of 376 total. ... Corwin Garner Chambers (1959-2011), Eugene Masonic Cemetery.jpg 4,976 × 2,800; 5.92 MB."
+			},
+			{
+				"position": 2,
+				"title": "Category:Oregon in the 2010s - Wikimedia Commons",
+				"link": "https://commons.wikimedia.org/wiki/Category:Oregon_in_the_2010s",
+				"displayed_link": "commons.wikimedia.org › wiki › Category:Oregon_in_the",
+				"snippet": "Media in category \"Oregon in the 2010s\". The following 72 files are in this category, out of 72 total. Algernon and Rebecca Currie, Eugene Masonic Cemetery.jpg 3,456 × 4,608; 6.55 MB."
+			}
+		]
+	}
+}

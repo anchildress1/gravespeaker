@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('#lib/server/env.ts', () => ({ geminiApiKey: () => 'test', serpApiKey: () => 'test' }));
@@ -24,7 +25,8 @@ const hawks = JSON.stringify({
 			name: 'Gaynor Claire Hawks née Staples',
 			born: '1932-03-10',
 			died: '2017-12-27',
-			voice: 'female'
+			voice: 'female',
+			place: null
 		}
 	]
 });
@@ -41,13 +43,29 @@ const stubGemini = (respond: () => Response) =>
 	);
 
 /**
+ * Stubs Gemini and Nominatim, each answering by host.
+ * @param read Gemini's reply.
+ * @param geocode Nominatim's reply.
+ * @returns The fixture.
+ */
+const stubBoth = (read: () => Response, geocode: () => Response) =>
+	vi.stubGlobal(
+		'fetch',
+		vi.fn(async (url: string | URL | Request) =>
+			String(url instanceof Request ? url.url : url).includes('nominatim') ? geocode() : read()
+		)
+	);
+
+/**
  * Calls the endpoint with an optional upload.
  * @param file Upload, or undefined for an empty form.
+ * @param fields Extra form fields.
  * @returns The response.
  */
-const call = (file?: File) => {
+const call = (file?: File, fields: Record<string, string> = {}) => {
 	const body = new FormData();
 	if (file) body.set('image', file);
+	for (const [k, v] of Object.entries(fields)) body.set(k, v);
 	return POST({ request: new Request('http://x/api/read', { method: 'POST', body }) } as never);
 };
 /**
@@ -90,7 +108,8 @@ describe('POST /api/read', () => {
 					maidenName: 'Staples',
 					born: '1932-03-10',
 					died: '2017-12-27',
-					voice: 'female'
+					voice: 'female',
+					place: null
 				}
 			]
 		});
@@ -105,7 +124,11 @@ describe('POST /api/read', () => {
 
 	it('returns no people when the only name has no letters', async () => {
 		stubGemini(() =>
-			reply(JSON.stringify({ people: [{ name: '[]', born: null, died: null, voice: null }] }))
+			reply(
+				JSON.stringify({
+					people: [{ name: '[]', born: null, died: null, voice: null, place: null }]
+				})
+			)
 		);
 		const res = await call(jpeg());
 		expect(await res.json()).toEqual({ people: [] });
@@ -135,5 +158,72 @@ describe('POST /api/read', () => {
 			request: new Request('http://x/api/read', { method: 'POST', body: 'nope' })
 		} as never);
 		expect(res.status).toBe(400);
+	});
+
+	describe('place', () => {
+		/**
+		 * Builds Nominatim's reply for Eugene.
+		 * @returns The response.
+		 */
+		const eugene = () => Response.json({ address: { city: 'Eugene', state: 'Oregon' } });
+		/**
+		 * Builds a model reply for one person with a carved place.
+		 * @param place Place as carved, or null.
+		 * @returns The response.
+		 */
+		const carved = (place: string | null) =>
+			reply(
+				JSON.stringify({
+					people: [{ name: 'Mercy Hale', born: null, died: '1839', voice: null, place }]
+				})
+			);
+
+		it("names the town at the visitor's location", async () => {
+			stubBoth(() => carved(null), eugene);
+			const res = await call(jpeg(), { lat: '44.0521', lon: '-123.0868' });
+			expect((await res.json()).people[0].place).toBe('Eugene, Oregon');
+		});
+
+		it('falls back to the GPS in the photo', async () => {
+			stubBoth(() => carved(null), eugene);
+			const bytes = await readFile(
+				new URL('../../../lib/server/testdata/gps.jpg', import.meta.url)
+			);
+			const res = await call(new File([bytes], 'g.jpg', { type: 'image/jpeg' }));
+			expect((await res.json()).people[0].place).toBe('Eugene, Oregon');
+		});
+
+		it('prefers the town over a carved place', async () => {
+			stubBoth(() => carved('Westfield'), eugene);
+			const res = await call(jpeg(), { lat: '44.0521', lon: '-123.0868' });
+			expect((await res.json()).people[0].place).toBe('Eugene, Oregon');
+		});
+
+		it('keeps the carved place when there is no location', async () => {
+			stubBoth(() => carved('  Westfield,\n Mass. '), eugene);
+			const res = await call(jpeg());
+			expect((await res.json()).people[0].place).toBe('Westfield, Mass.');
+		});
+
+		it('still reads the stone when the town lookup fails', async () => {
+			stubBoth(
+				() => carved('Westfield'),
+				() => new Response('busy', { status: 503 })
+			);
+			const res = await call(jpeg(), { lat: '44.0521', lon: '-123.0868' });
+			expect(res.status).toBe(200);
+			expect((await res.json()).people[0].place).toBe('Westfield');
+		});
+
+		it.each([
+			[{ lat: '44.05' }],
+			[{ lat: 'north', lon: '-123' }],
+			[{ lat: '95', lon: '-123' }],
+			[{ lat: '44', lon: '' }]
+		])('rejects an invalid point %o', async (fields) => {
+			const res = await call(jpeg(), fields);
+			expect(res.status).toBe(400);
+			expect((await res.json()).error.code).toBe('invalid_input');
+		});
 	});
 });

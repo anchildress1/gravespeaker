@@ -1,0 +1,232 @@
+{
+	"engine": "google",
+	"query": "\"Joshua John Mills\" eugene oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Cemetery",
+				"link": "https://en.wikipedia.org/wiki/Cemetery",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYQHrOzAV1GzmQOyjAjY0TAJl2-61aQY5qvI194q0kGS0ulZB3fq4kh3WVBF1-N_XKyid5HDcwD5Q4GHssGqt452UP3KNa5Xux_zFKPsiPXX7Ve1u7Gta6X8CvyvxHUYh1lo&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBsQAQ&uoh=1",
+				"displayed_link": "https://en.wikipedia.org › wiki › Cemetery",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png",
+				"snippet": "A cemetery, burial ground, gravesite, graveyard, or a green space called a memorial park or memorial garden, is a place where the remains of many dead ...",
+				"snippet_highlighted_words": ["cemetery", "gravesite", "or", "or"],
+				"about_this_result": {
+					"source": {
+						"description": "A cemetery, burial ground, gravesite, graveyard, or a green space called a memorial park or memorial garden, is a place where the remains of many dead ...",
+						"source_info_link": "https://en.wikipedia.org/wiki/Cemetery",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAnklEQVR4AeTNIQiDQABG4b-u17X1aF6PK3YEO9iMJqPVau82y4FgMezS0oVLhqsHtrcqeqzDXv3CEz_6L4yTtZM3dnHmPTtjzXZAXKYVo4agkU2GI2Lloc6JDez1-flswMu1EQZ3xlE7lK8eKDkjtwE-crBMV-wesKmCiisGGepZIfQJpMj9SNb2MYWrChjVkULuCyCfRvsdmBieyQQAsoDk_9ryhFMAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpEBL2dvdG8_dXJsPUNBRVNZUUhyT3pBVkdMeEQ0cXVNQ24wc2pIWDBINmNabWNPWk40MmNNOC1haHRWRExEeGFKUlVtNGdKUzJMQlpDSWFCZXYzRHJFbTJSZzNRUUFtMkFQSEEwSkVrTTNkMlM4V0FTdW1idTlxVExwT0l1Z0tyZTd1RHFfeW9FYS1VQldRdEg1MBIEGgIIABqwAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQIoDCAAQABgAIAAqDQoGam9zaHVhFf6Oo0AykQEvZ290bz91cmw9Q0FFU1lRSHJPekFWR0x4RDRxdU1DbjBzakhYMEg2Y1ptY09aTjQyY004LWFodFZETER4YUpSVW00Z0pTMkxCWkNJYUJldjNEckVtMlJnM1FRQW0yQVBIQTBKRWtNM2QyUzhXQVN1bWJ1OXFUTHBPSXVnS3JlN3VEcV95b0VhLVVCV1F0SDUwOhs8Yj5DZW1ldGVyeTwvYj4gLSBXaWtpcGVkaWFCuwFBIDxiPmNlbWV0ZXJ5PC9iPiwgYnVyaWFsIGdyb3VuZCwgPGI-Z3JhdmVzaXRlPC9iPiwgZ3JhdmV5YXJkLCA8Yj5vcjwvYj4gYSBncmVlbiBzcGFjZSBjYWxsZWQgYSBtZW1vcmlhbCBwYXJrIDxiPm9yPC9iPiBtZW1vcmlhbCBnYXJkZW4sIGlzIGEgcGxhY2Ugd2hlcmUgdGhlIHJlbWFpbnMgb2YgbWFueSBkZWFkJm5ic3A7Li4uUgJvciICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpEBL2dvdG8_dXJsPUNBRVNZUUhyT3pBVkdMeEQ0cXVNQ24wc2pIWDBINmNabWNPWk40MmNNOC1haHRWRExEeGFKUlVtNGdKUzJMQlpDSWFCZXYzRHJFbTJSZzNRUUFtMkFQSEEwSkVrTTNkMlM4V0FTdW1idTlxVExwT0l1Z0tyZTd1RHFfeW9FYS1VQldRdEg1MBIEGgIIABqwAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQIoDCAAQABgAIAAqDQoGam9zaHVhFf6Oo0AykQEvZ290bz91cmw9Q0FFU1lRSHJPekFWR0x4RDRxdU1DbjBzakhYMEg2Y1ptY09aTjQyY004LWFodFZETER4YUpSVW00Z0pTMkxCWkNJYUJldjNEckVtMlJnM1FRQW0yQVBIQTBKRWtNM2QyUzhXQVN1bWJ1OXFUTHBPSXVnS3JlN3VEcV95b0VhLVVCV1F0SDUwOhs8Yj5DZW1ldGVyeTwvYj4gLSBXaWtpcGVkaWFCuwFBIDxiPmNlbWV0ZXJ5PC9iPiwgYnVyaWFsIGdyb3VuZCwgPGI-Z3JhdmVzaXRlPC9iPiwgZ3JhdmV5YXJkLCA8Yj5vcjwvYj4gYSBncmVlbiBzcGFjZSBjYWxsZWQgYSBtZW1vcmlhbCBwYXJrIDxiPm9yPC9iPiBtZW1vcmlhbCBnYXJkZW4sIGlzIGEgcGxhY2Ugd2hlcmUgdGhlIHJlbWFpbnMgb2YgbWFueSBkZWFkJm5ic3A7Li4uUgJvciICEAFIAFgAaAA",
+				"source": "Wikipedia",
+				"read_more_link": "https://www.google.com/goto?url=CAESyAEB6zswFW8BMpZVVoxQXJdSHqtqapFzywTX8n4_s7bup_yLhoS9g3n3yyh3OLwUGsjA3Daix7vh0BR2eKVWWbZHurfCNdZ7waWIY5OzaS81IhEgQB5nHo4ShB2bHSY-4MdDmMTHkCveZSXWSlLCUOPen79pDZPyt2EqrOVxMbwUS6TMGL6bRC9L_gx688zQc5b0QFzaZyb8U3Fad2M2DsiOdh_l9gT-4IRQ4VWS0UaZN1xZzYcB_cJUmFFW9skdWspmxMsemFSmZg&gsessionid=73fkok84rcKlwWz5tBW3cvrNE0ZR9nwWb3ZBJ8wBA0Vmm4M_3CqGsg"
+			},
+			{
+				"position": 2,
+				"title": "Obituary - Official",
+				"link": "/goto?url=CAESUwHrOzAViWGu-h59cXSg80uHpDgj894lb4PZEgFhiIcTX0TVaiLAt_ieVjg7wXEs_U1Ag7QfKoCmGMuqsODdmroxUrkRoLRdUjniaTsIgF-hDCFY",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESUwHrOzAVe4STdvaBcudygw12lNSxd473M4F3VQ5R1Su6xCqKZVtwMUcTizCulb-wvEuwS_eB3SokZ5PFueq1ZmslVhgVAPvm9LZO2h1vwflNaSay&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBYQAQ&uoh=1",
+				"displayed_link": "https://www.obituary.cc",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEVHcEzLRwTMSQjYd0zLSQrLSALLSADLSADLRgTLSADLSADLSAPLSADLSADLSADLSADLSADLSADLSAA6ErpGAAAAE3RSTlMAI0YMFjR53gudVWn-i77NrQXusvku6wAAAQpJREFUeAHVzlFqRSEMRdEdG6PRqF7nP9gW5PFKKfS76-tAknD4VyR98IJmfrBiVdyagqZuTc2FN4uigJrHl9EToGUqF6Ws-1JIMXjxkBtaZEq9OcfmeiCv584NumtZXleOnhIymWu1nZ4BGgfIMbYOC6KFtph26qjn4SRYG5AYs-RWOMmHe_Kz0GAs-Ai7H3ovslijb3cbvnrdbTv0MKBF6zMx2baLK7r1cJqEouHADqZBEn9MWwVjVEUDKOc2FQCcq6IK-R4nejjX4Lt6MtQoWOTfFuQ4gMRcCy6nP7yU9VrcAtdcyjvz4pG57DxcdQ3eZNoNGy7bwnePdH2XzN2E3xl_aPyh8h99AiY_CsrfLgMoAAAAAElFTkSuQmCC.png",
+				"snippet": "Obituary - Official TOUR. Remembering the ones who gave the ultimate sacrifice, honoring those who keep us safe … 37 Years of Slowly We Rot",
+				"snippet_highlighted_words": ["Obituary"],
+				"about_this_result": {
+					"source": {
+						"description": "Obituary - Official TOUR. Remembering the ones who gave the ultimate sacrifice, honoring those who keep us safe … 37 Years of Slowly We Rot",
+						"source_info_link": "/goto?url=CAESUwHrOzAViWGu-h59cXSg80uHpDgj894lb4PZEgFhiIcTX0TVaiLAt_ieVjg7wXEs_U1Ag7QfKoCmGMuqsODdmroxUrkRoLRdUjniaTsIgF-hDCFY",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEVHcEzLRwTMSQjYd0zLSQrLSALLSADLSADLRgTLSADLSADLSAPLSADLSADLSADLSADLSADLSADLSAA6ErpGAAAAE3RSTlMAI0YMFjR53gudVWn-i77NrQXusvku6wAAAQpJREFUeAHVzlFqRSEMRdEdG6PRqF7nP9gW5PFKKfS76-tAknD4VyR98IJmfrBiVdyagqZuTc2FN4uigJrHl9EToGUqF6Ws-1JIMXjxkBtaZEq9OcfmeiCv584NumtZXleOnhIymWu1nZ4BGgfIMbYOC6KFtph26qjn4SRYG5AYs-RWOMmHe_Kz0GAs-Ai7H3ovslijb3cbvnrdbTv0MKBF6zMx2baLK7r1cJqEouHADqZBEn9MWwVjVEUDKOc2FQCcq6IK-R4nejjX4Lt6MtQoWOTfFuQ4gMRcCy6nP7yU9VrcAtdcyjvz4pG57DxcdQ3eZNoNGy7bwnePdH2XzN2E3xl_aPyh8h99AiY_CsrfLgMoAAAAAElFTkSuQmCC.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cn4vZ290bz91cmw9Q0FFU1V3SHJPekFWaVdHdS1oNTljWFNnODB1SHBEZ2o4OTRsYjRQWkVnRmhpSWNUWDBUVmFpTEF0X2llVmpnN3dYRXNfVTFBZzdRZktvQ21HTXVxc09EZG1yb3hVcmtSb0xSZFVqbmlhVHNJZ0YtaERDRlkSBBoCCAAa9AISAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDOAggAEAAYACAAKg0KBmpvc2h1YRVR0odAMn4vZ290bz91cmw9Q0FFU1V3SHJPekFWaVdHdS1oNTljWFNnODB1SHBEZ2o4OTRsYjRQWkVnRmhpSWNUWDBUVmFpTEF0X2llVmpnN3dYRXNfVTFBZzdRZktvQ21HTXVxc09EZG1yb3hVcmtSb0xSZFVqbmlhVHNJZ0YtaERDRlk6GjxiPk9iaXR1YXJ5PC9iPiAtIE9mZmljaWFsQpQBPGI-T2JpdHVhcnk8L2I-IC0gT2ZmaWNpYWwgVE9VUi4gUmVtZW1iZXJpbmcgdGhlIG9uZXMgd2hvIGdhdmUgdGhlIHVsdGltYXRlIHNhY3JpZmljZSwgaG9ub3JpbmcgdGhvc2Ugd2hvIGtlZXAgdXMgc2FmZSDigKYgMzcgWWVhcnMgb2YgU2xvd2x5IFdlIFJvdFICb3IiAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cn4vZ290bz91cmw9Q0FFU1V3SHJPekFWaVdHdS1oNTljWFNnODB1SHBEZ2o4OTRsYjRQWkVnRmhpSWNUWDBUVmFpTEF0X2llVmpnN3dYRXNfVTFBZzdRZktvQ21HTXVxc09EZG1yb3hVcmtSb0xSZFVqbmlhVHNJZ0YtaERDRlkSBBoCCAAa9AISAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkDOAggAEAAYACAAKg0KBmpvc2h1YRVR0odAMn4vZ290bz91cmw9Q0FFU1V3SHJPekFWaVdHdS1oNTljWFNnODB1SHBEZ2o4OTRsYjRQWkVnRmhpSWNUWDBUVmFpTEF0X2llVmpnN3dYRXNfVTFBZzdRZktvQ21HTXVxc09EZG1yb3hVcmtSb0xSZFVqbmlhVHNJZ0YtaERDRlk6GjxiPk9iaXR1YXJ5PC9iPiAtIE9mZmljaWFsQpQBPGI-T2JpdHVhcnk8L2I-IC0gT2ZmaWNpYWwgVE9VUi4gUmVtZW1iZXJpbmcgdGhlIG9uZXMgd2hvIGdhdmUgdGhlIHVsdGltYXRlIHNhY3JpZmljZSwgaG9ub3JpbmcgdGhvc2Ugd2hvIGtlZXAgdXMgc2FmZSDigKYgMzcgWWVhcnMgb2YgU2xvd2x5IFdlIFJvdFICb3IiAhABSABYAGgA",
+				"source": "Obituary - Official"
+			},
+			{
+				"position": 3,
+				"title": "Obituary (@ObituaryBand)",
+				"link": "/goto?url=CAESYQHrOzAVboZWq7-Rk4VFAW1rw4DjkTJYqsOR1FWLIMDdT9rbWIqiFzcIZeVnF6MjTWLtduVvaj660-H9zPJJYocmZ_qc07WGzPFhA47eR900d08K7A5Hh4iupBzV43FzaTY",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESYQHrOzAVumP66TKi_mEn50p6BzuCJyxOyXVYEiEPvZsXrpcnOi8K71s9f1OrVca9Oul7gP0JOeDVxuBpuYFeNNunQTAZ6KHKY7o45fKKLHFjnpdZaz2O8uPAmf1ZfqalXYA&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECCAQAQ&uoh=1",
+				"displayed_link": "742.4K+ followers",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAXVBMVEVHcEwHZv8HaP8IZ_8IZ_8IZv8IaP8IZ_8HZv8Haf8IZ_8IaP8IZ_8AXv8AV_8AYv-SqP_P1__m6__e5f9wlP____-tvP9jiv82c_8IZ_8Iaf-fsf________8AW_-wrobhAAAAH3RSTlMAM4bC6v1h7v8Z3UL_______7_________wRiFwenBhp_Z0gAAAOhJREFUeAFtk0UWwzAMBWWHFHOZe_9bBn9Nr7Mdg5AiQjZt17WNFFTTDxwZ-kKNigvUmJw2XGF0dByx1jlnPTPDjiYqDofj8XQ4L9bsL6vozpedq13_3eJk4G-XXPIac8zBHUs5EIl48Q4Tws3ziiAZ5f7j3Vq7O5b0iOGE1Z0cRxpqS3mwSbbU4VHndukW8GwHiQ_BzUO2KceIw7MIqJBHyIZk_WwKSv6KcD_frlsqt_P5joBELJ-3iNZD8YDC_82zz1pWS5U1u5bmmY1JLdMQmVoaOIxmIdVYDXWUxVAD8Xp_FvnN1mEG0f0e5ixC4ikAAAAASUVORK5CYII.png",
+				"snippet": "Obituary. 742392 followers · 1677 talking about this. New album 'Obituary' is out now on CD/LP/Digital via Relapse Records. Order & full details:...",
+				"snippet_highlighted_words": ["Obituary", "Obituary"],
+				"about_this_result": {
+					"source": {
+						"description": "Obituary. 742392 followers · 1677 talking about this. New album 'Obituary' is out now on CD/LP/Digital via Relapse Records. Order & full details:...",
+						"source_info_link": "/goto?url=CAESYQHrOzAVboZWq7-Rk4VFAW1rw4DjkTJYqsOR1FWLIMDdT9rbWIqiFzcIZeVnF6MjTWLtduVvaj660-H9zPJJYocmZ_qc07WGzPFhA47eR900d08K7A5Hh4iupBzV43FzaTY",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAXVBMVEVHcEwHZv8HaP8IZ_8IZ_8IZv8IaP8IZ_8HZv8Haf8IZ_8IaP8IZ_8AXv8AV_8AYv-SqP_P1__m6__e5f9wlP____-tvP9jiv82c_8IZ_8Iaf-fsf________8AW_-wrobhAAAAH3RSTlMAM4bC6v1h7v8Z3UL_______7_________wRiFwenBhp_Z0gAAAOhJREFUeAFtk0UWwzAMBWWHFHOZe_9bBn9Nr7Mdg5AiQjZt17WNFFTTDxwZ-kKNigvUmJw2XGF0dByx1jlnPTPDjiYqDofj8XQ4L9bsL6vozpedq13_3eJk4G-XXPIac8zBHUs5EIl48Q4Tws3ziiAZ5f7j3Vq7O5b0iOGE1Z0cRxpqS3mwSbbU4VHndukW8GwHiQ_BzUO2KceIw7MIqJBHyIZk_WwKSv6KcD_frlsqt_P5joBELJ-3iNZD8YDC_82zz1pWS5U1u5bmmY1JLdMQmVoaOIxmIdVYDXWUxVAD8Xp_FvnN1mEG0f0e5ixC4ikAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpEBL2dvdG8_dXJsPUNBRVNZUUhyT3pBVmJvWldxNy1SazRWRkFXMXJ3NERqa1RKWXFzT1IxRldMSU1EZFQ5cmJXSXFpRnpjSVplVm5GNk1qVFdMdGR1VnZhajY2MC1IOXpQSkpZb2NtWl9xYzA3V0d6UEZoQTQ3ZVI5MDBkMDhLN0E1SGg0aXVwQnpWNDNGemFUWRIEGgIIABqzAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQI0DCAAQABgAIAAqDQoGam9zaHVhFV7YlkAykQEvZ290bz91cmw9Q0FFU1lRSHJPekFWYm9aV3E3LVJrNFZGQVcxcnc0RGprVEpZcXNPUjFGV0xJTURkVDlyYldJcWlGemNJWmVWbkY2TWpUV0x0ZHVWdmFqNjYwLUg5elBKSllvY21aX3FjMDdXR3pQRmhBNDdlUjkwMGQwOEs3QTVIaDRpdXBCelY0M0Z6YVRZOio8Yj5PYml0dWFyeTwvYj4gKEBPYml0dWFyeUJhbmQpIC0gRmFjZWJvb2tCrwE8Yj5PYml0dWFyeTwvYj4uIDc0MjM5MiBmb2xsb3dlcnMgwrcgMTY3NyB0YWxraW5nIGFib3V0IHRoaXMuIE5ldyBhbGJ1bSAmIzM5OzxiPk9iaXR1YXJ5PC9iPiYjMzk7IGlzIG91dCBub3cgb24gQ0QvTFAvRGlnaXRhbCB2aWEgUmVsYXBzZSBSZWNvcmRzLiBPcmRlciAmYW1wOyBmdWxsIGRldGFpbHM6Li4uUgJvciICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpEBL2dvdG8_dXJsPUNBRVNZUUhyT3pBVmJvWldxNy1SazRWRkFXMXJ3NERqa1RKWXFzT1IxRldMSU1EZFQ5cmJXSXFpRnpjSVplVm5GNk1qVFdMdGR1VnZhajY2MC1IOXpQSkpZb2NtWl9xYzA3V0d6UEZoQTQ3ZVI5MDBkMDhLN0E1SGg0aXVwQnpWNDNGemFUWRIEGgIIABqzAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQI0DCAAQABgAIAAqDQoGam9zaHVhFV7YlkAykQEvZ290bz91cmw9Q0FFU1lRSHJPekFWYm9aV3E3LVJrNFZGQVcxcnc0RGprVEpZcXNPUjFGV0xJTURkVDlyYldJcWlGemNJWmVWbkY2TWpUV0x0ZHVWdmFqNjYwLUg5elBKSllvY21aX3FjMDdXR3pQRmhBNDdlUjkwMGQwOEs3QTVIaDRpdXBCelY0M0Z6YVRZOio8Yj5PYml0dWFyeTwvYj4gKEBPYml0dWFyeUJhbmQpIC0gRmFjZWJvb2tCrwE8Yj5PYml0dWFyeTwvYj4uIDc0MjM5MiBmb2xsb3dlcnMgwrcgMTY3NyB0YWxraW5nIGFib3V0IHRoaXMuIE5ldyBhbGJ1bSAmIzM5OzxiPk9iaXR1YXJ5PC9iPiYjMzk7IGlzIG91dCBub3cgb24gQ0QvTFAvRGlnaXRhbCB2aWEgUmVsYXBzZSBSZWNvcmRzLiBPcmRlciAmYW1wOyBmdWxsIGRldGFpbHM6Li4uUgJvciICEAFIAFgAaAA",
+				"source": "Facebook · Obituary"
+			},
+			{
+				"position": 4,
+				"title": "Obituary (@obituaryband) • Instagram photos and videos",
+				"link": "https://www.instagram.com/obituaryband/?hl=en",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESaAHrOzAVBkTXXo6sM1WzcIxdmQxjsUwX9QGHdIfGJgcEU4zvcX8wvnq_4_9E89PEPgcgoVG21-Ky5kJrr5z8VGeHBC8tpTGKPZ4DkRjwJMepcy9duQE6zGf1fV5zFehGwaI0dhkd8TaV&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBgQAQ&uoh=1",
+				"displayed_link": "394.7K+ followers",
+				"favicon": "https://serpapi.com/searches/6ae41a6be140f01e2c2bee74/images/TZgxsYMDKq5clVkuPzfPfvopMvnj4wKv9bmvo64qE58.png",
+				"snippet": "Obituary 2,228 posts 394K. Both albums are available now on streaming services for the first time! OBITUARY tour dates Tickets on sale now: www.obituary.cc/tour",
+				"snippet_highlighted_words": ["Obituary", "OBITUARY", "obituary"],
+				"about_this_result": {
+					"source": {
+						"description": "Obituary 2,228 posts 394K. Both albums are available now on streaming services for the first time! OBITUARY tour dates Tickets on sale now: www.\nobituary.cc/tour",
+						"source_info_link": "https://www.instagram.com/obituaryband/?hl=en",
+						"icon": "https://serpapi.com/searches/6ae41a6be140f01e2c2bee74/images/TZgxsYMDKq5clVkuPzfPfnp_pt_alW1b9z_-bM3_nCysDJ5S5fpkV__rJ8gCqNot.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CpoBL2dvdG8_dXJsPUNBRVNhQUhyT3pBVlJTSC1ITk5hWHJsUkdKVTZkV2g0b09heXdtbHdvUVUzajNzZ2U2YjVOa1c4UFk3cGtmRHVZRlc5Z2FSYlhJWWN0MHZjTGVBX0N1dG96YzFNU2htaGlxN1R0emJBLVNOLVFEY25sOF9oeXhNMlJwVThNbUpvU1NZTUYyT3ZFaV9YU1hLRxIEGgIIABreAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQLgDCAAQABgAIAAqDQoGam9zaHVhFRJbQkAymgEvZ290bz91cmw9Q0FFU2FBSHJPekFWUlNILUhOTmFYcmxSR0pVNmRXaDRvT2F5d21sd29RVTNqM3NnZTZiNU5rVzhQWTdwa2ZEdVlGVzlnYVJiWElZY3QwdmNMZUFfQ3V0b3pjMU1TaG1oaXE3VHR6YkEtU04tUURjbmw4X2h5eE0yUnBVOE1tSm9TU1lNRjJPdkVpX1hTWEtHOkY8Yj5PYml0dWFyeTwvYj4gKEA8Yj5vYml0dWFyeWJhbmQ8L2I-KSDigKIgSW5zdGFncmFtIHBob3RvcyBhbmQgdmlkZW9zQrUBPGI-T2JpdHVhcnk8L2I-IDIsMjI4IHBvc3RzIDM5NEsuIEJvdGggYWxidW1zIGFyZSBhdmFpbGFibGUgbm93IG9uIHN0cmVhbWluZyBzZXJ2aWNlcyBmb3IgdGhlIGZpcnN0IHRpbWUhIDxiPk9CSVRVQVJZPC9iPiB0b3VyIGRhdGVzIFRpY2tldHMgb24gc2FsZSBub3c6IHd3dy48Yj5vYml0dWFyeTwvYj4uY2MvdG91clICb3IiAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CpoBL2dvdG8_dXJsPUNBRVNhQUhyT3pBVlJTSC1ITk5hWHJsUkdKVTZkV2g0b09heXdtbHdvUVUzajNzZ2U2YjVOa1c4UFk3cGtmRHVZRlc5Z2FSYlhJWWN0MHZjTGVBX0N1dG96YzFNU2htaGlxN1R0emJBLVNOLVFEY25sOF9oeXhNMlJwVThNbUpvU1NZTUYyT3ZFaV9YU1hLRxIEGgIIABreAxICCAEaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQLgDCAAQABgAIAAqDQoGam9zaHVhFRJbQkAymgEvZ290bz91cmw9Q0FFU2FBSHJPekFWUlNILUhOTmFYcmxSR0pVNmRXaDRvT2F5d21sd29RVTNqM3NnZTZiNU5rVzhQWTdwa2ZEdVlGVzlnYVJiWElZY3QwdmNMZUFfQ3V0b3pjMU1TaG1oaXE3VHR6YkEtU04tUURjbmw4X2h5eE0yUnBVOE1tSm9TU1lNRjJPdkVpX1hTWEtHOkY8Yj5PYml0dWFyeTwvYj4gKEA8Yj5vYml0dWFyeWJhbmQ8L2I-KSDigKIgSW5zdGFncmFtIHBob3RvcyBhbmQgdmlkZW9zQrUBPGI-T2JpdHVhcnk8L2I-IDIsMjI4IHBvc3RzIDM5NEsuIEJvdGggYWxidW1zIGFyZSBhdmFpbGFibGUgbm93IG9uIHN0cmVhbWluZyBzZXJ2aWNlcyBmb3IgdGhlIGZpcnN0IHRpbWUhIDxiPk9CSVRVQVJZPC9iPiB0b3VyIGRhdGVzIFRpY2tldHMgb24gc2FsZSBub3c6IHd3dy48Yj5vYml0dWFyeTwvYj4uY2MvdG91clICb3IiAhABSABYAGgA",
+				"source": "Instagram · obituaryband"
+			},
+			{
+				"position": 5,
+				"title": "Jim Knipfel Obituary Oct 7, 2026",
+				"link": "/goto?url=CAEScwHrOzAV-BilrLQDyHaCn87tJa9U0HcXIo1j3OngIKe9lUDH3Oe-omqGrRp0pAqelSJbtnM5BDSwOs32lag4PuwUYbQ0URkWnUZ3ZZT4WC6mua4jyNhapil_53OG8G1U_0T09PpCjS4QXvsTsb_pcObEA7E",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEScwHrOzAVoVVUPYkVlFttOiadUO5vph46g2bT1SsfhZr6bQhLTvtjqUD73lSyrysA5-TCpHhzwYehAcXJLsbh58cTp9QsWUbyxTlZVXFZ_K1PLeXCSyqXTLle226BsxOSoowGXb09iHIX7ezhyg1uKhfBBv4&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBkQAQ&uoh=1",
+				"displayed_link": "https://www.simplycremationgb.com › obituaries › jim-...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAARCAMAAAD5TTx4AAAAP1BMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6E-JdAAAAFXRSTlMAGoERQXdWbZAkSzNhCP-8ndar-ucW9ZquAAAArklEQVR4AazJRQIEIQwEwMYDxEb-_9Z1n-MWxPEPIcSzkI6PueTa8vGxEIVOVHAkj3k2Mo7UOoBRK77MwdKekwremYdJjZa4Dre55bVHPKW8NYu8JB1USaFR8MSZe6s5dqqW4RgFR1rEmeNm1FiTICBJEsH5-_ldZ0BxjmK8kGvZwJoVOmktW1lgKwfFQp14T0q-z_ORrdVNdmBmTGBIDzNNmT3N85wDztNpeOMJAH7JBujfpIG2AAAAAElFTkSuQmCC.png",
+				"date": "Oct 7, 2026",
+				"snippet": "James (Jim) Knipfel, 61, died on October 7, 2026 after a year-long battle with cancer. Jim was born to George and Janice Knipfel in Grand ...",
+				"about_this_result": {
+					"source": {
+						"description": "James (Jim) Knipfel, 61, died on October 7, 2026 after a year-long battle with cancer. Jim was born to George and Janice Knipfel in Grand ...",
+						"source_info_link": "/goto?url=CAEScwHrOzAV-BilrLQDyHaCn87tJa9U0HcXIo1j3OngIKe9lUDH3Oe-omqGrRp0pAqelSJbtnM5BDSwOs32lag4PuwUYbQ0URkWnUZ3ZZT4WC6mua4jyNhapil_53OG8G1U_0T09PpCjS4QXvsTsb_pcObEA7E",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAARCAMAAAD5TTx4AAAAP1BMVEVHcEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC6E-JdAAAAFXRSTlMAGoERQXdWbZAkSzNhCP-8ndar-ucW9ZquAAAArklEQVR4AazJRQIEIQwEwMYDxEb-_9Z1n-MWxPEPIcSzkI6PueTa8vGxEIVOVHAkj3k2Mo7UOoBRK77MwdKekwremYdJjZa4Dre55bVHPKW8NYu8JB1USaFR8MSZe6s5dqqW4RgFR1rEmeNm1FiTICBJEsH5-_ldZ0BxjmK8kGvZwJoVOmktW1lgKwfFQp14T0q-z_ORrdVNdmBmTGBIDzNNmT3N85wDztNpeOMJAH7JBujfpIG2AAAAAElFTkSuQmCC.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqkBL2dvdG8_dXJsPUNBRVNjd0hyT3pBVi1CaWxyTFFEeUhhQ244N3RKYTlVMEhjWElvMWozT25nSUtlOWxVREgzT2Utb21xR3JScDBwQXFlbFNKYnRuTTVCRFN3T3MzMmxhZzRQdXdVWWJRMFVSa1duVVozWlpUNFdDNm11YTRqeU5oYXBpbF81M09HOEcxVV8wVDA5UHBDalM0UVh2c1RzYl9wY09iRUE3RRIEGgIIABrEAxICCAEaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQJ4DCAAQABgAIAAqDQoGam9zaHVhFcyRV0AyqQEvZ290bz91cmw9Q0FFU2N3SHJPekFWLUJpbHJMUUR5SGFDbjg3dEphOVUwSGNYSW8xajNPbmdJS2U5bFVESDNPZS1vbXFHclJwMHBBcWVsU0pidG5NNUJEU3dPczMybGFnNFB1d1VZYlEwVVJrV25VWjNaWlQ0V0M2bXVhNGp5TmhhcGlsXzUzT0c4RzFVXzBUMDlQcENqUzRRWHZzVHNiX3BjT2JFQTdFOkBKaW0gS25pcGZlbCA8Yj5PYml0dWFyeTwvYj4gT2N0IDcsIDIwMjYgLSBTaW1wbHkgQ3JlbWF0aW9uIG9mIEdCQpIBSmFtZXMgKEppbSkgS25pcGZlbCwgNjEsIGRpZWQgb24gT2N0b2JlciA3LCAyMDI2IGFmdGVyIGEgeWVhci1sb25nIGJhdHRsZSB3aXRoIGNhbmNlci4gSmltIHdhcyBib3JuIHRvIEdlb3JnZSBhbmQgSmFuaWNlIEtuaXBmZWwgaW4gR3JhbmQmbmJzcDsuLi5SAm9yIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqkBL2dvdG8_dXJsPUNBRVNjd0hyT3pBVi1CaWxyTFFEeUhhQ244N3RKYTlVMEhjWElvMWozT25nSUtlOWxVREgzT2Utb21xR3JScDBwQXFlbFNKYnRuTTVCRFN3T3MzMmxhZzRQdXdVWWJRMFVSa1duVVozWlpUNFdDNm11YTRqeU5oYXBpbF81M09HOEcxVV8wVDA5UHBDalM0UVh2c1RzYl9wY09iRUE3RRIEGgIIABrEAxICCAEaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQJ4DCAAQABgAIAAqDQoGam9zaHVhFcyRV0AyqQEvZ290bz91cmw9Q0FFU2N3SHJPekFWLUJpbHJMUUR5SGFDbjg3dEphOVUwSGNYSW8xajNPbmdJS2U5bFVESDNPZS1vbXFHclJwMHBBcWVsU0pidG5NNUJEU3dPczMybGFnNFB1d1VZYlEwVVJrV25VWjNaWlQ0V0M2bXVhNGp5TmhhcGlsXzUzT0c4RzFVXzBUMDlQcENqUzRRWHZzVHNiX3BjT2JFQTdFOkBKaW0gS25pcGZlbCA8Yj5PYml0dWFyeTwvYj4gT2N0IDcsIDIwMjYgLSBTaW1wbHkgQ3JlbWF0aW9uIG9mIEdCQpIBSmFtZXMgKEppbSkgS25pcGZlbCwgNjEsIGRpZWQgb24gT2N0b2JlciA3LCAyMDI2IGFmdGVyIGEgeWVhci1sb25nIGJhdHRsZSB3aXRoIGNhbmNlci4gSmltIHdhcyBib3JuIHRvIEdlb3JnZSBhbmQgSmFuaWNlIEtuaXBmZWwgaW4gR3JhbmQmbmJzcDsuLi5SAm9yIgIQAUgAWABoAA",
+				"source": "Simply Cremation"
+			},
+			{
+				"position": 6,
+				"title": "Obituary for Brian \"Nashville\" Neil Duckworth",
+				"link": "/goto?url=CAESggEB6zswFTADNkHRZetVP3_jpOi2DfyAHVG0xWC2BT90ZK1OKFnsQVeVSadCqXZxTODDnbVmvMXh70M-wziotNl1MTriADcmVE1ngDVQRPvLgXtomAHz1js8ll6a9t8Jm5XpPI6TXNIYStXZ5JDJxwcJtT7CdynTFWWyFSMi9khxoE7j",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESggEB6zswFQdJaM_j7WTyIVgA0NNTuVwIxMI9LZ2CBUBIh5KzBe3BmqF0_OXIcLNIfrK3pSIF4ajDZQFy-lbev-B-6okW_dpAYA8cCd78jMm2fXBrQ52GdK9xbYceSTAXYR_owyVC5igZzTJgNdFR4crT9U71uI9P41XlAFYnHpgx5NFA&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBoQAQ&uoh=1",
+				"displayed_link": "https://www.bartlettfuneralhomewv.com › obituary › Br...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEVHcEwpJhVNSDHCu5d6dFmvqIfTy6VxbFLa0quWkHE938E6AAAACnRSTlMADRxEOUJAKUFCxcGs1wAAAO5JREFUeAF80AGnAkEQB_B5pyRgxeM94NIXKNUqQIIAVToBkPu3ASkhgOqmPaCk9HG7OtOeQ4u18_O3Ozv0ZVVy9U8rB7-LHPT3cqqmgVlDYPfeH3oo8Ld6XanNWaBYTzaPjSSodHwD6gIF-ETlDHh6RLRlDAVoECmasll9oGwvCYTqA0XEqokTuQSbsYY0mj55CHB2QDWOAzOiTCSYANnflzhkxBmgWQiYnnfzBf6tBuZN21IiGwaA2HcTfrxg7-o-B4AbkXe1bYZZKqnvHG06tutLfqKTNitrRdLWNUrDsgrt55wnokYqozu-NAAAnDw47vy2KBkAAAAASUVORK5CYII.png",
+				"date": "Sep 9, 2026",
+				"snippet": "Brian “Nashville” Neil Duckworth, 56 of Clarksburg, WV, formerly of Grafton, passed away at his home on Monday, September 7, 2026.",
+				"about_this_result": {
+					"source": {
+						"description": "Brian “Nashville” Neil Duckworth, 56 of Clarksburg, WV, formerly of Grafton, passed away at his home on Monday, September 7, 2026.",
+						"source_info_link": "/goto?url=CAESggEB6zswFTADNkHRZetVP3_jpOi2DfyAHVG0xWC2BT90ZK1OKFnsQVeVSadCqXZxTODDnbVmvMXh70M-wziotNl1MTriADcmVE1ngDVQRPvLgXtomAHz1js8ll6a9t8Jm5XpPI6TXNIYStXZ5JDJxwcJtT7CdynTFWWyFSMi9khxoE7j",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEVHcEwpJhVNSDHCu5d6dFmvqIfTy6VxbFLa0quWkHE938E6AAAACnRSTlMADRxEOUJAKUFCxcGs1wAAAO5JREFUeAF80AGnAkEQB_B5pyRgxeM94NIXKNUqQIIAVToBkPu3ASkhgOqmPaCk9HG7OtOeQ4u18_O3Ozv0ZVVy9U8rB7-LHPT3cqqmgVlDYPfeH3oo8Ld6XanNWaBYTzaPjSSodHwD6gIF-ETlDHh6RLRlDAVoECmasll9oGwvCYTqA0XEqokTuQSbsYY0mj55CHB2QDWOAzOiTCSYANnflzhkxBmgWQiYnnfzBf6tBuZN21IiGwaA2HcTfrxg7-o-B4AbkXe1bYZZKqnvHG06tutLfqKTNitrRdLWNUrDsgrt55wnokYqozu-NAAAnDw47vy2KBkAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cr4BL2dvdG8_dXJsPUNBRVNnZ0VCNnpzd0ZUQUROa0hSWmV0VlAzX2pwT2kyRGZ5QUhWRzB4V0MyQlQ5MFpLMU9LRm5zUVZlVlNhZENxWFp4VE9ERG5iVm12TVhoNzBNLXd6aW90TmwxTVRyaUFEY21WRTFuZ0RWUVJQdkxnWHRvbUFIejFqczhsbDZhOXQ4Sm01WHBQSTZUWE5JWVN0WFo1SkRKeHdjSnRUN0NkeW5URldXeUZTTWk5a2h4b0U3ahIEGgIIABrLAxICCAEaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQKUDCAAQABgAIAAqDQoGam9zaHVhFdhBb0AyvgEvZ290bz91cmw9Q0FFU2dnRUI2enN3RlRBRE5rSFJaZXRWUDNfanBPaTJEZnlBSFZHMHhXQzJCVDkwWksxT0tGbnNRVmVWU2FkQ3FYWnhUT0REbmJWbXZNWGg3ME0td3ppb3RObDFNVHJpQURjbVZFMW5nRFZRUlB2TGdYdG9tQUh6MWpzOGxsNmE5dDhKbTVYcFBJNlRYTklZU3RYWjVKREp4d2NKdFQ3Q2R5blRGV1d5RlNNaTlraHhvRTdqOj48Yj5PYml0dWFyeTwvYj4gZm9yIEJyaWFuICZxdW90O05hc2h2aWxsZSZxdW90OyBOZWlsIER1Y2t3b3J0aEKGAUJyaWFuIOKAnE5hc2h2aWxsZeKAnSBOZWlsIER1Y2t3b3J0aCwgNTYgb2YgQ2xhcmtzYnVyZywgV1YsIGZvcm1lcmx5IG9mIEdyYWZ0b24sIHBhc3NlZCBhd2F5IGF0IGhpcyBob21lIG9uIE1vbmRheSwgU2VwdGVtYmVyIDcsIDIwMjYuUgJvciICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cr4BL2dvdG8_dXJsPUNBRVNnZ0VCNnpzd0ZUQUROa0hSWmV0VlAzX2pwT2kyRGZ5QUhWRzB4V0MyQlQ5MFpLMU9LRm5zUVZlVlNhZENxWFp4VE9ERG5iVm12TVhoNzBNLXd6aW90TmwxTVRyaUFEY21WRTFuZ0RWUVJQdkxnWHRvbUFIejFqczhsbDZhOXQ4Sm01WHBQSTZUWE5JWVN0WFo1SkRKeHdjSnRUN0NkeW5URldXeUZTTWk5a2h4b0U3ahIEGgIIABrLAxICCAEaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQKUDCAAQABgAIAAqDQoGam9zaHVhFdhBb0AyvgEvZ290bz91cmw9Q0FFU2dnRUI2enN3RlRBRE5rSFJaZXRWUDNfanBPaTJEZnlBSFZHMHhXQzJCVDkwWksxT0tGbnNRVmVWU2FkQ3FYWnhUT0REbmJWbXZNWGg3ME0td3ppb3RObDFNVHJpQURjbVZFMW5nRFZRUlB2TGdYdG9tQUh6MWpzOGxsNmE5dDhKbTVYcFBJNlRYTklZU3RYWjVKREp4d2NKdFQ3Q2R5blRGV1d5RlNNaTlraHhvRTdqOj48Yj5PYml0dWFyeTwvYj4gZm9yIEJyaWFuICZxdW90O05hc2h2aWxsZSZxdW90OyBOZWlsIER1Y2t3b3J0aEKGAUJyaWFuIOKAnE5hc2h2aWxsZeKAnSBOZWlsIER1Y2t3b3J0aCwgNTYgb2YgQ2xhcmtzYnVyZywgV1YsIGZvcm1lcmx5IG9mIEdyYWZ0b24sIHBhc3NlZCBhd2F5IGF0IGhpcyBob21lIG9uIE1vbmRheSwgU2VwdGVtYmVyIDcsIDIwMjYuUgJvciICEAFIAFgAaAA",
+				"source": "Bartlett Funeral Home and Crematory",
+				"read_more_link": "https://www.google.com/goto?url=CAES9AEB6zswFU8R51Fc5nF7rskMbMg6zJKkJCyvrF-hyBZNfHnffxC_GXULlUqmZOl0-jjGo_b50XEkbGtGSyHt11Ug7Z5T_4_fR4VKHNjp18mmyghiWerZ6HhkeNFizd2DTb_wktobbrmZWouF7YJz-0X7nm8BhlwialGoZmiMvVdHtaoH1QlVr2WUj6M25TkVuJHCLCfO8UwgkqCKYood1LM2CmRhQpLmlhxvcv-9JphyhkoWqxbhinmsIOHfdb9VFFCSxhp_wFqkRRPukub9eDXcUCqmRo3LCrKmjLiPLyfVFzWF-81Yt_HqUp0bwNUefcelSoeb&gsessionid=73fkok84rcKlwWz5tBW3cvrNE0ZR9nwWb3ZBJ8wBA0Vmm4M_3CqGsg"
+			},
+			{
+				"position": 7,
+				"title": "About Cambridge American Cemetery",
+				"link": "/goto?url=CAEShwEB6zswFRKMJQkxfN_3qpTlvOwbUK5xEFatceV0CaboUN2tuipJmvoQ8tNebwMFYBnh4YXUdKv_oY6A6GWfAgiEjsuxUVTbp37hIdFTXqv1FBEhZRpv8GMpvEE8absR6-ritdAQ-zHZb1D8g9YBx63wY3pJZ4VUcsCvDByecCI08K4dZmSJsYs",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAEShwEB6zswFcrwBKgC1sBMD-u4NVE24-Bkm8mVQAFQTFsadHRsH5omoiAaBMrDt05isbvWyhmllWdqvGZNjmGQoWlRD2NjBRazNty8C-lDBihToGZVEWQMqOgsP3XDZo4GsQapqWabER_D2ivxQlaXp1Ut52EVPajhviM6fBNycCsVy2rDeUPC9Ok&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECBcQAQ&uoh=1",
+				"displayed_link": "https://www.abmc.gov › cemeteries-memorials › about-c...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAMAAACxiD--AAAAb1BMVEX____19PLU0cfDvrC8tqbEwLPb2M_7-vne29O3sZ7v7url49zp5-GwqJP7-_rj4dn39vTLxrjTz8POyr2tpY_z8u_Kxru0rpvPzMKimYCLgGCIfVyknYeUi254bEJyZTprXi19ckxwYzaYj3WEeVZuC0l8AAACHUlEQVR4AWXThaLbMAwF0GuIrMgyxXVS7qP__8alHW8naGb8Zqzzbpr2FwX8j2cnCHjeiN4r_mbSlJGtkLNUxKB6_3fxFCDsWiRdbO-ObZaDwS-LA9XRi6l4ytFzy0iCH2zDWDgAhZY2dYowvDBjHngRjx4Lg32xra-tlxZRLUXMeNmCDcsIZAtZYibbmTgbWURX7IggFtVyUZUhRkQjF4YlYDIAEthR3Y7renx5fabjBix2NEBWhA46nf92mcXoCA5YDW1LiMvpejgd9vv6uk8nVRArCTYgDMY4NzkTn_V4Nu5m0glBOHM9YkbsIIR7lzuVh9o3TO843ADNi2KCx_4hhMekD8sP6z-Cew_XGxDRCho8oguM-uH2DPSxZzD-vV7PGQW2vTK0Dsb48Po4Ll7lU-b3cbpkcO6Khhl7VwrkMcfH2r2am6Z3-fzKKOgRDh6MGKGPrXysbaJ4ioe7fr7nrGpjXdGN2Jhj_Lr6S0qWZfans_u8BAaXQRGyghnWp5S2NAOoz5-UWsy91xlAwuLLSM9VWFfmwvtnD2y5F6kOANmqVKoiC5USR6EigEJ6NF6wS5lsqyNCohRl1gLEUAoNdXiSDWqbZGaBqOoYHDEWsUgZLzShBMeoRBpVuWQwbwZp4Ic-oS7IihfIQF6ATfAL-QDInQHLwHwDIL_SX4y3GQrgOgNDUFvDP-Ls5Ne_dwP_G0c_76fb_326vwHDYSRKbVJNpgAAAABJRU5ErkJggg.png",
+				"snippet": "The cemetery contains the remains of more than 3,800 of our war dead; more than 5,100 names are recorded on the Walls of the Missing.",
+				"snippet_highlighted_words": ["cemetery"],
+				"about_this_result": {
+					"source": {
+						"description": "The cemetery contains the remains of more than 3,800 of our war dead; more than 5,100 names are recorded on the Walls of the Missing.",
+						"source_info_link": "/goto?url=CAEShwEB6zswFRKMJQkxfN_3qpTlvOwbUK5xEFatceV0CaboUN2tuipJmvoQ8tNebwMFYBnh4YXUdKv_oY6A6GWfAgiEjsuxUVTbp37hIdFTXqv1FBEhZRpv8GMpvEE8absR6-ritdAQ-zHZb1D8g9YBx63wY3pJZ4VUcsCvDByecCI08K4dZmSJsYs",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAfCAMAAACxiD--AAAAb1BMVEX____19PLU0cfDvrC8tqbEwLPb2M_7-vne29O3sZ7v7url49zp5-GwqJP7-_rj4dn39vTLxrjTz8POyr2tpY_z8u_Kxru0rpvPzMKimYCLgGCIfVyknYeUi254bEJyZTprXi19ckxwYzaYj3WEeVZuC0l8AAACHUlEQVR4AWXThaLbMAwF0GuIrMgyxXVS7qP__8alHW8naGb8Zqzzbpr2FwX8j2cnCHjeiN4r_mbSlJGtkLNUxKB6_3fxFCDsWiRdbO-ObZaDwS-LA9XRi6l4ytFzy0iCH2zDWDgAhZY2dYowvDBjHngRjx4Lg32xra-tlxZRLUXMeNmCDcsIZAtZYibbmTgbWURX7IggFtVyUZUhRkQjF4YlYDIAEthR3Y7renx5fabjBix2NEBWhA46nf92mcXoCA5YDW1LiMvpejgd9vv6uk8nVRArCTYgDMY4NzkTn_V4Nu5m0glBOHM9YkbsIIR7lzuVh9o3TO843ADNi2KCx_4hhMekD8sP6z-Cew_XGxDRCho8oguM-uH2DPSxZzD-vV7PGQW2vTK0Dsb48Po4Ll7lU-b3cbpkcO6Khhl7VwrkMcfH2r2am6Z3-fzKKOgRDh6MGKGPrXysbaJ4ioe7fr7nrGpjXdGN2Jhj_Lr6S0qWZfans_u8BAaXQRGyghnWp5S2NAOoz5-UWsy91xlAwuLLSM9VWFfmwvtnD2y5F6kOANmqVKoiC5USR6EigEJ6NF6wS5lsqyNCohRl1gLEUAoNdXiSDWqbZGaBqOoYHDEWsUgZLzShBMeoRBpVuWQwbwZp4Ic-oS7IihfIQF6ATfAL-QDInQHLwHwDIL_SX4y3GQrgOgNDUFvDP-Ls5Ne_dwP_G0c_76fb_326vwHDYSRKbVJNpgAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CsUBL2dvdG8_dXJsPUNBRVNod0VCNnpzd0ZSS01KUWt4Zk5fM3FwVGx2T3diVUs1eEVGYXRjZVYwQ2Fib1VOMnR1aXBKbXZvUTh0TmVid01GWUJuaDRZWFVkS3Zfb1k2QTZHV2ZBZ2lFanN1eFVWVGJwMzdoSWRGVFhxdjFGQkVoWlJwdjhHTXB2RUU4YWJzUjYtcml0ZEFRLXpIWmIxRDhnOVlCeDYzd1kzcEpaNFZVY3NDdkRCeWVjQ0kwOEs0ZFptU0pzWXMSBBoCCAAawgMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCcAwgAEAAYACAAKg0KBmpvc2h1YRXAFaBAMsUBL2dvdG8_dXJsPUNBRVNod0VCNnpzd0ZSS01KUWt4Zk5fM3FwVGx2T3diVUs1eEVGYXRjZVYwQ2Fib1VOMnR1aXBKbXZvUTh0TmVid01GWUJuaDRZWFVkS3Zfb1k2QTZHV2ZBZ2lFanN1eFVWVGJwMzdoSWRGVFhxdjFGQkVoWlJwdjhHTXB2RUU4YWJzUjYtcml0ZEFRLXpIWmIxRDhnOVlCeDYzd1kzcEpaNFZVY3NDdkRCeWVjQ0kwOEs0ZFptU0pzWXM6KEFib3V0IENhbWJyaWRnZSBBbWVyaWNhbiA8Yj5DZW1ldGVyeTwvYj5CjAFUaGUgPGI-Y2VtZXRlcnk8L2I-IGNvbnRhaW5zIHRoZSByZW1haW5zIG9mIG1vcmUgdGhhbiAzLDgwMCBvZiBvdXIgd2FyIGRlYWQ7IG1vcmUgdGhhbiA1LDEwMCBuYW1lcyBhcmUgcmVjb3JkZWQgb24gdGhlIFdhbGxzIG9mIHRoZSBNaXNzaW5nLlICb3IiAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CsUBL2dvdG8_dXJsPUNBRVNod0VCNnpzd0ZSS01KUWt4Zk5fM3FwVGx2T3diVUs1eEVGYXRjZVYwQ2Fib1VOMnR1aXBKbXZvUTh0TmVid01GWUJuaDRZWFVkS3Zfb1k2QTZHV2ZBZ2lFanN1eFVWVGJwMzdoSWRGVFhxdjFGQkVoWlJwdjhHTXB2RUU4YWJzUjYtcml0ZEFRLXpIWmIxRDhnOVlCeDYzd1kzcEpaNFZVY3NDdkRCeWVjQ0kwOEs0ZFptU0pzWXMSBBoCCAAawgMSAggBGgAiACoAMgYIAxICdXM6AEIECAEQAEoAWgByAHoAgkCcAwgAEAAYACAAKg0KBmpvc2h1YRXAFaBAMsUBL2dvdG8_dXJsPUNBRVNod0VCNnpzd0ZSS01KUWt4Zk5fM3FwVGx2T3diVUs1eEVGYXRjZVYwQ2Fib1VOMnR1aXBKbXZvUTh0TmVid01GWUJuaDRZWFVkS3Zfb1k2QTZHV2ZBZ2lFanN1eFVWVGJwMzdoSWRGVFhxdjFGQkVoWlJwdjhHTXB2RUU4YWJzUjYtcml0ZEFRLXpIWmIxRDhnOVlCeDYzd1kzcEpaNFZVY3NDdkRCeWVjQ0kwOEs0ZFptU0pzWXM6KEFib3V0IENhbWJyaWRnZSBBbWVyaWNhbiA8Yj5DZW1ldGVyeTwvYj5CjAFUaGUgPGI-Y2VtZXRlcnk8L2I-IGNvbnRhaW5zIHRoZSByZW1haW5zIG9mIG1vcmUgdGhhbiAzLDgwMCBvZiBvdXIgd2FyIGRlYWQ7IG1vcmUgdGhhbiA1LDEwMCBuYW1lcyBhcmUgcmVjb3JkZWQgb24gdGhlIFdhbGxzIG9mIHRoZSBNaXNzaW5nLlICb3IiAhABSABYAGgA",
+				"source": "American Battle Monuments Commission (ABMC) (.gov)"
+			},
+			{
+				"position": 8,
+				"title": "Obituary for Caleb \"Wee Wee\" Zechariah Cotman",
+				"link": "/goto?url=CAESegHrOzAVhDMLLlXpZa8Ts2hHB3wM2sNrS4HnSdHKvSzX0BXYwQblhtOlk2bcNUBfh7vf8IrvgX4v4NxBWBU1Xa-RTkZAxZJmUyxaqqW_Zeou5pvabfJJCROGjp6owTYucXqzQcZ5aaBJfQ3-2a4Ksvln4CQAGfD3R0XN",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESegHrOzAVA1WVC01a4wibI8hCPw9Vgjo0VOl4hypavijTqXkfituZDd9-RrbURfcJaVwq4ucS6Rv232zuw3BQ5w_08Lj_OvyizaA8Bsz-RgrZM6c8arQJMjgqGS_UGUwzH8_grHrXOh75CD-VO1nDDbbmjWmWsD_7FZQk&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECE4QAQ&uoh=1",
+				"displayed_link": "https://www.whitingsfuneralhome.com › obituary › Cal...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEVHcEwpJhVNSDHCu5d6dFmvqIfTy6VxbFLa0quWkHE938E6AAAACnRSTlMADRxEOUJAKUFCxcGs1wAAAO5JREFUeAF80AGnAkEQB_B5pyRgxeM94NIXKNUqQIIAVToBkPu3ASkhgOqmPaCk9HG7OtOeQ4u18_O3Ozv0ZVVy9U8rB7-LHPT3cqqmgVlDYPfeH3oo8Ld6XanNWaBYTzaPjSSodHwD6gIF-ETlDHh6RLRlDAVoECmasll9oGwvCYTqA0XEqokTuQSbsYY0mj55CHB2QDWOAzOiTCSYANnflzhkxBmgWQiYnnfzBf6tBuZN21IiGwaA2HcTfrxg7-o-B4AbkXe1bYZZKqnvHG06tutLfqKTNitrRdLWNUrDsgrt55wnokYqozu-NAAAnDw47vy2KBkAAAAASUVORK5CYII.png",
+				"snippet": "Official Obituary of. Caleb \"Wee Wee\" Zechariah Cotman. November 21, 2007 ~ August 7, 2026 (age 18) 18 Years Old. 44 Trees, Flowers, or Condolences have been ...",
+				"snippet_highlighted_words": ["Obituary", "or"],
+				"about_this_result": {
+					"source": {
+						"description": "Official Obituary of. Caleb \"Wee Wee\" Zechariah Cotman. November 21, 2007 ~ August 7, 2026 (age 18) 18 Years Old. 44 Trees, Flowers, or Condolences have been ...",
+						"source_info_link": "/goto?url=CAESegHrOzAVhDMLLlXpZa8Ts2hHB3wM2sNrS4HnSdHKvSzX0BXYwQblhtOlk2bcNUBfh7vf8IrvgX4v4NxBWBU1Xa-RTkZAxZJmUyxaqqW_Zeou5pvabfJJCROGjp6owTYucXqzQcZ5aaBJfQ3-2a4Ksvln4CQAGfD3R0XN",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAHlBMVEVHcEwpJhVNSDHCu5d6dFmvqIfTy6VxbFLa0quWkHE938E6AAAACnRSTlMADRxEOUJAKUFCxcGs1wAAAO5JREFUeAF80AGnAkEQB_B5pyRgxeM94NIXKNUqQIIAVToBkPu3ASkhgOqmPaCk9HG7OtOeQ4u18_O3Ozv0ZVVy9U8rB7-LHPT3cqqmgVlDYPfeH3oo8Ld6XanNWaBYTzaPjSSodHwD6gIF-ETlDHh6RLRlDAVoECmasll9oGwvCYTqA0XEqokTuQSbsYY0mj55CHB2QDWOAzOiTCSYANnflzhkxBmgWQiYnnfzBf6tBuZN21IiGwaA2HcTfrxg7-o-B4AbkXe1bYZZKqnvHG06tutLfqKTNitrRdLWNUrDsgrt55wnokYqozu-NAAAnDw47vy2KBkAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CrIBL2dvdG8_dXJsPUNBRVNlZ0hyT3pBVmhETUxMbFhwWmE4VHMyaEhCM3dNMnNOclM0SG5TZEhLdlN6WDBCWFl3UWJsaHRPbGsyYmNOVUJmaDd2ZjhJcnZnWDR2NE54QldCVTFYYS1SVGtaQXhaSm1VeXhhcXFXX1plb3U1cHZhYmZKSkNST0dqcDZvd1RZdWNYcXpRY1o1YWFCSmZRMy0yYTRLc3ZsbjRDUUFHZkQzUjBYThIEGgIIABr3AxICCAAaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQNEDCAAQABgAIAAqDQoGam9zaHVhFZp5bUAysgEvZ290bz91cmw9Q0FFU2VnSHJPekFWaERNTExsWHBaYThUczJoSEIzd00yc05yUzRIblNkSEt2U3pYMEJYWXdRYmxodE9sazJiY05VQmZoN3ZmOElydmdYNHY0TnhCV0JVMVhhLVJUa1pBeFpKbVV5eGFxcVdfWmVvdTVwdmFiZkpKQ1JPR2pwNm93VFl1Y1hxelFjWjVhYUJKZlEzLTJhNEtzdmxuNENRQUdmRDNSMFhOOj48Yj5PYml0dWFyeTwvYj4gZm9yIENhbGViICZxdW90O1dlZSBXZWUmcXVvdDsgWmVjaGFyaWFoIENvdG1hbkK-AU9mZmljaWFsIDxiPk9iaXR1YXJ5PC9iPiBvZi4gQ2FsZWIgJnF1b3Q7V2VlIFdlZSZxdW90OyBaZWNoYXJpYWggQ290bWFuLiBOb3ZlbWJlciAyMSwgMjAwNyB-IEF1Z3VzdCA3LCAyMDI2IChhZ2UgMTgpIDE4IFllYXJzIE9sZC4gNDQgVHJlZXMsIEZsb3dlcnMsIDxiPm9yPC9iPiBDb25kb2xlbmNlcyBoYXZlIGJlZW4mbmJzcDsuLi5SAm9yIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CrIBL2dvdG8_dXJsPUNBRVNlZ0hyT3pBVmhETUxMbFhwWmE4VHMyaEhCM3dNMnNOclM0SG5TZEhLdlN6WDBCWFl3UWJsaHRPbGsyYmNOVUJmaDd2ZjhJcnZnWDR2NE54QldCVTFYYS1SVGtaQXhaSm1VeXhhcXFXX1plb3U1cHZhYmZKSkNST0dqcDZvd1RZdWNYcXpRY1o1YWFCSmZRMy0yYTRLc3ZsbjRDUUFHZkQzUjBYThIEGgIIABr3AxICCAAaACIAKgAyBggBEgJ1czoAQgQIARAASgBaAHIAegCCQNEDCAAQABgAIAAqDQoGam9zaHVhFZp5bUAysgEvZ290bz91cmw9Q0FFU2VnSHJPekFWaERNTExsWHBaYThUczJoSEIzd00yc05yUzRIblNkSEt2U3pYMEJYWXdRYmxodE9sazJiY05VQmZoN3ZmOElydmdYNHY0TnhCV0JVMVhhLVJUa1pBeFpKbVV5eGFxcVdfWmVvdTVwdmFiZkpKQ1JPR2pwNm93VFl1Y1hxelFjWjVhYUJKZlEzLTJhNEtzdmxuNENRQUdmRDNSMFhOOj48Yj5PYml0dWFyeTwvYj4gZm9yIENhbGViICZxdW90O1dlZSBXZWUmcXVvdDsgWmVjaGFyaWFoIENvdG1hbkK-AU9mZmljaWFsIDxiPk9iaXR1YXJ5PC9iPiBvZi4gQ2FsZWIgJnF1b3Q7V2VlIFdlZSZxdW90OyBaZWNoYXJpYWggQ290bWFuLiBOb3ZlbWJlciAyMSwgMjAwNyB-IEF1Z3VzdCA3LCAyMDI2IChhZ2UgMTgpIDE4IFllYXJzIE9sZC4gNDQgVHJlZXMsIEZsb3dlcnMsIDxiPm9yPC9iPiBDb25kb2xlbmNlcyBoYXZlIGJlZW4mbmJzcDsuLi5SAm9yIgIQAUgAWABoAA",
+				"source": "Whiting's Funeral Home",
+				"read_more_link": "https://www.google.com/goto?url=CAESvQEB6zswFdBnWZRykh-su3b6Klue0elCE59CgnsH7zc3pP-FUmp9ZcXVDcX7DvRh2JsEBy6tV1RHE78DqbxpApTWrHOn0GmMhMsuiJtjUkCW9BF_YwxqTgAh88eAAfXQ5L4910v_3mnTS80DXTuTKtJwEXYc0GIQJ3uUGdnkkoDoPIQvEuoBrKgcSpxzlNEhoyHYySaC-vDVwICU9UF6SWNZBHu70K-MpnPLpo-1SU9T60aBGaYZWyCU_zYZK1E&gsessionid=73fkok84rcKlwWz5tBW3cvrNE0ZR9nwWb3ZBJ8wBA0Vmm4M_3CqGsg"
+			},
+			{
+				"position": 9,
+				"title": "John Maxwell Glasgow Obituary Oct 7, 2026",
+				"link": "/goto?url=CAESfgHrOzAV5iZ3MJePKUhnqOpMZmKsVmpu7jLvbKTJ8CUOZXAkomdCZgGwQWpDHioQbaMRUuMqI0RMKQweyvFfsVhHSIXi1-AYUeWnpUWr_EzWm8s4YM1QSR-iIDz2jg-EkOnX2aC8igDBxShqFjreqCgje68Znw8XYOViKKf-2Q",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESfgHrOzAVc_1vRB2U2U-hi7YmPrWZSBZTRWRKueDEVmhjmdLadTzRAAjdXTvdLRSqCIh2zMxmif152FGa_yXGFHKbXc9AOQFfERwFhrlDZD3_BL4SFH5DBOt3hIVwIJAK_HZ2jzOLagr4b0T6ZnbSutPy4Vg9kUvYEMfZhwxhQA&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECEwQAQ&uoh=1",
+				"displayed_link": "https://www.mcguireanddaviesfuneralhome.com › john...",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAOVBMVEVHcEwAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBQUAAAAICAgAAAACAgIAAAACAgIQJwQgAAAAE3RSTlMAS9K2Qv_ymokzdSkFFQwfO2ZYOUK02QAAAQBJREFUeAGdzgWChVAIQFH4Js1j_4sddLp-XQs9FtwbXiac_8VlWS__4bZ0-99GyxH_-9Zu-hvlxPVv1OnA__5oWtZlsv9w5csM_6UIV_LnEPftCP2X0D7xHO5G3P6NQtwU3jOLeJ9d3YENxHp2MG7RfEOVGQbokcuMPg8LV_MTI-cckHNhZaZE1igunk8kJiKnShs-F5DUEEQbJ46RzIhbEce-GzLtOA_KwzQ8QtHcLIwyTHrqM1GAMFAFjQjQXo6JQDvo8rzoOeNJqiQJTXl4FfLgijGKh9RWNtveF6q4GluJIxCRZ65hGCzFc0lCigRZulFET5HaR4vsweD_1F8AQt0Oyq0MIdcAAAAASUVORK5CYII.png",
+				"date": "Oct 7, 2026",
+				"snippet": "John Maxwell Glasgow, 31, was born on November 14, 1994 and passed away suddenly in an accident on October 7, 2026.",
+				"about_this_result": {
+					"source": {
+						"description": "John Maxwell Glasgow, 31, was born on November 14, 1994 and passed away suddenly in an accident on October 7, 2026.",
+						"source_info_link": "/goto?url=CAESfgHrOzAV5iZ3MJePKUhnqOpMZmKsVmpu7jLvbKTJ8CUOZXAkomdCZgGwQWpDHioQbaMRUuMqI0RMKQweyvFfsVhHSIXi1-AYUeWnpUWr_EzWm8s4YM1QSR-iIDz2jg-EkOnX2aC8igDBxShqFjreqCgje68Znw8XYOViKKf-2Q",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAAOVBMVEVHcEwAAAABAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFBQUAAAAICAgAAAACAgIAAAACAgIQJwQgAAAAE3RSTlMAS9K2Qv_ymokzdSkFFQwfO2ZYOUK02QAAAQBJREFUeAGdzgWChVAIQFH4Js1j_4sddLp-XQs9FtwbXiac_8VlWS__4bZ0-99GyxH_-9Zu-hvlxPVv1OnA__5oWtZlsv9w5csM_6UIV_LnEPftCP2X0D7xHO5G3P6NQtwU3jOLeJ9d3YENxHp2MG7RfEOVGQbokcuMPg8LV_MTI-cckHNhZaZE1igunk8kJiKnShs-F5DUEEQbJ46RzIhbEce-GzLtOA_KwzQ8QtHcLIwyTHrqM1GAMFAFjQjQXo6JQDvo8rzoOeNJqiQJTXl4FfLgijGKh9RWNtveF6q4GluJIxCRZ65hGCzFc0lCigRZulFET5HaR4vsweD_1F8AQt0Oyq0MIdcAAAAASUVORK5CYII.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CrgBL2dvdG8_dXJsPUNBRVNmZ0hyT3pBVjVpWjNNSmVQS1VobnFPcE1abUtzVm1wdTdqTHZiS1RKOENVT1pYQWtvbWRDWmdHd1FXcERIaW9RYmFNUlV1TXFJMFJNS1F3ZXl2RmZzVmhIU0lYaTEtQVlVZVducFVXcl9FeldtOHM0WU0xUVNSLWlJRHoyamctRWtPblgyYUM4aWdEQnhTaHFGanJlcUNnamU2OFpudzhYWU9WaUtLZi0yURIEGgIIABqjAxICCAAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQP0CCAAQABgAIAAqDQoGam9zaHVhFW77RUAyuAEvZ290bz91cmw9Q0FFU2ZnSHJPekFWNWlaM01KZVBLVWhucU9wTVptS3NWbXB1N2pMdmJLVEo4Q1VPWlhBa29tZENaZ0d3UVdwREhpb1FiYU1SVXVNcUkwUk1LUXdleXZGZnNWaEhTSVhpMS1BWVVlV25wVVdyX0V6V204czRZTTFRU1ItaUlEejJqZy1Fa09uWDJhQzhpZ0RCeFNocUZqcmVxQ2dqZTY4Wm53OFhZT1ZpS0tmLTJROjBKb2huIE1heHdlbGwgR2xhc2dvdyA8Yj5PYml0dWFyeTwvYj4gT2N0IDcsIDIwMjZCc0pvaG4gTWF4d2VsbCBHbGFzZ293LCAzMSwgd2FzIGJvcm4gb24gTm92ZW1iZXIgMTQsIDE5OTQgYW5kIHBhc3NlZCBhd2F5IHN1ZGRlbmx5IGluIGFuIGFjY2lkZW50IG9uIE9jdG9iZXIgNywgMjAyNi5SAm9yIgIQAUgAWABoAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CrgBL2dvdG8_dXJsPUNBRVNmZ0hyT3pBVjVpWjNNSmVQS1VobnFPcE1abUtzVm1wdTdqTHZiS1RKOENVT1pYQWtvbWRDWmdHd1FXcERIaW9RYmFNUlV1TXFJMFJNS1F3ZXl2RmZzVmhIU0lYaTEtQVlVZVducFVXcl9FeldtOHM0WU0xUVNSLWlJRHoyamctRWtPblgyYUM4aWdEQnhTaHFGanJlcUNnamU2OFpudzhYWU9WaUtLZi0yURIEGgIIABqjAxICCAAaACIAKgAyBggDEgJ1czoAQgQIARAASgBaAHIAegCCQP0CCAAQABgAIAAqDQoGam9zaHVhFW77RUAyuAEvZ290bz91cmw9Q0FFU2ZnSHJPekFWNWlaM01KZVBLVWhucU9wTVptS3NWbXB1N2pMdmJLVEo4Q1VPWlhBa29tZENaZ0d3UVdwREhpb1FiYU1SVXVNcUkwUk1LUXdleXZGZnNWaEhTSVhpMS1BWVVlV25wVVdyX0V6V204czRZTTFRU1ItaUlEejJqZy1Fa09uWDJhQzhpZ0RCeFNocUZqcmVxQ2dqZTY4Wm53OFhZT1ZpS0tmLTJROjBKb2huIE1heHdlbGwgR2xhc2dvdyA8Yj5PYml0dWFyeTwvYj4gT2N0IDcsIDIwMjZCc0pvaG4gTWF4d2VsbCBHbGFzZ293LCAzMSwgd2FzIGJvcm4gb24gTm92ZW1iZXIgMTQsIDE5OTQgYW5kIHBhc3NlZCBhd2F5IHN1ZGRlbmx5IGluIGFuIGFjY2lkZW50IG9uIE9jdG9iZXIgNywgMjAyNi5SAm9yIgIQAUgAWABoAA",
+				"source": "McGuire & Davies Funeral Home and Crematory"
+			},
+			{
+				"position": 10,
+				"title": "Team Beans - Andrew Kaczynski - Medium",
+				"link": "/goto?url=CAESbwHrOzAV8MiKX0mkXRHUdQ_1OFPxSf8sVZoruQCvXhWF0I4cqrlIlyY_yEWKEpR-hIEt7jhz0s4qKQRpNd5-EZe47Qikz7OgQy7257IPIA6VgH91ZF2Rn6vZyLaUcE3m_Hp1cD7EdAfGC0pPZiJaxQ",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESbwHrOzAViKxljoNhoHYYAi0apiHjNiBFeJ_aW7c_c9V9QF36gQtOpvyd3N1usKm6dOpK8pB0mE4H9NyawKqF5MDLub8C0i9L7giomSJMR4Cdzh9FEMgA5OHXSWA12fHKwFauf4xl-uZ2uvzbjhzxoA&ved=2ahUKEwjs1aCh8eCXAxXfEFkFHTdrD7QQFnoECFIQAQ&uoh=1",
+				"displayed_link": "5 years ago",
+				"favicon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAARVBMVEVHcEwAAAAAAAAAAAAAAAAAAAB2dnanp6fW1tb___-JiYmzs7Pm5uaUlJS5ubm_v79XV1fMzMwuLi5GRkZgYGAWFhbz8_NaZDsbAAAABnRSTlMATcb6_504Ks4-AAAA00lEQVR4AX3TCw6DIBAEUNQpP_Gv3P-oHbJKpA1MErPwXAgRlVJdP-AvQ98p5oNKPuxDNZ3q69iroY6DQiOC2jAA8kC_ENY55yFhafHGkTNByonlWOC8cGpFShh_cVmJm-x4o7bbg_tG3VMj5oR86tx5pFYDHFZQuwBkRKCyOAWDM2_0RI8AJLx4HDNmBIjBT4JHehEZ5awRGU2BO9EgLxsLBE9z3YjIYxd4cvygT3vcaDWYeEIWsHxS8yfbU6vUjAa0DQqNNK9J84I1r2b7Urd-hy8WUBIcmpFBTAAAAABJRU5ErkJggg.png",
+				"snippet": "Francesca Kaczynski, also known as Bean, Beanie or Beans, died December 24th of complications from cancer. She was nine months old.",
+				"snippet_highlighted_words": ["or"],
+				"about_this_result": {
+					"source": {
+						"description": "Francesca Kaczynski, also known as Bean, Beanie or Beans, died December 24th of complications from cancer. She was nine months old.",
+						"source_info_link": "/goto?url=CAESbwHrOzAV8MiKX0mkXRHUdQ_1OFPxSf8sVZoruQCvXhWF0I4cqrlIlyY_yEWKEpR-hIEt7jhz0s4qKQRpNd5-EZe47Qikz7OgQy7257IPIA6VgH91ZF2Rn6vZyLaUcE3m_Hp1cD7EdAfGC0pPZiJaxQ",
+						"icon": "https://serpapi.com/images/i/iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y-mAAAARVBMVEVHcEwAAAAAAAAAAAAAAAAAAAB2dnanp6fW1tb___-JiYmzs7Pm5uaUlJS5ubm_v79XV1fMzMwuLi5GRkZgYGAWFhbz8_NaZDsbAAAABnRSTlMATcb6_504Ks4-AAAA00lEQVR4AX3TCw6DIBAEUNQpP_Gv3P-oHbJKpA1MErPwXAgRlVJdP-AvQ98p5oNKPuxDNZ3q69iroY6DQiOC2jAA8kC_ENY55yFhafHGkTNByonlWOC8cGpFShh_cVmJm-x4o7bbg_tG3VMj5oR86tx5pFYDHFZQuwBkRKCyOAWDM2_0RI8AJLx4HDNmBIjBT4JHehEZ5awRGU2BO9EgLxsLBE9z3YjIYxd4cvygT3vcaDWYeEIWsHxS8yfbU6vUjAa0DQqNNK9J84I1r2b7Urd-hy8WUBIcmpFBTAAAAABJRU5ErkJggg.png"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjhNaUtYMG1rWFJIVWRRXzFPRlB4U2Y4c1Zab3J1UUN2WGhXRjBJNGNxcmxJbHlZX3lFV0tFcFItaElFdDdqaHowczRxS1FScE5kNS1FWmU0N1Fpa3o3T2dReTcyNTdJUElBNlZnSDkxWkYyUm42dlp5TGFVY0UzbV9IcDFjRDdFZEFmR0MwcFBaaUpheFESBBoCCAAanQMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkD3AggAEAAYACAAKg0KBmpvc2h1YRUAAAAAMqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjhNaUtYMG1rWFJIVWRRXzFPRlB4U2Y4c1Zab3J1UUN2WGhXRjBJNGNxcmxJbHlZX3lFV0tFcFItaElFdDdqaHowczRxS1FScE5kNS1FWmU0N1Fpa3o3T2dReTcyNTdJUElBNlZnSDkxWkYyUm42dlp5TGFVY0UzbV9IcDFjRDdFZEFmR0MwcFBaaUpheFE6JlRlYW0gQmVhbnMgLSBBbmRyZXcgS2Fjenluc2tpIC0gTWVkaXVtQooBRnJhbmNlc2NhIEthY3p5bnNraSwgYWxzbyBrbm93biBhcyBCZWFuLCBCZWFuaWUgPGI-b3I8L2I-IEJlYW5zLCBkaWVkIERlY2VtYmVyIDI0dGggb2YgY29tcGxpY2F0aW9ucyBmcm9tIGNhbmNlci4gU2hlIHdhcyBuaW5lIG1vbnRocyBvbGQuUgJvciICEAFIAFgAaAA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=CqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjhNaUtYMG1rWFJIVWRRXzFPRlB4U2Y4c1Zab3J1UUN2WGhXRjBJNGNxcmxJbHlZX3lFV0tFcFItaElFdDdqaHowczRxS1FScE5kNS1FWmU0N1Fpa3o3T2dReTcyNTdJUElBNlZnSDkxWkYyUm42dlp5TGFVY0UzbV9IcDFjRDdFZEFmR0MwcFBaaUpheFESBBoCCAAanQMSAggBGgAiACoAMgYIARICdXM6AEIECAEQAEoAWgByAHoAgkD3AggAEAAYACAAKg0KBmpvc2h1YRUAAAAAMqQBL2dvdG8_dXJsPUNBRVNid0hyT3pBVjhNaUtYMG1rWFJIVWRRXzFPRlB4U2Y4c1Zab3J1UUN2WGhXRjBJNGNxcmxJbHlZX3lFV0tFcFItaElFdDdqaHowczRxS1FScE5kNS1FWmU0N1Fpa3o3T2dReTcyNTdJUElBNlZnSDkxWkYyUm42dlp5TGFVY0UzbV9IcDFjRDdFZEFmR0MwcFBaaUpheFE6JlRlYW0gQmVhbnMgLSBBbmRyZXcgS2Fjenluc2tpIC0gTWVkaXVtQooBRnJhbmNlc2NhIEthY3p5bnNraSwgYWxzbyBrbm93biBhcyBCZWFuLCBCZWFuaWUgPGI-b3I8L2I-IEJlYW5zLCBkaWVkIERlY2VtYmVyIDI0dGggb2YgY29tcGxpY2F0aW9ucyBmcm9tIGNhbmNlci4gU2hlIHdhcyBuaW5lIG1vbnRocyBvbGQuUgJvciICEAFIAFgAaAA",
+				"source": "Medium · Andrew Kaczynski"
+			}
+		]
+	}
+}

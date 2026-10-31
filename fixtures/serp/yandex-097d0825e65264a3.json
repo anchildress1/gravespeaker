@@ -1,0 +1,58 @@
+{
+	"engine": "yandex",
+	"query": "\"Violet Yacobi\" 1950 2017 hollywood hills california (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Violet Yacobi's death was ruled a homicide after... - YouTube",
+				"link": "https://www.youtube.com/watch?v=FWccV-0SPD0",
+				"displayed_link": "youtube.com › watch",
+				"snippet": "Watch \"Beverly Hills 911\" and then catch up with CBS News correspondent Tracy Smith and \"48 Hours\" correspondent Erin Moriarty on \"Post Mortem\" as they discuss the case of 67-year-old Violet Yacobi, who was found dead by her children in her..."
+			},
+			{
+				"position": 2,
+				"title": "Dentist Allegedly Said He Hated His Parents — Then Killed...",
+				"link": "https://www.yahoo.com/news/articles/dentist-allegedly-said-hated-parents-214049791.html",
+				"displayed_link": "yahoo.com › news › articles › dentist-allegedly-said",
+				"snippet": "Daniel Yacobi was sentenced to life in prison without the possibility of parole on Friday, Oct. 3. He was convicted in August of strangling his 67-year-old mother to death at her Beverly Hills mansion in 2017."
+			},
+			{
+				"position": 3,
+				"title": "Violet Yacobi and Daniel Yacobi Documentary | TikTok",
+				"link": "https://www.tiktok.com/discover/violet-yacobi-and-daniel-yacobi-documentary",
+				"displayed_link": "tiktok.com › discover › violet-yacobi-and-daniel",
+				"snippet": "Violet Yacobi and her husband had long been pillars in their Beverly Hills community. When the 67-year-old widow was found dead in her multi-million-dollar mansion, it stunned and saddened her large circle of friends."
+			},
+			{
+				"position": 4,
+				"title": "A wealthy Beverly Hills widow winds up dead... - CBS News",
+				"link": "https://www.cbsnews.com/news/violet-daniel-yacobi-beverly-hills-staircase-mansion-murder-48-hours/",
+				"displayed_link": "cbsnews.com › news › violet-daniel-yacobi-beverly",
+				"snippet": "Beverly Hills detectives responding to the death of 67-year-old Violet Yacobi — who was found on the marble floor below a staircase in her mansion — suspected foul play and her dentist son, and wondered if the family fortune was a motive for murder."
+			},
+			{
+				"position": 5,
+				"title": "Daniel Yacobi Arrested For The Murder Of Violet Yacobi",
+				"link": "https://www.canyon-news.com/son-arrested-murder-violet-yacobi/",
+				"displayed_link": "canyon-news.com › son-arrested-murder-violet-yacobi",
+				"snippet": "The Beverly Hills Police Department arrested Daniel Yacobi for the October 2017 murder of his mother Violet Yacobi. ... Officers attempted to resuscitate the victim, but Violet Yacobi, 67, was pronounced dead on the scene."
+			},
+			{
+				"position": 6,
+				"title": "Daniel Yacobi: Where is the Killer Today?",
+				"link": "https://thecinemaholic.com/daniel-yacobi/",
+				"displayed_link": "thecinemaholic.com › daniel-yacobi",
+				"snippet": "Violet Yacobi. Around September 2017, Daniel allegedly asked a family friend about inheritance tax, something the friend found strange. ... Daniel Yacobi is Currently Incarcerated at a California Facility."
+			},
+			{
+				"position": 7,
+				"title": "Violet Yacobi - Bio, News, Photos",
+				"link": "https://www.washingtontimes.com/topics/violet-yacobi/",
+				"displayed_link": "washingtontimes.com › topics › violet-yacobi",
+				"snippet": "Latest news and commentary on Violet Yacobi including photos, videos, quotations, and a biography."
+			}
+		]
+	}
+}

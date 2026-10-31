@@ -1,0 +1,36 @@
+{
+	"engine": "google",
+	"query": "\"Gaynor Claire Hawks\" 1932 2017 (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Gedenkstätten verwaltet von Jennifer Moore",
+				"link": "https://de.findagrave.com/user/49041838/memorial",
+				"redirect_link": "https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=CAESawHrOzAVtW5SCwwvoHMSeivU0weRktDJDF5gtwp1DcqoSZROZMyeGgl9Mlgju6hG6F8fYeO5IAOYuN2_0CPiwSu3hJOsd-EYsj18LstnImcPeiOkrpBDGdKmDlqbjGG7Jd-sG0IhlvadYscS&ved=2ahUKEwjlnvHN8OCXAxUlEVkFHddhKUMQFnoECBoQAQ&uoh=1",
+				"displayed_link": "https://de.findagrave.com › user › memorial",
+				"snippet": "Lone Oak Cemetery. Stayton, Marion County, Oregon, United States of America. Gaynor Claire Hawks. 1932 – 2017. Alsea Cemetery. Alsea, Benton County, Oregon ...",
+				"snippet_highlighted_words": [
+					"Cemetery",
+					"Gaynor Claire Hawks",
+					"1932",
+					"2017",
+					"Cemetery"
+				],
+				"about_this_result": {
+					"source": {
+						"description": "Lone Oak Cemetery. Stayton, Marion County, Oregon, United States of America. Gaynor Claire Hawks. 1932 – 2017. Alsea Cemetery. Alsea, Benton County, Oregon ...",
+						"source_info_link": "https://de.findagrave.com/user/49041838/memorial"
+					},
+					"languages": ["en"],
+					"regions": ["US"]
+				},
+				"about_page_link": "https://www.google.com/search/about-this-result?origin=www.google.com&req=Cp4BL2dvdG8_dXJsPUNBRVNhd0hyT3pBVmhhQUd1UGoyMVVISi12bWxNTnNsUzFNYW9yNHd4VGxRSTJoOG40aUFoaU1VdWxnWFlVeHowd1NHUlE2RGR4RzZpY1V5dmoweDFfMmR4V29SUzVVSWtIeGlGTGpyX3ZncjJodmZpc2VmbURMTXN1cE5vMWFXaGJocGhzbXNDZUs0Wnc5VVVHdlYSBBoCCAAauwUSABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAlwUIABAAGAAgACoNCgZnYXlub3IVRJ4ZPyoNCgZjbGFpcmUVRJ4ZPyoMCgVoYXdrcxWDLZA_KhYKBDE5MzIVVBWTPhoJaXY7bjsxOTMyKhYKBDIwMTcVbITSPhoJaXY7bjsyMDE3KocBCghvYml0dWFyeRUHubRAGg1pdjtwO29iaXR1YXJ5GgppdjtwO2dyYXZlGg1pdjtwO2NlbWV0ZXJ5GgRkaWVkGgpvYml0dWFyaWVzGgVkZWF0aBoEb2JpdBoHZnVuZXJhbBoGYnVyaWFsGgZncmF2ZXMaCmNlbWV0ZXJpZXMaCG1lbW9yaWFsMp4BL2dvdG8_dXJsPUNBRVNhd0hyT3pBVmhhQUd1UGoyMVVISi12bWxNTnNsUzFNYW9yNHd4VGxRSTJoOG40aUFoaU1VdWxnWFlVeHowd1NHUlE2RGR4RzZpY1V5dmoweDFfMmR4V29SUzVVSWtIeGlGTGpyX3ZncjJodmZpc2VmbURMTXN1cE5vMWFXaGJocGhzbXNDZUs0Wnc5VVVHdlY6OkdlZGVua3N0w6R0dGVuIHZlcndhbHRldCB2b24gSmVubmlmZXIgTW9vcmUgLSBGaW5kIGEgR3JhdmVCyQFMb25lIE9hayA8Yj5DZW1ldGVyeTwvYj4uIFN0YXl0b24sIE1hcmlvbiBDb3VudHksIE9yZWdvbiwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhLiA8Yj5HYXlub3IgQ2xhaXJlIEhhd2tzPC9iPi4gPGI-MTkzMjwvYj4g4oCTIDxiPjIwMTc8L2I-LiBBbHNlYSA8Yj5DZW1ldGVyeTwvYj4uIEFsc2VhLCBCZW50b24gQ291bnR5LCBPcmVnb24mbmJzcDsuLi4iAhABSABYAGgA",
+				"about_page_serpapi_link": "https://serpapi.com/search.json?engine=google_about_this_result&google_domain=google.com&req_token=Cp4BL2dvdG8_dXJsPUNBRVNhd0hyT3pBVmhhQUd1UGoyMVVISi12bWxNTnNsUzFNYW9yNHd4VGxRSTJoOG40aUFoaU1VdWxnWFlVeHowd1NHUlE2RGR4RzZpY1V5dmoweDFfMmR4V29SUzVVSWtIeGlGTGpyX3ZncjJodmZpc2VmbURMTXN1cE5vMWFXaGJocGhzbXNDZUs0Wnc5VVVHdlYSBBoCCAAauwUSABoAIgAqADIGCAMSAnVzOgBCBAgBEABKAFoAcgB6AIJAlwUIABAAGAAgACoNCgZnYXlub3IVRJ4ZPyoNCgZjbGFpcmUVRJ4ZPyoMCgVoYXdrcxWDLZA_KhYKBDE5MzIVVBWTPhoJaXY7bjsxOTMyKhYKBDIwMTcVbITSPhoJaXY7bjsyMDE3KocBCghvYml0dWFyeRUHubRAGg1pdjtwO29iaXR1YXJ5GgppdjtwO2dyYXZlGg1pdjtwO2NlbWV0ZXJ5GgRkaWVkGgpvYml0dWFyaWVzGgVkZWF0aBoEb2JpdBoHZnVuZXJhbBoGYnVyaWFsGgZncmF2ZXMaCmNlbWV0ZXJpZXMaCG1lbW9yaWFsMp4BL2dvdG8_dXJsPUNBRVNhd0hyT3pBVmhhQUd1UGoyMVVISi12bWxNTnNsUzFNYW9yNHd4VGxRSTJoOG40aUFoaU1VdWxnWFlVeHowd1NHUlE2RGR4RzZpY1V5dmoweDFfMmR4V29SUzVVSWtIeGlGTGpyX3ZncjJodmZpc2VmbURMTXN1cE5vMWFXaGJocGhzbXNDZUs0Wnc5VVVHdlY6OkdlZGVua3N0w6R0dGVuIHZlcndhbHRldCB2b24gSmVubmlmZXIgTW9vcmUgLSBGaW5kIGEgR3JhdmVCyQFMb25lIE9hayA8Yj5DZW1ldGVyeTwvYj4uIFN0YXl0b24sIE1hcmlvbiBDb3VudHksIE9yZWdvbiwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhLiA8Yj5HYXlub3IgQ2xhaXJlIEhhd2tzPC9iPi4gPGI-MTkzMjwvYj4g4oCTIDxiPjIwMTc8L2I-LiBBbHNlYSA8Yj5DZW1ldGVyeTwvYj4uIEFsc2VhLCBCZW50b24gQ291bnR5LCBPcmVnb24mbmJzcDsuLi4iAhABSABYAGgA",
+				"source": "Find a Grave",
+				"read_more_link": "https://de.findagrave.com/user/49041838/memorial#:~:text=Lone%20Oak%20Cemetery,Oregon%2C%20United%20States%20of%20America"
+			}
+		]
+	}
+}

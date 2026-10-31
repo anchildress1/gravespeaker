@@ -1,5 +1,4 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { ProviderError } from '../http';
 
 vi.mock('../env', () => ({ geminiApiKey: () => 'test', serpApiKey: () => 'test' }));
 
@@ -78,60 +77,149 @@ describe('canonicalUrl', () => {
 });
 
 describe('SerpApiProvider', () => {
-	it('searches several engines in parallel and merges their results', async () => {
-		const fn = stub({
-			google: ok(hit('https://a.com/1')),
-			yandex: ok(hit('https://b.com/2'))
-		});
-		const hits = await new SerpApiProvider().search('q');
-		expect(hits.map((h) => h.url)).toEqual(['https://a.com/1', 'https://b.com/2']);
-		const engines = fn.mock.calls.map(([u]) => new URL(String(u)).searchParams.get('engine'));
-		expect(new Set(engines)).toEqual(new Set(['google', 'yandex']));
+	const provider = new SerpApiProvider();
+
+	it.each([
+		['google', 'q'],
+		['yandex', 'text']
+	])('sends the query to %s in its own parameter', async (engine, param) => {
+		const fn = stub({ [engine]: ok(hit('https://a.com/1')) });
+		expect(await provider.search('Gaynor Hawks', engine)).toHaveLength(1);
+		const url = new URL(String(fn.mock.calls[0][0]));
+		expect([url.searchParams.get('engine'), url.searchParams.get(param)]).toEqual([
+			engine,
+			'Gaynor Hawks'
+		]);
 	});
 
-	it('removes a page that several engines return, keeping the first', async () => {
-		stub({
-			google: ok(hit('https://www.a.com/1/', 'First')),
-			yandex: ok(hit('https://a.com/1', 'Second'), hit('https://b.com/2'))
-		});
-		const hits = await new SerpApiProvider().search('q');
-		expect(hits.map((h) => h.title)).toEqual(['First', 'T']);
-		expect(hits.map((h) => h.id)).toEqual(['s1', 's2']);
-	});
-
-	it('uses the engines that answered when another one fails', async () => {
-		stub({ google: down, yandex: ok(hit('https://b.com/2')) });
-		expect(await new SerpApiProvider().search('q')).toHaveLength(1);
-	});
-
-	it('returns an empty list when engines report no results', async () => {
+	it('returns an empty list when the engine reports no results', async () => {
 		stub({
 			google: () => Response.json({ error: "Google hasn't returned any results for this query." })
 		});
-		expect(await new SerpApiProvider().search('q')).toEqual([]);
+		expect(await provider.search('q', 'google')).toEqual([]);
 	});
 
-	it('throws ProviderError only when every engine fails', async () => {
-		stub({ google: down, yandex: down });
-		await expect(new SerpApiProvider().search('q')).rejects.toBeInstanceOf(ProviderError);
+	it('throws when the engine fails', async () => {
+		stub({ google: down });
+		await expect(provider.search('q', 'google')).rejects.toThrow('down');
 	});
 
-	it('maps hits to numbered records with the hostname as site', async () => {
-		stub({ google: ok(hit('https://www.legacy.com/a', 'A', 'sa')) });
-		expect(await new SerpApiProvider().search('q')).toEqual([
-			{
-				id: 's1',
-				url: 'https://www.legacy.com/a',
-				title: 'A',
-				site: 'www.legacy.com',
-				snippet: 'sa'
-			}
+	it('keeps the status of a failure that answers with a page instead of JSON', async () => {
+		stub({ google: () => new Response('<html>Bad gateway</html>', { status: 502 }) });
+		await expect(provider.search('q', 'google')).rejects.toThrow('SerpApi 502');
+	});
+
+	it('throws when the engine answers with neither results nor an error', async () => {
+		stub({ google: () => Response.json({ search_metadata: {} }) });
+		await expect(provider.search('q', 'google')).rejects.toThrow('without results');
+	});
+
+	it('rejects an engine it does not know', async () => {
+		await expect(provider.search('q', 'bing')).rejects.toThrow('Unknown engine bing');
+	});
+
+	it('maps hits in rank order with the hostname as site', async () => {
+		stub({ google: ok(hit('https://www.legacy.com/a', 'A', 'sa'), hit('https://b.com/', 'B')) });
+		expect(await provider.search('q', 'google')).toEqual([
+			{ url: 'https://www.legacy.com/a', title: 'A', site: 'www.legacy.com', snippet: 'sa' },
+			{ url: 'https://b.com/', title: 'B', site: 'b.com', snippet: 'S' }
 		]);
+	});
+
+	it('strips bidirectional controls that could reorder a title or snippet', async () => {
+		stub({
+			google: ok(
+				hit('https://a.com/', 'Alfonso Gonz\u00e1lez\u202c - \u202aScholar', 'a\u2066b\u2069')
+			)
+		});
+		const [h] = await provider.search('q', 'google');
+		expect([h.title, h.snippet]).toEqual(['Alfonso Gonz\u00e1lez - Scholar', 'ab']);
 	});
 
 	it('skips links that are not web URLs or cannot be parsed', async () => {
 		stub({ google: ok(hit('javascript:alert(1)'), hit('https://['), hit('https://a.com/')) });
-		const hits = await new SerpApiProvider().search('q');
+		const hits = await provider.search('q', 'google');
 		expect(hits.map((h) => h.url)).toEqual(['https://a.com/']);
+	});
+
+	describe('Google redirect links', () => {
+		/**
+		 * Stubs SerpApi with Google results and Google's redirect hop.
+		 * @param hits Google's organic results.
+		 * @param pages Page each redirect path leads to; `down` fails the request, and unlisted paths
+		 *   answer without a location.
+		 */
+		const google = (hits: ReturnType<typeof hit>[], pages: Record<string, string>) => {
+			vi.stubGlobal(
+				'fetch',
+				vi.fn(async (input: string | URL) => {
+					const url = new URL(String(input));
+					if (url.host === 'serpapi.com') return Response.json({ organic_results: hits });
+					const page = pages[url.pathname + url.search];
+					if (page === 'down') throw new TypeError('fetch failed');
+					return new Response(null, page ? { status: 302, headers: { location: page } } : {});
+				})
+			);
+		};
+
+		it('follows every redirect link in rank order, even beside direct links', async () => {
+			google(
+				[hit('/goto?url=A'), hit('https://b.com/'), hit('https://c.com/'), hit('https://d.com/')],
+				{ '/goto?url=A': 'https://a.com/obit' }
+			);
+			const hits = await provider.search('q', 'google');
+			expect(hits.map((h) => [h.url, h.site])).toEqual([
+				['https://a.com/obit', 'a.com'],
+				['https://b.com/', 'b.com'],
+				['https://c.com/', 'c.com'],
+				['https://d.com/', 'd.com']
+			]);
+		});
+
+		it('drops a redirect that fails or leads nowhere and keeps the rest', async () => {
+			google([hit('/goto?url=A'), hit('/goto?url=B'), hit('/goto?url=C')], {
+				'/goto?url=A': 'https://a.com/',
+				'/goto?url=B': 'down',
+				'/goto?url=C': 'javascript:alert(1)'
+			});
+			const hits = await provider.search('q', 'google');
+			expect(hits.map((h) => h.url)).toEqual(['https://a.com/']);
+		});
+
+		it('treats an absolute Google redirect link as a hop, never as a page', async () => {
+			const goto = 'https://www.google.com/goto?url=A';
+			google([hit(goto), hit('https://b.com/'), hit('https://c.com/'), hit('https://d.com/')], {
+				'/goto?url=A': 'https://a.com/'
+			});
+			expect((await provider.search('q', 'google')).map((h) => h.url)).not.toContain(goto);
+			google([hit(goto), hit('https://b.com/')], { '/goto?url=A': 'https://a.com/' });
+			expect((await provider.search('q', 'google')).map((h) => h.url)).toEqual([
+				'https://a.com/',
+				'https://b.com/'
+			]);
+		});
+
+		it('drops a redirect that lands back on Google, such as a captcha page', async () => {
+			google([hit('/goto?url=A'), hit('/goto?url=B')], {
+				'/goto?url=A': 'https://www.google.com/sorry/index?continue=x',
+				'/goto?url=B': 'https://b.com/'
+			});
+			expect((await provider.search('q', 'google')).map((h) => h.url)).toEqual(['https://b.com/']);
+		});
+
+		it('throws when every result is a redirect and none resolves', async () => {
+			google([hit('/goto?url=A'), hit('/goto?url=B')], { '/goto?url=B': 'down' });
+			await expect(provider.search('q', 'google')).rejects.toThrow('redirects did not resolve');
+		});
+
+		it('never follows a link that leaves Google', async () => {
+			google([hit('//evil.com/goto?url=A')], { '/goto?url=A': 'https://a.com/' });
+			expect(await provider.search('q', 'google')).toEqual([]);
+		});
+
+		it('never follows Yandex links', async () => {
+			stub({ yandex: ok(hit('/goto?url=A')) });
+			expect(await provider.search('q', 'yandex')).toEqual([]);
+		});
 	});
 });

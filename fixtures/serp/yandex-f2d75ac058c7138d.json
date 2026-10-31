@@ -1,0 +1,44 @@
+{
+	"engine": "yandex",
+	"query": "\"Efrain Pineda Jr.\" 2019 comfort texas (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Hispanics Cheer Gingrich's Comments on Immigration | Politics",
+				"link": "https://www.christianpost.com/news/hispanics-cheer-gingrichs-comments-on-immigration.html",
+				"displayed_link": "christianpost.com › news › hispanics-cheer-gingrichs",
+				"snippet": "“House Speaker Newt Gingrich’s response last night left me motivated and thoroughly impressed,” said the Rev. Efrain Pineda Jr., executive director of the National Hispanic Christian Leadership, in an email to The Christian Post."
+			},
+			{
+				"position": 2,
+				"title": "Letter to Members of the 117th Congress of the United States...",
+				"link": "https://www.juntosencristo.org/documents/letter-to-members-of-the-117th-congress-of-the-united-states",
+				"displayed_link": "juntosencristo.org › documents › letter-to-members-of",
+				"snippet": "Ruben N Ortiz - Latino Field Ministries Coordinator, Cooperative Baptist Fellowship (CBF) Sandra Ovalle Martínez - Director of Campaigns and Mobilizing, Sojourners Rev. Efraín Pineda, Jr."
+			},
+			{
+				"position": 3,
+				"title": "Will Amarillo Become the 70th ‘Sanctuary... - Texas Scorecard",
+				"link": "https://texasscorecard.com/commentary/will-amarillo-become-the-70th-sanctuary-city-for-the-unborn-in-the-united-states/",
+				"displayed_link": "texasscorecard.com › commentary › will-amarillo",
+				"snippet": "Texas, Est. 2019). ... The resolution, reflecting the 2024 Texas Republican Party Platform’s commitment to the sanctity of life, asserts the importance of protecting unborn lives and strengthening the family unit as the cornerstone of a free society."
+			},
+			{
+				"position": 4,
+				"title": "Martin High School honors Class of 2026 graduates",
+				"link": "https://www.lmtonline.com/local/article/laredo-martin-mhs-lisd-graduation-high-school-22266693.php",
+				"displayed_link": "lmtonline.com › local › article › laredo-martin-mhs",
+				"snippet": "Graduates. Victor Manuel Acevedo, Jr. Camila Ximena Acosta Rodriguez Ernest Julian Aguero Aubrey Aguilar Ricardo Aikanoff, Jr."
+			},
+			{
+				"position": 5,
+				"title": "2024 Naked Nick 50 KM race results. 144 total finishers.",
+				"link": "https://ultrarunning.com/calendar/event/naked-nick/race/43534/results",
+				"displayed_link": "ultrarunning.com › calendar › event › naked-nick › race",
+				"snippet": "89. 72. Efrain Pineda Jr. M. 40-49."
+			}
+		]
+	}
+}

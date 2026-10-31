@@ -1,0 +1,508 @@
+{
+	"meta": {
+		"startedAt": "2026-10-30T14:30:06.204Z",
+		"withPlace": true,
+		"recorded": 102,
+		"missing": []
+	},
+	"rows": [
+		{
+			"file": "findagrave-235467347",
+			"reviewed": false,
+			"person": {
+				"name": "Efrain Pineda Jr.",
+				"born": "2019-11-29",
+				"died": "2019-12-02",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Efrain Pineda Jr.",
+				"name": "Efrain Pineda Jr.",
+				"maidenName": null,
+				"born": "2019-11-29",
+				"died": "2019-12-02",
+				"voice": null,
+				"place": "Comfort, Texas"
+			},
+			"searches": [
+				"yandex: \"Efrain Pineda Jr.\" 2019 (obituary | grave | cemetery)",
+				"google: \"Efrain Pineda Jr.\" 2019 (obituary OR grave OR cemetery)",
+				"yandex: (\"Efrain Pineda\" | \"Efrain * Pineda\") 2019 (obituary | grave | cemetery)",
+				"google: (\"Efrain Pineda\" OR \"Efrain * Pineda\") 2019 (obituary OR grave OR cemetery)",
+				"yandex: \"Efrain Pineda Jr.\" 2019 comfort texas (obituary | grave | cemetery)",
+				"google: \"Efrain Pineda Jr.\" 2019 comfort texas (obituary OR grave OR cemetery)",
+				"yandex: \"Efrain Pineda Jr.\" comfort texas (obituary | grave | cemetery)",
+				"google: \"Efrain Pineda Jr.\" comfort texas (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Efrain Pineda Jr.",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.juntosencristo.org/documents/letter-to-members-of-the-117th-congress-of-the-united-states",
+							"title": "Letter to Members of the 117th Congress of the United States...",
+							"site": "www.juntosencristo.org",
+							"snippet": "Ruben N Ortiz - Latino Field Ministries Coordinator, Cooperative Baptist Fellowship (CBF) Sandra Ovalle Martínez - Director of Campaigns and Mobilizing, Sojourners Rev. Efraín Pineda, Jr."
+						},
+						{
+							"id": "s5",
+							"url": "https://www.memorialfuneral.com/obituaries/efrain-pineda-pineda",
+							"title": "Efrain Pineda Pineda Obituary... - Memorial Funeral Home",
+							"site": "www.memorialfuneral.com",
+							"snippet": "View Efrain Pineda Pineda's obituary, send flowers, find service dates, and sign the guestbook."
+						},
+						{
+							"id": "s12",
+							"url": "https://www.christianpost.com/news/hispanics-cheer-gingrichs-comments-on-immigration.html",
+							"title": "Hispanics Cheer Gingrich's Comments on Immigration | Politics",
+							"site": "www.christianpost.com",
+							"snippet": "“House Speaker Newt Gingrich’s response last night left me motivated and thoroughly impressed,” said the Rev. Efrain Pineda Jr., executive director of the National Hispanic Christian Leadership, in an email to The Christian Post."
+						},
+						{
+							"id": "s2",
+							"url": "https://www.txgenwebcounties.net/elpaso/obit/000601.htm",
+							"title": "Obituaries, 2000 | El Paso County, TXGenWeb",
+							"site": "www.txgenwebcounties.net",
+							"snippet": "Survivors include his son, Efrain Pineda Jr.; his daughters, Charlene Castro, Lisa Oaxaca, Loretta Dominguez and Suzanne Levison; and 12 grandchildren. He was a business owner for 32 years and an Army veteran. El Paso Times - Jun 3 2000."
+						},
+						{
+							"id": "s7",
+							"url": "https://vimeo.com/user102336942",
+							"title": "Efrain pineda pineda",
+							"site": "vimeo.com",
+							"snippet": "EFRAIN PINEDA PINEDA is a member of Vimeo, the home for high quality videos and the people who love them."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-170852342",
+			"reviewed": false,
+			"person": {
+				"name": "Ethan John Chartre",
+				"born": "2007-08-25",
+				"died": "2016-09-17",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Ethan John Chartre",
+				"name": "Ethan John Chartre",
+				"maidenName": null,
+				"born": "2007-08-25",
+				"died": "2016-09-17",
+				"voice": null,
+				"place": "Wells, Michigan"
+			},
+			"searches": [
+				"yandex: \"Ethan John Chartre\" 2007 2016 (obituary | grave | cemetery)",
+				"google: \"Ethan John Chartre\" 2007 2016 (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Ethan John Chartre",
+					"born": "2007",
+					"died": "2016",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s15",
+							"url": "https://www.skradskifuneralhomes.com/obituaries/Ethan-Chartre?obId=46308102",
+							"title": "Obituary information for Ethan Chartre",
+							"site": "www.skradskifuneralhomes.com",
+							"snippet": "Ethan John Chartre, age 9, of Cornell, passed away on September 17, 2016 as a result of a boating accident on Lake Superior. Ethan was born August 25, 2007 ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-151025078",
+			"reviewed": false,
+			"person": {
+				"name": "Georgia Wallace-Porter Overton",
+				"born": "2006-01-23",
+				"died": "2015-08-20",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Georgia Wallace-Porter Overton",
+				"name": "Georgia Wallace-Porter Overton",
+				"maidenName": null,
+				"born": "2006-01-23",
+				"died": "2015-08-20",
+				"voice": null,
+				"place": "Jonesboro, Arkansas"
+			},
+			"searches": [
+				"yandex: \"Georgia Wallace-Porter Overton\" 2006 2015 (obituary | grave | cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 (obituary OR grave OR cemetery)",
+				"yandex: (\"Georgia Overton\" | \"Georgia * Overton\") 2006 2015 (obituary | grave | cemetery)",
+				"google: (\"Georgia Overton\" OR \"Georgia * Overton\") 2006 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary | grave | cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" 2006 2015 jonesboro arkansas (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary | grave | cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+				"google: \"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Georgia Wallace-Porter Overton",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s18",
+							"url": "https://www.wikitree.com/genealogy/OVERTON",
+							"title": "Overton Genealogy | WikiTree FREE Family Tree",
+							"site": "www.wikitree.com",
+							"snippet": "Georgia Edith (Overton) Gardner. 11 Oct 1925 Mobile, Alabama, United States - 22 Mar 2000 Denver, Colorado, United States • managed by Nelda Spires • last edited 4 Jun 2026. Connie (Overton) Dickinson."
+						},
+						{
+							"id": "s19",
+							"url": "https://www.allmusic.com/artist/georgia-ku-mn0003398337",
+							"title": "Georgia Ku — Biography, Discography, Albums... | AllMusic",
+							"site": "www.allmusic.com",
+							"snippet": "Georgia Ku's complete discography, biography, and expert reviews. 2010–present. ... Georgia Ku Overton. Listen on Spotify. Set Your Streaming Service."
+						},
+						{
+							"id": "s20",
+							"url": "https://www.karaoketeksty.pl/tekste/georgia-overton-38652/georgia-34854",
+							"title": "Georgia - Georgia Overton",
+							"site": "www.karaoketeksty.pl",
+							"snippet": "Album Georgia od Georgia Overton. Teksty do piosenek, tłumaczenia i teledyski na KaraokeTeksty.pl."
+						},
+						{
+							"id": "s21",
+							"url": "https://www.musixmatch.com/es/letras/Zomboy/Shell-Shock-Georgia-Ku-Mixed",
+							"title": "Letra de Shell Shock (feat. Georgia Ku) [Mixed]... | Musixmatch",
+							"site": "www.musixmatch.com",
+							"snippet": "Georgia Ku) [Mixed] de Zomboy ha sido traducida a 1 idioma(s). ... Writer(s): Jean Baptiste, Tyler Marenyi, Jean Baptiste Kouame, Joshua Paul Jenkin, Georgia Ku Overton, Steven Haddad, Georgia Overton."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "lancasteronline-olivia-grace-dusablon",
+			"reviewed": false,
+			"person": {
+				"name": "Olivia Grace Dusablon",
+				"born": "2011",
+				"died": "2014-12-24",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Olivia Grace Dusablon",
+				"name": "Olivia Grace Dusablon",
+				"maidenName": null,
+				"born": "2011",
+				"died": "2014-12-24",
+				"voice": null,
+				"place": "Mount Joy, Pennsylvania"
+			},
+			"searches": ["yandex: \"Olivia Grace Dusablon\" 2011 2014 (obituary | grave | cemetery)"],
+			"candidates": [
+				{
+					"name": "Olivia Grace Dusablon",
+					"born": "2011",
+					"died": "2014",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.forevermissed.com/olivia-grace-dusablon/",
+							"title": "Olivia Grace Dusablon (2011 - 2014) - ForeverMissed.com...",
+							"site": "www.forevermissed.com",
+							"snippet": "Born on January 5, 2011. Passed away on December 24, 2014. Share memories. Tributes are short messages commemorating Olivia, or an expression of support to her closest family and friends. Leave your first tribute here, and others will follow."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-177939034",
+			"reviewed": false,
+			"person": {
+				"name": "Bree Nichol Reynolds",
+				"born": "2000-10-11",
+				"died": "2017-03-23",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Bree Nichol Reynolds",
+				"name": "Bree Nichol Reynolds",
+				"maidenName": null,
+				"born": "2000-10-11",
+				"died": "2017-03-23",
+				"voice": null,
+				"place": "Altoona, Kansas"
+			},
+			"searches": [
+				"yandex: \"Bree Nichol Reynolds\" 2000 2017 (obituary | grave | cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 (obituary OR grave OR cemetery)",
+				"yandex: (\"Bree Reynolds\" | \"Bree * Reynolds\") 2000 2017 (obituary | grave | cemetery)",
+				"google: (\"Bree Reynolds\" OR \"Bree * Reynolds\") 2000 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary | grave | cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary OR grave OR cemetery)",
+				"yandex: \"Bree Nichol Reynolds\" altoona kansas (obituary | grave | cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)",
+				"google: \"Bree Nichol Reynolds\" altoona kansas (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Bree Nichol Reynolds",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.loranfawcettfuneralhome.com/obituaries/bree-reynolds",
+							"title": "Bree Reynolds Obituary Mar 23, 2017 - Loran Fawcett Chapel",
+							"site": "www.loranfawcettfuneralhome.com",
+							"snippet": "Bree Reynolds Profile Photo. 2000 Bree 2017. Send Flowers. ... Bree Nichol Reynolds joined her Savior Jesus Christ, Thursday evening March 23 2017 in Neodesha KS at the age of 16. … Share Bree Reynolds's obituary with others. ... Bree Nichol Reynolds joined her Savior Jesus Christ, Thursday evening March 23 2017 in Neodesha KS at the age of 16."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-124837698",
+			"reviewed": false,
+			"person": {
+				"name": "Stephen Abraham Reynolds Jr.",
+				"born": "1989-02-20",
+				"died": "2014-02-08",
+				"voice": "male"
+			},
+			"inscription": {
+				"carvedName": "Stephen Abraham Reynolds Jr.",
+				"name": "Stephen Abraham Reynolds Jr.",
+				"maidenName": null,
+				"born": "1989-02-20",
+				"died": "2014-02-08",
+				"voice": null,
+				"place": "Lamar, South Carolina"
+			},
+			"searches": [
+				"yandex: \"Stephen Abraham Reynolds Jr.\" 1989 2014 (obituary | grave | cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" 1989 2014 (obituary OR grave OR cemetery)",
+				"yandex: (\"Stephen Reynolds\" | \"Stephen * Reynolds\") 1989 2014 (obituary | grave | cemetery)",
+				"google: (\"Stephen Reynolds\" OR \"Stephen * Reynolds\") 1989 2014 (obituary OR grave OR cemetery)",
+				"yandex: \"Stephen Abraham Reynolds Jr.\" 1989 2014 lamar south carolina (obituary | grave | cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" 1989 2014 lamar south carolina (obituary OR grave OR cemetery)",
+				"yandex: \"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary | grave | cemetery)",
+				"google: \"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Stephen Abraham Reynolds Jr.",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s13",
+							"url": "https://www.thechurchnews.com/members/2026/02/01/new-hymn-as-bread-is-broken-began-during-sacrament-meeting-reflection/",
+							"title": "How the new hymn ‘As Bread Is Broken’ came to be – Church...",
+							"site": "www.thechurchnews.com",
+							"snippet": "Words Stephen Reynolds jotted down on a ward program became a new hymn in the global hymnbook. ... Hymn writer Stephen Reynolds and his wife, Emily Reynolds, pose near Park City, Utah, on Aug. 30, 2024. Ashlyn Arlene Photography."
+						},
+						{
+							"id": "s16",
+							"url": "https://health.usnews.com/doctors/stephen-reynolds-1118482",
+							"title": "Dr. Stephen Reynolds, DO | Ocala, FL | US News Doctors",
+							"site": "health.usnews.com",
+							"snippet": "Dr. Stephen Reynolds is a ENT-Otolaryngologist in Ocala, FL. Find Dr. Reynolds's phone number, address, insurance information, hospital affiliations and more."
+						},
+						{
+							"id": "s7",
+							"url": "https://www.virtualwall.org/dr/ReynoldsJS01a.htm",
+							"title": "PFC James Stephen Reynolds, Jr, Litchfield Park, AZ on...",
+							"site": "www.virtualwall.org",
+							"snippet": "A native of Stillwater, Oklahoma, James Reynolds moved to the Phoenix area in 1959. A resident of Litchfield Park, Reynolds attended Agua Fria Union High School and Glendale Community College before joining the Marines in 1968."
+						},
+						{
+							"id": "s9",
+							"url": "https://www.nytimes.com/1971/05/27/archives/s-c-reynolds-jr-64i-i-investment-bankeri.html",
+							"title": "S. C. REYNOLDS JR., 64, INVESTMENT BANKER - The...",
+							"site": "www.nytimes.com",
+							"snippet": "Stephen Clark Reynolds Jr., a partner in Hornblower & Weeks‐Hemphill, Noyes, invest ment bankers, died yesterday at Roosevelt Hospital after a long illness. He was 64 years old and lived at 75 East End Ave nue. Mr. Reynolds had been as sociated..."
+						},
+						{
+							"id": "s19",
+							"url": "https://anglicanhistory.org/canada/sjreynolds/memorial2011.html",
+							"title": "Memorial Resolution on the Reverend Stephen James...",
+							"site": "anglicanhistory.org",
+							"snippet": "Upon graduation, Stephen Reynolds returned to active parish ministry in the Diocese of Toronto, first as Associate Priest at the Church of St. Mary Magdalene, then as Incumbent of the parish of Bridgenorth and Emily."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-199134996",
+			"reviewed": false,
+			"person": {
+				"name": "Georgia D. Hiatt",
+				"born": "1943-09-20",
+				"died": "2015-11-09",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Georgia D. Hiatt",
+				"name": "Georgia D. Hiatt",
+				"maidenName": null,
+				"born": "1943-09-20",
+				"died": "2015-11-09",
+				"voice": null,
+				"place": "Roscoe, Illinois"
+			},
+			"searches": [
+				"yandex: \"Georgia D. Hiatt\" 1943 2015 (obituary | grave | cemetery)",
+				"google: \"Georgia D. Hiatt\" 1943 2015 (obituary OR grave OR cemetery)",
+				"yandex: (\"Georgia Hiatt\" | \"Georgia * Hiatt\") 1943 2015 (obituary | grave | cemetery)",
+				"google: (\"Georgia Hiatt\" OR \"Georgia * Hiatt\") 1943 2015 (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia D. Hiatt\" 1943 2015 roscoe illinois (obituary | grave | cemetery)",
+				"google: \"Georgia D. Hiatt\" 1943 2015 roscoe illinois (obituary OR grave OR cemetery)",
+				"yandex: \"Georgia D. Hiatt\" roscoe illinois (obituary | grave | cemetery)",
+				"google: \"Georgia D. Hiatt\" roscoe illinois (obituary OR grave OR cemetery)"
+			],
+			"candidates": []
+		},
+		{
+			"file": "findagrave-179920298",
+			"reviewed": false,
+			"person": {
+				"name": "Louella Marie White",
+				"born": "1935-08-22",
+				"died": "2017-05-24",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Louella Marie White",
+				"name": "Louella Marie White",
+				"maidenName": null,
+				"born": "1935-08-22",
+				"died": "2017-05-24",
+				"voice": null,
+				"place": "Fremont County, Wyoming"
+			},
+			"searches": [
+				"yandex: \"Louella Marie White\" 1935 2017 (obituary | grave | cemetery)",
+				"google: \"Louella Marie White\" 1935 2017 (obituary OR grave OR cemetery)",
+				"yandex: (\"Louella White\" | \"Louella * White\") 1935 2017 (obituary | grave | cemetery)",
+				"google: (\"Louella White\" OR \"Louella * White\") 1935 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Louella Marie White\" 1935 2017 fremont county wyoming (obituary | grave | cemetery)",
+				"google: \"Louella Marie White\" 1935 2017 fremont county wyoming (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Louella Marie White",
+					"born": "1935",
+					"died": "2017",
+					"confidence": "high",
+					"sources": [
+						{
+							"id": "s32",
+							"url": "https://www.findagrave.com/memorial/179920298/louella-marie-white",
+							"title": "Louella Marie “Yellow Bird Woman” Crispin White...",
+							"site": "www.findagrave.com",
+							"snippet": "Louella Marie White. 22 Aug 1935 – 24 May 2017. This memorial is currently managed by Find a Grave. We'd be happy to transfer management to you. As a memorial ..."
+						}
+					]
+				}
+			]
+		},
+		{
+			"file": "findagrave-240298109",
+			"reviewed": false,
+			"person": {
+				"name": "Violet Yacobi",
+				"born": "1950-01-08",
+				"died": "2017-10-09",
+				"voice": "female"
+			},
+			"inscription": {
+				"carvedName": "Violet Yacobi",
+				"name": "Violet Yacobi",
+				"maidenName": null,
+				"born": "1950-01-08",
+				"died": "2017-10-09",
+				"voice": null,
+				"place": "Hollywood Hills, California"
+			},
+			"searches": [
+				"yandex: \"Violet Yacobi\" 1950 2017 (obituary | grave | cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 (obituary OR grave OR cemetery)",
+				"yandex: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary | grave | cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"google: \"Violet Yacobi\" 1950 2017 hollywood hills california (obituary OR grave OR cemetery)",
+				"yandex: \"Violet Yacobi\" hollywood hills california (obituary | grave | cemetery)",
+				"google: \"Violet Yacobi\" hollywood hills california (obituary OR grave OR cemetery)"
+			],
+			"candidates": [
+				{
+					"name": "Violet Yacobi",
+					"born": null,
+					"died": null,
+					"confidence": "low",
+					"sources": [
+						{
+							"id": "s1",
+							"url": "https://www.youtube.com/watch?v=FWccV-0SPD0",
+							"title": "Violet Yacobi's death was ruled a homicide after... - YouTube",
+							"site": "www.youtube.com",
+							"snippet": "Watch \"Beverly Hills 911\" and then catch up with CBS News correspondent Tracy Smith and \"48 Hours\" correspondent Erin Moriarty on \"Post Mortem\" as they discuss the case of 67-year-old Violet Yacobi, who was found dead by her children in her..."
+						},
+						{
+							"id": "s20",
+							"url": "https://abc7.com/bel-air-man-dentist-charged-daniel-yacobi/3085537/",
+							"title": "Prominent dentist charged in strangling... - ABC7 Los Angeles",
+							"site": "abc7.com",
+							"snippet": "Daniel Simon Yacobi, 36, was charged with one count of murder, which carries a special circumstance allegation of murder for financial gain. Authorities said on Oct. 10, 2017, his 67-year-old mother, Violet Yacobi, was found dead in her Beverly Hills home."
+						},
+						{
+							"id": "s2",
+							"url": "https://www.yahoo.com/news/articles/did-wealthy-widow-wind-dead-030000862.html",
+							"title": "How did a wealthy widow wind up dead below a staircase in...",
+							"site": "www.yahoo.com",
+							"snippet": "Beverly Hills detectives responding to the death of 67-year-old Violet Yacobi — who was found on the marble floor below a staircase in her mansion — suspected foul play and her dentist son, and wonder..."
+						},
+						{
+							"id": "s16",
+							"url": "https://www.tiktok.com/discover/violet-yacobi-and-daniel-yacobi-documentary",
+							"title": "Violet Yacobi and Daniel Yacobi Documentary | TikTok",
+							"site": "www.tiktok.com",
+							"snippet": "Violet Yacobi and her husband had long been pillars in their Beverly Hills community. When the 67-year-old widow was found dead in her multi-million-dollar mansion, it stunned and saddened her large circle of friends. … Discover videos related to Violet Yacobi and Daniel Yacobi Documentary on TikTok. Last updated 2026-07-06."
+						},
+						{
+							"id": "s21",
+							"url": "https://www.nbclosangeles.com/news/dentists-charged-with-choking-mother-to-death-in-beverly-hills/168314/",
+							"title": "Dentist Charged With Choking Mother to Death in Her Home",
+							"site": "www.nbclosangeles.com",
+							"snippet": "Daniel Simon Yacobi, 36, pleaded not guilty to the murder charge, which includes a special circumstance allegation of murder for financial gain, in connection with the slaying of Violet Yacobi, 67."
+						}
+					]
+				}
+			]
+		}
+	]
+}

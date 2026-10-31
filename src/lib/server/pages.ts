@@ -9,6 +9,9 @@ const USER_AGENT = 'Gravespeaker';
 const MAX_REDIRECTS = 3;
 const MAX_BYTES = 2 * 1024 * 1024;
 const TIMEOUT_MS = 8000;
+// Only always-hidden markup: a utility class like `hidden md:block` hides the article on small
+// screens only. Find a Grave's welcome tour is `.tutorials.hidden`.
+const HIDDEN = '[hidden], .tutorials.hidden, dialog, [role="dialog"], [aria-modal="true"]';
 
 // Deny-list ranges, not endpoints; sonar-project.properties ignores S1313 (hardcoded IP) for this file.
 const blocked = new BlockList();
@@ -182,6 +185,15 @@ export async function fetchPage(url: string): Promise<string | null> {
 	const body = await readCapped(res);
 	if (body === null) return null;
 	const { document } = parseHTML(body);
-	const text = new Readability(document as unknown as Document).parse()?.textContent;
+	// Readability skips inline-hidden nodes but not CSS-hidden ones. Find a Grave ships a hidden
+	// welcome tour that it would otherwise take as the article instead of the memorial.
+	for (const el of document.querySelectorAll(HIDDEN)) el.remove();
+	let text: string | null | undefined;
+	try {
+		text = new Readability(document as unknown as Document).parse()?.textContent;
+	} catch {
+		// Readability throws on documents linkedom builds without an <html> root, such as bot walls.
+		return null;
+	}
 	return text?.replace(/\s+/g, ' ').trim() || null;
 }

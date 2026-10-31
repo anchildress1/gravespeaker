@@ -1,0 +1,79 @@
+{
+	"engine": "yandex",
+	"query": "\"Stephen Abraham Reynolds Jr.\" lamar south carolina (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "legacy.com/us/obituaries/today/south-carolina/greenville-area",
+				"link": "https://www.legacy.com/us/obituaries/today/south-carolina/greenville-area",
+				"displayed_link": "legacy.com › us › obituaries › today › south-carolina",
+				"snippet": "Links to the page contain: Find Recent Obituaries for Greenville, South Carolina Area...."
+			},
+			{
+				"position": 2,
+				"title": "Fort Jackson National Cemetery, Columbia, South Carolina...",
+				"link": "https://www.interment.net/data/us/sc/richland/fort-jackson-national-cemetery/records-n-s.htm",
+				"displayed_link": "interment.net › data › us › sc › richland › fort-jackson",
+				"snippet": "South Carolina Obituary Search - (1873-current). South Carolina Birth Records Database, (1767-1999). Fort Jackson National Cemetery - Burial Records Columbia, Richland County, South Carolina. GPS: 34.089795, -80.848545."
+			},
+			{
+				"position": 3,
+				"title": "South Carolina Obituaries (1873 - Current)... | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/obituaries/all/usa/south-carolina",
+				"displayed_link": "genealogybank.com › explore › obituaries › all › usa",
+				"snippet": "South Carolina obituaries are an invaluable resource for genealogy research. ... South Carolina Newspaper Obituaries (1873 - Current). Enter your ancestor's name below and we'll search obituaries to help you learn more."
+			},
+			{
+				"position": 4,
+				"title": "GenealogyBuff.com - South Carolina Obituary Collection...",
+				"link": "https://www.genealogybuff.com/sc/state/webbbs_config.pl/noframes/read/901",
+				"displayed_link": "genealogybuff.com › sc › state › webbbs_config.pl",
+				"snippet": "South Carolina Obituary and Death Notice Collection (Obits and death notices from Various Funeral Homes in the state of South Carolina.)"
+			},
+			{
+				"position": 5,
+				"title": "Most Recent Obituaries | McDougald Funeral & Cremation...",
+				"link": "https://www.mcdougaldfuneralhome.com/obituaries",
+				"displayed_link": "mcdougaldfuneralhome.com › obituaries",
+				"snippet": "McDougald Funeral & Cremation Services obituaries and Death Notices for the Anderson , SC area. ... Born in Spartanburg, South Carolina, Justin lived a life defined by love, hard work, laughter, and unwavering devotion to those he cared about."
+			},
+			{
+				"position": 6,
+				"title": "South Carolina Obituaries - over 1,950 SC Obituary Indexes",
+				"link": "https://www.newspaperobituaries.net/southcarolina/index.html",
+				"displayed_link": "newspaperobituaries.net › southcarolina › index",
+				"snippet": "South Carolina Obituary Index name index of individuals born in South Carolina, at Obits Index. South Carolina Death Indexes 1915-1965, over 800,000 records at FamilySearch.org, source: South Carolina Department of Health."
+			},
+			{
+				"position": 7,
+				"title": "Zion Cemetery in Lamar, South... - Find a Grave Cemetery",
+				"link": "https://www.findagrave.com/cemetery/2474704/zion-cemetery",
+				"displayed_link": "findagrave.com › cemetery › zion-cemetery",
+				"snippet": "Reynolds Family Cemetery. Lamar, Darlington County, South Carolina, USA. Total memorials2. Percent photographed100%."
+			},
+			{
+				"position": 8,
+				"title": "Most Recent Obituaries | The J. M. Dunbar Funeral Home...",
+				"link": "https://www.jmdunbar.com/obituaries",
+				"displayed_link": "jmdunbar.com › obituaries",
+				"snippet": "Local Spartanburg, South Carolina Obituaries. Annie McCraw Waddell Smith. ... Douglas Lamar Richardson was born on October 7, 1951, in Spartanburg, South Carolina, and raised primarily in Philadelphia, Pennsylvania."
+			},
+			{
+				"position": 9,
+				"title": "Most Recent Obituaries | Norton Funeral Home and Crematory",
+				"link": "https://www.nortonfh.net/obituaries",
+				"displayed_link": "nortonfh.net › obituaries",
+				"snippet": "Shirley King, age 79, of Hartsville, South Carolina, went home to be with her Lord and Savior Jesus Christ on September 21, 2026, surrounded by the love of her family members."
+			},
+			{
+				"position": 10,
+				"title": "South Carolina Obituaries",
+				"link": "https://www.echovita.com/us/obituaries/sc",
+				"displayed_link": "echovita.com › us › obituaries › sc",
+				"snippet": "Search obituaries and death notices from South Carolina, United States, brought to you by Echovita.com. Discover detailed obituaries, access complete funeral service information, and express your feelings by leaving condolence messages."
+			}
+		]
+	}
+}

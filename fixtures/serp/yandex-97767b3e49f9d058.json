@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Bree Nichol Reynolds\" 2000 2017 altoona kansas (obituary | grave | cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "How to Use A Sticky Machine from Audi Express | TikTok",
+				"link": "https://www.tiktok.com/discover/how-to-use-a-sticky-machine-from-audi-express",
+				"displayed_link": "tiktok.com › discover › how-to-use-a-sticky-machine",
+				"snippet": "...schnelleküche #wrap #wrapsandwich #sandwich #sandwichlover |shinpai-muyo-meaning|what-happened-to-bree-nichol-reynolds|hoa-kiểu-spa|Hasan Ali's Impressive Football Skills|hi-sweety-and-3-movie-kerala-bgm-ringtone-tamil|."
+			},
+			{
+				"position": 2,
+				"title": "#foziasoomrosindhisong | TikTok",
+				"link": "https://www.tiktok.com/tag/foziasoomrosindhisong",
+				"displayed_link": "tiktok.com › tag › foziasoomrosindhisong",
+				"snippet": "...im-tired-of-alone-but-i-still-love-you-who-sing-it|Jul Marseille soleil – Official clip & fan highlights|Юля Паршута: Яркое выступление на НТВ|bree-nichol-reynolds-neodesha-kansas-truth|Ufafanuzi wa Pete za..."
+			}
+		]
+	}
+}

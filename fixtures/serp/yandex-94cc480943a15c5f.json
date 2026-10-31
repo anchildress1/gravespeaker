@@ -1,0 +1,107 @@
+{
+	"engine": "yandex",
+	"query": "\"Georgia Wallace-Porter Overton\" jonesboro arkansas (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Arkansas Obituaries",
+				"link": "https://www.echovita.com/us/obituaries/ar",
+				"displayed_link": "echovita.com › us › obituaries › ar",
+				"snippet": "Search obituaries and death notices from Arkansas, United States, brought to you by Echovita.com. Discover detailed obituaries, access complete funeral service information, and express your feelings by leaving condolence messages."
+			},
+			{
+				"position": 2,
+				"title": "Arkansas Obituaries (1824 - Current)... | GenealogyBank",
+				"link": "https://www.genealogybank.com/explore/obituaries/all/usa/arkansas",
+				"displayed_link": "genealogybank.com › explore › obituaries › all › usa",
+				"snippet": "Arkansas Newspaper Obituaries (1824 - Current). Enter your ancestor's name below and we'll search obituaries to help you learn more."
+			},
+			{
+				"position": 3,
+				"title": "Obituaries | The Arkansas Democrat-Gazette - Arkansas...",
+				"link": "https://www.arkansasonline.com/obituaries/today/",
+				"displayed_link": "arkansasonline.com › obituaries › today",
+				"snippet": "The Arkansas Democrat-Gazette is the largest source for award-winning news and opinion that matters to you. Featuring up to the minute breaking news and the most in-depth Razorback, business, and political coverage in Arkansas."
+			},
+			{
+				"position": 4,
+				"title": "Sharon Dunlap Porter Obituary... - Emerson Funeral Home",
+				"link": "https://www.emersonfuneralhome.com/obituaries/sharon-porter",
+				"displayed_link": "emersonfuneralhome.com › obituaries › sharon-porter",
+				"snippet": "Sharon Dunlap Porter, 80, of Jonesboro, passed away peacefully at the Flo and Phil Jones Hospice House on Friday, June 3, 2022. She was born in Wyandotte, Michigan, on January 15, 1942, to the late Pete and Georgia Dunlap."
+			},
+			{
+				"position": 5,
+				"title": "Craighead County & Jonesboro, AR Obituaries 30+ indexes",
+				"link": "https://www.newspaperobituaries.net/arkansas/craighead.htm",
+				"displayed_link": "newspaperobituaries.net › arkansas › craighead",
+				"snippet": "browse over 30 Craighead County and Jonesboro, Arkansas obituary indexes, including newspaper obituaries, death indexes, funeral home obituaries.."
+			},
+			{
+				"position": 6,
+				"title": "Obituaries - Craighead County Jonesboro Public Library",
+				"link": "https://www.libraryinjonesboro.org/books/genealogy-obituaries/obituaries.php",
+				"displayed_link": "libraryinjonesboro.org › books › genealogy-obituaries",
+				"snippet": "Jonesboro. Sunday Closed. Monday 9am - 6pm. ... You may also use our microfilm reader/printer to view the obituary, or you can request a staff member to send you up to five obituaries per week at reference@libraryinjonesboro.org."
+			},
+			{
+				"position": 7,
+				"title": "Georgia Obituaries Archives Online | Obits Archive",
+				"link": "https://www.obitsarchive.com/obituaries/usa/georgia",
+				"displayed_link": "obitsarchive.com › obituaries › usa › georgia",
+				"snippet": "Georgia obituaries and death notices, 1985 to 2026. Find your ancestry info and recent death notices for relatives and friends."
+			},
+			{
+				"position": 8,
+				"title": "Jonesboro Sun Obituaries 2021 - 2022",
+				"link": "https://gscca.net/Obits-2021-2022.htm",
+				"displayed_link": "gscca.net › Obits-2021-2022",
+				"snippet": "The Jonesboro Sun is a daily newspaper printed in Jonesboro, Craighead, Arkansas. A Funeral Home and date of death are listed for those that did not have an obituary that appeared in the newspaper."
+			},
+			{
+				"position": 9,
+				"title": "Porter, Wallace J.",
+				"link": "https://wacotrib.com/obituaries/article_cbbbfb21-89c2-52e7-b70f-4b9a4cbc58ad.html",
+				"displayed_link": "wacotrib.com › obituaries › article_cbbbfb21-89c2",
+				"snippet": "Porter, Wallace J. Obituaries Newsletter. Sign up to get the most recent local obituaries delivered to your inbox."
+			},
+			{
+				"position": 10,
+				"title": "Most Recent Obituaries | Qualls Funeral Homes",
+				"link": "https://www.quallsfh.com/obituaries",
+				"displayed_link": "quallsfh.com › obituaries",
+				"snippet": "With services throughout Arkansas that are updated regularly. Find local obituaries in both Sharp and Independence County Arkansas and join us in celebrating memories and honoring their lives and legacies."
+			},
+			{
+				"position": 11,
+				"title": "Obituaries | Barker Funeral Home",
+				"link": "https://www.barkerfuneral.com/obituaries",
+				"displayed_link": "barkerfuneral.com › obituaries",
+				"snippet": "Browse Obituaries at Barker Funeral Home. Pay tribute to and remember those who have passed."
+			},
+			{
+				"position": 12,
+				"title": "Jonesboro, GA Obituaries | Find Jonesboro Obituaries",
+				"link": "https://www.dignitymemorial.com/obituaries/jonesboro-ga",
+				"displayed_link": "dignitymemorial.com › obituaries › jonesboro-ga",
+				"snippet": "Jonesboro, GA Obituaries. The Dignity Memorial® online obituary search tool gives you access to obituaries from thousands of locations across North America. You can search by first or last name, state and publication date."
+			},
+			{
+				"position": 13,
+				"title": "Search Millions of Grave Records - Find a Grave",
+				"link": "https://www.findagrave.com/memorial",
+				"displayed_link": "findagrave.com › memorial",
+				"snippet": "The World’s largest gravesite collection. Contribute, create and discover gravesites from all over the world. ."
+			},
+			{
+				"position": 14,
+				"title": "Most Recent Obituaries | Tri-County Funeral Home",
+				"link": "https://www.tricountyfuneralhome.com/obituaries",
+				"displayed_link": "tricountyfuneralhome.com › obituaries",
+				"snippet": "Tri-County Funeral Home offers a collection of obituaries for Highland, AR along with Sharp and Fulton Counties in AR. With services throughout Arkansas that are updated regularly."
+			}
+		]
+	}
+}

@@ -10,7 +10,7 @@ const bodySchema = z.object({
 });
 
 /**
- * Tells the story of a confirmed candidate, or of the stone alone when no candidate is sent.
+ * Tells the story of the best match, or of the stone alone when no candidate is sent.
  * @param event Request with `{ inscription, candidate? }` JSON.
  * @param event.request The incoming request.
  * @returns A `Story`, or an `ApiError`.

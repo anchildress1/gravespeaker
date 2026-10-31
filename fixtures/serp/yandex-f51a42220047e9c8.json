@@ -1,0 +1,23 @@
+{
+	"engine": "yandex",
+	"query": "\"Edward Hildebrand III\" alsea oregon (obituary OR grave OR cemetery)",
+	"status": 200,
+	"body": {
+		"organic_results": [
+			{
+				"position": 1,
+				"title": "Donna Irene Hildebrand Obituary Jun... - Newcomer Dayton",
+				"link": "https://www.newcomerdayton.com/obituaries/donna-hildebrand",
+				"displayed_link": "newcomerdayton.com › obituaries › donna-hildebrand",
+				"snippet": "Donna Irene Hildebrand, age 75 of Fairborn, Ohio, passed away on June 30, 2024, in Kettering, Ohio. She was born on March 11, 1949, in Oklahoma City, Oklahoma."
+			},
+			{
+				"position": 2,
+				"title": "Henry Hildebrand - Lawyer in Brentwood, TN - Avvo",
+				"link": "https://www.avvo.com/attorneys/37027-tn-henry-hildebrand-1709657.html",
+				"displayed_link": "avvo.com › attorneys › 37027-tn-henry-hildebrand",
+				"snippet": "Location. Henry Edward Hildebrand III. 320 Seven Springs Way Ste 110. Brentwood, TN, 37027-4558."
+			}
+		]
+	}
+}

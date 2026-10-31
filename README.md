@@ -29,7 +29,7 @@ Photograph a headstone. Discover a life. Hear the story the records left behind.
 
 ## About
 
-Gravespeaker is a mobile-friendly web app. Upload or snap a photo of a gravestone, confirm what the AI read from the stone, and hear a short theatrical story built only from facts checked against public records you can click through.
+Gravespeaker is a mobile-friendly web app. Upload or snap a photo of a gravestone, check what the AI read from the stone, and hear a short theatrical story built only from facts checked against public records you can click through.
 
 The story is openly fiction, labelled "Story generated with AI", but it states only facts that appear in a cited source. If the records can't establish who the person was, the app says so instead of making something up.
 
@@ -39,13 +39,15 @@ Built for Hacktoberfest 2026, Week 4: Ghost in the Machine. The [PRD](docs/PRD.m
 
 ## Features
 
-| Step     | What you get                                                                                                                                             |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read     | Name and life dates from a photo, shown read-only. Maiden names are split out; unreadable digits stay `?`.                                               |
-| Research | Public records searched on Google and Yandex, then matched on name, birth year and death year. A missing date never rules a result out.                  |
-| Confirm  | Candidate people with source links and a high, medium or low confidence. A name-only match is labelled unverified. You confirm, or pick "none of these". |
-| Story    | One theatrical first-person paragraph labelled "Story generated with AI", written from verified facts, with its sources listed. Built to be read aloud.  |
-| Epitaph  | When records are missing or thin, a plain account of what the stone itself says. No AI label.                                                            |
+| Step     | What you get                                                                                                                                            |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Read     | Name and life dates from a photo, shown read-only. Maiden names are split out; unreadable digits stay `?`.                                              |
+| Place    | Where they lived or died: a town carved on the stone, or your coarse location (or the photo's GPS) named by OpenStreetMap. Used only to narrow search.  |
+| Research | Public records searched on Google and Yandex, then matched on name, birth year and death year. A missing date never rules a result out.                 |
+| Match    | The best-ranked person is picked for you, no confirmation step. A name-only match is used only when a fetched page proves the stone's dates.            |
+| Story    | One theatrical first-person paragraph labelled "Story generated with AI", written from verified facts, with its sources listed. Built to be read aloud. |
+| Grade    | One confidence grade on a told story: high (name and every date match) or medium (name and one date). Deterministic, no model.                          |
+| Epitaph  | When records are missing or thin, a plain account of what the stone itself says. No AI label.                                                           |
 
 ---
 
@@ -58,6 +60,7 @@ Built for Hacktoberfest 2026, Week 4: Ghost in the Machine. The [PRD](docs/PRD.m
 | AI orchestration   | Mastra (agents and in-memory workflows), Zod                                                 |
 | Vision and stories | Gemma 4 26B via the Gemini API (free tier): reads the stone, extracts facts, tells the story |
 | Record search      | SerpApi (Google and Yandex engines)                                                          |
+| Place names        | OpenStreetMap Nominatim reverse geocoding, ExifReader for photo GPS                          |
 | Page text          | Readability, linkedom, robots-parser, undici (pins the checked DNS answer)                   |
 | Hosting            | Google Cloud Run, Secret Manager                                                             |
 | CI                 | Depot CI for `ci` and release-please, GitHub Actions for CodeQL                              |
@@ -77,24 +80,27 @@ config:
 ---
 flowchart LR
   accTitle: Gravespeaker request flow
-  accDescr: The browser calls three stateless endpoints. Research uses search and a deterministic identity engine. Story fetches pages, extracts and verifies facts, tells the story and grounds it. The model is called only to read, extract and tell.
+  accDescr: The browser calls three stateless endpoints. Read names the place from the visitor's location or photo GPS. Research uses search and a deterministic identity engine and picks the best match. Story fetches pages, extracts and verifies facts, tells the story, grounds it and grades the match. The model is called only to read, extract and tell.
 
-  B[Browser page] -->|photo| R["/api/read"]
-  B -->|inscription| S["/api/research"]
-  B -->|confirmed candidate| T["/api/story"]
+  B[Browser page] -->|photo + coarse location| R["/api/read"]
+  B -->|inscription + place| S["/api/research"]
+  B -->|best match| T["/api/story"]
 
   R --> M1[(Gemma 4 reads the stone)]
   R --> N[Normalize names and dates]
+  R --> O[Nominatim names the town]
 
-  S --> G[SerpApi: Google and Yandex]
-  S --> I[Identity engine: match, dedupe, confidence]
+  S --> G[SerpApi: Yandex, then Google on a miss]
+  S --> I[Identity engine: match, rank, dedupe, confidence]
 
   T --> P[Page fetch with SSRF guard]
   T --> X[(Gemma 4 extracts facts)]
   T --> V[Verify quotes against sources]
   T --> Y[(Gemma 4 tells the story)]
-  T --> Q[Ground the paragraph]
+  T --> Q[Ground the paragraph and grade the match]
 ```
+
+Research is a Mastra loop that runs one search at a time through three phases: name and dates, then name, dates and town, then name and town. Each phase is asked first without death keywords, which finds pages about the life, then with `(obituary OR grave OR cemetery)`, which finds obituaries the plain query ranks lower. Name and town alone runs last, because it mostly finds namesakes; a stone with no readable year has only the name to search on. Each phase asks Yandex first and Google only when Yandex finds nobody with a matching date, and the loop stops at the first dated match. Google now hides most result links behind its own redirect, relative or absolute; those links are never kept as pages, and the provider follows every one (a free request, no SerpApi credit) to the page it leads to. A redirect that lands back on Google, such as a captcha, is dropped. An engine still failing after Mastra's retries counts as a miss; both engines failing in a row is an outage, reported as an error rather than as nobody found. A page found by several searches keeps every snippet it was shown with. Results are interleaved by rank across searches, each engine ranked on its own, so one search's crowd can't push the others' best results past the five-source cap. Matches rank by keys matched (name, birth year, death year), then by how many results agree, then by the order results arrive in. A result whose stated year disagrees with the stone is dropped. A name-only result is kept only when it states no year against the stone anywhere in its snippet; a middle initial or generational suffix (Jr., Sr., II, III) the stone rules out marks that mention as a namesake and only a mention marked as the stone's own then counts; a match on an initial alone, or a page titled with another person's dates, is someone else. The page tells the top one. A name-only match counts only when one of its fetched pages states at least one of the stone's dates for that name; otherwise the story rests on the stone.
 
 Only two seams exist: model inference (`src/lib/server/inference/`) and record search (`src/lib/server/search/`), one implementation each.
 
@@ -112,19 +118,27 @@ src/
 └── lib/
     ├── types.ts            # Shared client/server shapes
     ├── epitaph.ts          # Stone-only epitaph, no model
+    ├── locate.ts           # Coarse browser location, 8 s patience
     └── server/             # Never reaches the client bundle
         ├── inference/      # Model seam + Gemma implementation (read, extract, tell)
         ├── search/         # Search seam + SerpApi (engines, URL dedupe)
+        │   └── sites.ts    # Gated-site and people-directory filter
         ├── inscription.ts  # Name and date normalization
-        ├── identity.ts     # Query, gated-site filter, deterministic matching and confidence
+        ├── query.ts        # Research queries in the order tried
+        ├── identity.ts     # Deterministic matching, ranking and page grades
+        ├── photo-location.ts # GPS from the photo's EXIF
+        ├── geocode.ts      # Nominatim reverse lookup: ~1 km, 1 request a second
         ├── pages.ts        # SSRF-guarded fetch, robots, text extraction
         ├── narrative.ts    # Quote verification and story grounding
-        ├── research.ts     # Mastra workflow: search, resolve
-        ├── story.ts        # Mastra workflow: fetch, extract, tell, ground
+        ├── research.ts     # Mastra workflow: phased search loop, Yandex then Google
+        ├── story.ts        # Mastra workflow: fetch, extract, tell, ground, grade
         ├── http.ts         # Error mapping for the endpoints
         └── env.ts          # Reads the API keys on use
 .depot/workflows/           # Depot CI: ci and release-please
 benchmarks/                 # Reading, search and end-to-end runs, scorer and saved results
+benchmarks/evals/           # Live story evals: Mastra scorers with a Gemini judge
+benchmarks/research.eval.ts # Research replayed from saved SerpApi responses (RECORD=1 records)
+fixtures/serp/              # Saved raw SerpApi responses, key removed
 docs/                       # PRD and benchmark write-ups
 fixtures/                   # Reviewed headstone photos and answer key
 specs/001-mvp-journey/      # Spec, plan and tasks
@@ -157,6 +171,7 @@ make dev
 | `make ai-checks`   | Format check, lint, typecheck, unit tests and build in one go |
 | `make test`        | Unit tests with coverage                                      |
 | `make e2e`         | Playwright tests on a mobile viewport                         |
+| `make eval`        | Live story evals against Gemma, judged by Gemini; never in CI |
 | `make secret-scan` | gitleaks over the working tree                                |
 | `make deploy`      | Ship to Cloud Run                                             |
 | `make clean`       | Remove build output                                           |
@@ -178,7 +193,9 @@ Pull requests run `ci` on Depot CI (`.depot/workflows`). CodeQL stays on GitHub 
 
 Locally, these go in `.env`, which is gitignored. In production, Cloud Run injects them from Secret Manager (see [Deploying](#deploying)).
 
-Each research request costs two SerpApi credits, one per engine. The free plan allows 250 a month. Gemma runs on the free Gemini API tier.
+Each search is one SerpApi credit on one engine. A research request runs 1 to 12, fewer when an early search finds the person or no town is known. The Starter plan allows 1,000 a month. Gemma and the eval judge run on the free Gemini API tier.
+
+Place names come from the public OpenStreetMap Nominatim service. Its usage policy allows one request a second with an identifying User-Agent, so a lookup queued more than 2 s is skipped and the search runs without the town. Coordinates are rounded to about a kilometre before they leave the server.
 
 ---
 
@@ -219,6 +236,7 @@ Each run is saved under `benchmarks/results/` and never overwritten.
 
 - **Reading:** run 11 got 63 of 64 fields right across 21 reviewed stones, at a 3.8 s median. See [the OCR write-up](docs/benchmarks/ocr-smoke-test.md).
 - **Search:** `search-1.json` compares five engines on 10 stones. Google and Yandex found 31 of the 35 sources kept, so those two remain.
+- **Research:** `research.eval.ts` replays saved SerpApi responses and saves `research-N.json`; `record-stories.ts` freezes story inputs from the newest run without searching. See [the search write-up](docs/benchmarks/search.md).
 - **End to end:** `pipeline-1.json` ran read, research and story on 21 stones, with a 24 s median per stone and 12 of 16 stories told. Low confidence dominates, because snippets rarely carry dates.
 
 ---
@@ -229,12 +247,13 @@ Design requirements from the [PRD](docs/PRD.md) that every feature must keep:
 
 - API keys stay on the server. The browser never talks to Gemini or SerpApi directly.
 - Uploaded photos and fetched page text are processed in memory and never stored.
+- The visitor's location is coarse, rounded to about a kilometre before the town lookup, and never stored.
 - Facts must trace to a source: a quote not found verbatim in a cited source is dropped, and so is one that names a survivor.
 
 Already in place:
 
 - Page fetching blocks loopback, private, link-local (cloud metadata), CGNAT, multicast and NAT64, 6to4 and Teredo addresses. It pins DNS to the checked answer, re-checks every redirect hop, and honors `robots.txt`, treating an unreachable one as disallow-all.
-- Two people are never merged: results with contradicting dates become separate candidates, and a name-only match is labelled unverified.
+- Two people are never merged: results with contradicting dates become separate candidates, and a name-only match is told only when a fetched page proves the stone's dates.
 - The story drops sentences that add a number, a name or a negation the facts don't give.
 - Paywalled genealogy sites are filtered out of search results.
 - Secrets are never shared between apps in the GCP project.
