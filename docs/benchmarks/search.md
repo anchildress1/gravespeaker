@@ -1,6 +1,6 @@
 # 🔎 Search: finding the person on the stone
 
-How research turns a carved name and dates into sources, what broke along the way, and what is still open. The final design is research run 21 (`benchmarks/results/research-21.json`), which replays every search from saved SerpApi responses in `fixtures/serp/`. Run 20 is run 19 with the infant's corrected dates; run 21 adds the review fixes and the re-recorded Google redirects.
+How research turns a carved name and dates into sources, what broke along the way, and what is still open. The final design is research run 25 (`benchmarks/results/research-25.json`), which replays every search from saved SerpApi responses in `fixtures/serp/`. Run 20 is run 19 with the infant's corrected dates; run 21 adds the review fixes and the re-recorded Google redirects. Runs 22 to 25 replay the same searches after later code-review fixes and return exactly run 21's candidates.
 
 > **Ground truth is reviewed.** Every name and date in `fixtures/people.json` (9 people) and `fixtures/manifest.json` (21 stones) is user-reviewed. "Dated" below is the identity engine's grade; a match is proven to be the right person only where it is that person's own reviewed memorial.
 
