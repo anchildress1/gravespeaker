@@ -46,7 +46,7 @@ Built for Hacktoberfest 2026, Week 4: Ghost in the Machine. The [PRD](docs/PRD.m
 | Research | Public records searched on Google and Yandex, then matched on name, birth year and death year. A missing date never rules a result out.                 |
 | Match    | The best-ranked person is picked for you, no confirmation step. A name-only match is used only when a fetched page proves the stone's dates.            |
 | Story    | One theatrical first-person paragraph labelled "Story generated with AI", written from verified facts, with its sources listed. Built to be read aloud. |
-| Grade    | One confidence grade for the person picked: high (name and every date match), medium (name and one date), low (name only). Deterministic, no model.     |
+| Grade    | One confidence grade on a told story: high (name and every date match) or medium (name and one date). Deterministic, no model.                          |
 | Epitaph  | When records are missing or thin, a plain account of what the stone itself says. No AI label.                                                           |
 
 ---
