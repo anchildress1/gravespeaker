@@ -37,7 +37,7 @@ eval:
 
 eval-research:
 	@echo "🔎 Replaying research from saved searches (writes a new research-N.json)..."
-	pnpm eval benchmarks/research.eval.ts
+	FIXTURES=people pnpm eval benchmarks/research.eval.ts
 
 build:
 	@echo "🏗️ Building project..."
