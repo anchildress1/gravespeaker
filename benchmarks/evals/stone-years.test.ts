@@ -68,6 +68,10 @@ describe('ageAtDeath', () => {
 		expect(ageAtDeath(stone('1938', '2004'))).toBe('I died at about 66 years old.');
 	});
 
+	it('hedges when a month or day is illegible', () => {
+		expect(ageAtDeath(stone('1921-??-??', '2017-11-19'))).toBe('I died at about 96 years old.');
+	});
+
 	it('says nothing when a year is missing or illegible', () => {
 		expect(ageAtDeath(stone(null, '1839-02-17'))).toBeNull();
 		expect(ageAtDeath(stone('19?3', '2018'))).toBeNull();

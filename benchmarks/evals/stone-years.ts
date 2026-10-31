@@ -40,8 +40,8 @@ export function ageAtDeath(inscription: Inscription): string | null {
 	const born = year(inscription.born);
 	const died = year(inscription.died);
 	if (born === null || died === null) return null;
-	// Without both full dates the birthday may not have come yet in the year of death.
-	const exact = inscription.born!.length === 10 && inscription.died!.length === 10;
+	// Without both full, legible dates the birthday may not have come yet in the year of death.
+	const exact = [inscription.born, inscription.died].every((d) => /^\d{4}-\d\d-\d\d$/.test(d!));
 	const age =
 		died - born - Number(exact && inscription.died!.slice(5) < inscription.born!.slice(5));
 	return exact ? `I died at ${age} years old.` : `I died at about ${age} years old.`;
