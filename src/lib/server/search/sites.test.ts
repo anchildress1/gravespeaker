@@ -29,6 +29,12 @@ describe('dropGated', () => {
 		expect(kept.map((r) => r.site)).toEqual(['legacy.com', 'findagrave.com']);
 	});
 
+	it('removes a gated host written with a trailing DNS dot', () => {
+		expect(dropGated(['ancestry.com.', 'www.whitepages.com.', 'Legacy.com.'].map(hit))).toEqual([
+			hit('Legacy.com.')
+		]);
+	});
+
 	it('removes people-search directories, which list the living and never prove a death', () => {
 		const kept = dropGated(
 			[
