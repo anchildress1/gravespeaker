@@ -14,7 +14,7 @@ const DIRECTORIES =
 export function dropGated(records: SourceRecord[]): SourceRecord[] {
 	return records.filter((r) => {
 		// A trailing dot is the same host in DNS, and would slip past the anchored patterns.
-		const site = r.site.toLowerCase().replace(/\.+$/, '');
+		const site = r.site.toLowerCase().replace(/\.$/, '');
 		return !GATED.test(site) && !DIRECTORIES.test(site);
 	});
 }

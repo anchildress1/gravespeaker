@@ -18,7 +18,7 @@ const SUFFIXES: Record<string, string> = {
 };
 // A suffix right after the surname: "Reynolds Jr.", "Hildebrand, Jr.,". "I" and "V" count only before
 // punctuation or the end, so "Hawks I remember" is not a suffix.
-const SUFFIX_AFTER = /^\s*,?\s*(junior|senior|jr|sr|iii|ii|iv|2nd|3rd|4th|5th|i|v)\b\.?/;
+const SUFFIX_AFTER = /^\s*(?:,\s*)?(junior|senior|jr|sr|iii|ii|iv|2nd|3rd|4th|5th|i|v)\b\.?/;
 const YEAR = String.raw`(1[5-9]\d\d|20\d\d)`;
 const MONTH = String.raw`(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)\b`;
 const WEEKDAY = String.raw`(?:mon|tues?|wed(?:nes)?|thu(?:rs?)?|fri|sat(?:ur)?|sun)(?:day)?\b`;
@@ -32,8 +32,12 @@ const DIED_CUE = String.raw`\bdied\b|\bd\.|passed away|\bpassing\b|\bdeceased\b`
 const LIFE_CUE = String.raw`\bborn\b|\bb\.|${DIED_CUE}`;
 // An initial ("b.", "d.", "C."), a title, a suffix or a short day or month ends no sentence:
 // "Dec. 25", "Wed. June 19" and "St. Matthews" split a death from the name it belongs to.
-const SENTENCE_END =
-	/(?<!\b(?:[a-z]|mr|mrs|ms|dr|st|jr|sr|jan|feb|mar|apr|jun|jul|aug|sept?|oct|nov|dec|mon|tues?|wed|thu|thurs?|fri|sat|sun))\.\s/g;
+const NOT_SENTENCE_END =
+	'mr mrs ms dr st jr sr jan feb mar apr jun jul aug sep sept oct nov dec mon tue tues wed thu thur thurs fri sat sun';
+const SENTENCE_END = new RegExp(
+	String.raw`(?<!\b(?:[a-z]|${NOT_SENTENCE_END.replaceAll(' ', '|')}))\.\s`,
+	'g'
+);
 // Descriptive words that can precede a name in a title: "Obituary for Hawks, Gaynor".
 const PREFIX_WORDS = new Set(
 	'obituary obituaries memorial grave cemetery funeral tribute notice remembering for of the in at and by a an'.split(
@@ -328,7 +332,7 @@ function statedYears(
 	// elsewhere ("son John, 12,") is someone else's age.
 	const age =
 		/\baged?\s+(\d{1,3})\b/.exec(text) ??
-		/^[\p{L}\s.'’-]*(?:,\s*(?:jr|sr|ii|iii|iv)\.?)?,\s*(\d{1,3}),/mu.exec(own);
+		/^[\p{L} \t\u00a0.'’-]*(?:,\s*(?:jr|sr|ii|iii|iv)\.?)?,\s*(\d{1,3}),/mu.exec(own);
 	if (born === null && died !== null && age) {
 		born = died - +age[1];
 		bornSlack = 1;
