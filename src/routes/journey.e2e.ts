@@ -516,6 +516,33 @@ test('starting over while the stone is being read drops the old request', async 
 	await expect(page.getByRole('alert')).toHaveCount(0);
 });
 
+test('starting over while the location is pending never uploads the old photo', async ({
+	page
+}) => {
+	// Holds the location lookup open until the test answers it.
+	await page.addInitScript(() => {
+		Object.defineProperty(navigator, 'geolocation', {
+			value: {
+				getCurrentPosition: (ok: PositionCallback) => {
+					Object.assign(window, {
+						answerLocation: () =>
+							ok({ coords: { latitude: 44.4, longitude: -123.6 } } as GeolocationPosition)
+					});
+				}
+			}
+		});
+	});
+	await mock(page, '/api/read', { body: { people: [hawks] } });
+	await upload(page);
+	await page.waitForFunction(() => 'answerLocation' in window);
+	await page.getByRole('button', { name: 'Start over' }).click();
+	const read = page.waitForRequest('**/api/read', { timeout: 1500 });
+	await page.evaluate(() => (window as unknown as { answerLocation: () => void }).answerLocation());
+	await expect(read).rejects.toThrow();
+	await expect(page.getByText('Photograph a headstone')).toBeVisible();
+	await expect(page.getByRole('alert')).toHaveCount(0);
+});
+
 test('key facts show only what the stone says, since a record date may be uncited', async ({
 	page
 }) => {

@@ -115,12 +115,15 @@
 		retry = null;
 		const form = new FormData();
 		form.set('image', file);
-		const at = await locate();
-		if (at) {
-			form.set('lat', String(at.lat));
-			form.set('lon', String(at.lon));
-		}
+		const { signal } = journey;
 		try {
+			const at = await locate();
+			// Starting over during the location prompt must not upload the abandoned photo.
+			signal.throwIfAborted();
+			if (at) {
+				form.set('lat', String(at.lat));
+				form.set('lon', String(at.lon));
+			}
 			const res = await call<{ people: Inscription[] }>('/api/read', {
 				method: 'POST',
 				body: form
