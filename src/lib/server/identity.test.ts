@@ -527,6 +527,12 @@ describe('resolveMatches', () => {
 		expect(resolve([rec(snippet)], { ...stone, ...dates })).toHaveLength(found);
 	});
 
+	it('accepts "Surname, Given" when the stone gives only an initial', () => {
+		expect(
+			resolve([rec('Hawks, G. (1932-2017)')], { name: 'G. Hawks', carvedName: 'G. Hawks' })
+		).toHaveLength(1);
+	});
+
 	it('keeps the years each source states when the stone carries no dates', () => {
 		const bare = { born: null, died: null };
 		const out = resolve(

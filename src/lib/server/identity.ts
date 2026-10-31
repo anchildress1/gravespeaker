@@ -250,10 +250,8 @@ function mentionAt(text: string, stone: NameParts, at: number, length: number): 
 		}
 		if (part.name.length === 1 && w.word.endsWith('.')) initials.push(part.name);
 		else if (PREFIX_WORDS.has(part.name)) break;
-		else {
-			words.push(part.name);
-			hit ||= isGiven(given, part.name);
-		}
+		else words.push(part.name);
+		hit ||= isGiven(given, part.name);
 		if (part.closes) break;
 	}
 	return hit ? { start: at, mark: markOf(stone, initials, words, tail) } : null;
