@@ -1,0 +1,860 @@
+We need to tune the model to eliminate false positives and to keep the story about the otherworld from messing with facts about a person's life. Benchmarks showed 67/68, I think. We want to tighten this with strict evals if we can without hurting generation speed. Suggest an actual eval lib for this work. Bonus points if existing libs can be extended.
+
+---
+
+the story should always be told. it's what the story contains that makes it difficult to judge. mastra is good. 
+a) currently has a human validation step that I'd really like to remove if we can.
+b) is the baseline for these evals and should be built first. 
+create a new branch for this work and wire evals up to run like tests do.
+we prob need additional fixture labels. i can review them.
+
+---
+
+<task-notification>
+<task-id>bft0s0b0d</task-id>
+<tool-use-id>toolu_012y8kdgB5mgLboGXquMu1Zs</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bft0s0b0d.output</output-file>
+<status>completed</status>
+<summary>Background command "Record story fixtures against the preview app" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>byv40gwim</task-id>
+<tool-use-id>toolu_014b7BjdyhTVqWorkUU2zxD1</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/byv40gwim.output</output-file>
+<status>failed</status>
+<summary>Background command "Run preview server with keys from .env" failed with exit code 143</summary>
+</task-notification>
+
+---
+
+yes. use that
+
+---
+
+<task-notification>
+<task-id>bmsom1nmb</task-id>
+<tool-use-id>toolu_0129T5qfcj9ymVnadPqpHMjr</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bmsom1nmb.output</output-file>
+<status>completed</status>
+<summary>Background command "Run 3-sample baseline eval, save log as eval run 1" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>b75qoxa6k</task-id>
+<tool-use-id>toolu_019kCpNidVtgt2hK1kVbna7R</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b75qoxa6k.output</output-file>
+<status>completed</status>
+<summary>Background command "Run eval 2 with the calibrated judge" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+I do not understand what you are doing and why it looks like you've captured ai results here. or why you're using live serpapi results
+
+---
+
+do both now that you already have one almost finished
+
+---
+
+go read this. it uses a different test harness: https://github.com/github/awesome-copilot/blob/main/skills/eval-driven-dev/SKILL.md
+
+---
+
+and this https://www.anthropic.com/research/demystifying-evals-for-ai-agents
+
+---
+
+now you're taking out my story. it is a MADE UP ambience you're removing here. If they died at 96 it WAS a long life. That is correct.
+
+---
+
+also. we need tests to confirm gender picks and we need to start returning the place they lived (or died) at to improve search guesses
+
+---
+
+<task-notification>
+<task-id>brkrih1jf</task-id>
+<tool-use-id>toolu_01UnnSKoeGEqiRPMgSAWDu8M</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/brkrih1jf.output</output-file>
+<status>completed</status>
+<summary>Background command "Run full baseline eval on the original story prompt" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>bxhsgxa70</task-id>
+<tool-use-id>toolu_01DBJkHu81k2PXMFvPs99jsb</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bxhsgxa70.output</output-file>
+<status>completed</status>
+<summary>Background command "Run read benchmark 13 and compare with run 12" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+Do the ab benchmark. 
+We do not have quota left to check
+
+---
+
+How many searches did it use?
+
+---
+
+I got the starter plan but do not spend all my challenge credits
+
+---
+
+It absorbed them. Great. Run the test exactly once and capture the results
+
+---
+
+Do it
+
+---
+
+yes commit. what's next?
+
+---
+
+<task-notification>
+<summary>Commit security review found: denial-of-service (unbounded shared queue defeats timeout) in src/lib/server/geocode.ts</summary>
+</task-notification>
+
+---
+
+are you spending gemini credits or gemma credits?
+Yes. start 1.
+
+---
+
+remove the confirmation screen. let the rest of what we've built do the picking as originally intended.
+
+---
+
+- the app should still show a confidence marker. just not for each card, for the one person it picked. that should be a deterministic grade.
+- make sure we're ranking search results and returning the top matching search results.
+- would we get more matches with a phased approach? name + dates + place, ELSE name + dates || name + place ELSE name - then we always have a result and never just the stone. discuss pros/cons to changing this and how mastra can make it work without losing all our serpapi credits to testing again.
+- fix @CLAUDE.md 
+- fix @README.md 
+- I'm working on post. leave it alone.
+- there should be exactly ONE branch. THIS ONE. you did not have permission to create a shit ton of branches.
+
+---
+
+note my new idea would be above the "always call 2 search engines" approach
+
+---
+
+i thought cached results weren't charged. yes save raw search results. then play offline. 
+but build it right first. drop yandex unless google misses. and use the phased approach you pointed out. use mastra to orchestrate.
+
+---
+
+is there anything google returns that yandex does not? follow the data with yandex first
+
+---
+
+we can add the network hop for google. if < 3 results do 2nd search. if still < 3 add hop. others stay same
+
+---
+
+i don't know what to review or for what.
+why are all our examples from just 2-3 places?
+
+---
+
+1. contains the headstone link, but the link it picked with snippet isn't full page
+we need to exclude whitepages as a source
+several of these have dates on the pages and none of them match
+2. your "bad" examples all seem to come at the end. it has to be sprinkled throughout and you cannot give it to AI with good and bad together. how are you using these pairs?
+3. remind me later
+4. towns match, but are all grouped together in a few places.
+
+---
+
+if a date exists, then ensure it matches.
+use the credits this one time. save results for testing.
+
+---
+
+search google. we can use other photos
+
+---
+
+we need at least one or 3 children. infant, boy, girl
+
+---
+
+I reviewed some, but I'm not seeing any of these pages being kicked out as irrelevant or wrong and some most def are.
+do not depend on the cache, we're supposed to be saving results.
+
+---
+
+yes update @README.md 
+I don't think your search order is working. show evidence that name + date + place is returning ANY result that the other two searches did not.
+I also want evidence that search yandex > google > yandex > google is working instead of yandex > yandex > google > google
+
+---
+
+you're limiting results to only obits and news. we're trying to find evidence of a person living. not dying.
+
+---
+
+what I wanted was that the order of yandex > google returns results actually used in an accurate order. aka are we searching more than we need to
+
+---
+
+name + town is not SUPPOSED to find a DATED match. where did that rule come from?
+
+---
+
+these tests are supposed to prove that we're throwing out the RIGHT sources and keeping the best matches. I am not seeing proof of that. fix the fetch bug.
+
+---
+
+so we fix the search problem. ground yourself in a search first. how to find people with a search engine that have died. present top 5 most impactful changes with pros/cons
+
+---
+
+implement your version. plus #5
+
+---
+
+revert 3 and 1
+do 5
+test 2
+
+---
+
+test 3. i think we order mastra to follow this pattern, but i want 3 results first
+
+---
+
+I don't want every step to run twice. We want a min of 3 good sources. We run all of A, in search order and if not found then start B in that same search order. That should save searches, right? If there is no dated match we need another reliable way (place) to find a match. place will go in next branch? do not create one yet.
+
+---
+
+I agree. do it that way. then write it up. search logic is done. state key challenges and how we overcame them as a table and then identify gaps we were unable to fill
+
+---
+
+people reviewed. I corrected the infant from the headstone. all others were correct.
+did we do any place work on this branch? if some is already there, then let's tune it now instead of waiting.
+leave photos alone.
+how hard would it be to show the obit photo if it exists on the page when we search already returned in the results?
+stop spending credits.
+
+---
+
+leave the search. we'll do image next. it is what it is. perform a self review with /pr-review-toolkit:review-pr and look for AI generated slop in the results or anything that doesn't follow SOLID/KISS/YAGNI/DRY principles. make sure all pos/neg/err/edge scenarios are unit tested and e2e tests exist with a11y checks.
+
+---
+
+<task-notification>
+<task-id>a3144229facc32111</task-id>
+<tool-use-id>toolu_01EjMXc6yFP7qEXsZRYFE23j</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a3144229facc32111.output</output-file>
+<status>completed</status>
+<summary>Agent "Test coverage and e2e a11y review" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>The changed server logic is well covered at 96.5% lines and 94% branches, with every scenario mocked at the network boundary. But one e2e test now sends a live request through the real story pipeline, a low-confidence label can never be shown, and there are no automated accessibility scans anywhere. I ran `pnpm test` (342 passing, coverage on). I did not run Playwright, because of the live-request problem below.
+
+## Critical
+
+- **`src/routes/journey.e2e.ts:123-130` ("shows the town searched near") sends a live request.**
+  - It mocks `/api/read` and `/api/research` but not `/api/story`.
+  - Research now goes straight into telling the story, so the preview server runs the real story code.
+  - That means `fetchPage('https://legacy.com/hawks')`, a live outbound fetch, plus a model call.
+  - It passes only because the assertions finish before the story request does.
+  - This breaks the "never hit live APIs in tests" rule. Fix: add `await mock(page, '/api/story', { body: told })`.
+- **The low-confidence label in `StoryView.svelte:216` can never be shown.**
+  - `story.ts` `fetchStep` keeps a low candidate's pages only when `gradePage` returns medium or high.
+  - `matchGrade` then takes the higher of the candidate grade and the page grades.
+  - So a told story always has `confidence` of medium or higher, and `CONFIDENCE.low` plus the `[data-confidence='low']` style are dead.
+  - No test can reach them. Per CLAUDE.md, delete the dead path, or add a test showing how low could happen if you think it can.
+
+## Important
+
+- **Research: a search that fails then succeeds is not tested** (`research.ts` searchStep, `retryCount &lt; RETRIES`). Rated 6.
+  - The only failure test fails Yandex on every attempt.
+  - Missing: Yandex returns 500 once, then 200 with a dated hit. Expect the Yandex result and no Google call.
+  - That catches an off-by-one in the retry count.
+- **Research: an outage after the first round of searches returns 200 with no candidates.** Rated 7.
+  - `resolveStep` throws only when `failed === tried`.
+  - If the first search for name and dates returns nothing and every later search fails, the visitor gets "No public records were found" instead of a 502 they can retry.
+  - No test pins this either way. Decide which behavior you want, then lock it with a test.
+- **Story: kept pages are never tested with more than one source** (`story.ts` fetchStep). Rated 7.
+  - Every story test uses a single `page.text`.
+  - Missing: a candidate with two sources, one page with the stone's dates and one with a namesake's dates (1918-1979).
+  - Expect facts only from the good page, and the namesake's quote absent. This is the "never merge records from different people" rule.
+- **Identity: the comma-age pattern has no negative test** (`identity.ts` statedYears, `,\s*(\d{1,3}),`). Rated 6.
+  - Text like "Section B, 12, Lot 4" next to a death year would produce a false birth year.
+  - That gives a false conflict, which drops a real match.
+  - Missing: a dated record holding a non-age comma-number still rates as a match.
+- **Identity: one namesake mention drops the whole record** (`identity.ts` weigh, `found.includes(NAMESAKE)`). Rated 6.
+  - If any mention has a middle initial the stone rules out, the record is dropped.
+  - Example: an obituary for "Daisy M. Morgan" that lists granddaughter "Daisy A. Morgan".
+  - Not tested. Pin the intended behavior.
+- **Identity: initial-only stones lost their test** (`isGiven`).
+  - The full-name branch is covered by the Georgia test.
+  - Missing: a stone carved "G. Hawks" still matches "Gaynor Hawks". The `full.length === 0` branch has no positive test.
+- **Story: nothing proves a page grade never lowers a high match** (`matchGrade`). Rated 5.
+  - Missing: a high candidate whose page has no dates comes back high.
+- **Evals coverage** (`benchmarks/evals/life-claims.ts:85-109`): 62.5% lines, the only file under 80%.
+  - The uncovered part is the `lifeClaimsScorer` judge wiring.
+  - `generateScore` returning 1 when no claims are checked is real logic with no test.
+
+## Suggestions
+
+- **`dropGated` directory list** (`identity.test.ts`): spokeo and fastpeoplesearch aren't listed, and there's no lookalike negative test.
+  - Missing: a host like `notwhitepages.com` must be kept.
+- **Sentence splitting after `wed.` and `sun.`** (`identity.ts` SENTENCE_END): these are now treated as abbreviations.
+  - "They wed. Mary Smith died 1990." no longer splits, so Mary's year can attach to the stone's name.
+  - Add a test that documents the accepted risk.
+- **Confidence labels in the UI**: e2e checks only the medium label.
+  - Add the high label for a told story with the stone's dates.
+
+## Function-by-function coverage
+
+| Function | Pos | Neg | Err | Edge | Missing |
+|---|---|---|---|---|---|
+| `searchPhases` / `buildQuery` | ✓ | ✓ | n/a | ✓ (same year, no dates) | none |
+| `dropGated` (DIRECTORIES) | ✓ | partial | n/a | ✗ | lookalike host |
+| `gradePage` | ✓ | ✓ | n/a | ✓ (far down page, other name) | none |
+| `statesOtherDates` | ✓ (story test) | ✓ | n/a | ✗ | multiple pages |
+| `phraseStart` namesake initial | ✓ | ✓ | n/a | ✗ | namesake as kin on same page |
+| `isGiven` | ✗ | ✓ | n/a | n/a | initial-only stone |
+| title-date conflict | ✗ | ✓ | n/a | n/a | title with the stone's own dates |
+| `statedYears` age | ✓ | ✗ | n/a | ✗ | non-age comma-number |
+| `resolveMatches` tie / statesOther | ✓ | ✓ | n/a | ✓ | none |
+| research loop and engine fallback | ✓ | ✓ | ✓ (all fail) | partial | transient fail; outage after the first searches |
+| `addHits` / `interleave` | ✓ | n/a | n/a | ✓ | none |
+| `SerpApiProvider.search` + redirects | ✓ | ✓ | ✓ | ✓ | none |
+| `fetchPage` hidden nodes / Readability throw | ✓ | n/a | ✓ | n/a | none |
+| story fetchStep filter | ✓ | ✓ | n/a | ✗ | mixed pages |
+| `matchGrade` | ✓ | n/a | n/a | ✗ | high stays high; low label unreachable |
+| `+page.svelte` auto-tell | ✓ (`journey.e2e.ts:84`) | ✓ (empty → stone) | ✓ (both retries) | n/a | none |
+
+## E2E and accessibility
+
+- E2E exists: `journey.e2e.ts`, `camera.e2e.ts`, `load.e2e.ts`. `playwright.config.ts` runs one project, `mobile` (Pixel 7).
+- **There are no axe scans.** `@axe-core/playwright` is not in `package.json` and no e2e file uses it. There are no automated scans for contrast, landmarks, labels or ARIA validity.
+- Manual accessibility checks that exist, by screen:
+
+| Screen | What is checked | What is missing |
+|---|---|---|
+| Capture | `getByLabel('Upload a photo')` (label exists) | axe scan; focus order |
+| Picker | focus-visible and clip-path on the pick button (`:319`) | axe scan |
+| Searching / telling | the live status text: "Searching historical records…" (`:513`), "Building the story…" (`:77`); checklist step states (`:335`) | axe scan; nothing checks the photo `img` alt beyond its name |
+| Story view | heading gets focus and "Story ready." is announced (`:527`); tablist arrow keys and `aria-selected`; "Who this is" region | axe scan; colour contrast of the new `.confidence` text in `--verdigris` / `--lantern` |
+| Error states | `role=alert` text plus a "Try again" button (research, story, stone story) | focus does not move to the alert or retry button; axe scan |
+
+- **Focus-visible coverage shrank.** The test used to cover the confirm button on the search results. It now covers only the picker, so no button on the searching or story screens has a keyboard-focus check.
+
+## Banned test patterns
+
+- `serpapi.test.ts`, "tries Yandex before Google": `expect(provider.engines).toEqual(['yandex','google'])` tests a constant. Delete it; the research routing tests already prove the order by behaviour.
+- `story/server.test.ts:127`: `Object.keys(body).sort()` is a type-shape check. The real assertion is the `not.toContain('loved gardening')` next to it. Drop the key check or narrow it to "no facts field is leaked".
+- `story/server.test.ts:7` mocks `#lib/server/pages.ts` (an internal module), not `fetch`. The pattern predates this branch, but the new tests build on it. It breaks the "mock at the network boundary" rule.
+- `research/server.test.ts` asserts on the `ran` list of searches. This is fine: it is SerpApi credit spend, a cost the caller depends on, not a mock asserting it was called.
+
+## Coverage of changed files (v8, offline)
+
+| File | Lines | Branches | Uncovered |
+|---|---|---|---|
+| `identity.ts` | 98.8% | 94.7% | 249-251 (the "Surname, Given" loop's `!part` break) |
+| `research.ts` | 100% | 94.4% | 187 (status other than failed) |
+| `story.ts` | 100% | 95.2% | 175 |
+| `search/serpapi.ts` | 100% | 96.8% | 63 |
+| `pages.ts` | 97.6% | 92.5% | 76, 87 (code that predates this branch) |
+| `narrative.ts` | 100% | 95.3% | type-only change |
+| `benchmarks/evals/life-claims.ts` | **62.5%** | 55.6% | 85-109 (scorer) |
+| `benchmarks/evals/stone-years.ts` | 100% | 95.5% | 28 |
+
+The overall total is 96.5% lines and 94% branches, above the 80% target. That number doesn't cover the gaps above, which are all scenarios, not lines.</result>
+<usage><subagent_tokens>138517</subagent_tokens><tool_uses>11</tool_uses><duration_ms>134143</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a530a7d6e2cb95bda</task-id>
+<tool-use-id>toolu_01SA2ePivAdpBzKwuxks88in</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a530a7d6e2cb95bda.output</output-file>
+<status>completed</status>
+<summary>Agent "Code review for slop and principles" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>I reviewed the source diff against HEAD, plus the untracked `benchmarks/audit-sources.ts`, `record-stories.ts`, `research.eval.ts` and `benchmarks/evals/*.ts`. I didn't run tests or `make ai-checks`; this is a source-only review. The SSRF concern is clean: `follow()` only ever fetches links on the engine's own redirect origin.
+
+## Critical
+
+- **`src/lib/server/identity.ts:196-203`, `:259` — a stone with no middle name rejects its own record (90)**
+  - Stone "Daisy Morgan" has `given = ['daisy']`. Record "Daisy M. Morgan": `!given.some(g =&gt; g.startsWith('m'))` is true, so it returns `NAMESAKE`.
+  - `found.includes(NAMESAKE)` then drops the whole record, even when another mention in the text is a clean match.
+  - Stones often leave out middle names, so this throws away real matches.
+  - The only test (`identity.test.ts:357`) covers a stone that has a middle initial. No test covers a stone with none.
+  - Fix: set `otherInitial` only when the stone carries at least one initial (or a middle name) that this one contradicts. Discard the namesake mention only, not the whole record (filter `NAMESAKE` out instead of `return none`). Add a "Daisy Morgan" vs "Daisy M. Morgan" test that fails today.
+
+- **`src/lib/server/pages.ts:12`, `:186` — `.hidden` and `.d-none` delete content that shows on desktop (85)**
+  - Tailwind `class="hidden md:block"` and Bootstrap `d-none d-md-block` are hidden on mobile only.
+  - Removing them can delete the article body itself, on any site except Find a Grave.
+  - Fix: keep `[hidden], dialog, [role="dialog"], [aria-modal="true"]`. Drop the class selectors, or scope them to Find a Grave's tour container (`.tutorials`).
+
+## Important
+
+- **`src/lib/server/research.ts:540-546` — rank is shared across engines within a phase (82)**
+  - `rank` starts at `out.filter(r =&gt; r.phase === phase).length`. Google's top hit in phase 0 gets rank 14 after Yandex's 14 hits.
+  - `interleave` then sorts every later phase's top results ahead of it. That breaks the stated rule ("every phase's best results come before any phase's next ones"), and `MAX_SOURCES = 5` starves the second engine.
+  - Fix: record the attempt index (phase × engine), or reset rank per search call: `let rank = 0` in `addHits`.
+
+- **`src/lib/server/identity.ts` (565 lines) — one module, four jobs (85)**
+  - It now builds queries (`buildQuery`, `searchPhases`, `exactName`, `yearsOf`), filters sites (`dropGated`, `DIRECTORIES`), matches names and dates, and grades pages (`gradePage`, `statesOtherDates`).
+  - That breaks the project's one-responsibility-per-module rule.
+  - Fix: move query building to `src/lib/server/query.ts` and the site filter next to it, or into `search/`.
+
+- **`src/lib/server/identity.ts:289-304` with `story.ts:62,135` — two thin wrappers over `weigh` (80)**
+  - `gradePage` and `statesOtherDates` each call `weigh` on the same fake record.
+  - `story.ts` calls `gradePage` twice per page: once in `fetchStep` and again in `matchGrade`.
+  - The name `Evidence.statesOther` (a conflict anywhere in the text) sits next to `statesOtherDates()` (a conflict beside the name). The two mean different things.
+  - Fix: export one `pageEvidence(inscription, text)` that returns `{ grade, conflicts }`. Grade each page once in `fetchStep` and carry the grade on the page object.
+
+- **`benchmarks/audit-sources.ts:30`, `record-stories.ts:31`, `research.eval.ts:176` — the newest-run finder exists three times (90)**
+  - The three copies behave differently. `record-stories.ts` yields `research-undefined.json` when no run exists; the other two fall back to 0.
+  - Fix: one `benchmarks/runs.ts` exporting `newestRun(prefix)`, used by all three.
+
+- **`benchmarks/audit-sources.ts:64-69` and `research.eval.ts:58-60` — two copies of the redirect-hop file key that can drift apart (82)**
+  - Both compute the same `goto-&lt;sha256[0:16]&gt;.json` path independently.
+  - `audit-sources.page()` treats only `google.com/goto` as a hop. `serpapi.ts` treats any link on `https://www.google.com` (`/url`, etc.) as one, so the audit can mislabel results.
+  - Fix: export `hopFile(href)` and a shared "is hop" check from one module.
+
+- **`src/lib/server/search/serpapi.ts:749-760`, `:812-814` — the followed redirect target is never checked to leave Google (80)**
+  - A Location of `consent.google.com/...` or `www.google.com/sorry/...` becomes a source with site `google.com`.
+  - The story step then fetches it as a record.
+  - Fix: in `follow`, return null when `URL.parse(location)?.hostname` ends with `google.com`.
+
+## Suggestions
+
+- **`src/lib/server/identity.ts:224` — the age pattern matches any `, NN,` in the text**
+  - `,\s*(\d{1,3}),` runs over the whole text (`all = statedYears(text, text)`). A child's age ("son John, 12, and…") becomes a fake birth year.
+  - That sets `statesOther`, which drops a name-only result.
+  - Fix: anchor it to right after the name phrase (`own`), not the whole text.
+
+- **`src/lib/server/identity.ts:19`, `:47` — `MONTH = (?:jan|…|mar|may|…)[a-z]*` matches "married", "mayor", "decorated", "augustine"**
+  - In `CONTINUES`, "married 1950 –" now reads as a continuation sentence.
+  - Fix: list the full month names, `(?:jan(?:uary)?|feb(?:ruary)?|…)\b`. Same for `WEEKDAY`, which matches "money" and "sunset".
+
+- **`src/lib/server/identity.ts:53` — `NAMESAKE = -2` is a magic number mixed in with string indexes**
+  - Fix: have `phraseStart` return `{ start } | 'namesake' | null`.
+
+- **`src/lib/server/search/serpapi.ts:738` — `plain` doesn't say what it does**
+  - Fix: rename it `stripBidi`.
+
+- **`src/lib/server/search/engines.ts:671-672` — the comment tells benchmark history ("Yandex leads after research-1.json…")**
+  - Fix: keep the one-line reason ("Yandex returns more results per query; Google never dated a town-less match"). The run reference belongs in the commit message.
+
+- **`src/routes/+page.svelte:153-154` — the comment refers to the removed confirm step ("no one is asked to vouch for a stranger")**
+  - Fix: delete it, or cut it to "The story step falls back to the stone when the top match's pages don't prove the dates."
+
+- **`Makefile:34-36` — the label is wrong**
+  - It says "Running live story evals", but `pnpm eval` also runs `research.eval.ts`, which writes a new `research-N.json` every time.
+  - Fix: relabel it, or point `eval` at `benchmarks/evals/` only and add a separate `eval-research` target.
+
+- **`benchmarks/audit-sources.ts:129-136` — the verdict list is written out a second time**
+  - Fix: `const VERDICTS = [...] as const; type Verdict = (typeof VERDICTS)[number];` and loop over `VERDICTS`.
+
+- **`benchmarks/evals/story.eval.ts:89` — grading the good/bad references crashes on an unmatched case**
+  - It calls `grade(c, c.good!, true)`, which runs `told(c)!.sources`. A case with `match: -1` throws a TypeError instead of failing the assertion.
+  - Fix: pass `told(c) !== undefined` as `fromRecords`.
+
+The two Critical items each need a test that fails before the fix.</result>
+<usage><subagent_tokens>127672</subagent_tokens><tool_uses>10</tool_uses><duration_ms>144368</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a3b4fee627c1a00e2</task-id>
+<tool-use-id>toolu_01TYWs9vYj1XWjwsMhnHMzAu</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a3b4fee627c1a00e2.output</output-file>
+<status>completed</status>
+<summary>Agent "Comment accuracy and slop" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Comment and doc review of the uncommitted work on `feat/story-evals`: 4 critical, 7 important, 9 suggestions. The two comments that mislead most are the "name-only search never runs" rule, which is false for stones with no readable year, and the word "phase", which means two different things in the same files.
+
+## Critical (wrong vs code)
+
+**1. "A name-only search is never a phase" is false**
+- `src/lib/server/identity.ts:113` and README §Architecture (~line 103).
+- If the stone has no readable year (no dates, or both have `?` digits), `buildQuery({ ...inscription, place: null })` produces just `"Name"`.
+- So the first query is name-only every time, and the place-only third query collapses into the second.
+- Fix the code, or change the comment to: `// A name-only search returns namesakes the story would reject; it runs only when the stone has no readable year.`
+- Fix the README the same way.
+
+**2. `searchPhases` JSDoc says "tightest first", but it isn't**
+- `identity.ts:103-104`.
+- Name+dates runs before name+dates+town, and adding the town is the tighter query.
+- Line 109 even explains why dates lead.
+- Replace with: `Lists the research queries in the order to try them: name and dates, then with the town, then name and town without dates; each plain, then with death keywords.`
+- Same "tightest first" wording at `docs/benchmarks/search.md:9`.
+
+**3. Search count in `research.eval.ts` is wrong**
+- `benchmarks/research.eval.ts:167` says "Up to six live searches".
+- The real maximum is 3 queries × 2 keyword variants × 2 engines = 12, plus Google redirect hops and retries.
+- `research-19.json` and `research-20.json` both log up to 16 searches for one person.
+- Replace with: `// Up to 12 searches plus retries and redirect hops run one after another while recording.`
+- Also check the 120 s timeout: 12 × 20 s SerpApi timeouts already exceeds it.
+
+**4. "Phase" means two different things**
+- In code, `phase` is the index into `searchPhases()`, and every keyword variant gets its own number (6 phases). Used that way at:
+  - `research.ts:46, 108, 171`
+  - the `interleave` and `addHits` JSDoc
+- In comments and docs, a "phase" is a query family that holds both the plain and keyword query:
+  - `identity.ts:116` ("Each phase asks without death keywords first…")
+  - README
+  - `search.md`
+  - the `route()` JSDoc in `src/routes/api/research/server.test.ts` (`yandex1k`)
+- Result: README's "both engines failing on the first phase is an outage" describes 4 searches, but the code (`research.ts:172`) stops after 2.
+- Interleaving also runs across 6 groups, not 3.
+- Pick one meaning. Cheapest fix is to rename the code field `query` (or `step`) and keep "phase" for the triple. Then fix `research.ts:171` to "Every engine failing on the first query is an outage".
+
+## Important
+
+- **`pnpm eval` side effect**
+  - `vite.config.ts:32`: the `eval` project picks up `benchmarks/**/*.eval.ts`, so `pnpm eval` also runs `research.eval.ts`. That writes a new `research-N.json` on every run (`research-20.json` duplicates 19 twelve minutes later).
+  - `benchmarks/evals/story.eval.ts:2` says "Run with `pnpm eval`" as if it only runs the story eval.
+  - The `Makefile` echo says "Running live story evals...".
+  - The vite comment "Live model calls" also misses the replayed and optionally live SerpApi calls. Suggest: `// Live model calls and recorded searches: never part of pnpm test or CI.`
+  - Point `story.eval.ts`'s run line at `pnpm eval benchmarks/evals/story.eval.ts`.
+
+- **`statesOtherDates` vs `Evidence.statesOther` naming trap**
+  - `identity.ts:56` vs `:450`.
+  - The field means "a year anywhere in the result disagrees". The exported function means "a year beside the name disagrees" (it reads `e.born`/`e.died`, not `e.statesOther`).
+  - Near-identical names with different scope will get swapped. Rename one (e.g. `statesOtherNearName`), or say "beside the name" in the summary line, not only in `@returns`.
+
+- **Engine order JSDoc reads as a lab notebook**
+  - `src/lib/server/search/engines.ts:10-17` is a multi-paragraph block citing `search-1.json` and `research-1.json` with per-engine counts.
+  - This breaks the "one short sentence" JSDoc rule and will rot (research is on run 20 now).
+  - Replace with: `Engines that return organic results as link, title and snippet, in the order research tries them.` The rationale already lives in `docs/benchmarks/search.md`, which should own it.
+
+- **"Then search rank" is stale**
+  - `identity.ts:535-536`, `identity.ts:561-562`, README "then by search rank".
+  - Records now reach `resolveMatches` in interleaved order (`research.ts:93`), not raw engine rank.
+  - Use "then interleaved rank", or "then the order records arrive".
+
+- **`search.md` engines bullet**
+  - `docs/benchmarks/search.md:14`: "every query goes to Yandex, then Google".
+  - Google runs only when Yandex finds no dated match. Fix: `Yandex first; Google only when Yandex finds no dated match.`
+
+- **"Prove the stone's dates" overstates the rule**
+  - `src/lib/server/story.ts` fetch-step comment ("its pages must also prove the stone's dates") and README "states the stone's dates".
+  - `gradePage` returning medium needs only one matching date. Fix: "state at least one of the stone's dates".
+
+- **Labels survive, but the `reviewed` flag doesn't**
+  - `benchmarks/record-stories.ts:6-7` says "A label survives only while its candidates are unchanged".
+  - The code always writes `reviewed: false`, so a reviewed label silently loses its review on re-record.
+  - Either carry `reviewed` forward, or say "`match` survives…; `reviewed` always resets."
+
+## Suggestion
+
+- **`research.ts:94-95` (`interleave`)**
+  - Narrates a past bug ("namesakes filled all five… were never fetched").
+  - Replace with: `// Matching keeps the first five sources per candidate, so one query's results must not crowd out every later query's best.`
+- **`research.ts:91`** `@returns Plain records`: "plain" clashes with the "plain query" wording. Use `Records without phase and rank, interleaved by rank.`
+- **`identity.ts:77`** describes a reverted experiment ("in live searches"), and the maiden name never enters `exactName` anyway.
+  - Move it to `buildQuery` as `// The maiden name stays out: as an OR variant it buried the real record under unrelated hits.`
+  - Or delete it and leave it to the commit message.
+- **`src/lib/server/search/serpapi.ts:22`** reads awkwardly. Use `// Each hop is an extra request; follow them only when fewer than this many results link straight to a page.`
+- **`serpapi.ts:29`** `follow()` also returns null on network error or timeout. Add `@returns The page URL, or null when the link does not redirect or the request fails.`
+- **`benchmarks/audit-sources.ts:25, 94`** `'over five sources'` is the catch-all. It also covers a 4th date-conflicting group cut by `MAX_CANDIDATES`. Rename to `'over the source or candidate cap'`.
+- **`audit-sources.ts:62`** `page()` JSDoc: it also passes direct links through unchanged. Use `Resolves a result link to its page, from the saved hop for Google redirects.`
+- **`record-stories.ts:44`** repeats the header's REFETCH note. Delete it.
+- **`research.eval.ts:125-126`** "FIXTURES=people…" repeats the header. Delete that line.
+- **Overlong JSDoc summaries:**
+  - `benchmarks/evals/life-claims.ts:59-61` (`auditClaims`)
+  - `benchmarks/evals/stone-years.ts:14-16` (`yearsOutsideLife`)
+  - `identity.ts:526-532` (`resolveMatches`; mostly pre-existing)
+  - Trim each to one line and move the reasoning into an inline why-comment.
+- **`benchmarks/score.ts` `peopleScore` JSDoc**: voice counts only when the fixture also has a voice (`p.voice &amp;&amp; 'voice' in q`). Use `…only where the fixture records a voice and the run returned one.`
+- **`src/routes/+page.svelte` research comment**: "so no one is asked to vouch for a stranger" refers to the removed confirm step. Use `// Research ranks the best match first; the story step falls back to the stone when that match's pages don't hold up.`
+- **`search.md:31`** proof cell `server.test.ts` is ambiguous. Use `src/routes/api/research/server.test.ts`.
+- **`search.md:3`** says run 19 is final, but `research-20.json` exists, and `record-stories.ts` and `audit-sources.ts` default to the newest run. Note that run 20 is a replay duplicate, or delete it.
+- **`StoryView.svelte` `CONFIDENCE.low` (not a comment problem)**: a "told" story can effectively never show it. A low candidate's pages are filtered to medium or better, and no pages means a stone story. The string and the `[data-confidence='low']` style look unreachable.
+
+## Fine as-is
+
+- **`src/lib/server/pages.ts`**: both comments, on the Find a Grave hidden tour and on Readability throwing without an `&lt;html&gt;` root.
+- **`research.ts`**: line 131 (Mastra retries before a miss) and line 165 (stop rule costs credits).
+- **`identity.ts`**: line 211 (initial vs spelled-out name), line 233 (`"Daisy A."` ordering), lines 391-392 (titled with other dates).
+- **`research.eval.ts`**: lines 105 and 110 (save unanswered searches; key-leak guard).
+- **`story.eval.ts:55-56`**: `SAMPLES` rationale. Temperature 1 confirmed at `src/lib/server/inference/gemma.ts:162`.
+- **README "1 to 12" and the "fewer than three" redirect rule**: both match the code (`MIN_LINKS = 3`).</result>
+<usage><subagent_tokens>134668</subagent_tokens><tool_uses>11</tool_uses><duration_ms>148859</duration_ms></usage>
+</task-notification>
+
+---
+
+<task-notification>
+<task-id>a2272fa47637adb00</task-id>
+<tool-use-id>toolu_0155wiykJA4T7r7jk4DpVu9v</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/a2272fa47637adb00.output</output-file>
+<status>completed</status>
+<summary>Agent "Hunt silent failures" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>I found two critical and six important silent-failure problems. The worst is that a SerpApi outage after the first search reaches the visitor as "nobody found" instead of an error. I didn't edit anything or call any live API. I did run the mocked research and serpapi tests: 37/37 pass, so none of this is caught by tests.
+
+The server code has no logging at all: no logger and no `console.*` in `src/lib/server` or `src/routes`. Every swallow below is invisible to you as the operator.
+
+## Critical
+
+**1. An outage after the first search shows the visitor "no records" — `src/lib/server/research.ts:172`, `:152`**
+- **What's swallowed:** the loop only treats it as an outage when every search so far has failed (`s.failed === s.tried`). If Yandex's first-phase search returns empty and every later call fails (quota running out mid-run, 401, SerpApi down), `failed` stays at `tried - 1` and never matches.
+- **What the visitor sees:** the loop runs every remaining phase (up to 12 searches, each tried 3 times with a 20s timeout), then `resolveStep` returns `[]` or name-only matches. They get the stone story or a namesake when the real answer is "the lookup service is down". It also spends credits and adds minutes of latency.
+- **Fix:** also count consecutive failures. Throw `ProviderError` when the last `search.engines.length` searches all failed, or when `failed &gt; 0 &amp;&amp; no search succeeded since`.
+
+**2. Google `/goto` hops that answer 200 or a non-redirect status are dropped silently — `src/lib/server/search/serpapi.ts:37`**
+- **Evidence:** of the 717 saved hops in `fixtures/serp/goto-*.json`, 418 (58%) returned `200` with no `location`. Each one is a Google result that disappears.
+- **What's swallowed:** a 429, a bot wall or an interstitial looks exactly like "leads nowhere". If every hop fails, the search returns `[]`, which counts as a successful empty search rather than an engine failure. That also feeds the outage blind spot in #1.
+- **What the visitor sees:** most of Google's results never reach matching, and you can't see the loss.
+- **Fix:** if every hop in a search returns no location, throw so the engine counts as failed. At minimum, record per-search how many hops were dropped.
+
+## Important
+
+**3. Every error from an engine becomes a miss, and the cause is lost — `src/lib/server/research.ts:130-133`, `:153`**
+- **What's swallowed:** `catch (e)` takes everything, including config and code bugs:
+  - `SERPAPI_API_KEY is not set` (from `env.ts`)
+  - `Unknown engine`
+  - a `TypeError` in the hop-processing code
+  - a 401 invalid key or a quota message
+- **Consequences:**
+  - A bug that only affects Google quietly removes Google from every request.
+  - A missing key becomes a 502 "lookup service failed. Please try again." That defeats `runFailure`'s own stated goal of not passing our bugs off as provider outages.
+  - The `ProviderError` at `:153` has no `cause`. HEAD's version carried one, so this is a regression.
+- **Fix:** keep the last error in state and pass it as `{ cause }` on `:153`. Rethrow anything that isn't an HTTP or SerpApi error rather than counting it as a miss.
+
+**4. The redirect origin's own pages are accepted as results — `src/lib/server/search/serpapi.ts:37` → `:86-97`**
+- **What's swallowed:** `follow` returns any `location` header. An absolute Google location such as `https://www.google.com/sorry/index?...` (the captcha page) passes `canonicalUrl` and becomes a hit with `site: www.google.com` and the original title and snippet.
+- **What the visitor sees:** a Google captcha URL can be graded as a match and cited as a story source. This contradicts the comment at `:76`: "a hop and never a page".
+- **Fix:** in `follow`, return `null` when `URL.parse(location)?.origin === origin`.
+
+**5. Recording freezes transient failures into fixtures for good — `benchmarks/research.eval.ts:104-108`, `:98-103`**
+- **Evidence:** 18 `fixtures/serp/google-*.json` files are saved as `504 "Not answered while recording: TimeoutError"`. Non-2xx SerpApi replies (quota, 401) are saved the same way.
+- **What's swallowed:** replay counts those Google queries as failed forever. `existsSync` stops them from ever being recorded again, and they aren't listed in `meta.missing`. `research-20.json` reports `"missing": []` while carrying them.
+- **Consequence:** benchmark numbers understate Google, and nothing marks them as degraded.
+- **Fix:** don't write responses with status ≥ 400. Add them to `missing` so the next `RECORD=1` run retries them.
+
+**6. The research benchmark writes results that are missing failed people — `benchmarks/research.eval.ts:156`, `:184`**
+- **What's swallowed:** if `runResearch` throws for one person (for example a 502 from an all-fail replay), `rows.push` never runs. `afterAll` still writes `research-N.json` with fewer rows. `meta` has no failed count, and the `missing` assertion runs after the write.
+- **Consequence:** `record-stories.ts` and `audit-sources.ts` take the newest run and quietly drop those people.
+- **Fix:** wrap the call and push `{ ..., error: e.message }`, or record `meta.failed`. Refuse the run downstream when it's non-empty.
+
+**7. `audit-sources.ts` ignores missing or errored saved responses — `benchmarks/audit-sources.ts:79`**
+- **What's swallowed:** a search with no saved response, or one saved as an error body, adds zero results via `?.body?.organic_results ?? []`. The script doesn't check `run.meta.missing`, unlike `record-stories.ts:41`.
+- **Consequence:** `sources-N.json` reports "never returned" for a memorial whose search was simply never replayed.
+- **Fix:** throw when `run.meta.missing.length` is non-zero or a search has no saved response, and flag error bodies.
+
+**8. `record-stories.ts` caches failed page fetches as permanent `null` — `benchmarks/record-stories.ts:46`, `:64`**
+- **What's swallowed:** a transient `fetchPage` failure (timeout, 5xx, robots.txt unreachable) is stored as `null`. The next recording reuses it because `saved.has(u)` is true.
+- **Consequence:** the story eval runs on the snippet for that page forever (`story.eval.ts:46`), and nothing says so.
+- **Fix:** don't reuse `null` entries: `saved.get(u) ?? await fetchPage(u)`.
+
+## Suggestion
+
+- **`src/lib/server/search/serpapi.ts:60`:** `res.json()` runs before `res.ok` is checked. A non-JSON 5xx (an HTML gateway page) throws a `SyntaxError` and the HTTP status is lost. Fix: check `res.ok` first, falling back to `` `SerpApi ${res.status}` ``.
+- **`src/lib/server/search/serpapi.ts:64`:** a body with neither `organic_results` nor `error` (a schema change) silently reads as "no results". Fix: throw when both are absent.
+- **`benchmarks/evals/story.eval.ts:65`, `:96`:** the recorded set includes `reviewed: false` and `match: null` cases, scored against `candidates[0]`. All 30 recorded cases are unreviewed, and pass@1 is printed with no marker. Under CLAUDE.md these numbers can't be published. Fix: print the reviewed and unreviewed totals separately.
+
+## Checked and left alone (deliberate, and the failure doesn't reach the visitor)
+
+- `src/lib/server/pages.ts:190-195`: the Readability throw becomes `null` and the story uses the snippet. The comment justifies it.
+- `src/lib/server/story.ts:52`, `:60`: the fetch-null → snippet fallback, the page filter, and the stone-story fallback all match CLAUDE.md grounding rules.
+- `src/routes/api/story/+server.ts`: no new swallowing.
+- One engine failing counts as a miss, and both failing on the first phase returns 502. Both are tested and only flagged above where they combine with the gaps in #1 and #3.</result>
+<usage><subagent_tokens>125616</subagent_tokens><tool_uses>18</tool_uses><duration_ms>195748</duration_ms></usage>
+</task-notification>
+
+---
+
+resolve ALL findings
+
+---
+
+let's talk about this one:
+- Not changed: one namesake mention still drops the whole result. This is deliberate: it rules out false matches at the cost of missing some, and a test now pins it.
+
+pros/cons of changing it because it seems overly strict and if we're already accepting that some results may be incorrect then dropping partially correct matches is overly strict
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · Over half of Google's redirect links are being dropped without any error, so "search can't find them" may partly be our own bug.
+>
+> **Many Google results are silently thrown away**
+> - Google now often hides a result's real address behind its own redirect link. Our code follows that link to find the actual page, but only when a search comes back with fewer than 3 direct links.
+> - The self-review checked the 717 saved redirect lookups: **418 (58%) came back with no page address**, so those results were dropped without any error.
+> - These lookups are free; they don't use SerpApi credits.
+> - You decided to leave search as is because memorials rarely come back. Part of that gap may be this bug, not a limit of the search engines.
+> - **Consider asking the main agent to check this** before calling the search gap final.
+
+this seems overly strict too. this is a fetch, right, not a credit? so we're not saving anything and the 3 page rule only applies to save search credits.
+
+as for the drops. drop the check for relatives. keep the check for initial only when initials are used. this could also be jr/sr or I vs II. we need to account for all variants if we're doing middle ground.
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · Following every Google redirect costs no credits, but it sends Google more requests at once, which may be what caused the 418 drops.
+>
+> **More Google redirects may mean more drops**
+> - **Redirect links:** Google now hides many results behind its own link, and our code asks Google where each one really goes. These lookups are free; they don't use SerpApi credits.
+> - Until now, our code only did those lookups when a search returned fewer than 3 direct links. Following every redirect means up to ~10 lookups fired at Google at the same moment, on every Google search.
+> - When we recorded, **418 of 717** lookups came back with no address. Re-checked later, all 418 worked, so it was **probably Google briefly turning us away for asking too fast**. We haven't confirmed that.
+> - If so, sending more lookups could bring back the same silent drops on the live demo, and slow each search.
+> - **Consider checking the drop rate after this change**, or sending the lookups a few at a time.
+
+do we need a backoff here?
+
+---
+
+so test a delay??
+
+---
+
+Leave it. Check comments on pr
+
+---
+
+Open one
+
+---
+
+<task-notification>
+<summary>Commit security review found 2 issues: Denial of service: infinite loop on attacker-controlled input in src/lib/server/identity.ts; Fail-open namesake gate in src/lib/server/story.ts</summary>
+</task-notification>
+
+---
+
+I can't see those files here
+
+---
+
+You build it out local and I'll check when I'm back
+
+---
+
+htf am i supposed to know?
+
+---
+
+i did that once already
+
+---
+
+do it
+
+---
+
+check pr comments
+
+---
+
+push and reply
+
+---
+
+wait. why are we dropping fetch pages now? I thought the search was perfect
+
+---
+
+revert it. edit reply'
+
+---
+
+push
+
+---
+
+check for new comments
+
+---
+
+make sure all sonar issues of all kinds/severities are handleed
+
+---
+
+push
+
+---
+
+check
+
+---
+
+push
+
+---
+
+check comments
+
+---
+
+check it in 3 minutes. then address
+
+---
+
+<task-notification>
+<task-id>bk52lddl9</task-id>
+<tool-use-id>toolu_0183bCA219ToTwPFtUCcGfZh</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/bk52lddl9.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait 3 minutes then check PR review state" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+push
+
+---
+
+check comments
+
+---
+
+yes, check in 3 minutes then address
+
+---
+
+<task-notification>
+<task-id>b6q085887</task-id>
+<tool-use-id>toolu_019f6P8stHXMrR3BU3EQt3PL</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-anchildress1-git-personal-gravespeaker/e8fe1454-894d-486c-ada2-536b95330a4e/tasks/b6q085887.output</output-file>
+<status>completed</status>
+<summary>Background command "Wait 3 minutes then check PR review state" completed (exit code 0)</summary>
+</task-notification>
+
+---
+
+fix all entire findings
+
+---
+
+Here is a note offered by a side agent:
+
+> Heads up · The main agent's fix for the Entire finding makes a strong match lose its story whenever one page's dates clash, unless every other page states a stone date.
+>
+> **Fewer graves may get a told story**
+> - **What changed:** when a strong match has a page whose dates contradict the stone, that page was already being thrown out. Now every other page that doesn't state one of the stone's dates is thrown out too.
+> - If no page is left, the visitor gets the plain stone story instead of a told one.
+> - This is the same kind of change as the "pages must name the person" rule. That rule was undone after it cost 3 of 7 dated matches on the saved real searches.
+> - This new rule hasn't been checked against those saved searches yet.
+> - **Ask the main agent to rerun that before-and-after count before you push.**
+
+can we please stop changing the search that was perfect
